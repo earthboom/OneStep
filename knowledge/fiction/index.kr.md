@@ -1,10 +1,24 @@
 # 소설 지식
 
-서사 창작, 작품 맥락, 문체, 연속성, 원고 검토.
+사용자 전용 번역. 영문 상세의 메타데이터와 영문 색인에서 생성했다. AI는 이 파일을 읽거나 검색하지 않는다. 서사·문체·연속성·원고 검토를 다루며 상위 색인과 OneStep 저장 절차를 따른다.
 
-[분야 안내](../index.md) | [저장과 수명 관리](../../skills/vegabond-knowledge/references/storage.md)
-
-기준 영문 메타데이터에서 생성한 목록입니다. 행 대신 상세 문서를 수정합니다.
-
-| ID·제목·유형 | 요약 | 범위·맥락 | 검색어 | 상태·확인 날짜 | 상세 |
+| ID·제목·유형 | 요약·발생 조건·관측 | 범위·맥락 | 검색어 | 상태·확인·원인·예방 | 상세 |
 | --- | --- | --- | --- | --- | --- |
+| K-FIC-N2-DIALOGUE-CHOICE / 작품 2 재회 대사에서 작가가 선택한 하나의 안도 유지 [관례] | 해당 재회에서 무사 귀환의 안도만 남기는 작가 선택을 보존하고, 거절된 병합 뒤에는 보존할 의도를 다시 검토한다. | Novel_0 / novel-2에 한정 | Novel_0, novel-2, dialogue, author-feedback, same-speaker, 대사, 병합, 삭제 | 사용 가능 / 2026-11-06 | K-FIC-N2-DIALOGUE-CHOICE.md |
+| K-FIC-NOVEL0-RESEARCH-USE / 장면별 집필 판단을 위한 Novel_0 조사 조회 [관례] | 장면 질문으로 OneStep 소설 색인을 조회하고 근거·조건을 받아, 현행 정본과 작가 문체에 맞는 지침을 적용한다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | Novel_0, writing-strategy, research-retrieval, scene-brief, 집필, 지식조회, AI전략 | 사용 가능 / 2026-11-05 | K-FIC-NOVEL0-RESEARCH-USE.md |
+| K-FIC-REF-ATTAINMENT-LANGUAGE / 성취 표현과 전투력 단계를 구분 [참고] | 도교 성취어·숙련의 성어·허구 경지·신체 변화를 구별한다. 비슷한 용어가 하나의 공통 승급표를 이루지는 않는다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | attainment, enlightenment, mastery, 삼화취정, 오기조원, 등봉조극, 노화순청 | 사용 가능 / 2026-11-05 | K-FIC-REF-ATTAINMENT-LANGUAGE.md |
+| K-FIC-REF-BODY-MOTION / 동작의 지지와 종료 상태 추적 [참고] | 중요한 동작은 접촉·힘의 출처·이동·제동·다음 행동의 자세를 정한다. 해부학 기초·조건부 실험·허구적 추진을 구분한다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | biomechanics, balance, braking, footwork, 인체, 동작, 발디딤, 제동, occupied-hands, 소품, 포권 | 사용 가능 / 2026-11-06 | K-FIC-REF-BODY-MOTION.md |
+| K-FIC-REF-BREAKTHROUGH-CASES / 돌파 사례를 근거 등급과 함께 사용 [참고] | 돌파 전후의 깨달음·준비·발현·미숙한 부분을 비교한다. 직접 연 본문·검색 색인·독자 해설을 구분한다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | breakthrough, prerequisites, capability-change, 돌파, 깨달음, 능력변화 | 사용 가능 / 2026-11-05 | K-FIC-REF-BREAKTHROUGH-CASES.md |
+| K-FIC-REF-COMBAT-MANUALS / 전투 자료를 상황에 맞게 고르기 [참고] | 이탈·보호·제압·승리의 목적을 구분한 뒤 자료를 고른다. 군 교범·스포츠·역사 전승의 장비와 훈련 조건은 서로 다르다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | combat, escape, injury, manuals, 근접전, 제압, 부축 | 사용 가능 / 2026-11-05 | K-FIC-REF-COMBAT-MANUALS.md |
+| K-FIC-REF-INNER-METHOD / 내공심법의 범위를 정의 [참고] | 무협의 내공심법은 순간 배분뿐 아니라 내공을 기르고 다스리는 방법·원리를 포함할 수 있다. 넓은 사전 용례와는 구별한다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | inner-method, cultivation, circulation, 심법, 내공심법, 축적, 운기 | 사용 가능 / 2026-11-05 | K-FIC-REF-INNER-METHOD.md |
+| K-FIC-REF-MARTIAL-ENDS / 정·사·마 무공의 완성상을 비교 [참고] | 무공이 완성하려는 신체·기운·정신·기술의 능력을 묻는다. 도덕적 소속과 개인 복수만으로 완성상을 정의하지 않는다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | martial-ends, orthodox, heterodox, demonic, 정파, 사파, 마교, 완성상 | 사용 가능 / 2026-11-05 | K-FIC-REF-MARTIAL-ENDS.md |
+| K-FIC-REF-MARTIAL-TAXONOMY / 무공 품질·숙련·경지·승산 구별 [참고] | 무공 용어는 공식 서열이 아닌 겹치는 용례로 읽는다. 개인 경지·무공 품질·숙련도·상황별 승산을 구분한다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | taxonomy, rank, mastery, 무공, 경지, 심공, 신공, 경공, 보법 | 사용 가능 / 2026-11-05 | K-FIC-REF-MARTIAL-TAXONOMY.md |
+| K-FIC-REF-QI-GANG / 기와 강기를 효과·운용으로 정의 [참고] | 무기 매개·응집·부착·연장·방출·방어를 별도 축으로 설계한다. 이름만으로 경지·색·사거리·소모를 정하지 않는다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | qi, gang, sword-energy, 검기, 검강, 권강, 도강, 강기 | 사용 가능 / 2026-11-05 | K-FIC-REF-QI-GANG.md |
+| K-FIC-REF-SCENE-STAGING / 장면 목적과 주목 대상으로 분위기 연출 [참고] | 장면의 변화에 맞춰 서술 거리·주목 대상·시간 배분·정보 공개·호흡·잔여 결과를 고른다. 서정과 격렬함은 같은 장면에 공존할 수 있다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | staging, atmosphere, lyrical, pacing, 서정, 연출, 재회, 긴장 | 사용 가능 / 2026-11-05 | K-FIC-REF-SCENE-STAGING.md |
+| K-FIC-REF-SECT-COMPARISON / 문파 철학을 보편 규칙으로 만들지 않고 비교 [참고] | 도덕적 소속·종교 수양·무공 기능·대표 이미지를 나눠 비교한다. 구파일방과 주요 세가의 명단·철학은 작품마다 다르다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | sects, philosophy, families, 구파일방, 오대세가, 종남, 철학 | 사용 가능 / 2026-11-05 | K-FIC-REF-SECT-COMPARISON.md |
+| K-FIC-REF-SPATIAL-BLOCKING / 동선과 공간 전환을 복원 가능하게 쓰기 [참고] | 선택에 필요한 지형을 먼저 제시하고 출발·이동·도착·방향·선택지 변화를 연결한다. 시점 인물이 움직일 때 다른 인물의 행동도 추적한다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | blocking, spatial-transition, route, POV, 동선, 공간, 전환, 난전, 추격, referent, 지칭 | 사용 가능 / 2026-11-06 | K-FIC-REF-SPATIAL-BLOCKING.md |
+| K-FIC-REF-TRANSCENDENCE / 무공의 초월 목적을 구체화 [참고] | 초인적 능력·개인 한계 극복·수양·불멸을 구분한다. 인물의 수련 동기와 무공 자체의 완성 목표도 나눈다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | transcendence, immortality, purpose, 인간초월, 무공목적, 불멸 | 사용 가능 / 2026-11-05 | K-FIC-REF-TRANSCENDENCE.md |
+| K-FIC-REF-WEAPON-PARTS / 실제 묘사 대상에 맞는 병기 부위명 선택 [참고] | 일반 서술에서는 쉬운 한국어 부위명을 쓰고 필요한 경우 확인된 유물별 용어를 쓴다. 검·도·장병기·활·화살·제작 용어를 구별한다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | weapons, anatomy, nomenclature, 검날, 검등, 검격, 검수, 창, 병기 | 사용 가능 / 2026-11-05 | K-FIC-REF-WEAPON-PARTS.md |
+| K-FIC-REF-WUXIA-FRAMEWORK / 역사·장르 관습·창작 법칙 구분 [참고] | 강호·문파·국가·경제·전승을 필수 역사 사실이 아닌 설계 질문으로 쓴다. 허구적 능력의 제도적 파급을 정한다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | wuxia, jianghu, institutions, 무협, 강호, 국가, 전승 | 사용 가능 / 2026-11-05 | K-FIC-REF-WUXIA-FRAMEWORK.md |
+| K-FIC-REF-ZHONGNAN-FICTION / 작품별 종남 무공과 전승 비교 [참고] | 종남의 기술·계보·복원·서사 역할은 개별 작품에 귀속시킨다. 공식 소개는 명시된 범위만 뒷받침한다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | Zhongnan, Jongnam, transmission, 종남파, 군림천하, 화산귀환, 전승 | 사용 가능 / 2026-11-05 | K-FIC-REF-ZHONGNAN-FICTION.md |
+| K-FIC-REF-ZHONGNAN-GEOGRAPHY / 종남 지리·종교·허구 문파 구별 [참고] | 실제 종남 산지·전진교의 역사·허구 종남파를 구별한다. 같은 지명으로 공통 창시자나 기술 목록을 확정하지 않는다. | 소설 참고; 원자료의 장르·확인 조건을 따르며 정본이 아님 | Zhongnan, geography, Quanzhen, travel, 종남산, 전진교, 서안, 지리 | 사용 가능 / 2026-11-05 | K-FIC-REF-ZHONGNAN-GEOGRAPHY.md |
