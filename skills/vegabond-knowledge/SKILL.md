@@ -9,7 +9,7 @@ Retrieve and maintain knowledge and problem records for the active task. Reuse s
 
 ## Request and return
 
-A request states the **working project, question, relevant domains, target and constraints, and environment/version or story context** where relevant. Reuse the existing brief instead of asking for those details again. A storage request additionally supplies findings, evidence, resolution, and proposed reusable checks.
+A request states the **working project, question, relevant domains, target and constraints, and environment/version or story context** where relevant. Reuse the existing brief instead of asking for those details again. A storage request additionally supplies findings, evidence, resolution, proposed reusable checks, intended reuse conditions, and the context actually verified.
 
 Return a short information brief containing:
 
@@ -30,8 +30,18 @@ Return a short information brief containing:
 
 Keep a recommendation's scope and caveats attached when summarizing. Stored knowledge cannot override current user intent, canon, contracts, or direct evidence. The caller remains responsible for applying and testing it.
 
+## Close a knowledge gap
+
+An empty store or insufficient match is a normal starting point. Turn the gap into the smallest questions needed for the current decision, with its conditions and required evidence; do not collect a whole subject in advance. Return these questions to the active operation's [research step](../vegabond-research/SKILL.md). Reuse the current brief so this handoff does not restart scout or recursively repeat the same lookup. Model recollection can suggest search terms, but is not checked source evidence.
+
+Bring the answer back into the information brief, distinguishing **source-supported claims**, **methods checked in the actual task**, and **inferences or unresolved questions**. Source-based reference knowledge need not wait for an implementation, but a source check does not prove local execution. The calling specialist applies the findings and checks the actual result; return its evidence and exceptions here. Required evidence gaps still block dependent work under the common rules.
+
+Before authorized storage, select what is worth finding again: a recurring decision, costly investigation, meaningful constraint, or useful check, including successful methods with no incident. Prefer one independently answerable question per entry, with just enough concept explanation to use it; link prerequisites only when needed. Apply the storage guide's consolidation rules rather than saving every new term or duplicating a research report. Keep unsupported candidates in the task findings unless a scoped hypothesis record needs follow-up. In read-only work, return proposed updates. Reuse existing fields and body sections, with source checks and task checks identified separately in Evidence.
+
+On the next relevant task, retrieve by its question and conditions, confirm applicability, and carry the retrieved guidance into a concrete action or check rather than merely citing it. Record consulted IDs, useful decisions, gaps, and any misleading match in existing task evidence when evaluating reuse. Use repeated misses, incompatible matches, unnecessary detail reads, or repeated investigations to improve affected summaries, keywords, scope, or routing; do not add a usage ledger or read the full store after each task. This feedback tests retrieval usefulness; catalog validation alone does not.
+
 ## Save and maintain
 
-Read [storage and lifecycle](references/storage.md) when writing or reorganizing entries. It defines the entry header/body and the [catalog helper](scripts/catalog.py) build/check workflow. Use it as the single authority for format, evidence, deduplication, promotion, and retirement. Do not run full-store rebuilds or checks as part of ordinary lookup.
+Read [storage and lifecycle](references/storage.md) when writing or reorganizing entries. Apply its [capture and consolidation decision](references/storage.md#capture-consolidate-and-promote) before creating a new entry: decide what merits reuse, what belongs in an existing entry, and what should remain in source material or task history. It defines the entry header/body and the [catalog helper](scripts/catalog.py) build/check workflow and is the single authority for format, evidence, deduplication, promotion, and retirement. Do not run full-store rebuilds or checks as part of ordinary lookup.
 
 Write only within the task's authorized scope. In read-only or findings-only work, return proposed entries rather than changing stores. When saving is authorized, update the detail and its human translation, build affected catalogs, regenerate translations for changed English catalogs, and check them before handoff. Update root routing for a new domain. Do not edit generated rows or infer missing legacy metadata. Create no empty store merely for lookup, and never fabricate starter knowledge.

@@ -15,6 +15,8 @@ Use the shared profile to refine the question or decision and its comparison cri
 
 For supporting research, answer the calling step's question instead of taking ownership of the whole creation or revision task. Leave investigated sources unchanged; producing a requested answer or report does not authorize implementation changes.
 
+When knowledge retrieval supplied an unanswered question, use that gap and its conditions directly; do not send it through the same lookup again. Investigate only the concepts and prerequisites needed for the decision, expanding when evidence reveals a material dependency.
+
 ## Investigate
 
 1. Turn the question into answerable subquestions or comparison criteria. Bound the investigation to what the requested answer or decision needs.
@@ -22,3 +24,5 @@ For supporting research, answer the calling step's question instead of taking ow
 3. Synthesize the answer or recommendation against the criteria. Stop when questions are supported or remaining evidence gaps are explicit; pursue further searches only when they could materially change the conclusion. Do not present unresolved acceptance conditions as verified.
 
 Hand back the answer or requested report, supporting source references, reasoning, and material uncertainty. Make clear which conclusions are established and which still depend on assumptions or missing evidence.
+
+For a knowledge-gap handoff, identify what the sources establish, what the caller must check in its environment or artifact, and any reusable candidate with its conditions. Return these to the calling step and [knowledge's gap-closing flow](../vegabond-knowledge/SKILL.md#close-a-knowledge-gap); the specialist verifies application and knowledge handles selective storage within the existing write scope. Research alone does not certify execution or require a new stored entry.
