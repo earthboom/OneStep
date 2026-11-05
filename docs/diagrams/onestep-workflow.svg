@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="2160" viewBox="0 0 1700 2160">
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<title>OneStep 전체 작업 흐름</title>
+<desc>요청, scout 분류, 작업과 전문 스킬, 지식 재사용, 검증과 수정, 사용자 독립 검토의 흐름</desc>
+<text x="60" y="65" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="58" font-weight="700" fill="#122441">OneStep</text>
+<text x="355" y="75" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="36" font-weight="700" fill="#334155">전체 작업 흐름</text>
+<text x="60" y="130" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="25" font-weight="400" fill="#607086">요청을 이해하고, 필요한 방법으로 수행하고, 근거로 검증한 뒤 다음 작업에 배웁니다.</text>
+<rect x="20" y="290" width="410" height="810" rx="25" fill="#f7f2ff" stroke="#ddd0f3" stroke-width="2"/>
+<text x="225" y="325" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="24" font-weight="700" fill="#7844a8">작업 전체의 정보 지원</text>
+<rect x="40" y="355" width="370" height="155" rx="20" fill="#ffffff" stroke="#ad88d1" stroke-width="2"/>
+<text x="225.0" y="404.15" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="25" font-weight="700" fill="#673099">vegabond-knowledge</text>
+<text x="225.0" y="437.7" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="20" font-weight="400" fill="#42526a">관련 분야 · 조건 · 증상으로 검색</text>
+<text x="225.0" y="467.29999999999995" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="20" font-weight="400" fill="#42526a">정보 · 적용 조건 · 점검 · 공백 전달</text>
+<rect x="40" y="575" width="175" height="245" rx="20" fill="#ffffff" stroke="#c6ace2" stroke-width="2"/>
+<text x="127.5" y="639.4499999999999" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" fill="#673099">knowledge/</text>
+<text x="127.5" y="671.4999999999999" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="20" font-weight="400" fill="#42526a">참고 자료</text>
+<text x="127.5" y="701.0999999999999" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="20" font-weight="400" fill="#42526a">방법 · 관례</text>
+<text x="127.5" y="730.6999999999999" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="20" font-weight="400" fill="#42526a">확인된 교훈</text>
+<text x="127.5" y="760.3" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="20" font-weight="400" fill="#42526a">분야별 저장</text>
+<rect x="235" y="575" width="175" height="245" rx="20" fill="#ffffff" stroke="#c6ace2" stroke-width="2"/>
+<text x="322.5" y="642.41" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" fill="#673099">records/</text>
+<text x="322.5" y="673.7199999999999" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" fill="#42526a">발생 조건 · 증상</text>
+<text x="322.5" y="701.8399999999999" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" fill="#42526a">원인 · 수정</text>
+<text x="322.5" y="729.9599999999999" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" fill="#42526a">예방 · 재검증</text>
+<text x="322.5" y="758.0799999999999" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" fill="#42526a">분야별 저장</text>
+<path d="M225,510 L225,540 L127,540 L127,575" fill="none" stroke="#9864bd" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="9 7"/>
+<polygon points="127,575 120.99687071796072,563.4690660038693 133.00312928203928,563.4690660038693" fill="#9864bd"/>
+<polygon points="225,510 231.00312928203928,521.5309339961307 218.99687071796072,521.5309339961307" fill="#9864bd"/>
+<path d="M225,510 L225,540 L322,540 L322,575" fill="none" stroke="#9864bd" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="9 7"/>
+<polygon points="322,575 315.99687071796075,563.4690660038693 328.00312928203925,563.4690660038693" fill="#9864bd"/>
+<polygon points="225,510 231.00312928203928,521.5309339961307 218.99687071796072,521.5309339961307" fill="#9864bd"/>
+<rect x="141.25" y="538.4" width="167.5" height="26.099999999999998" rx="8" fill="#f8fafc" stroke="#f8fafc" stroke-width="1"/>
+<text x="225" y="551" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="18" font-weight="400" fill="#7844a8">조회 · 허용된 저장</text>
+<rect x="40" y="900" width="370" height="150" rx="20" fill="#efe3fb" stroke="#ad88d1" stroke-width="2"/>
+<text x="225.0" y="948.03" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" fill="#673099">발견 근거를 다음 작업에</text>
+<text x="225.0" y="979.3399999999999" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" fill="#42526a">문제와 교훈은 연결하고 중복은 줄임</text>
+<text x="225.0" y="1007.4599999999999" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" fill="#42526a">사건 해결과 예방 검증은 별도 상태</text>
+<path d="M410,975 L420,975 L420,850 L322,850 L322,820" fill="none" stroke="#9864bd" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="9 7"/>
+<polygon points="322,820 328.00312928203925,831.5309339961307 315.99687071796075,831.5309339961307" fill="#9864bd"/>
+<path d="M225,900 L225,855 L127,855 L127,820" fill="none" stroke="#9864bd" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="9 7"/>
+<polygon points="127,820 133.00312928203928,831.5309339961307 120.99687071796072,831.5309339961307" fill="#9864bd"/>
+<text x="225" y="1075" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="18" font-weight="400" fill="#7844a8">색인 → 맞는 요약 → 필요한 상세만 읽기</text>
+<rect x="500" y="180" width="700" height="105" rx="20" fill="#ffffff" stroke="#a9b8ca" stroke-width="2"/>
+<text x="850.0" y="216.93" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="29" font-weight="700" fill="#172033">1  요청과 공통 지침</text>
+<text x="850.0" y="255.70000000000002" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="400" fill="#42526a">사용자 요청 · 자료 / agents/vegabond-agent.md</text>
+<path d="M850,285 L850,330" fill="none" stroke="#64748b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="850,330 843.9968707179607,318.46906600386933 856.0031292820393,318.46906600386933" fill="#64748b"/>
+<rect x="500" y="330" width="700" height="180" rx="20" fill="#e9f2ff" stroke="#5791d8" stroke-width="2"/>
+<text x="850.0" y="372.71" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="31" font-weight="700" fill="#205a9d">2  vegabond-scout</text>
+<text x="850.0" y="412.24" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="22" font-weight="400" fill="#42526a">대상 · 변화 · 유지 조건 · 방법 / single 또는 staged</text>
+<text x="850.0" y="444.79999999999995" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="22" font-weight="400" fill="#42526a">수락 조건 → 검사 → 결과·근거 연결</text>
+<text x="850.0" y="477.36" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="22" font-weight="400" fill="#42526a">제작 전 필수 자료 · 도구 · 검증 환경의 가용성 확인</text>
+<path d="M500,415 L410,415" fill="none" stroke="#9864bd" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="9 7"/>
+<polygon points="410,415 421.53093399613067,408.99687071796075 421.53093399613067,421.00312928203925" fill="#9864bd"/>
+<polygon points="500,415 488.46906600386933,421.00312928203925 488.46906600386933,408.99687071796075" fill="#9864bd"/>
+<rect x="404.25" y="378.1" width="101.5" height="24.65" rx="8" fill="#f8fafc" stroke="#f8fafc" stroke-width="1"/>
+<text x="455" y="390" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#7844a8">조회 · 요약</text>
+<text x="850" y="545" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="24" font-weight="700" fill="#454d7d">3  요청 결과에 맞는 작업 절차 선택</text>
+<path d="M850,510 L850,520 L480,520 L480,566 L610,566 L610,580" fill="none" stroke="#8394b0" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="610,580 603.9968707179607,568.4690660038693 616.0031292820393,568.4690660038693" fill="#8394b0"/>
+<path d="M850,510 L850,520 L480,520 L480,566 L850,566 L850,580" fill="none" stroke="#8394b0" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="850,580 843.9968707179607,568.4690660038693 856.0031292820393,568.4690660038693" fill="#8394b0"/>
+<path d="M850,510 L850,520 L480,520 L480,566 L1090,566 L1090,580" fill="none" stroke="#8394b0" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="1090,580 1083.9968707179607,568.4690660038693 1096.0031292820393,568.4690660038693" fill="#8394b0"/>
+<rect x="500" y="580" width="220" height="115" rx="20" fill="#eff0ff" stroke="#8d8be2" stroke-width="2"/>
+<text x="610.0" y="623.85" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" fill="#484796">vegabond-create</text>
+<text x="610.0" y="655.9" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="20" font-weight="400" fill="#42526a">새 결과물 · 기능 작성</text>
+<rect x="740" y="580" width="220" height="115" rx="20" fill="#eff0ff" stroke="#8d8be2" stroke-width="2"/>
+<text x="850.0" y="624.59" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="700" fill="#484796">vegabond-revise</text>
+<text x="850.0" y="655.9" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" fill="#42526a">기존 결과물 · 동작 수정</text>
+<rect x="980" y="580" width="220" height="115" rx="20" fill="#eff0ff" stroke="#8d8be2" stroke-width="2"/>
+<text x="1090.0" y="610.43" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="700" fill="#484796">vegabond-research</text>
+<text x="1090.0" y="640.2399999999999" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" fill="#42526a">근거 조사 · 비교 · 분석</text>
+<text x="1090.0" y="668.3599999999999" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" fill="#42526a">조사 원본은 유지</text>
+<path d="M610,695 L610,730 L850,730 L850,765" fill="none" stroke="#8394b0" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="850,765 843.9968707179607,753.4690660038693 856.0031292820393,753.4690660038693" fill="#8394b0"/>
+<path d="M850,695 L850,730 L850,730 L850,765" fill="none" stroke="#8394b0" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="850,765 843.9968707179607,753.4690660038693 856.0031292820393,753.4690660038693" fill="#8394b0"/>
+<path d="M1090,695 L1090,730 L850,730 L850,765" fill="none" stroke="#8394b0" stroke-width="2.5" stroke-linejoin="round"/>
+<polygon points="850,765 843.9968707179607,753.4690660038693 856.0031292820393,753.4690660038693" fill="#8394b0"/>
+<rect x="500" y="765" width="700" height="190" rx="20" fill="#eef2ff" stroke="#8d8be2" stroke-width="2"/>
+<text x="850.0" y="808.1700000000001" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="29" font-weight="700" fill="#484796">4  필요한 전문 스킬을 조합해 실행</text>
+<text x="850.0" y="847.6800000000001" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="24" font-weight="400" fill="#42526a">vegabond-code / vegabond-fiction</text>
+<text x="850.0" y="883.2" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="24" font-weight="400" fill="#42526a">vegabond-presentation / vegabond-planning</text>
+<text x="850.0" y="918.72" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="24" font-weight="400" fill="#42526a">다른 분야는 적합한 가용 스킬 · 도구 활용</text>
+<path d="M500,835 L455,835 L455,465 L410,465" fill="none" stroke="#9864bd" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="9 7"/>
+<polygon points="410,465 421.53093399613067,458.99687071796075 421.53093399613067,471.00312928203925" fill="#9864bd"/>
+<polygon points="500,835 488.46906600386933,841.0031292820393 488.46906600386933,828.9968707179607" fill="#9864bd"/>
+<rect x="409.0" y="728.1" width="92.0" height="24.65" rx="8" fill="#f8fafc" stroke="#f8fafc" stroke-width="1"/>
+<text x="455" y="740" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#7844a8">추가 조회</text>
+<path d="M850,955 L850,1025" fill="none" stroke="#64748b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="850,1025 843.9968707179607,1013.4690660038693 856.0031292820393,1013.4690660038693" fill="#64748b"/>
+<rect x="500" y="1025" width="700" height="110" rx="20" fill="#eaf9f2" stroke="#55a98d" stroke-width="2"/>
+<text x="850.0" y="1063.69" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="29" font-weight="700" fill="#08664e">5  실제 결과물 검수 · 검증</text>
+<text x="850.0" y="1103.2" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="24" font-weight="400" fill="#42526a">각 단계 확인 / 마지막은 최종 통합 검증</text>
+<path d="M500,1080 L455,1080 L455,975 L410,975" fill="none" stroke="#9864bd" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="9 7"/>
+<polygon points="410,975 421.53093399613067,968.9968707179607 421.53093399613067,981.0031292820393" fill="#9864bd"/>
+<rect x="384.25" y="1098.1" width="141.5" height="24.65" rx="8" fill="#f8fafc" stroke="#f8fafc" stroke-width="1"/>
+<text x="455" y="1110" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#7844a8">발견 · 수정 근거</text>
+<path d="M850,1135 L850,1180" fill="none" stroke="#64748b" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="850,1180 843.9968707179607,1168.4690660038693 856.0031292820393,1168.4690660038693" fill="#64748b"/>
+<polygon points="850,1180.0 1005.0,1250 850,1320.0 695.0,1250" fill="#ecfdf5" stroke="#159570" stroke-width="3"/>
+<text x="850" y="1250" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="27" font-weight="700" fill="#08664e">필수 검증 통과?</text>
+<rect x="1260" y="1030" width="290" height="155" rx="20" fill="#fff1e5" stroke="#e7a467" stroke-width="2"/>
+<text x="1405.0" y="1070.96" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="24" font-weight="700" fill="#a6501a">발견 · 피드백 분류</text>
+<text x="1405.0" y="1101.54" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#42526a">결함 → 수정 · 재검증</text>
+<text x="1405.0" y="1126.7" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#42526a">근거 부족 / 목표 변경 → 재판단</text>
+<text x="1405.0" y="1151.8600000000001" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#42526a">같은 전제로 두 번 실패 시 재진단</text>
+<path d="M1005,1250 L1230,1250 L1230,1108 L1260,1108" fill="none" stroke="#d58a48" stroke-width="2.7" stroke-linejoin="round"/>
+<polygon points="1260,1108 1248.4690660038693,1114.0031292820393 1248.4690660038693,1101.9968707179607" fill="#d58a48"/>
+<rect x="1045.5" y="1211.7" width="149.0" height="27.55" rx="8" fill="#f8fafc" stroke="#f8fafc" stroke-width="1"/>
+<text x="1120" y="1225" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" fill="#b66c2f">문제 · 불확실성</text>
+<path d="M1260,1070 L1200,1070" fill="none" stroke="#d58a48" stroke-width="2.7" stroke-linejoin="round"/>
+<polygon points="1200,1070 1211.5309339961307,1063.9968707179607 1211.5309339961307,1076.0031292820393" fill="#d58a48"/>
+<rect x="1144.0" y="993.1" width="172.0" height="24.65" rx="8" fill="#f8fafc" stroke="#f8fafc" stroke-width="1"/>
+<text x="1230" y="1005" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#b66c2f">결함 수정 후 재검증</text>
+<rect x="1260" y="340" width="290" height="140" rx="20" fill="#fff1e5" stroke="#e7a467" stroke-width="2"/>
+<text x="1405.0" y="373.36" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="22" font-weight="700" fill="#a6501a">목표 · 전제 · 범위 변경</text>
+<text x="1405.0" y="402.44" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#42526a">scout의 기존 요약 갱신</text>
+<text x="1405.0" y="427.6" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#42526a">결함과 새 요청 · 선호를 구분</text>
+<text x="1405.0" y="452.76" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#42526a">수락 조건을 통과용으로 완화 금지</text>
+<rect x="1260" y="550" width="290" height="140" rx="20" fill="#fff1e5" stroke="#e7a467" stroke-width="2"/>
+<text x="1405.0" y="594.5600000000001" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="24" font-weight="700" fill="#a6501a">근거 부족</text>
+<text x="1405.0" y="625.8800000000001" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="18" font-weight="400" fill="#42526a">필요한 지식 조회 · 조사</text>
+<text x="1405.0" y="652.5200000000001" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="18" font-weight="400" fill="#42526a">원본 유지 / 미확인 결론은 보류</text>
+<path d="M1550,1108 L1660,1108 L1660,410 L1550,410" fill="none" stroke="#d58a48" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="1550,410 1561.5309339961307,403.99687071796075 1561.5309339961307,416.00312928203925" fill="#d58a48"/>
+<path d="M1660,620 L1550,620" fill="none" stroke="#d58a48" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="1550,620 1561.5309339961307,613.9968707179607 1561.5309339961307,626.0031292820393" fill="#d58a48"/>
+<path d="M1260,410 L1200,410" fill="none" stroke="#d58a48" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="1200,410 1211.5309339961307,403.99687071796075 1211.5309339961307,416.00312928203925" fill="#d58a48"/>
+<path d="M1260,620 L1200,620" fill="none" stroke="#d58a48" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="1200,620 1211.5309339961307,613.9968707179607 1211.5309339961307,626.0031292820393" fill="#d58a48"/>
+<rect x="1260" y="755" width="290" height="165" rx="20" fill="#ffffff" stroke="#d8e1ec" stroke-width="2"/>
+<text x="1405.0" y="791.34" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="24" font-weight="700" fill="#334155">재개와 기록</text>
+<text x="1405.0" y="821.1800000000001" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="16" font-weight="400" fill="#42526a">실행 수단 부족: 장애 해소 후 재개</text>
+<text x="1405.0" y="844.86" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="16" font-weight="400" fill="#42526a">독립 작업은 계속 / 의존 작업 보류</text>
+<text x="1405.0" y="868.5400000000001" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="16" font-weight="400" fill="#42526a">사용자 발견도 같은 기록 흐름</text>
+<text x="1405.0" y="892.22" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="16" font-weight="400" fill="#42526a">선호 변경을 결함으로 저장하지 않음</text>
+<rect x="40" y="1185" width="390" height="135" rx="20" fill="#fff1e5" stroke="#e7a467" stroke-width="2"/>
+<text x="235.0" y="1222.67" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="25" font-weight="700" fill="#a6501a">검사 실행 불가 → blocked</text>
+<text x="235.0" y="1256.96" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="400" fill="#42526a">막힌 이유 · 미검증 조건 보고</text>
+<text x="235.0" y="1288.04" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="400" fill="#42526a">필요한 능력 · 자료 확보 후 재개</text>
+<path d="M695,1250 L430,1250" fill="none" stroke="#d58a48" stroke-width="2.7" stroke-linejoin="round"/>
+<polygon points="430,1250 441.53093399613067,1243.9968707179607 441.53093399613067,1256.0031292820393" fill="#d58a48"/>
+<rect x="505.25" y="1210.3" width="109.5" height="30.45" rx="8" fill="#f8fafc" stroke="#f8fafc" stroke-width="1"/>
+<text x="560" y="1225" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="400" fill="#b66c2f">실행 불가</text>
+<text x="235" y="1350" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#a6501a">불가능한 검사를 “통과”나 “해당 없음”으로 바꾸지 않음</text>
+<path d="M850,1320 L850,1390" fill="none" stroke="#159570" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="850,1390 843.9968707179607,1378.4690660038693 856.0031292820393,1378.4690660038693" fill="#159570"/>
+<rect x="860.0" y="1340.3" width="60.0" height="30.45" rx="8" fill="#f8fafc" stroke="#f8fafc" stroke-width="1"/>
+<text x="890" y="1355" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="400" fill="#08664e">통과</text>
+<rect x="500" y="1390" width="700" height="105" rx="20" fill="#eaf9f2" stroke="#55a98d" stroke-width="2"/>
+<text x="850.0" y="1428.41" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="29" font-weight="700" fill="#08664e">6  남은 단계 확인</text>
+<text x="850.0" y="1465.7" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="400" fill="#42526a">다음 단계에 지정한 작업 절차로 / 유효한 맥락 재사용</text>
+<path d="M1200,1442 L1600,1442 L1600,535 L1200,535" fill="none" stroke="#5a80b1" stroke-width="2.7" stroke-linejoin="round"/>
+<polygon points="1200,535 1211.5309339961307,528.9968707179607 1211.5309339961307,541.0031292820393" fill="#5a80b1"/>
+<rect x="1367.5" y="1401.6" width="165.0" height="31.9" rx="8" fill="#f8fafc" stroke="#f8fafc" stroke-width="1"/>
+<text x="1450" y="1417" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="22" font-weight="400" fill="#466b9a">남은 단계 있음</text>
+<path d="M850,1495 L850,1560" fill="none" stroke="#159570" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="850,1560 843.9968707179607,1548.4690660038693 856.0031292820393,1548.4690660038693" fill="#159570"/>
+<rect x="900.25" y="1514.0" width="199.5" height="29.0" rx="8" fill="#f8fafc" stroke="#f8fafc" stroke-width="1"/>
+<text x="1000" y="1528" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="20" font-weight="400" fill="#08664e">single / 마지막 단계</text>
+<rect x="500" y="1560" width="700" height="110" rx="20" fill="#eaf9f2" stroke="#55a98d" stroke-width="2"/>
+<text x="850.0" y="1599.38" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="28" font-weight="700" fill="#08664e">7  AI 검증 완료 · 사용자 검토 대기</text>
+<text x="850.0" y="1637.4" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="23" font-weight="400" fill="#42526a">실제 결과물 · 확인 근거 · 한계를 함께 전달</text>
+<path d="M850,1670 L850,1725" fill="none" stroke="#159570" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="850,1725 843.9968707179607,1713.4690660038693 856.0031292820393,1713.4690660038693" fill="#159570"/>
+<rect x="500" y="1725" width="700" height="105" rx="20" fill="#ffffff" stroke="#55a98d" stroke-width="2"/>
+<text x="850.0" y="1778.95" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="29" font-weight="700" fill="#08664e">8  vagabond의 독립 테스트 · 검토</text>
+<path d="M1200,1777 L1630,1777 L1630,1108 L1550,1108" fill="none" stroke="#d58a48" stroke-width="2.7" stroke-linejoin="round"/>
+<polygon points="1550,1108 1561.5309339961307,1101.9968707179607 1561.5309339961307,1114.0031292820393" fill="#d58a48"/>
+<rect x="1317.0" y="1735.3" width="236.0" height="30.45" rx="8" fill="#f8fafc" stroke="#f8fafc" stroke-width="1"/>
+<text x="1435" y="1750" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="400" fill="#b66c2f">피드백 → 분류 후 재개</text>
+<path d="M850,1830 L850,1895" fill="none" stroke="#159570" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="850,1895 843.9968707179607,1883.4690660038693 856.0031292820393,1883.4690660038693" fill="#159570"/>
+<rect x="864.75" y="1847.3" width="130.5" height="30.45" rx="8" fill="#f8fafc" stroke="#f8fafc" stroke-width="1"/>
+<text x="930" y="1862" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="400" fill="#08664e">명시적 수락</text>
+<rect x="500" y="1895" width="700" height="80" rx="20" fill="#daf4e7" stroke="#159570" stroke-width="2"/>
+<text x="850.0" y="1936.55" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="31" font-weight="700" fill="#08664e">9  최종 수락 · 완료</text>
+<rect x="40" y="1400" width="390" height="520" rx="20" fill="#ffffff" stroke="#d8e1ec" stroke-width="2"/>
+<text x="235" y="1440" text-anchor="middle" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="26" font-weight="700" fill="#334155">매체에 맞는 검증</text>
+<text x="65" y="1494" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="700" fill="#334155">코딩</text>
+<text x="65" y="1522" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#607086">준비 · 자동 테스트 · 실제 사용</text>
+<text x="65" y="1561" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="700" fill="#334155">게임 작업</text>
+<text x="65" y="1589" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#607086">필요한 에디터 실행 · 실제 플레이</text>
+<text x="65" y="1628" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="700" fill="#334155">소설</text>
+<text x="65" y="1656" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#607086">개연성 · 설정 · 문장 · 맞춤법</text>
+<text x="65" y="1695" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="700" fill="#334155">발표자료</text>
+<text x="65" y="1723" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#607086">내용 · 최종 출력 · 모든 슬라이드</text>
+<text x="65" y="1762" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="700" fill="#334155">기획서</text>
+<text x="65" y="1790" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#607086">근거 · 자원 · 수치 · 지표</text>
+<text x="65" y="1829" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="700" fill="#334155">조사</text>
+<text x="65" y="1857" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="17" font-weight="400" fill="#607086">출처 · 논리 · 불확실성</text>
+<text x="60" y="2040" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="22" font-weight="400" fill="#52627a">실선: 작업 진행 · 재검증     점선: 정보 요청 · 기록</text>
+<text x="60" y="2085" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="21" font-weight="400" fill="#607086">스킬은 역할과 절차입니다. 읽는 것만으로 별도 에이전트가 생성되지는 않습니다.</text>
+<text x="60" y="2120" text-anchor="start" dominant-baseline="central" font-family="Malgun Gothic, sans-serif" font-size="19" font-weight="400" fill="#748297">작업 스킬 직접 호출 시에는 scout의 공통 설정을 재사용합니다.  |  작성자 vagabond</text>
+</svg>
