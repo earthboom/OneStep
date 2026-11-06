@@ -1,64 +1,36 @@
 ---
 name: vegabond-code
-description: Use when implementing software, repairing defects, refactoring, designing systems, or investigating code and runtime behavior in any language or engine.
+description: Use when implementing software, repairing defects, refactoring, or investigating code and runtime behavior in any language or engine, coordinating design when needed.
 ---
 
 # Vegabond Code
 
-Provide software methods for the active operation. Reuse its brief and task profile; follow the [agent instructions](../../agents/vegabond-agent.md) for common boundaries and completion. If invoked directly, use [scout's shared setup](../vegabond-scout/SKILL.md#frame-and-classify) and its linked operation skill, then continue here without restarting classification.
+Execute software work within the active operation. Reuse its brief and profile; follow the [agent instructions](../../agents/vegabond-agent.md) for common boundaries and completion. If invoked directly, use [scout's shared setup](../vegabond-scout/SKILL.md#frame-and-classify) and its linked operation without restarting classification.
 
 ## Identify the working environment
 
-Refine scout's profile for the actual files, modules, and behavior being changed or investigated. Use repository guidance, project/dependency configuration, relevant callers, tests, scripts, and CI to establish:
+Use repository guidance, source and relevant callers, project/dependency configuration, tests, scripts, and CI to establish the changed component's language, engine/framework and versions, toolchain/platform/target, and actual build, test, launch and inspection paths. For new work, distinguish a proposed toolchain from an observed one. Resolve conflicting evidence narrowly; reuse scout's readiness check rather than treating configuration as proof that tools run.
 
-- The target's language, engine/framework, and relevant versions.
-- Its build system, compiler/runtime, platform, and target/configuration where these affect the work.
-- The actual build, test, launch, and inspection paths, plus environment-specific contracts and conventions.
+Classify the actual component, not its extension or the repository's main technology. Unreal C++ and independent C++ need their own toolchains; Unity uses its project/package contracts. A Python tool inside an Unreal repository follows its own runtime, adding engine checks when its effects reach assets or engine behavior. For mixed work, identify affected components and boundary checks. Keep source locations and the result in the existing brief, not a separate environment report.
 
-Do not classify from an extension or the repository's main technology alone. Unreal C++ and an independent C++ library can need different methods; a Python utility inside an Unreal repository follows its own execution path, adding engine checks when its effects reach engine assets or behavior. For mixed work, identify each affected component and the checks at their boundaries.
+Request relevant contracts, version-specific sources, and prior failure/prevention checks through [vegabond-knowledge](../vegabond-knowledge/SKILL.md), reusing the existing information brief. Select available environment skills or direct tools through scout's mapping.
 
-| Environment examples, not a closed list | Connect the identified target to |
-| --- | --- |
-| Unreal | Applicable engine/module contracts and project build, tests, editor, and play paths. |
-| Unity | Applicable engine/package contracts and project compilation, tests, editor, and play paths. |
-| Independent C++ | The actual compiler/build configuration, tests, and executable or library consumer. |
-| Other languages or mixed environments | Their existing toolchains, execution paths, and affected integration checks. |
+## Choose the design depth
 
-Keep the result and its source locations in the existing brief or step mapping; no separate environment report is required. Use it to select available environment-specific skills or direct tools through scout's mapping and to choose the checks below. Follow scout's readiness check rather than treating configuration as proof that tools run. Investigate missing or conflicting evidence narrowly, and ask only when unresolved intent changes the method. For new work without repository evidence, use explicit requirements and available context; distinguish a proposed toolchain from an observed one.
+Use [vegabond-code-design](../vegabond-code-design/SKILL.md) when a meaningful choice about state ownership, lifecycle, interfaces used by other callers, concurrency, persistence, external integration, or migration must be settled before implementation. A local edit following an established pattern can state its relevant contract and preservation conditions inline and proceed. File count alone does not decide; reuse a valid existing design and revisit only decisions changed by evidence.
 
-## Execute
+Pass the current brief, environment, affected source/contracts, constraints, and unanswered decisions. Design returns a bounded implementation direction and checks within this workflow; it does not restart scout or create another execution loop. A design-only request ends with that result rather than an unsolicited implementation.
 
-Identify contracts, state ownership, lifecycle, and affected integration points at the depth the change needs, using the environment assessment above.
+## Implement or investigate
 
-Request relevant contracts, version-specific references, and known failure/prevention checks through [vegabond-knowledge](../vegabond-knowledge/SKILL.md), reusing the active information brief.
+Read [verification and handoff](references/verification.md) before changing code or judging the result. It owns the detailed preparation, build/test/runtime/real-use checks, review-and-repair loop, verification-change scrutiny, long-work state, and demonstrated safeguards. Apply it to each coherent change and the final integrated artifact; do not defer reading it until completion.
 
-- **Create:** Follow existing patterns for a small feature and implement a complete usable path. For system work, establish boundaries, interfaces, dependencies, and migration needs before implementation. Exercise a risky interface or assumption with a small integration slice before dependent work, using scout's existing scale decision.
-- **Revise:** For a defect, establish a reproducible failure and trace its cause before changing code. For intentional restructuring, establish the behavior and public contracts to preserve, then change structure in coherent increments. Avoid coupling the fix to unrelated cleanup.
-- **Research:** Trace the relevant code path, data flow, or runtime evidence. Compare technical options against the question's constraints, citing files, symbols, logs, and applicable documentation. Keep investigated code unchanged; experiments must use an isolated harness when needed.
+- **Create:** Follow the selected design or existing local pattern and implement a complete usable path. Resolve a load-bearing assumption with a small integration slice before dependent implementation, using scout's existing scale decision.
+- **Revise:** Reproduce a defect and trace its cause before repair. For intentional restructuring, preserve the established behavior and public contracts while changing coherent units. Keep unrelated cleanup outside scope.
+- **Research:** Trace code, data flow, and runtime evidence; compare options against the question and cite files, symbols, logs, and applicable sources. Leave investigated code unchanged; use an isolated harness for experiments.
 
-## Prepare checks
+If implementation evidence refutes the design, return the affected decision and evidence to code-design, then update the existing brief and checks. A changed goal or premise follows the common return-point rules; do not silently redefine acceptance to fit the implementation.
 
-Before implementation, map the acceptance conditions and preserved contracts to executable checks, including relevant safeguards from the information brief. Establish the baseline for the affected path and distinguish existing failures. For a bug with a practical local test path, capture a regression check failing for the intended reason before the fix. Otherwise retain the closest observable reproduction and state its limits.
+## Hand back
 
-## Verify
-
-Retain these four stages where applicable:
-
-1. **Build/preparation:** Run the project's actual build, compile, or equivalent preparation for the affected target and configuration.
-2. **Automated tests:** Run relevant existing tests. Add regression or behavior coverage when it provides meaningful protection, using expected results independent of the implementation. Include affected boundary and error paths.
-3. **Runtime readiness:** Launch the application or required environment and confirm the changed path can be reached without initialization failures.
-4. **Real use:** Exercise the changed behavior through its public interface. For Unreal or Unity games, launch the editor and perform actual play, including relevant multiplayer roles. For a CLI, invoke real commands; for a library, exercise a real consumer or harness.
-
-For a defect, rerun the original reproduction as well as affected surrounding behavior. Record commands, target/configuration, outcomes, and observed runtime behavior. Apply the agent instructions' blocked-versus-inapplicable distinction to each stage. A code investigation without an implementation change uses the checks needed to substantiate its claims rather than requiring an unrelated full build.
-
-## Review and repeat
-
-After each coherent change, run the affected build/preparation and automated checks, then inspect the diff and relevant callers against the requirements. Look for omitted behavior, broken contracts, state/lifecycle errors, and risks specific to the change. Review whether the tests would detect incorrect behavior rather than merely repeat the implementation. Use available review or test skills when they add relevant capability; a review finding needs a concrete mechanism or evidence before it motivates a change.
-
-For a confirmed failure or defect, use the command, assertion, log, or interaction to localize its cause. Correct it, repeat the original failure check and affected surrounding checks, and review the repaired diff. Repeat until required checks pass and no confirmed in-scope defect remains. Do not weaken a valid check to accept incorrect behavior; correct a mistaken check against the requirement with an explicit reason.
-
-Use the agent instructions' [shared failure and feedback rules](../../agents/vegabond-agent.md#respond-to-failures-and-feedback) when diagnosis, evidence, scope, or capability needs reassessment.
-
-After the local loop, run the required integrated and real-use checks on the final artifact. A failure returns to diagnosis and repair; later edits invalidate affected evidence. Separate reproducible pre-existing failures from introduced ones, and do not treat a pre-existing failure as proof of acceptance.
-
-Send confirmed corrections, technical evidence, and demonstrated safeguards or specific reusable checks to vegabond-knowledge for authorized record updates. For research or feedback-only work, correct the findings without editing investigated sources. Return the patch or investigation with review results, technical evidence, prevention references, and remaining limitations to the active operation.
+Return the patch or investigation, acceptance evidence for the actual final code, review results, and explicit unresolved conditions to the active operation. Send confirmed corrections and useful methods or demonstrated safeguards to knowledge for authorized storage; the verification reference defines the software evidence to supply. Distinguish completed AI checks from vagabond's independent acceptance under the common instructions.

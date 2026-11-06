@@ -43,7 +43,9 @@ The [workflow diagram (Korean)](docs/diagrams/onestep-workflow.png) provides an 
 | [vegabond-revise](skills/vegabond-revise/SKILL.md) | Correct or improve an existing result while preserving its required contracts. |
 | [vegabond-research](skills/vegabond-research/SKILL.md) | Investigate questions and compare options while leaving investigated sources unchanged. |
 | [vegabond-code](skills/vegabond-code/SKILL.md) | Identify the actual programming environment; implement, review, test, and exercise software. |
+| [vegabond-code-design](skills/vegabond-code-design/SKILL.md) | Settle software structure, ownership, interfaces, and checkable design decisions when needed. |
 | [vegabond-fiction](skills/vegabond-fiction/SKILL.md) | Retrieve story context and voice references; draft, critique, revise, and check the manuscript. |
+| [vegabond-fiction-design](skills/vegabond-fiction-design/SKILL.md) | Connect twenty narrative elements to scoped story choices, intended effects, and checks when design is needed. |
 | [vegabond-presentation](skills/vegabond-presentation/SKILL.md) | Develop the slide narrative, produce the deck, verify claims, and inspect the final exported slides. |
 | [vegabond-planning](skills/vegabond-planning/SKILL.md) | Develop or assess proposals, feasibility, dependencies, calculations, and success measures. |
 | [vegabond-knowledge](skills/vegabond-knowledge/SKILL.md) | Retrieve, synthesize, store, and maintain scoped knowledge and problem records. |
@@ -54,11 +56,15 @@ Operation skills own the workflow; specialists provide methods within it. Combin
 
 Classify the actual changed component using source files, project configuration, dependencies, scripts, and tests. Unreal C++, Unity C#, independent C++, and a Python utility inside an engine repository may require different execution paths. Add integration checks when a component's effects cross into another environment.
 
+Code calls [code-design](skills/vegabond-code-design/SKILL.md) for material structural decisions and reuses the returned direction within the active operation. Small edits following established patterns can proceed with inline conditions. A design-only request ends with the design. The [verification reference](skills/vegabond-code/references/verification.md) retains detailed software checks, repair rules, and continuation state; read it before changing code or judging the result.
+
 Verification covers build/preparation, automated tests, runtime readiness, and real use where applicable. Game behavior requires the relevant editor and actual play; a CLI requires real commands, and a library requires a consumer or harness. Review and repair repeat before final integrated verification.
 
 ### Fiction
 
 Retrieve the scene's world rules, character states, relationships, timeline, and disclosure limits from existing authoritative material. Distinguish established canon, provisional plans, rumors, and unknowns. Author knowledge must not silently become character or reader knowledge.
+
+Fiction calls [fiction-design](skills/vegabond-fiction-design/SKILL.md) for consequential narrative choices and reuses its result within the active operation. The design considers twenty elements across story logic, characters, narrative drive, presentation, and the work's direction/ending; local work selects relevant elements rather than imposing twenty devices on every scene. Detailed judgment, style, correction, and recurrence procedures live in [manuscript review](skills/vegabond-fiction/references/review.md). Design-only requests produce a design, and intended reader effects remain distinct from observed audience response.
 
 Use author-written or selected passages to establish a work-specific voice baseline. Review causality, plausibility, continuity, reader understanding, style, and language. Separate confirmed errors, unresolved hypotheses, and editorial suggestions. Diagnose concrete prose effects such as redundant explanation or interchangeable dialogue instead of treating “AI-like” as an error category or enforcing a universal word blacklist.
 
