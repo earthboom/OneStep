@@ -45,10 +45,10 @@ Before writing, return the useful evidence, applicable conditions, scene decisio
 
 ## Evidence
 
-- Original Korean research: [source](C:/Projects/Novel_0/research/craft/%EB%8F%99%EC%84%A0%EA%B3%BC-%EA%B3%B5%EA%B0%84-%EC%A0%84%ED%99%98%EC%9D%98-%EB%AA%85%EB%A3%8C%EC%84%B1.md). Read its topic-specific sections and source ledger when applying this entry.
+- Original Korean research: [source](../sources.md#src-novel0-spatial-blocking). Read its topic-specific sections and source ledger when applying this entry.
 - Source research date: 2026-11-05; SHA-256 at transfer: `5868a25c8e73f8b6c32094858672d552519bd69ddd5db37fa2342ed0f1e46d52`.
 - Scope and opening conclusions were reviewed on 2026-11-05. The source's URL ledger and direct/abstract/index/secondary limitations remain at the original location; no external sources were reopened for this transfer. This is a retrieval synthesis, not a new scientific or historical finding.
 - Section locators: ## 1. 조사 근거와 적용 한계; ## 2. 시작할 때 알려줄 것과 이동 뒤 갱신할 것; ## 3. 좌우·앞뒤의 기준을 고정한다; ## 4. 이동을 출발·경로·도착 상태로 검토한다; ## 5. 문장 안에서는 주체와 인과를 놓치지 않는다; ## 6. 난전에서는 인물의 역할과 남은 위협을 추적한다; ## 7. 빠른 장면 전환은 시간·장소·진행 중인 일을 연결한다; ## 8. 혼란을 표현하되 서술의 실수와 구별한다; ## 9. 직접 만든 비교 예문; ## 10. 작가용 배치도와 동선표; ## 11. 퇴고와 독자 확인; ## 12. 출처 장부.
 - Import checks cover file coverage, source hashes, schema, links, and retrieval. They do not prove reader response or a successful new manuscript application.
 
-- 2026-11-06 local application: [scoped manuscript review](../../records/fiction/R-FIC-N2-REFERENT-20261106.md), with before/after passages in [Novel_0](C:/Projects/Novel_0/novels/novel-2/manuscript/%EA%B2%80%ED%86%A0/2026-11-06-OneStep-%EC%9E%AC%EA%B2%80%EC%88%98.md). This verifies a bounded editorial use, not automatic prevention or a new experimental result.
+- 2026-11-06 local application: [scoped manuscript review](../../records/fiction/R-FIC-N2-REFERENT-20261106.md), with before/after passages in [Novel_0](../sources.md#src-novel0-n2-review-20261106). This verifies a bounded editorial use, not automatic prevention or a new experimental result.

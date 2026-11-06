@@ -45,10 +45,10 @@ Before writing, return the useful evidence, applicable conditions, scene decisio
 
 ## Evidence
 
-- Original Korean research: [source](C:/Projects/Novel_0/research/combat/%EC%9D%B8%EC%B2%B4-%EC%9B%80%EC%A7%81%EC%9E%84%EA%B3%BC-%EC%A0%84%ED%88%AC%EB%8F%99%EC%9E%91-%EC%83%9D%EC%B2%B4%EC%97%AD%ED%95%99.md). Read its topic-specific sections and source ledger when applying this entry.
+- Original Korean research: [source](../sources.md#src-novel0-body-motion). Read its topic-specific sections and source ledger when applying this entry.
 - Source research date: 2026-11-05; SHA-256 at transfer: `3c45bfd2f0ffd6a1e01e9b476f917941dbfebec8e2bfcdf2e0ddca5d3898d38d`.
 - Scope and opening conclusions were reviewed on 2026-11-05. The source's URL ledger and direct/abstract/index/secondary limitations remain at the original location; no external sources were reopened for this transfer. This is a retrieval synthesis, not a new scientific or historical finding.
 - Section locators: ## 1. 근거를 읽는 방법; ## 2. 작가가 먼저 고정할 여덟 가지; ## 3. 신체 부위와 움직임의 이름; ## 4. 균형: 발의 위치와 몸의 속도를 함께 본다; ## 5. 발디딤·감속·방향 전환; ## 6. 무기를 들거나 휘두를 때; ## 7. 발차기와 한 발 지지; ## 8. 도약·공중 동작·착지; ## 9. 일상 동작도 같은 방식으로 본다; ## 10. 인지·판단·동작 수정의 시간; ## 11. 자주 생기는 오류와 수정 방향; ## 12. 무협·판타지에 적용하는 경계; ## 13. 도판·영상·모션 자료를 보는 순서; ## 14. 출처 장부와 확인 수준.
 - Import checks cover file coverage, source hashes, schema, links, and retrieval. They do not prove reader response or a successful new manuscript application.
 
-- 2026-11-06 local application: [scoped manuscript review](../../records/fiction/R-FIC-N2-HAND-STATE-20261106.md), with before/after passages in [Novel_0](C:/Projects/Novel_0/novels/novel-2/manuscript/%EA%B2%80%ED%86%A0/2026-11-06-OneStep-%EC%9E%AC%EA%B2%80%EC%88%98.md). This verifies a bounded editorial use, not automatic prevention or a new experimental result.
+- 2026-11-06 local application: [scoped manuscript review](../../records/fiction/R-FIC-N2-HAND-STATE-20261106.md), with before/after passages in [Novel_0](../sources.md#src-novel0-n2-review-20261106). This verifies a bounded editorial use, not automatic prevention or a new experimental result.

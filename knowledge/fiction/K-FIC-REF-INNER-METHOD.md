@@ -39,7 +39,7 @@ Before writing, return the useful evidence, applicable conditions, scene decisio
 
 ## Evidence
 
-- Original Korean research: [source](C:/Projects/Novel_0/research/genres/%EB%AC%B4%ED%98%91-%EC%8B%AC%EB%B2%95%EC%9D%98-%EC%A0%95%EC%9D%98%EC%99%80-%EB%82%B4%EA%B3%B5%EC%8B%AC%EB%B2%95%EC%9D%98-%EB%B2%94%EC%9C%84.md). Read its topic-specific sections and source ledger when applying this entry.
+- Original Korean research: [source](../sources.md#src-novel0-inner-method). Read its topic-specific sections and source ledger when applying this entry.
 - Source research date: 2026-10-30; SHA-256 at transfer: `db37f6166f7f7fda3a66e9390a093184d58249998f81acd69dbf3914acd117f4`.
 - Scope and opening conclusions were reviewed on 2026-11-05. The source's URL ledger and direct/abstract/index/secondary limitations remain at the original location; no external sources were reopened for this transfer. This is a retrieval synthesis, not a new scientific or historical finding.
 - Section locators: ## 조사 결론; ## 1. 사전에서의 심법; ## 2. 실제 무술에서의 심법과 관련 배경; ## 3. 무협의 내공심법; ## 4. 무엇을 포함하는가; ## 5. 가까운 말과의 차이; ## 6. 공식 자료에서도 용례가 달라지는 사례; ## 7. 서유건의 심법을 논의하기 전의 정리; ## 출처와 확인 수준; ## 후속 조사.

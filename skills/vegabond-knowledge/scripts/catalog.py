@@ -118,6 +118,7 @@ class Catalogs:
         self.references = []
         self.written = []
         self.domains = []
+        self.source_registry = None
 
     def relative(self, path):
         return path.relative_to(self.project).as_posix()
@@ -172,6 +173,17 @@ class Catalogs:
         if not resolved.is_relative_to(self.project):
             self.issue("external_local_reference", source, "External local reference requires separate verification.", "warning")
             return None
+        if resolved == self.project / "knowledge/sources.md" and "#" in href:
+            from sources import SourceError, SourceRegistry
+            try:
+                if self.source_registry is None:
+                    self.source_registry = SourceRegistry(self.project)
+                    self.translation(self.source_registry.path)
+                ident, _ = self.source_registry.require(unquote(href.split("#", 1)[1]))
+                self.issue("source_unverified", source,
+                           f"{ident}: registration checked; resolve separately to check source access and identity.", "warning")
+            except SourceError as exc:
+                self.issue("source_reference", source, str(exc))
         return target
 
     def links(self, path, text):

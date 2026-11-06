@@ -65,6 +65,23 @@ class CatalogTests(unittest.TestCase):
         meta.update(changes)
         return self.detail(ident, domain=domain, store="records", **meta)
 
+    def test_registered_source_links_validate_identity_without_opening_external_content(self):
+        entry = self.detail()
+        registry = self.put("knowledge/sources.md", '---\nsources:\n  SRC-X:\n    project: external\n    path: proof.md\n    sha256: null\n---\n\n## SRC-X\n')
+        self.pair(registry)
+        original = entry.read_text(encoding="utf-8")
+        entry.write_text(original + '\n[proof](../sources.md#src-missing)\n', encoding="utf-8")
+        code, result = self.run_cli("build")
+        self.assertEqual(code, 1, result)
+        self.assertTrue(any(d["code"] == "source_reference" for d in result["diagnostics"]), result)
+        self.assertEqual(result["catalogs_written"], [])
+        entry.write_text(original + '\n[proof](../sources.md#src-x)\n', encoding="utf-8")
+        self.put("knowledge/sources.local.json", "invalid local config must not be read by catalogs")
+        code, result = self.run_cli("build")
+        self.assertEqual(code, 0, result)
+        self.assertTrue(any(d["code"] == "source_unverified" for d in result["diagnostics"]))
+        self.assertEqual(self.run_cli("check", "--strict")[0], 0)
+
     def test_bootstrap_builds_multiple_stores_without_index_stubs(self):
         self.domain("knowledge", "code")
         self.domain("records", "code")

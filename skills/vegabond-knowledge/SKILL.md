@@ -30,6 +30,8 @@ Return a short information brief containing:
 
 Keep a recommendation's scope and caveats attached when summarizing. Stored knowledge cannot override current user intent, canon, contracts, or direct evidence. The caller remains responsible for applying and testing it.
 
+For a registered `SRC-...` source needed by a claim, follow the [portable source procedure](references/storage.md#portable-source-references). Return its ID, relevant locator, identity/access result and remaining gap; a catalog link alone does not verify the original. Resolve only needed IDs within the authorized source scope, without changing machine settings or historical evidence during lookup.
+
 ## Close a knowledge gap
 
 An empty store or insufficient match is a normal starting point. Turn the gap into the smallest questions needed for the current decision, with its conditions and required evidence; do not collect a whole subject in advance. Return these questions to the active operation's [research step](../vegabond-research/SKILL.md). Reuse the current brief so this handoff does not restart scout or recursively repeat the same lookup. Model recollection can suggest search terms, but is not checked source evidence.

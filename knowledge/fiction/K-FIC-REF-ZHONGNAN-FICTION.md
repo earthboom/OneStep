@@ -39,7 +39,7 @@ Before writing, return the useful evidence, applicable conditions, scene decisio
 
 ## Evidence
 
-- Original Korean research: [source](C:/Projects/Novel_0/research/genres/%EC%A2%85%EB%82%A8%ED%8C%8C-%EC%9E%91%ED%92%88%EB%B3%84-%EB%AC%B4%EA%B3%B5%EA%B3%BC-%EC%A0%84%EC%8A%B9-%EC%A1%B0%EC%82%AC.md). Read its topic-specific sections and source ledger when applying this entry.
+- Original Korean research: [source](../sources.md#src-novel0-zhongnan-fiction). Read its topic-specific sections and source ledger when applying this entry.
 - Source research date: 2026-10-24; SHA-256 at transfer: `d03ec04c2ac33b8ad3f2d716e7385269777c1b9ac61f111fbc85a1f246269cb9`.
 - Scope and opening conclusions were reviewed on 2026-11-05. The source's URL ledger and direct/abstract/index/secondary limitations remain at the original location; no external sources were reopened for this transfer. This is a retrieval synthesis, not a new scientific or historical finding.
 - Section locators: ## 1. 조사 결과를 읽는 기준; ## 2. 작품별 개관; ## 3. 《군림천하》: 전승의 층위와 문파 수복; ## 4. 《화산귀환》: 기존 검학과 새 검학의 선택; ## 5. 김용 《신조협려》: 종남산과 문파를 구별하기; ## 6. 《도사강호》: 비전의 재해석과 연쇄 원리; ## 7. 《종남검성》과 《종남파 검신급 일대제자》: 추가 사례; ## 8. 자료 오염을 막기 위한 대조 기록; ## 9. 후속 무공 설계를 위한 비교 관점; ## 10. 출처 목록; ## 11. 조사 한계와 다음 확인 순서; ## 변경 이력.

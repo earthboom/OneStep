@@ -39,7 +39,7 @@ Before writing, return the useful evidence, applicable conditions, scene decisio
 
 ## Evidence
 
-- Original Korean research: [source](C:/Projects/Novel_0/research/genres/%EB%AC%B4%ED%98%91-%EC%9E%A5%EB%A5%B4-%EA%B3%B5%ED%86%B5-%ED%8B%80.md). Read its topic-specific sections and source ledger when applying this entry.
+- Original Korean research: [source](../sources.md#src-novel0-wuxia-framework). Read its topic-specific sections and source ledger when applying this entry.
 - Source research date: 2026-10-24; SHA-256 at transfer: `1b2fc8fe81cec3ff50297b0ece2ce56fb0659fb38b122ee657b1feba8bc5996e`.
 - Scope and opening conclusions were reviewed on 2026-11-05. The source's URL ledger and direct/abstract/index/secondary limitations remain at the original location; no external sources were reopened for this transfer. This is a retrieval synthesis, not a new scientific or historical finding.
 - Section locators: ## 이 문서의 용도와 한계; ## 한눈에 보는 기본 모델; ## 핵심 개념; ## 보편적인 사회 구성: 최소 작동 단위; ## 무공 체계의 기본 설계; ## 흔한 갈등 엔진과 인과 골격; ## 최소한의 지리·시간·경제 규칙; ## 빠른 창작용 기본 프레임; ## 장르 경계 메모; ## 조사 근거; ## 후속 조사 후보.

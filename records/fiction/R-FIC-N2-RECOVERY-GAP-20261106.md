@@ -49,10 +49,10 @@ Prevention state is proposed. The current correction or documented risk does not
 
 ## Evidence
 
-- [Local review and author-feedback history](C:/Projects/Novel_0/novels/novel-2/manuscript/%EA%B2%80%ED%86%A0/2026-11-06-OneStep-%EC%9E%AC%EA%B2%80%EC%88%98.md)
-- [Before](C:/Projects/Novel_0/novels/novel-2/manuscript/%EC%9D%B4%EC%A0%84%EB%B3%B8/2026-11-06-OneStep%EC%9E%AC%EA%B2%80%EC%88%98%EC%A0%84/003.md)
-- [Current](C:/Projects/Novel_0/novels/novel-2/manuscript/003.md)
-- [Premise F004/F015/F016 and unresolved table](C:/Projects/Novel_0/novels/novel-2/bible/%EC%9E%91%ED%92%88-%EA%B8%B0%EB%B3%B8%EA%B5%AC%EC%83%81.md)
-- [Possessed character F005 and unresolved table](C:/Projects/Novel_0/novels/novel-2/bible/%EB%B9%99%EC%9D%98%EC%9E%90.md)
+- [Local review and author-feedback history](../../knowledge/sources.md#src-novel0-n2-review-20261106)
+- [Before](../../knowledge/sources.md#src-novel0-n2-003-before-20261106)
+- [Current](../../knowledge/sources.md#src-novel0-n2-003-current)
+- [Premise F004/F015/F016 and unresolved table](../../knowledge/sources.md#src-novel0-n2-premise)
+- [Possessed character F005 and unresolved table](../../knowledge/sources.md#src-novel0-n2-possessed-character)
 
 Evidence check: actual local passages on 2026-11-06, not a new external-source investigation. User review and final manuscript acceptance remain distinct.

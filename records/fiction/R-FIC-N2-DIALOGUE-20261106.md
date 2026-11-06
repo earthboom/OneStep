@@ -47,12 +47,12 @@ Prevention state is proposed. The current correction or documented risk does not
 
 ## Evidence
 
-- [Local review and author-feedback history](C:/Projects/Novel_0/novels/novel-2/manuscript/%EA%B2%80%ED%86%A0/2026-11-06-OneStep-%EC%9E%AC%EA%B2%80%EC%88%98.md)
-- [Before](C:/Projects/Novel_0/novels/novel-2/manuscript/%EC%9D%B4%EC%A0%84%EB%B3%B8/2026-11-06-OneStep%EC%9E%AC%EA%B2%80%EC%88%98%EC%A0%84/003.md)
-- [Current](C:/Projects/Novel_0/novels/novel-2/manuscript/003.md)
-- [2026-11-05-동일화자대사수정전](C:/Projects/Novel_0/novels/novel-2/manuscript/%EC%9D%B4%EC%A0%84%EB%B3%B8/2026-11-05-%EB%8F%99%EC%9D%BC%ED%99%94%EC%9E%90%EB%8C%80%EC%82%AC%EC%88%98%EC%A0%95%EC%A0%84/003.md)
-- [2026-11-05-사형재회대사윤문전](C:/Projects/Novel_0/novels/novel-2/manuscript/%EC%9D%B4%EC%A0%84%EB%B3%B8/2026-11-05-%EC%82%AC%ED%98%95%EC%9E%AC%ED%9A%8C%EB%8C%80%EC%82%AC%EC%9C%A4%EB%AC%B8%EC%A0%84/003.md)
-- [2026-11-05-사형위로대사삭제전](C:/Projects/Novel_0/novels/novel-2/manuscript/%EC%9D%B4%EC%A0%84%EB%B3%B8/2026-11-05-%EC%82%AC%ED%98%95%EC%9C%84%EB%A1%9C%EB%8C%80%EC%82%AC%EC%82%AD%EC%A0%9C%EC%A0%84/003.md)
+- [Local review and author-feedback history](../../knowledge/sources.md#src-novel0-n2-review-20261106)
+- [Before](../../knowledge/sources.md#src-novel0-n2-003-before-20261106)
+- [Current](../../knowledge/sources.md#src-novel0-n2-003-current)
+- [2026-11-05-동일화자대사수정전](../../knowledge/sources.md#src-novel0-n2-003-before-speaker-20261105)
+- [2026-11-05-사형재회대사윤문전](../../knowledge/sources.md#src-novel0-n2-003-before-reunion-20261105)
+- [2026-11-05-사형위로대사삭제전](../../knowledge/sources.md#src-novel0-n2-003-before-reassurance-20261105)
 - [Applicable knowledge](../../knowledge/fiction/K-FIC-N2-DIALOGUE-CHOICE.md)
 
 Evidence check: actual local passages on 2026-11-06, not a new external-source investigation. User review and final manuscript acceptance remain distinct.

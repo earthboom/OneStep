@@ -38,7 +38,7 @@ Before writing, return the useful evidence, applicable conditions, scene decisio
 
 ## Evidence
 
-- Original Korean research: [source](C:/Projects/Novel_0/research/genres/%EB%AC%B4%ED%98%91-%EB%AC%B4%EA%B3%B5%EC%9D%98-%EB%AA%A9%EC%A0%81%EA%B3%BC-%EC%9D%B8%EA%B0%84%EC%B4%88%EC%9B%94-%EC%A1%B0%EC%82%AC.md). Read its topic-specific sections and source ledger when applying this entry.
+- Original Korean research: [source](../sources.md#src-novel0-transcendence). Read its topic-specific sections and source ledger when applying this entry.
 - Source research date: 2026-10-30; SHA-256 at transfer: `32b42f83c08270162fd75e18e12085937244a5065c9a12f04487b1a4a895e90d`.
 - Scope and opening conclusions were reviewed on 2026-11-05. The source's URL ledger and direct/abstract/index/secondary limitations remain at the original location; no external sources were reopened for this transfer. This is a retrieval synthesis, not a new scientific or historical finding.
 - Section locators: ## 조사 결론; ## 1. 인간 초월이라는 말의 네 가지 뜻; ## 2. 서로 다른 네 층의 목적; ## 3. 확인 자료와 사례; ## 4. 창작에 사용할 수 있는 정리; ## 5. `novel-2`에 적용하기 전의 구별; ## 6. 출처와 확인 수준; ## 7. 미확인·후속 조사.

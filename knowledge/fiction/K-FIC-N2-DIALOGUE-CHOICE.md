@@ -38,5 +38,5 @@ Identify who speaks, whether intervening action justifies a new paragraph, which
 ## Evidence
 
 - [Actual editorial history and recheck](../../records/fiction/R-FIC-N2-DIALOGUE-20261106.md).
-- [Owning style source](C:/Projects/Novel_0/style-guide.md); [Current 003](C:/Projects/Novel_0/novels/novel-2/manuscript/003.md); [Local before/after evidence and user instructions](C:/Projects/Novel_0/novels/novel-2/manuscript/%EA%B2%80%ED%86%A0/2026-11-06-OneStep-%EC%9E%AC%EA%B2%80%EC%88%98.md).
+- [Owning style source](../sources.md#src-novel0-style); [Current 003](../sources.md#src-novel0-n2-003-current); [Local before/after evidence and user instructions](../sources.md#src-novel0-n2-review-20261106).
 - Checked 2026-11-06 against preserved manuscript variants and the user's actual deletion request. This does not establish author acceptance of unrelated passages or measured prevention.

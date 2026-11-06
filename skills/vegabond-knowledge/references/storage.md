@@ -125,6 +125,26 @@ Save in this order: write canonical details and their translations; run `build`;
 
 Links outside the project and section-anchor accuracy require separate verification; the helper checks local file targets without loading referenced contents. It checks translation existence, not translation meaning or freshness. Generate every changed translation from English without reopening it. Diagnostics are bounded to the first 20 with total/error counts; narrow the selected domains to investigate larger result sets.
 
+### Portable source references
+
+For sources that live outside the working project, the [source registry](../../../knowledge/sources.md) separates stable identity from machine location. Its YAML `sources` mapping gives each `SRC-...` ID exactly `project` (a lowercase project ID), `path` (a forward-slash project-relative canonical path), and `sha256` (an existing lowercase digest or null). Each ID has an H2 heading for a normal local Markdown link. Keep passage/section locators and the evidence context in the referring entry. Preserve known fingerprints; never infer missing versions, update historical evidence dates, or certify a historical manuscript from a mutable current file.
+
+A source ID with a recorded digest identifies that content snapshot. Give a different evidentiary revision a new ID rather than repointing existing historical citations; relocate the same snapshot by changing only the local root when possible.
+
+Set local roots only in the Git-ignored `knowledge/sources.local.json`, for example `{"novel0": "D:/Writing/Novel_0"}`. Each value must be an absolute root explicitly configured for this task. This example is not a default location. Do not commit local settings, fabricate a root, search unrelated projects, or copy full source libraries to repair a missing mapping. Other working projects must likewise exclude their own local settings from Git.
+
+After following a registered source link, resolve only the IDs needed for the current claim with the [source helper](../scripts/sources.py):
+
+```text
+python skills/vegabond-knowledge/scripts/sources.py resolve --project . --id SRC-NOVEL0-ATTAINMENT
+```
+
+The command reads the selected original as bytes to compare SHA-256; run it only within authorized source scope. It never prints the content, reads translations, writes settings or entries, or promotes the observed hash automatically. It rejects traversal and resolved paths outside the configured root. A matching digest establishes content identity, not truth, applicability, source quality or author acceptance. Still inspect the relevant original sections when the claim requires that evidence.
+
+Exit 0 means `matched`; exit 1 means `unconfigured`, `missing`, `unavailable`, `mismatch`, or `unversioned`; exit 2 means invalid registry, ID, settings or path. `unversioned` means a file was found and hashed, but no expected digest exists. Keep these conditions and their impact in the information brief; a required inaccessible or identity-uncertain source blocks the dependent check. Existing conditional guidance may still inform independent work. Machine-specific availability is not an incident's resolution or prevention state.
+
+Catalog build/check validates links to registry IDs and registry translation existence, then emits `source_unverified`: it does not load local settings or original content. Thus linking a registry cannot silently make external evidence verified. Unknown IDs or malformed registries stop catalog writes. Ordinary lookup resolves only the relevant IDs rather than scanning every source. Add or edit registry data and its human translation together, without rereading translations. The current Novel_0 references use this registry; any other external references retain their existing warnings.
+
 Legacy prose entries remain usable: preserve existing catalog rows and their conditions under an explicitly unverified Legacy entries section; unindexed legacy files get an unknown-metadata pointer. Do not infer IDs, dates, rules or states. Migrate a legacy entry during authorized maintenance, preserving its path/ID/evidence, then rebuild. Default runs warn; `--strict` treats legacy entries as errors for scopes already normalized. New or changed entries must use the header even if older neighbors remain legacy. Strict checking is not permission to rewrite historical evidence or all unrelated files.
 
 ## Capture, consolidate, and promote

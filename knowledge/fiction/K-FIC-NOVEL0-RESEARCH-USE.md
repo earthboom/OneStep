@@ -36,9 +36,9 @@ For a gate-defense scene, start with blocking, body motion, and scene staging; r
 
 ## Applicability and exceptions
 
-This is the user's requested Novel_0 configuration, not a global requirement for unrelated projects. OneStep remains at `C:/Projects/OneStep`; original research remains authoritative for its citations and verification limits at `C:/Projects/Novel_0/research`. The library stores bounded retrieval syntheses rather than competing canon or duplicated reports. Research suggestions, primary evidence, secondary leads, and fictional additions remain distinct. The later martial-ends research corrects the earlier transcendence question; it does not erase that earlier report.
+This is the user's requested Novel_0 configuration, not a global requirement for unrelated projects. Resolve OneStep methods from the configured store and the original research through the registered `novel0` project root. Original research remains authoritative for its citations and verification limits. The library stores bounded retrieval syntheses rather than competing canon or duplicated reports. Research suggestions, primary evidence, secondary leads, and fictional additions remain distinct. The later martial-ends research corrects the earlier transcendence question; it does not erase that earlier report.
 
-Reread `C:/Projects/Novel_0/style-guide.md` before each manuscript-writing task. Do not read any `*.kr.md`, including translations of these entries and catalogs. Use current source hashes and refresh on changes; links depend on the configured local paths. External URLs were not revalidated in this transfer.
+Resolve `SRC-NOVEL0-STYLE` and reread the original style guide before each manuscript-writing task. Do not read any `*.kr.md`, including translations of these entries and catalogs. Use current source hashes and refresh on changes; source IDs resolve through machine-local roots; registration alone does not verify source access or identity. External URLs were not revalidated in this transfer.
 
 ## Checks
 
@@ -52,7 +52,7 @@ Reread `C:/Projects/Novel_0/style-guide.md` before each manuscript-writing task.
 ## Evidence
 
 - The user requested transfer of existing research and future knowledge-driven writing on 2026-11-05.
-- [Research routing source](C:/Projects/Novel_0/research/README.md), [project instructions](C:/Projects/Novel_0/AGENTS.md), [author style source](C:/Projects/Novel_0/style-guide.md).
+- [Research routing source](../sources.md#src-novel0-research-index), [project instructions](../sources.md#src-novel0-project-instructions), [author style source](../sources.md#src-novel0-style).
 - OneStep methods: [Scout](../../skills/vegabond-scout/SKILL.md), [Create](../../skills/vegabond-create/SKILL.md), [Revise](../../skills/vegabond-revise/SKILL.md), [Fiction](../../skills/vegabond-fiction/SKILL.md), [Knowledge](../../skills/vegabond-knowledge/SKILL.md). These paths apply in the destination OneStep store.
 - Coverage: 16 research reports plus the existing research routing README. The following entries retain original paths, source dates, SHA-256 fingerprints, section locators, and limits of verification.
 

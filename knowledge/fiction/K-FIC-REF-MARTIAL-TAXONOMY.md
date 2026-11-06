@@ -41,7 +41,7 @@ Before writing, return the useful evidence, applicable conditions, scene decisio
 
 ## Evidence
 
-- Original Korean research: [source](C:/Projects/Novel_0/research/genres/%EB%AC%B4%ED%98%91-%EB%AC%B4%EA%B3%B5-%EA%B0%9C%EB%85%90%EA%B3%BC-%EA%B2%BD%EC%A7%80.md). Read its topic-specific sections and source ledger when applying this entry.
+- Original Korean research: [source](../sources.md#src-novel0-martial-taxonomy). Read its topic-specific sections and source ledger when applying this entry.
 - Source research date: 2026-10-24; SHA-256 at transfer: `bb5847c9af59c525759dfdca7789a730ab536473359559ab57559745321286d6`.
 - Scope and opening conclusions were reviewed on 2026-11-05. The source's URL ledger and direct/abstract/index/secondary limitations remain at the original location; no external sources were reopened for this transfer. This is a retrieval synthesis, not a new scientific or historical finding.
 - Section locators: ## 빠른 참조; ## 1. 자료의 증거 수준; ## 2. 무공의 큰 분류; ## 3. 심법·심공·신공의 관계; ## 4. 경공·경신법·신법·보법; ## 5. 검술·검법·검공은 무엇이 다른가; ## 6. 무공 수준을 읽는 네 가지 기준; ## 7. 한국 무협의 단계형 경지 배열; ## 8. 경지와 혼동하기 쉬운 능력·수련 현상; ## 9. 내공량과 숙련도의 표현; ## 10. 작품에 도입할 때 결정할 항목; ## 출처와 확인 범위; ## 후속 조사와 변경 이력.

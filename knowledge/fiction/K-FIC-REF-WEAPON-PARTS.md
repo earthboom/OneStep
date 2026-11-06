@@ -41,7 +41,7 @@ Before writing, return the useful evidence, applicable conditions, scene decisio
 
 ## Evidence
 
-- Original Korean research: [source](C:/Projects/Novel_0/research/weapons/%EB%AC%B4%ED%98%91-%EB%B3%91%EA%B8%B0-%EB%B6%80%EC%9C%84-%EB%AA%85%EC%B9%AD.md). Read its topic-specific sections and source ledger when applying this entry.
+- Original Korean research: [source](../sources.md#src-novel0-weapon-parts). Read its topic-specific sections and source ledger when applying this entry.
 - Source research date: 2026-10-24; SHA-256 at transfer: `72502d6f95f56305187e49ab866c91cba0662ebaa63665100e80bb8baae91019`.
 - Scope and opening conclusions were reviewed on 2026-11-05. The source's URL ledger and direct/abstract/index/secondary limitations remain at the original location; no external sources were reopened for this transfer. This is a retrieval synthesis, not a new scientific or historical finding.
 - Section locators: ## 먼저: ‘공식 명칭’의 범위; ## 공통 방향 기준; ## 1. 검(劍, jiàn): 곧고 양날인 칼; ## 2. 도(刀, dāo): 외날의 칼; ## 3. 창·모(槍·矛): 찌르는 장병기; ## 4. 활과 화살; ## 5. 도끼·월(斧·鉞); ## 6. 극·과(戟·戈): 고대식 복합 장병기; ## 7. 곤봉·봉·편·추: 이름보다 형식부터 확인할 무기; ## 원고 표기 권장안; ## 검증 가능한 조사 근거; ## 다음 수집 범위.
