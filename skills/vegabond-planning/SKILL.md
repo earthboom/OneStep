@@ -9,24 +9,22 @@ Provide planning-document methods for the active operation. Reuse its brief and 
 
 ## Execute
 
-Identify the decision or action the document must enable. Examine existing evidence, stakeholder requirements, and resource constraints. Choose sections that support that decision rather than imposing a large template. For a formatted document or deck, use the corresponding artifact skill in addition to this content method.
+Ground the decision in who experiences the problem, when it occurs, its significance, and the available evidence. Distinguish beneficiary needs, stakeholder preferences, and a requested solution. Reuse the brief's goals, scope, constraints, and information from [knowledge](../vegabond-knowledge/SKILL.md); choose sections that support the decision.
 
-Use [vegabond-knowledge](../vegabond-knowledge/SKILL.md) for relevant planning methods, project constraints, and prior feasibility or measurement failures, reusing the active information brief.
+- **Create:** Connect the problem to intended outcomes and a feasible approach. For a consequential choice, compare relevant alternatives, including the status quo or minimal change when viable, under common criteria. Link critical assumptions to evidence, a proportionate validation method, and the decision affected by failure.
+- **Revise:** Repair the premise, choice, dependency, measure, or commitment preventing a useful decision; propagate its consequences while preserving agreed scope.
+- **Research:** Compare options or audit a plan against stated criteria. Separate facts, assumptions, and recommendations; cite evidence and return findings without unauthorized edits.
 
-- **Create:** Connect the problem and evidence to goals, scope, proposed approach, and success measures. Compare meaningful alternatives when a choice needs justification. Make execution credible with relevant dependencies, resources, responsibilities, risks, and timing. Label estimates, suggested owners, and proposed commitments as proposals rather than established agreements.
-- **Revise:** Find the gap that prevents the current document from supporting its decision: an unsupported premise, unclear goal, infeasible dependency, missing measure, or inconsistent commitment. Repair that gap and propagate its consequences through the affected sections while preserving agreed scope.
-- **Research:** Compare options or audit an existing plan against the stated criteria. Separate source facts, assumptions, and recommendations; cite the supporting sections or sources. Return findings without rewriting the source plan unless editing is authorized.
+Before relying on a consequential planning choice or handing back the result, apply the relevant sections of [planning review](references/review.md). It owns detailed checks for problem evidence, alternatives, assumptions, feasibility, measurement, and decision communication. Small, well-supported changes need only the affected checks; use the existing brief or document rather than a mandatory template.
 
-## Verify
+## Verify and return
 
-Trace the problem to the proposed approach and the intended outcome. Check that scope, resources, responsibilities, dependencies, and timing describe a feasible sequence rather than conflicting promises. Recalculate material totals, rates, budgets, and estimates, keeping units and assumptions explicit.
+Read the final plan against its evidence and preservation conditions. Recalculate material estimates and check that scope, capacity, responsibilities, dependencies, and timing agree. Mark estimated costs, suggested owners, targets, and commitments as proposals when unconfirmed. Distinguish document consistency from demonstrated feasibility and measured outcomes; keep unresolved premises attached to dependent decisions.
 
-Make success measures assessable: use the relevant baseline, target, measurement method, time window, and, for rates, numerator and denominator. Flag unknowns and proposed targets instead of inventing evidence. Examine the assumptions whose failure would change the recommendation and explain their consequences.
-
-Read the final document for agreement between its summary, rationale, execution details, and measures. For formatted artifacts, inspect the final layout through the applicable document or presentation skill. A presentation of the plan also needs presentation-specific visual checks.
+Lead with the recommendation, reason, costs and tradeoffs, important conditions, and next decision or action. Keep supporting evidence and validation details available below it. For a formatted document or deck, use the corresponding artifact skill and inspect the final layout; a presentation also needs presentation-specific checks.
 
 ## Correct
 
-Resolve the most consequential unsupported or infeasible premise first. Update the dependent scope, estimates, sequence, risks, and measures together, then repeat the relevant feasibility and consistency checks. Keep unresolved dependencies visible as conditions on the recommendation. Return the plan or requested analysis with the decision rationale, validated calculations, and remaining assumptions.
+Repair the most consequential unsupported or infeasible premise first. Update affected choices, scope, estimates, sequence, risks, and measures together, then repeat invalidated checks. Preserve valid decisions and expose unresolved dependencies.
 
-Supply confirmed planning problems, corrected calculations or dependencies, recheck evidence, and reusable decision checks to vegabond-knowledge for authorized record updates.
+Return confirmed problems, corrections, recheck evidence, and reusable decision checks to knowledge for authorized storage.
