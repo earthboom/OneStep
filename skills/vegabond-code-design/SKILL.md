@@ -18,6 +18,6 @@ If invoked directly, fill only missing context through [scout's shared setup](..
 
 ## Return the decision
 
-Put the outcome in the existing brief or requested design artifact: chosen shape and ownership, interfaces and failure behavior, key reason/tradeoff, affected implementation or migration units, checks, and open assumptions or blockers. Use a small table or diagram only when it clarifies the relationships. No mandatory new file, approval checkpoint, or fixed template is needed.
+Apply the [shared reader-facing design guidance](../../agents/references/design-communication.md) when composing and handing back the result. Explain observable behavior and important failure cases before introducing types, storage fields or transaction details. Then connect the chosen shape/ownership, interfaces, implementation or migration units, evidence and checks to the decisions they support.
 
 State which guarantees the design supports, which implementation checks remain, and which unresolved premises block named dependent work. A useful partial proposal is not a satisfied guarantee. The caller applies [code's verification procedure](../vegabond-code/references/verification.md) to the actual implementation and returns here only when evidence changes a design decision. Preserve valid context rather than redesigning everything after each failure.
