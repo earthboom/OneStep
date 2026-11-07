@@ -32,7 +32,7 @@ Return a short information brief containing:
 
 Keep a recommendation's scope and caveats attached when summarizing. Stored knowledge cannot override current user intent, canon, contracts, or direct evidence. The caller remains responsible for applying and testing it.
 
-For a registered `SRC-...` source needed by a claim, follow the [portable source procedure](references/storage.md#portable-source-references). Return its ID, relevant locator, identity/access result and remaining gap; a catalog link alone does not verify the original. Resolve only needed IDs within the authorized source scope, without changing machine settings or historical evidence during lookup.
+For a registered `SRC-...` source needed by a claim, follow the [portable source procedure](references/storage.md#portable-source-references). Return each requested ID, relevant locator, separate access/identity state and remaining gap; reconcile requested and returned IDs. Search marks originals unverified until explicitly checked. Resolve only needed IDs within the authorized source scope, without changing machine settings or historical evidence during lookup.
 
 ## Close a knowledge gap
 

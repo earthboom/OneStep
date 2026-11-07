@@ -37,6 +37,8 @@ Pass the working project, actual decision/questions, relevance, applicable conte
 
 Knowledge returns candidates with original locators, conditions, conflicts, evidence/prevention states and gaps. It may expose a missing premise or prerequisite. The consuming specialist decides applicability and verifies the result; neither the search score nor the knowledge summary certifies whole-task sufficiency. Missing context stays unknown, and related/derived entries do not become independent corroboration.
 
+Keep original access, content identity and claim verification separate. An entry's date/hash is not a fresh original-source check. For registered sources, reconcile every requested ID with a returned outcome, including unavailable or invalid IDs. Before asking for an unconfigured project root, reuse an already authorized path in the task or known project metadata; do not guess or search unrelated directories. Use a temporary root for this lookup unless persistent configuration was requested. Accessible unversioned originals may support a current reading, but cannot certify a historical revision; preserve that limit in the brief and final verification.
+
 ## Decide what may govern the action
 
 For material candidates, compare the actual task with the source's project/work, version/revision/time, actors, mechanism, constraints and demonstrated evidence. Inspect the relevant original where the claim requires it. Apply the owning source's authority for the particular question: current user direction, project contracts/canon, factual evidence, preferences and provisional proposals have different roles. Recency, number of agreeing summaries or an `active` label does not settle authority.

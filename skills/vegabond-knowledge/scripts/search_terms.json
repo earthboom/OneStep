@@ -23,7 +23,8 @@
     ["대사", "dialogue"],
     ["동일 화자", "same-speaker"],
     ["현지화", "localization"],
-    ["부트스트랩", "bootstrap", "first-build"]
+    ["카탈로그", "지식 목록", "지식목록", "catalog", "catalogs"],
+    ["부트스트랩", "최초 생성", "첫 생성", "처음 생성", "처음 만드는", "bootstrap", "first-build", "initial build"]
   ],
   "stopwords": ["a", "an", "the", "and", "or", "to", "of", "for", "in", "is", "how", "what", "should", "can", "with", "대한", "대해", "어떻게", "정보", "찾아", "찾아줘", "알려줘", "할까", "하는", "할", "때", "것", "있나", "해줘", "위한"]
 }

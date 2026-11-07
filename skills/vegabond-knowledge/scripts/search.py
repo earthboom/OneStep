@@ -7,6 +7,7 @@ external originals, or generated catalogs. No network, model, or vector service.
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import hashlib
 import json
 import os
@@ -16,12 +17,15 @@ import sys
 import tempfile
 import time
 import unicodedata
+from urllib.parse import unquote, urlsplit
 
 # A read-only CLI must not create local/dependency bytecode on first import.
 sys.dont_write_bytecode = True
 
-from catalog import Catalogs, human_file, yaml
+from catalog import Catalogs, human_file, yaml, LINK, visible_markdown
 from relations import relation_edges, validate_relations
+if yaml is not None:
+    from sources import SourceRegistry, SourceError, parse_roots
 
 
 CACHE = Path(".cache/onestep/search-v1.json")
@@ -132,7 +136,7 @@ def load_index(project, *, no_cache=False, refresh=False):
     project = project.resolve()
     cache_path = project / CACHE
     signature = hashlib.sha256(b"".join((HERE / n).read_bytes() for n in (
-        "search.py", "catalog.py", "relations.py", "search_terms.json"))).hexdigest()
+        "search.py", "catalog.py", "relations.py", "sources.py", "search_terms.json"))).hexdigest()
     cached = {}
     cache_warning = None
     if not no_cache and cache_path.exists():
@@ -227,6 +231,68 @@ def compact(doc, caveats=()):
         if name in meta:
             result[name] = meta[name]
     return result
+
+
+def registered_ids(project, doc):
+    """Only actual links to this project's registry are source requests."""
+    ids = []
+    for href in LINK.findall(visible_markdown(doc["body"])):
+        href = href.strip()
+        href = href[1:href.find(">")] if href.startswith("<") else re.split(r"\s+[\"']", href, maxsplit=1)[0]
+        parsed = urlsplit(href)
+        if parsed.scheme or not parsed.fragment:
+            continue
+        target = (project / doc["path"]).parent / unquote(parsed.path)
+        if target.resolve() == project / "knowledge/sources.md":
+            ident = unquote(parsed.fragment).upper()
+            if ident not in ids:
+                ids.append(ident)
+    return ids
+
+
+def annotate_sources(project, documents, result, *, verify=False, roots=None):
+    """Describe returned references; open only explicitly requested originals.
+
+    Results are never cached: an unchanged entry cannot hide a changed original.
+    """
+    project = project.resolve()
+    by_id = {d["meta"]["id"].casefold(): d for d in documents}
+    hits = result.get("results", []) + result.get("related", [])
+    if result.get("relations"):
+        hits += result["relations"]["related"]
+    registry, registry_error, outcomes = None, None, {}
+    for hit in hits:
+        ids = registered_ids(project, by_id[hit["id"].casefold()])
+        hit["evidence_notice"] = "checked_at is a recorded evidence date; sha256 identifies the entry, not live original-source verification. Other Evidence still needs review."
+        checks = []
+        for ident in ids:
+            if ident not in outcomes:
+                try:
+                    if registry is None and registry_error is None:
+                        try:
+                            registry = SourceRegistry(project)
+                        except SourceError as exc:
+                            registry_error = str(exc)
+                    if registry_error is not None:
+                        raise SourceError(registry_error)
+                    outcomes[ident] = registry.resolve(ident, roots) if verify else registry.describe(ident)
+                except SourceError as exc:
+                    outcomes[ident] = dict(ok=False, source_id=ident, status="invalid", access_status="not_checked",
+                                           identity_status="not_checked", message=str(exc))
+            checks.append(outcomes[ident])
+        hit["source_checks"] = checks
+        if checks:
+            states = ", ".join(f"{r['source_id']}: {r['status']}" for r in checks)
+            if not verify:
+                hit["caveats"].append("Registered originals not checked; access and identity remain unverified. " + states)
+            elif any(not r["ok"] for r in checks):
+                hit["caveats"].append("Original-source verification is incomplete. " + states)
+    values = list(outcomes.values())
+    return dict(requested=verify, source_ids=list(outcomes), completed=len(values) if verify else 0,
+                checked=sum(r["access_status"] == "available" for r in values),
+                ok=all(r["ok"] for r in values) if verify and values else None,
+                statuses=dict(Counter(r["status"] for r in values)),
+                scope="Returned linked registry IDs only; no automatic web verification or historical-date updates.")
 
 
 def context_filters(values):
@@ -380,6 +446,8 @@ def main():
     parser.add_argument("--no-cache", action="store_true")
     parser.add_argument("--refresh", action="store_true")
     parser.add_argument("--cases", type=Path)
+    parser.add_argument("--verify-sources", action="store_true", help="Check linked registered originals for returned hits")
+    parser.add_argument("--source-root", action="append", default=[], help="Authorized project=absolute-path for this call")
     args = parser.parse_args()
     try:
         if yaml is None:
@@ -396,6 +464,11 @@ def main():
             raise ValueError("related requires --id")
         if args.command == "evaluate" and args.cases is None:
             raise ValueError("evaluate requires --cases")
+        if args.command == "evaluate" and (args.verify_sources or args.source_root):
+            raise ValueError("Source checks apply to search/related, not ranking evaluation")
+        if args.source_root and not args.verify_sources:
+            raise ValueError("--source-root requires --verify-sources")
+        roots = parse_roots(args.source_root)
         filters = context_filters(args.context)
         started = time.perf_counter()
         documents, stats = load_index(args.project, no_cache=args.no_cache, refresh=args.refresh)
@@ -412,9 +485,16 @@ def main():
                 raise ValueError("human translations are not evaluation inputs")
             result = evaluate(documents, json.loads(args.cases.read_text(encoding="utf-8"))["cases"])
         passed = args.command != "evaluate" or result["passed"] == result["total"]
+        invalid_source = False
+        if args.command != "evaluate":
+            verification = annotate_sources(args.project, documents, result, verify=args.verify_sources, roots=roots)
+            result["source_verification"] = verification
+            result["retrieval_ok"] = True
+            invalid_source = verification["statuses"].get("invalid", 0) > 0
+            passed = not invalid_source and verification["ok"] is not False
         print(json.dumps(dict(ok=passed, command=args.command, index=stats,
                               elapsed_ms=round((time.perf_counter() - started) * 1000, 3), **result), ensure_ascii=True, indent=2))
-        return 0 if passed else 1
+        return 2 if invalid_source else (0 if passed else 1)
     except (OSError, UnicodeError, ValueError, KeyError, TypeError) as exc:
         print(json.dumps(dict(ok=False, error=str(exc)), ensure_ascii=True))
         return 2

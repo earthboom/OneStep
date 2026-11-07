@@ -46,6 +46,62 @@ class SourceTests(unittest.TestCase):
         self.assertTrue(run.stdout, run.stderr)
         return run.returncode, json.loads(run.stdout)
 
+    def batch(self, ids, *extra):
+        args = [sys.executable, "-B", "-X", "utf8", str(SCRIPT), "resolve", "--project", str(self.project)]
+        for ident in ids:
+            args += ["--id", ident]
+        run = subprocess.run(args + list(extra), capture_output=True, text=True, encoding="utf-8", timeout=15)
+        self.assertTrue(run.stdout, run.stderr)
+        return run.returncode, json.loads(run.stdout)
+
+    def test_multiple_ids_report_every_result_and_separate_access_from_identity(self):
+        root = self.base / "originals"
+        self.put(root / "research/근거.md", self.content)
+        self.put(root / "before.md", "Current unversioned text")
+        registry = (self.project / "knowledge/sources.md").read_bytes()
+        code, result = self.batch(["SRC-RESEARCH", "SRC-BEFORE"], "--root", f"sample={root}")
+        self.assertEqual(code, 1, result)
+        self.assertEqual(result["requested_ids"], ["SRC-RESEARCH", "SRC-BEFORE"])
+        self.assertEqual([x["source_id"] for x in result["results"]], result["requested_ids"])
+        self.assertEqual([x["status"] for x in result["results"]], ["matched", "unversioned"])
+        self.assertEqual([x["access_status"] for x in result["results"]], ["available", "available"])
+        self.assertFalse(result["ok"])
+        self.assertEqual(result["completed"], 2)
+        self.assertFalse((self.project / "knowledge/sources.local.json").exists())
+        self.assertEqual((self.project / "knowledge/sources.md").read_bytes(), registry)
+
+    def test_invalid_middle_id_does_not_hide_other_results(self):
+        root = self.base / "originals"
+        self.put(root / "research/근거.md", self.content)
+        self.put(root / "before.md", "Unversioned")
+        ids = ["SRC-RESEARCH", "SRC-UNKNOWN", "SRC-BEFORE"]
+        code, result = self.batch(ids, "--root", f"sample={root}")
+        self.assertEqual(code, 2, result)
+        self.assertEqual([x["source_id"] for x in result["results"]], ids)
+        self.assertEqual([x["status"] for x in result["results"]], ["matched", "invalid", "unversioned"])
+        self.assertEqual(result["completed"], 3)
+
+    def test_single_id_keeps_shape_and_explicit_root_overrides_unused_settings(self):
+        root = self.base / "authorized originals"
+        self.put(root / "research/근거.md", self.content)
+        settings = self.put(self.project / "knowledge/sources.local.json", "not json")
+        code, result = self.batch(["SRC-RESEARCH"], "--root", f"sample={root}")
+        self.assertEqual((code, result["source_id"], result["status"]), (0, "SRC-RESEARCH", "matched"))
+        self.assertEqual(result["root_source"], "argument")
+        self.assertEqual(result["access_status"], "available")
+        self.assertEqual(result["identity_status"], "matched")
+        self.assertNotIn("results", result)
+        self.assertEqual(settings.read_text(encoding="utf-8"), "not json")
+
+    def test_duplicate_ids_and_conflicting_roots_are_explicitly_invalid(self):
+        code, result = self.batch(["SRC-RESEARCH", "src-research"])
+        self.assertEqual((code, result["status"]), (2, "invalid"))
+        self.assertIn("duplicate", result["message"].lower())
+        code, result = self.batch(["SRC-RESEARCH"], "--root", "sample=relative")
+        self.assertEqual((code, result["status"]), (2, "invalid"))
+        code, result = self.batch(["SRC-RESEARCH"], "--root", f"sample={self.base}", "--root", f"sample={self.project}")
+        self.assertEqual((code, result["status"]), (2, "invalid"))
+
     def test_relocation_changes_only_machine_root_and_preserves_evidence(self):
         original = (self.project / "knowledge/sources.md").read_bytes()
         root_a = self.base / "original source"

@@ -12,7 +12,7 @@ The goal was to find relevant incidents before work from triggering conditions a
 - Explicit unknowns and legacy warnings preserve missing information rather than inventing it. Record-only fields keep ordinary knowledge entries lightweight. The current [record fields and legacy rules](../../skills/vegabond-knowledge/references/storage.md#problem-retrieval-fields) are defined in one place.
 - Resolved incidents remain searchable; superseded provenance remains available. A symptom match alone cannot establish a shared cause, and uncertain compatibility should remain visible rather than silently disappear.
 - A recurrence can mean a check was not run, was insufficient, or became invalid under changed conditions. Those outcomes have different implications; linking concise evidence avoids duplicating long logs.
-- The helper reads canonical English entry metadata and checks visible local-reference targets for existence, but does not load referenced contents, rewrite canonical details, or load human translations. Structural validation cannot determine whether a diagnosis or safeguard is true.
+- The catalog helper reads canonical English entry metadata, explicitly related canonical entries, and internal source-registry metadata. It checks other visible local-reference targets for existence. It does not read external originals or local root settings, rewrite canonical details, or load human translations. Structural validation cannot determine whether a diagnosis or safeguard is true.
 
 ## Original implementation and evidence
 

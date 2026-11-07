@@ -1,6 +1,7 @@
 """Consumer-level retrieval checks; expected IDs are independent of ranking code."""
 
 import json
+import hashlib
 import os
 from pathlib import Path
 import shutil
@@ -66,6 +67,65 @@ class SearchTests(unittest.TestCase):
         self.assertEqual(result["results"][0]["id"], "R-SHUTDOWN")
         self.assertEqual(result["results"][0]["status"], "resolved")
         self.assertEqual(result["results"][0]["prevention_status"], "proposed")
+
+    def test_korean_first_catalog_action_finds_english_incident(self):
+        self.detail("R-BOOT", store="records", title="First build rejected future catalogs",
+                    keywords=["bootstrap", "first-build", "catalog-planning"],
+                    trigger="First build with root routing links to not-yet-generated catalogs")
+        result = self.cli("search", "--query", "새 프로젝트 지식 카탈로그 최초 생성", "--store", "records")
+        self.assertEqual(result["results"][0]["id"], "R-BOOT")
+
+    def test_missing_yaml_keeps_structured_dependency_error(self):
+        run = subprocess.run([sys.executable, "-S", "-B", str(SCRIPT), "search", "--project", str(self.root),
+                              "--query", "resource"], capture_output=True, text=True, encoding="utf-8", timeout=30)
+        self.assertEqual(run.returncode, 2)
+        self.assertIn("PyYAML is required", json.loads(run.stdout)["error"])
+        self.assertNotIn("Traceback", run.stderr)
+
+    def registered_source(self, expected=True):
+        original = self.root / "originals/proof.md"
+        original.parent.mkdir(parents=True, exist_ok=True)
+        original.write_bytes(b"Authoritative original\n")
+        data = {"sources": {"SRC-PROOF": {"project": "sample", "path": "proof.md",
+                          "sha256": hashlib.sha256(original.read_bytes()).hexdigest() if expected else None}}}
+        registry = self.root / "knowledge/sources.md"
+        registry.parent.mkdir(parents=True, exist_ok=True)
+        registry.write_text("---\n" + json.dumps(data) + "\n---\n\n## SRC-PROOF\n", encoding="utf-8")
+        registry.with_name("sources.kr.md").write_bytes(b"\xff\xfe")
+        self.detail("K-PROOF", body="Review retention. [Original](../sources.md#src-proof)")
+        return original
+
+    def test_search_marks_registered_originals_unchecked_without_reading_settings(self):
+        self.registered_source()
+        (self.root / "knowledge/sources.local.json").write_text("broken settings must not be read", encoding="utf-8")
+        hit = self.cli("search", "--query", "retention")["results"][0]
+        self.assertEqual(hit["source_checks"][0]["source_id"], "SRC-PROOF")
+        self.assertEqual(hit["source_checks"][0]["status"], "not_checked")
+        self.assertIn("not checked", " ".join(hit["caveats"]).lower())
+        self.assertNotIn("observed_sha256", hit["source_checks"][0])
+
+    def test_explicit_selected_source_check_is_fresh_even_with_warm_index(self):
+        original = self.registered_source()
+        args = ["--query", "retention", "--verify-sources", "--source-root", f"sample={original.parent}"]
+        first = self.cli("search", *args)
+        self.assertEqual(first["results"][0]["source_checks"][0]["status"], "matched")
+        self.assertEqual(first["source_verification"]["checked"], 1)
+        original.write_bytes(b"Changed original\n")
+        second = self.cli("search", *args, expected=1)
+        self.assertTrue(second["retrieval_ok"])
+        self.assertFalse(second["source_verification"]["ok"])
+        self.assertEqual(second["index"]["read_files"], 0)
+        self.assertEqual(second["results"][0]["source_checks"][0]["status"], "mismatch")
+        self.assertFalse((self.root / "knowledge/sources.local.json").exists())
+
+    def test_source_check_distinguishes_unconfigured_from_accessible_unversioned(self):
+        original = self.registered_source(expected=False)
+        missing = self.cli("search", "--query", "retention", "--verify-sources", expected=1)
+        self.assertEqual(missing["results"][0]["source_checks"][0]["status"], "unconfigured")
+        live = self.cli("search", "--query", "retention", "--verify-sources", "--source-root", f"sample={original.parent}", expected=1)
+        check = live["results"][0]["source_checks"][0]
+        self.assertEqual((check["status"], check["access_status"]), ("unversioned", "available"))
+        self.assertIsNone(check["expected_sha256"])
 
     def test_filters_keep_unknown_context_but_exclude_known_incompatibility(self):
         self.detail("K-58", keywords=["ownership"], context={"engine": "UE 5.8"})
@@ -232,7 +292,7 @@ class SearchTests(unittest.TestCase):
         self.detail("K-ONE", keywords=["alpha"])
         tool = self.root / "tool"
         tool.mkdir()
-        for name in ("search.py", "catalog.py", "relations.py", "search_terms.json"):
+        for name in ("search.py", "catalog.py", "relations.py", "sources.py", "search_terms.json"):
             shutil.copyfile(SCRIPTS / name, tool / name)
         run = subprocess.run([sys.executable, str(tool / "search.py"), "search", "--project", str(self.root),
                               "--query", "alpha", "--no-cache"], capture_output=True, text=True, encoding="utf-8")

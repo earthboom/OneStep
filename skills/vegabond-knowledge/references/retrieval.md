@@ -22,6 +22,22 @@ Use `--offset N` to page primary search or `related` results beyond a result lim
 
 Relationship pages retain traversed edges touching a returned candidate, even when the other endpoint ID is on another page. This preserves conflict and prerequisite types across page boundaries; retrieve an off-page endpoint by ID when necessary.
 
+## Original-source state
+
+Every returned primary or related hit includes an `evidence_notice`: its `checked_at` is a recorded evidence date and its `sha256` identifies the local entry, not a fresh original-source check. For actual links to the internal source registry, `source_checks` lists each source ID with separate `access_status` and `identity_status`. Ordinary search describes them as `not_checked` and adds a caveat; it reads registry metadata, without opening external originals or machine root settings. Other evidence links still require appropriate review.
+
+When original identity matters and access is authorized, explicitly check the registered IDs linked by the returned page:
+
+```text
+python skills/vegabond-knowledge/scripts/search.py search --project . --query "bandaging occupied hands" --domain fiction --verify-sources --source-root novel0=C:/Projects/Novel_0 --no-cache
+```
+
+The root above is an example, not a default. Reuse a confirmed task path or known project metadata; otherwise ask for the needed root. Repeat `--source-root project=absolute-path` for distinct projects; it requires `--verify-sources` and applies only to this call. It overrides that project's persistent mapping without writing settings. Checks cover only source IDs linked by returned primary and related hits, deduplicated within the call; retrieve omitted candidates or resolve additional needed IDs explicitly with the [source helper](storage.md#portable-source-references). This is not full-evidence or automatic web verification.
+
+The summary `source_verification` gives requested mode, source IDs, completed outcomes, successfully read files and status counts. Reconcile IDs against the evidence needed for the decision. `retrieval_ok` can be true while original verification is incomplete. Exit 0 means retrieval succeeded and any requested registered checks matched; exit 1 means a requested check is incomplete (`unconfigured`, `missing`, `unavailable`, `unversioned` or `mismatch`); exit 2 reports invalid input/registry/settings/ID. With no registered IDs, verification `ok` is null, never proof that all evidence was checked. Default retrieval with `not_checked` sources can exit 0; preserve its caveats.
+
+Access `available` means the bytes were read; identity `unversioned` means no expected digest exists. A current reading can support a current claim within scope, but cannot establish a historical snapshot. A hash match proves content identity only; inspect the source for meaning, authority and applicability. Neither search mode updates historical dates, expected hashes, entries or settings. Original-source outcomes are never cached and are recomputed on each explicit verification, even when the canonical search cache stays warm.
+
 ## Follow meaningful relationships
 
 Entries may declare optional `relations` in canonical YAML, mapping these types to nonempty lists of real entry IDs:

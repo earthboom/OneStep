@@ -1,6 +1,8 @@
 {
   "description": "Required and forbidden IDs for actual OneStep questions. Extend after a demonstrated miss; this is not a complete relevance judgment set.",
   "cases": [
+    {"name": "Real Korean proactive first-catalog lookup", "query": "새 프로젝트 지식 카탈로그 최초 생성", "domains": ["code"], "store": "records", "required": ["R-CATALOG-BOOTSTRAP"], "limit": 3},
+    {"name": "Korean initial knowledge-list variant", "query": "처음 만드는 지식 목록", "domains": ["code"], "store": "records", "required": ["R-CATALOG-BOOTSTRAP"], "limit": 3},
     {"name": "Korean body-only memory pooling", "query": "메모리 풀링", "domains": ["code"], "required": ["K-CODE-PERFORMANCE-MEASUREMENT"], "limit": 3},
     {"name": "Hardcoding classification", "query": "하드코딩 설정", "domains": ["code"], "required": ["K-CODE-CONFIGURATION-POLICY"], "limit": 3},
     {"name": "Cancellation and shutdown", "query": "취소 shutdown", "domains": ["code"], "required": ["K-CODE-CONCURRENCY-LIFETIMES"], "limit": 3},
