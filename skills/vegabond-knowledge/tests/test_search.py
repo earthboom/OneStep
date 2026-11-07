@@ -82,6 +82,90 @@ class SearchTests(unittest.TestCase):
         self.assertIn("PyYAML is required", json.loads(run.stdout)["error"])
         self.assertNotIn("Traceback", run.stderr)
 
+    def test_observed_korean_paraphrases_retrieve_the_required_concept(self):
+        self.detail("K-CONFIG", title="Avoid unexplained literals", keywords=["hardcoding"],
+                    body="Classify embedded values before externalizing configuration.")
+        self.detail("K-HIDE", title="Conceal changeable decisions", keywords=["information hiding"],
+                    body="Callers should depend on a stable contract.")
+        self.detail("K-KNOX", domain="fiction", title="Set up a fair solution", keywords=["fair-play"],
+                    body="Give readers the relevant evidence before the revelation.")
+        for query, domain, required in (
+            ("숫자 값을 코드 곳곳에 직접 적어 두지 않고 바꾸기 쉽게 만들려면", "code", "K-CONFIG"),
+            ("다른 파일이 내부 구현을 몰라도 쓰게 하려면", "code", "K-HIDE"),
+            ("범인이 밝혀지기 전에 독자에게 판단 근거를 보여 주는 장면 구성", "fiction", "K-KNOX"),
+            ("소스 여러 곳에 숫자를 고정해 놓았는데 조정하기 쉽게 바꾸고 싶어", "code", "K-CONFIG"),
+            ("호출자가 내부 결정의 변화를 몰라도 되게 경계를 잡고 싶어", "code", "K-HIDE"),
+            ("추리 장면에서 독자에게 실마리를 먼저 제시하고 싶어", "fiction", "K-KNOX"),
+        ):
+            with self.subTest(query=query):
+                result = self.cli("search", "--query", query, "--domain", domain, "--limit", "3")
+                self.assertIn(required, [h["id"] for h in result["results"]])
+                self.assertTrue(result["inferred_concepts"])
+
+    def test_concept_hints_require_conditions_not_single_generic_words(self):
+        self.detail("K-CONFIG", keywords=["hardcoding"])
+        for query in ("코드에서 숫자 값을 합산하는 방법", "CSV 숫자 값을 직접 읽는 방법",
+                      "내부 구현을 자세히 설명해줘", "범인이 독자에게 편지를 보내는 장면",
+                      "리소스 숫자 값을 직접 측정하는 방법", "코드에서 숫자 값을 직접 계산하는 방법",
+                      "리소스 숫자 값을 고정하는 방법"):
+            with self.subTest(query=query):
+                result = self.cli("search", "--query", query)
+                self.assertEqual(result["inferred_concepts"], [], query)
+
+    def duplicate_candidates(self):
+        body = "UObject GC determines reachability, not deterministic resource cleanup."
+        self.detail("K-A-GC", title="UObject GC", keywords=["UObject", "GC"], body=body)
+        for i in range(8):
+            self.detail(f"K-B-COPY-{i}", title="UObject GC", keywords=["UObject", "GC"],
+                        scope=f"Another project {i}", context={"engine": "another version"}, body=body)
+        self.detail("K-Z-RESOURCE", title="Resource ownership", keywords=["cleanup"],
+                    body="GC does not establish deterministic native resource ownership.")
+
+    def test_identical_bodies_do_not_crowd_out_a_different_required_answer(self):
+        self.duplicate_candidates()
+        result = self.cli("search", "--query", "UObject GC", "--limit", "3")
+        self.assertEqual(result["total_matches"], 10)
+        self.assertIn("K-Z-RESOURCE", [h["id"] for h in result["results"]])
+        group = result["results"][0]["similar_content"]
+        self.assertEqual(group["other_matches"], 8)
+        self.assertLessEqual(len(group["sample_ids"]), 3)
+        self.assertTrue(group["truncated"])
+        self.assertIn("scope", group["notice"])
+
+    def test_diversity_preserves_all_candidates_and_raw_order_escape(self):
+        self.duplicate_candidates()
+        ids = []
+        for offset in (0, 3, 6, 9):
+            result = self.cli("search", "--query", "UObject GC", "--limit", "3", "--offset", str(offset))
+            ids.extend(h["id"] for h in result["results"])
+        self.assertEqual(len(ids), 10)
+        self.assertEqual(len(set(ids)), 10)
+        raw = self.cli("search", "--query", "UObject GC", "--limit", "3", "--all-variants")
+        self.assertNotIn("K-Z-RESOURCE", [h["id"] for h in raw["results"]])
+        exact = self.cli("search", "--query", "K-B-COPY-7", "--limit", "1")
+        self.assertEqual(exact["results"][0]["id"], "K-B-COPY-7")
+        self.assertEqual(exact["results"][0]["context"], {"engine": "another version"})
+
+    def test_incoming_conflict_and_different_states_are_not_deferred_as_duplicates(self):
+        for ident in ("K-A", "K-B", "K-C", "K-Z-CONFLICT", "K-Z-ENFORCED"):
+            self.detail(ident, keywords=["sentinel"], body="Identical supporting text.",
+                        status="enforced" if ident == "K-Z-ENFORCED" else "active")
+        self.detail("K-NOTE", keywords=["other"], body="Separate counterevidence.",
+                    relations={"conflicts_with": ["K-Z-CONFLICT"]})
+        result = self.cli("search", "--query", "sentinel", "--limit", "3")
+        self.assertEqual({h["id"] for h in result["results"]}, {"K-A", "K-Z-CONFLICT", "K-Z-ENFORCED"})
+        self.assertIn("K-NOTE", [h["id"] for h in result["relations"]["related"]])
+
+    def test_diversity_keeps_known_and_unknown_context_in_separate_groups(self):
+        for ident in ("K-A-KNOWN", "K-B-KNOWN", "K-C-KNOWN"):
+            self.detail(ident, keywords=["sentinel"], body="Same guidance.", context={"engine": "UE 5.8"})
+        self.detail("K-Z-UNKNOWN", keywords=["sentinel"], body="Same guidance.")
+        self.detail("K-OTHER", keywords=["sentinel"], body="Same guidance.", context={"engine": "UE 5.3"})
+        result = self.cli("search", "--query", "sentinel", "--context", "engine=UE 5.8", "--limit", "2")
+        self.assertEqual(result["total_matches"], 4)
+        self.assertEqual([h["id"] for h in result["results"]], ["K-A-KNOWN", "K-Z-UNKNOWN"])
+        self.assertIn("Unknown context engine", " ".join(result["results"][1]["caveats"]))
+
     def registered_source(self, expected=True):
         original = self.root / "originals/proof.md"
         original.parent.mkdir(parents=True, exist_ok=True)

@@ -26,5 +26,10 @@
     ["카탈로그", "지식 목록", "지식목록", "catalog", "catalogs"],
     ["부트스트랩", "최초 생성", "첫 생성", "처음 생성", "처음 만드는", "bootstrap", "first-build", "initial build"]
   ],
+  "concepts": [
+    {"id": "embedded-values", "all": [["숫자", "값", "리터럴"], ["코드", "소스"], ["곳곳", "박아", "고정", "흩어", "적어"]], "expand": ["hardcoding"]},
+    {"id": "hidden-implementation", "all": [["내부 구현", "내부구현", "구현 세부", "내부 결정"], ["몰라도", "모르게", "감추", "숨기", "숨겨", "드러내지", "노출하지"]], "expand": ["information hiding"]},
+    {"id": "reader-evidence", "all": [["범인", "추리", "해결", "진상"], ["독자"], ["근거", "단서", "실마리"], ["미리", "전에", "먼저", "공개", "보여", "제시"]], "expand": ["fair-play"]}
+  ],
   "stopwords": ["a", "an", "the", "and", "or", "to", "of", "for", "in", "is", "how", "what", "should", "can", "with", "대한", "대해", "어떻게", "정보", "찾아", "찾아줘", "알려줘", "할까", "하는", "할", "때", "것", "있나", "해줘", "위한"]
 }

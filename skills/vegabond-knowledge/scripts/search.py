@@ -7,7 +7,7 @@ external originals, or generated catalogs. No network, model, or vector service.
 from __future__ import annotations
 
 import argparse
-from collections import Counter
+from collections import Counter, deque
 import hashlib
 import json
 import os
@@ -50,17 +50,25 @@ def contains(text, term):
     return term_match(text, term) is not None
 
 
-def query_groups(query):
+def analyze_query(query):
     text = normalized(query).strip()
     if not text:
         raise ValueError("query must not be empty")
     config = json.loads((HERE / "search_terms.json").read_text(encoding="utf-8"))
-    groups, covered = [], set()
+    groups, covered, inferred, hinted = [], set(), [], set()
+    for rule in config.get("concepts", []):
+        # Require a word start while allowing Korean particles/endings afterward.
+        matches = [[fragment for fragment in alternatives
+                    if re.search(r"(?<!\w)" + re.escape(normalized(fragment)), text)]
+                   for alternatives in rule["all"]]
+        if matches and all(matches):
+            inferred.append(dict(id=rule["id"], matched_fragments=matches))
+            hinted.update(normalized(term) for term in rule["expand"])
     tokens = TOKEN.findall(text)
     for aliases in config["groups"]:
         aliases = [normalized(a) for a in aliases]
         found = [a for a in aliases if contains(text, a)]
-        if found:
+        if found or hinted.intersection(aliases):
             groups.append(aliases)
             for token in tokens:
                 if any(contains(token, a) or contains(a, token) for a in found):
@@ -69,7 +77,11 @@ def query_groups(query):
     groups.extend([t] for t in dict.fromkeys(tokens) if t not in covered and t not in stop)
     if not groups:
         raise ValueError("query has no searchable terms")
-    return groups
+    return groups, inferred
+
+
+def query_groups(query):
+    return analyze_query(query)[0]
 
 
 def safe_path(project, path):
@@ -125,7 +137,8 @@ def usable_cache(saved, project, signature):
                 or not isinstance(doc.get("body_line"), int) or doc["body_line"] < 1
                 or not isinstance(doc.get("stamp"), list) or len(doc["stamp"]) != 2
                 or any(not isinstance(v, int) for v in doc["stamp"])
-                or not isinstance(doc.get("sha256"), str) or not re.fullmatch(r"[0-9a-f]{64}", doc["sha256"])):
+                or not isinstance(doc.get("sha256"), str) or not re.fullmatch(r"[0-9a-f]{64}", doc["sha256"])
+                or not isinstance(doc.get("body_sha256"), str) or not re.fullmatch(r"[0-9a-f]{64}", doc["body_sha256"])):
             return {}
     return docs
 
@@ -168,6 +181,7 @@ def load_index(project, *, no_cache=False, refresh=False):
                                      keywords=[], scope="unknown", status="unknown", checked_at=None, kind="unknown")
         meta = {k: v for k, v in meta.items() if k in SEARCH_META}
         docs[relative] = dict(meta=meta, body=entry["body"], body_line=entry["body_line"], sha256=entry["sha256"],
+                              body_sha256=hashlib.sha256(entry["body"].encode("utf-8")).hexdigest(),
                               stamp=stamp, path=relative, store=store, domain=domain)
     errors = [m for m in checker.messages if m["level"] == "error"]
     if errors:
@@ -227,7 +241,7 @@ def compact(doc, caveats=()):
     meta = doc["meta"]
     result = {k: meta.get(k) for k in ("id", "title", "summary", "scope", "status", "checked_at", "kind")}
     result.update(path=doc["path"], store=doc["store"], domain=doc["domain"], sha256=doc["sha256"], caveats=list(caveats))
-    for name in ("cause_status", "prevention_status", "prevention"):
+    for name in ("context", "cause_status", "prevention_status", "prevention"):
         if name in meta:
             result[name] = meta[name]
     return result
@@ -308,11 +322,61 @@ def context_filters(values):
     return filters
 
 
+def diversify_hits(hits, by_id, protected, enabled):
+    """Round-robin exact-body variants without discarding partial matches.
+
+    No candidates disappear. Evidence states and explicit conflicts/replacements
+    have separate groups; differing scope/context remains visible on each entry.
+    """
+    families = {}
+    for hit in hits:
+        doc = by_id[hit["id"]]
+        meta = doc["meta"]
+        identity = (("id", hit["id"].casefold()) if hit["id"].casefold() in protected else
+                    ("body", doc.get("body_sha256") or hashlib.sha256(doc["body"].encode("utf-8")).hexdigest()))
+        evidence = json.dumps({key: meta.get(key) for key in (
+            "kind", "status", "checked_at", "cause_status", "prevention_status", "prevention", "relations")}, sort_keys=True)
+        key = (identity, doc["store"], doc["domain"], evidence, tuple(hit["caveats"]))
+        families.setdefault(key, []).append(hit)
+    for members in families.values():
+        # Constant-size samples avoid quadratic work on large duplicate groups.
+        sample = [h["id"] for h in members[:4]]
+        if len(members) > 1:
+            for hit in members:
+                ids = [ident for ident in sample if ident != hit["id"]][:3]
+                hit["similar_content"] = dict(
+                    other_matches=len(members) - 1, sample_ids=ids,
+                    truncated=len(members) - 1 > len(ids),
+                    notice="Identical body, not interchangeable evidence: scope/context may differ. Inspect variants by ID or --all-variants.")
+    queue = deque(deque(members) for members in families.values())
+    ordered = []
+    while queue:
+        members = queue.popleft()
+        ordered.append(members.popleft())
+        if members:
+            queue.append(members)
+    return (ordered if enabled else hits), dict(
+        enabled=enabled, groups=len(families), variant_matches=len(hits) - len(families),
+        policy="Exact-body groups take turns; every candidate remains pageable. Scores and coverage retain their lexical meaning.")
+
+
+def hit_snippet(doc, hit):
+    for line_offset, line in enumerate(doc["body"].split("\n")):
+        if any(contains(normalized(line), term) for term in hit["matched_terms"]):
+            return dict(line=doc["body_line"] + line_offset, text=excerpt(line, hit["matched_terms"]))
+    return dict(line=1, text=f"Metadata match: {', '.join(hit['matched_fields'])}; {doc['meta']['summary']}"[:300])
+
+
 def search(documents, query, *, domains=(), store="both", statuses=(), scope=None, context=None,
-           include_superseded=False, limit=5, offset=0):
-    groups = query_groups(query)
+           include_superseded=False, limit=5, offset=0, diversify=True):
+    groups, inferred = analyze_query(query)
     importance = [2 if any(" " in a and contains(normalized(query), a) for a in aliases) else 1 for aliases in groups]
-    results = []
+    results, by_id, protected = [], {}, set()
+    for doc in documents:
+        for kind in ("conflicts_with", "supersedes"):
+            targets = doc["meta"].get("relations", {}).get(kind, [])
+            if targets:
+                protected.update(ident.casefold() for ident in [doc["meta"]["id"], *targets])
     for doc in documents:
         meta = doc["meta"]
         if domains and doc["domain"] not in domains:
@@ -356,20 +420,18 @@ def search(documents, query, *, domains=(), store="both", statuses=(), scope=Non
         if meta["status"] == "unknown":
             caveats.append("Legacy metadata is unknown; inspect the original before applying")
         hit = compact(doc, caveats)
-        snippet = None
-        for line_offset, line in enumerate(doc["body"].split("\n")):
-            if any(contains(normalized(line), t) for t in matched_terms):
-                snippet = dict(line=doc["body_line"] + line_offset, text=excerpt(line, matched_terms))
-                break
-        if snippet is None:
-            snippet = dict(line=1, text=f"Metadata match: {', '.join(sorted(matched_fields))}; {meta['summary']}"[:300])
         hit.update(score=round(score, 3), matched_fields=sorted(matched_fields), matched_terms=sorted(matched_terms),
-                   query_coverage=f"{matched_groups}/{len(groups)}", snippet=snippet)
+                   query_coverage=f"{matched_groups}/{len(groups)}")
         results.append(hit)
+        by_id[meta["id"]] = doc
     results.sort(key=lambda h: (-h["score"], len(h["caveats"]), h["id"].casefold()))
-    return dict(results=results[offset:offset + limit], total_matches=len(results), offset=offset,
+    results, diversity = diversify_hits(results, by_id, protected, diversify)
+    page = results[offset:offset + limit]
+    for hit in page:
+        hit["snippet"] = hit_snippet(by_id[hit["id"]], hit)
+    return dict(results=page, total_matches=len(results), offset=offset, diversity=diversity,
                 truncated=len(results) > offset + limit,
-                expanded_terms=groups,
+                expanded_terms=groups, inferred_concepts=inferred,
                 gap=None if results else "No lexical match under these filters; try alternate terms or a broader scope. Absence is not proved.")
 
 
@@ -448,6 +510,7 @@ def main():
     parser.add_argument("--cases", type=Path)
     parser.add_argument("--verify-sources", action="store_true", help="Check linked registered originals for returned hits")
     parser.add_argument("--source-root", action="append", default=[], help="Authorized project=absolute-path for this call")
+    parser.add_argument("--all-variants", action="store_true", help="Search in raw lexical order without exact-body diversification")
     args = parser.parse_args()
     try:
         if yaml is None:
@@ -464,6 +527,8 @@ def main():
             raise ValueError("related requires --id")
         if args.command == "evaluate" and args.cases is None:
             raise ValueError("evaluate requires --cases")
+        if args.all_variants and args.command != "search":
+            raise ValueError("--all-variants applies only to search")
         if args.command == "evaluate" and (args.verify_sources or args.source_root):
             raise ValueError("Source checks apply to search/related, not ranking evaluation")
         if args.source_root and not args.verify_sources:
@@ -475,7 +540,7 @@ def main():
         if args.command == "search":
             result = search(documents, args.query, domains=args.domain, store=args.store, statuses=args.status,
                             scope=args.scope, context=filters, include_superseded=args.include_superseded,
-                            limit=args.limit, offset=args.offset)
+                            limit=args.limit, offset=args.offset, diversify=not args.all_variants)
             ids = [h["id"] for h in result["results"]]
             result["relations"] = related(documents, ids, depth=args.depth, limit=args.limit) if ids else None
         elif args.command == "related":

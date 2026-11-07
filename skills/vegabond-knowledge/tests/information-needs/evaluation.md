@@ -37,3 +37,5 @@ Keep the evaluated skill revision/content identity, cases run, actual artifact/r
 The [2026-11-07 checked run](evaluation-results.md) records one six-case blind execution and its limitations. It is a historical result, not an automatic pass for later skill changes.
 
 The separate [real-work regression](real-work-regression.md) records actual coding, fiction and planning paths after the four retrieval/source/design corrections, with reproduction commands and original-evidence limits. Keep actual-data reruns, synthetic judgment evaluations and query-to-ID scores distinct.
+
+The later [retrieval corrections and scale rerun](retrieval-scale-results.md) records Korean paraphrase/negative cases, exact-body diversity, the mixed-coverage failure exposed by actual data, and 70–30,000-entry regression results. It preserves the earlier historical reports and distinguishes the fixed corpus from concurrent live additions.

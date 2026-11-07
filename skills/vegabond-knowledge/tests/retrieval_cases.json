@@ -1,6 +1,13 @@
 {
   "description": "Required and forbidden IDs for actual OneStep questions. Extend after a demonstrated miss; this is not a complete relevance judgment set.",
   "cases": [
+    {"name": "Observed Korean embedded-value paraphrase", "query": "숫자 값을 코드 곳곳에 직접 적어 두지 않고 바꾸기 쉽게 만들려면", "domains": ["code"], "required": ["K-CODE-CONFIGURATION-POLICY"], "limit": 3},
+    {"name": "Observed Korean hidden-implementation paraphrase", "query": "다른 파일이 내부 구현을 몰라도 쓰게 하려면", "domains": ["code"], "required": ["K-CODE-INFORMATION-HIDING"], "limit": 3},
+    {"name": "Observed Korean reader-evidence paraphrase", "query": "범인이 밝혀지기 전에 독자에게 판단 근거를 보여 주는 장면 구성", "domains": ["fiction"], "required": ["K-FIC-REF-KNOX-FAIR-PLAY"], "limit": 3},
+    {"name": "Korean embedded-value composition variant", "query": "소스 여러 곳에 숫자를 고정해 놓았는데 조정하기 쉽게 바꾸고 싶어", "domains": ["code"], "required": ["K-CODE-CONFIGURATION-POLICY"], "limit": 3},
+    {"name": "Korean hidden-decision composition variant", "query": "호출자가 내부 결정의 변화를 몰라도 되게 경계를 잡고 싶어", "domains": ["code"], "required": ["K-CODE-INFORMATION-HIDING"], "limit": 3},
+    {"name": "Korean reader-clue composition variant", "query": "추리 장면에서 독자에게 실마리를 먼저 제시하고 싶어", "domains": ["fiction"], "required": ["K-FIC-REF-KNOX-FAIR-PLAY"], "limit": 3},
+    {"name": "Korean shutdown paraphrase preservation", "query": "종료할 때 남아 있는 비동기 작업이 소유자 해제 뒤 실행되지 않게 하려면", "domains": ["code"], "required": ["K-CODE-CONCURRENCY-LIFETIMES"], "limit": 3},
     {"name": "Real Korean proactive first-catalog lookup", "query": "새 프로젝트 지식 카탈로그 최초 생성", "domains": ["code"], "store": "records", "required": ["R-CATALOG-BOOTSTRAP"], "limit": 3},
     {"name": "Korean initial knowledge-list variant", "query": "처음 만드는 지식 목록", "domains": ["code"], "store": "records", "required": ["R-CATALOG-BOOTSTRAP"], "limit": 3},
     {"name": "Korean body-only memory pooling", "query": "메모리 풀링", "domains": ["code"], "required": ["K-CODE-PERFORMANCE-MEASUREMENT"], "limit": 3},
