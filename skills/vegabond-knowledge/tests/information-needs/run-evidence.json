@@ -1,0 +1,74 @@
+{
+  "checked_at": "2026-11-07",
+  "method": "One independent context per case; primary agent manually reviewed actual responses and original artifacts against the separate rubric. No keyword-based semantic scoring.",
+  "baseline": "No pre-change blind baseline was run.",
+  "skill_sha256": {
+    "skills/vegabond-code/SKILL.md": "dd59b7e48b11bccaa0ac72cd6e1bdcec5aa4d157ed061b743ffdc0cce5012a70",
+    "skills/vegabond-code-design/SKILL.md": "7f8bc8050e1ea5d5efda18c506ea28bfffb5e67f5188dd84bb02745578323c6f",
+    "skills/vegabond-create/SKILL.md": "e0aaabe373566887e28818760716082e9ad78ede80f14dc1590a4b97db9963ac",
+    "skills/vegabond-fiction/SKILL.md": "269183e813b1aab0719e57dc2b13131bcb2b1f50e883a8e4b9b46436aa802ddd",
+    "skills/vegabond-fiction-design/SKILL.md": "3080a82b26ad306437b71c29697ee7ca1d5ad963cc1e2d4888fb3e38c14def57",
+    "skills/vegabond-knowledge/SKILL.md": "8adc9b93e0e013be40d74d5bba603c216ba89cdeb1b6234c5cc836e2a8d14fe4",
+    "skills/vegabond-planning/SKILL.md": "21f6e59f067d8d2d4c2f8d729280e2195974c55d9c0a70cddf3cbe84b7733ce0",
+    "skills/vegabond-presentation/SKILL.md": "1e59737eb45ddc5a0dd3bbccb88559f0b20cd0c09e0fe953725264cf54c782c6",
+    "skills/vegabond-research/SKILL.md": "6b65f986319fc686d1af40aee33b0b3552c96e5a60250a1de238de2ab3ec36ac",
+    "skills/vegabond-revise/SKILL.md": "aaf9c59ad8c57d0b4314cada1a5a1554d2958a2e317cbb74becdde52169c5145",
+    "skills/vegabond-scout/SKILL.md": "9051fc65c7620617b7daabda00372d2ec735ecda31102c30a3ae0f4225ba7ed5",
+    "skills/vegabond-scout/references/information-needs.md": "18ca9eb7cb3ac6433c8d74c29dfdd08636d397fde79290e9a689dcfff8b59d6b"
+  },
+  "cases": [
+    {
+      "case": "callback-edit",
+      "input_changes": [],
+      "response_sha256": "542dfcee3d854590ebfd1046eaa87219b2cf4e9642fcb9ec7ffcd486ced200e7",
+      "response_path": ".cache/onestep/information-needs/2000c503c9d6/callback-edit/response.md",
+      "semantic_review": "pass",
+      "reviewer": "primary agent; actual response and supplied artifacts compared with the evaluator-only rubric"
+    },
+    {
+      "case": "provider-swap",
+      "input_changes": [],
+      "response_sha256": "1c7fce55b1b39da703608fcf3deb57a36143e5b30cd7f26784c0218a11fd8b5d",
+      "response_path": ".cache/onestep/information-needs/2000c503c9d6/provider-swap/response.md",
+      "semantic_review": "pass",
+      "reviewer": "primary agent; actual response and supplied artifacts compared with the evaluator-only rubric"
+    },
+    {
+      "case": "testimony-scene",
+      "input_changes": [],
+      "response_sha256": "3236565ec976a66ca7ef0719a13a281b1434293fd583087221cbc3b8621f0cb5",
+      "response_path": ".cache/onestep/information-needs/2000c503c9d6/testimony-scene/response.md",
+      "semantic_review": "pass",
+      "reviewer": "primary agent; actual response and supplied artifacts compared with the evaluator-only rubric"
+    },
+    {
+      "case": "combat-plan",
+      "input_changes": [],
+      "response_sha256": "5697b8a7739dbfc15942f0eb2cf93dde31833d7b52e086523cc203020ff5345e",
+      "response_path": ".cache/onestep/information-needs/2000c503c9d6/combat-plan/response.md",
+      "semantic_review": "pass",
+      "reviewer": "primary agent; actual response and supplied artifacts compared with the evaluator-only rubric"
+    },
+    {
+      "case": "retention-claim",
+      "input_changes": [],
+      "response_sha256": "978d78ab9a25f5d476dc749cbf58fe036000d39abe73d55167bd8ab9e191e4ea",
+      "response_path": ".cache/onestep/information-needs/2000c503c9d6/retention-claim/response.md",
+      "semantic_review": "pass",
+      "reviewer": "primary agent; actual response and supplied artifacts compared with the evaluator-only rubric"
+    },
+    {
+      "case": "spacing-only",
+      "input_changes": [],
+      "response_sha256": "d04541051c72988d1612fb1d0d2752eca1d5c7240e6d0d2fc58e0ec111f3821d",
+      "response_path": ".cache/onestep/information-needs/2000c503c9d6/spacing-only/response.md",
+      "semantic_review": "pass",
+      "reviewer": "primary agent; actual response and supplied artifacts compared with the evaluator-only rubric"
+    }
+  ],
+  "evaluation_source_sha256": {
+    "skills/vegabond-knowledge/tests/information-needs/cases.json": "cdf7300b011c6b8b03df978886a170dfdc497a2a9201cd9ddcccfb1d6399fddf",
+    "skills/vegabond-knowledge/tests/information-needs/rubric.json": "529ff77f5b53c3febadd1a9906f6e43b53c08a829686f956eacef7303434a532",
+    "skills/vegabond-knowledge/tests/information-needs/prepare.py": "307430a14f6c903eb2121f347ce2d9b625c0a7b2143a03a8079cc5cf735e7068"
+  }
+}

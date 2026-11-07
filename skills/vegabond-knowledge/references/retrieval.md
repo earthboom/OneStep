@@ -1,0 +1,82 @@
+# Retrieval and synthesis
+
+Use this reference for search options, related records, multi-source briefs and retrieval evaluation. Markdown details remain authoritative; catalogs and the disposable search cache are projections. Use the catalog's existing Python/PyYAML runtime; no external service is needed.
+
+## Search a concrete question
+
+Invoke the helper by its installed path; `--project` names the working store:
+
+```text
+python skills/vegabond-knowledge/scripts/search.py search --project . --query "메모리 풀링" --domain code --limit 3
+python skills/vegabond-knowledge/scripts/search.py search --project . --query "callback shutdown" --store records
+python skills/vegabond-knowledge/scripts/search.py search --project . --query "ownership" --context "engine=UE 5.8"
+```
+
+The default searches both stores, including resolved incidents, while excluding superseded primary hits. Repeat `--domain` or `--status` for alternatives. Explicit `--status superseded` includes that state. `--scope` selects a scope substring. A `--context key=value` filter uses exact case-insensitive text equality on an existing key; it is not a compatibility solver. An absent key remains with an unknown-applicability caveat. Select actual metadata values: unequal descriptions alone do not establish semantic incompatibility.
+
+The helper expands maintained Korean/English aliases from [search_terms.json](../scripts/search_terms.json), then searches metadata and full English bodies. Identifiers, titles/keywords, triggers/symptoms and query coverage contribute to ranking. Repetition and recent dates do not create authority. Scores are lexical heuristics, not truth or applicability. Known Korean alias substrings tolerate particles; general translation and semantic retrieval are not provided. Add aliases after observed misses, rather than collecting an exhaustive vocabulary.
+
+Compact hits show ID, summary, scope/state, path/hash, matched fields/terms, coverage and a bounded snippet with a one-based line locator. Metadata-only matches identify the header. Read useful sections and original evidence before applying consequential advice. `total_matches` and `truncated` expose omitted candidates; vary the query, filters or limit when needed. Empty results mean no lexical match under the filters, not proof of absence.
+
+Use `--offset N` to page primary search or `related` results beyond a result limit; limits range from 1 to 100. Continue until the relevant candidates are examined. Search's automatically attached relationship page starts at zero independently of the primary offset; page a specific ID with `related` for further edges.
+
+Relationship pages retain traversed edges touching a returned candidate, even when the other endpoint ID is on another page. This preserves conflict and prerequisite types across page boundaries; retrieve an off-page endpoint by ID when necessary.
+
+## Follow meaningful relationships
+
+Entries may declare optional `relations` in canonical YAML, mapping these types to nonempty lists of real entry IDs:
+
+| Type | Meaning |
+| --- | --- |
+| `requires` | Target supplies an essential prerequisite or contract. |
+| `derived_from` | Target provides originating evidence, not independent corroboration. |
+| `prevention` | Problem record points to preventive knowledge; its prevention state is unchanged. |
+| `supersedes` | Source replaces target in the stated scope; retain the old detail and set its status appropriately. |
+| `conflicts_with` | Reconcile the claims under their conditions; neither automatically wins. |
+
+```yaml
+relations:
+  requires: [K-EXAMPLE-PREREQUISITE]
+  derived_from: [R-EXAMPLE-EVIDENCE]
+```
+
+The catalog helper validates shape and target identity, including explicit cross-store targets in filtered runs. Search follows incoming and outgoing declared edges across stores/domains, including superseded candidates. Visited-ID tracking terminates cycles. These are editorial assertions, not inferred associations; follow existing prose links when the question needs them.
+
+```text
+python skills/vegabond-knowledge/scripts/search.py related --project . --id K-CODE-CONCURRENCY-LIFETIMES --depth 2 --limit 10
+```
+
+Search adds a separate one-hop relationship result by default; `--depth 0` disables it. Maximum depth is three per call. Bounded output reports truncation. Related candidates do not inherit primary-query filters or applicability: inspect their scope/state. Retrieve omitted conflicts or replacements before a dependent decision; limits do not justify omitting contradictory evidence. Continue necessary chains with individual IDs.
+
+## Assemble and check the information brief
+
+Use the shared [information-needs judgment](../../vegabond-scout/references/information-needs.md) before fixing the question set and before applying consequential results. It owns question completeness and adoption decisions; this reference owns finding and assembling evidence for those questions.
+
+1. Split broad requests into answerable questions, recording required context/evidence in the existing brief.
+2. Search each question across relevant stores. Begin with a few details; expand for unanswered questions, prerequisites, conflicts, replacements or failures. The initial three-detail allowance is not a completion limit.
+3. Connect each material **claim/action → entry ID and useful section/line → original evidence → applicability → check**. Preserve cause/compatibility uncertainty, author choices and research limits. Separate proposed checks from demonstrated safeguards.
+4. Reconcile overlap without counting a derived summary as independent evidence. Record conflicting claims and the conditions that could resolve them. Replacements govern only their documented scope.
+5. Close every question as answered, conditional, conflicting or missing. Explain further lookup needs; reading the top hits alone is not completion.
+
+Use the existing brief, not a global usage ledger. For multiple questions, `Question | Answer/action | IDs/evidence | Conditions/conflicts | Check/gap` is sufficient. Local entry hashes identify consulted bytes, not external-source truth or identity; use the existing source registry where needed.
+
+Before storage, search the proposed question, synonyms and underlying cause across both stores. Review likely existing entries and relationships. Update an existing answer when it gains evidence/exceptions; keep incidents separate when conditions or causes differ. Never auto-merge by similarity. Validate, build affected catalogs and regenerate translations under the [storage procedure](storage.md).
+
+## Disposable index and freshness
+
+`.cache/onestep/search-v1.json` under the working project is Git-ignored here. It contains canonical text/hashes, never translations, generated rows or external originals. Do not commit it. Changed paths, sizes or modification times trigger rereading/revalidation; removed files disappear. Unchanged canonicals are reused without reopening them. Implementation/schema changes invalidate the cache. Atomic replacement avoids partial JSON; concurrent searches may replace each other's disposable snapshots and refresh on the next call.
+
+Use `--refresh` after operations preserving file size and modification time, or when the snapshot is suspect: it rereads/hashes all canonicals, without checking external originals. Corrupt cache JSON is rebuilt. Invalid canonical metadata, duplicate IDs or unresolved declared relations produce explicit errors rather than successful partial results. Unavailable cache storage permits canonical results with a warning. `--no-cache` writes nothing and reads canonicals directly, for strictly read-only tasks.
+
+Each query scans indexed text in memory; this is not an inverted or vector index. Measure representative growth before adding another engine. Timings and fixture results do not establish arbitrary future recall.
+
+## Evaluate retrieval usefulness
+
+```text
+python skills/vegabond-knowledge/scripts/search.py evaluate --project . --cases skills/vegabond-knowledge/tests/retrieval_cases.json
+python -m unittest discover -s skills/vegabond-knowledge/tests
+```
+
+Versioned cases declare realistic questions, filters, required/forbidden IDs and result limits. Evaluation reports required-ID recall within limits, forbidden hits, returned IDs, snippet characters and query time; failures exit nonzero. Judgments are incomplete: forbidden-hit checks are not general precision. Extend cases after meaningful misses, bad matches, language failures, incompatible contexts or omitted conflicts. Do not alter expectations merely to fit ranking.
+
+Unit/CLI checks cover body-only matches, resolved/superseded states, known/unknown context, incoming/cross-store relations, cycles/truncation, invalid data, cache refresh/deletion, translation exclusion and read-only use. The synthetic scale test records 1,000-entry cold/warm runs and checks retrieval, bounded output and zero warm rereads. Retain environment and limits in task evidence. Storage validation and retrieval evaluation are separate acceptance checks.

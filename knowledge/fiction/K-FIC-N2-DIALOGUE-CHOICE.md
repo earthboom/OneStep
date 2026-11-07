@@ -16,6 +16,8 @@ keywords:
 - 삭제
 status: active
 checked_at: '2026-11-06'
+relations:
+  derived_from: [R-FIC-N2-DIALOGUE-20261106]
 context:
   owner: style-guide.md and explicit author instructions in Novel_0
   evidence: Actual preserved variants and current 003 checked; no audience survey

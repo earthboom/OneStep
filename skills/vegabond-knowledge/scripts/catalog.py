@@ -4,12 +4,15 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import hashlib
 import json
 import os
 from pathlib import Path
 import re
 import tempfile
 from urllib.parse import quote, unquote
+
+from relations import validate_relations
 
 try:
     import yaml
@@ -119,6 +122,7 @@ class Catalogs:
         self.written = []
         self.domains = []
         self.source_registry = None
+        self.fingerprints = {}
 
     def relative(self, path):
         return path.relative_to(self.project).as_posix()
@@ -140,7 +144,9 @@ class Catalogs:
         if not self.safe(path):
             return None
         try:
-            return path.read_text(encoding="utf-8-sig")
+            raw = path.read_bytes()
+            self.fingerprints[path] = hashlib.sha256(raw).hexdigest()
+            return raw.decode("utf-8-sig").replace("\r\n", "\n").replace("\r", "\n")
         except (OSError, UnicodeError) as exc:
             self.issue("read_failed", path, str(exc))
             return None
@@ -199,10 +205,12 @@ class Catalogs:
         text = self.read(path)
         if text is None:
             return None
+        digest = self.fingerprints[path]
         self.translation(path)
-        entry = {"path": path, "store": store, "meta": None, "legacy": False}
+        entry = {"path": path, "store": store, "meta": None, "legacy": False,
+                 "body": text, "body_line": 1, "sha256": digest}
         self.entries[key] = entry
-        lines = text.splitlines()
+        lines = text.split("\n")
         if not lines or lines[0].strip() != "---":
             self.links(path, text)
             entry["legacy"] = True
@@ -214,6 +222,7 @@ class Catalogs:
             self.issue("invalid_header", path, "YAML header has no closing delimiter.")
             return entry
         body = "\n".join(lines[closing + 1:])
+        entry.update(body=body, body_line=closing + 2)
         self.links(path, body)
         try:
             meta = yaml.load("\n".join(lines[1:closing]), Loader=MetadataLoader)
@@ -288,6 +297,8 @@ class Catalogs:
                     not isinstance(key, str) or not isinstance(value, str) for key, value in context.items())):
                 self.issue("invalid_context", path, "Optional context must be a string or a flat mapping of strings; quote versions.")
         sections = headings(body)
+        for message in validate_relations(meta):
+            self.issue("invalid_relation", path, message)
         for name in SECTIONS[store]:
             if not "\n".join(sections.get(name.casefold(), [])).strip():
                 self.issue("missing_section", path, name)
@@ -480,6 +491,7 @@ class Catalogs:
                 self.domain(store, directory)
         for missing in set(domains) - found:
             self.issue("missing_domain", self.project, f"No selected store contains domain {missing}.")
+        self.check_relations()
         if not self.domains and not domains:
             self.issue("no_stores", self.project, "No domain stores found; nothing created.", "warning")
         # Resolve existence only after all selected catalog outputs are known.
@@ -520,6 +532,62 @@ class Catalogs:
                 "catalogs_written": self.written, "errors": errors,
                 "warnings": len(self.messages) - errors, "diagnostics": self.messages[:20],
                 "diagnostics_total": len(self.messages)}
+
+    def check_relations(self):
+        """Resolve explicit cross-store IDs without treating unrelated entries as selected."""
+        required = {target.casefold() for entry in self.entries.values() if entry["meta"] is not None
+                    for targets in entry["meta"].get("relations", {}).values() for target in targets}
+        if not required:
+            return
+        candidates = {}
+        for store in ("knowledge", "records"):
+            base = self.project / store
+            if not base.is_dir():
+                continue
+            for current, dirs, names in os.walk(base, followlinks=False):
+                current = Path(current)
+                dirs[:] = [n for n in dirs if not n.startswith(".") and not (current / n).is_symlink()
+                           and (current / n).resolve().is_relative_to(self.project)]
+                if current == base:
+                    continue
+                for name in names:
+                    path = current / name
+                    if name.startswith(".") or path.suffix.lower() != ".md" or human_file(path) or name in {"index.md", "archive.md"}:
+                        continue
+                    if not self.safe(path):
+                        continue
+                    try:
+                        with path.open(encoding="utf-8-sig") as stream:
+                            if stream.readline().strip() != "---":
+                                continue
+                            header = []
+                            for line in stream:
+                                if line.strip() == "---":
+                                    break
+                                header.append(line)
+                        meta = yaml.load("".join(header), Loader=MetadataLoader)
+                        if isinstance(meta, dict) and isinstance(meta.get("id"), str):
+                            candidates.setdefault(meta["id"].casefold(), []).append((path, store))
+                    except (OSError, UnicodeError, yaml.YAMLError):
+                        # An unrelated malformed header is not selected by a filtered run.
+                        # A required but unresolvable target is reported below.
+                        continue
+        pending = list(self.entries.values())
+        checked = set()
+        while pending:
+            entry = pending.pop()
+            if entry["path"] in checked or entry["meta"] is None:
+                continue
+            checked.add(entry["path"])
+            for targets in entry["meta"].get("relations", {}).values():
+                for target in targets:
+                    matches = candidates.get(target.casefold(), [])
+                    if len(matches) != 1:
+                        self.issue("relation_target", entry["path"], f"Expected one target for {target}; found {len(matches)}.")
+                        continue
+                    target_entry = self.entry(*matches[0])
+                    if target_entry is not None:
+                        pending.append(target_entry)
 
 
 def main():

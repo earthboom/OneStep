@@ -9,6 +9,8 @@ Deliver an evidence-based answer within the requested scope. Reuse the brief and
 
 ## Refine the inquiry
 
+Use the shared [information-needs judgment](../vegabond-scout/references/information-needs.md) to test whether the questions cover the decision and relevant counterevidence. Return source applicability and gaps without treating agreeing summaries or successful searches as independent proof or whole-task coverage.
+
 Use [vegabond-knowledge](../vegabond-knowledge/SKILL.md) for existing sources, claims, and known gaps, reusing scout's information brief. Verify them against the question and current evidence. In read-only work, return proposed knowledge updates with the findings rather than changing stores.
 
 Use the shared profile to refine the question or decision and its comparison criteria. Apply the relevant specialist's research method and claim-specific checks through [scout's shared mapping](../vegabond-scout/SKILL.md#connect-steps-to-skills-and-checks). Correct unsupported reasoning or the answer, not the investigated sources. Sources may be supplied material or external evidence; web search is not always required. Refine only missing inquiry details rather than repeating the shared assessment.

@@ -24,6 +24,8 @@ keywords:
 - 병합
 checked_at: '2026-11-06'
 prevention_status: proposed
+relations:
+  prevention: [K-FIC-N2-DIALOGUE-CHOICE]
 context:
   review: 001-003; 2026-11-06
   authority: Original manuscript and owner canon remain in Novel_0; this record owns incident metadata only

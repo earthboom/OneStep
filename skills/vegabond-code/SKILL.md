@@ -15,6 +15,8 @@ Classify the actual component, not its extension or the repository's main techno
 
 Request relevant contracts, version-specific sources, and prior failure/prevention checks through [vegabond-knowledge](../vegabond-knowledge/SKILL.md), reusing the existing information brief. Select available environment skills or direct tools through scout's mapping.
 
+Apply the shared [information-needs judgment](../vegabond-scout/references/information-needs.md) after inspecting the component and callers: refine questions about affected state, ownership, lifecycle, failure and verification as relevant. Check actual version and mechanism before applying a retrieved API guarantee or incident fix.
+
 ## Choose the design depth
 
 Use [vegabond-code-design](../vegabond-code-design/SKILL.md) when a meaningful choice about state ownership, lifecycle, interfaces used by other callers, concurrency, persistence, external integration, or migration must be settled before implementation. A local edit following an established pattern can state its relevant contract and preservation conditions inline and proceed. File count alone does not decide; reuse a valid existing design and revisit only decisions changed by evidence.

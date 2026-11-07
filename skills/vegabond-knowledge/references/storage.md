@@ -38,6 +38,8 @@ For the default Markdown stores, create or update one independently reusable top
 
 Optional `context` is a string or flat mapping of strings for relevant version, engine, format, genre, viewpoint or other conditions. Quote versions and YAML-reserved words. Avoid irrelevant empty fields. Header data is not skill-discovery frontmatter; human translations present the information for readers without becoming discovery inputs.
 
+Optional `relations` maps `requires`, `derived_from`, `prevention`, `supersedes` or `conflicts_with` to nonempty lists of existing entry IDs, including other stores/domains. Add only relationships that improve a real lookup; see [relationship meanings and traversal](retrieval.md#follow-meaningful-relationships). The helper validates shape and target identity. Edges do not establish causation, independent evidence, compatibility or verified prevention. Preserve prose evidence links and historical dates; adding a retrieval edge is not a new source investigation.
+
 For example, a header might be:
 
 ```yaml
@@ -148,6 +150,8 @@ Catalog build/check validates links to registry IDs and registry translation exi
 Legacy prose entries remain usable: preserve existing catalog rows and their conditions under an explicitly unverified Legacy entries section; unindexed legacy files get an unknown-metadata pointer. Do not infer IDs, dates, rules or states. Migrate a legacy entry during authorized maintenance, preserving its path/ID/evidence, then rebuild. Default runs warn; `--strict` treats legacy entries as errors for scopes already normalized. New or changed entries must use the header even if older neighbors remain legacy. Strict checking is not permission to rewrite historical evidence or all unrelated files.
 
 ## Capture, consolidate, and promote
+
+Before saving, use the [retrieval helper](retrieval.md) across both stores for the proposed question, aliases and underlying cause. Inspect close candidates and their relationships before choosing update, separate incident or new knowledge. Similarity proposes candidates; it never authorizes automatic merging.
 
 Before saving, identify the future decision, action, or check the material can support and the conditions under which it applies. Reusable means useful in another task under matching conditions, not universally valid. Choose the smallest useful destination:
 

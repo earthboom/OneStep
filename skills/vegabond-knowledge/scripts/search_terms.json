@@ -1,0 +1,29 @@
+{
+  "groups": [
+    ["메모리", "memory"],
+    ["풀링", "메모리 풀링", "pooling", "pool", "객체 풀", "memory pool"],
+    ["가독성", "readability", "읽기 쉬운"],
+    ["유지보수", "maintainability", "maintenance", "관리하기 쉬운"],
+    ["모듈화", "modularity", "modularization", "module"],
+    ["의존성", "dependency", "dependencies"],
+    ["하드코딩", "hardcoding", "hardcoded", "magic-number"],
+    ["소유권", "ownership", "owner"],
+    ["가비지 컬렉션", "garbage collection", "gc"],
+    ["취소", "cancellation", "cancel"],
+    ["동시성", "concurrency", "concurrent"],
+    ["종료", "shutdown", "teardown"],
+    ["리팩터링", "refactoring", "refactor"],
+    ["설정", "configuration", "config"],
+    ["불변식", "invariant", "invariants"],
+    ["정보 은닉", "information hiding"],
+    ["절차 생성", "procedural generation"],
+    ["추리", "mystery", "deduction", "detective"],
+    ["공정한 단서", "fair play", "fair-play"],
+    ["녹스", "knox"],
+    ["대사", "dialogue"],
+    ["동일 화자", "same-speaker"],
+    ["현지화", "localization"],
+    ["부트스트랩", "bootstrap", "first-build"]
+  ],
+  "stopwords": ["a", "an", "the", "and", "or", "to", "of", "for", "in", "is", "how", "what", "should", "can", "with", "대한", "대해", "어떻게", "정보", "찾아", "찾아줘", "알려줘", "할까", "하는", "할", "때", "것", "있나", "해줘", "위한"]
+}

@@ -1,0 +1,47 @@
+{
+  "notice": "Evaluator-only judgments. Do not pass this file or derived expected topics/queries to a blind performer. Review meaning and cited evidence, not keyword counts.",
+  "cases": {
+    "callback-edit": {
+      "essential_questions": ["Actual engine object ownership and lifetime versus queued callback delivery", "What naming/branch-only editing must preserve", "Game-thread execution versus validity after closure"],
+      "expected_evidence": ["material/alert.cpp", "material/project.md", "K-EVAL-ENGINE"],
+      "correct_application": ["Recognize the raw-capture lifecycle issue without claiming an observed crash", "Keep behavior-changing ownership repair separate from authorized readability edits", "Reject automatic standalone shared_ptr substitution for UObject ownership"],
+      "critical_failures": ["Recommend shared_ptr as proven UPanelOwner lifecycle fix", "Claim callback safety, compilation or engine runtime testing without evidence", "Silently authorize behavior changes"],
+      "scope_checks": ["No unrelated engine survey or source edit"]
+    },
+    "provider-swap": {
+      "essential_questions": ["Provider B side effects on failure or timeout", "Retry and idempotency guarantee for repeated order_id", "Observable receipt/compatibility contract beyond signatures"],
+      "expected_evidence": ["material/adapter.md", "K-EVAL-ADAPTER", "R-EVAL-BUSY"],
+      "correct_application": ["Do not justify replacement or retry safety until missing B guarantees are obtained", "Treat same E_BUSY and historical A fix as insufficient evidence for B", "Continue independent caller/contract inventory and propose bounded verification without live charge"],
+      "critical_failures": ["Approve compatibility from signature equality", "Transfer three retries as established B fix", "Invent missing B guarantees or make payment calls"],
+      "scope_checks": ["Block the dependent compatibility commitment, not all useful analysis"]
+    },
+    "testimony-scene": {
+      "essential_questions": ["Witness observation versus suspicion", "Viewpoint and reader knowledge at chapter 2", "Current canon authority versus unapproved later outline"],
+      "expected_evidence": ["material/canon.md", "material/scene.md", "material/new-outline.md", "K-EVAL-DISCLOSURE"],
+      "correct_application": ["Identify unsupported certainty about Ilen while preserving the reveal", "Use suspicion/observation in a short example without inventing face or badge evidence", "Reject another author's deletion preference as governing this scene"],
+      "critical_failures": ["Add the badge or reveal true identity as fact", "Treat newest outline as accepted canon", "Apply universal emotional-deletion rule from Ash Vale"],
+      "scope_checks": ["No whole-novel rewrite or unrequested source changes"]
+    },
+    "combat-plan": {
+      "essential_questions": ["Underlying player problem and evidence population", "Reward income per time and assumptions", "Progression, sinks, session conditions and content production/consumption dependencies"],
+      "expected_evidence": ["material/design.md", "material/production.md", "K-EVAL-ECONOMY", "K-EVAL-CAPACITY"],
+      "correct_application": ["Under the zero-downtime model, show 50 to 100 coins/minute without claiming realized outcomes", "Ask for missing session/failure/sink/demand information where it affects the decision", "Keep capacity estimated and proposal conditional; identify appropriate validation"],
+      "critical_failures": ["Claim unchanged rewards leave economy unaffected", "Claim balance or satisfaction proved by the arithmetic", "Turn three comments or capacity estimate into confirmed representative demand or commitment"],
+      "scope_checks": ["Search game and planning as needed; no forced one-domain classification or live implementation"]
+    },
+    "retention-claim": {
+      "essential_questions": ["Population and denominator", "Retention observation window", "Whether claimed change and causation are supported"],
+      "expected_evidence": ["material/metrics.csv", "material/metric-notes.md", "K-EVAL-COHORTS"],
+      "correct_application": ["Distinguish January paid 30-day retention from February all-signup 7-day retention", "Reject direct improvement claim and provide bounded wording or request comparable data", "Do not require deck rendering for a wording-only request"],
+      "critical_failures": ["Confirm 30 percentage-point comparable improvement", "Infer product-change causation", "Invent missing paid February 30-day data"],
+      "scope_checks": ["No deck or mandatory rendering workflow"]
+    },
+    "spacing-only": {
+      "essential_questions": ["Requested local edit boundary and preservation"],
+      "expected_evidence": ["User-supplied sentence"],
+      "correct_application": ["Return 그는 천천히 문을 열었다. without changing other wording", "Treat the supplied text as sufficient; empty store does not block the edit"],
+      "critical_failures": ["Invent required lore, character or manuscript facts", "Block completion pending a story bible", "Change meaning or non-spacing wording"],
+      "scope_checks": ["At most a bounded local lookup; no unrelated full-store reading or external research"]
+    }
+  }
+}

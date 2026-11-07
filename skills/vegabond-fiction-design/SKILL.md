@@ -11,6 +11,8 @@ Keep canon, author decisions, provisional inventions, character beliefs and unkn
 
 ## Shape the narrative
 
+Apply the shared [information-needs judgment](../vegabond-scout/references/information-needs.md) to consequential narrative choices, their supporting passages and affected reveals. Recheck omitted conditions without forcing whole-work context onto a local design or promoting a craft guideline to canon.
+
 1. Ground the scope (work, arc or scene), intended audience/genre/effect and preservation conditions in the existing brief. Identify the choice to settle and any material missing context; clarify unresolved intent only when it changes the work. Reuse valid design decisions and context.
 2. Consider the twenty elements below at whole-work scope. For an arc/scene/local revision, select those that affect its function and actual dependencies; identify a material deferred element or unavailable context without inventing an answer. Treat them as connected questions, not twenty required devices, scores or separate skills. A static character, quiet scene, coincidence, ambiguity or open ending can be intentional; justify it against the work rather than forcing change, conflict or closure everywhere.
 3. Connect relevant choices: purpose -> character desire/information/pressure -> choice/event -> consequence or change -> information available to viewpoint character and reader. Arrange scenes, revelations and setups/payoffs accordingly; identify meaningful tradeoffs such as clarity versus suspense or pace versus emotional preparation. Compare alternatives only when they affect the decision; respect discovery writing instead of imposing a fixed plot formula.

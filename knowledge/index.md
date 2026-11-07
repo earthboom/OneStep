@@ -8,6 +8,7 @@ This index routes to domains only. Use [vegabond-knowledge](../skills/vegabond-k
 | --- | --- |
 | [Code](code/index.md) | Software implementation, systems, runtime behavior, and verification. |
 | [Fiction](fiction/index.md) | Narrative craft, story context, voice, continuity, and manuscript review. |
+| [Game](game/index.md) | Genre-aware game design, player experience, interacting systems, prototyping, and playtest methods. |
 | [Presentation](presentation/index.md) | Slide arguments, deck production, content checks, and visual inspection. |
 | [Planning](planning/index.md) | Planning/proposal content, feasibility, dependencies, and success measures. |
 | [Shared](shared/index.md) | Material with demonstrated applicability across domains. |

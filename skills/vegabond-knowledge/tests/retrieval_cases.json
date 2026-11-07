@@ -1,0 +1,19 @@
+{
+  "description": "Required and forbidden IDs for actual OneStep questions. Extend after a demonstrated miss; this is not a complete relevance judgment set.",
+  "cases": [
+    {"name": "Korean body-only memory pooling", "query": "메모리 풀링", "domains": ["code"], "required": ["K-CODE-PERFORMANCE-MEASUREMENT"], "limit": 3},
+    {"name": "Hardcoding classification", "query": "하드코딩 설정", "domains": ["code"], "required": ["K-CODE-CONFIGURATION-POLICY"], "limit": 3},
+    {"name": "Cancellation and shutdown", "query": "취소 shutdown", "domains": ["code"], "required": ["K-CODE-CONCURRENCY-LIFETIMES"], "limit": 3},
+    {"name": "Unreal GC ownership distinctions", "query": "UObject GC", "domains": ["code"], "required": ["K-CODE-GC-LIFETIMES", "K-CODE-RESOURCE-OWNERSHIP"], "limit": 3},
+    {"name": "Readability evidence", "query": "가독성", "domains": ["code"], "required": ["K-CODE-READABILITY"], "limit": 3},
+    {"name": "Information hiding phrase", "query": "정보 은닉", "domains": ["code"], "required": ["K-CODE-INFORMATION-HIDING"], "limit": 3},
+    {"name": "Dependency lifecycle", "query": "dependency selection upgrades", "domains": ["code"], "required": ["K-CODE-DEPENDENCY-SELECTION"], "limit": 3},
+    {"name": "Resolved incident remains discoverable", "query": "부트스트랩", "store": "records", "required": ["R-CATALOG-BOOTSTRAP"], "limit": 3},
+    {"name": "Cross-store dialogue retrieval", "query": "same-speaker", "domains": ["fiction"], "required": ["K-FIC-N2-DIALOGUE-CHOICE", "R-FIC-N2-DIALOGUE-20261106"], "limit": 5},
+    {"name": "Knox by Korean author name", "query": "녹스", "domains": ["fiction"], "required": ["K-FIC-REF-KNOX-FAIR-PLAY"], "limit": 3},
+    {"name": "RTS design", "query": "RTS", "domains": ["game"], "required": ["K-GAME-STRATEGY-RTS"], "limit": 3},
+    {"name": "Exact engine-specific identifier", "query": "RenderDocPlugin", "domains": ["code"], "required": ["K-CODE-UE-RENDERDOC-ATTACH"], "limit": 3},
+    {"name": "Domain boundary excludes unrelated code", "query": "ownership", "domains": ["fiction"], "forbidden": ["K-CODE-RESOURCE-OWNERSHIP", "K-CODE-PRINCIPLE-REUSE"], "limit": 5},
+    {"name": "Absent term stays an explicit gap", "query": "onestep-nonexistent-quantum-identifier", "required": [], "forbidden": ["K-CODE-PRINCIPLE-REUSE", "R-CATALOG-BOOTSTRAP"], "limit": 3}
+  ]
+}

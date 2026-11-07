@@ -9,6 +9,8 @@ Produce the requested new result. Reuse the brief and task profile supplied by s
 
 ## Refine the creation task
 
+Use the shared [information-needs judgment](../vegabond-scout/references/information-needs.md) to connect consequential authoring choices and preservation conditions to evidence. Have the specialist refine missing questions from actual inputs; reuse valid answers and verify their application in the delivered result.
+
 Use [vegabond-knowledge](../vegabond-knowledge/SKILL.md) for needed references, conventions, and acceptance checks, reusing scout's information brief. Pass new source-backed methods or confirmed corrections back for storage within the task's write scope.
 
 Use the shared profile to separate supplied material from what must be authored. Confirm the requested degree of completion: a draft, outline, editable artifact, executable capability, or another result. An outline is not a delivered presentation or video.

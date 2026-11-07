@@ -9,6 +9,8 @@ Provide presentation methods for the active operation. Reuse its brief and task 
 
 ## Execute
 
+Apply the shared [information-needs judgment](../vegabond-scout/references/information-needs.md) to audience decisions, source claims, comparable populations/units and actual output requirements. Expose missing evidence before turning a retrieved assertion into a slide or treating a content-only request as full artifact production.
+
 Establish what the audience should understand or decide and how the presentation will be used. Inspect supplied sources, existing slides, template, and relevant speaker notes. Distinguish a requested outline or script from a finished editable deck. For artifact production or editing, load an available presentation skill suited to the requested format and follow its authoring and export procedure.
 
 Use [vegabond-knowledge](../vegabond-knowledge/SKILL.md) for relevant audience, design/format conventions, source guidance, and prior content or rendering defects, reusing the active information brief.

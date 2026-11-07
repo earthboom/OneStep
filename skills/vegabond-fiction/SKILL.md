@@ -9,6 +9,8 @@ Write and revise fiction within the active operation. Reuse its brief and task p
 
 ## Gather the relevant story context
 
+Use the shared [information-needs judgment](../vegabond-scout/references/information-needs.md) to derive questions from the actual scene and edit, including relevant causal, knowledge and disclosure dependencies beyond its genre label. Keep canon, author preference, character belief and provisional invention distinct when adopting retrieved material.
+
 Before drafting or revising a scene, request focused context through [vegabond-knowledge](../vegabond-knowledge/SKILL.md), reusing the current information brief. Identify the work and revision, chapter/scene, story time, viewpoint, involved characters and aliases, location, and intended events where known. Missing values are gaps, not invitations to invent facts.
 
 Use the work's existing setting documents, character/relationship notes, timeline, relevant manuscript passages, and author decisions as sources. Follow the knowledge skill's scoped index-to-detail retrieval; search by work and entity names/aliases, then scene/time and relevant questions. Expand to connected characters or events only when needed for a dependency or conflict. Include supporting characters whose actions matter; narrative prominence alone does not determine relevance. Reuse valid context rather than rereading all setting files for every scene.

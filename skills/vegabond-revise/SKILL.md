@@ -9,6 +9,8 @@ Improve the existing result while preserving the intended constraints. Reuse the
 
 ## Refine the revision task
 
+Apply the shared [information-needs judgment](../vegabond-scout/references/information-needs.md) to the actual change, preserved contract and affected dependents. Recheck whether initial questions missed a material condition; compare a prior incident's mechanism before transferring its correction.
+
 Use [vegabond-knowledge](../vegabond-knowledge/SKILL.md) for relevant prior failures, preserved contracts, and correction checks, reusing scout's information brief. Return confirmed findings and before/after evidence for authorized record updates.
 
 Use the shared profile and original context to distinguish defect repair from intentional improvement and identify affected dependencies. Apply the relevant specialist's revise, verification, and correction methods within the steps below, using [scout's shared mapping](../vegabond-scout/SKILL.md#connect-steps-to-skills-and-checks). Refine only missing revision details rather than repeating the shared assessment.

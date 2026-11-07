@@ -2,6 +2,8 @@
 
 Planning/proposal content, feasibility, dependencies, and success measures.
 
+For game planning, also retrieve relevant [game-design references](../game/index.md) by genre, player activity, and design question; follow the [reuse convention](../game/K-GAME-RESEARCH-USE.md) and preserve the working project's own design authority.
+
 [Domain routing](../index.md) | [Storage and lifecycle](../../skills/vegabond-knowledge/references/storage.md)
 
 <!-- onestep-catalog:start -->

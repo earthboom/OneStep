@@ -1,0 +1,81 @@
+{
+  "notice": "Synthetic task inputs only. No real product, manuscript, customer data or verified incident is represented. Prescribed queries and expected judgments are deliberately absent.",
+  "cases": [
+    {
+      "id": "callback-edit",
+      "skill": "vegabond-code",
+      "request": "알림 헬퍼가 읽기 어렵다. 동작과 소유 방식은 바꾸지 않고 이름과 분기 구조만 정리하려 한다. 먼저 필요한 자료를 찾아 이 변경의 범위와 확인할 사항을 제안해줘. 실제 코드는 수정하지 마.",
+      "files": {
+        "material/project.md": "# Synthetic Beacon project\nThis is a UE 5.8 client component using UObject-based UPanelOwner. Only spelling/naming and branch restructuring are authorized. QueueUI runs on the game thread later; closing a panel does not drain queued callbacks. UPanelOwner destruction follows the engine's object lifecycle. Do not assume a queue entry keeps an owner alive.\n",
+        "material/alert.cpp": "// Synthetic source, not compilable engine integration.\nvoid QueueAlert(UPanelOwner* Owner, bool Important) {\n  if (Important) QueueUI([Owner] { Owner->ShowImportant(); });\n  else QueueUI([Owner] { Owner->ShowOrdinary(); });\n}\n",
+        "material/standalone-notes.md": "# Synthetic standalone note\nFor the standalone C++ Panel object owned exclusively by this library, shared_ptr captures retain that C++ object. This says nothing about engine object tracking, UI validity or completion.\n"
+      },
+      "entries": [
+        {"id": "K-EVAL-ENGINE", "domain": "code", "title": "UI callback and engine object contract", "summary": "Queued callbacks and UObject owners have separate lifetimes.", "keywords": ["callback", "QueueUI", "UPanelOwner", "UE", "owner", "lifetime"], "scope": "Beacon / UE 5.8 / UObject UI owner", "context": {"engine": "UE 5.8"}, "guidance": "A raw capture does not create an engine-tracked ownership edge. Identify the actual valid-owner rule and callback delivery after closing. Naming-only revision preserves capture and queue behavior; a lifetime repair is a separately scoped behavior decision.", "source": "material/project.md"},
+        {"id": "K-EVAL-STANDALONE", "domain": "code", "title": "Simple callback shared_ptr cleanup", "summary": "Retain a standalone C++ Panel through shared_ptr capture.", "keywords": ["callback", "cleanup", "owner", "shared_ptr"], "scope": "Standalone library / C++ Panel, not Beacon UObject", "context": {"engine": "none"}, "guidance": "This advice applies to the library-owned ordinary C++ Panel. It is not a replacement rule for UObject-based UPanelOwner.", "source": "material/standalone-notes.md"}
+      ]
+    },
+    {
+      "id": "provider-swap",
+      "skill": "vegabond-code-design",
+      "request": "결제 제공자 A를 B로 교체해도 되는지 검토해줘. 어댑터의 함수 이름과 인자는 같다고 한다. 필요한 정보를 찾아 교체 판단과 검증 방향을 제시해줘. 실제 결제 호출이나 구현 변경은 하지 마.",
+      "files": {
+        "material/adapter.md": "# Synthetic adapter\nBoth providers expose Charge(order_id, amount) -> Receipt or E_BUSY. Existing caller retries E_BUSY up to three times. Provider A documents no side effect on E_BUSY. The B package has a declaration only; retry, idempotency, timeout and receipt guarantees are unavailable in these inputs. The order_id may repeat on a network retry. No provider calls are authorized.\n",
+        "material/old-incident.md": "# Synthetic incident history\nProvider A release 1.0 E_BUSY was caused by a local pre-charge lock; three retries were used for that mechanism. This history did not inspect Provider B.\n"
+      },
+      "entries": [
+        {"id": "K-EVAL-ADAPTER", "domain": "code", "title": "Charge adapter interface", "summary": "Matching declarations expose a common call shape, not identical side effects.", "keywords": ["Charge", "adapter", "provider", "E_BUSY", "retry", "idempotency"], "scope": "Synthetic payment adapter / Provider A to B", "guidance": "Inspect accepted inputs, side effects, failures, retries and receipt obligations under each provider's actual guarantees. Unknown guarantees remain unknown.", "source": "material/adapter.md"},
+        {"id": "R-EVAL-BUSY", "domain": "code", "store": "records", "title": "E_BUSY retry resolved the original lock case", "summary": "The original Provider A lock case used three retries before charge execution.", "keywords": ["Charge", "E_BUSY", "retry", "provider"], "scope": "Provider A release 1.0 only", "trigger": "A 1.0 local pre-charge lock", "symptom": "E_BUSY returned", "cause_status": "confirmed", "prevention": "Retry only under the original no-side-effect contract", "prevention_status": "proposed", "guidance": "The shared error name does not establish Provider B's cause or whether B charged before returning. Do not transfer retry behavior without its contract.", "source": "material/old-incident.md"}
+      ]
+    },
+    {
+      "id": "testimony-scene",
+      "skill": "vegabond-fiction",
+      "request": "이 판타지 심문 장면을 더 읽기 쉽게 다듬는 방향을 제안하고 두 문장 정도 예시를 써줘. 후반의 정체 공개와 기존 시점은 유지해줘. 원본 파일은 수정하지 마.",
+      "files": {
+        "material/canon.md": "# Synthetic Mist Harbor canon\nAuthority: author-confirmed current canon. Chapter 2 is close third person through investigator Mira. Witness Sol saw a cloaked runner carrying a red lantern, never a face or badge. Sol may suspect captain Ilen; neither Sol nor Mira knows the runner's identity here. The reader learns the true identity in chapter 6. Preserve uncertainty; belief is not fact.\n",
+        "material/scene.md": "# Synthetic chapter 2\nMira watched Sol grip the cup. 'The red lantern,' Sol said. 'Ilen uses one.' Mira knew that Ilen was the runner. She asked again, although the answer was already certain.\n",
+        "material/new-outline.md": "# Synthetic later-dated outline\nStatus: unapproved brainstorming, not canon. Proposal: let Sol see Ilen's badge in chapter 2. This changes the reveal and has not been accepted by the author.\n",
+        "material/other-author.md": "# Synthetic different-author preference\nIn the unrelated Ash Vale reunion, its author removed a repeated reassurance. This is a scene-specific deletion, not a general ban on emotional explanation.\n"
+      },
+      "entries": [
+        {"id": "K-EVAL-DISCLOSURE", "domain": "fiction", "title": "Mist Harbor scene knowledge and disclosure", "summary": "Separate witness observation, suspicion and reader disclosure at chapter 2.", "keywords": ["Mira", "Sol", "Ilen", "testimony", "reveal", "clue", "viewpoint", "reader"], "scope": "Mist Harbor / chapter 2 / author-confirmed canon", "guidance": "Consult current canon and chapter text. A later-dated unapproved outline cannot override the confirmed observation or reveal boundary. Keep reader-facing claims within the intended knowledge state.", "source": "material/canon.md"},
+        {"id": "K-EVAL-OTHER-STYLE", "domain": "fiction", "title": "Simplify emotional dialogue in Ash Vale", "summary": "Preserve one author's selected deletion in a different reunion.", "keywords": ["dialogue", "readability", "emotion", "scene"], "scope": "Ash Vale / another author / reunion only", "guidance": "This preference is specific to a different author and scene, not universal prose guidance.", "source": "material/other-author.md"}
+      ]
+    },
+    {
+      "id": "combat-plan",
+      "skill": "vegabond-planning",
+      "request": "전투가 길다는 의견이 있어 게임의 전투 시간을 절반으로 줄이는 기획안을 검토하고 싶다. 보상은 그대로 두고 싶다. 필요한 자료를 찾아 변경의 영향과 판단에 필요한 정보를 제시해줘. 구현이나 실제 게임 테스트는 하지 마.",
+      "files": {
+        "material/design.md": "# Synthetic Copper Road action RPG\nCurrent model assumes 2 minutes per combat and 100 coins per completed combat, with zero downtime in this calculation only. Proposal: 1 minute per combat with 100 coins unchanged. Intended experience includes meaningful upgrades, not only combat speed. Session length, failures, travel and coin sinks have not been measured. Demand claim comes from three comments without sample context.\n",
+        "material/production.md": "# Synthetic production facts\nThe team can author four encounter variants per month under its current allocation. This is a planning estimate, not a commitment or measured player consumption rate. Progression prices and content replay assumptions may change if coin throughput changes.\n"
+      },
+      "entries": [
+        {"id": "K-EVAL-ECONOMY", "domain": "game", "title": "Combat and reward rates are connected", "summary": "Compare reward throughput, sinks, progression and session conditions when combat duration changes.", "keywords": ["combat", "reward", "economy", "progression", "coins", "session"], "scope": "Copper Road / action RPG / hypothetical rate model", "guidance": "Calculate only under stated conditions. Trace unchanged rewards through income, progression, resource sinks and content demand. A rate calculation does not demonstrate balance, player satisfaction or feasibility.", "source": "material/design.md"},
+        {"id": "K-EVAL-CAPACITY", "domain": "planning", "title": "Content capacity and consumption need separate evidence", "summary": "An authoring estimate is not demonstrated player content demand.", "keywords": ["combat", "content", "capacity", "production", "consumption", "progression"], "scope": "Copper Road / proposed production allocation", "guidance": "Compare content throughput, replay and integration demand with available capacity without inventing demand or commitments. Revisit the underlying player problem and evidence population.", "source": "material/production.md"}
+      ]
+    },
+    {
+      "id": "retention-claim",
+      "skill": "vegabond-presentation",
+      "request": "투자 설명 슬라이드에 들어갈 '유지율이 50%에서 80%로 개선됐다'는 문장을 검토하고 근거에 맞는 대안을 써줘. 이번에는 문구와 논리만 검토하고 덱 제작은 하지 마.",
+      "files": {
+        "material/metrics.csv": "period,population,eligible,retained\nJanuary,paid-customers,400,200\nFebruary,all-signups,1000,800\n",
+        "material/metric-notes.md": "# Synthetic retention notes\nJanuary is the paid customer cohort's 30-day retention; February is all signups' 7-day retention. Paid-only February 30-day data is unavailable. Neither observation measures the effect of a product change. No deck export is part of this request.\n"
+      },
+      "entries": [
+        {"id": "K-EVAL-COHORTS", "domain": "presentation", "title": "Compare like populations and windows", "summary": "Rate comparisons need compatible populations, denominators and observation windows.", "keywords": ["retention", "rate", "chart", "cohort", "denominator", "period", "유지율"], "scope": "Synthetic investor wording / supplied metrics only", "guidance": "Inspect the CSV together with metric definitions. Correct arithmetic does not establish comparable cohorts or causal improvement. Limit claims to supported separate observations or request the missing comparable data.", "source": "material/metric-notes.md"}
+      ]
+    },
+    {
+      "id": "spacing-only",
+      "skill": "vegabond-revise",
+      "request": "다음 한 문장의 띄어쓰기만 고쳐줘. 의미와 다른 표현은 그대로 둬: '그는 천천히 문을열었다.'",
+      "files": {
+        "material/scope.md": "# Synthetic local edit\nOnly the supplied sentence's spacing is in scope. No wider work, genre, identity, lore, timeline or character state is required to decide this edit.\n"
+      },
+      "entries": []
+    }
+  ]
+}
