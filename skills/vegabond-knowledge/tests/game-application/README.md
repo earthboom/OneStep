@@ -27,3 +27,7 @@ The six requests cover jump input loss, an already-instanced GPU-bound forest, r
 The [2026-11-07 run report](evaluation-results.md) preserves six baseline responses, four fresh retests, a nearby false-inference correction and final regression results. [retrieval-cases.json](retrieval-cases.json) is the separate lexical suite; its wording variants are author-visible regression examples, not unseen semantic holdouts.
 
 The [extended run](extended-evaluation-results.md) exercises the other 32 technical sheets in ten new scenarios, including missing exact contracts and competing mechanisms. It retains [separate frozen requests](extended-cases.json), [criteria](extended-rubric.json), [lexical controls](extended-retrieval-cases.json), three fresh retests, and a later weighted-flow counterexample/variant check. Keep this added coverage and mathematical follow-up distinct from actual game runtime validation.
+
+## Targeted repair checks
+
+The [2026-11-08 repair report](repair-results.md) records rollback award confirmation, nearby Korean false-expansion controls and build-free retained-evidence reanalysis, with separate contract, retrieval and provenance limits. It supplements the frozen earlier evaluations without rewriting their results.

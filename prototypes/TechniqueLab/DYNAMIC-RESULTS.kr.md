@@ -85,3 +85,7 @@ python ./analyze_dynamic.py
 ## 저장·검색 검증
 
 게임 목록69개 엄격 검사는 오류·경고0개였다([기록](Results/Dynamic/catalog-check.json)). 기존 검색 공통23개·게임11개·추가20개가 통과했다. 새3개는 처음2/3이었다. 이동 중 문/그래프 질문이 PATH를 상위3개에서 놓쳤다([실패](Results/Dynamic/retrieval-dynamic-red.json)). 요약과 topology·door·traversal 식별어를 보완해 같은 입력으로3/3을 통과했다([결과](Results/Dynamic/retrieval-dynamic.json)). 총57개가 통과했으며 미지 요청의 자율 판단 검증은 아니다. 원본 gzip 식별·문서 링크·번역쌍 존재는 따로 확인하고 사람용 번역은 그 내용을 읽지 않고 기준/작성 원천에서 생성했다.
+
+## 오프라인 재분석 계약
+
+현재 [분석 절차](ANALYSIS.kr.md)는 보관 자료·소스 검사와 선택적인 과거 바이너리 확인을 구분한다. 네 분석기의 기본 동작은 읽기 전용 표준 출력이다. 빌드 누락을 명시하며 `--require-binaries`에서는 누락도 실패한다. 존재하는 파일의 해시 불일치는 두 모드 모두 실패한다. 저장은 `--output`으로 새 파일을 지정할 때만 하며 과거 결과를 자동으로 덮어쓰지 않는다. 이 절차는 Unity를 다시 실행하거나 위의 측정값을 변경하지 않는다.

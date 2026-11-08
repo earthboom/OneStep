@@ -101,3 +101,7 @@ Use new session names to preserve historical evidence; the analysis script inten
 Updated CAMERA, HITSCAN and PATH with this local evidence and conditions; GUIDE and RESEARCH-USE distinguish these three engine experiments from the other 40 technique sheets and earlier hypothetical evaluations. The implementation remains an isolated prototype, with no production integration, network test, GPU profile or player study.
 
 After these updates, strict game-catalog validation passed for 69 entries with zero errors/warnings. Existing declared retrieval cases passed 23/23 common, 11/11 game application and 20/20 extended cases ([common](Results/retrieval-common.json), [game](Results/retrieval-game.json), [extended](Results/retrieval-extended.json)). These are discoverability regressions, distinct from runtime correctness and autonomous decisions on unseen tasks. Independent code/evidence review found no remaining correctness blocker within the stated scope; its qualifications are retained above.
+
+## Offline reanalysis contract
+
+The current [analysis procedure](ANALYSIS.md) separates retained-data/source checks from optional recorded-binary verification. All four analyzers default to read-only stdout; missing builds are explicit, `--require-binaries` makes them failures, and any available hash mismatch fails in either mode. Save only with `--output` to a new file; historical results are never implicitly rewritten. This procedure does not rerun Unity or change the measurements above.

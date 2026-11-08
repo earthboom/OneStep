@@ -38,3 +38,7 @@ Unity에서 Assets/TechniqueLab.unity를 열고 Play하거나 빌드 뒤 `./Run-
 ## 무차선 지속 유입 확장
 
 별도 StreamLab에서 요청별 검색·완전 시간 예약·외부 FIFO·개별 ID 응답을 검사했다. [설계](STREAM.kr.md)·[결과](STREAM-RESULTS.kr.md)의 과부하 응답 실패·기아 비교·두 지형3회 전체 프레임과 적용 조건을 읽는다. StreamBatch.Build,Run-Stream.ps1,analyze_stream.py를 쓴다. 기존 장면/소스/근거를 보존했다.
+
+## 오프라인 재분석 계약
+
+현재 [분석 절차](ANALYSIS.kr.md)는 보관 자료·소스 검사와 선택적인 과거 바이너리 확인을 구분한다. 네 분석기의 기본 동작은 읽기 전용 표준 출력이다. 빌드 누락을 명시하며 `--require-binaries`에서는 누락도 실패한다. 존재하는 파일의 해시 불일치는 두 모드 모두 실패한다. 저장은 `--output`으로 새 파일을 지정할 때만 하며 과거 결과를 자동으로 덮어쓰지 않는다. 이 절차는 Unity를 다시 실행하거나 위의 측정값을 변경하지 않는다.

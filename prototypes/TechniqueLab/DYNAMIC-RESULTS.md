@@ -85,3 +85,7 @@ Use this approach for centrally owned grid agents sharing a reachable exit/cost 
 ## Storage and retrieval verification
 
 The strict game catalog passed 69 entries with zero errors/warnings ([record](Results/Dynamic/catalog-check.json)). Existing retrieval checks passed 23 common, 11 game application and 20 extended cases. Three new symptom/mechanism/frame-budget cases initially passed 2/3: a traversal/topology query omitted PATH from the first three results ([red](Results/Dynamic/retrieval-dynamic-red.json)). PATH's summary and topology/door/traversal identifiers were clarified; the same unchanged cases then passed 3/3 ([result](Results/Dynamic/retrieval-dynamic.json)). All 57 cases pass after the update. This tests declared discoverability, not autonomous decisions on unseen requests. Raw gzip identity and document links/translation-pair existence are checked separately; human translations are generated from canonical/authored sources without reading their contents.
+
+## Offline reanalysis contract
+
+The current [analysis procedure](ANALYSIS.md) separates retained-data/source checks from optional recorded-binary verification. All four analyzers default to read-only stdout; missing builds are explicit, `--require-binaries` makes them failures, and any available hash mismatch fails in either mode. Save only with `--output` to a new file; historical results are never implicitly rewritten. This procedure does not rerun Unity or change the measurements above.

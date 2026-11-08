@@ -73,3 +73,7 @@ PATH의 시간 확장 경로와 CROWD의 기하/처리량/개별 진전 조건�
 공통 지식 도구의 전체 검사도 [75/75통과](Results/Stream/knowledge-tests.txt)했다. [첫 실행](Results/Stream/knowledge-tests-sandbox.txt)은 임시 폴더/테스트 링크 권한과 PYTHONPATH의 PyYAML 주입 때문에2실패·11오류였다. 검사명별 원인은 영문 기준과 [환경 기록](Results/Stream/knowledge-suite-environment.json)에 남겼다. 테스트/게임 소스는 바꾸지 않고 작업 폴더 임시 경로·정상 site 초기화·제한 없는 검사 프로세스로 재실행해 해결했다. 패키지 설치는 하지 않았다.
 
 2026-11-08 **초록만 확인한 원저**: [RHCR](https://arxiv.org/abs/2005.07371)의 지속 목표/시간창, [PIBT](https://arxiv.org/abs/1901.11282)의 그래프 순환 조건, [온라인 수거/배송](https://arxiv.org/abs/1705.10868)의 well-formed 범위. 자체 전체 경로/입장 구현은 해당 알고리즘·정리·벤치마크를 재현한 것이 아니며 원저의 보장을 가져오지 않는다.
+
+## 오프라인 재분석 계약
+
+현재 [분석 절차](ANALYSIS.kr.md)는 보관 자료·소스 검사와 선택적인 과거 바이너리 확인을 구분한다. 네 분석기의 기본 동작은 읽기 전용 표준 출력이다. 빌드 누락을 명시하며 `--require-binaries`에서는 누락도 실패한다. 존재하는 파일의 해시 불일치는 두 모드 모두 실패한다. 저장은 `--output`으로 새 파일을 지정할 때만 하며 과거 결과를 자동으로 덮어쓰지 않는다. 이 절차는 Unity를 다시 실행하거나 위의 측정값을 변경하지 않는다.

@@ -8,6 +8,7 @@ import gzip
 import json
 import math
 from pathlib import Path
+from analysis_evidence import add_expected, emit_summary, parse_options
 from statistics import mean, median
 
 ROOT = Path(__file__).resolve().parent
@@ -111,7 +112,8 @@ def validate_case(case):
     return result
 
 
-def main():
+def main(argv=None):
+    options = parse_options(argv)
     editor = read('dynamic-editor-final.json')
     validate_behavior(editor)
     assert editor['editor'] and not editor['cases']
@@ -138,9 +140,9 @@ def main():
     assert len({p['playerSha256'] for p in processes}) == 1
     assert len({r['buildGuid'] for r in reports}) == 1
     assert all(processes[i]['utcEnd'] <= processes[i+1]['utcStart'] for i in range(2))
-    assembly = ROOT / 'DynamicBuild/DynamicLab_Data/Managed/Assembly-CSharp.dll'
-    if assembly.exists():
-        assert hashlib.sha256(assembly.read_bytes()).hexdigest().upper() == processes[0]['managedAssemblySha256']
+    expected = {}
+    for process in processes:
+        add_expected(expected, 'DynamicBuild/DynamicLab_Data/Managed/Assembly-CSharp.dll', process['managedAssemblySha256'])
     summary = dict(sessions=3, checksPerSession=12, behaviorsPerSession=6,
                    environment={k: reports[0][k] for k in ('unity', 'cpu', 'gpu', 'graphicsApi', 'os', 'screenWidth', 'screenHeight', 'vSync', 'antiAliasing', 'cpuTimerFrequency')},
                    buildGuid=reports[0]['buildGuid'], managedAssemblySha256=processes[0]['managedAssemblySha256'],
@@ -158,9 +160,8 @@ def main():
         row['gpuCoveragePercent']=[min(v['gpuCoveragePercent'] for v in variants),max(v['gpuCoveragePercent'] for v in variants)]
         row['gpuTailValidatedAll']=all(v['gpuTailValidated'] for v in variants)
         summary['ranges'].append(row)
-    (RESULTS / 'summary.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
-    print(json.dumps({k:v for k,v in summary.items() if k!='sessionsData'},indent=2))
+    return emit_summary(summary, options, ROOT, expected, omit=('sessionsData',))
 
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main())

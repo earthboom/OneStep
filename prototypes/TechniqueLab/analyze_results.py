@@ -7,6 +7,7 @@ import json
 import math
 from pathlib import Path
 from statistics import median
+from analysis_evidence import add_expected, emit_summary, parse_options
 
 ROOT = Path(__file__).resolve().parent
 RESULTS = ROOT / "Results"
@@ -52,7 +53,8 @@ def validate(report):
         assert len({b["checksum"] for b in rows}) == 1, "Unequal distance answers"
 
 
-def main():
+def main(argv=None):
+    options = parse_options(argv)
     editor = read("editor-play-final.json")
     validate(editor)
     assert editor["editor"]
@@ -72,9 +74,9 @@ def main():
     assert len({r["buildGuid"] for r in reports}) == 1
     assert len({m["playerSha256"] for m in manifests}) == 1
     assert all(manifests[i]["utcEnd"] <= manifests[i + 1]["utcStart"] for i in range(2))
-    player = ROOT / "Build/TechniqueLab.exe"
-    if player.exists():
-        assert hashlib.sha256(player.read_bytes()).hexdigest().upper() == manifests[0]["playerSha256"]
+    expected = {}
+    for manifest in manifests:
+        add_expected(expected, "Build/TechniqueLab.exe", manifest["playerSha256"])
     assert read("green-error-sentinel.json")["failures"] == 1
     assert read("red-error-sentinel.json")["failures"] == 0
     summary = {"sessions": 3, "checksPerSession": 27, "seriesPerSession": 30,
@@ -101,9 +103,8 @@ def main():
             "invocationsPerSample": [r["invocationsPerSample"] for r in rows],
             "nativeQueriesPerWork": first["queriesPerSample"] / first["totalWorkPerSample"],
             "groupGCCollections": [[r[f"groupGen{g}Collections"] for g in range(3)] for r in rows]})
-    (RESULTS / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps(summary, indent=2))
+    return emit_summary(summary, options, ROOT, expected)
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

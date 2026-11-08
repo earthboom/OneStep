@@ -51,7 +51,7 @@
     {"id": "decorative-window-depth", "all": [["창문", "유리창"], ["장식", "가짜", "비진입", "들어갈 수 없"], ["깊이", "실내", "방"]], "expand": ["interior mapping"]},
     {"id": "cave-exit-connectivity", "all": [["동굴", "던전"], ["출구", "통로"], ["연결", "도달", "보장"]], "expand": ["dungeon"]},
     {"id": "shared-crowd-exit", "all": [["군중", "대피"], ["같은", "공유"], ["출구", "목표"]], "expand": ["flow"]},
-    {"id": "transparent-dark-edge", "all": [["투명", "알파"], ["테두리", "가장자리"], ["검", "어두", "번짐"]], "expand": ["blending"]},
+    {"id": "transparent-dark-edge", "all": [["투명", "알파"], ["테두리", "가장자리"], ["검은", "검게", "검정", "검다", "어두", "번짐"]], "expand": ["blending"]},
     {"id": "physical-fragment-activation", "all": [["파편", "파괴"], ["활성화", "충돌", "물리"]], "expand": ["destruction"]},
     {"id": "elemental-state-transition", "all": [["원소", "화학"], ["효과", "반응", "상호작용"], ["상태", "변화", "전이"]], "expand": ["systemic"]},
     {"id": "repeat-attack-damage", "all": [["공격", "타격"], ["중복", "반복"], ["피해", "대미지", "데미지"]], "expand": ["hitbox"]},

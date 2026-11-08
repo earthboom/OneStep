@@ -9,6 +9,7 @@ import json
 from datetime import datetime
 from pathlib import Path
 from analyze_dynamic import stats
+from analysis_evidence import add_expected, emit_summary, parse_options
 
 ROOT=Path(__file__).resolve().parent
 RESULTS=ROOT/'Results/Stream'
@@ -107,7 +108,9 @@ def case(c):
     return out
 
 
-def main():
+def main(argv=None):
+    options = parse_options(argv)
+    expected_binaries = {}
     editor=read('editor-final.json');behavior(editor);assert editor['editor'] and editor['batch'] and not editor['cases']
     build=read('build.json');assert build['result']=='Succeeded' and build['errors']==0 and not build['development']
     snapshot=read('build-source.json');built={s['path']:s['sha256'] for s in snapshot['sources']}
@@ -122,7 +125,7 @@ def main():
         assert [c['layout'] for c in report['cases']]==([1]*3+[0]*3 if i==2 else [0]*3+[1]*3)
         assert {p.replace('\\','/'):h for p,h in record['sourceSha256'].items()}==built
         for p,key in [('StreamBuild/StreamLab.exe','playerSha256'),('StreamBuild/StreamLab_Data/Managed/Assembly-CSharp.dll','managedAssemblySha256')]:
-            assert hashlib.sha256((ROOT/p).read_bytes()).hexdigest().upper()==record[key]
+            add_expected(expected_binaries, p, record[key])
         reports.append(report);records.append(record);runs.append(dict(session=session,cases=[case(c) for c in report['cases']]))
     assert len({r['buildGuid'] for r in reports})==1 and len({r['managedAssemblySha256'] for r in records})==1
     assert all(datetime.fromisoformat(a['utcEnd'].replace('Z','+00:00'))<=datetime.fromisoformat(b['utcStart'].replace('Z','+00:00')) for a,b in zip(records,records[1:]))
@@ -139,14 +142,14 @@ def main():
              totalEngineFrames=sum(c['engineSamples'] for c in allcases),gpuMissing=sum(c['gpuMissing'] for c in allcases),
              over16_67Count=sum(c['over16_67Count'] for c in allcases),
              limitation='Finite sustained streams and conditional FIFO/complete-route argument; external pending queue and unlaned cardinal graph, not unrestricted physical crowd or observed infinity.')
-    (RESULTS/'summary.json').write_text(json.dumps(out,indent=2)+'\n',encoding='utf-8')
-    print(json.dumps({k:v for k,v in out.items() if k not in ('runs','behavior')},indent=2))
+    exit_code = emit_summary(out, options, ROOT, expected_binaries, omit=('runs','behavior'))
     for name in sorted({c['name'] for c in allcases}):
         sub=[c for c in allcases if c['name']==name]
         print(name,'whole p95', [round(c['wallMs']['p95'],3) for c in sub],
               'planning-following p95',[round(c['planningFollowingWallMs']['p95'],3) for c in sub],
               'misses',[c['over16_67Count'] for c in sub],
               'active ranges',[(c['active']['median'],c['active']['maximum']) for c in sub])
+    return exit_code
 
 
-if __name__=='__main__':main()
+if __name__=='__main__':raise SystemExit(main())

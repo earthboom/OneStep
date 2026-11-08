@@ -112,6 +112,19 @@ class SearchTests(unittest.TestCase):
                 result = self.cli("search", "--query", query)
                 self.assertEqual(result["inferred_concepts"], [], query)
 
+    def test_dark_edge_concept_requires_a_darkness_symptom_not_review_words(self):
+        self.detail("K-BLEND", domain="game", keywords=["blending"], body="Inspect alpha edge conventions.")
+        for query in ("투명 패널 테두리 두께를 검토해줘", "투명 버튼 가장자리 간격을 검사해줘",
+                      "투명 패널 테두리 위치를 검증해줘"):
+            with self.subTest(query=query):
+                result = self.cli("search", "--query", query, "--domain", "game")
+                self.assertNotIn("transparent-dark-edge", [h["id"] for h in result["inferred_concepts"]])
+                self.assertNotIn("K-BLEND", [h["id"] for h in result["results"]])
+        for query in ("투명 이펙트 가장자리에 검은 테두리가 생겨요", "투명 테두리가 검게 번져요"):
+            with self.subTest(query=query):
+                result = self.cli("search", "--query", query, "--domain", "game")
+                self.assertIn("K-BLEND", [h["id"] for h in result["results"]])
+
     def duplicate_candidates(self):
         body = "UObject GC determines reachability, not deterministic resource cleanup."
         self.detail("K-A-GC", title="UObject GC", keywords=["UObject", "GC"], body=body)

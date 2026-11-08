@@ -42,3 +42,7 @@ The separate `Assets/DynamicLab.unity` scene adds deferred obstacle transactions
 ## Unlaned sustained-stream extension
 
 `Assets/StreamLab.unity` adds per-request unlaned grid search, immutable full-route space-time reservations, external FIFO admission and persistent ID accounting. [Design](STREAM.md) and [results](STREAM-RESULTS.md) retain ordinary completion, overload response failure, starvation/collision controls and three visible baffles/choke measurement matrices. Use StreamBatch.Build, Run-Stream.ps1 and analyze_stream.py. Prior scenes/source/evidence remain separate.
+
+## Offline reanalysis contract
+
+The current [analysis procedure](ANALYSIS.md) separates retained-data/source checks from optional recorded-binary verification. All four analyzers default to read-only stdout; missing builds are explicit, `--require-binaries` makes them failures, and any available hash mismatch fails in either mode. Save only with `--output` to a new file; historical results are never implicitly rewritten. This procedure does not rerun Unity or change the measurements above.

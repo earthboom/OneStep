@@ -1,0 +1,13 @@
+{
+  "scope": "Controlled contract examples, not a networking SDK or durable external service test.",
+  "cases": [
+    {"name": "predicted-ko-corrected-to-block", "steps": [["predict", "match-a", 40, "ko-1", "alice", "KO", false], ["cancel", "match-a", 40, "ko-1", "alice", "block", true]], "expected": [], "dedup_only_must_fail": true},
+    {"name": "confirmation-never-arrives", "steps": [["predict", "match-a", 40, "ko-1", "alice", "KO", false]], "expected": [], "dedup_only_must_fail": true},
+    {"name": "untrusted-confirmation", "steps": [["confirm", "match-a", 40, "ko-1", "alice", "KO", false]], "expected": []},
+    {"name": "confirmed-replay-and-retry", "steps": [["predict", "match-a", 40, "ko-1", "alice", "KO", false], ["confirm", "match-a", 40, "ko-1", "alice", "KO", true], ["confirm", "match-a", 40, "ko-1", "alice", "KO", true]], "expected": [["match-a", 40, "ko-1", "alice"]]},
+    {"name": "distinct-events-in-one-tick", "steps": [["confirm", "match-a", 40, "ko-1", "alice", "KO", true], ["confirm", "match-a", 40, "ko-2", "alice", "KO", true]], "expected": [["match-a", 40, "ko-1", "alice"], ["match-a", 40, "ko-2", "alice"]]},
+    {"name": "same-id-in-two-matches", "steps": [["confirm", "match-a", 40, "ko-1", "alice", "KO", true], ["confirm", "match-b", 40, "ko-1", "alice", "KO", true]], "expected": [["match-a", 40, "ko-1", "alice"], ["match-b", 40, "ko-1", "alice"]]},
+    {"name": "separate-recipients", "steps": [["confirm", "match-a", 40, "ko-1", "alice", "KO", true], ["confirm", "match-a", 40, "ko-1", "bob", "KO", true]], "expected": [["match-a", 40, "ko-1", "alice"], ["match-a", 40, "ko-1", "bob"]]},
+    {"name": "confirmed-ineligible-event", "steps": [["confirm", "match-a", 40, "ko-1", "alice", "block", true]], "expected": []}
+  ]
+}

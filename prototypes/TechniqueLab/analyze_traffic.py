@@ -9,6 +9,7 @@ import json
 from datetime import datetime
 from pathlib import Path
 from analyze_dynamic import stats
+from analysis_evidence import add_expected, emit_summary, parse_options
 
 ROOT = Path(__file__).resolve().parent
 RESULTS = ROOT / 'Results/Traffic'
@@ -100,7 +101,9 @@ def case(c):
     return out
 
 
-def main():
+def main(argv=None):
+    options = parse_options(argv)
+    expected_binaries = {}
     editor=read('editor-final.json');behavior(editor)
     assert editor['editor'] and editor['batch'] and not editor['cases']
     build=read('build.json');assert build['result']=='Succeeded' and build['errors']==0 and not build['development']
@@ -119,7 +122,7 @@ def main():
         for relative,expected in record['sourceSha256'].items():
             assert hashlib.sha256((ROOT/relative.replace('\\','/')).read_bytes()).hexdigest().upper()==expected
         for relative,key in [('TrafficBuild/TrafficLab.exe','playerSha256'),('TrafficBuild/TrafficLab_Data/Managed/Assembly-CSharp.dll','managedAssemblySha256')]:
-            assert hashlib.sha256((ROOT/relative).read_bytes()).hexdigest().upper()==record[key]
+            add_expected(expected_binaries, relative, record[key])
         reports.append(report);records.append(record);runs.append(dict(session=session,cases=results))
     assert len({r['buildGuid'] for r in reports})==1
     assert len({r['managedAssemblySha256'] for r in records})==1
@@ -133,14 +136,14 @@ def main():
                 totalEngineFrames=sum(c['engineSamples'] for c in allcases),gpuMissing=sum(c['gpuMissing'] for c in allcases),
                 over16_67Count=sum(c['over16_67Count'] for c in allcases),
                 limitation='Bounded authored lanes, fixed radii, centralized authority; no universal deadlock freedom, arbitrary steering or GPU-tail claim.')
-    (RESULTS/'summary.json').write_text(json.dumps(output,indent=2)+'\n',encoding='utf-8')
-    print(json.dumps({k:v for k,v in output.items() if k not in ('runs','behavior')},indent=2))
+    exit_code = emit_summary(output, options, ROOT, expected_binaries, omit=('runs','behavior'))
     for name in sorted({c['name'] for c in allcases}):
         subset=[c for c in allcases if c['name']==name]
         print(name, 'wall p95', [round(c['wallMs']['p95'],4) for c in subset],
               'tick-update p95', [round(c['tickUpdateMs']['p95'],4) for c in subset],
               'max', [round(c['wallMs']['maximum'],4) for c in subset],
               'miss%', [round(c['over16_67Percent'],3) for c in subset])
+    return exit_code
 
 
-if __name__=='__main__': main()
+if __name__=='__main__': raise SystemExit(main())
