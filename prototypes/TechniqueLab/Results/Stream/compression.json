@@ -1,0 +1,40 @@
+{
+  "method": "Lossless gzip; full byte roundtrip verified before removing selected raw duplicates",
+  "files": [
+    {
+      "original": "stream-run-1.json",
+      "compressed": "stream-run-1.json.gz",
+      "rawBytes": 40964377,
+      "compressedBytes": 2075927,
+      "sha256": "8a1319f61ae1e5df1ac685067b25406478b2e8fc663128d884fee81bf67fde88"
+    },
+    {
+      "original": "stream-run-2.json",
+      "compressed": "stream-run-2.json.gz",
+      "rawBytes": 44026627,
+      "compressedBytes": 2218497,
+      "sha256": "ccd47d8bd6fd70dd8d9e3ea4b9a0e04a20b76ecbb36e58b862c12b59c6d8aa7d"
+    },
+    {
+      "original": "stream-run-3.json",
+      "compressed": "stream-run-3.json.gz",
+      "rawBytes": 42063448,
+      "compressedBytes": 2128738,
+      "sha256": "8134f5e6a346a7ca2ef9919798f44500884f605e9472d383f27c43c00e997101"
+    },
+    {
+      "original": "pilot-1.json",
+      "compressed": "pilot-1.json.gz",
+      "rawBytes": 23707483,
+      "compressedBytes": 1167766,
+      "sha256": "11a7a0a5fe536674a4097476ed13cc060c1374dc1ebe4f29df3c391e8b37210f"
+    },
+    {
+      "original": "pilot-2.json",
+      "compressed": "pilot-2.json.gz",
+      "rawBytes": 23759443,
+      "compressedBytes": 1173470,
+      "sha256": "f78f8ee110a9d1684a91a44b2f104ce3dce18b60265a16b758185191b2f71547"
+    }
+  ]
+}

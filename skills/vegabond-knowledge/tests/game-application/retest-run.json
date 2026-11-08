@@ -1,0 +1,1113 @@
+{
+  "synthetic": true,
+  "phase": "fresh-context retest after initial repair",
+  "inputs_unchanged": true,
+  "cases": [
+    {
+      "id": "G02",
+      "response": "풀 전체를 GPU 인스턴싱으로 바꾸는 작업은 우선순위가 아닙니다. 이미 같은 메시·머티리얼로 인스턴싱 중입니다. CPU main/render 8/5ms에 비해 GPU 42ms이므로 GPU 병목이 우세합니다. 140 draw call만으로 제출 비용을 주원인으로 판단할 수 없습니다.\n\n픽셀 수를 절반으로 줄이면 25ms(−17ms), 풀 그림자를 끄면 34ms(−8ms)입니다. 픽셀 관련 비용과 그림자를 먼저 조사해야 합니다. 다만 해상도 실험은 장면 전체에 영향을 주므로 풀 오버드로만의 원인 증명은 아닙니다. 그림자 제거만으로도 33.3ms 예산에 못 미치며, 두 절감량을 합산할 수 없습니다.\n\n1. **먼저 풀의 픽셀 비용 감소:** 근거리 실루엣을 유지하고 중·원거리 밀도/LOD를 점진적으로 줄이는 한 가지 변형을 비교합니다. 겹치는 alpha-clipped 카드와 빈 투명 영역을 줄이되 바닥 노출을 확인합니다. 근거리 불투명 메시 대안은 정점 비용까지 측정할 때만 조건부 검토합니다. 인스턴싱은 유지합니다. 근거: [K-GAME-TECH-FOLIAGE](C:/Projects/OneStep/knowledge/game/K-GAME-TECH-FOLIAGE.md)의 Guidance/Applicability.\n2. **다음 그림자 비용 감소:** 풀 전체 그림자 제거는 진단 대조군으로 두고, 근거리 그림자는 유지한 채 원거리 caster 밀도·거리만 줄이는 변형을 비교합니다. 전환은 점진적으로 설계하고 실제 URP 지원을 확인합니다. 해상도·필터 변경은 여전히 비싼 패스가 남을 때 각각 따로 시험합니다. 근거: [K-GAME-TECH-SHADOW](C:/Projects/OneStep/knowledge/game/K-GAME-TECH-SHADOW.md)의 Guidance/Checks.\n\n**최소 실험:** 동일 Android 중급 기기, 빌드, 카메라 경로, 조명·바람·해상도에서 워밍업 후 기준선 → 풀 변형만 → 그림자 변형만 → 유망한 두 변형 결합을 반복 측정합니다. GPU 전체/풀/그림자 패스, CPU, 프레임 시간 중앙값·p95와 기기 발열 조건을 기록합니다. 제공된 해상도/그림자 대조군도 같은 조건인지 확인합니다.\n\n저각·상공 정지 화면과 느린 이동 영상으로 근거리 윤곽, 빈 바닥, 풀/그림자 팝핑, 깜빡임, 접지감, acne·peter-panning·cascade 경계를 비교합니다. 결합안은 지속 부하에서 프레임 p95 ≤33.3ms와 화질 조건을 모두 만족해야 채택합니다.\n\nUnity 2022.3 URP의 정확한 패치, GPU 모델, 측정 조건·분산은 미상입니다. 외부 원문·엔진 실행 없이 제공 프로파일과 저장 지식을 검토했으며, 위 실험은 제안일 뿐 성능 통과를 확인하지 않았습니다.\n",
+      "trace": {
+        "case": "G02",
+        "language": "ko",
+        "operation": "research",
+        "scale": "single",
+        "scope": "Read-only synthetic optimization investigation; only response.md and trace.json written. No web, engine, production edits, delegation, translations, registry, rubrics, sibling cases or evaluator results accessed.",
+        "brief": {
+          "goal": "Prioritize forest optimization and smallest discriminating experiments while retaining near grass silhouette and avoiding grass/shadow popping.",
+          "environment": "Supplied Unity 2022.3 URP, exact patch unknown; Android midrange; no project code or runtime supplied.",
+          "acceptance": "Use authoritative timings, separate inference from proof, qualify transfers, propose controlled performance and visual checks, no runtime-pass claim."
+        },
+        "questions": [
+          {
+            "question": "Is draw submission or GPU work the priority, and does instancing address the observed mechanism?",
+            "state": "answered provisionally",
+            "basis": "Profile already instanced; CPU 8/5ms, GPU 42ms; FOLIAGE distinguishes budgets."
+          },
+          {
+            "question": "How much evidence isolates pixel/overdraw cost versus grass shadows?",
+            "state": "conditional",
+            "basis": "Half pixel count reduces GPU to 25ms; grass shadows off gives 34ms. Whole-scene resolution change does not isolate grass, and savings are not additive."
+          },
+          {
+            "question": "How can distant grass/shadow cost be reduced without losing near silhouette or introducing temporal popping?",
+            "state": "conditional",
+            "basis": "Distance density/LOD and shadow-caster variants proposed; visual and target-device checks remain pending."
+          },
+          {
+            "question": "Are there applicable prior incidents/prevention checks?",
+            "state": "missing",
+            "basis": "Two records queries return zero; no proof of absence and no verified prevention inferred."
+          }
+        ],
+        "retrieval_runtime": {
+          "python": "C:/Users/earth/AppData/Roaming/uv/python/cpython-3.14-windows-x86_64-none/python.exe",
+          "PYTHONPATH": "C:/Users/earth/AppData/Local/uv/cache/archive-v0/_LDAg4lOjStraXTfY0SGr/Lib/site-packages",
+          "PYTHONIOENCODING": "utf-8"
+        },
+        "searches": [
+          {
+            "query": "foliage alpha clip overdraw instancing shadow GPU mobile",
+            "arguments": [
+              "search",
+              "--project",
+              ".",
+              "--query",
+              "foliage alpha clip overdraw instancing shadow GPU mobile",
+              "--domain",
+              "game",
+              "--domain",
+              "code",
+              "--limit",
+              "5",
+              "--no-cache"
+            ],
+            "returned_ids": [
+              "K-GAME-TECH-FOLIAGE",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-TECH-SHADOW",
+              "K-GAME-TECH-BILLBOARD",
+              "K-CODE-UE-RENDER-ORIENTATION"
+            ],
+            "total_matches": 14,
+            "truncated": true,
+            "relations": [],
+            "summary": "Foliage addresses instancing/pixel-budget distinction; shadow addresses quality/time checks. Guide unnecessary because direct useful matches exist; billboard not proposed; UE rendering configuration incompatible with Unity. Unopened lower lexical matches not claimed irrelevant or exhausted; stop after requested mechanism questions have evidence and explicit gaps."
+          },
+          {
+            "query": "foliage instancing overdraw shadow mobile",
+            "arguments": [
+              "search",
+              "--project",
+              ".",
+              "--query",
+              "foliage instancing overdraw shadow mobile",
+              "--store",
+              "records",
+              "--limit",
+              "5",
+              "--no-cache"
+            ],
+            "returned_ids": [],
+            "total_matches": 0,
+            "truncated": false,
+            "summary": "Planned foliage/shadow optimization trigger lookup; no lexical match."
+          },
+          {
+            "query": "render performance GPU",
+            "arguments": [
+              "search",
+              "--project",
+              ".",
+              "--query",
+              "render performance GPU",
+              "--store",
+              "records",
+              "--limit",
+              "5",
+              "--no-cache"
+            ],
+            "returned_ids": [],
+            "total_matches": 0,
+            "truncated": false,
+            "summary": "Broader mechanism fallback; no lexical match, absence not established."
+          }
+        ],
+        "inspected": [
+          {
+            "path": ".cache/onestep/game-application/retest/G02/request.md",
+            "sha256": "d3c3ebc3d6365f31fb8521c40b7a19f47ec271c80da7b5245e61e31939be7dba",
+            "passages": [
+              {
+                "lines": "1-5",
+                "passage": "Full case request/profile inspected; synthetic authoritative inputs."
+              }
+            ]
+          },
+          {
+            "path": ".cache/onestep/game-application/retest/G02/profile.json",
+            "sha256": "6a3ae0d7fc292cb868413ef7fff05934ac51454dc514179e14e4b13cf45e1e20",
+            "passages": [
+              {
+                "lines": "1-1",
+                "passage": "Full case request/profile inspected; synthetic authoritative inputs."
+              }
+            ]
+          },
+          {
+            "path": "knowledge/game/K-GAME-TECH-FOLIAGE.md",
+            "sha256": "29af79ec99fa67d1e1dbff225012c7c5ac01afe2bd0981451a226602eebb81bf",
+            "passages": [
+              {
+                "lines": "18-28",
+                "passage": "Separate draw submission, vertex, overdraw and shadow budgets; instancing reduces submission rather than all shading; cards can cost more pixels than opaque geometry; proposed dense low-angle/overhead and separate wind/shadow/alpha-layer checks."
+              },
+              {
+                "lines": "30-34",
+                "passage": "Stored GPU Gems chapters 7 and GPU Gems 3 chapter 16 source locators; originating short is discovery only. Originals not accessed."
+              }
+            ]
+          },
+          {
+            "path": "knowledge/game/K-GAME-TECH-SHADOW.md",
+            "sha256": "60a7cc96375262917fe406e96b770c8c00f716047a404dc8f70f91285e6a3d03",
+            "passages": [
+              {
+                "lines": "18-28",
+                "passage": "Tune split distances, bias, filter footprint and stabilization separately; distinguish acne, peter-panning, cascade seams and camera-motion shimmer; proposed slow sweep and shadow-pass time/memory checks."
+              },
+              {
+                "lines": "30-34",
+                "passage": "Stored Microsoft Cascaded Shadow Maps and GPU Gems chapter 11 locators; no fresh original-source access."
+              }
+            ]
+          }
+        ],
+        "canonical_guidance_read": [
+          "skills/vegabond-code/SKILL.md",
+          "agents/vegabond-agent.md",
+          "knowledge/game/K-GAME-RESEARCH-USE.md",
+          "skills/vegabond-code/references/verification.md",
+          "skills/vegabond-knowledge/SKILL.md",
+          "skills/vegabond-scout/SKILL.md",
+          "skills/vegabond-knowledge/references/retrieval.md",
+          "skills/vegabond-scout/references/information-needs.md",
+          "skills/vegabond-research/SKILL.md"
+        ],
+        "decisions": [
+          {
+            "entry": "K-GAME-TECH-FOLIAGE",
+            "decision": "adopt",
+            "action": "Maintain instancing; prioritize controlled distance density/LOD and overlapping-card pixel-cost trial.",
+            "reason": "Supplied repeated mesh/material instancing and heavy card overlap match engine-independent mechanism.",
+            "check": "Separate grass/total GPU timing and near/low-angle/overhead silhouettes."
+          },
+          {
+            "entry": "K-GAME-TECH-FOLIAGE",
+            "decision": "conditional",
+            "action": "Near opaque geometry alternative only after pixel-versus-vertex comparison.",
+            "reason": "Cards can exceed opaque pixel cost, but no measured mobile alternative exists."
+          },
+          {
+            "entry": "K-GAME-TECH-SHADOW",
+            "decision": "conditional",
+            "action": "Preserve near shadows; test distant caster reduction and smooth transition, then separately consider resolution/filter tuning.",
+            "reason": "8ms diagnostic impact is substantial; URP patch/features and actual quality tradeoff unverified.",
+            "check": "Shadow-pass timing; slow sweep for popping/shimmer, acne, peter-panning, cascade seams."
+          },
+          {
+            "entry": "profile.json",
+            "decision": "reject",
+            "action": "Do not wholesale reinstate instancing or permanently remove all grass shadows as first remedy.",
+            "reason": "Already instanced, GPU dominated; shadow-off still 34ms and violates quality intent if adopted without comparison."
+          },
+          {
+            "entry": "K-CODE-UE-RENDER-ORIENTATION",
+            "decision": "reject",
+            "action": "Do not apply Unreal renderer settings.",
+            "reason": "Search metadata scope UE5/Windows differs from supplied Unity/Android; body not opened."
+          }
+        ],
+        "evidence_limits": {
+          "stored_entry_hashes": "Identify inspected local bytes, not original-source verification.",
+          "original_sources": "Listed source locators inspected in entries only; external originals not accessed because task forbids web. No registered source IDs were returned.",
+          "unknowns": [
+            "URP exact patch",
+            "GPU/device model",
+            "profile capture conditions and variance",
+            "grass-exclusive share of resolution-sensitive cost",
+            "quality tolerance beyond supplied constraints",
+            "alternative timings",
+            "sustained thermal behavior"
+          ]
+        },
+        "executed_checks": [
+          {
+            "check": "Input interpretation and arithmetic",
+            "result": "42-25=17ms; 42-34=8ms; 42-33.3=8.7ms required GPU reduction; 34ms remains 0.7ms over budget. CPU/GPU times not summed; intervention savings not added."
+          },
+          {
+            "check": "Final response direct reading",
+            "result": "Korean priorities, four controlled configurations, visual and sustained p95 acceptance, explicit unknowns and no runtime pass claim present."
+          },
+          {
+            "check": "Final artifact validation",
+            "result": "UTF-8 response read; 252 whitespace words <=350; trace JSON parsed; all four inspected-file SHA256 values match; arithmetic assertions pass. First console-print attempt failed under cp949, then rerun succeeded with PYTHONIOENCODING=utf-8. No artifact corruption."
+          }
+        ],
+        "proposed_checks": [
+          {
+            "check": "Baseline, density-only, shadow-only, combined promising settings on same warmed target Android with fixed scene/path",
+            "status": "not executed",
+            "observe": "CPU, total/grass/shadow GPU time, frame median/p95, thermal state"
+          },
+          {
+            "check": "Near/low-angle/overhead stills and slow moving-camera video",
+            "status": "not executed",
+            "observe": "Near silhouette, ground gaps, grass/shadow popping, shimmer, contact, acne, peter-panning, cascade seams"
+          },
+          {
+            "check": "Sustained final candidate budget and visual gate",
+            "status": "not executed",
+            "acceptance": "frame p95 <=33.3ms plus preserved silhouette and no sudden grass/shadow popping; exact implementation support verified against actual URP patch first"
+          }
+        ],
+        "verification_status": "Analysis artifact checked only; no engine/runtime/production verification and no vagabond acceptance claimed.",
+        "proposed_knowledge_update": "None: no demonstrated local outcome to store."
+      }
+    },
+    {
+      "id": "G04",
+      "response": "장비 변경과 저장 중단 복구는 별개입니다. 제공 계약상 장비 오류의 직접 원인은 저장한 배열 인덱스를 업데이트 후 재정렬·삽입된 카탈로그에서 해석하는 것입니다. 체크섬은 바이트가 그대로인지 검사하므로 의미 변경을 잡지 못합니다. 전원 종료 없이도 발생하는 설명과 일치하며, 중단 손상으로 단정하면 안 됩니다.\n\n최소 수정 순서는 다음과 같습니다.\n\n1. 기존 A/B와 관련 빌드 데이터를 복사 보존하고 자동 덮어쓰기를 막습니다. 동일 저장의 인덱스가 각 빌드에서 어떤 아이템으로 해석되는지 비교해 의미 오류를 분리합니다.\n2. 신규 스키마는 배열 위치·번역명 대신 영속 아이템 ID를 저장합니다. 카탈로그는 ID 해석을, 저장 계층은 버전 판별·변환을 소유합니다. 작성 빌드/카탈로그가 확인된 저장만 해당 옛 매핑의 `인덱스→ID`로 변환하고 나머지 진행 상태는 그대로 유지합니다. **두 작성 버전 모두 schemaVersion=1이므로 옛 매핑만으로는 기존 저장을 구분할 수 없습니다.** 신뢰할 출처가 없으면 변환·재저장을 보류합니다. 누락 ID는 다른 아이템으로 대체하지 않고 원값을 보존해 명시적으로 알립니다. 이미 잘못 해석한 상태로 재저장했다면 원래 장비 복원은 이전 백업 등 추가 증거가 필요합니다.\n3. 복구는 별도 변경으로, 확인된 정상 세대를 유지하며 비활성 슬롯에 새 세대를 씁니다. 스키마·단조 증가 generation·길이·체크섬을 함께 검증하고, 데이터 기록→필요한 영속화→완료 표식 게시 순서를 정의합니다. 로드는 OS 시각 대신 완결되고 검증된 최고 세대를 선택하고 실패하면 이전 세대로 돌아갑니다. A와 B를 연속 덮어쓰는 방식은 폐기합니다. Windows 파일시스템/API의 flush·교체·완료 표식 영속성 계약이 없어 전원 손실 내구성 보장은 아직 확정할 수 없습니다.\n\n제안 검증: 모든 옛 인덱스, 정렬·언어 변경·신규 삽입 후 동일 ID와 진행 상태 유지; 모호한 출처·누락 ID의 무변경 보존; 변환 재시도의 동일 결과; 각 기록/영속화/게시 경계에서 프로세스 종료, 잘림·손상, 역전·동일 타임스탬프를 주입해 새 완결 세대 또는 이전 정상 세대만 로드되는지 확인합니다. 전원 손실은 별도 대상 환경 시험입니다.\n\n근거 `K-GAME-TECH-SAVE`의 안정 ID·버전은 채택하고, 세대 복구는 플랫폼 확인을 조건으로 채택합니다. 역사적 구현과 두 파일 자체를 원자성 증거로 쓰는 것은 기각합니다. 제공 사실·근거·설계 일관성만 검토했으며 런타임 검증은 수행하지 않았습니다.\n",
+      "trace": {
+        "case": "G04",
+        "scope": {
+          "operation": "design-only diagnosis and minimum correction sequence",
+          "language": "Korean",
+          "authoritative_inputs": [
+            "request.md",
+            "save-contract.md"
+          ],
+          "constraints": [
+            "No web, engine, production edits or delegation",
+            "Only response.md and trace.json written",
+            "No translations, registry, rubrics, siblings, baselines, evaluator outputs or rehearsal answers read"
+          ],
+          "runtime": "custom engine; Windows; engine version and filesystem durability API unspecified"
+        },
+        "questions": [
+          {
+            "question": "Can unchanged checked bytes change equipment after an update?",
+            "why": "Separate semantic identity interpretation from torn writes",
+            "state": "answered by supplied runtime-index and catalog-reorder facts"
+          },
+          {
+            "question": "Can available old mappings safely migrate every schemaVersion=1 save?",
+            "why": "Both writers use the same schema and may encode different index mappings",
+            "state": "conditional: reliable per-save writer/catalog provenance is missing"
+          },
+          {
+            "question": "How can an interrupted save retain a selectable known-good generation?",
+            "why": "A/B overwrite and OS timestamps supply neither completion nor logical ordering",
+            "state": "conditional design; target durability contract and implementation checks pending"
+          },
+          {
+            "question": "Are there matching prior correction records for save migration or interrupted writes?",
+            "why": "Avoid transferring unrelated resolved incidents",
+            "state": "No applicable record found within focused queries; not proof of corpus-wide absence"
+          }
+        ],
+        "retrieval": [
+          {
+            "query": "save item index catalog reorder migration stable identifier",
+            "command": "search.py search --project . --query <exact query> --limit 3 --no-cache",
+            "stores": "knowledge and records",
+            "returned_ids": [
+              "K-GAME-TECH-SAVE",
+              "R-CATALOG-BOOTSTRAP",
+              "K-CODE-GIT-ISOLATED-MERGE"
+            ],
+            "related_ids": [],
+            "total_matches": 52,
+            "truncated": true,
+            "summary": "Save reference supplies stable IDs/schema; bootstrap and Git merge hits are lexical catalog/index matches with incompatible scope. Opened only save detail."
+          },
+          {
+            "query": "save interruption recovery checksum generation commit timestamp",
+            "command": "search.py search --project . --query <exact query> --limit 3 --no-cache",
+            "stores": "knowledge and records",
+            "returned_ids": [
+              "K-GAME-TECH-SAVE",
+              "K-GAME-TECH-GUIDE",
+              "R-FIC-N2-RECOVERY-GAP-20261106"
+            ],
+            "related_ids": [],
+            "total_matches": 36,
+            "truncated": true,
+            "summary": "Save reference covers generation and validation; guide is a routing summary; fiction recovery record is incompatible. Did not open guide/fiction details or originals.",
+            "source_checks": "Search reported five not_checked Novel_0 registry sources for the irrelevant fiction hit; no original was accessed or needed for adopted claims."
+          },
+          {
+            "query": "save migration interrupted write recovery",
+            "command": "search.py search --project . --store records --domain code --domain game --query <exact query> --limit 3 --no-cache",
+            "stores": "records, code/game domains",
+            "returned_ids": [
+              "R-CATALOG-BOOTSTRAP"
+            ],
+            "related_ids": [],
+            "total_matches": 1,
+            "truncated": false,
+            "summary": "Only a catalog-bootstrap write match, not a game-save incident. Rejected transfer; no record prevention claim adopted."
+          }
+        ],
+        "inspected": [
+          {
+            "path": ".cache/onestep/game-application/retest/G04/request.md",
+            "passages": "entire request: update equipment substitution, checksum passes, no power interruption required; asks separate causes, minimum sequence and recovery",
+            "sha256": "404580e288717b9e35474c028f5412e63e07424522d736015694487841b3b3f4"
+          },
+          {
+            "path": ".cache/onestep/game-application/retest/G04/save-contract.md",
+            "passages": "line 1: runtime item index; sorted/inserted v2 catalog; old mapping available; same schemaVersion; payload checksum; sequential A/B overwrite and newest OS timestamp; no generation/commit; Windows durability unknown; preserve saves",
+            "sha256": "865b9050bc41196f7d9047749cb1168e6867fe68c7bec7b6989f2612f1c0b615"
+          },
+          {
+            "id": "K-GAME-TECH-SAVE",
+            "path": "knowledge/game/K-GAME-TECH-SAVE.md",
+            "sha256": "f0102ea7906042a25e0476fb18fcd2a10645829aaccc2089c85ad90e000bb01d",
+            "passages": [
+              {
+                "lines": "18-20",
+                "summary": "Persistent state, stable identifiers and version; preserve recoverable generation; synthesis is not source-game implementation guarantee"
+              },
+              {
+                "lines": "24-28",
+                "summary": "Historical reconstruction uses save counter and validated generation; two slots are not atomic; checksum has limited scope"
+              },
+              {
+                "lines": "30-44",
+                "summary": "Proposed interruption/corruption/old-schema/object-reference checks; historical reconstruction and source access limits, no local build or fault injection"
+              }
+            ],
+            "original_sources": "Entry Evidence inspected; no live original-source verification, external access forbidden"
+          }
+        ],
+        "guidance_read": [
+          "skills/vegabond-code-design/SKILL.md",
+          "agents/vegabond-agent.md",
+          "knowledge/game/K-GAME-RESEARCH-USE.md",
+          "skills/vegabond-code-design/references/review.md",
+          "agents/references/design-communication.md",
+          "skills/vegabond-scout/SKILL.md",
+          "skills/vegabond-knowledge/SKILL.md",
+          "skills/vegabond-knowledge/references/retrieval.md",
+          "skills/vegabond-scout/references/information-needs.md"
+        ],
+        "decisions": [
+          {
+            "decision": "adopt",
+            "entry": "K-GAME-TECH-SAVE:18",
+            "action": "New schema stores persistent item ID independent of display sort/localization; migrate only with established writer catalog mapping",
+            "basis": "Authoritative facts directly show positional identity mismatch; checksum cannot detect changed interpretation"
+          },
+          {
+            "decision": "conditional",
+            "entry": "K-GAME-TECH-SAVE:18,24",
+            "action": "Convert legacy index through its actual historical catalog; preserve all unrelated progress and originals",
+            "condition": "Same schemaVersion is insufficient writer provenance; block ambiguous conversion and autosave until identified"
+          },
+          {
+            "decision": "conditional",
+            "entry": "K-GAME-TECH-SAVE:24,28",
+            "action": "One save coordinator writes inactive generation; retain known-good generation, validate envelope/payload, publish completion after required durability boundary, load highest complete valid generation",
+            "condition": "Windows filesystem/API flush and commit persistence contract must be established before power-loss guarantee"
+          },
+          {
+            "decision": "reject",
+            "entry": "K-GAME-TECH-SAVE:24,28,43",
+            "action": "Do not infer local filesystem atomicity or runtime success from two slots or community reconstruction"
+          },
+          {
+            "decision": "reject",
+            "entries": [
+              "R-CATALOG-BOOTSTRAP",
+              "K-CODE-GIT-ISOLATED-MERGE",
+              "R-FIC-N2-RECOVERY-GAP-20261106"
+            ],
+            "action": "Do not transfer unrelated catalog, Git or fiction recovery causes/preventions"
+          },
+          {
+            "decision": "defer",
+            "entry": "K-GAME-TECH-SAVE:18,24",
+            "action": "Password encoding, bit packing and Unreal SaveGame API selection are unnecessary for this custom-engine save defect"
+          }
+        ],
+        "review_counterexamples": [
+          {
+            "sequence": "Old index i saved -> catalog reorder -> identical bytes/checksum -> new catalog resolves i differently",
+            "result": "Stable ID fixes future identity; map old index with actual source catalog, not current order"
+          },
+          {
+            "sequence": "Updated v2 writer saves index i with schema 1 -> blanket old-v1 mapping applied",
+            "result": "Incorrect migration despite valid checksum; reliable writer provenance is prerequisite"
+          },
+          {
+            "sequence": "Wrong item interpretation saved again -> no prior trustworthy backup",
+            "result": "Original intended equipment may be unrecoverable; no invented reconstruction guarantee"
+          },
+          {
+            "sequence": "Write A -> overwrite B -> interrupt -> newest timestamp points to incomplete file",
+            "result": "Retain previous known-good generation and select only validated completed generations; timestamp abandoned"
+          },
+          {
+            "sequence": "Completion marker persists before payload due to unestablished storage ordering",
+            "result": "Validation must reject incomplete data and fallback; target persistence contract remains prerequisite to durability guarantee"
+          }
+        ],
+        "checks": {
+          "executed": [
+            {
+              "check": "Read authoritative case facts and relevant save entry; compare symptoms and implementation mechanism",
+              "result": "Semantic-index cause distinguished from interruption protocol defects; not a runtime reproduction"
+            },
+            {
+              "check": "Read design review and challenge migration and completion boundaries",
+              "result": "Same-version provenance and Windows persistence gaps explicitly gate dependent guarantees"
+            },
+            {
+              "check": "Final response directly reread against request and save-contract; JSON parsed; whitespace word count and inspected entry digest checked",
+              "result": "Passed artifact checks; 276 whitespace-separated words, valid JSON, matching SHA256. No runtime execution or durability verification."
+            }
+          ],
+          "proposed_not_executed": [
+            {
+              "check": "Enumerate historical indices across catalog insertion, sorting and language changes",
+              "observe": "Same persistent item identity and all unrelated progress retained",
+              "environment": "Real catalog/build mappings and saved fixtures"
+            },
+            {
+              "check": "Ambiguous source version, unknown IDs and repeated migration",
+              "observe": "No guessed substitution, no original overwrite, clear failure and idempotent result",
+              "environment": "Migration implementation and fixtures"
+            },
+            {
+              "check": "Terminate at each write/flush/publication boundary; truncate/corrupt payload/header; invert/equalize timestamps",
+              "observe": "Load newly completed valid generation or previous known-good generation, never incomplete/mixed state",
+              "environment": "Save implementation and Windows target filesystem"
+            },
+            {
+              "check": "Power-loss injection with documented flush/replacement behavior",
+              "observe": "Promised recoverable generation survives actual persistence failures",
+              "environment": "Target hardware/filesystem/API; blocked until contracts and harness supplied"
+            }
+          ],
+          "final_artifact": {
+            "response_words": 276,
+            "max_words": 350,
+            "json_parse": "passed",
+            "inspected_hashes": "matched/computed",
+            "acceptance": "Cause separation, migration provenance gate, minimal order, non-destructive preservation, conditional recovery design, proposed vs executed checks and source limits present"
+          }
+        },
+        "unknowns": [
+          "Reliable writer build/catalog provenance for same-schema legacy saves",
+          "Whether incorrect interpretations have already been re-saved and whether earlier backups survive",
+          "Exact Windows filesystem/storage/API persistence and commit behavior",
+          "Real implementation, save fixtures, catalog bytes and runtime environment unavailable"
+        ],
+        "status": "Design analysis only; runtime, crash recovery and power-loss checks not executed; no production or knowledge-store changes"
+      }
+    },
+    {
+      "id": "G05",
+      "response": "총구에서 조준점까지의 차폐 검사를 먼저 추가하고, 지연 보정 조정은 별도로 조사하는 순서가 타당합니다. 제공된 규칙상 서버는 카메라 레이의 과거 표적 히트박스만 확인합니다. 지연을 추가하지 않아도 벽 관통이 재현되므로, 이 증상은 총구와 엄폐물의 공간 제약 누락으로 설명됩니다. 지연 중 이동 표적 빗나감의 원인은 아직 미확인입니다.\n\n1. 카메라 레이는 유지해 조준 의도를 구합니다. 서버가 검증한 발사 시점의 시점·총구 위치로, 카메라의 첫 차폐점 또는 최대 사거리 지점을 정하고 총구→그 지점을 검사합니다. 총구 경로의 가장 가까운 차폐물이 탄을 막아야 하며, 총구가 벽 내부에서 시작하는 경우도 별도 중첩 검사로 막습니다. 두 검사에서 충돌 필터와 표적·엄폐물의 시간 기준을 명시합니다. 정적 벽은 과거 표적 판정보다 먼저 통과 가능성을 제한해야 합니다.\n2. 서버가 최종 피해를 결정하고 클라이언트 명중 보고는 참고로만 사용합니다. 총구 레이 하나로 시점 레이를 대체하는 제안은 근거리 조준점 불일치를 만들 수 있어 채택하지 않습니다. 이 선택은 K-GAME-TECH-HITSCAN 및 K-GAME-TECH-AUTHORITY의 메커니즘을 적용한 설계이며 실제 구현 검증은 아닙니다.\n3. 공간 판정 회귀를 확인한 뒤 지연 문제를 조사합니다. 발사 시간, 서버 수신 시간, 시계 변환, 보간 지연, 적용된 되감기 시간·히트박스·차폐 결과를 같은 발사 ID로 기록합니다. K-GAME-TECH-LAGCOMP는 제한된 되감기에 조건부 적용합니다. 로그 없이 보상 창을 늘리면 엄폐 후 피격을 악화시킬 수 있으므로 보류합니다.\n\n제안 검사는 0지연 벽 뒤 총구의 피해 0, 열린 경로 명중, 근거리·자세 변경·벽 내부 총구, 위조 클라이언트 보고 거부입니다. 이어 이동 표적과 엄폐 진입을 양쪽 시점 및 서버 기록으로 비교하고 비대칭 지연에서도 확인합니다.\n\n문서의 규칙·근거·적용 순서 일관성만 검토했습니다. 엔진 버전, 실행 환경, 시간 기록이 없어 구현·런타임 검사는 수행하지 않았습니다. AI 문서 검토 완료, vagabond 검토 대기입니다.\n\n",
+      "trace": {
+        "case_id": "G05",
+        "brief": {
+          "goal": "현재 합성 권위 판정 규칙에 대한 기술 선택과 적용 순서",
+          "language": "Korean",
+          "operation": "research",
+          "scale": "single",
+          "constraints": [
+            "Only case response.md and trace.json may be written",
+            "No web, engine, production edits, delegation",
+            "Supplied combat.md governs; client reports advisory; camera reticle intention preserved; no authoritative wall penetration"
+          ],
+          "acceptance": [
+            "Separate spatial occlusion from temporal hit registration",
+            "Choose and reject proposals with mechanisms and evidence",
+            "Preserve server authority and camera intent",
+            "Expose missing engine/runtime/time data; distinguish proposed and executed checks"
+          ]
+        },
+        "questions": [
+          {
+            "id": "Q1",
+            "question": "Why does the wall shot occur at zero added latency, and which geometry contract is absent?",
+            "status": "answered for supplied rules",
+            "evidence": [
+              "combat.md",
+              "K-GAME-TECH-HITSCAN"
+            ],
+            "decision": "Adopt camera intention plus server muzzle-to-aim obstruction; zero-latency reproduction supports geometry priority, not latency root cause."
+          },
+          {
+            "id": "Q2",
+            "question": "Would moving the whole camera trace to the muzzle preserve reticle intent?",
+            "status": "answered at mechanism level",
+            "evidence": [
+              "combat.md",
+              "K-GAME-TECH-HITSCAN"
+            ],
+            "decision": "Reject replacement; keep camera aim and constrain physical bullet path."
+          },
+          {
+            "id": "Q3",
+            "question": "Can increasing lag compensation explain or repair either complaint?",
+            "status": "conditional/missing",
+            "evidence": [
+              "combat.md",
+              "K-GAME-TECH-LAGCOMP"
+            ],
+            "decision": "Reject as wall repair; defer increase for moving-target misses until timestamp/rewind evidence and fairness policy."
+          },
+          {
+            "id": "Q4",
+            "question": "Who decides damage, and which invalid client claims or spatial/time states could violate it?",
+            "status": "answered owner; engine implementation details missing",
+            "evidence": [
+              "combat.md",
+              "K-GAME-TECH-AUTHORITY"
+            ],
+            "decision": "Server validates view/muzzle and damage, reports advisory; test forged reports and temporal consistency."
+          }
+        ],
+        "searches": [
+          {
+            "sequence": 1,
+            "command": "search",
+            "query": "third person camera muzzle wall occlusion hitscan lag compensation server authority",
+            "filters": {
+              "domain": [
+                "game",
+                "code"
+              ],
+              "limit": 5,
+              "no_cache": true
+            },
+            "ok": true,
+            "retrieval_ok": true,
+            "total_matches": 34,
+            "truncated": true,
+            "returned": [
+              {
+                "id": "K-GAME-TECH-HITSCAN",
+                "path": "knowledge/game/K-GAME-TECH-HITSCAN.md",
+                "sha256": "77ef8dea33e50816ef0b584618e70a51e10e25fce1646aec58e3d9410c8fcc3d",
+                "matched_terms": [
+                  "authority",
+                  "camera",
+                  "hitscan",
+                  "muzzle",
+                  "server",
+                  "wall"
+                ],
+                "snippet": {
+                  "line": 14,
+                  "text": "# Resolve hitscan from aiming intent and muzzle constraints"
+                }
+              },
+              {
+                "id": "K-GAME-TECH-GUIDE",
+                "path": "knowledge/game/K-GAME-TECH-GUIDE.md",
+                "sha256": "4664362c98e8149be6e0db6e5eac9367339ba08877ac2d235a73e5acbde4f668",
+                "matched_terms": [
+                  "authority",
+                  "camera",
+                  "compensation",
+                  "hitscan",
+                  "lag",
+                  "muzzle",
+                  "occlusion",
+                  "server",
+                  "third"
+                ],
+                "snippet": {
+                  "line": 20,
+                  "text": "…he problem, target engine/version, platforms, frame budget, camera and network authority."
+                }
+              },
+              {
+                "id": "K-GAME-TECH-AUTHORITY",
+                "path": "knowledge/game/K-GAME-TECH-AUTHORITY.md",
+                "sha256": "4b3291347656ff94865b622bb7e6b34a18162683318896648d96ffad5af434a3",
+                "matched_terms": [
+                  "authority",
+                  "server"
+                ],
+                "snippet": {
+                  "line": 14,
+                  "text": "# Combine server authority with bounded client prediction"
+                }
+              },
+              {
+                "id": "K-GAME-TECH-LAGCOMP",
+                "path": "knowledge/game/K-GAME-TECH-LAGCOMP.md",
+                "sha256": "25322c73689b836988c51f19b886a690c3c67580305db2e75cf16b17994ab0ff",
+                "matched_terms": [
+                  "authority",
+                  "compensation",
+                  "lag",
+                  "server"
+                ],
+                "snippet": {
+                  "line": 14,
+                  "text": "# Bound historical hit resolution for latency compensation"
+                }
+              },
+              {
+                "id": "K-GAME-TECH-CAMERA",
+                "path": "knowledge/game/K-GAME-TECH-CAMERA.md",
+                "sha256": "736c1555d1447a92664504d4065853b67298ca972e605df808cbc92880387f0a",
+                "matched_terms": [
+                  "camera"
+                ],
+                "snippet": {
+                  "line": 32,
+                  "text": "…cameras-in-side-scrollers) — 2015 creator-authored article; camera-window, framing and smoothing. Checked 2026-11-07, except items explicitly marked further reading."
+                }
+              }
+            ],
+            "expanded_terms": [
+              [
+                "총구",
+                "muzzle"
+              ],
+              [
+                "third"
+              ],
+              [
+                "person"
+              ],
+              [
+                "camera"
+              ],
+              [
+                "wall"
+              ],
+              [
+                "occlusion"
+              ],
+              [
+                "hitscan"
+              ],
+              [
+                "lag"
+              ],
+              [
+                "compensation"
+              ],
+              [
+                "server"
+              ],
+              [
+                "authority"
+              ]
+            ],
+            "relations": {
+              "related": [],
+              "edges": [],
+              "total_related": 0,
+              "offset": 0,
+              "truncated": false
+            },
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            },
+            "gap": null
+          },
+          {
+            "sequence": 2,
+            "command": "search",
+            "query": "hitscan muzzle camera lag compensation wall",
+            "filters": {
+              "store": "records",
+              "limit": 5,
+              "no_cache": true
+            },
+            "ok": true,
+            "retrieval_ok": true,
+            "total_matches": 0,
+            "truncated": false,
+            "returned": [],
+            "expanded_terms": [
+              [
+                "총구",
+                "muzzle"
+              ],
+              [
+                "hitscan"
+              ],
+              [
+                "camera"
+              ],
+              [
+                "lag"
+              ],
+              [
+                "compensation"
+              ],
+              [
+                "wall"
+              ]
+            ],
+            "relations": null,
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            },
+            "gap": "No lexical match under these filters; try alternate terms or a broader scope. Absence is not proved."
+          },
+          {
+            "sequence": 3,
+            "command": "search",
+            "query": "trigger collision shooting rewind cover hit registration",
+            "filters": {
+              "store": "records",
+              "limit": 5,
+              "no_cache": true
+            },
+            "ok": true,
+            "retrieval_ok": true,
+            "total_matches": 1,
+            "truncated": false,
+            "returned": [
+              {
+                "id": "R-CATALOG-BOOTSTRAP",
+                "path": "records/code/R-CATALOG-BOOTSTRAP.md",
+                "sha256": "635e4ce679fa402df0a6987b08875e92b7e90a9d8a68ee4aed6f4816d34ea3a1",
+                "matched_terms": [
+                  "cover"
+                ],
+                "snippet": {
+                  "line": 27,
+                  "text": "…log tests passed after the repair. The four bootstrap tests cover first build across both stores and multiple domains, read-only check before creation, idempotent rebuild, canonical detail preservation, planned archive/detail references, missing files and unselected catalogs."
+                }
+              }
+            ],
+            "expanded_terms": [
+              [
+                "trigger"
+              ],
+              [
+                "collision"
+              ],
+              [
+                "shooting"
+              ],
+              [
+                "rewind"
+              ],
+              [
+                "cover"
+              ],
+              [
+                "hit"
+              ],
+              [
+                "registration"
+              ]
+            ],
+            "relations": {
+              "related": [],
+              "edges": [],
+              "total_related": 0,
+              "offset": 0,
+              "truncated": false
+            },
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            },
+            "gap": null
+          }
+        ],
+        "retrieval_scope_note": "Search helper --no-cache searched authorized OneStep knowledge/records and excludes *.kr.md. No case registry, rubric, baseline, siblings, evaluator results or rehearsal answers were accessed. Search returned 34 initial lexical candidates, truncated at 5; scoped three relevant detail reads answered the material mechanisms, no completeness claim or full guide read. Record alternate query found unrelated catalog incident; no relevant prevention record demonstrated.",
+        "sources": [
+          {
+            "path": ".cache/onestep/game-application/retest/G05/request.md",
+            "sha256": "b241d2527fcfff0df3173637be80c90af7b05358ee9ce1d20c2c04cdf05fb2e4",
+            "inspected": "Entire supplied request"
+          },
+          {
+            "path": ".cache/onestep/game-application/retest/G05/combat.md",
+            "sha256": "e7550fb9fcdda25c166b5861b87b4a7c74c2c7c64ce627825d9ea027d0071e37",
+            "inspected_passage": "Synthetic facts: authoritative server. Camera ray through reticle chooses intended target point. Server currently checks only historical target hitboxes along the camera ray. Weapon muzzle is a separate offset from camera and can be behind static cover. A wall-cover reproduction occurs at zero added latency. Moving-target miss complaints under latency also exist, but no timestamps or rewind traces are supplied. Client hit reports must remain advisory. Aim reticle should continue to express camera intention; authoritative bullets must not pass through walls. No engine version or actual runtime provided."
+          },
+          {
+            "id": "K-GAME-TECH-HITSCAN",
+            "path": "knowledge/game/K-GAME-TECH-HITSCAN.md",
+            "sha256": "77ef8dea33e50816ef0b584618e70a51e10e25fce1646aec58e3d9410c8fcc3d",
+            "inspected_sections": [
+              "Entire header",
+              "Guidance",
+              "Applicability and exceptions",
+              "Checks",
+              "Evidence"
+            ],
+            "passages": [
+              "Find the camera aim point, then validate a muzzle-to-aim trace with consistent collision filtering and authoritative rules.",
+              "A camera-only trace can permit head-glitch shots; a muzzle-only trace can disagree with the crosshair at close range.",
+              "Proposed: muzzle against a wall, close targets, animation pose changes and asymmetric latency; compare server and client hit logs."
+            ],
+            "decision": "adopt",
+            "application": "Camera intent followed by nearest blocking muzzle path. Initial overlap guard is task-derived engineering proposal, not source-verified API guarantee."
+          },
+          {
+            "id": "K-GAME-TECH-LAGCOMP",
+            "path": "knowledge/game/K-GAME-TECH-LAGCOMP.md",
+            "sha256": "25322c73689b836988c51f19b886a690c3c67580305db2e75cf16b17994ab0ff",
+            "inspected_sections": [
+              "Entire header",
+              "Guidance",
+              "Applicability and exceptions",
+              "Checks",
+              "Evidence"
+            ],
+            "passages": [
+              "Retain timestamped collision history and resolve eligible shots against a bounded reconstructed past view. Account for clock mapping and interpolation delay. Keep the authoritative current world distinct from temporary historical queries.",
+              "Rewinding benefits a shooter's historical view but can hurt a player who has reached cover.",
+              "Proposed: record both client views and server history for cover transitions, fast targets and asymmetric latency."
+            ],
+            "decision": "conditional",
+            "application": "Collect temporal evidence and choose fairness/window policy before tuning rewind. No evidence identifies moving-target miss cause."
+          },
+          {
+            "id": "K-GAME-TECH-AUTHORITY",
+            "path": "knowledge/game/K-GAME-TECH-AUTHORITY.md",
+            "sha256": "4b3291347656ff94865b622bb7e6b34a18162683318896648d96ffad5af434a3",
+            "inspected_sections": [
+              "Entire header",
+              "Guidance",
+              "Applicability and exceptions",
+              "Checks",
+              "Evidence"
+            ],
+            "passages": [
+              "Send player intent to an authoritative simulation; validate it rather than trusting claimed outcomes.",
+              "Keep cosmetic smoothing separate from authoritative collision.",
+              "Proposed: inject loss, jitter and invalid inputs; log input sequence, acknowledgement, correction magnitude and authoritative rewards."
+            ],
+            "decision": "adopt",
+            "application": "Preserve server damage authority; validate shot/muzzle/view rather than trusting reported hit."
+          }
+        ],
+        "other_candidates": [
+          {
+            "id": "K-GAME-TECH-GUIDE",
+            "decision": "defer",
+            "reason": "Direct mechanism hits answered needs; only returned metadata/snippet inspected, no guide body."
+          },
+          {
+            "id": "K-GAME-TECH-CAMERA",
+            "decision": "reject for current action",
+            "reason": "Returned framing/smoothing summary is not muzzle obstruction or historical hit resolution; only returned metadata/snippet inspected."
+          },
+          {
+            "id": "R-CATALOG-BOOTSTRAP",
+            "decision": "reject",
+            "reason": "Resolved catalog bootstrap mechanism is incompatible; cover lexical collision is test-coverage text, no shooting incident. Metadata/snippet only, no body read."
+          }
+        ],
+        "guidance_read": [
+          "skills/vegabond-code/SKILL.md",
+          "agents/vegabond-agent.md",
+          "skills/vegabond-scout/SKILL.md",
+          "skills/vegabond-scout/references/information-needs.md",
+          "skills/vegabond-knowledge/SKILL.md",
+          "skills/vegabond-knowledge/references/retrieval.md",
+          "knowledge/game/K-GAME-RESEARCH-USE.md",
+          "skills/vegabond-code/references/verification.md",
+          "skills/vegabond-research/SKILL.md",
+          "skills/vegabond-code-design/SKILL.md",
+          "skills/vegabond-code-design/references/review.md",
+          "agents/references/design-communication.md"
+        ],
+        "source_access": {
+          "local_entries": "read and hashed",
+          "external_originals": "not accessed; no web authorized",
+          "registered_sources": "search source_checks empty; no original verification requested",
+          "evidence_limit": "Recorded 2026-11-07 source checks are historical local-entry metadata, not fresh original validation. HITSCAN/AUTHORITY/LAGCOMP share Riot developer account and are not independent corroboration or engine-version promises."
+        },
+        "proposed_checks": [
+          {
+            "id": "P1",
+            "trigger": "Zero added latency, camera sees target, authoritative muzzle behind or inside static wall",
+            "expected": "Damage zero; first static obstruction or invalid start blocks shot",
+            "status": "not executed"
+          },
+          {
+            "id": "P2",
+            "trigger": "Clear path; close target; animation pose changes",
+            "expected": "Camera intention retained, correct server muzzle path, nearest blocking hit; no self-hit due to wrong collision filter",
+            "status": "not executed"
+          },
+          {
+            "id": "P3",
+            "trigger": "Client reports target hit despite blocked or impossible shot",
+            "expected": "Server rejects client outcome and applies validated authoritative result",
+            "status": "not executed"
+          },
+          {
+            "id": "P4",
+            "trigger": "Moving target and cover transitions under asymmetric latency",
+            "expected": "Joined shot ID logs include send/receive/mapped time/interpolation/rewind poses and both views; compare miss cause and cover fairness before window tuning",
+            "status": "not executed"
+          },
+          {
+            "id": "P5",
+            "trigger": "Historical query and current static world coexist",
+            "expected": "Shot view/muzzle temporal policy explicit, target history bounded, temporary historical query cannot contaminate current world",
+            "status": "not executed"
+          }
+        ],
+        "executed_checks": [
+          {
+            "id": "E1",
+            "kind": "source inspection",
+            "result": "Supplied zero-latency reproduction and camera-only historical target contract support geometric omission; temporal complaint remains unproven."
+          },
+          {
+            "id": "E2",
+            "kind": "design review",
+            "result": "Camera-only wall counterexample handled by muzzle obstruction; muzzle-only close-range mismatch avoided; advisory client claims cannot award damage; initial overlap and time-basis dependencies visible."
+          },
+          {
+            "id": "E3",
+            "kind": "artifact verification",
+            "result": "Executed Python readback: json.loads(trace.json) succeeded; response.md has 239 whitespace-delimited words (<=350); all 3 searches have exact nonempty queries; all 5 proposed checks remain not executed. Read final response and checked it against authoritative combat rules and adoption conditions."
+          }
+        ],
+        "unknowns": [
+          "Actual engine/version, language/runtime and trace API semantics",
+          "Muzzle/camera historical pose availability and validation mechanism",
+          "Collision masks, self-ignore, start-overlap behavior, max range and any moving-cover policy",
+          "Client/server clock mapping, interpolation delay, shot timestamps, rewound frame data, current window and fairness limits"
+        ],
+        "implementation_status": "No implementation or runtime execution. Build/tests/runtime/real-use are not executed because case is design-only and supplies no executable project. Pending proposed checks are not passes or demonstrated safeguards.",
+        "completion": "AI document review only; awaiting vagabond review."
+      }
+    },
+    {
+      "id": "G06",
+      "response": "```diff\n-\"fallback_text\":\"Contineu\"\n+\"fallback_text\":\"Continue\"\n```\n",
+      "trace": {
+        "case": "G06",
+        "profile": {
+          "operation": "revise",
+          "scale": "single",
+          "deliverable": "Requested spelling-only diff; supplied source unchanged",
+          "language": "Korean request; code-only modification proposal"
+        },
+        "searches": [],
+        "inspected_passages": [
+          {
+            "path": ".cache/onestep/game-application/retest/G06/request.md",
+            "section": "Full request",
+            "evidence": "Contineu -> Continue only; preserve layout, localization keys, input bindings and game functionality; proposal only."
+          },
+          {
+            "path": ".cache/onestep/game-application/retest/G06/pause-menu.json",
+            "section": "Entire single-line JSON",
+            "evidence": "{\"resume_button\":{\"localization_key\":\"ui.pause.resume\",\"fallback_text\":\"Contineu\",\"action\":\"resume_game\",\"layout\":\"unchanged\"}}"
+          },
+          {
+            "path": "skills/vegabond-code/SKILL.md",
+            "section": "Full skill",
+            "used": "Apply smallest local edit; inspect verification reference; no design decision required."
+          },
+          {
+            "path": "agents/vegabond-agent.md",
+            "section": "Full guidance",
+            "used": "Respect English-only guidance boundary and distinguish proposal checks from runtime evidence."
+          },
+          {
+            "path": "skills/vegabond-code/references/verification.md",
+            "section": "Full reference",
+            "used": "Check actual final deliverable and preserved contracts; retain applicability limits."
+          },
+          {
+            "path": "knowledge/game/K-GAME-RESEARCH-USE.md",
+            "section": "Full convention; Applicability and exceptions is governing",
+            "evidence": "For a purely mechanical spelling or formatting proposal whose supplied local input fully settles the change and preserved fields, use that input as the governing evidence.",
+            "decision": "adopt",
+            "effect": "No game-technique searches; verify exact diff and preservation."
+          },
+          {
+            "path": "skills/vegabond-scout/SKILL.md",
+            "section": "Full skill",
+            "used": "Single revision profile; authoritative local input settles intended change."
+          },
+          {
+            "path": "skills/vegabond-scout/references/information-needs.md",
+            "section": "Full reference",
+            "used": "No missing fact could alter this explicit spelling-only proposal; no downstream mechanism change."
+          },
+          {
+            "path": "skills/vegabond-revise/SKILL.md",
+            "section": "Full skill",
+            "used": "Proposal only; compare original and intended field without changing source."
+          }
+        ],
+        "consequential_choices": [
+          {
+            "choice": "Only change resume_button.fallback_text from Contineu to Continue",
+            "reason": "Explicit request and supplied JSON fully settle exact replacement."
+          },
+          {
+            "choice": "No knowledge corpus searches, game-technique adoption or architecture review",
+            "reason": "Mechanical spelling exception applies; keys, action and layout require no behavioral change."
+          },
+          {
+            "choice": "No source edit or engine launch",
+            "reason": "User requests modification proposal only; synthetic case excludes production and engine actions."
+          }
+        ],
+        "checks": [
+          {
+            "check": "Baseline JSON parse and original fallback_text assertion",
+            "status": "executed_pass",
+            "observed": "Valid JSON; original fallback_text is Contineu."
+          },
+          {
+            "check": "Proposed JSON parse and equality to independently targeted expected object",
+            "status": "executed_pass",
+            "observed": "Only resume_button.fallback_text differs; localization_key, action, layout and object structure preserved."
+          },
+          {
+            "check": "Exact text round trip replacing Continue back to Contineu",
+            "status": "executed_pass",
+            "observed": "Restores original text exactly, including whitespace."
+          },
+          {
+            "check": "Final response readback and supplied source preservation",
+            "status": "executed_pass",
+            "observed": "Read response.md back exactly; pause-menu.json remains text-equivalent under UTF-8 text read."
+          },
+          {
+            "check": "Build, runtime readiness, gameplay and input checks",
+            "status": "not_applicable",
+            "reason": "Deliverable is a spelling-only proposal against supplied JSON; no implementation or runtime change authorized. No runtime-pass claim."
+          }
+        ],
+        "executed_commands": [
+          "Read explicitly named case request, list its filenames, read pause-menu.json and cited canonical guidance using Get-Content -LiteralPath.",
+          "Python in-memory JSON comparison and reversible string comparison; write response.md and trace.json only."
+        ],
+        "proposed_not_executed_checks": [],
+        "status": "Proposal prepared; JSON and exact-text checks passed; source unchanged; no runtime validation claimed."
+      }
+    }
+  ],
+  "route_hashes_at_start": {
+    "skills\\vegabond-knowledge\\scripts\\search.py": "3fd7fcbafc249884a7030b42998eace543a4d5db79d1105b9aa00ba123246074",
+    "skills\\vegabond-knowledge\\scripts\\search_terms.json": "62581177ae6c5abc87d681a5596aaa93b95bf24f1eac3a25b5ec03eaa62a80cf",
+    "knowledge\\game\\K-GAME-RESEARCH-USE.md": "61579552838c3354398213fd2be18838259869cd9baaf25a82bda1aa5d976f13"
+  },
+  "final_alias_guard_note": "After these independent runs, the Korean save inference gained a symptom prerequisite to reject icon-loading UI. No entry mechanism or case input changed. Final query regression/replays are separate from these blind judgments."
+}

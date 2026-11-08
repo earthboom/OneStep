@@ -1,0 +1,155 @@
+{
+  "ok": true,
+  "command": "evaluate",
+  "index": {
+    "entries": 114,
+    "read_files": 114,
+    "cached_files": 0,
+    "elapsed_ms": 387.574,
+    "warning": null
+  },
+  "elapsed_ms": 562.936,
+  "cases": [
+    {
+      "name": "forest-natural-miss",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-FOLIAGE",
+        "K-GAME-TECH-BILLBOARD",
+        "K-GAME-RESEARCH-USE"
+      ],
+      "snippets_characters": 620,
+      "elapsed_ms": 25.364
+    },
+    {
+      "name": "muzzle-natural-miss",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-HITSCAN",
+        "K-GAME-SHOOTER",
+        "K-GAME-TECH-GUIDE"
+      ],
+      "snippets_characters": 309,
+      "elapsed_ms": 11.831
+    },
+    {
+      "name": "jump-natural-existing",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-CONTROLLER",
+        "K-GAME-TECH-GUIDE"
+      ],
+      "snippets_characters": 319,
+      "elapsed_ms": 6.827
+    },
+    {
+      "name": "save-identity-natural-miss",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-SAVE",
+        "K-GAME-TECH-ROLLBACK",
+        "K-GAME-EXPLORATION"
+      ],
+      "snippets_characters": 685,
+      "elapsed_ms": 19.998
+    },
+    {
+      "name": "forest-uncoached-wording",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-FOLIAGE",
+        "K-GAME-TECH-BILLBOARD",
+        "K-GAME-TECH-GUIDE"
+      ],
+      "snippets_characters": 461,
+      "elapsed_ms": 26.818
+    },
+    {
+      "name": "muzzle-uncoached-wording",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-HITSCAN",
+        "K-GAME-SHOOTER",
+        "K-GAME-TECH-GUIDE"
+      ],
+      "snippets_characters": 309,
+      "elapsed_ms": 14.452
+    },
+    {
+      "name": "save-uncoached-wording",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-SAVE",
+        "K-GAME-TECH-ROLLBACK",
+        "K-GAME-EXPLORATION"
+      ],
+      "snippets_characters": 685,
+      "elapsed_ms": 16.953
+    },
+    {
+      "name": "negative-loading-icons",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [],
+      "snippets_characters": 0,
+      "elapsed_ms": 4.932
+    },
+    {
+      "name": "negative-image-refresh",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-GUIDE"
+      ],
+      "snippets_characters": 163,
+      "elapsed_ms": 8.597
+    },
+    {
+      "name": "negative-object-pool",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-TECH-MEMORY",
+        "K-GAME-ROGUELIKE-DECKBUILDER"
+      ],
+      "snippets_characters": 373,
+      "elapsed_ms": 25.933
+    },
+    {
+      "name": "negative-item-icon-loading",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-RPG-PROGRESSION",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-RACING"
+      ],
+      "snippets_characters": 551,
+      "elapsed_ms": 12.976
+    }
+  ],
+  "passed": 11,
+  "total": 11,
+  "required_recall": 1.0,
+  "forbidden_hits": 0,
+  "limitation": "Recall covers only declared required IDs; forbidden-hit checks are not a general precision estimate."
+}

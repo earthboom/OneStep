@@ -1,0 +1,2611 @@
+{
+  "sessions": 3,
+  "checksPerSession": 12,
+  "behaviorsPerSession": 6,
+  "environment": {
+    "unity": "6000.0.77f1",
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "graphicsApi": "Direct3D11",
+    "os": "Windows 11  (10.0.26200)",
+    "screenWidth": 1280,
+    "screenHeight": 720,
+    "vSync": 0,
+    "antiAliasing": 2,
+    "cpuTimerFrequency": 10000000
+  },
+  "buildGuid": "46473349d64a40dead583faf9f6cb08f",
+  "managedAssemblySha256": "E34670C89CC8CEE29F14483BF494738F8FCCE12545DD86F25DF0E13527A6F5E0",
+  "behavior": [
+    {
+      "name": "occupied-door",
+      "agents": 16,
+      "arrived": 16,
+      "simulatedSeconds": 16.350000381469727,
+      "nativeChecks": 1332,
+      "alternateCrossings": 15,
+      "audit": {
+        "observations": 981,
+        "pairPenetrations": 0,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "reservationErrors": 0,
+        "staleReads": 0,
+        "minimumSeparation": 1.0,
+        "maximumStep": 0.05000019073486328
+      },
+      "deferredCloseSeconds": 0.6333333333333333
+    },
+    {
+      "name": "all-blocked",
+      "agents": 32,
+      "arrived": 32,
+      "simulatedSeconds": 34.233333587646484,
+      "nativeChecks": 5656,
+      "alternateCrossings": 0,
+      "audit": {
+        "observations": 2054,
+        "pairPenetrations": 0,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "reservationErrors": 0,
+        "staleReads": 0,
+        "minimumSeparation": 1.0,
+        "maximumStep": 0.05000019073486328
+      },
+      "deferredCloseSeconds": null
+    },
+    {
+      "name": "moving-crate",
+      "agents": 32,
+      "arrived": 32,
+      "simulatedSeconds": 17.683334350585938,
+      "nativeChecks": 2654,
+      "alternateCrossings": 13,
+      "audit": {
+        "observations": 1061,
+        "pairPenetrations": 0,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "reservationErrors": 0,
+        "staleReads": 0,
+        "minimumSeparation": 0.9999980926513672,
+        "maximumStep": 0.05000019073486328
+      },
+      "deferredCloseSeconds": 0.6333333333333333
+    },
+    {
+      "name": "dense-64",
+      "agents": 64,
+      "arrived": 64,
+      "simulatedSeconds": 31.26666831970215,
+      "nativeChecks": 9252,
+      "alternateCrossings": 30,
+      "audit": {
+        "observations": 1876,
+        "pairPenetrations": 0,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "reservationErrors": 0,
+        "staleReads": 0,
+        "minimumSeparation": 0.999969482421875,
+        "maximumStep": 0.05000019073486328
+      },
+      "deferredCloseSeconds": null
+    },
+    {
+      "name": "dense-256",
+      "agents": 256,
+      "arrived": 256,
+      "simulatedSeconds": 101.4666748046875,
+      "nativeChecks": 105411,
+      "alternateCrossings": 123,
+      "audit": {
+        "observations": 6088,
+        "pairPenetrations": 0,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "reservationErrors": 0,
+        "staleReads": 0,
+        "minimumSeparation": 0.999908447265625,
+        "maximumStep": 0.05000019073486328
+      },
+      "deferredCloseSeconds": null
+    },
+    {
+      "name": "avoidance-disabled-control",
+      "agents": 32,
+      "arrived": 11,
+      "simulatedSeconds": 10.000000953674316,
+      "nativeChecks": 2354,
+      "alternateCrossings": 12,
+      "audit": {
+        "observations": 600,
+        "pairPenetrations": 8979,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "reservationErrors": 0,
+        "staleReads": 0,
+        "minimumSeparation": 0.0,
+        "maximumStep": 0.05000019073486328
+      },
+      "deferredCloseSeconds": null
+    }
+  ],
+  "sessionsData": [
+    {
+      "agents-64-reserved": {
+        "name": "agents-64-reserved",
+        "agents": 64,
+        "avoidance": true,
+        "wallMs": {
+          "samples": 839,
+          "median": 2.711499999996647,
+          "p95": 24.433399999999494,
+          "p99": 30.740199999996776,
+          "maximum": 35.55740000000185,
+          "mean": 7.1738883194278875
+        },
+        "updateMs": {
+          "samples": 839,
+          "median": 0.07350000000000001,
+          "p95": 0.1037,
+          "p99": 0.1374,
+          "maximum": 0.4857,
+          "mean": 0.07555971394517283
+        },
+        "achievedFPS": 139.39441980046732,
+        "over16_67Percent": 12.514898688915375,
+        "maximumBacklog": 0.016626187075612364,
+        "simulationSteps": 361,
+        "engineSamples": 839,
+        "gpuPositive": 695,
+        "renderPositive": 839,
+        "gc": [
+          6,
+          6,
+          6
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.2132,
+            "updateMs": 0.4857,
+            "followingWallIntervalMs": 0.9670000000028267
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.198,
+            "updateMs": 0.4167,
+            "followingWallIntervalMs": 0.9277000000054159
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.2096,
+            "updateMs": 0.3836,
+            "followingWallIntervalMs": 0.984899999998845
+          }
+        ],
+        "cpuMs": {
+          "samples": 839,
+          "median": 2.7287,
+          "p95": 24.3132,
+          "p99": 30.6384,
+          "maximum": 35.4108,
+          "mean": 7.187249344457688
+        },
+        "mainMs": {
+          "samples": 839,
+          "median": 1.1545,
+          "p95": 21.9561,
+          "p99": 30.1027,
+          "maximum": 31.1793,
+          "mean": 5.723771275327771
+        },
+        "renderMs": {
+          "samples": 839,
+          "median": 0.2028,
+          "p95": 0.3935,
+          "p99": 0.6112,
+          "maximum": 0.9465,
+          "mean": 0.2253817640047676
+        },
+        "presentWaitMs": {
+          "samples": 839,
+          "median": 0.1442,
+          "p95": 8.6626,
+          "p99": 15.7339,
+          "maximum": 23.2986,
+          "mean": 1.4612106078665077
+        },
+        "gpuMissing": 144,
+        "gpuCoveragePercent": 82.83671036948749,
+        "gpuValidOnlyMs": {
+          "samples": 695,
+          "median": 0.635904,
+          "p95": 15.797248,
+          "p99": 24.281088,
+          "maximum": 29.30688,
+          "mean": 3.8678410129496403
+        },
+        "gpuTailValidated": false
+      },
+      "agents-64-route-only": {
+        "name": "agents-64-route-only",
+        "agents": 64,
+        "avoidance": false,
+        "wallMs": {
+          "samples": 730,
+          "median": 1.0715999999995063,
+          "p95": 26.319600000000776,
+          "p99": 39.2724999999956,
+          "maximum": 47.11640000000017,
+          "mean": 8.23531219178082
+        },
+        "updateMs": {
+          "samples": 730,
+          "median": 0.07475000000000001,
+          "p95": 0.1165,
+          "p99": 0.13720000000000002,
+          "maximum": 0.4313,
+          "mean": 0.0805268493150685
+        },
+        "achievedFPS": 121.42830492789832,
+        "over16_67Percent": 19.315068493150687,
+        "maximumBacklog": 0.016607672486919967,
+        "simulationSteps": 361,
+        "engineSamples": 730,
+        "gpuPositive": 554,
+        "renderPositive": 730,
+        "gc": [
+          5,
+          5,
+          5
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.21130000000000002,
+            "updateMs": 0.4313,
+            "followingWallIntervalMs": 0.7465999999993755
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.18730000000000002,
+            "updateMs": 0.37410000000000004,
+            "followingWallIntervalMs": 0.6547999999995113
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.19970000000000002,
+            "updateMs": 0.3428,
+            "followingWallIntervalMs": 0.6337000000016246
+          }
+        ],
+        "cpuMs": {
+          "samples": 730,
+          "median": 1.1842000000000001,
+          "p95": 25.7883,
+          "p99": 38.5254,
+          "maximum": 46.9475,
+          "mean": 8.187118904109589
+        },
+        "mainMs": {
+          "samples": 730,
+          "median": 0.7999499999999999,
+          "p95": 23.2164,
+          "p99": 30.5517,
+          "maximum": 39.6706,
+          "mean": 5.949793424657535
+        },
+        "renderMs": {
+          "samples": 730,
+          "median": 0.19824999999999998,
+          "p95": 0.3484,
+          "p99": 0.499,
+          "maximum": 0.9569,
+          "mean": 0.21643205479452055
+        },
+        "presentWaitMs": {
+          "samples": 730,
+          "median": 0.1815,
+          "p95": 15.4489,
+          "p99": 22.2882,
+          "maximum": 31.539,
+          "mean": 2.2351606849315067
+        },
+        "gpuMissing": 176,
+        "gpuCoveragePercent": 75.89041095890411,
+        "gpuValidOnlyMs": {
+          "samples": 554,
+          "median": 0.515584,
+          "p95": 21.05344,
+          "p99": 28.96896,
+          "maximum": 37.787648,
+          "mean": 4.380928924187725
+        },
+        "gpuTailValidated": false
+      },
+      "agents-256-reserved": {
+        "name": "agents-256-reserved",
+        "agents": 256,
+        "avoidance": true,
+        "wallMs": {
+          "samples": 676,
+          "median": 5.121749999997149,
+          "p95": 29.30220000000361,
+          "p99": 35.6033999999994,
+          "maximum": 48.216899999999896,
+          "mean": 8.929211094674562
+        },
+        "updateMs": {
+          "samples": 676,
+          "median": 0.1155,
+          "p95": 0.1643,
+          "p99": 0.198,
+          "maximum": 0.5344,
+          "mean": 0.11408121301775148
+        },
+        "achievedFPS": 111.99197660321933,
+        "over16_67Percent": 19.23076923076923,
+        "maximumBacklog": 0.016579445881127697,
+        "simulationSteps": 362,
+        "engineSamples": 676,
+        "gpuPositive": 508,
+        "renderPositive": 676,
+        "gc": [
+          4,
+          4,
+          4
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.218,
+            "updateMs": 0.5344,
+            "followingWallIntervalMs": 0.9431000000006406
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.1925,
+            "updateMs": 0.47800000000000004,
+            "followingWallIntervalMs": 0.8685999999968885
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.2248,
+            "updateMs": 0.47190000000000004,
+            "followingWallIntervalMs": 9.065799999994795
+          }
+        ],
+        "cpuMs": {
+          "samples": 676,
+          "median": 5.041399999999999,
+          "p95": 29.3476,
+          "p99": 35.629,
+          "maximum": 48.0322,
+          "mean": 8.925939497041421
+        },
+        "mainMs": {
+          "samples": 676,
+          "median": 1.0298,
+          "p95": 22.9715,
+          "p99": 32.0673,
+          "maximum": 37.0345,
+          "mean": 6.116317455621302
+        },
+        "renderMs": {
+          "samples": 676,
+          "median": 0.2858,
+          "p95": 0.4916,
+          "p99": 0.7046,
+          "maximum": 0.9704,
+          "mean": 0.30628846153846156
+        },
+        "presentWaitMs": {
+          "samples": 676,
+          "median": 0.2556,
+          "p95": 15.5648,
+          "p99": 25.014,
+          "maximum": 32.4748,
+          "mean": 2.8073310650887575
+        },
+        "gpuMissing": 168,
+        "gpuCoveragePercent": 75.14792899408285,
+        "gpuValidOnlyMs": {
+          "samples": 508,
+          "median": 0.5329919999999999,
+          "p95": 16.623616,
+          "p99": 26.549248,
+          "maximum": 32.140288,
+          "mean": 3.9588147401574805
+        },
+        "gpuTailValidated": false
+      },
+      "agents-256-route-only": {
+        "name": "agents-256-route-only",
+        "agents": 256,
+        "avoidance": false,
+        "wallMs": {
+          "samples": 630,
+          "median": 7.33925000000113,
+          "p95": 30.12170000000225,
+          "p99": 38.99729999999835,
+          "maximum": 49.93610000000359,
+          "mean": 9.57909222222222
+        },
+        "updateMs": {
+          "samples": 630,
+          "median": 0.12295,
+          "p95": 0.17200000000000001,
+          "p99": 0.22030000000000002,
+          "maximum": 0.5351,
+          "mean": 0.12079714285714287
+        },
+        "achievedFPS": 104.39402573869505,
+        "over16_67Percent": 18.73015873015873,
+        "maximumBacklog": 0.016653293462681518,
+        "simulationSteps": 362,
+        "engineSamples": 630,
+        "gpuPositive": 451,
+        "renderPositive": 630,
+        "gc": [
+          3,
+          3,
+          3
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.20470000000000002,
+            "updateMs": 0.5245000000000001,
+            "followingWallIntervalMs": 0.9390999999965288
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.2132,
+            "updateMs": 0.5351,
+            "followingWallIntervalMs": 15.279200000001936
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.1882,
+            "updateMs": 0.42960000000000004,
+            "followingWallIntervalMs": 17.087100000004796
+          }
+        ],
+        "cpuMs": {
+          "samples": 630,
+          "median": 7.1971,
+          "p95": 29.9526,
+          "p99": 38.7876,
+          "maximum": 49.6885,
+          "mean": 9.52622873015873
+        },
+        "mainMs": {
+          "samples": 630,
+          "median": 1.43035,
+          "p95": 24.4305,
+          "p99": 31.0247,
+          "maximum": 49.2099,
+          "mean": 7.041538095238095
+        },
+        "renderMs": {
+          "samples": 630,
+          "median": 0.28445,
+          "p95": 0.442,
+          "p99": 0.5872,
+          "maximum": 0.8789,
+          "mean": 0.29840285714285714
+        },
+        "presentWaitMs": {
+          "samples": 630,
+          "median": 0.28200000000000003,
+          "p95": 14.872,
+          "p99": 16.0452,
+          "maximum": 31.2504,
+          "mean": 2.4822571428571427
+        },
+        "gpuMissing": 179,
+        "gpuCoveragePercent": 71.58730158730158,
+        "gpuValidOnlyMs": {
+          "samples": 451,
+          "median": 0.541696,
+          "p95": 15.993856,
+          "p99": 25.460736,
+          "maximum": 44.700672,
+          "mean": 4.485923760532151
+        },
+        "gpuTailValidated": false
+      },
+      "agents-512-reserved": {
+        "name": "agents-512-reserved",
+        "agents": 512,
+        "avoidance": true,
+        "wallMs": {
+          "samples": 610,
+          "median": 7.557599999998388,
+          "p95": 31.236100000000988,
+          "p99": 38.47399999999368,
+          "maximum": 45.19159999999545,
+          "mean": 9.869774590163953
+        },
+        "updateMs": {
+          "samples": 610,
+          "median": 0.155,
+          "p95": 0.2366,
+          "p99": 0.3042,
+          "maximum": 0.672,
+          "mean": 0.15850081967213114
+        },
+        "achievedFPS": 101.3194365144451,
+        "over16_67Percent": 18.19672131147541,
+        "maximumBacklog": 0.016655783031879423,
+        "simulationSteps": 361,
+        "engineSamples": 610,
+        "gpuPositive": 435,
+        "renderPositive": 610,
+        "gc": [
+          3,
+          3,
+          3
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.2136,
+            "updateMs": 0.672,
+            "followingWallIntervalMs": 1.2414999999990073
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.2033,
+            "updateMs": 0.6357,
+            "followingWallIntervalMs": 1.1879999999990787
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.20750000000000002,
+            "updateMs": 0.5292,
+            "followingWallIntervalMs": 0.9976000000051499
+          }
+        ],
+        "cpuMs": {
+          "samples": 610,
+          "median": 7.4868500000000004,
+          "p95": 31.0775,
+          "p99": 38.4201,
+          "maximum": 45.0371,
+          "mean": 9.859372131147541
+        },
+        "mainMs": {
+          "samples": 610,
+          "median": 2.32625,
+          "p95": 29.2938,
+          "p99": 32.8163,
+          "maximum": 40.8224,
+          "mean": 7.598790163934426
+        },
+        "renderMs": {
+          "samples": 610,
+          "median": 0.3697,
+          "p95": 0.6087,
+          "p99": 0.8687,
+          "maximum": 1.1086,
+          "mean": 0.3867780327868853
+        },
+        "presentWaitMs": {
+          "samples": 610,
+          "median": 0.279,
+          "p95": 13.6606,
+          "p99": 16.6454,
+          "maximum": 29.8473,
+          "mean": 2.258135737704918
+        },
+        "gpuMissing": 175,
+        "gpuCoveragePercent": 71.31147540983606,
+        "gpuValidOnlyMs": {
+          "samples": 435,
+          "median": 0.75264,
+          "p95": 19.972096,
+          "p99": 29.910016,
+          "maximum": 40.154112,
+          "mean": 4.762706390804598
+        },
+        "gpuTailValidated": false
+      },
+      "agents-512-route-only": {
+        "name": "agents-512-route-only",
+        "agents": 512,
+        "avoidance": false,
+        "wallMs": {
+          "samples": 660,
+          "median": 7.32485000000338,
+          "p95": 26.4300999999989,
+          "p99": 32.363000000003694,
+          "maximum": 47.23020000000133,
+          "mean": 9.126236515151518
+        },
+        "updateMs": {
+          "samples": 660,
+          "median": 0.16705000000000003,
+          "p95": 0.24350000000000002,
+          "p99": 0.3201,
+          "maximum": 0.6507000000000001,
+          "mean": 0.163755
+        },
+        "achievedFPS": 109.57419286030826,
+        "over16_67Percent": 16.060606060606062,
+        "maximumBacklog": 0.016529806765589683,
+        "simulationSteps": 362,
+        "engineSamples": 660,
+        "gpuPositive": 465,
+        "renderPositive": 660,
+        "gc": [
+          3,
+          3,
+          3
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.1922,
+            "updateMs": 0.5554,
+            "followingWallIntervalMs": 0.9551999999928285
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.1928,
+            "updateMs": 0.6507000000000001,
+            "followingWallIntervalMs": 5.507399999999052
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.1895,
+            "updateMs": 0.635,
+            "followingWallIntervalMs": 1.1271999999991067
+          }
+        ],
+        "cpuMs": {
+          "samples": 660,
+          "median": 7.3142,
+          "p95": 26.3737,
+          "p99": 32.1714,
+          "maximum": 47.0721,
+          "mean": 9.114933636363636
+        },
+        "mainMs": {
+          "samples": 660,
+          "median": 2.38305,
+          "p95": 23.7098,
+          "p99": 29.9197,
+          "maximum": 45.6195,
+          "mean": 6.5617524242424246
+        },
+        "renderMs": {
+          "samples": 660,
+          "median": 0.3569,
+          "p95": 0.6415,
+          "p99": 0.8375,
+          "maximum": 1.1815,
+          "mean": 0.38188212121212123
+        },
+        "presentWaitMs": {
+          "samples": 660,
+          "median": 0.3137,
+          "p95": 14.6184,
+          "p99": 16.7099,
+          "maximum": 24.0443,
+          "mean": 2.5506395454545454
+        },
+        "gpuMissing": 195,
+        "gpuCoveragePercent": 70.45454545454545,
+        "gpuValidOnlyMs": {
+          "samples": 465,
+          "median": 0.657408,
+          "p95": 16.116736,
+          "p99": 26.85952,
+          "maximum": 30.820352,
+          "mean": 4.042617668817204
+        },
+        "gpuTailValidated": false
+      }
+    },
+    {
+      "agents-64-route-only": {
+        "name": "agents-64-route-only",
+        "agents": 64,
+        "avoidance": false,
+        "wallMs": {
+          "samples": 4434,
+          "median": 0.3889500000013868,
+          "p95": 8.471999999997593,
+          "p99": 11.807099999998627,
+          "maximum": 19.252999999999076,
+          "mean": 1.3532197113216047
+        },
+        "updateMs": {
+          "samples": 4434,
+          "median": 0.0393,
+          "p95": 0.0745,
+          "p99": 0.0874,
+          "maximum": 0.3912,
+          "mean": 0.04529819576003609
+        },
+        "achievedFPS": 738.9782986706297,
+        "over16_67Percent": 0.02255299954894001,
+        "maximumBacklog": 0.016659071958155636,
+        "simulationSteps": 361,
+        "engineSamples": 4434,
+        "gpuPositive": 3930,
+        "renderPositive": 4434,
+        "gc": [
+          31,
+          31,
+          31
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.1951,
+            "updateMs": 0.3912,
+            "followingWallIntervalMs": 0.7762000000042235
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.1945,
+            "updateMs": 0.374,
+            "followingWallIntervalMs": 0.7376000000007821
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.1948,
+            "updateMs": 0.32170000000000004,
+            "followingWallIntervalMs": 0.6057000000012636
+          }
+        ],
+        "cpuMs": {
+          "samples": 4434,
+          "median": 0.3893,
+          "p95": 8.4292,
+          "p99": 11.7252,
+          "maximum": 19.128,
+          "mean": 1.3532616147947678
+        },
+        "mainMs": {
+          "samples": 4434,
+          "median": 0.2986,
+          "p95": 7.2673,
+          "p99": 10.2582,
+          "maximum": 18.8669,
+          "mean": 1.0789450157870997
+        },
+        "renderMs": {
+          "samples": 4434,
+          "median": 0.1845,
+          "p95": 0.2801,
+          "p99": 0.3858,
+          "maximum": 0.9461,
+          "mean": 0.1940142760487145
+        },
+        "presentWaitMs": {
+          "samples": 4434,
+          "median": 0.0985,
+          "p95": 1.6504,
+          "p99": 4.2858,
+          "maximum": 10.0795,
+          "mean": 0.2731777852954443
+        },
+        "gpuMissing": 504,
+        "gpuCoveragePercent": 88.63328822733423,
+        "gpuValidOnlyMs": {
+          "samples": 3930,
+          "median": 0.096256,
+          "p95": 3.948544,
+          "p99": 10.001408,
+          "maximum": 12.607488,
+          "mean": 0.6942521974554707
+        },
+        "gpuTailValidated": false
+      },
+      "agents-64-reserved": {
+        "name": "agents-64-reserved",
+        "agents": 64,
+        "avoidance": true,
+        "wallMs": {
+          "samples": 4480,
+          "median": 0.3814999999960378,
+          "p95": 8.643700000000365,
+          "p99": 12.610199999997462,
+          "maximum": 15.54039999999901,
+          "mean": 1.341980089285715
+        },
+        "updateMs": {
+          "samples": 4480,
+          "median": 0.0402,
+          "p95": 0.0794,
+          "p99": 0.0925,
+          "maximum": 0.39880000000000004,
+          "mean": 0.04681647321428572
+        },
+        "achievedFPS": 745.1675386124857,
+        "over16_67Percent": 0.0,
+        "maximumBacklog": 0.01666354614550869,
+        "simulationSteps": 361,
+        "engineSamples": 4480,
+        "gpuPositive": 4000,
+        "renderPositive": 4480,
+        "gc": [
+          29,
+          29,
+          29
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.1885,
+            "updateMs": 0.39880000000000004,
+            "followingWallIntervalMs": 0.6867999999968788
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.1882,
+            "updateMs": 0.3799,
+            "followingWallIntervalMs": 0.6477000000018052
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.191,
+            "updateMs": 0.35400000000000004,
+            "followingWallIntervalMs": 0.7421000000036315
+          }
+        ],
+        "cpuMs": {
+          "samples": 4480,
+          "median": 0.3822,
+          "p95": 8.5882,
+          "p99": 12.5104,
+          "maximum": 15.5378,
+          "mean": 1.339329955357143
+        },
+        "mainMs": {
+          "samples": 4480,
+          "median": 0.2948,
+          "p95": 7.7118,
+          "p99": 12.2056,
+          "maximum": 13.3826,
+          "mean": 1.0664342410714285
+        },
+        "renderMs": {
+          "samples": 4480,
+          "median": 0.1843,
+          "p95": 0.2772,
+          "p99": 0.4091,
+          "maximum": 0.8822,
+          "mean": 0.19409053571428572
+        },
+        "presentWaitMs": {
+          "samples": 4480,
+          "median": 0.09495,
+          "p95": 0.9909,
+          "p99": 4.2381,
+          "maximum": 11.6369,
+          "mean": 0.27175042410714284
+        },
+        "gpuMissing": 480,
+        "gpuCoveragePercent": 89.28571428571429,
+        "gpuValidOnlyMs": {
+          "samples": 4000,
+          "median": 0.096256,
+          "p95": 4.176896,
+          "p99": 10.899456,
+          "maximum": 12.950528,
+          "mean": 0.670227712
+        },
+        "gpuTailValidated": false
+      },
+      "agents-256-route-only": {
+        "name": "agents-256-route-only",
+        "agents": 256,
+        "avoidance": false,
+        "wallMs": {
+          "samples": 2872,
+          "median": 0.4944000000008941,
+          "p95": 9.945500000000607,
+          "p99": 20.08599999999916,
+          "maximum": 40.9409000000025,
+          "mean": 2.0912987116991624
+        },
+        "updateMs": {
+          "samples": 2872,
+          "median": 0.060200000000000004,
+          "p95": 0.12350000000000001,
+          "p99": 0.1521,
+          "maximum": 0.5413,
+          "mean": 0.07046671309192201
+        },
+        "achievedFPS": 478.17176685749905,
+        "over16_67Percent": 1.7061281337047354,
+        "maximumBacklog": 0.016645125926778803,
+        "simulationSteps": 361,
+        "engineSamples": 2872,
+        "gpuPositive": 2516,
+        "renderPositive": 2872,
+        "gc": [
+          17,
+          17,
+          17
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.21300000000000002,
+            "updateMs": 0.49970000000000003,
+            "followingWallIntervalMs": 0.8880000000033306
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.1978,
+            "updateMs": 0.5413,
+            "followingWallIntervalMs": 2.373499999997364
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.2379,
+            "updateMs": 0.46080000000000004,
+            "followingWallIntervalMs": 30.734700000003556
+          }
+        ],
+        "cpuMs": {
+          "samples": 2872,
+          "median": 0.49324999999999997,
+          "p95": 9.8758,
+          "p99": 19.9561,
+          "maximum": 40.7474,
+          "mean": 2.0903077646239554
+        },
+        "mainMs": {
+          "samples": 2872,
+          "median": 0.36260000000000003,
+          "p95": 9.0325,
+          "p99": 18.2641,
+          "maximum": 36.9819,
+          "mean": 1.6421002437325904
+        },
+        "renderMs": {
+          "samples": 2872,
+          "median": 0.2482,
+          "p95": 0.3873,
+          "p99": 0.5168,
+          "maximum": 1.1341,
+          "mean": 0.2620782729805014
+        },
+        "presentWaitMs": {
+          "samples": 2872,
+          "median": 0.1413,
+          "p95": 1.9256,
+          "p99": 6.3255,
+          "maximum": 29.6424,
+          "mean": 0.4469201253481894
+        },
+        "gpuMissing": 356,
+        "gpuCoveragePercent": 87.60445682451254,
+        "gpuValidOnlyMs": {
+          "samples": 2516,
+          "median": 0.099328,
+          "p95": 7.588864,
+          "p99": 12.393472,
+          "maximum": 30.676992,
+          "mean": 1.0154319364069953
+        },
+        "gpuTailValidated": false
+      },
+      "agents-256-reserved": {
+        "name": "agents-256-reserved",
+        "agents": 256,
+        "avoidance": true,
+        "wallMs": {
+          "samples": 1773,
+          "median": 0.5470000000045161,
+          "p95": 17.230400000002533,
+          "p99": 28.514499999999998,
+          "maximum": 68.44279999999969,
+          "mean": 3.403069712351946
+        },
+        "updateMs": {
+          "samples": 1773,
+          "median": 0.0655,
+          "p95": 0.1421,
+          "p99": 0.1951,
+          "maximum": 0.519,
+          "mean": 0.0793531866892273
+        },
+        "achievedFPS": 293.85234054135054,
+        "over16_67Percent": 5.865764241398759,
+        "maximumBacklog": 0.016665677173563154,
+        "simulationSteps": 362,
+        "engineSamples": 1773,
+        "gpuPositive": 1503,
+        "renderPositive": 1773,
+        "gc": [
+          9,
+          9,
+          9
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.2106,
+            "updateMs": 0.519,
+            "followingWallIntervalMs": 0.9337999999985414
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.1918,
+            "updateMs": 0.5174,
+            "followingWallIntervalMs": 9.798599999996327
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.2152,
+            "updateMs": 0.4429,
+            "followingWallIntervalMs": 13.492499999998131
+          }
+        ],
+        "cpuMs": {
+          "samples": 1773,
+          "median": 0.562,
+          "p95": 17.0572,
+          "p99": 28.5838,
+          "maximum": 68.3798,
+          "mean": 3.39395893965031
+        },
+        "mainMs": {
+          "samples": 1773,
+          "median": 0.4215,
+          "p95": 14.0371,
+          "p99": 21.0761,
+          "maximum": 57.3381,
+          "mean": 2.568373660462493
+        },
+        "renderMs": {
+          "samples": 1773,
+          "median": 0.2554,
+          "p95": 0.4852,
+          "p99": 0.7528,
+          "maximum": 1.4346,
+          "mean": 0.2829335025380711
+        },
+        "presentWaitMs": {
+          "samples": 1773,
+          "median": 0.1453,
+          "p95": 4.4895,
+          "p99": 14.043,
+          "maximum": 26.541,
+          "mean": 0.8240936266215454
+        },
+        "gpuMissing": 270,
+        "gpuCoveragePercent": 84.77157360406092,
+        "gpuValidOnlyMs": {
+          "samples": 1503,
+          "median": 0.111616,
+          "p95": 9.732096,
+          "p99": 17.695744,
+          "maximum": 38.100992,
+          "mean": 1.7160080266134399
+        },
+        "gpuTailValidated": false
+      },
+      "agents-512-route-only": {
+        "name": "agents-512-route-only",
+        "agents": 512,
+        "avoidance": false,
+        "wallMs": {
+          "samples": 699,
+          "median": 4.8160000000052605,
+          "p95": 25.036000000000058,
+          "p99": 29.86479999999858,
+          "maximum": 38.86339999999677,
+          "mean": 8.60063533619459
+        },
+        "updateMs": {
+          "samples": 699,
+          "median": 0.1317,
+          "p95": 0.24130000000000001,
+          "p99": 0.31020000000000003,
+          "maximum": 0.8054,
+          "mean": 0.15328397711015737
+        },
+        "achievedFPS": 116.27048013437305,
+        "over16_67Percent": 23.175965665236053,
+        "maximumBacklog": 0.016650304157877827,
+        "simulationSteps": 361,
+        "engineSamples": 699,
+        "gpuPositive": 533,
+        "renderPositive": 699,
+        "gc": [
+          4,
+          4,
+          4
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.2041,
+            "updateMs": 0.6882,
+            "followingWallIntervalMs": 1.2984999999972047
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.23450000000000001,
+            "updateMs": 0.8054,
+            "followingWallIntervalMs": 1.5952999999981898
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.2,
+            "updateMs": 0.5147,
+            "followingWallIntervalMs": 12.424899999999184
+          }
+        ],
+        "cpuMs": {
+          "samples": 699,
+          "median": 4.6142,
+          "p95": 24.9155,
+          "p99": 29.8486,
+          "maximum": 38.7015,
+          "mean": 8.585577539341918
+        },
+        "mainMs": {
+          "samples": 699,
+          "median": 1.1697,
+          "p95": 21.7555,
+          "p99": 28.8308,
+          "maximum": 38.4163,
+          "mean": 6.1913463519313305
+        },
+        "renderMs": {
+          "samples": 699,
+          "median": 0.3943,
+          "p95": 0.902,
+          "p99": 1.3747,
+          "maximum": 1.6699,
+          "mean": 0.4700587982832618
+        },
+        "presentWaitMs": {
+          "samples": 699,
+          "median": 0.497,
+          "p95": 13.4897,
+          "p99": 18.0441,
+          "maximum": 28.1907,
+          "mean": 2.391802575107296
+        },
+        "gpuMissing": 166,
+        "gpuCoveragePercent": 76.25178826895565,
+        "gpuValidOnlyMs": {
+          "samples": 533,
+          "median": 0.7424,
+          "p95": 18.072576,
+          "p99": 26.752,
+          "maximum": 30.779392,
+          "mean": 4.5997887879924955
+        },
+        "gpuTailValidated": false
+      },
+      "agents-512-reserved": {
+        "name": "agents-512-reserved",
+        "agents": 512,
+        "avoidance": true,
+        "wallMs": {
+          "samples": 755,
+          "median": 1.9716000000045142,
+          "p95": 24.61479999999483,
+          "p99": 31.436700000000428,
+          "maximum": 40.1224999999954,
+          "mean": 7.972786622516559
+        },
+        "updateMs": {
+          "samples": 755,
+          "median": 0.1371,
+          "p95": 0.2489,
+          "p99": 0.3199,
+          "maximum": 0.6687000000000001,
+          "mean": 0.15142688741721855
+        },
+        "achievedFPS": 125.4266603819326,
+        "over16_67Percent": 18.94039735099338,
+        "maximumBacklog": 0.016578252532582383,
+        "simulationSteps": 361,
+        "engineSamples": 755,
+        "gpuPositive": 575,
+        "renderPositive": 755,
+        "gc": [
+          3,
+          3,
+          3
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.19260000000000002,
+            "updateMs": 0.5429,
+            "followingWallIntervalMs": 13.879400000007536
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.2184,
+            "updateMs": 0.6687000000000001,
+            "followingWallIntervalMs": 8.526000000003364
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.1963,
+            "updateMs": 0.47600000000000003,
+            "followingWallIntervalMs": 22.377399999996328
+          }
+        ],
+        "cpuMs": {
+          "samples": 755,
+          "median": 2.0818,
+          "p95": 24.5007,
+          "p99": 31.3179,
+          "maximum": 39.7668,
+          "mean": 7.9727280794701985
+        },
+        "mainMs": {
+          "samples": 755,
+          "median": 1.0354,
+          "p95": 22.2096,
+          "p99": 29.3209,
+          "maximum": 31.5928,
+          "mean": 5.999796556291391
+        },
+        "renderMs": {
+          "samples": 755,
+          "median": 0.4065,
+          "p95": 0.7877,
+          "p99": 1.0986,
+          "maximum": 1.4806,
+          "mean": 0.4520851655629139
+        },
+        "presentWaitMs": {
+          "samples": 755,
+          "median": 0.3857,
+          "p95": 9.8594,
+          "p99": 21.3716,
+          "maximum": 25.3424,
+          "mean": 1.9704340397350995
+        },
+        "gpuMissing": 180,
+        "gpuCoveragePercent": 76.15894039735099,
+        "gpuValidOnlyMs": {
+          "samples": 575,
+          "median": 0.531456,
+          "p95": 19.475456,
+          "p99": 28.337152,
+          "maximum": 30.969856,
+          "mean": 4.4695694469565215
+        },
+        "gpuTailValidated": false
+      }
+    },
+    {
+      "agents-64-reserved": {
+        "name": "agents-64-reserved",
+        "agents": 64,
+        "avoidance": true,
+        "wallMs": {
+          "samples": 1001,
+          "median": 2.187999999996748,
+          "p95": 18.405999999998812,
+          "p99": 25.265300000000934,
+          "maximum": 33.3570000000023,
+          "mean": 6.004052047952045
+        },
+        "updateMs": {
+          "samples": 1001,
+          "median": 0.06380000000000001,
+          "p95": 0.1101,
+          "p99": 0.157,
+          "maximum": 0.537,
+          "mean": 0.06942707292707292
+        },
+        "achievedFPS": 166.55418574212652,
+        "over16_67Percent": 10.889110889110889,
+        "maximumBacklog": 0.016627508730383767,
+        "simulationSteps": 361,
+        "engineSamples": 1001,
+        "gpuPositive": 811,
+        "renderPositive": 1001,
+        "gc": [
+          7,
+          7,
+          7
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.1965,
+            "updateMs": 0.46490000000000004,
+            "followingWallIntervalMs": 7.806899999998507
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.2084,
+            "updateMs": 0.4853,
+            "followingWallIntervalMs": 0.9934999999998695
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.2738,
+            "updateMs": 0.537,
+            "followingWallIntervalMs": 1.1458000000033053
+          }
+        ],
+        "cpuMs": {
+          "samples": 1001,
+          "median": 2.2305,
+          "p95": 18.3378,
+          "p99": 25.1395,
+          "maximum": 33.315,
+          "mean": 5.989833866133866
+        },
+        "mainMs": {
+          "samples": 1001,
+          "median": 1.0352,
+          "p95": 16.6744,
+          "p99": 19.6302,
+          "maximum": 32.5005,
+          "mean": 4.540511888111888
+        },
+        "renderMs": {
+          "samples": 1001,
+          "median": 0.2101,
+          "p95": 0.4824,
+          "p99": 0.6812,
+          "maximum": 1.0025,
+          "mean": 0.24544935064935064
+        },
+        "presentWaitMs": {
+          "samples": 1001,
+          "median": 0.1911,
+          "p95": 8.2757,
+          "p99": 15.3192,
+          "maximum": 22.003,
+          "mean": 1.447198901098901
+        },
+        "gpuMissing": 190,
+        "gpuCoveragePercent": 81.01898101898102,
+        "gpuValidOnlyMs": {
+          "samples": 811,
+          "median": 0.5888,
+          "p95": 14.594048,
+          "p99": 17.606656,
+          "maximum": 22.21056,
+          "mean": 3.1698582885326756
+        },
+        "gpuTailValidated": false
+      },
+      "agents-64-route-only": {
+        "name": "agents-64-route-only",
+        "agents": 64,
+        "avoidance": false,
+        "wallMs": {
+          "samples": 2942,
+          "median": 0.4081999999989705,
+          "p95": 9.578500000003487,
+          "p99": 19.97689999999608,
+          "maximum": 43.99649999999866,
+          "mean": 2.0435011896668933
+        },
+        "updateMs": {
+          "samples": 2942,
+          "median": 0.0409,
+          "p95": 0.0864,
+          "p99": 0.12480000000000001,
+          "maximum": 0.44370000000000004,
+          "mean": 0.049943167912984365
+        },
+        "achievedFPS": 489.3562113183833,
+        "over16_67Percent": 1.7675050985723997,
+        "maximumBacklog": 0.0166620119809906,
+        "simulationSteps": 361,
+        "engineSamples": 2942,
+        "gpuPositive": 2556,
+        "renderPositive": 2942,
+        "gc": [
+          19,
+          19,
+          19
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.1975,
+            "updateMs": 0.44370000000000004,
+            "followingWallIntervalMs": 14.634199999996156
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.1895,
+            "updateMs": 0.42260000000000003,
+            "followingWallIntervalMs": 1.6825999999952046
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.21250000000000002,
+            "updateMs": 0.3744,
+            "followingWallIntervalMs": 0.7519999999985316
+          }
+        ],
+        "cpuMs": {
+          "samples": 2942,
+          "median": 0.4138,
+          "p95": 9.5644,
+          "p99": 19.8723,
+          "maximum": 43.8603,
+          "mean": 2.0599298436437796
+        },
+        "mainMs": {
+          "samples": 2942,
+          "median": 0.321,
+          "p95": 8.8257,
+          "p99": 17.7306,
+          "maximum": 31.2558,
+          "mean": 1.6129899048266485
+        },
+        "renderMs": {
+          "samples": 2942,
+          "median": 0.1807,
+          "p95": 0.2811,
+          "p99": 0.3932,
+          "maximum": 21.9024,
+          "mean": 0.19889881033310672
+        },
+        "presentWaitMs": {
+          "samples": 2942,
+          "median": 0.09875,
+          "p95": 2.2841,
+          "p99": 7.7415,
+          "maximum": 22.6606,
+          "mean": 0.4456431339225017
+        },
+        "gpuMissing": 386,
+        "gpuCoveragePercent": 86.87967369136642,
+        "gpuValidOnlyMs": {
+          "samples": 2556,
+          "median": 0.111616,
+          "p95": 7.691264,
+          "p99": 14.199808,
+          "maximum": 23.89504,
+          "mean": 1.086989220657277
+        },
+        "gpuTailValidated": false
+      },
+      "agents-256-reserved": {
+        "name": "agents-256-reserved",
+        "agents": 256,
+        "avoidance": true,
+        "wallMs": {
+          "samples": 3489,
+          "median": 0.5199000000004617,
+          "p95": 8.880800000000022,
+          "p99": 10.330500000002019,
+          "maximum": 12.818700000003957,
+          "mean": 1.7219079392376029
+        },
+        "updateMs": {
+          "samples": 3489,
+          "median": 0.0604,
+          "p95": 0.1169,
+          "p99": 0.139,
+          "maximum": 0.5376000000000001,
+          "mean": 0.06875035826884494
+        },
+        "achievedFPS": 580.7511407623587,
+        "over16_67Percent": 0.0,
+        "maximumBacklog": 0.016662449017594838,
+        "simulationSteps": 361,
+        "engineSamples": 3489,
+        "gpuPositive": 2930,
+        "renderPositive": 3489,
+        "gc": [
+          20,
+          20,
+          20
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.1951,
+            "updateMs": 0.5133,
+            "followingWallIntervalMs": 1.8651000000033946
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.1948,
+            "updateMs": 0.5376000000000001,
+            "followingWallIntervalMs": 3.524300000002256
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.1963,
+            "updateMs": 0.4343,
+            "followingWallIntervalMs": 2.9577000000031717
+          }
+        ],
+        "cpuMs": {
+          "samples": 3489,
+          "median": 0.5256,
+          "p95": 8.8157,
+          "p99": 10.2896,
+          "maximum": 12.7043,
+          "mean": 1.7222408426483233
+        },
+        "mainMs": {
+          "samples": 3489,
+          "median": 0.3899,
+          "p95": 8.5133,
+          "p99": 10.0177,
+          "maximum": 12.2758,
+          "mean": 1.3841928346231012
+        },
+        "renderMs": {
+          "samples": 3489,
+          "median": 0.2551,
+          "p95": 0.3659,
+          "p99": 0.4646,
+          "maximum": 0.7143,
+          "mean": 0.26480768128403553
+        },
+        "presentWaitMs": {
+          "samples": 3489,
+          "median": 0.15,
+          "p95": 1.6627,
+          "p99": 4.2099,
+          "maximum": 10.0971,
+          "mean": 0.3367912582401834
+        },
+        "gpuMissing": 559,
+        "gpuCoveragePercent": 83.97821725422757,
+        "gpuValidOnlyMs": {
+          "samples": 2930,
+          "median": 0.110592,
+          "p95": 6.162432,
+          "p99": 9.638912,
+          "maximum": 10.532864,
+          "mean": 0.9433423508532424
+        },
+        "gpuTailValidated": false
+      },
+      "agents-256-route-only": {
+        "name": "agents-256-route-only",
+        "agents": 256,
+        "avoidance": false,
+        "wallMs": {
+          "samples": 3310,
+          "median": 0.5076999999999998,
+          "p95": 9.40130000000039,
+          "p99": 13.773600000000386,
+          "maximum": 37.26819999999975,
+          "mean": 1.8227715407854983
+        },
+        "updateMs": {
+          "samples": 3310,
+          "median": 0.06035,
+          "p95": 0.127,
+          "p99": 0.1492,
+          "maximum": 0.4506,
+          "mean": 0.06976078549848944
+        },
+        "achievedFPS": 548.6151048688547,
+        "over16_67Percent": 0.5740181268882175,
+        "maximumBacklog": 0.01666648356063405,
+        "simulationSteps": 362,
+        "engineSamples": 3310,
+        "gpuPositive": 2818,
+        "renderPositive": 3310,
+        "gc": [
+          17,
+          17,
+          17
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.1902,
+            "updateMs": 0.4156,
+            "followingWallIntervalMs": 0.6966000000048211
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.1912,
+            "updateMs": 0.42700000000000005,
+            "followingWallIntervalMs": 1.4795000000020764
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.19790000000000002,
+            "updateMs": 0.4506,
+            "followingWallIntervalMs": 1.900800000001368
+          }
+        ],
+        "cpuMs": {
+          "samples": 3310,
+          "median": 0.51175,
+          "p95": 9.3107,
+          "p99": 13.5645,
+          "maximum": 33.304,
+          "mean": 1.8066797885196375
+        },
+        "mainMs": {
+          "samples": 3310,
+          "median": 0.37275,
+          "p95": 8.7595,
+          "p99": 12.0641,
+          "maximum": 29.3192,
+          "mean": 1.454499577039275
+        },
+        "renderMs": {
+          "samples": 3310,
+          "median": 0.2522,
+          "p95": 0.3657,
+          "p99": 0.439,
+          "maximum": 8.6568,
+          "mean": 0.26473350453172206
+        },
+        "presentWaitMs": {
+          "samples": 3310,
+          "median": 0.1466,
+          "p95": 1.474,
+          "p99": 4.5654,
+          "maximum": 16.7572,
+          "mean": 0.3509406344410876
+        },
+        "gpuMissing": 492,
+        "gpuCoveragePercent": 85.13595166163142,
+        "gpuValidOnlyMs": {
+          "samples": 2818,
+          "median": 0.10752,
+          "p95": 7.896064,
+          "p99": 11.328512,
+          "maximum": 27.245568,
+          "mean": 1.012373348474095
+        },
+        "gpuTailValidated": false
+      },
+      "agents-512-reserved": {
+        "name": "agents-512-reserved",
+        "agents": 512,
+        "avoidance": true,
+        "wallMs": {
+          "samples": 654,
+          "median": 7.665800000005163,
+          "p95": 26.07690000000673,
+          "p99": 36.51240000000655,
+          "maximum": 41.63210000000106,
+          "mean": 9.19561559633027
+        },
+        "updateMs": {
+          "samples": 654,
+          "median": 0.1489,
+          "p95": 0.2223,
+          "p99": 0.3164,
+          "maximum": 0.6226,
+          "mean": 0.15166498470948012
+        },
+        "achievedFPS": 108.74747748253786,
+        "over16_67Percent": 20.948012232415902,
+        "maximumBacklog": 0.016653231406564828,
+        "simulationSteps": 361,
+        "engineSamples": 654,
+        "gpuPositive": 558,
+        "renderPositive": 654,
+        "gc": [
+          3,
+          3,
+          3
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.201,
+            "updateMs": 0.6226,
+            "followingWallIntervalMs": 16.465799999998865
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.1968,
+            "updateMs": 0.5882000000000001,
+            "followingWallIntervalMs": 4.086100000002091
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.19920000000000002,
+            "updateMs": 0.5221,
+            "followingWallIntervalMs": 1.316500000001497
+          }
+        ],
+        "cpuMs": {
+          "samples": 654,
+          "median": 7.59405,
+          "p95": 25.9367,
+          "p99": 36.3679,
+          "maximum": 41.5729,
+          "mean": 9.158695718654434
+        },
+        "mainMs": {
+          "samples": 654,
+          "median": 3.9021,
+          "p95": 21.1134,
+          "p99": 30.909,
+          "maximum": 40.2827,
+          "mean": 6.931770489296636
+        },
+        "renderMs": {
+          "samples": 654,
+          "median": 0.3755,
+          "p95": 0.6248,
+          "p99": 0.865,
+          "maximum": 1.3459,
+          "mean": 0.3944576452599388
+        },
+        "presentWaitMs": {
+          "samples": 654,
+          "median": 0.29569999999999996,
+          "p95": 10.3681,
+          "p99": 16.335,
+          "maximum": 21.3936,
+          "mean": 2.2244327217125384
+        },
+        "gpuMissing": 96,
+        "gpuCoveragePercent": 85.3211009174312,
+        "gpuValidOnlyMs": {
+          "samples": 558,
+          "median": 1.7121279999999999,
+          "p95": 16.746496,
+          "p99": 25.857024,
+          "maximum": 30.39744,
+          "mean": 4.80666746953405
+        },
+        "gpuTailValidated": false
+      },
+      "agents-512-route-only": {
+        "name": "agents-512-route-only",
+        "agents": 512,
+        "avoidance": false,
+        "wallMs": {
+          "samples": 650,
+          "median": 7.210249999999974,
+          "p95": 25.719600000002174,
+          "p99": 32.471200000003364,
+          "maximum": 53.346500000003516,
+          "mean": 9.24972892307693
+        },
+        "updateMs": {
+          "samples": 650,
+          "median": 0.14835,
+          "p95": 0.2288,
+          "p99": 0.2732,
+          "maximum": 0.7143,
+          "mean": 0.15315169230769232
+        },
+        "achievedFPS": 108.11127637536747,
+        "over16_67Percent": 22.307692307692307,
+        "maximumBacklog": 0.016538897127915675,
+        "simulationSteps": 361,
+        "engineSamples": 650,
+        "gpuPositive": 584,
+        "renderPositive": 650,
+        "gc": [
+          3,
+          3,
+          3
+        ],
+        "events": [
+          {
+            "action": "close-main",
+            "transactionMs": 0.2155,
+            "updateMs": 0.7143,
+            "followingWallIntervalMs": 1.2361999999939144
+          },
+          {
+            "action": "place-crate",
+            "transactionMs": 0.1907,
+            "updateMs": 0.5476,
+            "followingWallIntervalMs": 16.14340000000425
+          },
+          {
+            "action": "reopen-main",
+            "transactionMs": 0.1963,
+            "updateMs": 0.5579000000000001,
+            "followingWallIntervalMs": 2.3168000000026723
+          }
+        ],
+        "cpuMs": {
+          "samples": 650,
+          "median": 7.21765,
+          "p95": 25.5858,
+          "p99": 32.3448,
+          "maximum": 53.1131,
+          "mean": 9.232430769230769
+        },
+        "mainMs": {
+          "samples": 650,
+          "median": 3.3141999999999996,
+          "p95": 22.0861,
+          "p99": 29.3533,
+          "maximum": 52.5199,
+          "mean": 6.818068461538462
+        },
+        "renderMs": {
+          "samples": 650,
+          "median": 0.35875,
+          "p95": 0.5591,
+          "p99": 0.9314,
+          "maximum": 1.1645,
+          "mean": 0.3784150769230769
+        },
+        "presentWaitMs": {
+          "samples": 650,
+          "median": 0.34425,
+          "p95": 14.2829,
+          "p99": 22.0635,
+          "maximum": 28.0217,
+          "mean": 2.411769076923077
+        },
+        "gpuMissing": 66,
+        "gpuCoveragePercent": 89.84615384615384,
+        "gpuValidOnlyMs": {
+          "samples": 584,
+          "median": 1.34912,
+          "p95": 16.602112,
+          "p99": 22.894592,
+          "maximum": 38.059008,
+          "mean": 4.361514082191781
+        },
+        "gpuTailValidated": false
+      }
+    }
+  ],
+  "ranges": [
+    {
+      "name": "agents-256-reserved",
+      "agents": 256,
+      "avoidance": true,
+      "p95BudgetPassedAll": false,
+      "wallMs": {
+        "median": [
+          0.5199000000004617,
+          5.121749999997149
+        ],
+        "p95": [
+          8.880800000000022,
+          29.30220000000361
+        ],
+        "p99": [
+          10.330500000002019,
+          35.6033999999994
+        ],
+        "maximum": [
+          12.818700000003957,
+          68.44279999999969
+        ]
+      },
+      "updateMs": {
+        "median": [
+          0.0604,
+          0.1155
+        ],
+        "p95": [
+          0.1169,
+          0.1643
+        ],
+        "p99": [
+          0.139,
+          0.198
+        ],
+        "maximum": [
+          0.519,
+          0.5376000000000001
+        ]
+      },
+      "cpuMs": {
+        "median": [
+          0.5256,
+          5.041399999999999
+        ],
+        "p95": [
+          8.8157,
+          29.3476
+        ],
+        "p99": [
+          10.2896,
+          35.629
+        ],
+        "maximum": [
+          12.7043,
+          68.3798
+        ]
+      },
+      "mainMs": {
+        "median": [
+          0.3899,
+          1.0298
+        ],
+        "p95": [
+          8.5133,
+          22.9715
+        ],
+        "p99": [
+          10.0177,
+          32.0673
+        ],
+        "maximum": [
+          12.2758,
+          57.3381
+        ]
+      },
+      "renderMs": {
+        "median": [
+          0.2551,
+          0.2858
+        ],
+        "p95": [
+          0.3659,
+          0.4916
+        ],
+        "p99": [
+          0.4646,
+          0.7528
+        ],
+        "maximum": [
+          0.7143,
+          1.4346
+        ]
+      },
+      "presentWaitMs": {
+        "median": [
+          0.1453,
+          0.2556
+        ],
+        "p95": [
+          1.6627,
+          15.5648
+        ],
+        "p99": [
+          4.2099,
+          25.014
+        ],
+        "maximum": [
+          10.0971,
+          32.4748
+        ]
+      },
+      "over16_67Percent": [
+        0.0,
+        19.23076923076923
+      ],
+      "gpuCoveragePercent": [
+        75.14792899408285,
+        84.77157360406092
+      ],
+      "gpuTailValidatedAll": false
+    },
+    {
+      "name": "agents-256-route-only",
+      "agents": 256,
+      "avoidance": false,
+      "p95BudgetPassedAll": false,
+      "wallMs": {
+        "median": [
+          0.4944000000008941,
+          7.33925000000113
+        ],
+        "p95": [
+          9.40130000000039,
+          30.12170000000225
+        ],
+        "p99": [
+          13.773600000000386,
+          38.99729999999835
+        ],
+        "maximum": [
+          37.26819999999975,
+          49.93610000000359
+        ]
+      },
+      "updateMs": {
+        "median": [
+          0.060200000000000004,
+          0.12295
+        ],
+        "p95": [
+          0.12350000000000001,
+          0.17200000000000001
+        ],
+        "p99": [
+          0.1492,
+          0.22030000000000002
+        ],
+        "maximum": [
+          0.4506,
+          0.5413
+        ]
+      },
+      "cpuMs": {
+        "median": [
+          0.49324999999999997,
+          7.1971
+        ],
+        "p95": [
+          9.3107,
+          29.9526
+        ],
+        "p99": [
+          13.5645,
+          38.7876
+        ],
+        "maximum": [
+          33.304,
+          49.6885
+        ]
+      },
+      "mainMs": {
+        "median": [
+          0.36260000000000003,
+          1.43035
+        ],
+        "p95": [
+          8.7595,
+          24.4305
+        ],
+        "p99": [
+          12.0641,
+          31.0247
+        ],
+        "maximum": [
+          29.3192,
+          49.2099
+        ]
+      },
+      "renderMs": {
+        "median": [
+          0.2482,
+          0.28445
+        ],
+        "p95": [
+          0.3657,
+          0.442
+        ],
+        "p99": [
+          0.439,
+          0.5872
+        ],
+        "maximum": [
+          0.8789,
+          8.6568
+        ]
+      },
+      "presentWaitMs": {
+        "median": [
+          0.1413,
+          0.28200000000000003
+        ],
+        "p95": [
+          1.474,
+          14.872
+        ],
+        "p99": [
+          4.5654,
+          16.0452
+        ],
+        "maximum": [
+          16.7572,
+          31.2504
+        ]
+      },
+      "over16_67Percent": [
+        0.5740181268882175,
+        18.73015873015873
+      ],
+      "gpuCoveragePercent": [
+        71.58730158730158,
+        87.60445682451254
+      ],
+      "gpuTailValidatedAll": false
+    },
+    {
+      "name": "agents-512-reserved",
+      "agents": 512,
+      "avoidance": true,
+      "p95BudgetPassedAll": false,
+      "wallMs": {
+        "median": [
+          1.9716000000045142,
+          7.665800000005163
+        ],
+        "p95": [
+          24.61479999999483,
+          31.236100000000988
+        ],
+        "p99": [
+          31.436700000000428,
+          38.47399999999368
+        ],
+        "maximum": [
+          40.1224999999954,
+          45.19159999999545
+        ]
+      },
+      "updateMs": {
+        "median": [
+          0.1371,
+          0.155
+        ],
+        "p95": [
+          0.2223,
+          0.2489
+        ],
+        "p99": [
+          0.3042,
+          0.3199
+        ],
+        "maximum": [
+          0.6226,
+          0.672
+        ]
+      },
+      "cpuMs": {
+        "median": [
+          2.0818,
+          7.59405
+        ],
+        "p95": [
+          24.5007,
+          31.0775
+        ],
+        "p99": [
+          31.3179,
+          38.4201
+        ],
+        "maximum": [
+          39.7668,
+          45.0371
+        ]
+      },
+      "mainMs": {
+        "median": [
+          1.0354,
+          3.9021
+        ],
+        "p95": [
+          21.1134,
+          29.2938
+        ],
+        "p99": [
+          29.3209,
+          32.8163
+        ],
+        "maximum": [
+          31.5928,
+          40.8224
+        ]
+      },
+      "renderMs": {
+        "median": [
+          0.3697,
+          0.4065
+        ],
+        "p95": [
+          0.6087,
+          0.7877
+        ],
+        "p99": [
+          0.865,
+          1.0986
+        ],
+        "maximum": [
+          1.1086,
+          1.4806
+        ]
+      },
+      "presentWaitMs": {
+        "median": [
+          0.279,
+          0.3857
+        ],
+        "p95": [
+          9.8594,
+          13.6606
+        ],
+        "p99": [
+          16.335,
+          21.3716
+        ],
+        "maximum": [
+          21.3936,
+          29.8473
+        ]
+      },
+      "over16_67Percent": [
+        18.19672131147541,
+        20.948012232415902
+      ],
+      "gpuCoveragePercent": [
+        71.31147540983606,
+        85.3211009174312
+      ],
+      "gpuTailValidatedAll": false
+    },
+    {
+      "name": "agents-512-route-only",
+      "agents": 512,
+      "avoidance": false,
+      "p95BudgetPassedAll": false,
+      "wallMs": {
+        "median": [
+          4.8160000000052605,
+          7.32485000000338
+        ],
+        "p95": [
+          25.036000000000058,
+          26.4300999999989
+        ],
+        "p99": [
+          29.86479999999858,
+          32.471200000003364
+        ],
+        "maximum": [
+          38.86339999999677,
+          53.346500000003516
+        ]
+      },
+      "updateMs": {
+        "median": [
+          0.1317,
+          0.16705000000000003
+        ],
+        "p95": [
+          0.2288,
+          0.24350000000000002
+        ],
+        "p99": [
+          0.2732,
+          0.3201
+        ],
+        "maximum": [
+          0.6507000000000001,
+          0.8054
+        ]
+      },
+      "cpuMs": {
+        "median": [
+          4.6142,
+          7.3142
+        ],
+        "p95": [
+          24.9155,
+          26.3737
+        ],
+        "p99": [
+          29.8486,
+          32.3448
+        ],
+        "maximum": [
+          38.7015,
+          53.1131
+        ]
+      },
+      "mainMs": {
+        "median": [
+          1.1697,
+          3.3141999999999996
+        ],
+        "p95": [
+          21.7555,
+          23.7098
+        ],
+        "p99": [
+          28.8308,
+          29.9197
+        ],
+        "maximum": [
+          38.4163,
+          52.5199
+        ]
+      },
+      "renderMs": {
+        "median": [
+          0.3569,
+          0.3943
+        ],
+        "p95": [
+          0.5591,
+          0.902
+        ],
+        "p99": [
+          0.8375,
+          1.3747
+        ],
+        "maximum": [
+          1.1645,
+          1.6699
+        ]
+      },
+      "presentWaitMs": {
+        "median": [
+          0.3137,
+          0.497
+        ],
+        "p95": [
+          13.4897,
+          14.6184
+        ],
+        "p99": [
+          16.7099,
+          22.0635
+        ],
+        "maximum": [
+          24.0443,
+          28.1907
+        ]
+      },
+      "over16_67Percent": [
+        16.060606060606062,
+        23.175965665236053
+      ],
+      "gpuCoveragePercent": [
+        70.45454545454545,
+        89.84615384615384
+      ],
+      "gpuTailValidatedAll": false
+    },
+    {
+      "name": "agents-64-reserved",
+      "agents": 64,
+      "avoidance": true,
+      "p95BudgetPassedAll": false,
+      "wallMs": {
+        "median": [
+          0.3814999999960378,
+          2.711499999996647
+        ],
+        "p95": [
+          8.643700000000365,
+          24.433399999999494
+        ],
+        "p99": [
+          12.610199999997462,
+          30.740199999996776
+        ],
+        "maximum": [
+          15.54039999999901,
+          35.55740000000185
+        ]
+      },
+      "updateMs": {
+        "median": [
+          0.0402,
+          0.07350000000000001
+        ],
+        "p95": [
+          0.0794,
+          0.1101
+        ],
+        "p99": [
+          0.0925,
+          0.157
+        ],
+        "maximum": [
+          0.39880000000000004,
+          0.537
+        ]
+      },
+      "cpuMs": {
+        "median": [
+          0.3822,
+          2.7287
+        ],
+        "p95": [
+          8.5882,
+          24.3132
+        ],
+        "p99": [
+          12.5104,
+          30.6384
+        ],
+        "maximum": [
+          15.5378,
+          35.4108
+        ]
+      },
+      "mainMs": {
+        "median": [
+          0.2948,
+          1.1545
+        ],
+        "p95": [
+          7.7118,
+          21.9561
+        ],
+        "p99": [
+          12.2056,
+          30.1027
+        ],
+        "maximum": [
+          13.3826,
+          32.5005
+        ]
+      },
+      "renderMs": {
+        "median": [
+          0.1843,
+          0.2101
+        ],
+        "p95": [
+          0.2772,
+          0.4824
+        ],
+        "p99": [
+          0.4091,
+          0.6812
+        ],
+        "maximum": [
+          0.8822,
+          1.0025
+        ]
+      },
+      "presentWaitMs": {
+        "median": [
+          0.09495,
+          0.1911
+        ],
+        "p95": [
+          0.9909,
+          8.6626
+        ],
+        "p99": [
+          4.2381,
+          15.7339
+        ],
+        "maximum": [
+          11.6369,
+          23.2986
+        ]
+      },
+      "over16_67Percent": [
+        0.0,
+        12.514898688915375
+      ],
+      "gpuCoveragePercent": [
+        81.01898101898102,
+        89.28571428571429
+      ],
+      "gpuTailValidatedAll": false
+    },
+    {
+      "name": "agents-64-route-only",
+      "agents": 64,
+      "avoidance": false,
+      "p95BudgetPassedAll": false,
+      "wallMs": {
+        "median": [
+          0.3889500000013868,
+          1.0715999999995063
+        ],
+        "p95": [
+          8.471999999997593,
+          26.319600000000776
+        ],
+        "p99": [
+          11.807099999998627,
+          39.2724999999956
+        ],
+        "maximum": [
+          19.252999999999076,
+          47.11640000000017
+        ]
+      },
+      "updateMs": {
+        "median": [
+          0.0393,
+          0.07475000000000001
+        ],
+        "p95": [
+          0.0745,
+          0.1165
+        ],
+        "p99": [
+          0.0874,
+          0.13720000000000002
+        ],
+        "maximum": [
+          0.3912,
+          0.44370000000000004
+        ]
+      },
+      "cpuMs": {
+        "median": [
+          0.3893,
+          1.1842000000000001
+        ],
+        "p95": [
+          8.4292,
+          25.7883
+        ],
+        "p99": [
+          11.7252,
+          38.5254
+        ],
+        "maximum": [
+          19.128,
+          46.9475
+        ]
+      },
+      "mainMs": {
+        "median": [
+          0.2986,
+          0.7999499999999999
+        ],
+        "p95": [
+          7.2673,
+          23.2164
+        ],
+        "p99": [
+          10.2582,
+          30.5517
+        ],
+        "maximum": [
+          18.8669,
+          39.6706
+        ]
+      },
+      "renderMs": {
+        "median": [
+          0.1807,
+          0.19824999999999998
+        ],
+        "p95": [
+          0.2801,
+          0.3484
+        ],
+        "p99": [
+          0.3858,
+          0.499
+        ],
+        "maximum": [
+          0.9461,
+          21.9024
+        ]
+      },
+      "presentWaitMs": {
+        "median": [
+          0.0985,
+          0.1815
+        ],
+        "p95": [
+          1.6504,
+          15.4489
+        ],
+        "p99": [
+          4.2858,
+          22.2882
+        ],
+        "maximum": [
+          10.0795,
+          31.539
+        ]
+      },
+      "over16_67Percent": [
+        0.02255299954894001,
+        19.315068493150687
+      ],
+      "gpuCoveragePercent": [
+        75.89041095890411,
+        88.63328822733423
+      ],
+      "gpuTailValidatedAll": false
+    }
+  ]
+}

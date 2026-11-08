@@ -1,0 +1,1713 @@
+{
+  "date": "2026-11-07",
+  "synthetic": true,
+  "semantic_assessment": "AI evaluator meaning review, not automated keyword scoring or engine execution",
+  "baseline_cases": 6,
+  "fresh_retests": 4,
+  "final_lexical": {
+    "game": {
+      "ok": true,
+      "command": "evaluate",
+      "index": {
+        "entries": 114,
+        "read_files": 1,
+        "cached_files": 113,
+        "elapsed_ms": 84.827,
+        "warning": null
+      },
+      "elapsed_ms": 243.963,
+      "cases": [
+        {
+          "name": "forest-natural-miss",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-GAME-TECH-FOLIAGE",
+            "K-GAME-TECH-BILLBOARD",
+            "K-GAME-RESEARCH-USE"
+          ],
+          "snippets_characters": 620,
+          "elapsed_ms": 22.365
+        },
+        {
+          "name": "muzzle-natural-miss",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-GAME-TECH-HITSCAN",
+            "K-GAME-SHOOTER",
+            "K-GAME-TECH-GUIDE"
+          ],
+          "snippets_characters": 309,
+          "elapsed_ms": 11.233
+        },
+        {
+          "name": "jump-natural-existing",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-GAME-TECH-CONTROLLER",
+            "K-GAME-TECH-GUIDE"
+          ],
+          "snippets_characters": 319,
+          "elapsed_ms": 6.582
+        },
+        {
+          "name": "save-identity-natural-miss",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-GAME-TECH-SAVE",
+            "K-GAME-TECH-ROLLBACK",
+            "K-GAME-EXPLORATION"
+          ],
+          "snippets_characters": 685,
+          "elapsed_ms": 17.104
+        },
+        {
+          "name": "forest-uncoached-wording",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-GAME-TECH-FOLIAGE",
+            "K-GAME-TECH-BILLBOARD",
+            "K-GAME-TECH-GUIDE"
+          ],
+          "snippets_characters": 461,
+          "elapsed_ms": 24.187
+        },
+        {
+          "name": "muzzle-uncoached-wording",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-GAME-TECH-HITSCAN",
+            "K-GAME-SHOOTER",
+            "K-GAME-TECH-GUIDE"
+          ],
+          "snippets_characters": 309,
+          "elapsed_ms": 14.35
+        },
+        {
+          "name": "save-uncoached-wording",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-GAME-TECH-SAVE",
+            "K-GAME-TECH-ROLLBACK",
+            "K-GAME-EXPLORATION"
+          ],
+          "snippets_characters": 685,
+          "elapsed_ms": 15.244
+        },
+        {
+          "name": "negative-loading-icons",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [],
+          "snippets_characters": 0,
+          "elapsed_ms": 4.912
+        },
+        {
+          "name": "negative-image-refresh",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-GAME-TECH-GUIDE"
+          ],
+          "snippets_characters": 163,
+          "elapsed_ms": 7.143
+        },
+        {
+          "name": "negative-object-pool",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-MEMORY",
+            "K-GAME-ROGUELIKE-DECKBUILDER"
+          ],
+          "snippets_characters": 373,
+          "elapsed_ms": 24.391
+        },
+        {
+          "name": "negative-item-icon-loading",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-GAME-RPG-PROGRESSION",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-RACING"
+          ],
+          "snippets_characters": 551,
+          "elapsed_ms": 11.319
+        }
+      ],
+      "passed": 11,
+      "total": 11,
+      "required_recall": 1.0,
+      "forbidden_hits": 0,
+      "limitation": "Recall covers only declared required IDs; forbidden-hit checks are not a general precision estimate."
+    },
+    "common": {
+      "ok": true,
+      "command": "evaluate",
+      "index": {
+        "entries": 114,
+        "read_files": 0,
+        "cached_files": 114,
+        "elapsed_ms": 59.622,
+        "warning": null
+      },
+      "elapsed_ms": 186.814,
+      "cases": [
+        {
+          "name": "Observed Korean embedded-value paraphrase",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-CODE-CONFIGURATION-POLICY",
+            "K-CODE-PRINCIPLE-REUSE"
+          ],
+          "snippets_characters": 390,
+          "elapsed_ms": 12.193
+        },
+        {
+          "name": "Observed Korean hidden-implementation paraphrase",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-CODE-INFORMATION-HIDING",
+            "K-CODE-PRINCIPLE-REUSE"
+          ],
+          "snippets_characters": 430,
+          "elapsed_ms": 4.31
+        },
+        {
+          "name": "Observed Korean reader-evidence paraphrase",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-FIC-REF-KNOX-FAIR-PLAY",
+            "K-FIC-REF-BODY-MOTION",
+            "K-FIC-REF-SPATIAL-BLOCKING"
+          ],
+          "snippets_characters": 762,
+          "elapsed_ms": 6.731
+        },
+        {
+          "name": "Korean embedded-value composition variant",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-CODE-CONFIGURATION-POLICY",
+            "K-CODE-PRINCIPLE-REUSE"
+          ],
+          "snippets_characters": 390,
+          "elapsed_ms": 8.312
+        },
+        {
+          "name": "Korean hidden-decision composition variant",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-CODE-INFORMATION-HIDING",
+            "K-CODE-PRINCIPLE-REUSE"
+          ],
+          "snippets_characters": 430,
+          "elapsed_ms": 4.579
+        },
+        {
+          "name": "Korean reader-clue composition variant",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-FIC-REF-KNOX-FAIR-PLAY",
+            "K-FIC-REF-ATTAINMENT-LANGUAGE",
+            "K-FIC-REF-BODY-MOTION"
+          ],
+          "snippets_characters": 662,
+          "elapsed_ms": 9.558
+        },
+        {
+          "name": "Korean shutdown paraphrase preservation",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-CODE-CONCURRENCY-LIFETIMES"
+          ],
+          "snippets_characters": 83,
+          "elapsed_ms": 6.422
+        },
+        {
+          "name": "Real Korean proactive first-catalog lookup",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "R-CATALOG-BOOTSTRAP"
+          ],
+          "snippets_characters": 300,
+          "elapsed_ms": 1.023
+        },
+        {
+          "name": "Korean initial knowledge-list variant",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "R-CATALOG-BOOTSTRAP"
+          ],
+          "snippets_characters": 300,
+          "elapsed_ms": 0.779
+        },
+        {
+          "name": "Korean body-only memory pooling",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-CODE-PERFORMANCE-MEASUREMENT",
+            "K-CODE-GC-LIFETIMES",
+            "K-CODE-CONCURRENCY-LIFETIMES"
+          ],
+          "snippets_characters": 438,
+          "elapsed_ms": 7.816
+        },
+        {
+          "name": "Hardcoding classification",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-CODE-CONFIGURATION-POLICY",
+            "K-CODE-PRINCIPLE-REUSE",
+            "K-CODE-ABSTRACTION-COST"
+          ],
+          "snippets_characters": 429,
+          "elapsed_ms": 8.781
+        },
+        {
+          "name": "Cancellation and shutdown",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-CODE-CONCURRENCY-LIFETIMES",
+            "K-CODE-UE-RENDERDOC-ATTACH"
+          ],
+          "snippets_characters": 383,
+          "elapsed_ms": 7.225
+        },
+        {
+          "name": "Unreal GC ownership distinctions",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-CODE-GC-LIFETIMES",
+            "K-CODE-RESOURCE-OWNERSHIP",
+            "K-CODE-PRINCIPLE-REUSE"
+          ],
+          "snippets_characters": 528,
+          "elapsed_ms": 6.093
+        },
+        {
+          "name": "Readability evidence",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-CODE-READABILITY",
+            "K-CODE-PRINCIPLE-REUSE",
+            "K-CODE-PERFORMANCE-MEASUREMENT"
+          ],
+          "snippets_characters": 469,
+          "elapsed_ms": 2.746
+        },
+        {
+          "name": "Information hiding phrase",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-CODE-INFORMATION-HIDING",
+            "K-CODE-PRINCIPLE-REUSE"
+          ],
+          "snippets_characters": 430,
+          "elapsed_ms": 2.639
+        },
+        {
+          "name": "Dependency lifecycle",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-CODE-DEPENDENCY-SELECTION",
+            "K-CODE-DEPENDENCY-DIRECTION",
+            "K-CODE-PRINCIPLE-REUSE"
+          ],
+          "snippets_characters": 258,
+          "elapsed_ms": 6.95
+        },
+        {
+          "name": "Resolved incident remains discoverable",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "R-CATALOG-BOOTSTRAP"
+          ],
+          "snippets_characters": 300,
+          "elapsed_ms": 1.598
+        },
+        {
+          "name": "Cross-store dialogue retrieval",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-FIC-N2-DIALOGUE-CHOICE",
+            "R-FIC-N2-DIALOGUE-20261106"
+          ],
+          "snippets_characters": 387,
+          "elapsed_ms": 2.769
+        },
+        {
+          "name": "Knox by Korean author name",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-FIC-REF-KNOX-FAIR-PLAY"
+          ],
+          "snippets_characters": 62,
+          "elapsed_ms": 2.512
+        },
+        {
+          "name": "RTS design",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-GAME-STRATEGY-RTS",
+            "K-GAME-TECH-LOCKSTEP"
+          ],
+          "snippets_characters": 268,
+          "elapsed_ms": 6.246
+        },
+        {
+          "name": "Exact engine-specific identifier",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "K-CODE-UE-RENDERDOC-ATTACH"
+          ],
+          "snippets_characters": 235,
+          "elapsed_ms": 2.835
+        },
+        {
+          "name": "Domain boundary excludes unrelated code",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [
+            "R-FIC-N2-RECOVERY-GAP-20261106",
+            "K-FIC-N2-DIALOGUE-CHOICE",
+            "R-FIC-N2-DIALOGUE-20261106",
+            "R-FIC-N2-HAND-STATE-20261106",
+            "R-FIC-N2-REFERENT-20261106"
+          ],
+          "snippets_characters": 897,
+          "elapsed_ms": 4.324
+        },
+        {
+          "name": "Absent term stays an explicit gap",
+          "passed": true,
+          "missing": [],
+          "forbidden_hits": [],
+          "returned": [],
+          "snippets_characters": 0,
+          "elapsed_ms": 10.398
+        }
+      ],
+      "passed": 23,
+      "total": 23,
+      "required_recall": 1.0,
+      "forbidden_hits": 0,
+      "limitation": "Recall covers only declared required IDs; forbidden-hit checks are not a general precision estimate."
+    }
+  },
+  "recorded_query_replays": [
+    {
+      "phase": "baseline",
+      "case": "G01",
+      "queries": [
+        {
+          "query": "jump buffer input Update FixedUpdate grounded",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-CONTROLLER",
+            "K-GAME-PLATFORMER",
+            "K-GAME-RESEARCH-USE"
+          ],
+          "expanded_terms": [
+            [
+              "jump"
+            ],
+            [
+              "buffer"
+            ],
+            [
+              "input"
+            ],
+            [
+              "update"
+            ],
+            [
+              "fixedupdate"
+            ],
+            [
+              "grounded"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "fixed timestep input missed jump",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-TIMESTEP",
+            "K-GAME-TECH-CONTROLLER",
+            "K-GAME-TECH-GUIDE"
+          ],
+          "expanded_terms": [
+            [
+              "fixed"
+            ],
+            [
+              "timestep"
+            ],
+            [
+              "input"
+            ],
+            [
+              "missed"
+            ],
+            [
+              "jump"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "Update FixedUpdate jump",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "R-FIC-N2-HAND-STATE-20261106"
+          ],
+          "expanded_terms": [
+            [
+              "update"
+            ],
+            [
+              "fixedupdate"
+            ],
+            [
+              "jump"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "jump buffering",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "jump"
+            ],
+            [
+              "buffering"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "missing_core_evidence": []
+    },
+    {
+      "phase": "baseline",
+      "case": "G02",
+      "queries": [
+        {
+          "query": "mobile foliage alpha clip overdraw shadow GPU instancing",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-FOLIAGE",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-SHADOW"
+          ],
+          "expanded_terms": [
+            [
+              "숲",
+              "수목",
+              "식생",
+              "foliage",
+              "forest",
+              "vegetation"
+            ],
+            [
+              "mobile"
+            ],
+            [
+              "alpha"
+            ],
+            [
+              "clip"
+            ],
+            [
+              "overdraw"
+            ],
+            [
+              "shadow"
+            ],
+            [
+              "gpu"
+            ],
+            [
+              "instancing"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "grass optimization density LOD shadow popping",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-FOLIAGE",
+            "K-GAME-RESEARCH-USE",
+            "K-CODE-UE-RENDER-ORIENTATION"
+          ],
+          "expanded_terms": [
+            [
+              "grass"
+            ],
+            [
+              "optimization"
+            ],
+            [
+              "density"
+            ],
+            [
+              "lod"
+            ],
+            [
+              "shadow"
+            ],
+            [
+              "popping"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "foliage instancing alpha shadow",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "숲",
+              "수목",
+              "식생",
+              "foliage",
+              "forest",
+              "vegetation"
+            ],
+            [
+              "instancing"
+            ],
+            [
+              "alpha"
+            ],
+            [
+              "shadow"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "GPU rendering performance",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "gpu"
+            ],
+            [
+              "rendering"
+            ],
+            [
+              "performance"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "missing_core_evidence": []
+    },
+    {
+      "phase": "baseline",
+      "case": "G03",
+      "queries": [
+        {
+          "query": "rollback deterministic snapshot",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-ROLLBACK",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-NOISE"
+          ],
+          "expanded_terms": [
+            [
+              "rollback"
+            ],
+            [
+              "deterministic"
+            ],
+            [
+              "snapshot"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "rollback RNG side effects",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-ROLLBACK",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-SPEED"
+          ],
+          "expanded_terms": [
+            [
+              "rollback"
+            ],
+            [
+              "rng"
+            ],
+            [
+              "side"
+            ],
+            [
+              "effects"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "rollback",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "rollback"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "deterministic snapshot replay",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "deterministic"
+            ],
+            [
+              "snapshot"
+            ],
+            [
+              "replay"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "deterministic physics random lockstep",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-LOCKSTEP",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-RNG"
+          ],
+          "expanded_terms": [
+            [
+              "deterministic"
+            ],
+            [
+              "physics"
+            ],
+            [
+              "random"
+            ],
+            [
+              "lockstep"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "missing_core_evidence": []
+    },
+    {
+      "phase": "baseline",
+      "case": "G04",
+      "queries": [
+        {
+          "query": "save item array index schema migration stable identifier",
+          "store": "both",
+          "domains": [
+            "game",
+            "code"
+          ],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-SAVE",
+            "K-CODE-DEPENDENCY-DIRECTION",
+            "K-CODE-GIT-ISOLATED-MERGE"
+          ],
+          "expanded_terms": [
+            [
+              "저장",
+              "세이브",
+              "save",
+              "savegame"
+            ],
+            [
+              "item"
+            ],
+            [
+              "array"
+            ],
+            [
+              "index"
+            ],
+            [
+              "schema"
+            ],
+            [
+              "migration"
+            ],
+            [
+              "stable"
+            ],
+            [
+              "identifier"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "save migration crash checksum generation commit timestamp",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "R-FIC-N2-REFERENT-20261106"
+          ],
+          "expanded_terms": [
+            [
+              "저장",
+              "세이브",
+              "save",
+              "savegame"
+            ],
+            [
+              "migration"
+            ],
+            [
+              "crash"
+            ],
+            [
+              "checksum"
+            ],
+            [
+              "generation"
+            ],
+            [
+              "commit"
+            ],
+            [
+              "timestamp"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "save overwrite recovery 저장손상 백업",
+          "store": "records",
+          "domains": [
+            "game",
+            "code"
+          ],
+          "limit": 3,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "저장",
+              "세이브",
+              "save",
+              "savegame"
+            ],
+            [
+              "overwrite"
+            ],
+            [
+              "recovery"
+            ],
+            [
+              "백업"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "missing_core_evidence": []
+    },
+    {
+      "phase": "baseline",
+      "case": "G05",
+      "queries": [
+        {
+          "query": "third person camera muzzle wall hitscan obstruction",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-HITSCAN",
+            "K-GAME-TECH-CAMERA",
+            "K-GAME-TECH-GUIDE"
+          ],
+          "expanded_terms": [
+            [
+              "총구",
+              "muzzle"
+            ],
+            [
+              "third"
+            ],
+            [
+              "person"
+            ],
+            [
+              "camera"
+            ],
+            [
+              "wall"
+            ],
+            [
+              "hitscan"
+            ],
+            [
+              "obstruction"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "lag compensation server rewind target hitboxes timestamp",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-LAGCOMP",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-SPEED"
+          ],
+          "expanded_terms": [
+            [
+              "lag"
+            ],
+            [
+              "compensation"
+            ],
+            [
+              "server"
+            ],
+            [
+              "rewind"
+            ],
+            [
+              "target"
+            ],
+            [
+              "hitboxes"
+            ],
+            [
+              "timestamp"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "camera muzzle server hit validation",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-HITSCAN",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-CAMERA"
+          ],
+          "expanded_terms": [
+            [
+              "총구",
+              "muzzle"
+            ],
+            [
+              "camera"
+            ],
+            [
+              "server"
+            ],
+            [
+              "hit"
+            ],
+            [
+              "validation"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "muzzle camera wall cover rewind timestamp",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "R-CATALOG-BOOTSTRAP"
+          ],
+          "expanded_terms": [
+            [
+              "총구",
+              "muzzle"
+            ],
+            [
+              "camera"
+            ],
+            [
+              "wall"
+            ],
+            [
+              "cover"
+            ],
+            [
+              "rewind"
+            ],
+            [
+              "timestamp"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "hitscan lag compensation",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "hitscan"
+            ],
+            [
+              "lag"
+            ],
+            [
+              "compensation"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "missing_core_evidence": []
+    },
+    {
+      "phase": "baseline",
+      "case": "G06",
+      "queries": [
+        {
+          "query": "pause menu typo localization fallback text",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "K-CODE-UE-LOC-MERGE",
+            "K-GAME-ROGUELIKE-DECKBUILDER",
+            "K-GAME-TECH-HITBOX"
+          ],
+          "expanded_terms": [
+            [
+              "현지화",
+              "localization"
+            ],
+            [
+              "pause"
+            ],
+            [
+              "menu"
+            ],
+            [
+              "typo"
+            ],
+            [
+              "fallback"
+            ],
+            [
+              "text"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "missing_core_evidence": []
+    },
+    {
+      "phase": "retest",
+      "case": "G02",
+      "queries": [
+        {
+          "query": "foliage alpha clip overdraw instancing shadow GPU mobile",
+          "store": "both",
+          "domains": [
+            "game",
+            "code"
+          ],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-FOLIAGE",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-SHADOW"
+          ],
+          "expanded_terms": [
+            [
+              "숲",
+              "수목",
+              "식생",
+              "foliage",
+              "forest",
+              "vegetation"
+            ],
+            [
+              "alpha"
+            ],
+            [
+              "clip"
+            ],
+            [
+              "overdraw"
+            ],
+            [
+              "instancing"
+            ],
+            [
+              "shadow"
+            ],
+            [
+              "gpu"
+            ],
+            [
+              "mobile"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "foliage instancing overdraw shadow mobile",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "숲",
+              "수목",
+              "식생",
+              "foliage",
+              "forest",
+              "vegetation"
+            ],
+            [
+              "instancing"
+            ],
+            [
+              "overdraw"
+            ],
+            [
+              "shadow"
+            ],
+            [
+              "mobile"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "render performance GPU",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "render"
+            ],
+            [
+              "performance"
+            ],
+            [
+              "gpu"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "missing_core_evidence": []
+    },
+    {
+      "phase": "retest",
+      "case": "G04",
+      "queries": [
+        {
+          "query": "save item index catalog reorder migration stable identifier",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-SAVE",
+            "R-CATALOG-BOOTSTRAP",
+            "K-CODE-GIT-ISOLATED-MERGE"
+          ],
+          "expanded_terms": [
+            [
+              "저장",
+              "세이브",
+              "save",
+              "savegame"
+            ],
+            [
+              "카탈로그",
+              "지식 목록",
+              "지식목록",
+              "catalog",
+              "catalogs"
+            ],
+            [
+              "item"
+            ],
+            [
+              "index"
+            ],
+            [
+              "reorder"
+            ],
+            [
+              "migration"
+            ],
+            [
+              "stable"
+            ],
+            [
+              "identifier"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "save interruption recovery checksum generation commit timestamp",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-SAVE",
+            "K-GAME-TECH-GUIDE",
+            "R-FIC-N2-RECOVERY-GAP-20261106"
+          ],
+          "expanded_terms": [
+            [
+              "저장",
+              "세이브",
+              "save",
+              "savegame"
+            ],
+            [
+              "interruption"
+            ],
+            [
+              "recovery"
+            ],
+            [
+              "checksum"
+            ],
+            [
+              "generation"
+            ],
+            [
+              "commit"
+            ],
+            [
+              "timestamp"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "save migration interrupted write recovery",
+          "store": "records",
+          "domains": [
+            "code",
+            "game"
+          ],
+          "limit": 3,
+          "returned": [
+            "R-CATALOG-BOOTSTRAP"
+          ],
+          "expanded_terms": [
+            [
+              "저장",
+              "세이브",
+              "save",
+              "savegame"
+            ],
+            [
+              "migration"
+            ],
+            [
+              "interrupted"
+            ],
+            [
+              "write"
+            ],
+            [
+              "recovery"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "missing_core_evidence": []
+    },
+    {
+      "phase": "retest",
+      "case": "G05",
+      "queries": [
+        {
+          "query": "third person camera muzzle wall occlusion hitscan lag compensation server authority",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-HITSCAN",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-AUTHORITY"
+          ],
+          "expanded_terms": [
+            [
+              "총구",
+              "muzzle"
+            ],
+            [
+              "third"
+            ],
+            [
+              "person"
+            ],
+            [
+              "camera"
+            ],
+            [
+              "wall"
+            ],
+            [
+              "occlusion"
+            ],
+            [
+              "hitscan"
+            ],
+            [
+              "lag"
+            ],
+            [
+              "compensation"
+            ],
+            [
+              "server"
+            ],
+            [
+              "authority"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "hitscan muzzle camera lag compensation wall",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-HITSCAN",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-LAGCOMP"
+          ],
+          "expanded_terms": [
+            [
+              "총구",
+              "muzzle"
+            ],
+            [
+              "hitscan"
+            ],
+            [
+              "camera"
+            ],
+            [
+              "lag"
+            ],
+            [
+              "compensation"
+            ],
+            [
+              "wall"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "trigger collision shooting rewind cover hit registration",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "returned": [
+            "K-GAME-TECH-LAGCOMP",
+            "K-GAME-TECH-HITBOX",
+            "K-GAME-TECH-TRACE"
+          ],
+          "expanded_terms": [
+            [
+              "trigger"
+            ],
+            [
+              "collision"
+            ],
+            [
+              "shooting"
+            ],
+            [
+              "rewind"
+            ],
+            [
+              "cover"
+            ],
+            [
+              "hit"
+            ],
+            [
+              "registration"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "missing_core_evidence": []
+    },
+    {
+      "phase": "retest",
+      "case": "G06",
+      "queries": [],
+      "missing_core_evidence": []
+    }
+  ],
+  "intermediate_false_inference": {
+    "query": "업데이트한 아이템 아이콘을 불러오는 UI 이미지 경로만 바꿔줘",
+    "result": {
+      "ok": true,
+      "command": "search",
+      "index": {
+        "entries": 114,
+        "read_files": 114,
+        "cached_files": 0,
+        "elapsed_ms": 272.093,
+        "warning": null
+      },
+      "elapsed_ms": 297.576,
+      "results": [
+        {
+          "id": "K-GAME-TECH-SAVE",
+          "title": "Design versioned durable saves and compact password states",
+          "summary": "Serialize persistent state, stable object identifiers and schema version rather than raw runtime pointers. A checksum detects some corruption; it is not tamper-proof authentication.",
+          "scope": "Game development; engine-independent mechanisms with version-dependent engine examples",
+          "status": "active",
+          "checked_at": "2026-11-07",
+          "kind": "reference",
+          "path": "knowledge/game/K-GAME-TECH-SAVE.md",
+          "store": "knowledge",
+          "domain": "game",
+          "sha256": "f0102ea7906042a25e0476fb18fcd2a10645829aaccc2089c85ad90e000bb01d",
+          "caveats": [],
+          "context": {
+            "evidence_check": "External source text checked; source-specific limits appear in Evidence",
+            "application_status": "Reference research and proposed checks only; no engine implementation or performance validation"
+          },
+          "score": 21.333,
+          "matched_fields": [
+            "body",
+            "id",
+            "keywords"
+          ],
+          "matched_terms": [
+            "save",
+            "savegame",
+            "세이브",
+            "저장"
+          ],
+          "query_coverage": "1/9",
+          "snippet": {
+            "line": 18,
+            "text": "…error detection. Proposed durability design: validate a new save before replacing the known-good slot and retain a recoverable generation."
+          },
+          "evidence_notice": "checked_at is a recorded evidence date; sha256 identifies the entry, not live original-source verification. Other Evidence still needs review.",
+          "source_checks": []
+        },
+        {
+          "id": "K-GAME-TECH-GUIDE",
+          "title": "Retrieve game implementation techniques from concrete development problems",
+          "summary": "Route 59 originating shorts to 43 reusable technical references with mechanisms, limitations and proposed adoption checks. Source validation is separate from engine execution and source-game implementation claims.",
+          "scope": "OneStep game-development reference corpus; originating channel shortlist checked 2026-11-07",
+          "status": "active",
+          "checked_at": "2026-11-07",
+          "kind": "reference",
+          "path": "knowledge/game/K-GAME-TECH-GUIDE.md",
+          "store": "knowledge",
+          "domain": "game",
+          "sha256": "4664362c98e8149be6e0db6e5eac9367339ba08877ac2d235a73e5acbde4f668",
+          "caveats": [],
+          "context": {
+            "evidence_check": "Primary source research, direct creator accounts and explicitly labelled source limits",
+            "application_status": "Documentation verified; no local game implementation, benchmark or playtest"
+          },
+          "score": 13.0,
+          "matched_fields": [
+            "body"
+          ],
+          "matched_terms": [
+            "save",
+            "savegame",
+            "ui",
+            "세이브",
+            "이미지",
+            "저장"
+          ],
+          "query_coverage": "3/9",
+          "snippet": {
+            "line": 55,
+            "text": "| [Save recovery and passwords](K-GAME-TECH-SAVE.md) | Public reconstruction and original reverse-engineering account support generation recovery and encoded state; no fault injection. |"
+          },
+          "evidence_notice": "checked_at is a recorded evidence date; sha256 identifies the entry, not live original-source verification. Other Evidence still needs review.",
+          "source_checks": []
+        },
+        {
+          "id": "K-GAME-RPG-PROGRESSION",
+          "title": "Separate build identity, loot evaluation, and upgrade investment",
+          "summary": "In loot-driven action RPGs, plan character and item progression together while assigning complexity to decisions the player can inspect and revise.",
+          "scope": "Loot-driven action RPG build and item progression; Diablo IV developer examples from 2020 and Season 4 in 2024",
+          "status": "active",
+          "checked_at": "2026-11-07",
+          "kind": "reference",
+          "path": "knowledge/game/K-GAME-RPG-PROGRESSION.md",
+          "store": "knowledge",
+          "domain": "game",
+          "sha256": "68e0148c84811e0fb8723cc4cd66ace8a4acce6cd8fe83c51929413f145eaa23",
+          "caveats": [],
+          "context": {
+            "evidence_check": "Original Blizzard article text opened; historical proposals distinguished from later changes",
+            "application_status": "Proposed planning checks; no local progression model or gameplay tested"
+          },
+          "score": 12.333,
+          "matched_fields": [
+            "keywords"
+          ],
+          "matched_terms": [
+            "아이템"
+          ],
+          "query_coverage": "1/9",
+          "snippet": {
+            "line": 1,
+            "text": "Metadata match: keywords; In loot-driven action RPGs, plan character and item progression together while assigning complexity to decisions the player can inspect and revise."
+          },
+          "evidence_notice": "checked_at is a recorded evidence date; sha256 identifies the entry, not live original-source verification. Other Evidence still needs review.",
+          "source_checks": []
+        }
+      ],
+      "total_matches": 10,
+      "offset": 0,
+      "diversity": {
+        "enabled": true,
+        "groups": 10,
+        "variant_matches": 0,
+        "policy": "Exact-body groups take turns; every candidate remains pageable. Scores and coverage retain their lexical meaning."
+      },
+      "truncated": true,
+      "expanded_terms": [
+        [
+          "저장",
+          "세이브",
+          "save",
+          "savegame"
+        ],
+        [
+          "업데이트한"
+        ],
+        [
+          "아이템"
+        ],
+        [
+          "아이콘을"
+        ],
+        [
+          "불러오는"
+        ],
+        [
+          "ui"
+        ],
+        [
+          "이미지"
+        ],
+        [
+          "경로만"
+        ],
+        [
+          "바꿔줘"
+        ]
+      ],
+      "inferred_concepts": [
+        {
+          "id": "game-save-item-compatibility",
+          "matched_fragments": [
+            [
+              "업데이트"
+            ],
+            [
+              "불러오"
+            ],
+            [
+              "아이템"
+            ]
+          ]
+        }
+      ],
+      "gap": null,
+      "relations": {
+        "related": [],
+        "edges": [],
+        "total_related": 0,
+        "offset": 0,
+        "truncated": false
+      },
+      "source_verification": {
+        "requested": false,
+        "source_ids": [],
+        "completed": 0,
+        "checked": 0,
+        "ok": null,
+        "statuses": {},
+        "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+      },
+      "retrieval_ok": true
+    }
+  },
+  "source_identities": {
+    "skills\\vegabond-knowledge\\scripts\\search.py": "3fd7fcbafc249884a7030b42998eace543a4d5db79d1105b9aa00ba123246074",
+    "skills\\vegabond-knowledge\\scripts\\search_terms.json": "a8f41774adf38f974b06f67b62485f285b8494a305b5050472a15d97199ee4a8",
+    "knowledge\\game\\K-GAME-RESEARCH-USE.md": "61579552838c3354398213fd2be18838259869cd9baaf25a82bda1aa5d976f13",
+    "skills\\vegabond-knowledge\\tests\\game-application\\cases.json": "eda954f1304114323856ce120c39ce0f162c3b3a54a32a4c5d1f1a2f826d6919",
+    "skills\\vegabond-knowledge\\tests\\game-application\\rubric.json": "03b36b1e322748cdecb4e01e75d4f2fa2c2d063b2fda3def8e56294dd296b2da",
+    "skills\\vegabond-knowledge\\tests\\game-application\\retrieval-cases.json": "100d259365acff371f2a44cac7132f006c5078bc6ddfdf4746b482eb38626728"
+  },
+  "search_unit_tests": {
+    "passed": 33,
+    "total": 33,
+    "log": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 30.275s\n\nOK\n"
+  },
+  "exploratory_full_suite": {
+    "total": 75,
+    "passed": 74,
+    "failed": 1,
+    "unresolved": "SourceTests.test_resolved_symlink_cannot_escape_configured_root: Windows symlink privilege absent and junction fallback Access is denied",
+    "log": ".......................................................................F...\n======================================================================\nFAIL: test_resolved_symlink_cannot_escape_configured_root (test_sources.SourceTests.test_resolved_symlink_cannot_escape_configured_root)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"C:\\Projects\\OneStep\\skills\\vegabond-knowledge\\tests\\test_sources.py\", line 182, in test_resolved_symlink_cannot_escape_configured_root\n    (source / \"escape\").symlink_to(outside, target_is_directory=True)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\earth\\AppData\\Roaming\\uv\\python\\cpython-3.14-windows-x86_64-none\\Lib\\pathlib\\__init__.py\", line 1213, in symlink_to\n    os.symlink(target, self, target_is_directory)\n    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nOSError: [WinError 1314] 클라이언트가 필요한 권한을 가지고 있지 않습니다: 'C:\\\\Projects\\\\OneStep\\\\.cache\\\\onestep\\\\game-application\\\\test-tmp\\\\onestep-sources-y0w05gqx\\\\outside' -> 'C:\\\\Projects\\\\OneStep\\\\.cache\\\\onestep\\\\game-application\\\\test-tmp\\\\onestep-sources-y0w05gqx\\\\source\\\\escape'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Projects\\OneStep\\skills\\vegabond-knowledge\\tests\\test_sources.py\", line 188, in test_resolved_symlink_cannot_escape_configured_root\n    self.assertEqual(run.returncode, 0, run.stderr)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 1 != 0 : b'Access is denied.\\r\\n'\n\n----------------------------------------------------------------------\nRan 75 tests in 48.993s\n\nFAILED (failures=1)\n"
+  },
+  "catalog": {
+    "ok": true,
+    "command": "check",
+    "domains": [
+      "knowledge/game"
+    ],
+    "structured_entries": 69,
+    "legacy_entries": 0,
+    "catalogs_written": [],
+    "errors": 0,
+    "warnings": 0,
+    "diagnostics": [],
+    "diagnostics_total": 0
+  },
+  "local_report_links": "All relative English report links resolve; human companions exist without content reads",
+  "human_companions": "existence only; contents never read",
+  "runtime_checks_executed": false,
+  "fixture_integrity": "All supplied files match prepared native-Windows line-ending bytes; original cases/rubric hashes preserved",
+  "negative_control": "Exact requested diff; zero searches in fresh retest"
+}

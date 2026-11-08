@@ -1,0 +1,4 @@
+TECHNIQUE_LAB_INJECTED_RUNTIME_ERROR
+UnityEngine.Debug:LogError (object)
+TechniqueLab.LabRunner/<Start>d__9:MoveNext () (at Assets/TechniqueLab/LabRunner.cs:49)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)

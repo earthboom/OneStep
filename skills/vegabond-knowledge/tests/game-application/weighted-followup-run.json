@@ -1,0 +1,1078 @@
+{
+  "synthetic": true,
+  "kind": "fresh-context variant after weighted contract clarification",
+  "inputs": {
+    "synthetic": true,
+    "graphs": [
+      {
+        "id": "different-costs",
+        "edges": [
+          [
+            "R",
+            "L",
+            18
+          ],
+          [
+            "L",
+            "G",
+            2
+          ],
+          [
+            "R",
+            "Q",
+            2
+          ],
+          [
+            "Q",
+            "G",
+            6
+          ]
+        ],
+        "start": "R",
+        "goal": "G",
+        "T": {
+          "R": 8,
+          "L": 2,
+          "Q": 6,
+          "G": 0
+        }
+      },
+      {
+        "id": "zero-link",
+        "edges": [
+          [
+            "R",
+            "Z",
+            0
+          ],
+          [
+            "Z",
+            "R",
+            0
+          ],
+          [
+            "Z",
+            "G",
+            4
+          ],
+          [
+            "R",
+            "G",
+            5
+          ]
+        ],
+        "start": "R",
+        "goal": "G",
+        "T": {
+          "R": 4,
+          "Z": 4,
+          "G": 0
+        }
+      },
+      {
+        "id": "one-way-costs",
+        "edges": [
+          [
+            "R",
+            "L",
+            3
+          ],
+          [
+            "L",
+            "R",
+            40
+          ],
+          [
+            "L",
+            "G",
+            2
+          ]
+        ],
+        "start": "R",
+        "goal": "G"
+      }
+    ]
+  },
+  "response": "남은 비용 T가 가장 작은 이웃만 고르면 최저 비용이 보장되지 않습니다. 합법적인 이동 u→v마다 **c(u,v)+T(v)**를 비교하거나, 역방향 Dijkstra가 만든 다음 이동 트리를 따라야 합니다.\n\n- **different-costs:** L은 18+2=20, Q는 2+6=8입니다. 다음 이동은 **R→Q**, 경로 R→Q→G, 총 비용 **8**입니다. T만 비교하면 L을 골라 20이 됩니다.\n- **zero-link:** R→Z→G가 **0+4=4**로 최적입니다. R에서 T만 비교하면 G를 골라 5가 됩니다. 최적 이동에서도 R과 Z의 T가 모두 4이므로 T의 엄격한 감소를 요구하면 최적 경로를 버립니다. Z에서 c+T가 같은 R과 G 중 R을 반복 선택하면 R↔Z 순환이 가능합니다.\n- **one-way-costs:** 다음 이동은 **R→L**, R→L→G의 총 비용은 **3+2=5**입니다. T(G)=0, T(L)=2, T(R)=5입니다. 목표에서 역탐색할 때 원래 R→L의 비용 3을 뒤집힌 L→R에 유지해야 합니다. 원래 L→R의 비용 40을 대신 쓰면 잘못된 42가 나옵니다.\n\n근거는 **K-GAME-TECH-PATH, Guidance**입니다. 유한 그래프와 비음수 비용을 전제로, 이미 확정된 노드를 향한 엄격한 개선 완화에서 다음 이동을 저장하는 방식을 채택합니다. 다음 이동의 확정 순번이 반드시 작아져 0비용에서도 순환을 막습니다. 동률 덮어쓰기는 금지하고, 목표에서는 종료하며 도달 불가는 이동하지 않습니다. 비용·연결 변경 시 T와 다음 이동을 함께 무효화해야 합니다.\n\n첨부 그래프의 단순 경로 열거와 역방향 Dijkstra 계산, 선택 간선의 Bellman 등식·순번 감소를 실제 확인했습니다. 이는 수학 모형 검증입니다. 실제 게임의 충돌·장애물 변경·프레임 비용 검사는 제안 상태이며 실행하지 않았습니다. 저장 지식의 외부 원문도 이번에는 재검증하지 않았습니다.\n\n**AI verification complete; awaiting vagabond testing or review.**\n",
+  "trace": {
+    "task": "weighted-followup",
+    "brief": {
+      "operation": "research/design review",
+      "scale": "single",
+      "target": "Review weighted shared-goal field successor choice using supplied directed synthetic graphs",
+      "deliverables": "Korean response <=300 whitespace-delimited words and trace; only two output writes",
+      "boundaries": [
+        "No engine or game implementation",
+        "No web",
+        "No source/knowledge edits",
+        "No delegation",
+        "No translation files, registries, rubrics, earlier runs, evaluator reports, weighted-flow-cases.json or sibling fixtures opened"
+      ],
+      "essential_questions": [
+        "Does smallest neighbor T include the immediate transition cost?",
+        "How does a zero-cost optimal move terminate despite equal T?",
+        "Which cost survives reversed directed traversal?"
+      ]
+    },
+    "searches": [
+      {
+        "argv": [
+          "C:\\Users\\earth\\AppData\\Roaming\\uv\\python\\cpython-3.14-windows-x86_64-none\\python.exe",
+          "C:\\Projects\\OneStep\\skills\\vegabond-knowledge\\scripts\\search.py",
+          "search",
+          "--project",
+          "C:\\Projects\\OneStep",
+          "--no-cache",
+          "--query",
+          "weighted flow field cost to goal Dijkstra",
+          "--limit",
+          "3",
+          "--domain",
+          "game"
+        ],
+        "filters": {
+          "query": "weighted flow field cost to goal Dijkstra",
+          "domain": [
+            "game"
+          ],
+          "limit": 3
+        },
+        "exit_code": 0,
+        "result": {
+          "ok": true,
+          "command": "search",
+          "index": {
+            "entries": 114,
+            "read_files": 114,
+            "cached_files": 0,
+            "elapsed_ms": 289.896,
+            "warning": null
+          },
+          "elapsed_ms": 325.312,
+          "results": [
+            {
+              "id": "K-GAME-TECH-PATH",
+              "title": "Choose A-star or flow fields by query structure",
+              "summary": "Use Dijkstra with nonnegative edge costs for distance maps; A* uses f=g+h to prioritize one destination. Pathfinding is not local collision avoidance.",
+              "scope": "Game development; engine-independent mechanisms with version-dependent engine examples",
+              "status": "active",
+              "checked_at": "2026-11-07",
+              "kind": "reference",
+              "path": "knowledge/game/K-GAME-TECH-PATH.md",
+              "store": "knowledge",
+              "domain": "game",
+              "sha256": "ae91eb9a15542bec0c7ffbcd45bc3871029328d6e4930a96cddb0b3a7a4a4462",
+              "caveats": [],
+              "context": {
+                "evidence_check": "External source text checked; source-specific limits appear in Evidence",
+                "application_status": "Reference research and proposed checks only; no engine implementation or performance validation"
+              },
+              "score": 62.0,
+              "matched_fields": [
+                "body",
+                "keywords",
+                "summary",
+                "title"
+              ],
+              "matched_terms": [
+                "cost",
+                "dijkstra",
+                "flow",
+                "flow field",
+                "goal",
+                "weighted",
+                "플로필드"
+              ],
+              "query_coverage": "5/5",
+              "snippet": {
+                "line": 14,
+                "text": "# Choose A-star or flow fields by query structure"
+              },
+              "evidence_notice": "checked_at is a recorded evidence date; sha256 identifies the entry, not live original-source verification. Other Evidence still needs review.",
+              "source_checks": []
+            },
+            {
+              "id": "K-GAME-ECONOMY",
+              "title": "Model game-resource flows before tuning individual rewards",
+              "summary": "For resource-based games, trace creation, storage, transfer, conversion and removal over a defined play horizon. Compare player policies, caps and feedback loops before interpreting a spreadsheet or a single reward rate as evidence of balance.",
+              "scope": "In-game resource systems, RPG progression, strategy, management and trading; scenario models rather than financial advice or a monetization requirement",
+              "status": "active",
+              "checked_at": "2026-11-07",
+              "kind": "reference",
+              "path": "knowledge/game/K-GAME-ECONOMY.md",
+              "store": "knowledge",
+              "domain": "game",
+              "sha256": "e9670db4e64a1b251bf999a9b2c634ee4b7f2bec7fe3ebdf3ad3dcab3fce2131",
+              "caveats": [],
+              "context": {
+                "evidence_check": "Named primary source text or slides inspected; source-specific access limits in Evidence",
+                "application_status": "Source-based reference and proposed synthesis; no project gameplay trial"
+              },
+              "score": 28.0,
+              "matched_fields": [
+                "body",
+                "keywords"
+              ],
+              "matched_terms": [
+                "flow"
+              ],
+              "query_coverage": "1/5",
+              "snippet": {
+                "line": 33,
+                "text": "….pdf), 2011, university repository original paper; Resource Flow / Simulating SimWar / Discussion, PDF pp. 3-7 including repository cover."
+              },
+              "evidence_notice": "checked_at is a recorded evidence date; sha256 identifies the entry, not live original-source verification. Other Evidence still needs review.",
+              "source_checks": []
+            },
+            {
+              "id": "K-GAME-TECH-INCENTIVES",
+              "title": "Evaluate rewards by the behavior they make worthwhile",
+              "summary": "Proposed design synthesis: define the intended repeated choice, its time/resource cost, failure consequence and alternative. Rewards do not prove fun; optional work can still be dominant or effectively mandatory.",
+              "scope": "Game development; engine-independent mechanisms with version-dependent engine examples",
+              "status": "active",
+              "checked_at": "2026-11-07",
+              "kind": "reference",
+              "path": "knowledge/game/K-GAME-TECH-INCENTIVES.md",
+              "store": "knowledge",
+              "domain": "game",
+              "sha256": "d03b7a4f82927cacfdcef5ae29fecc71f79f43a77ccd3084014be05f471dbbd7",
+              "caveats": [],
+              "context": {
+                "evidence_check": "External source text checked; source-specific limits appear in Evidence",
+                "application_status": "Reference research and proposed checks only; no engine implementation or performance validation"
+              },
+              "score": 23.0,
+              "matched_fields": [
+                "body",
+                "summary"
+              ],
+              "matched_terms": [
+                "cost",
+                "flow"
+              ],
+              "query_coverage": "2/5",
+              "snippet": {
+                "line": 18,
+                "text": "…sis: define the intended repeated choice, its time/resource cost, failure consequence and alternative. Efficiency upgrades or automation can change the work rather than only increasing numbers. Attack-to-heal and time pressure can reward engagement, but compare them against safe policies and diffe…"
+              },
+              "evidence_notice": "checked_at is a recorded evidence date; sha256 identifies the entry, not live original-source verification. Other Evidence still needs review.",
+              "source_checks": []
+            }
+          ],
+          "total_matches": 27,
+          "offset": 0,
+          "diversity": {
+            "enabled": true,
+            "groups": 27,
+            "variant_matches": 0,
+            "policy": "Exact-body groups take turns; every candidate remains pageable. Scores and coverage retain their lexical meaning."
+          },
+          "truncated": true,
+          "expanded_terms": [
+            [
+              "흐름장",
+              "플로필드",
+              "flow field",
+              "flow"
+            ],
+            [
+              "weighted"
+            ],
+            [
+              "cost"
+            ],
+            [
+              "goal"
+            ],
+            [
+              "dijkstra"
+            ]
+          ],
+          "inferred_concepts": [],
+          "gap": null,
+          "relations": {
+            "related": [],
+            "edges": [],
+            "total_related": 0,
+            "offset": 0,
+            "truncated": false
+          },
+          "source_verification": {
+            "requested": false,
+            "source_ids": [],
+            "completed": 0,
+            "checked": 0,
+            "ok": null,
+            "statuses": {},
+            "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+          },
+          "retrieval_ok": true
+        }
+      },
+      {
+        "argv": [
+          "C:\\Users\\earth\\AppData\\Roaming\\uv\\python\\cpython-3.14-windows-x86_64-none\\python.exe",
+          "C:\\Projects\\OneStep\\skills\\vegabond-knowledge\\scripts\\search.py",
+          "search",
+          "--project",
+          "C:\\Projects\\OneStep",
+          "--no-cache",
+          "--query",
+          "flow field weighted zero cost cycle reverse directed",
+          "--limit",
+          "3",
+          "--store",
+          "records"
+        ],
+        "filters": {
+          "query": "flow field weighted zero cost cycle reverse directed",
+          "store": "records",
+          "limit": 3
+        },
+        "exit_code": 0,
+        "result": {
+          "ok": true,
+          "command": "search",
+          "index": {
+            "entries": 114,
+            "read_files": 114,
+            "cached_files": 0,
+            "elapsed_ms": 291.415,
+            "warning": null
+          },
+          "elapsed_ms": 307.029,
+          "results": [
+            {
+              "id": "R-FIC-N2-DIALOGUE-20261106",
+              "title": "Author preferred removing a redundant reassurance intent after merging dialogue",
+              "summary": "The author rejected split same-speaker lines, then rejected preserving both reassurance intents; 003 now retains only relief at the safe return.",
+              "scope": "Novel_0 / novel-2; explicitly authorized scoped manuscript review records",
+              "status": "resolved",
+              "checked_at": "2026-11-06",
+              "kind": "suggestion",
+              "path": "records/fiction/R-FIC-N2-DIALOGUE-20261106.md",
+              "store": "records",
+              "domain": "fiction",
+              "sha256": "89335ea8fcc7a8f12089a734f2901a827f22a8a7f05c851b009eebfd2f6f19a2",
+              "caveats": [
+                "Registered originals not checked; access and identity remain unverified. SRC-NOVEL0-N2-REVIEW-20261106: not_checked, SRC-NOVEL0-N2-003-BEFORE-20261106: not_checked, SRC-NOVEL0-N2-003-CURRENT: not_checked, SRC-NOVEL0-N2-003-BEFORE-SPEAKER-20261105: not_checked, SRC-NOVEL0-N2-003-BEFORE-REUNION-20261105: not_checked, SRC-NOVEL0-N2-003-BEFORE-REASSURANCE-20261105: not_checked"
+              ],
+              "context": {
+                "review": "001-003; 2026-11-06",
+                "authority": "Original manuscript and owner canon remain in Novel_0; this record owns incident metadata only"
+              },
+              "cause_status": "confirmed",
+              "prevention_status": "proposed",
+              "prevention": "Reassess scene intent after rejected merges and retain the author-selected deletion",
+              "score": 4.75,
+              "matched_fields": [
+                "body"
+              ],
+              "matched_terms": [
+                "directed"
+              ],
+              "query_coverage": "1/7",
+              "snippet": {
+                "line": 46,
+                "text": "…lected deletion remains. Treat the issue as resolved author-directed editing, with a proposed scoped check. Do not claim explicit acceptance of every other manuscript passage or that every original line must be preserved in future authorized edits."
+              },
+              "evidence_notice": "checked_at is a recorded evidence date; sha256 identifies the entry, not live original-source verification. Other Evidence still needs review.",
+              "source_checks": [
+                {
+                  "ok": false,
+                  "source_id": "SRC-NOVEL0-N2-REVIEW-20261106",
+                  "project": "novel0",
+                  "relative_path": "novels/novel-2/manuscript/검토/2026-11-06-OneStep-재검수.md",
+                  "expected_sha256": null,
+                  "status": "not_checked",
+                  "access_status": "not_checked",
+                  "identity_status": "not_checked"
+                },
+                {
+                  "ok": false,
+                  "source_id": "SRC-NOVEL0-N2-003-BEFORE-20261106",
+                  "project": "novel0",
+                  "relative_path": "novels/novel-2/manuscript/이전본/2026-11-06-OneStep재검수전/003.md",
+                  "expected_sha256": null,
+                  "status": "not_checked",
+                  "access_status": "not_checked",
+                  "identity_status": "not_checked"
+                },
+                {
+                  "ok": false,
+                  "source_id": "SRC-NOVEL0-N2-003-CURRENT",
+                  "project": "novel0",
+                  "relative_path": "novels/novel-2/manuscript/003.md",
+                  "expected_sha256": null,
+                  "status": "not_checked",
+                  "access_status": "not_checked",
+                  "identity_status": "not_checked"
+                },
+                {
+                  "ok": false,
+                  "source_id": "SRC-NOVEL0-N2-003-BEFORE-SPEAKER-20261105",
+                  "project": "novel0",
+                  "relative_path": "novels/novel-2/manuscript/이전본/2026-11-05-동일화자대사수정전/003.md",
+                  "expected_sha256": null,
+                  "status": "not_checked",
+                  "access_status": "not_checked",
+                  "identity_status": "not_checked"
+                },
+                {
+                  "ok": false,
+                  "source_id": "SRC-NOVEL0-N2-003-BEFORE-REUNION-20261105",
+                  "project": "novel0",
+                  "relative_path": "novels/novel-2/manuscript/이전본/2026-11-05-사형재회대사윤문전/003.md",
+                  "expected_sha256": null,
+                  "status": "not_checked",
+                  "access_status": "not_checked",
+                  "identity_status": "not_checked"
+                },
+                {
+                  "ok": false,
+                  "source_id": "SRC-NOVEL0-N2-003-BEFORE-REASSURANCE-20261105",
+                  "project": "novel0",
+                  "relative_path": "novels/novel-2/manuscript/이전본/2026-11-05-사형위로대사삭제전/003.md",
+                  "expected_sha256": null,
+                  "status": "not_checked",
+                  "access_status": "not_checked",
+                  "identity_status": "not_checked"
+                }
+              ]
+            }
+          ],
+          "total_matches": 1,
+          "offset": 0,
+          "diversity": {
+            "enabled": true,
+            "groups": 1,
+            "variant_matches": 0,
+            "policy": "Exact-body groups take turns; every candidate remains pageable. Scores and coverage retain their lexical meaning."
+          },
+          "truncated": false,
+          "expanded_terms": [
+            [
+              "흐름장",
+              "플로필드",
+              "flow field",
+              "flow"
+            ],
+            [
+              "weighted"
+            ],
+            [
+              "zero"
+            ],
+            [
+              "cost"
+            ],
+            [
+              "cycle"
+            ],
+            [
+              "reverse"
+            ],
+            [
+              "directed"
+            ]
+          ],
+          "inferred_concepts": [],
+          "gap": null,
+          "relations": {
+            "related": [
+              {
+                "id": "K-FIC-N2-DIALOGUE-CHOICE",
+                "title": "Retain the author-selected single reassurance in novel-2 reunion editing",
+                "summary": "For this novel-2 reunion, preserve the author-selected relief at safe return rather than reintroducing the removed hardship phrase; after rejected merges, revisit what needs preserving.",
+                "scope": "Novel_0 / novel-2 reunion dialogue; author-specific, not a universal prose rule",
+                "status": "active",
+                "checked_at": "2026-11-06",
+                "kind": "convention",
+                "path": "knowledge/fiction/K-FIC-N2-DIALOGUE-CHOICE.md",
+                "store": "knowledge",
+                "domain": "fiction",
+                "sha256": "2e76f1fa4a229e0bee529959c32f26d88c6e021d483fe88daafa39b0977cc527",
+                "caveats": [
+                  "Relation candidate; verify scope and source before applying",
+                  "Registered originals not checked; access and identity remain unverified. SRC-NOVEL0-STYLE: not_checked, SRC-NOVEL0-N2-003-CURRENT: not_checked, SRC-NOVEL0-N2-REVIEW-20261106: not_checked"
+                ],
+                "context": {
+                  "owner": "style-guide.md and explicit author instructions in Novel_0",
+                  "evidence": "Actual preserved variants and current 003 checked; no audience survey"
+                },
+                "evidence_notice": "checked_at is a recorded evidence date; sha256 identifies the entry, not live original-source verification. Other Evidence still needs review.",
+                "source_checks": [
+                  {
+                    "ok": false,
+                    "source_id": "SRC-NOVEL0-STYLE",
+                    "project": "novel0",
+                    "relative_path": "style-guide.md",
+                    "expected_sha256": null,
+                    "status": "not_checked",
+                    "access_status": "not_checked",
+                    "identity_status": "not_checked"
+                  },
+                  {
+                    "ok": false,
+                    "source_id": "SRC-NOVEL0-N2-003-CURRENT",
+                    "project": "novel0",
+                    "relative_path": "novels/novel-2/manuscript/003.md",
+                    "expected_sha256": null,
+                    "status": "not_checked",
+                    "access_status": "not_checked",
+                    "identity_status": "not_checked"
+                  },
+                  {
+                    "ok": false,
+                    "source_id": "SRC-NOVEL0-N2-REVIEW-20261106",
+                    "project": "novel0",
+                    "relative_path": "novels/novel-2/manuscript/검토/2026-11-06-OneStep-재검수.md",
+                    "expected_sha256": null,
+                    "status": "not_checked",
+                    "access_status": "not_checked",
+                    "identity_status": "not_checked"
+                  }
+                ]
+              }
+            ],
+            "edges": [
+              {
+                "source": "K-FIC-N2-DIALOGUE-CHOICE",
+                "type": "derived_from",
+                "target": "R-FIC-N2-DIALOGUE-20261106"
+              },
+              {
+                "source": "R-FIC-N2-DIALOGUE-20261106",
+                "type": "prevention",
+                "target": "K-FIC-N2-DIALOGUE-CHOICE"
+              }
+            ],
+            "total_related": 1,
+            "offset": 0,
+            "truncated": false
+          },
+          "source_verification": {
+            "requested": false,
+            "source_ids": [
+              "SRC-NOVEL0-N2-REVIEW-20261106",
+              "SRC-NOVEL0-N2-003-BEFORE-20261106",
+              "SRC-NOVEL0-N2-003-CURRENT",
+              "SRC-NOVEL0-N2-003-BEFORE-SPEAKER-20261105",
+              "SRC-NOVEL0-N2-003-BEFORE-REUNION-20261105",
+              "SRC-NOVEL0-N2-003-BEFORE-REASSURANCE-20261105",
+              "SRC-NOVEL0-STYLE"
+            ],
+            "completed": 0,
+            "checked": 0,
+            "ok": null,
+            "statuses": {
+              "not_checked": 7
+            },
+            "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+          },
+          "retrieval_ok": true
+        }
+      },
+      {
+        "argv": [
+          "C:\\Users\\earth\\AppData\\Roaming\\uv\\python\\cpython-3.14-windows-x86_64-none\\python.exe",
+          "C:\\Projects\\OneStep\\skills\\vegabond-knowledge\\scripts\\search.py",
+          "search",
+          "--project",
+          "C:\\Projects\\OneStep",
+          "--no-cache",
+          "--query",
+          "flow field weighted zero cost cycle reverse directed",
+          "--limit",
+          "3",
+          "--store",
+          "records",
+          "--domain",
+          "game"
+        ],
+        "filters": {
+          "query": "flow field weighted zero cost cycle reverse directed",
+          "store": "records",
+          "domain": [
+            "game"
+          ],
+          "limit": 3
+        },
+        "exit_code": 0,
+        "result": {
+          "ok": true,
+          "command": "search",
+          "index": {
+            "entries": 114,
+            "read_files": 114,
+            "cached_files": 0,
+            "elapsed_ms": 288.436,
+            "warning": null
+          },
+          "elapsed_ms": 294.703,
+          "results": [],
+          "total_matches": 0,
+          "offset": 0,
+          "diversity": {
+            "enabled": true,
+            "groups": 0,
+            "variant_matches": 0,
+            "policy": "Exact-body groups take turns; every candidate remains pageable. Scores and coverage retain their lexical meaning."
+          },
+          "truncated": false,
+          "expanded_terms": [
+            [
+              "흐름장",
+              "플로필드",
+              "flow field",
+              "flow"
+            ],
+            [
+              "weighted"
+            ],
+            [
+              "zero"
+            ],
+            [
+              "cost"
+            ],
+            [
+              "cycle"
+            ],
+            [
+              "reverse"
+            ],
+            [
+              "directed"
+            ]
+          ],
+          "inferred_concepts": [],
+          "gap": "No lexical match under these filters; try alternate terms or a broader scope. Absence is not proved.",
+          "relations": null,
+          "source_verification": {
+            "requested": false,
+            "source_ids": [],
+            "completed": 0,
+            "checked": 0,
+            "ok": null,
+            "statuses": {},
+            "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+          },
+          "retrieval_ok": true
+        }
+      }
+    ],
+    "inspected_entries": [
+      {
+        "id": "K-GAME-TECH-PATH",
+        "path": "C:\\Projects\\OneStep\\knowledge\\game\\K-GAME-TECH-PATH.md",
+        "sha256": "ae91eb9a15542bec0c7ffbcd45bc3871029328d6e4930a96cddb0b3a7a4a4462",
+        "passages": [
+          {
+            "line": 18,
+            "text": "Use Dijkstra with nonnegative edge costs for distance maps; A* uses f=g+h to prioritize one destination. With admissible heuristics and suitable reopening/termination handling it can retain shortest-path guarantees. For many agents sharing a goal, build a reverse distance field T. On a discrete weighted graph, choose a legal successor minimizing c(u,v)+T(v), or retain the next-hop tree produced by reverse Dijkstra. Choosing the neighbor with the smallest T(v) alone ignores the cost of reaching that neighbor. Reverse directed edges while retaining each original edge's cost; the opposite-direction edge may have a different cost."
+          },
+          {
+            "line": 20,
+            "text": "Zero-cost edges can connect equal-distance nodes, so strict decrease alone may reject an optimal route and arbitrary equal-cost choices may cycle. Retain an acyclic next-hop tree from strict-improvement relaxations to already settled nodes, or an explicitly verified tie policy that guarantees progress. Invalidate the field and its successors together when topology/costs change."
+          },
+          {
+            "line": 30,
+            "text": "Proposed: compare A* and field-following costs against Dijkstra on small weighted/directed maps, including unequal outgoing costs, zero-cost cycles, unreachable goals and topology changes. For example, c(S,A)=100,T(A)=1 versus c(S,B)=1,T(B)=2 must select B (3 total), not A (101). These arithmetic checks do not establish collision-safe movement or an engine/plugin's API contract."
+          },
+          {
+            "line": 38,
+            "text": "- Follow-up checked 2026-11-07: Patel's A* introduction, Movement costs code, adds the current movement cost during relaxation; the tower-defense article uses came_from and distinguishes its unweighted BFS demonstration from weighted Dijkstra. The weighted successor, directed reversal and zero-cost progress clauses above are engineering derivations, checked with [three supplemental graph counterexamples](../../skills/vegabond-knowledge/tests/game-application/weighted-flow-cases.json), not quoted vendor guarantees or a game runtime test."
+          }
+        ],
+        "original_source_state": "Local stored entry inspected; external originals not accessed; historical synthetic evidence link not opened or used"
+      }
+    ],
+    "input_identity": [
+      {
+        "path": "C:\\Projects\\OneStep\\.cache\\onestep\\game-application-extended\\weighted-followup\\request.md",
+        "sha256": "515752adb79b41d0f7b8175dcaeb608bbd37336e6b4b31ead28a6bd6850bf6dd"
+      },
+      {
+        "path": "C:\\Projects\\OneStep\\.cache\\onestep\\game-application-extended\\weighted-followup\\graphs.json",
+        "sha256": "2dfa1a51d11ceca43e92b87733696203219983418ca988f8a5c5400a3d96bc67"
+      }
+    ],
+    "math_checks_executed": [
+      {
+        "graph_id": "different-costs",
+        "exhaustive_simple_paths": [
+          {
+            "path": [
+              "R",
+              "L",
+              "G"
+            ],
+            "cost": 20
+          },
+          {
+            "path": [
+              "R",
+              "Q",
+              "G"
+            ],
+            "cost": 8
+          }
+        ],
+        "reverse_arcs_preserving_original_cost": [
+          [
+            "L",
+            "R",
+            18
+          ],
+          [
+            "G",
+            "L",
+            2
+          ],
+          [
+            "Q",
+            "R",
+            2
+          ],
+          [
+            "G",
+            "Q",
+            6
+          ]
+        ],
+        "computed_T": {
+          "G": 0,
+          "L": 2,
+          "Q": 6,
+          "R": 8
+        },
+        "strict_improvement_relaxations": [
+          {
+            "predecessor": "L",
+            "settled_successor": "G",
+            "original_cost": 2,
+            "candidate": 2
+          },
+          {
+            "predecessor": "Q",
+            "settled_successor": "G",
+            "original_cost": 6,
+            "candidate": 6
+          },
+          {
+            "predecessor": "R",
+            "settled_successor": "L",
+            "original_cost": 18,
+            "candidate": 20
+          },
+          {
+            "predecessor": "R",
+            "settled_successor": "Q",
+            "original_cost": 2,
+            "candidate": 8
+          }
+        ],
+        "settled_rank": {
+          "G": 0,
+          "L": 1,
+          "Q": 2,
+          "R": 3
+        },
+        "next_hop": {
+          "L": "G",
+          "Q": "G",
+          "R": "Q"
+        },
+        "optimal_next_move": "Q",
+        "selected_route": [
+          "R",
+          "Q",
+          "G"
+        ],
+        "selected_cost": 8,
+        "checks": {
+          "cost_equals_exhaustive_simple_path_minimum": true,
+          "Bellman_equality_on_selected_edges": true,
+          "successor_rank_strictly_decreases": true,
+          "supplied_T_matches": true
+        }
+      },
+      {
+        "graph_id": "zero-link",
+        "exhaustive_simple_paths": [
+          {
+            "path": [
+              "R",
+              "Z",
+              "G"
+            ],
+            "cost": 4
+          },
+          {
+            "path": [
+              "R",
+              "G"
+            ],
+            "cost": 5
+          }
+        ],
+        "reverse_arcs_preserving_original_cost": [
+          [
+            "Z",
+            "R",
+            0
+          ],
+          [
+            "R",
+            "Z",
+            0
+          ],
+          [
+            "G",
+            "Z",
+            4
+          ],
+          [
+            "G",
+            "R",
+            5
+          ]
+        ],
+        "computed_T": {
+          "G": 0,
+          "R": 4,
+          "Z": 4
+        },
+        "strict_improvement_relaxations": [
+          {
+            "predecessor": "Z",
+            "settled_successor": "G",
+            "original_cost": 4,
+            "candidate": 4
+          },
+          {
+            "predecessor": "R",
+            "settled_successor": "G",
+            "original_cost": 5,
+            "candidate": 5
+          },
+          {
+            "predecessor": "R",
+            "settled_successor": "Z",
+            "original_cost": 0,
+            "candidate": 4
+          }
+        ],
+        "settled_rank": {
+          "G": 0,
+          "Z": 1,
+          "R": 2
+        },
+        "next_hop": {
+          "Z": "G",
+          "R": "Z"
+        },
+        "optimal_next_move": "Z",
+        "selected_route": [
+          "R",
+          "Z",
+          "G"
+        ],
+        "selected_cost": 4,
+        "checks": {
+          "cost_equals_exhaustive_simple_path_minimum": true,
+          "Bellman_equality_on_selected_edges": true,
+          "successor_rank_strictly_decreases": true,
+          "supplied_T_matches": true
+        }
+      },
+      {
+        "graph_id": "one-way-costs",
+        "exhaustive_simple_paths": [
+          {
+            "path": [
+              "R",
+              "L",
+              "G"
+            ],
+            "cost": 5
+          }
+        ],
+        "reverse_arcs_preserving_original_cost": [
+          [
+            "L",
+            "R",
+            3
+          ],
+          [
+            "R",
+            "L",
+            40
+          ],
+          [
+            "G",
+            "L",
+            2
+          ]
+        ],
+        "computed_T": {
+          "G": 0,
+          "L": 2,
+          "R": 5
+        },
+        "strict_improvement_relaxations": [
+          {
+            "predecessor": "L",
+            "settled_successor": "G",
+            "original_cost": 2,
+            "candidate": 2
+          },
+          {
+            "predecessor": "R",
+            "settled_successor": "L",
+            "original_cost": 3,
+            "candidate": 5
+          }
+        ],
+        "settled_rank": {
+          "G": 0,
+          "L": 1,
+          "R": 2
+        },
+        "next_hop": {
+          "L": "G",
+          "R": "L"
+        },
+        "optimal_next_move": "L",
+        "selected_route": [
+          "R",
+          "L",
+          "G"
+        ],
+        "selected_cost": 5,
+        "checks": {
+          "cost_equals_exhaustive_simple_path_minimum": true,
+          "Bellman_equality_on_selected_edges": true,
+          "successor_rank_strictly_decreases": true,
+          "supplied_T_matches": null
+        }
+      }
+    ],
+    "counterexamples_checked": {
+      "different-costs": {
+        "smallest_T_next": "L",
+        "smallest_T_route_cost": 20,
+        "optimal": 8
+      },
+      "zero-link": {
+        "smallest_T_next": "G",
+        "smallest_T_route_cost": 5,
+        "optimal": 4,
+        "Bellman_tie_at_Z": {
+          "R": 4,
+          "G": 4
+        },
+        "bad_tie_sequence": [
+          "R",
+          "Z",
+          "R",
+          "Z"
+        ],
+        "strict_T_decrease_rejects_optimal_edge": [
+          "R",
+          "Z"
+        ]
+      },
+      "one-way-costs": {
+        "wrong_opposite_edge_substitution": 42,
+        "correct_reversed_cost": 5
+      }
+    },
+    "decisions": [
+      {
+        "decision": "adopt",
+        "mechanism": "Minimize c(u,v)+T(v) or follow reverse-Dijkstra next-hop tree",
+        "reason": "Stored Guidance plus supplied counterexample: 20 versus 8",
+        "conditions": "Legal directed edges; finite graph; nonnegative costs; T computed for same goal/cost snapshot"
+      },
+      {
+        "decision": "adopt",
+        "mechanism": "Strict improvement to already settled successor; never rewrite equal ties; stop at goal; unreachable means no successor",
+        "reason": "Selected successor has lower settlement rank, including zero-cost edges; finite descending rank terminates"
+      },
+      {
+        "decision": "adopt",
+        "mechanism": "Reverse each original arc while preserving its own cost",
+        "reason": "Directed asymmetric case yields 5, not 42"
+      },
+      {
+        "decision": "conditional",
+        "mechanism": "Publish/invalidate T and successor policy as one consistent snapshot after topology/cost changes",
+        "reason": "A stale or mismatched policy lacks Bellman and progress guarantees; no engine concurrency contract supplied"
+      },
+      {
+        "decision": "reject",
+        "mechanism": "Smallest neighbor T, strict T descent, arbitrary Bellman ties, substitution of opposite-direction cost",
+        "reason": "Supplied numeric counterexamples or zero-cycle sequence invalidate these guarantees"
+      },
+      {
+        "decision": "reject",
+        "mechanism": "Unrelated fiction record returned by unfiltered record search",
+        "reason": "Different project/domain and mechanism; detail/originals not opened"
+      }
+    ],
+    "checks_not_executed": [
+      {
+        "check": "Game movement against independent shortest-path oracle under weighted/directed maps",
+        "state": "proposed; no game implementation authorized"
+      },
+      {
+        "check": "Zero-cost cycle, unreachable target, dynamic cost/topology invalidation regression",
+        "state": "proposed for game integration; synthetic zero-cost arithmetic already checked separately"
+      },
+      {
+        "check": "Agent radius, collision/corner cutting, runtime resource budgets",
+        "state": "out of current graph-analysis scope; no claims of collision safety or performance"
+      }
+    ],
+    "design_review": {
+      "requirements_to_mechanisms": "Each optimal next move checked by path enumeration and Bellman equality; progress checked by settlement rank; directed costs checked by explicit reversed arcs",
+      "failure_sequences": "Smallest-T detour; R-Z tie cycle; opposite-direction cost substitution; stale field/successor mismatch",
+      "limitations": "Graph math proves only supplied finite static nonnegative models; no game runtime, source API or fresh external-source verification"
+    },
+    "artifact_checks": {
+      "response_word_count": 205,
+      "response_under_300_words": true,
+      "response_contains_all_graph_ids": true,
+      "status": "AI verification complete; awaiting vagabond testing or review"
+    }
+  },
+  "independent_evaluator_math": [
+    {
+      "case": "different-costs",
+      "naive_cost": 20,
+      "optimal_cost": 8,
+      "next_hop": "Q",
+      "tree_terminates": true,
+      "arbitrary_argmin_tie_cycles": false
+    },
+    {
+      "case": "zero-link",
+      "naive_cost": 5,
+      "optimal_cost": 4,
+      "next_hop": "Z",
+      "tree_terminates": true,
+      "arbitrary_argmin_tie_cycles": true
+    },
+    {
+      "case": "one-way-costs",
+      "naive_cost": 5,
+      "optimal_cost": 5,
+      "next_hop": "L",
+      "tree_terminates": true,
+      "arbitrary_argmin_tie_cycles": false
+    }
+  ],
+  "path_entry_sha256": "ae91eb9a15542bec0c7ffbcd45bc3871029328d6e4930a96cddb0b3a7a4a4462"
+}

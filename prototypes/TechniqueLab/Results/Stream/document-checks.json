@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "canonicalFiles": 8,
+  "localLinks": 293,
+  "brokenLinks": [],
+  "translationPairs": 8,
+  "translationContentsRead": 0,
+  "compressedReportsVerified": 5,
+  "retrievalPassed": 63,
+  "catalogEntries": 69,
+  "uiNativeExit": 0,
+  "priorCSharpUnchanged": 21,
+  "canonicalSha256": {
+    "prototypes\\TechniqueLab\\README.md": "251e55a17f275c69fda5f31fce79143ababbbb155cf39b3014e8e7b958bd8357",
+    "prototypes\\TechniqueLab\\STREAM.md": "77ca6e3a7f55c410c89887d719a45d33696cd2bd28bdc2f5371458f756b41338",
+    "prototypes\\TechniqueLab\\STREAM-RESULTS.md": "2126a35573085cc19a805a3f08cfbfed9e58556faf38022c6ee3bbcf4adb45a2",
+    "knowledge\\game\\K-GAME-TECH-PATH.md": "be7f5d1103db5bfed48cf96c09cfa18164f9fb543cd2c10a5792da9d827210bb",
+    "knowledge\\game\\K-GAME-TECH-CROWD.md": "8f632dfb0d2ead7e41187f67414878de291afa69976958ecd4d34ac9c349e671",
+    "knowledge\\game\\K-GAME-TECH-GUIDE.md": "e5a4814fdeedbaa5a983783649441c7099391e6021ed3de12a8ff406d137a2f3",
+    "knowledge\\game\\K-GAME-RESEARCH-USE.md": "10a21e2ed98737ca9330c77f3658b223cfd0035403ded2eee10646adc4ff1a2d",
+    "knowledge\\game\\index.md": "c42c572d9988c62805635616dbc6a1012530ed070d596ee7b19df918dd002508"
+  },
+  "limitation": "Canonical links, metadata, declared retrieval, compressed identity and translation-pair existence; human translation contents are never loaded and infinite-time empirical behavior is not inferred."
+}

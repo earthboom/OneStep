@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "command": "build",
+  "domains": [
+    "knowledge/game"
+  ],
+  "structured_entries": 69,
+  "legacy_entries": 0,
+  "catalogs_written": [
+    "knowledge/game/index.md"
+  ],
+  "errors": 0,
+  "warnings": 0,
+  "diagnostics": [],
+  "diagnostics_total": 0
+}

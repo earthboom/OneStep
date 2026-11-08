@@ -1,0 +1,131 @@
+{
+  "assessment": "Root evaluator semantic review against the frozen rubric; not a programmatic keyword score or human playtest.",
+  "baseline": {
+    "G01": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": [
+        "The response inspected reset-before-physics and prelanding discard, and contrasted stable launch apex with request loss. It explicitly flagged the supplied success/lifecycle inconsistency rather than inventing actual engine ordering.",
+        "A timestamped one-shot request uses the authored 80ms bound; contact eligibility is separated from a later consumption tick, and hold/relaunch guards are specified.",
+        "120Hz is rejected as a repair for a destroyed request; coyote time and unrelated correction features are not added.",
+        "Proposed tests cover 30/60/144 display rates, phase variation, 79/80/81ms, hold, repeat and stale grounding; none is represented as executed."
+      ]
+    },
+    "G02": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": [
+        "GPU/pixel/shadow measurements govern priority; CPU and GPU timings and independent savings are not added.",
+        "Already-instanced grass rules out an instancing conversion; distance density and shadow experiments preserve near silhouette and transitions.",
+        "Historical GPU articles and unpinned URP behavior are explicitly not API/performance guarantees.",
+        "One-variable experiments, an integrated remeasurement and a proposed p95 frame budget are stated; no measured uplift is claimed."
+      ]
+    },
+    "G03": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": [
+        "The design enumerates missing hitboxes/cooldowns/entities/events/RNG and refuses to equate integer character motion with whole-world determinism.",
+        "Gameplay and presentation RNG are separated; irreversible rewards wait for confirmation and use a non-rollback dispatch/idempotency boundary.",
+        "Unknown gameplay-relevant plugin replay blocks committing full rollback; visual-only separation is conditional rather than silently rewriting gameplay.",
+        "Current input waiting is compared with bounded prediction/rollback; loss/reordering, replay hashes, CPU window and side effects remain proposed checks."
+      ]
+    },
+    "G04": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": [
+        "Checksum-valid array-index interpretation drift is separated from interrupted writes.",
+        "Stable IDs and provenance-based migration preserve old saves; both writers using schema 1 is recognized as an unresolved source-identification problem.",
+        "Generation/payload-bound commit ordering is separate, and Windows power-loss durability is not promised.",
+        "Migration/catalog-reorder tests and write-stage interruptions are distinct, with ambiguous old saves and already-resaved corruption left unresolved."
+      ]
+    },
+    "G05": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": [
+        "The zero-latency static-cover repro governs the initial diagnosis, rather than blindly increasing rewind.",
+        "Camera intention is retained; authoritative muzzle-to-point first-hit checks and muzzle-inside/through-wall cases are included.",
+        "Moving-target latency is an independent timing/history gap with bounded fairness policy and missing shooter/muzzle history.",
+        "Client reports stay advisory; cover, pose, timing and current-world restoration checks are proposed, not executed."
+      ]
+    },
+    "G06": {
+      "verdict": "pass_with_efficiency_finding",
+      "criteria": [
+        true,
+        true
+      ],
+      "basis": [
+        "The response contains only the corrected JSON; a parsed comparison preserves localization key, action, layout and source bytes. No game-knowledge detail was opened or applied.",
+        "One broad English metadata query was unnecessary for a fully specified spelling edit. Its unrelated candidates were rejected and no runtime claim made. This is a bounded overhead finding, not a wrong game-tech adoption."
+      ]
+    }
+  },
+  "retest": {
+    "G02": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": "Same frozen criteria met: already-instanced fact and GPU/pixel/shadow comparisons govern the plan, gains are not added, near quality and actual-device pass timing remain proposed."
+    },
+    "G04": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": "Same frozen criteria met: index identity and recovery are separate; writer provenance remains unknown because both formats report schema 1; IDs/migration preserve progress and durability stays conditional."
+    },
+    "G05": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": "Same frozen criteria met: geometry-first server muzzle validation retains camera intent, rejects blind rewind expansion and keeps moving-target timing an evidence gap."
+    },
+    "G06": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true
+      ],
+      "basis": "Exact spelling-only diff preserves all other fields. Trace records no searches; the supplied input settles the action without broad game-tech lookup."
+    }
+  }
+}

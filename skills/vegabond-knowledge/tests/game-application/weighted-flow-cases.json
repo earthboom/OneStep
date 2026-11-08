@@ -1,0 +1,89 @@
+{
+  "note": "Supplemental graph counterexamples introduced after the original frozen rubric exposed ambiguous decreasing-cost wording. These are mathematical checks, not game runtime.",
+  "graphs": [
+    {
+      "id": "unequal-edges",
+      "edges": [
+        [
+          "S",
+          "A",
+          100
+        ],
+        [
+          "A",
+          "G",
+          1
+        ],
+        [
+          "S",
+          "B",
+          1
+        ],
+        [
+          "B",
+          "G",
+          2
+        ]
+      ],
+      "start": "S",
+      "goal": "G",
+      "expected_cost": 3,
+      "expected_next": "B",
+      "naive_expected_cost": 101
+    },
+    {
+      "id": "zero-cost-tie",
+      "edges": [
+        [
+          "S",
+          "A",
+          0
+        ],
+        [
+          "A",
+          "S",
+          0
+        ],
+        [
+          "A",
+          "G",
+          1
+        ],
+        [
+          "S",
+          "G",
+          2
+        ]
+      ],
+      "start": "S",
+      "goal": "G",
+      "expected_cost": 1,
+      "expected_next": "A",
+      "naive_expected_cost": 2
+    },
+    {
+      "id": "directed-reverse",
+      "edges": [
+        [
+          "S",
+          "A",
+          1
+        ],
+        [
+          "A",
+          "S",
+          100
+        ],
+        [
+          "A",
+          "G",
+          1
+        ]
+      ],
+      "start": "S",
+      "goal": "G",
+      "expected_cost": 2,
+      "expected_next": "A"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+    "unity": "6000.0.77f1",
+    "utc": "2026-11-07T12:28:00.2553749Z",
+    "editor": true,
+    "playing": false,
+    "failures": 13,
+    "checks": [
+        {
+            "name": "camera.stationary.30",
+            "detail": "actual=9.982032 expected=9.996645",
+            "passed": false
+        },
+        {
+            "name": "camera.stationary.60",
+            "detail": "actual=9.999969 expected=9.996645",
+            "passed": false
+        },
+        {
+            "name": "camera.stationary.144",
+            "detail": "actual=9.999996 expected=9.996645",
+            "passed": false
+        },
+        {
+            "name": "camera.hitch",
+            "detail": "actual=4.68559",
+            "passed": false
+        },
+        {
+            "name": "camera.zero-dt",
+            "detail": "zero dt must preserve current position",
+            "passed": false
+        },
+        {
+            "name": "shot.control.camera-only-wall",
+            "detail": "sensitivity control: camera sees target beyond offset cover",
+            "passed": true
+        },
+        {
+            "name": "shot.muzzle-wall",
+            "detail": "camera intent must not bypass muzzle cover",
+            "passed": false
+        },
+        {
+            "name": "shot.open",
+            "detail": "open muzzle path must hit target",
+            "passed": true
+        },
+        {
+            "name": "shot.origin-inside",
+            "detail": "origin overlap must not exploit raycast inside behavior",
+            "passed": false
+        },
+        {
+            "name": "shot.root-to-muzzle",
+            "detail": "animated muzzle beyond cover must not bypass root obstruction",
+            "passed": false
+        },
+        {
+            "name": "shot.ignore-triggers",
+            "detail": "triggers excluded explicitly",
+            "passed": true
+        },
+        {
+            "name": "shot.layer-mask",
+            "detail": "unrelated layer excluded",
+            "passed": true
+        },
+        {
+            "name": "path.weighted",
+            "detail": "expected cost 8 via node 2; not min remaining cost alone",
+            "passed": false
+        },
+        {
+            "name": "path.zero-cycle",
+            "detail": "cost 4 with acyclic next hops",
+            "passed": false
+        },
+        {
+            "name": "path.directed",
+            "detail": "reverse search must keep original directed cost",
+            "passed": false
+        },
+        {
+            "name": "path.unreachable",
+            "detail": "unreachable has no successor",
+            "passed": true
+        },
+        {
+            "name": "path.invalidated",
+            "detail": "topology change invalidates cached field",
+            "passed": true
+        },
+        {
+            "name": "path.stale-rejected",
+            "detail": "consumer rejects stale field",
+            "passed": true
+        },
+        {
+            "name": "path.closed",
+            "detail": "closed route must be unreachable after rebuild",
+            "passed": true
+        },
+        {
+            "name": "path.oracle-fields",
+            "detail": "160 directed/zero-cost source comparisons against Floyd-Warshall and termination",
+            "passed": false
+        },
+        {
+            "name": "path.oracle-astar",
+            "detail": "160 independent search comparisons against Floyd-Warshall",
+            "passed": false
+        }
+    ]
+}

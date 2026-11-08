@@ -1,0 +1,69 @@
+{
+    "unity": "6000.0.77f1",
+    "utc": "2026-11-08T09:33:54.7195314Z",
+    "editor": true,
+    "playing": false,
+    "failures": 0,
+    "checks": [
+        {
+            "name": "stream.swept-swap",
+            "detail": "opposite edge traversal collides between endpoints",
+            "passed": true
+        },
+        {
+            "name": "stream.corner-large",
+            "detail": "following around a corner can collide without vertex conflicts",
+            "passed": true
+        },
+        {
+            "name": "stream.corner-small",
+            "detail": "small following pair has adequate swept clearance",
+            "passed": true
+        },
+        {
+            "name": "stream.pending-age",
+            "detail": "pending requests count toward response deadline even before spawn",
+            "passed": true
+        },
+        {
+            "name": "stream.deadline-boundary",
+            "detail": "deadline comparison does not invent an earlier miss",
+            "passed": true
+        },
+        {
+            "name": "stream.static-map",
+            "detail": "baffles obstruct direct crossing without directional lane data",
+            "passed": true
+        },
+        {
+            "name": "stream.unlaned-search",
+            "detail": "search discovers a cardinal detour around baffles",
+            "passed": true
+        },
+        {
+            "name": "stream.unreachable",
+            "detail": "blocked target produces explicit no route",
+            "passed": true
+        },
+        {
+            "name": "stream.edge-reservation",
+            "detail": "new route cannot swap with an existing edge",
+            "passed": true
+        },
+        {
+            "name": "stream.index-exhaustive",
+            "detail": "2000 deterministic candidate edges agree with exhaustive radius-aware reservation checks",
+            "passed": true
+        },
+        {
+            "name": "stream.fifo-drain",
+            "detail": "all generated IDs finish after sustained FIFO inflow stops",
+            "passed": true
+        },
+        {
+            "name": "stream.reject-and-continue",
+            "detail": "unreachable request has an explicit disposition and does not silently block younger work",
+            "passed": true
+        }
+    ]
+}

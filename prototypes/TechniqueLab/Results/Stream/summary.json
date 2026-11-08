@@ -1,0 +1,3268 @@
+{
+  "ok": true,
+  "checksPerProcess": 23,
+  "ordinaryDeadlineFixtures": 7,
+  "overloadDeadlineFailureFixtures": 1,
+  "otherNegativeControls": 2,
+  "hardware": {
+    "unity": "6000.0.77f1",
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "os": "Windows 11  (10.0.26200)",
+    "graphicsApi": "Direct3D11",
+    "screenWidth": 1280,
+    "screenHeight": 720,
+    "antiAliasing": 2,
+    "buildGuid": "478eadee49044227b49d59c486e8e240"
+  },
+  "behavior": [
+    {
+      "name": "baffles-balanced",
+      "expectation": "safe drain and 240s response deadline",
+      "requests": 240,
+      "completed": 240,
+      "rejected": 0,
+      "unfinished": 0,
+      "seconds": 86.0,
+      "maxActive": 78,
+      "maxPending": 27,
+      "inflowCompleted": 154,
+      "inflowPending": 20,
+      "deadlineMet": true,
+      "lateIDs": 0,
+      "responseSeconds": {
+        "samples": 240,
+        "median": 22.5,
+        "p95": 27.5,
+        "p99": 30.5,
+        "maximum": 35.0,
+        "mean": 21.710416666666667
+      },
+      "maxPendingSeconds": 6.5,
+      "maxIndividualMotionWaitSeconds": 1.0,
+      "minimumSurfaceGap": 0.11066015389842776,
+      "minimumWallGap": 0.1499999761581421,
+      "maximumGlobalStall": 0.5,
+      "nativeSamples": 44910,
+      "nativeInteriorSamples": 26946,
+      "nativeTerminalSamples": 240
+    },
+    {
+      "name": "rooms-crossing",
+      "expectation": "safe drain and 240s response deadline",
+      "requests": 240,
+      "completed": 240,
+      "rejected": 0,
+      "unfinished": 0,
+      "seconds": 83.5,
+      "maxActive": 75,
+      "maxPending": 26,
+      "inflowCompleted": 161,
+      "inflowPending": 20,
+      "deadlineMet": true,
+      "lateIDs": 0,
+      "responseSeconds": {
+        "samples": 240,
+        "median": 20.5,
+        "p95": 24.5,
+        "p99": 25.5,
+        "maximum": 29.0,
+        "mean": 20.197916666666668
+      },
+      "maxPendingSeconds": 6.0,
+      "maxIndividualMotionWaitSeconds": 1.0,
+      "minimumSurfaceGap": 0.11066015389842776,
+      "minimumWallGap": 0.1499999761581421,
+      "maximumGlobalStall": 0.5,
+      "nativeSamples": 43805,
+      "nativeInteriorSamples": 26283,
+      "nativeTerminalSamples": 240
+    },
+    {
+      "name": "choke-balanced",
+      "expectation": "safe drain and 240s response deadline",
+      "requests": 240,
+      "completed": 240,
+      "rejected": 0,
+      "unfinished": 0,
+      "seconds": 180.0,
+      "maxActive": 67,
+      "maxPending": 108,
+      "inflowCompleted": 71,
+      "inflowPending": 107,
+      "deadlineMet": true,
+      "lateIDs": 0,
+      "responseSeconds": {
+        "samples": 240,
+        "median": 63.5,
+        "p95": 113.5,
+        "p99": 118.0,
+        "maximum": 120.5,
+        "mean": 63.985416666666666
+      },
+      "maxPendingSeconds": 72.5,
+      "maxIndividualMotionWaitSeconds": 7.0,
+      "minimumSurfaceGap": 0.11066015389842776,
+      "minimumWallGap": 0.1499999761581421,
+      "maximumGlobalStall": 0.5,
+      "nativeSamples": 92305,
+      "nativeInteriorSamples": 55383,
+      "nativeTerminalSamples": 240
+    },
+    {
+      "name": "baffles-biased",
+      "expectation": "safe drain and 240s response deadline",
+      "requests": 240,
+      "completed": 240,
+      "rejected": 0,
+      "unfinished": 0,
+      "seconds": 179.0,
+      "maxActive": 35,
+      "maxPending": 148,
+      "inflowCompleted": 60,
+      "inflowPending": 146,
+      "deadlineMet": true,
+      "lateIDs": 0,
+      "responseSeconds": {
+        "samples": 240,
+        "median": 68.25,
+        "p95": 118.0,
+        "p99": 120.5,
+        "maximum": 121.5,
+        "mean": 69.80625
+      },
+      "maxPendingSeconds": 100.0,
+      "maxIndividualMotionWaitSeconds": 1.0,
+      "minimumSurfaceGap": 0.11066015389842776,
+      "minimumWallGap": 0.1499999761581421,
+      "maximumGlobalStall": 0.5,
+      "nativeSamples": 48345,
+      "nativeInteriorSamples": 29007,
+      "nativeTerminalSamples": 240
+    },
+    {
+      "name": "choke-overload",
+      "expectation": "overload response deadline failure with eventual drain",
+      "requests": 480,
+      "completed": 480,
+      "rejected": 0,
+      "unfinished": 0,
+      "seconds": 339.5,
+      "maxActive": 65,
+      "maxPending": 347,
+      "inflowCompleted": 73,
+      "inflowPending": 347,
+      "deadlineMet": false,
+      "lateIDs": 61,
+      "responseSeconds": {
+        "samples": 480,
+        "median": 142.5,
+        "p95": 262.5,
+        "p99": 275.5,
+        "maximum": 280.0,
+        "mean": 143.08645833333333
+      },
+      "maxPendingSeconds": 232.0,
+      "maxIndividualMotionWaitSeconds": 7.0,
+      "minimumSurfaceGap": 0.11066015389842776,
+      "minimumWallGap": 0.1499999761581421,
+      "maximumGlobalStall": 0.5,
+      "nativeSamples": 194505,
+      "nativeInteriorSamples": 116703,
+      "nativeTerminalSamples": 480
+    },
+    {
+      "name": "baffles-long",
+      "expectation": "safe drain and 240s response deadline",
+      "requests": 1200,
+      "completed": 1200,
+      "rejected": 0,
+      "unfinished": 0,
+      "seconds": 335.0,
+      "maxActive": 95,
+      "maxPending": 71,
+      "inflowCompleted": 1075,
+      "inflowPending": 66,
+      "deadlineMet": true,
+      "lateIDs": 0,
+      "responseSeconds": {
+        "samples": 1200,
+        "median": 28.5,
+        "p95": 35.5,
+        "p99": 38.0,
+        "maximum": 41.5,
+        "mean": 27.82375
+      },
+      "maxPendingSeconds": 18.0,
+      "maxIndividualMotionWaitSeconds": 1.5,
+      "minimumSurfaceGap": 0.11066015389842776,
+      "minimumWallGap": 0.1499999761581421,
+      "maximumGlobalStall": 0.5,
+      "nativeSamples": 225370,
+      "nativeInteriorSamples": 135222,
+      "nativeTerminalSamples": 1200
+    },
+    {
+      "name": "rooms-seed19",
+      "expectation": "safe drain and 240s response deadline",
+      "requests": 360,
+      "completed": 360,
+      "rejected": 0,
+      "unfinished": 0,
+      "seconds": 110.5,
+      "maxActive": 95,
+      "maxPending": 114,
+      "inflowCompleted": 183,
+      "inflowPending": 114,
+      "deadlineMet": true,
+      "lateIDs": 0,
+      "responseSeconds": {
+        "samples": 360,
+        "median": 30.0,
+        "p95": 48.5,
+        "p99": 51.5,
+        "maximum": 52.5,
+        "mean": 31.18611111111111
+      },
+      "maxPendingSeconds": 32.0,
+      "maxIndividualMotionWaitSeconds": 1.5,
+      "minimumSurfaceGap": 0.11066015389842776,
+      "minimumWallGap": 0.1499999761581421,
+      "maximumGlobalStall": 0.5,
+      "nativeSamples": 65940,
+      "nativeInteriorSamples": 39564,
+      "nativeTerminalSamples": 360
+    },
+    {
+      "name": "unreachable-request",
+      "expectation": "safe drain and 240s response deadline",
+      "requests": 121,
+      "completed": 120,
+      "rejected": 1,
+      "unfinished": 0,
+      "seconds": 79.0,
+      "maxActive": 39,
+      "maxPending": 3,
+      "inflowCompleted": 83,
+      "inflowPending": 0,
+      "deadlineMet": true,
+      "lateIDs": 0,
+      "responseSeconds": {
+        "samples": 120,
+        "median": 19.5,
+        "p95": 24.5,
+        "p99": 24.5,
+        "maximum": 24.5,
+        "mean": 18.575
+      },
+      "maxPendingSeconds": 1.0,
+      "maxIndividualMotionWaitSeconds": 1.0,
+      "minimumSurfaceGap": 0.11066015389842776,
+      "minimumWallGap": 0.1499999761581421,
+      "maximumGlobalStall": 0.5,
+      "nativeSamples": 22200,
+      "nativeInteriorSamples": 13320,
+      "nativeTerminalSamples": 120
+    },
+    {
+      "name": "lifo-starvation-control",
+      "expectation": "individual starvation sensitivity",
+      "requests": 1240,
+      "completed": 538,
+      "rejected": 0,
+      "unfinished": 702,
+      "seconds": 310.0,
+      "maxActive": 36,
+      "maxPending": 670,
+      "inflowCompleted": 538,
+      "inflowPending": 669,
+      "deadlineMet": false,
+      "lateIDs": 149,
+      "responseSeconds": {
+        "samples": 1240,
+        "median": 22.75,
+        "p95": 280.0,
+        "p99": 304.0,
+        "maximum": 310.0,
+        "mean": 91.4983870967742
+      },
+      "maxPendingSeconds": 310.0,
+      "maxIndividualMotionWaitSeconds": 0.5,
+      "minimumSurfaceGap": 0.26066014495773104,
+      "minimumWallGap": 0.1499999761581421,
+      "maximumGlobalStall": 0.5,
+      "nativeSamples": 100000,
+      "nativeInteriorSamples": 60000,
+      "nativeTerminalSamples": 538
+    },
+    {
+      "name": "reservation-disabled-control",
+      "expectation": "collision sensitivity",
+      "requests": 2,
+      "completed": 0,
+      "rejected": 0,
+      "unfinished": 2,
+      "seconds": 1.0,
+      "maxActive": 2,
+      "maxPending": 2,
+      "inflowCompleted": 0,
+      "inflowPending": 0,
+      "deadlineMet": true,
+      "lateIDs": 0,
+      "responseSeconds": {
+        "samples": 2,
+        "median": 1.0,
+        "p95": 1.0,
+        "p99": 1.0,
+        "maximum": 1.0,
+        "mean": 1.0
+      },
+      "maxPendingSeconds": 0.0,
+      "maxIndividualMotionWaitSeconds": 0.5,
+      "minimumSurfaceGap": -0.9500000178813934,
+      "minimumWallGap": 3.149999976158142,
+      "maximumGlobalStall": 0.5,
+      "nativeSamples": 20,
+      "nativeInteriorSamples": 12,
+      "nativeTerminalSamples": 0
+    }
+  ],
+  "runs": [
+    {
+      "session": "stream-run-1",
+      "cases": [
+        {
+          "name": "baffles-arrival-2-per-second",
+          "layout": 0,
+          "requestsPerSecond": 2,
+          "minimumActive": 36,
+          "maximumActive": 39,
+          "wallMs": {
+            "samples": 7184,
+            "median": 0.28965000000091834,
+            "p95": 5.9483000000000175,
+            "p99": 9.383700000000772,
+            "maximum": 10.155900000000884,
+            "mean": 0.8364602728285077
+          },
+          "updateMs": {
+            "samples": 7184,
+            "median": 0.010400000000000001,
+            "p95": 0.0178,
+            "p99": 0.0284,
+            "maximum": 0.3774,
+            "mean": 0.012082614142538976
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.015300000000000001,
+            "p95": 0.0548,
+            "p99": 0.2713,
+            "maximum": 0.3774,
+            "mean": 0.023727423822714682
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 0.18530000000000002,
+            "p95": 0.2937,
+            "p99": 0.2937,
+            "maximum": 0.2937,
+            "mean": 0.17402307692307695
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 0.2369,
+            "p95": 0.3774,
+            "p99": 0.3774,
+            "maximum": 0.3774,
+            "mean": 0.22533846153846154
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 0.8367000000006897,
+            "p95": 1.1767999999996448,
+            "p99": 1.1767999999996448,
+            "maximum": 1.1767999999996448,
+            "mean": 0.8664416666670505
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 0,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.3276499999973481,
+            "p95": 0.6455999999985806,
+            "p99": 1.1767999999996448,
+            "maximum": 8.288699999997817,
+            "mean": 0.4205780555555489
+          },
+          "active": {
+            "samples": 7184,
+            "median": 37.0,
+            "p95": 39,
+            "p99": 39,
+            "maximum": 39,
+            "mean": 37.10968819599109
+          },
+          "visible": {
+            "samples": 7184,
+            "median": 37.0,
+            "p95": 39,
+            "p99": 39,
+            "maximum": 39,
+            "mean": 37.10968819599109
+          },
+          "pending": {
+            "samples": 7184,
+            "median": 0.0,
+            "p95": 1,
+            "p99": 1,
+            "maximum": 1,
+            "mean": 0.3363028953229399
+          },
+          "oldestPendingSeconds": {
+            "samples": 7184,
+            "median": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0
+          },
+          "requestedDuringCapture": 13,
+          "completedDuringCapture": 13,
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "maximumBacklog": 0.016655900000000733,
+          "measuredSeconds": 5.999275900000001,
+          "gc": [
+            25,
+            25,
+            25
+          ],
+          "engineSamples": 7184,
+          "gpuMissing": 1346,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 7184,
+              "median": 0.29145,
+              "p95": 5.8764,
+              "p99": 9.2868,
+              "maximum": 9.931,
+              "mean": 0.8351939170378619
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 7184,
+              "median": 0.2261,
+              "p95": 3.471,
+              "p99": 9.1951,
+              "maximum": 9.7596,
+              "mean": 0.7405071269487751
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 7184,
+              "median": 0.102,
+              "p95": 0.1661,
+              "p99": 0.2095,
+              "maximum": 0.3747,
+              "mean": 0.11035964643652561
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 7184,
+              "median": 0.0567,
+              "p95": 0.1922,
+              "p99": 0.3388,
+              "maximum": 7.7951,
+              "mean": 0.09340054287305123
+            }
+          },
+          "gpuMs": {
+            "positive": 5838,
+            "missing": 1346,
+            "validOnly": {
+              "samples": 5838,
+              "median": 0.080896,
+              "p95": 3.55328,
+              "p99": 9.030656,
+              "maximum": 16652612090164.117,
+              "mean": 2852451540.5618973
+            }
+          }
+        },
+        {
+          "name": "baffles-arrival-4-per-second",
+          "layout": 0,
+          "requestsPerSecond": 4,
+          "minimumActive": 55,
+          "maximumActive": 66,
+          "wallMs": {
+            "samples": 6905,
+            "median": 0.29319999999444235,
+            "p95": 6.0367000000027815,
+            "p99": 9.036500000000558,
+            "maximum": 10.417100000005064,
+            "mean": 0.8701266039102091
+          },
+          "updateMs": {
+            "samples": 6905,
+            "median": 0.012700000000000001,
+            "p95": 0.0213,
+            "p99": 0.0323,
+            "maximum": 0.7071000000000001,
+            "mean": 0.014715438088341783
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.0195,
+            "p95": 0.041100000000000005,
+            "p99": 0.3028,
+            "maximum": 0.7071000000000001,
+            "mean": 0.027964265927977842
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 0.17200000000000001,
+            "p95": 0.6314000000000001,
+            "p99": 0.6314000000000001,
+            "maximum": 0.6314000000000001,
+            "mean": 0.20952307692307692
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 0.2228,
+            "p95": 0.7071000000000001,
+            "p99": 0.7071000000000001,
+            "maximum": 0.7071000000000001,
+            "mean": 0.2559461538461539
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 0.8285499999995949,
+            "p95": 1.4558000000022275,
+            "p99": 1.4558000000022275,
+            "maximum": 1.4558000000022275,
+            "mean": 0.9088750000003643
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 0,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.3639999999975885,
+            "p95": 0.5990000000011264,
+            "p99": 1.0793000000006714,
+            "maximum": 8.295100000005107,
+            "mean": 0.4127411111110529
+          },
+          "active": {
+            "samples": 6905,
+            "median": 63,
+            "p95": 66,
+            "p99": 66,
+            "maximum": 66,
+            "mean": 62.39449674149167
+          },
+          "visible": {
+            "samples": 6905,
+            "median": 63,
+            "p95": 66,
+            "p99": 66,
+            "maximum": 66,
+            "mean": 62.39608979000724
+          },
+          "pending": {
+            "samples": 6905,
+            "median": 12,
+            "p95": 15,
+            "p99": 15,
+            "maximum": 17,
+            "mean": 11.691962346125996
+          },
+          "oldestPendingSeconds": {
+            "samples": 6905,
+            "median": 2.5,
+            "p95": 3.5,
+            "p99": 3.5,
+            "maximum": 4.0,
+            "mean": 2.6303403330919624
+          },
+          "requestedDuringCapture": 26,
+          "completedDuringCapture": 27,
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "maximumBacklog": 0.016666599999996475,
+          "measuredSeconds": 5.999013499999993,
+          "gc": [
+            22,
+            22,
+            22
+          ],
+          "engineSamples": 6905,
+          "gpuMissing": 1285,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 6905,
+              "median": 0.2935,
+              "p95": 6.016,
+              "p99": 8.9352,
+              "maximum": 10.2828,
+              "mean": 0.8690042143374367
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 6905,
+              "median": 0.2296,
+              "p95": 3.6435,
+              "p99": 8.8384,
+              "maximum": 10.0529,
+              "mean": 0.7466517451122375
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 6905,
+              "median": 0.1036,
+              "p95": 0.1693,
+              "p99": 0.2093,
+              "maximum": 0.3577,
+              "mean": 0.1126020130340333
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 6905,
+              "median": 0.0571,
+              "p95": 0.1966,
+              "p99": 4.1512,
+              "maximum": 6.1847,
+              "mean": 0.12111688631426502
+            }
+          },
+          "gpuMs": {
+            "positive": 5620,
+            "missing": 1285,
+            "validOnly": {
+              "samples": 5620,
+              "median": 0.080896,
+              "p95": 3.65568,
+              "p99": 8.725504,
+              "maximum": 9.900032,
+              "mean": 0.6577682220640569
+            }
+          }
+        },
+        {
+          "name": "baffles-arrival-8-per-second",
+          "layout": 0,
+          "requestsPerSecond": 8,
+          "minimumActive": 55,
+          "maximumActive": 81,
+          "wallMs": {
+            "samples": 7176,
+            "median": 0.28500000000164505,
+            "p95": 5.893400000005045,
+            "p99": 9.391300000004321,
+            "maximum": 10.62930000000506,
+            "mean": 0.837380072463769
+          },
+          "updateMs": {
+            "samples": 7176,
+            "median": 0.0129,
+            "p95": 0.023,
+            "p99": 0.028900000000000002,
+            "maximum": 0.9935,
+            "mean": 0.014954445373467113
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.023700000000000002,
+            "p95": 0.0679,
+            "p99": 0.2336,
+            "maximum": 0.9935,
+            "mean": 0.03326288088642659
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 0.1353,
+            "p95": 0.9167000000000001,
+            "p99": 0.9167000000000001,
+            "maximum": 0.9167000000000001,
+            "mean": 0.21140769230769232
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 0.1781,
+            "p95": 0.9935,
+            "p99": 0.9935,
+            "maximum": 0.9935,
+            "mean": 0.2568769230769231
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 0.8369499999965058,
+            "p95": 1.761399999999469,
+            "p99": 1.761399999999469,
+            "maximum": 1.761399999999469,
+            "mean": 0.9470333333337541
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 0,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.45120000000054006,
+            "p95": 2.7733000000012,
+            "p99": 3.883700000002932,
+            "maximum": 9.28970000000362,
+            "mean": 0.9528513888887917
+          },
+          "active": {
+            "samples": 7176,
+            "median": 63.0,
+            "p95": 81,
+            "p99": 81,
+            "maximum": 81,
+            "mean": 63.923773690078036
+          },
+          "visible": {
+            "samples": 7176,
+            "median": 63.0,
+            "p95": 81,
+            "p99": 81,
+            "maximum": 81,
+            "mean": 63.92711817168339
+          },
+          "pending": {
+            "samples": 7176,
+            "median": 95.0,
+            "p95": 106,
+            "p99": 106,
+            "maximum": 108,
+            "mean": 91.49261426978818
+          },
+          "oldestPendingSeconds": {
+            "samples": 7176,
+            "median": 11.5,
+            "p95": 13.0,
+            "p99": 13.0,
+            "maximum": 13.0,
+            "mean": 11.092391304347826
+          },
+          "requestedDuringCapture": 52,
+          "completedDuringCapture": 35,
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "maximumBacklog": 0.016462133333332043,
+          "measuredSeconds": 6.000231600000006,
+          "gc": [
+            17,
+            17,
+            17
+          ],
+          "engineSamples": 7176,
+          "gpuMissing": 1287,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 7176,
+              "median": 0.2856,
+              "p95": 5.8609,
+              "p99": 9.3051,
+              "maximum": 10.5035,
+              "mean": 0.8361858835005574
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 7176,
+              "median": 0.2253,
+              "p95": 3.3688,
+              "p99": 9.2345,
+              "maximum": 10.4793,
+              "mean": 0.7213061315496098
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 7176,
+              "median": 0.1053,
+              "p95": 0.1725,
+              "p99": 0.2222,
+              "maximum": 0.5576,
+              "mean": 0.1146805044593088
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 7176,
+              "median": 0.054,
+              "p95": 0.1935,
+              "p99": 4.1346,
+              "maximum": 6.2789,
+              "mean": 0.11374241917502786
+            }
+          },
+          "gpuMs": {
+            "positive": 5889,
+            "missing": 1287,
+            "validOnly": {
+              "samples": 5889,
+              "median": 0.080896,
+              "p95": 3.345408,
+              "p99": 9.059328,
+              "maximum": 10.333184,
+              "mean": 0.5899715401596196
+            }
+          }
+        },
+        {
+          "name": "choke-arrival-2-per-second",
+          "layout": 1,
+          "requestsPerSecond": 2,
+          "minimumActive": 37,
+          "maximumActive": 41,
+          "wallMs": {
+            "samples": 7107,
+            "median": 0.27769999999804895,
+            "p95": 5.991999999999109,
+            "p99": 9.460000000004243,
+            "maximum": 11.643700000000479,
+            "mean": 0.8443542845082317
+          },
+          "updateMs": {
+            "samples": 7107,
+            "median": 0.010700000000000001,
+            "p95": 0.02,
+            "p99": 0.026000000000000002,
+            "maximum": 1.4853,
+            "mean": 0.014076445757703674
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.020300000000000002,
+            "p95": 0.0451,
+            "p99": 1.298,
+            "maximum": 1.4853,
+            "mean": 0.055511634349030475
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 1.1449,
+            "p95": 1.411,
+            "p99": 1.411,
+            "maximum": 1.411,
+            "mean": 0.9537538461538462
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 1.1793,
+            "p95": 1.4853,
+            "p99": 1.4853,
+            "maximum": 1.4853,
+            "mean": 0.9966923076923078
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 1.8261000000023841,
+            "p95": 3.9609999999967727,
+            "p99": 3.9609999999967727,
+            "maximum": 3.9609999999967727,
+            "mean": 1.8733499999997367
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 0,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.41885000000263517,
+            "p95": 3.7799999999990064,
+            "p99": 4.300499999999374,
+            "maximum": 5.195200000002842,
+            "mean": 0.7864038888888005
+          },
+          "active": {
+            "samples": 7107,
+            "median": 39,
+            "p95": 41,
+            "p99": 41,
+            "maximum": 41,
+            "mean": 38.922470803433235
+          },
+          "visible": {
+            "samples": 7107,
+            "median": 39,
+            "p95": 41,
+            "p99": 41,
+            "maximum": 41,
+            "mean": 38.922330097087375
+          },
+          "pending": {
+            "samples": 7107,
+            "median": 0,
+            "p95": 0,
+            "p99": 0,
+            "maximum": 0,
+            "mean": 0
+          },
+          "oldestPendingSeconds": {
+            "samples": 7107,
+            "median": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0
+          },
+          "requestedDuringCapture": 13,
+          "completedDuringCapture": 12,
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "maximumBacklog": 0.016659866666666825,
+          "measuredSeconds": 6.000427600000002,
+          "gc": [
+            20,
+            20,
+            20
+          ],
+          "engineSamples": 7107,
+          "gpuMissing": 1394,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 7107,
+              "median": 0.278,
+              "p95": 5.983,
+              "p99": 9.3586,
+              "maximum": 11.5874,
+              "mean": 0.8447439003799071
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 7107,
+              "median": 0.2203,
+              "p95": 3.622,
+              "p99": 9.2956,
+              "maximum": 11.3734,
+              "mean": 0.7482547488391726
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 7107,
+              "median": 0.102,
+              "p95": 0.1693,
+              "p99": 0.2126,
+              "maximum": 0.3341,
+              "mean": 0.11129850851273393
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 7107,
+              "median": 0.0523,
+              "p95": 0.196,
+              "p99": 0.4171,
+              "maximum": 4.6233,
+              "mean": 0.09531494301392993
+            }
+          },
+          "gpuMs": {
+            "positive": 5713,
+            "missing": 1394,
+            "validOnly": {
+              "samples": 5713,
+              "median": 0.080896,
+              "p95": 3.74784,
+              "p99": 9.081856,
+              "maximum": 11.313152,
+              "mean": 0.6424255249431122
+            }
+          }
+        },
+        {
+          "name": "choke-arrival-4-per-second",
+          "layout": 1,
+          "requestsPerSecond": 4,
+          "minimumActive": 64,
+          "maximumActive": 67,
+          "wallMs": {
+            "samples": 7035,
+            "median": 0.27399999999744296,
+            "p95": 6.073899999996968,
+            "p99": 9.006100000000572,
+            "maximum": 23.488700000001472,
+            "mean": 0.8533365031982939
+          },
+          "updateMs": {
+            "samples": 7035,
+            "median": 0.0132,
+            "p95": 0.0227,
+            "p99": 0.0385,
+            "maximum": 22.5953,
+            "mean": 0.03122035536602701
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.020200000000000003,
+            "p95": 0.08220000000000001,
+            "p99": 10.2759,
+            "maximum": 22.5953,
+            "mean": 0.3395811634349031
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 5.4085,
+            "p95": 22.5017,
+            "p99": 22.5017,
+            "maximum": 22.5017,
+            "mean": 8.768638461538462
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 5.429,
+            "p95": 22.5953,
+            "p99": 22.5953,
+            "maximum": 22.5953,
+            "mean": 8.812215384615385
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 6.034050000003788,
+            "p95": 23.488700000001472,
+            "p99": 23.488700000001472,
+            "maximum": 23.488700000001472,
+            "mean": 9.767200000000642
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 2,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.34065000000182977,
+            "p95": 4.691999999998586,
+            "p99": 10.961299999998175,
+            "maximum": 23.488700000001472,
+            "mean": 1.1170641666667356
+          },
+          "active": {
+            "samples": 7035,
+            "median": 65,
+            "p95": 67,
+            "p99": 67,
+            "maximum": 67,
+            "mean": 65.36830135039091
+          },
+          "visible": {
+            "samples": 7035,
+            "median": 65,
+            "p95": 67,
+            "p99": 67,
+            "maximum": 67,
+            "mean": 65.36858564321251
+          },
+          "pending": {
+            "samples": 7035,
+            "median": 18,
+            "p95": 24,
+            "p99": 24,
+            "maximum": 26,
+            "mean": 17.338024164889838
+          },
+          "oldestPendingSeconds": {
+            "samples": 7035,
+            "median": 4.0,
+            "p95": 5.5,
+            "p99": 5.5,
+            "maximum": 6.0,
+            "mean": 3.913361762615494
+          },
+          "requestedDuringCapture": 26,
+          "completedDuringCapture": 13,
+          "over16_67Count": 2,
+          "over16_67Percent": 0.028429282160625444,
+          "maximumBacklog": 0.016662799999994662,
+          "measuredSeconds": 5.999588299999999,
+          "gc": [
+            17,
+            17,
+            17
+          ],
+          "engineSamples": 7035,
+          "gpuMissing": 1315,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 7035,
+              "median": 0.275,
+              "p95": 6.0674,
+              "p99": 8.891,
+              "maximum": 23.3675,
+              "mean": 0.8545928642501777
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 7035,
+              "median": 0.2155,
+              "p95": 3.6009,
+              "p99": 8.7404,
+              "maximum": 23.3628,
+              "mean": 0.725327789623312
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 7035,
+              "median": 0.1018,
+              "p95": 0.1719,
+              "p99": 0.22,
+              "maximum": 7.6165,
+              "mean": 0.11481327647476901
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 7035,
+              "median": 0.0537,
+              "p95": 0.1942,
+              "p99": 4.2158,
+              "maximum": 9.5724,
+              "mean": 0.1281645486851457
+            }
+          },
+          "gpuMs": {
+            "positive": 5720,
+            "missing": 1315,
+            "validOnly": {
+              "samples": 5720,
+              "median": 0.079872,
+              "p95": 3.528704,
+              "p99": 8.582144,
+              "maximum": 16652612063794.102,
+              "mean": 2911295815.959865
+            }
+          }
+        },
+        {
+          "name": "choke-arrival-8-per-second",
+          "layout": 1,
+          "requestsPerSecond": 8,
+          "minimumActive": 63,
+          "maximumActive": 64,
+          "wallMs": {
+            "samples": 7725,
+            "median": 0.271200000000249,
+            "p95": 3.809000000003948,
+            "p99": 9.288399999995534,
+            "maximum": 20.517200000000457,
+            "mean": 0.7768096310679613
+          },
+          "updateMs": {
+            "samples": 7725,
+            "median": 0.013000000000000001,
+            "p95": 0.0212,
+            "p99": 0.0354,
+            "maximum": 19.7576,
+            "mean": 0.028527663430420715
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.0182,
+            "p95": 0.0345,
+            "p99": 10.3633,
+            "maximum": 19.7576,
+            "mean": 0.31983850415512466
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 5.5469,
+            "p95": 19.681900000000002,
+            "p99": 19.681900000000002,
+            "maximum": 19.681900000000002,
+            "mean": 8.318223076923077
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 5.5920000000000005,
+            "p95": 19.7576,
+            "p99": 19.7576,
+            "maximum": 19.7576,
+            "mean": 8.369200000000001
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 6.186499999998318,
+            "p95": 20.517200000000457,
+            "p99": 20.517200000000457,
+            "maximum": 20.517200000000457,
+            "mean": 8.851999999999785
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 1,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.3036999999999068,
+            "p95": 5.626100000000633,
+            "p99": 11.037999999999215,
+            "maximum": 20.517200000000457,
+            "mean": 0.7869036111113559
+          },
+          "active": {
+            "samples": 7725,
+            "median": 64,
+            "p95": 64,
+            "p99": 64,
+            "maximum": 64,
+            "mean": 63.587702265372165
+          },
+          "visible": {
+            "samples": 7725,
+            "median": 64,
+            "p95": 64,
+            "p99": 64,
+            "maximum": 64,
+            "mean": 63.587702265372165
+          },
+          "pending": {
+            "samples": 7725,
+            "median": 112,
+            "p95": 132,
+            "p99": 132,
+            "maximum": 135,
+            "mean": 113.62161812297735
+          },
+          "oldestPendingSeconds": {
+            "samples": 7725,
+            "median": 13.5,
+            "p95": 16.0,
+            "p99": 16.0,
+            "maximum": 16.5,
+            "mean": 13.795533980582524
+          },
+          "requestedDuringCapture": 52,
+          "completedDuringCapture": 9,
+          "over16_67Count": 1,
+          "over16_67Percent": 0.012944983818770227,
+          "maximumBacklog": 0.016665800000001278,
+          "measuredSeconds": 6.000500600000002,
+          "gc": [
+            7,
+            7,
+            7
+          ],
+          "engineSamples": 7725,
+          "gpuMissing": 1434,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 7725,
+              "median": 0.2723,
+              "p95": 3.731,
+              "p99": 9.1777,
+              "maximum": 20.5876,
+              "mean": 0.7766803754045307
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 7725,
+              "median": 0.2136,
+              "p95": 3.0782,
+              "p99": 9.101,
+              "maximum": 20.5837,
+              "mean": 0.6720675080906149
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 7725,
+              "median": 0.1007,
+              "p95": 0.1604,
+              "p99": 0.214,
+              "maximum": 0.6091,
+              "mean": 0.10875624595469256
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 7725,
+              "median": 0.0538,
+              "p95": 0.1847,
+              "p99": 1.7032,
+              "maximum": 7.4126,
+              "mean": 0.10356788349514563
+            }
+          },
+          "gpuMs": {
+            "positive": 6291,
+            "missing": 1434,
+            "validOnly": {
+              "samples": 6291,
+              "median": 0.079872,
+              "p95": 3.10784,
+              "p99": 8.968192,
+              "maximum": 9.803776,
+              "mean": 0.5610473374662216
+            }
+          }
+        }
+      ]
+    },
+    {
+      "session": "stream-run-2",
+      "cases": [
+        {
+          "name": "choke-arrival-8-per-second",
+          "layout": 1,
+          "requestsPerSecond": 8,
+          "minimumActive": 63,
+          "maximumActive": 64,
+          "wallMs": {
+            "samples": 7870,
+            "median": 0.2643500000001353,
+            "p95": 3.5154999999988945,
+            "p99": 9.230299999998692,
+            "maximum": 20.231199999997784,
+            "mean": 0.7624226556543837
+          },
+          "updateMs": {
+            "samples": 7870,
+            "median": 0.0128,
+            "p95": 0.020300000000000002,
+            "p99": 0.026600000000000002,
+            "maximum": 19.524,
+            "mean": 0.02765317662007624
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.0137,
+            "p95": 0.0275,
+            "p99": 10.3415,
+            "maximum": 19.524,
+            "mean": 0.3131102493074792
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 5.3837,
+            "p95": 19.4581,
+            "p99": 19.4581,
+            "maximum": 19.4581,
+            "mean": 8.225438461538461
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 5.4068000000000005,
+            "p95": 19.524,
+            "p99": 19.524,
+            "maximum": 19.524,
+            "mean": 8.264684615384615
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 5.99375000000002,
+            "p95": 20.231199999997784,
+            "p99": 20.231199999997784,
+            "maximum": 20.231199999997784,
+            "mean": 8.74614166666691
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 1,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.2646999999988964,
+            "p95": 0.5103999999995779,
+            "p99": 10.938100000000617,
+            "maximum": 20.231199999997784,
+            "mean": 0.5753375000000381
+          },
+          "active": {
+            "samples": 7870,
+            "median": 64.0,
+            "p95": 64,
+            "p99": 64,
+            "maximum": 64,
+            "mean": 63.5864040660737
+          },
+          "visible": {
+            "samples": 7870,
+            "median": 64.0,
+            "p95": 64,
+            "p99": 64,
+            "maximum": 64,
+            "mean": 63.5864040660737
+          },
+          "pending": {
+            "samples": 7870,
+            "median": 116.0,
+            "p95": 132,
+            "p99": 132,
+            "maximum": 135,
+            "mean": 113.90520965692504
+          },
+          "oldestPendingSeconds": {
+            "samples": 7870,
+            "median": 14.0,
+            "p95": 16.0,
+            "p99": 16.0,
+            "maximum": 16.5,
+            "mean": 13.83151207115629
+          },
+          "requestedDuringCapture": 52,
+          "completedDuringCapture": 9,
+          "over16_67Count": 1,
+          "over16_67Percent": 0.012706480304955527,
+          "maximumBacklog": 0.01666543333333179,
+          "measuredSeconds": 6.000037299999999,
+          "gc": [
+            24,
+            24,
+            24
+          ],
+          "engineSamples": 7870,
+          "gpuMissing": 1602,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 7870,
+              "median": 0.2649,
+              "p95": 3.4606,
+              "p99": 9.156,
+              "maximum": 20.1174,
+              "mean": 0.7624234053367217
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 7870,
+              "median": 0.2112,
+              "p95": 2.9064,
+              "p99": 9.0798,
+              "maximum": 20.1146,
+              "mean": 0.6591830749682338
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 7870,
+              "median": 0.0984,
+              "p95": 0.1613,
+              "p99": 0.2092,
+              "maximum": 0.4379,
+              "mean": 0.10628292249047014
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 7870,
+              "median": 0.04705,
+              "p95": 0.1821,
+              "p99": 2.047,
+              "maximum": 8.1971,
+              "mean": 0.10223401524777637
+            }
+          },
+          "gpuMs": {
+            "positive": 6268,
+            "missing": 1602,
+            "validOnly": {
+              "samples": 6268,
+              "median": 0.078848,
+              "p95": 3.022848,
+              "p99": 8.978432,
+              "maximum": 16652612012747.428,
+              "mean": 5313532869.211791
+            }
+          }
+        },
+        {
+          "name": "choke-arrival-4-per-second",
+          "layout": 1,
+          "requestsPerSecond": 4,
+          "minimumActive": 64,
+          "maximumActive": 67,
+          "wallMs": {
+            "samples": 7747,
+            "median": 0.26210000000048694,
+            "p95": 3.823099999998192,
+            "p99": 8.870399999999279,
+            "maximum": 21.350500000000494,
+            "mean": 0.7754626177875308
+          },
+          "updateMs": {
+            "samples": 7747,
+            "median": 0.0129,
+            "p95": 0.0199,
+            "p99": 0.026000000000000002,
+            "maximum": 20.288500000000003,
+            "mean": 0.02853557506131406
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.017,
+            "p95": 0.0368,
+            "p99": 10.3033,
+            "maximum": 20.288500000000003,
+            "mean": 0.33034459833795016
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 5.3936,
+            "p95": 20.209400000000002,
+            "p99": 20.209400000000002,
+            "maximum": 20.209400000000002,
+            "mean": 8.639592307692308
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 5.4313,
+            "p95": 20.288500000000003,
+            "p99": 20.288500000000003,
+            "maximum": 20.288500000000003,
+            "mean": 8.683569230769232
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 6.106400000001955,
+            "p95": 21.350500000000494,
+            "p99": 21.350500000000494,
+            "maximum": 21.350500000000494,
+            "mean": 9.684158333334025
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 2,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.5992499999987189,
+            "p95": 9.16610000000162,
+            "p99": 11.038300000002721,
+            "maximum": 21.350500000000494,
+            "mean": 3.3507541666666856
+          },
+          "active": {
+            "samples": 7747,
+            "median": 65,
+            "p95": 67,
+            "p99": 67,
+            "maximum": 67,
+            "mean": 65.38027623596231
+          },
+          "visible": {
+            "samples": 7747,
+            "median": 65,
+            "p95": 67,
+            "p99": 67,
+            "maximum": 67,
+            "mean": 65.38053440041307
+          },
+          "pending": {
+            "samples": 7747,
+            "median": 18,
+            "p95": 24,
+            "p99": 24,
+            "maximum": 26,
+            "mean": 17.310829998709178
+          },
+          "oldestPendingSeconds": {
+            "samples": 7747,
+            "median": 4.0,
+            "p95": 5.5,
+            "p99": 5.5,
+            "maximum": 6.0,
+            "mean": 3.90931973667226
+          },
+          "requestedDuringCapture": 26,
+          "completedDuringCapture": 13,
+          "over16_67Count": 2,
+          "over16_67Percent": 0.025816445075513103,
+          "maximumBacklog": 0.01666133333333503,
+          "measuredSeconds": 5.999523100000001,
+          "gc": [
+            23,
+            23,
+            23
+          ],
+          "engineSamples": 7747,
+          "gpuMissing": 1421,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 7747,
+              "median": 0.2632,
+              "p95": 3.7622,
+              "p99": 8.8289,
+              "maximum": 21.234,
+              "mean": 0.7749023880211695
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 7747,
+              "median": 0.2089,
+              "p95": 3.3673,
+              "p99": 8.76,
+              "maximum": 21.2288,
+              "mean": 0.663149903188331
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 7747,
+              "median": 0.0986,
+              "p95": 0.1569,
+              "p99": 0.2033,
+              "maximum": 0.4386,
+              "mean": 0.10524430101974958
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 7747,
+              "median": 0.0508,
+              "p95": 0.1841,
+              "p99": 4.2111,
+              "maximum": 7.1342,
+              "mean": 0.11077198915709306
+            }
+          },
+          "gpuMs": {
+            "positive": 6326,
+            "missing": 1421,
+            "validOnly": {
+              "samples": 6326,
+              "median": 0.078848,
+              "p95": 3.320832,
+              "p99": 8.64768,
+              "maximum": 9.745408,
+              "mean": 0.5600851040151754
+            }
+          }
+        },
+        {
+          "name": "choke-arrival-2-per-second",
+          "layout": 1,
+          "requestsPerSecond": 2,
+          "minimumActive": 37,
+          "maximumActive": 41,
+          "wallMs": {
+            "samples": 8182,
+            "median": 0.25289999999955626,
+            "p95": 3.6450999999999567,
+            "p99": 9.16270000000452,
+            "maximum": 9.911400000000015,
+            "mean": 0.7336676607186501
+          },
+          "updateMs": {
+            "samples": 8182,
+            "median": 0.0105,
+            "p95": 0.0171,
+            "p99": 0.0229,
+            "maximum": 1.3936000000000002,
+            "mean": 0.013056673185040333
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.011000000000000001,
+            "p95": 0.0241,
+            "p99": 1.2706,
+            "maximum": 1.3936000000000002,
+            "mean": 0.047482271468144044
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 1.1320000000000001,
+            "p95": 1.3623,
+            "p99": 1.3623,
+            "maximum": 1.3623,
+            "mean": 0.9296923076923077
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 1.1738,
+            "p95": 1.3936000000000002,
+            "p99": 1.3936000000000002,
+            "maximum": 1.3936000000000002,
+            "mean": 0.9662538461538461
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 1.7057499999992842,
+            "p95": 2.3420999999999026,
+            "p99": 2.3420999999999026,
+            "maximum": 2.3420999999999026,
+            "mean": 1.5033749999998254
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 0,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.26215000000107125,
+            "p95": 0.540700000001948,
+            "p99": 1.9975000000016507,
+            "maximum": 2.379700000005869,
+            "mean": 0.33220250000014
+          },
+          "active": {
+            "samples": 8182,
+            "median": 39.0,
+            "p95": 41,
+            "p99": 41,
+            "maximum": 41,
+            "mean": 38.927523832803715
+          },
+          "visible": {
+            "samples": 8182,
+            "median": 39.0,
+            "p95": 41,
+            "p99": 41,
+            "maximum": 41,
+            "mean": 38.927401613297484
+          },
+          "pending": {
+            "samples": 8182,
+            "median": 0.0,
+            "p95": 0,
+            "p99": 0,
+            "maximum": 0,
+            "mean": 0
+          },
+          "oldestPendingSeconds": {
+            "samples": 8182,
+            "median": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0
+          },
+          "requestedDuringCapture": 13,
+          "completedDuringCapture": 12,
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "maximumBacklog": 0.016666433333327794,
+          "measuredSeconds": 5.993260299999996,
+          "gc": [
+            25,
+            25,
+            25
+          ],
+          "engineSamples": 8182,
+          "gpuMissing": 1476,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 8182,
+              "median": 0.25375000000000003,
+              "p95": 3.5989,
+              "p99": 9.0882,
+              "maximum": 9.7541,
+              "mean": 0.7344477022732828
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 8182,
+              "median": 0.1979,
+              "p95": 3.1687,
+              "p99": 9.0025,
+              "maximum": 9.6949,
+              "mean": 0.6247343681251528
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 8182,
+              "median": 0.097,
+              "p95": 0.1559,
+              "p99": 0.2053,
+              "maximum": 0.3646,
+              "mean": 0.1036018332925935
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 8182,
+              "median": 0.0519,
+              "p95": 0.1878,
+              "p99": 4.1275,
+              "maximum": 6.1096,
+              "mean": 0.1087485333659252
+            }
+          },
+          "gpuMs": {
+            "positive": 6706,
+            "missing": 1476,
+            "validOnly": {
+              "samples": 6706,
+              "median": 0.078848,
+              "p95": 3.163136,
+              "p99": 8.851456,
+              "maximum": 9.469952,
+              "mean": 0.5227518473009245
+            }
+          }
+        },
+        {
+          "name": "baffles-arrival-8-per-second",
+          "layout": 0,
+          "requestsPerSecond": 8,
+          "minimumActive": 55,
+          "maximumActive": 81,
+          "wallMs": {
+            "samples": 7490,
+            "median": 0.28179999999622396,
+            "p95": 3.7282000000047333,
+            "p99": 9.24009999999953,
+            "maximum": 10.000400000002685,
+            "mean": 0.8011146061415221
+          },
+          "updateMs": {
+            "samples": 7490,
+            "median": 0.0128,
+            "p95": 0.0204,
+            "p99": 0.041,
+            "maximum": 0.7006,
+            "mean": 0.014525874499332445
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.0173,
+            "p95": 0.06810000000000001,
+            "p99": 0.2782,
+            "maximum": 0.7006,
+            "mean": 0.026938227146814406
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 0.1393,
+            "p95": 0.6598,
+            "p99": 0.6598,
+            "maximum": 0.6598,
+            "mean": 0.20234615384615387
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 0.15940000000000001,
+            "p95": 0.7006,
+            "p99": 0.7006,
+            "maximum": 0.7006,
+            "mean": 0.22814615384615386
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 0.6136999999988291,
+            "p95": 1.119200000005094,
+            "p99": 1.119200000005094,
+            "maximum": 1.119200000005094,
+            "mean": 0.6706833333343099
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 0,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.3623499999996227,
+            "p95": 2.7880999999965184,
+            "p99": 3.542299999999443,
+            "maximum": 3.8663999999997145,
+            "mean": 0.6371424999998728
+          },
+          "active": {
+            "samples": 7490,
+            "median": 63.0,
+            "p95": 81,
+            "p99": 81,
+            "maximum": 81,
+            "mean": 63.98744993324433
+          },
+          "visible": {
+            "samples": 7490,
+            "median": 63.0,
+            "p95": 81,
+            "p99": 81,
+            "maximum": 81,
+            "mean": 63.99065420560748
+          },
+          "pending": {
+            "samples": 7490,
+            "median": 95.0,
+            "p95": 106,
+            "p99": 106,
+            "maximum": 108,
+            "mean": 91.45714285714286
+          },
+          "oldestPendingSeconds": {
+            "samples": 7490,
+            "median": 11.5,
+            "p95": 13.0,
+            "p99": 13.0,
+            "maximum": 13.0,
+            "mean": 11.088384512683579
+          },
+          "requestedDuringCapture": 52,
+          "completedDuringCapture": 35,
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "maximumBacklog": 0.01666606666666823,
+          "measuredSeconds": 6.000087999999998,
+          "gc": [
+            20,
+            20,
+            20
+          ],
+          "engineSamples": 7490,
+          "gpuMissing": 1376,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 7490,
+              "median": 0.2831,
+              "p95": 3.6899,
+              "p99": 9.1314,
+              "maximum": 9.9222,
+              "mean": 0.8011611615487316
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 7490,
+              "median": 0.22095,
+              "p95": 3.0798,
+              "p99": 9.0414,
+              "maximum": 9.7592,
+              "mean": 0.6849428170894526
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 7490,
+              "median": 0.103,
+              "p95": 0.17,
+              "p99": 0.2193,
+              "maximum": 0.3744,
+              "mean": 0.11196815754339119
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 7490,
+              "median": 0.0573,
+              "p95": 0.1904,
+              "p99": 4.1968,
+              "maximum": 7.6128,
+              "mean": 0.11513881174899866
+            }
+          },
+          "gpuMs": {
+            "positive": 6114,
+            "missing": 1376,
+            "validOnly": {
+              "samples": 6114,
+              "median": 0.079872,
+              "p95": 3.13344,
+              "p99": 8.905728,
+              "maximum": 16652611988965.408,
+              "mean": 5447370621.6053705
+            }
+          }
+        },
+        {
+          "name": "baffles-arrival-4-per-second",
+          "layout": 0,
+          "requestsPerSecond": 4,
+          "minimumActive": 55,
+          "maximumActive": 66,
+          "wallMs": {
+            "samples": 7616,
+            "median": 0.2761000000006675,
+            "p95": 3.8063000000008174,
+            "p99": 8.73539999999906,
+            "maximum": 10.121599999997954,
+            "mean": 0.7878566832983189
+          },
+          "updateMs": {
+            "samples": 7616,
+            "median": 0.012400000000000001,
+            "p95": 0.0183,
+            "p99": 0.0328,
+            "maximum": 0.8279000000000001,
+            "mean": 0.014024776785714286
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.0171,
+            "p95": 0.0679,
+            "p99": 0.3528,
+            "maximum": 0.8279000000000001,
+            "mean": 0.02915290858725762
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 0.1819,
+            "p95": 0.7679,
+            "p99": 0.7679,
+            "maximum": 0.7679,
+            "mean": 0.2616846153846154
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 0.2106,
+            "p95": 0.8279000000000001,
+            "p99": 0.8279000000000001,
+            "maximum": 0.8279000000000001,
+            "mean": 0.29404615384615385
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 0.7739999999998304,
+            "p95": 1.4494999999996594,
+            "p99": 1.4494999999996594,
+            "maximum": 1.4494999999996594,
+            "mean": 0.8218083333346726
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 0,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.3397499999984177,
+            "p95": 0.6270000000014875,
+            "p99": 1.1195000000014943,
+            "maximum": 9.604800000005298,
+            "mean": 0.4259911111108868
+          },
+          "active": {
+            "samples": 7616,
+            "median": 63.0,
+            "p95": 66,
+            "p99": 66,
+            "maximum": 66,
+            "mean": 62.4640231092437
+          },
+          "visible": {
+            "samples": 7616,
+            "median": 63.0,
+            "p95": 66,
+            "p99": 66,
+            "maximum": 66,
+            "mean": 62.46546743697479
+          },
+          "pending": {
+            "samples": 7616,
+            "median": 11.0,
+            "p95": 15,
+            "p99": 15,
+            "maximum": 17,
+            "mean": 11.638655462184873
+          },
+          "oldestPendingSeconds": {
+            "samples": 7616,
+            "median": 2.5,
+            "p95": 3.5,
+            "p99": 3.5,
+            "maximum": 4.0,
+            "mean": 2.6183035714285716
+          },
+          "requestedDuringCapture": 26,
+          "completedDuringCapture": 27,
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "maximumBacklog": 0.01666646666667005,
+          "measuredSeconds": 5.9998780000000025,
+          "gc": [
+            19,
+            19,
+            19
+          ],
+          "engineSamples": 7616,
+          "gpuMissing": 1455,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 7616,
+              "median": 0.27695000000000003,
+              "p95": 3.7227,
+              "p99": 8.6413,
+              "maximum": 9.9783,
+              "mean": 0.7878964679621848
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 7616,
+              "median": 0.2151,
+              "p95": 3.3629,
+              "p99": 8.5457,
+              "maximum": 9.7841,
+              "mean": 0.6716552914915966
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 7616,
+              "median": 0.0997,
+              "p95": 0.1612,
+              "p99": 0.2108,
+              "maximum": 0.5607,
+              "mean": 0.10793610819327731
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 7616,
+              "median": 0.0564,
+              "p95": 0.1789,
+              "p99": 4.1291,
+              "maximum": 8.1502,
+              "mean": 0.1152016150210084
+            }
+          },
+          "gpuMs": {
+            "positive": 6161,
+            "missing": 1455,
+            "validOnly": {
+              "samples": 6161,
+              "median": 0.079872,
+              "p95": 3.357696,
+              "p99": 8.515584,
+              "maximum": 9.6768,
+              "mean": 0.5769138464534979
+            }
+          }
+        },
+        {
+          "name": "baffles-arrival-2-per-second",
+          "layout": 0,
+          "requestsPerSecond": 2,
+          "minimumActive": 36,
+          "maximumActive": 39,
+          "wallMs": {
+            "samples": 7714,
+            "median": 0.2733999999975367,
+            "p95": 3.731500000000665,
+            "p99": 9.312300000004825,
+            "maximum": 10.77370000000144,
+            "mean": 0.7789519315530196
+          },
+          "updateMs": {
+            "samples": 7714,
+            "median": 0.010400000000000001,
+            "p95": 0.0179,
+            "p99": 0.034,
+            "maximum": 0.7382000000000001,
+            "mean": 0.012180645579465906
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.0155,
+            "p95": 0.0461,
+            "p99": 0.30960000000000004,
+            "maximum": 0.7382000000000001,
+            "mean": 0.02425180055401662
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 0.1389,
+            "p95": 0.6953,
+            "p99": 0.6953,
+            "maximum": 0.6953,
+            "mean": 0.19558461538461538
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 0.185,
+            "p95": 0.7382000000000001,
+            "p99": 0.7382000000000001,
+            "maximum": 0.7382000000000001,
+            "mean": 0.2461
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 0.7903499999990515,
+            "p95": 1.2752000000020303,
+            "p99": 1.2752000000020303,
+            "maximum": 1.2752000000020303,
+            "mean": 0.8112000000017142
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 0,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.3117499999945039,
+            "p95": 0.6118000000014945,
+            "p99": 0.9829000000038945,
+            "maximum": 3.2302000000044018,
+            "mean": 0.354683611111126
+          },
+          "active": {
+            "samples": 7714,
+            "median": 37.0,
+            "p95": 39,
+            "p99": 39,
+            "maximum": 39,
+            "mean": 37.11783769769251
+          },
+          "visible": {
+            "samples": 7714,
+            "median": 37.0,
+            "p95": 39,
+            "p99": 39,
+            "maximum": 39,
+            "mean": 37.11783769769251
+          },
+          "pending": {
+            "samples": 7714,
+            "median": 0.0,
+            "p95": 1,
+            "p99": 1,
+            "maximum": 1,
+            "mean": 0.34677210267046926
+          },
+          "oldestPendingSeconds": {
+            "samples": 7714,
+            "median": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0
+          },
+          "requestedDuringCapture": 13,
+          "completedDuringCapture": 13,
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "maximumBacklog": 0.016664000000000116,
+          "measuredSeconds": 5.999963799999996,
+          "gc": [
+            19,
+            19,
+            19
+          ],
+          "engineSamples": 7714,
+          "gpuMissing": 1480,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 7714,
+              "median": 0.2747,
+              "p95": 3.66,
+              "p99": 9.2334,
+              "maximum": 10.6398,
+              "mean": 0.7778545890588541
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 7714,
+              "median": 0.2156,
+              "p95": 3.1117,
+              "p99": 9.1406,
+              "maximum": 10.5045,
+              "mean": 0.6661894347938813
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 7714,
+              "median": 0.09925,
+              "p95": 0.1633,
+              "p99": 0.2149,
+              "maximum": 0.3499,
+              "mean": 0.10741728026963962
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 7714,
+              "median": 0.05445,
+              "p95": 0.1822,
+              "p99": 4.1264,
+              "maximum": 7.582,
+              "mean": 0.1106280528908478
+            }
+          },
+          "gpuMs": {
+            "positive": 6234,
+            "missing": 1480,
+            "validOnly": {
+              "samples": 6234,
+              "median": 0.079872,
+              "p95": 3.16416,
+              "p99": 9.022464,
+              "maximum": 9.803776,
+              "mean": 0.5713039563683029
+            }
+          }
+        }
+      ]
+    },
+    {
+      "session": "stream-run-3",
+      "cases": [
+        {
+          "name": "baffles-arrival-2-per-second",
+          "layout": 0,
+          "requestsPerSecond": 2,
+          "minimumActive": 36,
+          "maximumActive": 39,
+          "wallMs": {
+            "samples": 7681,
+            "median": 0.274500000003286,
+            "p95": 3.821699999999595,
+            "p99": 8.666399999999186,
+            "maximum": 10.03430000000094,
+            "mean": 0.7811845853404505
+          },
+          "updateMs": {
+            "samples": 7681,
+            "median": 0.0103,
+            "p95": 0.016,
+            "p99": 0.0344,
+            "maximum": 0.2205,
+            "mean": 0.01177583647962505
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.014400000000000001,
+            "p95": 0.0659,
+            "p99": 0.2061,
+            "maximum": 0.2205,
+            "mean": 0.021697783933518008
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 0.13090000000000002,
+            "p95": 0.1956,
+            "p99": 0.1956,
+            "maximum": 0.1956,
+            "mean": 0.13593846153846154
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 0.14980000000000002,
+            "p95": 0.2205,
+            "p99": 0.2205,
+            "maximum": 0.2205,
+            "mean": 0.15837692307692308
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 0.4758000000020246,
+            "p95": 1.672800000001473,
+            "p99": 1.672800000001473,
+            "maximum": 1.672800000001473,
+            "mean": 0.6085833333333568
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 0,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.38789999999977454,
+            "p95": 3.529400000001459,
+            "p99": 3.84599999999935,
+            "maximum": 3.980699999999615,
+            "mean": 1.000912222222292
+          },
+          "active": {
+            "samples": 7681,
+            "median": 37,
+            "p95": 39,
+            "p99": 39,
+            "maximum": 39,
+            "mean": 37.09269626350736
+          },
+          "visible": {
+            "samples": 7681,
+            "median": 37,
+            "p95": 39,
+            "p99": 39,
+            "maximum": 39,
+            "mean": 37.09269626350736
+          },
+          "pending": {
+            "samples": 7681,
+            "median": 0,
+            "p95": 1,
+            "p99": 1,
+            "maximum": 1,
+            "mean": 0.3390183569847676
+          },
+          "oldestPendingSeconds": {
+            "samples": 7681,
+            "median": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0
+          },
+          "requestedDuringCapture": 13,
+          "completedDuringCapture": 13,
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "maximumBacklog": 0.01666616666666937,
+          "measuredSeconds": 6.000015700000002,
+          "gc": [
+            27,
+            27,
+            27
+          ],
+          "engineSamples": 7681,
+          "gpuMissing": 1366,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 7681,
+              "median": 0.2772,
+              "p95": 3.7504,
+              "p99": 8.572,
+              "maximum": 9.9147,
+              "mean": 0.7811971227704726
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 7681,
+              "median": 0.2142,
+              "p95": 3.3576,
+              "p99": 8.4769,
+              "maximum": 9.7997,
+              "mean": 0.6604968363494337
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 7681,
+              "median": 0.0997,
+              "p95": 0.1568,
+              "p99": 0.1997,
+              "maximum": 0.4265,
+              "mean": 0.10678255435490171
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 7681,
+              "median": 0.0579,
+              "p95": 0.1844,
+              "p99": 4.1718,
+              "maximum": 6.4403,
+              "mean": 0.11966763442260123
+            }
+          },
+          "gpuMs": {
+            "positive": 6315,
+            "missing": 1366,
+            "validOnly": {
+              "samples": 6315,
+              "median": 0.079872,
+              "p95": 3.340288,
+              "p99": 8.383488,
+              "maximum": 9.693184,
+              "mean": 0.5605593285827395
+            }
+          }
+        },
+        {
+          "name": "baffles-arrival-4-per-second",
+          "layout": 0,
+          "requestsPerSecond": 4,
+          "minimumActive": 55,
+          "maximumActive": 66,
+          "wallMs": {
+            "samples": 7590,
+            "median": 0.27769999999804895,
+            "p95": 3.8562000000013086,
+            "p99": 9.281200000003764,
+            "maximum": 9.988400000001008,
+            "mean": 0.7905358102766802
+          },
+          "updateMs": {
+            "samples": 7590,
+            "median": 0.0125,
+            "p95": 0.019100000000000002,
+            "p99": 0.0396,
+            "maximum": 0.648,
+            "mean": 0.014251739130434784
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.0135,
+            "p95": 0.0333,
+            "p99": 0.2685,
+            "maximum": 0.648,
+            "mean": 0.023605817174515237
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 0.1686,
+            "p95": 0.6074,
+            "p99": 0.6074,
+            "maximum": 0.6074,
+            "mean": 0.20833846153846156
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 0.1968,
+            "p95": 0.648,
+            "p99": 0.648,
+            "maximum": 0.648,
+            "mean": 0.2369923076923077
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 0.665850000000745,
+            "p95": 1.101399999999586,
+            "p99": 1.101399999999586,
+            "maximum": 1.101399999999586,
+            "mean": 0.7288249999988968
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 0,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.29304999999979486,
+            "p95": 0.47990000000197597,
+            "p99": 0.8105999999976632,
+            "maximum": 1.101399999999586,
+            "mean": 0.31572138888884793
+          },
+          "active": {
+            "samples": 7590,
+            "median": 63.0,
+            "p95": 66,
+            "p99": 66,
+            "maximum": 66,
+            "mean": 62.38761528326746
+          },
+          "visible": {
+            "samples": 7590,
+            "median": 63.0,
+            "p95": 66,
+            "p99": 66,
+            "maximum": 66,
+            "mean": 62.38906455862978
+          },
+          "pending": {
+            "samples": 7590,
+            "median": 12.0,
+            "p95": 15,
+            "p99": 15,
+            "maximum": 17,
+            "mean": 11.721607378129118
+          },
+          "oldestPendingSeconds": {
+            "samples": 7590,
+            "median": 2.5,
+            "p95": 3.5,
+            "p99": 3.5,
+            "maximum": 4.0,
+            "mean": 2.6372859025032938
+          },
+          "requestedDuringCapture": 26,
+          "completedDuringCapture": 27,
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "maximumBacklog": 0.01666416666666593,
+          "measuredSeconds": 5.999754200000002,
+          "gc": [
+            24,
+            24,
+            24
+          ],
+          "engineSamples": 7590,
+          "gpuMissing": 1419,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 7590,
+              "median": 0.2795,
+              "p95": 3.7919,
+              "p99": 9.1873,
+              "maximum": 9.9423,
+              "mean": 0.7905413570487484
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 7590,
+              "median": 0.21665,
+              "p95": 3.0622,
+              "p99": 9.0772,
+              "maximum": 9.8868,
+              "mean": 0.6668069038208169
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 7590,
+              "median": 0.1007,
+              "p95": 0.163,
+              "p99": 0.2089,
+              "maximum": 0.3391,
+              "mean": 0.10860111989459816
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 7590,
+              "median": 0.0563,
+              "p95": 0.1861,
+              "p99": 4.1686,
+              "maximum": 7.4107,
+              "mean": 0.12267515151515151
+            }
+          },
+          "gpuMs": {
+            "positive": 6171,
+            "missing": 1419,
+            "validOnly": {
+              "samples": 6171,
+              "median": 0.079872,
+              "p95": 3.109888,
+              "p99": 8.968192,
+              "maximum": 9.66656,
+              "mean": 0.5574602236266407
+            }
+          }
+        },
+        {
+          "name": "baffles-arrival-8-per-second",
+          "layout": 0,
+          "requestsPerSecond": 8,
+          "minimumActive": 55,
+          "maximumActive": 81,
+          "wallMs": {
+            "samples": 7425,
+            "median": 0.2846000000005233,
+            "p95": 3.8994000000016626,
+            "p99": 9.095399999999643,
+            "maximum": 10.008799999994267,
+            "mean": 0.8081209966329964
+          },
+          "updateMs": {
+            "samples": 7425,
+            "median": 0.0131,
+            "p95": 0.020300000000000002,
+            "p99": 0.038200000000000005,
+            "maximum": 0.7239,
+            "mean": 0.014765185185185187
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.019,
+            "p95": 0.052700000000000004,
+            "p99": 0.229,
+            "maximum": 0.7239,
+            "mean": 0.027031301939058172
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 0.14250000000000002,
+            "p95": 0.6775,
+            "p99": 0.6775,
+            "maximum": 0.6775,
+            "mean": 0.19606153846153848
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 0.1668,
+            "p95": 0.7239,
+            "p99": 0.7239,
+            "maximum": 0.7239,
+            "mean": 0.22555384615384616
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 0.6525500000016393,
+            "p95": 1.18789999999791,
+            "p99": 1.18789999999791,
+            "maximum": 1.18789999999791,
+            "mean": 0.6831166666655027
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 0,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.32324999999744364,
+            "p95": 0.573199999998053,
+            "p99": 1.9786000000010517,
+            "maximum": 8.188299999993376,
+            "mean": 0.4038422222220185
+          },
+          "active": {
+            "samples": 7425,
+            "median": 63,
+            "p95": 81,
+            "p99": 81,
+            "maximum": 81,
+            "mean": 64.07501683501684
+          },
+          "visible": {
+            "samples": 7425,
+            "median": 63,
+            "p95": 81,
+            "p99": 81,
+            "maximum": 81,
+            "mean": 64.07824915824916
+          },
+          "pending": {
+            "samples": 7425,
+            "median": 95,
+            "p95": 106,
+            "p99": 106,
+            "maximum": 108,
+            "mean": 91.32296296296296
+          },
+          "oldestPendingSeconds": {
+            "samples": 7425,
+            "median": 11.5,
+            "p95": 13.0,
+            "p99": 13.0,
+            "maximum": 13.0,
+            "mean": 11.071111111111112
+          },
+          "requestedDuringCapture": 52,
+          "completedDuringCapture": 35,
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "maximumBacklog": 0.01666266666666263,
+          "measuredSeconds": 5.999994600000001,
+          "gc": [
+            18,
+            18,
+            18
+          ],
+          "engineSamples": 7425,
+          "gpuMissing": 1412,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 7425,
+              "median": 0.2865,
+              "p95": 3.8076,
+              "p99": 8.9931,
+              "maximum": 9.8868,
+              "mean": 0.8090088080808081
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 7425,
+              "median": 0.2229,
+              "p95": 3.2816,
+              "p99": 8.9175,
+              "maximum": 9.7884,
+              "mean": 0.6879983434343434
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 7425,
+              "median": 0.1044,
+              "p95": 0.1647,
+              "p99": 0.2098,
+              "maximum": 0.3355,
+              "mean": 0.11246748821548821
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 7425,
+              "median": 0.0574,
+              "p95": 0.1823,
+              "p99": 4.1872,
+              "maximum": 4.8715,
+              "mean": 0.11995243097643098
+            }
+          },
+          "gpuMs": {
+            "positive": 6013,
+            "missing": 1412,
+            "validOnly": {
+              "samples": 6013,
+              "median": 0.079872,
+              "p95": 3.387392,
+              "p99": 8.808448,
+              "maximum": 9.480192,
+              "mean": 0.600617808082488
+            }
+          }
+        },
+        {
+          "name": "choke-arrival-2-per-second",
+          "layout": 1,
+          "requestsPerSecond": 2,
+          "minimumActive": 37,
+          "maximumActive": 41,
+          "wallMs": {
+            "samples": 7534,
+            "median": 0.278600000001461,
+            "p95": 3.951700000001779,
+            "p99": 8.627900000000466,
+            "maximum": 10.06579999999957,
+            "mean": 0.7975523493496154
+          },
+          "updateMs": {
+            "samples": 7534,
+            "median": 0.010700000000000001,
+            "p95": 0.018500000000000003,
+            "p99": 0.031,
+            "maximum": 1.4936,
+            "mean": 0.0139079506238386
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.0179,
+            "p95": 0.062,
+            "p99": 1.2792000000000001,
+            "maximum": 1.4936,
+            "mean": 0.05426980609418283
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 1.1118000000000001,
+            "p95": 1.4468,
+            "p99": 1.4468,
+            "maximum": 1.4468,
+            "mean": 0.9436461538461539
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 1.1524,
+            "p95": 1.4936,
+            "p99": 1.4936,
+            "maximum": 1.4936,
+            "mean": 0.9868692307692308
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 1.6923000000019783,
+            "p95": 2.1175000000042132,
+            "p99": 2.1175000000042132,
+            "maximum": 2.1175000000042132,
+            "mean": 1.504133333333139
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 0,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.368400000002822,
+            "p95": 0.5985000000023888,
+            "p99": 2.1175000000042132,
+            "maximum": 9.834699999998975,
+            "mean": 0.4920875000002588
+          },
+          "active": {
+            "samples": 7534,
+            "median": 39.0,
+            "p95": 41,
+            "p99": 41,
+            "maximum": 41,
+            "mean": 38.920626493230685
+          },
+          "visible": {
+            "samples": 7534,
+            "median": 39.0,
+            "p95": 41,
+            "p99": 41,
+            "maximum": 41,
+            "mean": 38.92049376161402
+          },
+          "pending": {
+            "samples": 7534,
+            "median": 0.0,
+            "p95": 0,
+            "p99": 0,
+            "maximum": 0,
+            "mean": 0
+          },
+          "oldestPendingSeconds": {
+            "samples": 7534,
+            "median": 0.0,
+            "p95": 0.0,
+            "p99": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0
+          },
+          "requestedDuringCapture": 13,
+          "completedDuringCapture": 12,
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "maximumBacklog": 0.01665733333333372,
+          "measuredSeconds": 6.000404500000002,
+          "gc": [
+            21,
+            21,
+            21
+          ],
+          "engineSamples": 7534,
+          "gpuMissing": 1495,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 7534,
+              "median": 0.2799,
+              "p95": 3.8421,
+              "p99": 8.5262,
+              "maximum": 9.8014,
+              "mean": 0.7964532121051234
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 7534,
+              "median": 0.21945,
+              "p95": 3.4456,
+              "p99": 8.4494,
+              "maximum": 9.7655,
+              "mean": 0.6771860499070879
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 7534,
+              "median": 0.1006,
+              "p95": 0.1568,
+              "p99": 0.2018,
+              "maximum": 0.383,
+              "mean": 0.10787710379612424
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 7534,
+              "median": 0.0545,
+              "p95": 0.1815,
+              "p99": 4.18,
+              "maximum": 4.61,
+              "mean": 0.1181732413060791
+            }
+          },
+          "gpuMs": {
+            "positive": 6039,
+            "missing": 1495,
+            "validOnly": {
+              "samples": 6039,
+              "median": 0.080896,
+              "p95": 3.414016,
+              "p99": 8.305664,
+              "maximum": 9.698304,
+              "mean": 0.5683099956946515
+            }
+          }
+        },
+        {
+          "name": "choke-arrival-4-per-second",
+          "layout": 1,
+          "requestsPerSecond": 4,
+          "minimumActive": 64,
+          "maximumActive": 67,
+          "wallMs": {
+            "samples": 7489,
+            "median": 0.28530000000159816,
+            "p95": 3.7468000000018264,
+            "p99": 9.308000000004313,
+            "maximum": 20.500400000003083,
+            "mean": 0.801183909734276
+          },
+          "updateMs": {
+            "samples": 7489,
+            "median": 0.0132,
+            "p95": 0.0227,
+            "p99": 0.0507,
+            "maximum": 19.7752,
+            "mean": 0.03023505140873281
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.0211,
+            "p95": 0.0632,
+            "p99": 10.837900000000001,
+            "maximum": 19.7752,
+            "mean": 0.3353886426592798
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 5.423500000000001,
+            "p95": 19.6949,
+            "p99": 19.6949,
+            "maximum": 19.6949,
+            "mean": 8.665423076923078
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 5.4629,
+            "p95": 19.7752,
+            "p99": 19.7752,
+            "maximum": 19.7752,
+            "mean": 8.717
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 6.38085000000288,
+            "p95": 20.500400000003083,
+            "p99": 20.500400000003083,
+            "maximum": 20.500400000003083,
+            "mean": 9.694766666666984
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 2,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.4004000000001895,
+            "p95": 3.153399999995088,
+            "p99": 11.511200000001054,
+            "maximum": 20.500400000003083,
+            "mean": 1.2126558333330688
+          },
+          "active": {
+            "samples": 7489,
+            "median": 66,
+            "p95": 67,
+            "p99": 67,
+            "maximum": 67,
+            "mean": 65.4184804379757
+          },
+          "visible": {
+            "samples": 7489,
+            "median": 66,
+            "p95": 67,
+            "p99": 67,
+            "maximum": 67,
+            "mean": 65.41874749632795
+          },
+          "pending": {
+            "samples": 7489,
+            "median": 18,
+            "p95": 24,
+            "p99": 24,
+            "maximum": 26,
+            "mean": 17.175323808252102
+          },
+          "oldestPendingSeconds": {
+            "samples": 7489,
+            "median": 4.0,
+            "p95": 5.5,
+            "p99": 5.5,
+            "maximum": 6.0,
+            "mean": 3.877153157965015
+          },
+          "requestedDuringCapture": 26,
+          "completedDuringCapture": 13,
+          "over16_67Count": 2,
+          "over16_67Percent": 0.02670583522499666,
+          "maximumBacklog": 0.016664566666664923,
+          "measuredSeconds": 5.9996686,
+          "gc": [
+            7,
+            7,
+            7
+          ],
+          "engineSamples": 7489,
+          "gpuMissing": 1417,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 7489,
+              "median": 0.2859,
+              "p95": 3.7278,
+              "p99": 9.21,
+              "maximum": 20.4184,
+              "mean": 0.8011982374148752
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 7489,
+              "median": 0.226,
+              "p95": 2.9773,
+              "p99": 9.1156,
+              "maximum": 20.4133,
+              "mean": 0.68417863533182
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 7489,
+              "median": 0.1022,
+              "p95": 0.1592,
+              "p99": 0.2034,
+              "maximum": 0.3036,
+              "mean": 0.10973437040993457
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 7489,
+              "median": 0.0552,
+              "p95": 0.1837,
+              "p99": 4.2073,
+              "maximum": 6.2998,
+              "mean": 0.11592539724929897
+            }
+          },
+          "gpuMs": {
+            "positive": 6072,
+            "missing": 1417,
+            "validOnly": {
+              "samples": 6072,
+              "median": 0.079872,
+              "p95": 3.016704,
+              "p99": 8.977408,
+              "maximum": 9.641984,
+              "mean": 0.56368404743083
+            }
+          }
+        },
+        {
+          "name": "choke-arrival-8-per-second",
+          "layout": 1,
+          "requestsPerSecond": 8,
+          "minimumActive": 63,
+          "maximumActive": 64,
+          "wallMs": {
+            "samples": 6675,
+            "median": 0.3052999999937356,
+            "p95": 6.095399999999529,
+            "p99": 9.12399999999991,
+            "maximum": 20.408099999997376,
+            "mean": 0.8999359550561807
+          },
+          "updateMs": {
+            "samples": 6675,
+            "median": 0.013300000000000001,
+            "p95": 0.0245,
+            "p99": 0.0448,
+            "maximum": 19.544,
+            "mean": 0.03224016479400749
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.0234,
+            "p95": 0.0714,
+            "p99": 10.564300000000001,
+            "maximum": 19.544,
+            "mean": 0.32895429362880885
+          },
+          "planningMs": {
+            "samples": 13,
+            "median": 6.0991,
+            "p95": 19.4679,
+            "p99": 19.4679,
+            "maximum": 19.4679,
+            "mean": 8.437023076923078
+          },
+          "planningUpdateMs": {
+            "samples": 13,
+            "median": 6.1395,
+            "p95": 19.544,
+            "p99": 19.544,
+            "maximum": 19.544,
+            "mean": 8.489676923076923
+          },
+          "planningFollowingWallMs": {
+            "samples": 12,
+            "median": 6.5625499999981685,
+            "p95": 20.408099999997376,
+            "p99": 20.408099999997376,
+            "maximum": 20.408099999997376,
+            "mean": 9.130083333332687
+          },
+          "planningUnmatchedRows": 1,
+          "planningFollowingOver16_67": 1,
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.4730500000036386,
+            "p95": 9.225100000001873,
+            "p99": 11.407900000001803,
+            "maximum": 20.408099999997376,
+            "mean": 2.872121666666752
+          },
+          "active": {
+            "samples": 6675,
+            "median": 64,
+            "p95": 64,
+            "p99": 64,
+            "maximum": 64,
+            "mean": 63.57962546816479
+          },
+          "visible": {
+            "samples": 6675,
+            "median": 64,
+            "p95": 64,
+            "p99": 64,
+            "maximum": 64,
+            "mean": 63.57962546816479
+          },
+          "pending": {
+            "samples": 6675,
+            "median": 116,
+            "p95": 132,
+            "p99": 132,
+            "maximum": 135,
+            "mean": 113.7140074906367
+          },
+          "oldestPendingSeconds": {
+            "samples": 6675,
+            "median": 14.0,
+            "p95": 16.0,
+            "p99": 16.0,
+            "maximum": 16.5,
+            "mean": 13.80936329588015
+          },
+          "requestedDuringCapture": 52,
+          "completedDuringCapture": 9,
+          "over16_67Count": 1,
+          "over16_67Percent": 0.0149812734082397,
+          "maximumBacklog": 0.01666483333333185,
+          "measuredSeconds": 6.001000000000005,
+          "gc": [
+            6,
+            6,
+            6
+          ],
+          "engineSamples": 6675,
+          "gpuMissing": 1250,
+          "cpuMs": {
+            "allSamples": {
+              "samples": 6675,
+              "median": 0.3078,
+              "p95": 6.0776,
+              "p99": 9.0288,
+              "maximum": 20.2598,
+              "mean": 0.8994745767790262
+            }
+          },
+          "mainMs": {
+            "allSamples": {
+              "samples": 6675,
+              "median": 0.2432,
+              "p95": 3.5847,
+              "p99": 8.9453,
+              "maximum": 20.2563,
+              "mean": 0.7687225468164794
+            }
+          },
+          "renderMs": {
+            "allSamples": {
+              "samples": 6675,
+              "median": 0.1069,
+              "p95": 0.1724,
+              "p99": 0.2144,
+              "maximum": 0.8142,
+              "mean": 0.11607592509363296
+            }
+          },
+          "presentWaitMs": {
+            "allSamples": {
+              "samples": 6675,
+              "median": 0.0547,
+              "p95": 0.1915,
+              "p99": 4.1961,
+              "maximum": 8.0954,
+              "mean": 0.12952010486891385
+            }
+          },
+          "gpuMs": {
+            "positive": 5425,
+            "missing": 1250,
+            "validOnly": {
+              "samples": 5425,
+              "median": 0.080896,
+              "p95": 3.595264,
+              "p99": 8.800256,
+              "maximum": 9.508864,
+              "mean": 0.6503396630414746
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "totalFrames": 134145,
+  "totalEngineFrames": 134145,
+  "gpuMissing": 25230,
+  "over16_67Count": 9,
+  "limitation": "Finite sustained streams and conditional FIFO/complete-route argument; external pending queue and unlaned cardinal graph, not unrestricted physical crowd or observed infinity."
+}

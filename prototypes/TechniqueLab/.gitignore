@@ -1,0 +1,12 @@
+Library/
+Temp/
+Obj/
+Build/
+DynamicBuild/
+TrafficBuild/
+StreamBuild/
+Logs/
+UserSettings/
+.vs/
+*.csproj
+*.sln

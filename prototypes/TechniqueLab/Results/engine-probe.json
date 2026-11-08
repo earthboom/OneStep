@@ -1,0 +1,13 @@
+{
+    "unity": "6000.0.77f1",
+    "os": "Windows 11  (10.0.26200)",
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "gpu": "Null Device",
+    "graphicsApi": "Null",
+    "logicalProcessors": 20,
+    "memoryMB": 65395,
+    "graphicsMemoryMB": 128,
+    "editor": true,
+    "batch": true,
+    "playing": false
+}

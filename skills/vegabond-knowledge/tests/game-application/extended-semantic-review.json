@@ -1,0 +1,206 @@
+{
+  "assessment": "Root evaluator semantic review against frozen extended-rubric; not keyword scoring or engine tests.",
+  "baseline": {
+    "N01": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": [
+        "Different surfaces receive distinct mechanisms, with planar reflection conditional on GPU cost and SSR/static captures rejected for unseen moving actors.",
+        "Sealed-room interior mapping is bounded by non-entry/collision assumptions; distant billboard use preserves near-sign silhouettes.",
+        "Normal textures remain lighting detail; rendered silhouette and authoritative collision stay separate.",
+        "Four applicable entries were inspected; camera-angle, offscreen, clipping and pass-cost experiments are proposed, not executed."
+      ]
+    },
+    "N02": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": [
+        "Representation, seeded shape, meshing and traversability are separated; heightfield-only overhangs are rejected.",
+        "Hermite inputs and QEF prerequisites are explicit, including deriving/validating intersections and gradients.",
+        "Minimum-radius collision-space reachability is validated separately, with failed-seed handling and edit-policy uncertainty exposed.",
+        "Shared sample ownership/versioned render-collision activation and border/stale-job tests are proposed. No claim seed alone restores edits."
+      ]
+    },
+    "N03": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": [
+        "Global weighted routes are separated from local jams; exit fields, invalidation and authoritative collisions are considered rather than blanket faster A*.",
+        "Visibility requires normalized angle inputs plus occlusion; path results cannot prove line of sight.",
+        "Persistent lock-on/loss rules and manual switching are retained.",
+        "Exact plugin search is empty, a broadened query yields generic/noisy candidates, and the response rejects those as vendor API proof while continuing independent design."
+      ]
+    },
+    "N04": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": [
+        "Competitive smoke uses common authoritative occupancy/visibility, separately from client lighting/reconstruction quality.",
+        "Buoyancy must query the same wave/time/space, with horizontal displacement inversion caveat; full fluid replacement is rejected for limited wave needs.",
+        "Premultiplied versus straight-alpha mismatch is used as supplied evidence; color-space and API settings remain conditional.",
+        "Distinct minimal changes and target-quality/depth/buoyancy/blend checks replace an unearned universal solver/performance promise."
+      ]
+    },
+    "N05": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": [
+        "Per-frame lerp is replaced by a bounded time-consistent damping model, with stationary-target guarantee distinguished from moving-target behavior.",
+        "Finite two-second transition owns elapsed time and inverts Bezier x or validates its mapping, rather than confusing damping with duration.",
+        "Real capsule/sweep constraints and supported body sizes require geometry/contact checks, not curve changes.",
+        "Comfort options preserve movement/aim; document/math checks are explicitly distinct from absent engine/play evaluation."
+      ]
+    },
+    "N06": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": [
+        "Attenuation, door filtering/obstruction and room response are separate, with listener authority and warning recognition preserved.",
+        "Stems share playback position while section/bridge changes use authored musical boundaries.",
+        "Rapid edges are coalesced/cancelled under explicit scheduling, with no global cue restart.",
+        "Unknown middleware support remains conditional; listening offsets, reversals, doors, room transitions and stalls are proposed."
+      ]
+    },
+    "N07": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": [
+        "Rating uncertainty and search constraints are separate; aggregate 50% cannot establish calibration or a per-match guarantee.",
+        "Hidden ranked damage/loot manipulation is rejected under the supplied promise, while bounded PvE pacing remains conditional.",
+        "Pity is a different conditional probability process, with advertised fixed odds and tail/maximum claims checked without invented data.",
+        "Recoverable-health expiry/pool and action eligibility remain authored; deliberate damage policies and economy interactions are proposed tests."
+      ]
+    },
+    "N08": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": [
+        "Contact uses support, shoe offset, knee/reach, gait and pelvis limits while retaining combat capsule and releasing destroyed supports.",
+        "Guide/interpolation/shadow costs and platform support are distinct; offscreen updates are not indiscriminately disabled.",
+        "Gameplay-support debris retains collision/state; cosmetic debris can have limited activation/sleep/lifetime instead of every piece simulating.",
+        "Exact and broader lookup do not establish vendor callback ABI/thread/lifetime guarantees; only the dependent integration is deferred. Filename-only sibling discovery exposed no case content."
+      ]
+    },
+    "N09": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": [
+        "Palette-file, decoded and GPU budgets remain distinct; scaling/filter choices are checked at actual display sizes.",
+        "Single affine perspective is rejected; scanline changes/projection and fixed-point choices are bounded by non-cycle-exact scope.",
+        "Controller payload transport is not automatic executable input; parser bounds/overflow/lifetime failure mechanisms are explicit.",
+        "Exact/variant private-format queries do not reveal a grammar; required version/endian/length/offset limits and examples are requested rather than fabricated. Visual analysis continues."
+      ]
+    },
+    "N10": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": [
+        "Element/material transitions are a chosen conceptual model, not universal chemistry or verified private Nintendo scheduling.",
+        "Simultaneous effects use an authored directed-rule/precedence/commit contract; coefficients, cycles and authority remain explicit.",
+        "Attack/hurt/blocking volumes and per-swing target identities are distinct from separately timed sustained damage.",
+        "VFX does not establish damage; state/attack histories, replication and save/load consistency require proposed checks, not a runtime pass."
+      ]
+    }
+  },
+  "retest": {
+    "N03": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": "Same frozen criteria pass: global/local/perception/lock-on decisions remain separate; exact and variant plugin queries are empty, and generic evidence is not a vendor guarantee. Weighted successor wording remained coarse, motivating a separately recorded supplemental graph check rather than changing this rubric."
+    },
+    "N04": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": "Same frozen criteria pass: smoke authority/rendering, matched wave queries and premultiplied composition have distinct actions and pending target tests; a universal fluid replacement is rejected."
+    },
+    "N09": {
+      "verdict": "pass",
+      "criteria": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "basis": "Same frozen criteria pass: storage/runtime/projection and input-execution claims remain bounded; exact private-format lookup is empty and only decoder commitment is deferred."
+    }
+  },
+  "supplemental_finding": {
+    "kind": "ambiguous stored weighted-flow contract",
+    "reason": "Decreasing cost does not specify adding the outgoing edge cost or zero-cost progress; a supplemental counterexample suite was added after the frozen run. Original rubric and passing decisions are retained.",
+    "followup": {
+      "verdict": "pass",
+      "source_ambiguity_corrected": true,
+      "variant_next_hops": [
+        "Q",
+        "Z",
+        "L"
+      ],
+      "variant_costs": [
+        8,
+        4,
+        5
+      ],
+      "basis": "Fresh performer inspected corrected PATH, rejected min-T neighbor selection, preserved original directed costs and required acyclic zero-cost progress. Evaluator recomputed all three variants independently. This does not retroactively change the original frozen criteria."
+    }
+  }
+}

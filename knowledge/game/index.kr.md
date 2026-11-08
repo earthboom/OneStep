@@ -1,41 +1,83 @@
-# 게임 설계 지식
+# 게임 개발 지식
 
-사람 전용 번역. AI는 영문 index.md를 사용한다.
+[기술 안내서](K-GAME-TECH-GUIDE.kr.md)에서 59개 영상과 43개 구현 기술, 추가 조사 결과를 확인한다. [활용 규칙](K-GAME-RESEARCH-USE.kr.md)을 개발 진입·기획·코드·코드 설계 지침에 연결했다.
 
-콘셉트·메커니즘·시스템 상호작용·제작 질문·플레이어 경험을 위한 장르별 참고 자료다. [조회 관례](K-GAME-RESEARCH-USE.kr.md)에서 시작해 실제 설계 질문으로 항목을 고른다. [기획 방법](../../skills/vegabond-planning/SKILL.kr.md)과 대규모 기획 조정을 지원한다.
+상황·제약 → 관련 지식 조회 → 채택·조건부·기각 → 변경·검사 → 관찰 결과 기록 순서로 활용한다. 모든 기술을 한꺼번에 적용하지 않는다. 엔진·버전·플랫폼·권한과 근거 한계를 확인한다. 실제 게임·플레이 검증은 별도다.
 
-[분야 안내](../index.kr.md) | [저장과 수명 관리](../../skills/vegabond-knowledge/references/storage.kr.md)
+이 목록은 영문 기준 문서에서 생성한 사람용 한국어 안내다. AI는 영문 목록과 세부 항목을 사용한다.
 
-공통 방법과 조건이 맞는 장르 자료를 함께 쓴다. 복합 장르에 모든 관습을 일괄 적용하지 않는다. 출처 사례 관찰과 제안된 재사용 점검은 상세에서 구별한다. 과거 개발 사례는 현재 밸런스 명세가 아니다.
+| ID / 항목 | 요점 | 상세 |
+| --- | --- | --- |
+| K-GAME-ACCESSIBILITY-ONBOARDING / 학습 가능하고 접근 가능한 상호작용 | 핵심 도전과 감각·이해·입력 장벽을 구분하고 실제 사용자·기기로 검증한다. | [읽기](K-GAME-ACCESSIBILITY-ONBOARDING.kr.md) |
+| K-GAME-ACTION-COMBAT / 읽을 수 있는 위협과 의미 있는 대응 | 전조·위험 영역·대응·비용·결과를 정의하고 적 조합과 실제 카메라에서 확인한다. | [읽기](K-GAME-ACTION-COMBAT.kr.md) |
+| K-GAME-COOP-DIRECTOR / 협동 의존성과 적응형 페이싱 | 서로 도울 이유를 만들고 명시적 상태로 압박과 휴식을 조절한다. | [읽기](K-GAME-COOP-DIRECTOR.kr.md) |
+| K-GAME-DESIGN-FRAMEWORK / 의도한 경험에서 장르 방법 선택 | 경험 목표를 관찰 가능한 시스템과 규칙에 연결하고 장르 관례는 조건부로 적용한다. | [읽기](K-GAME-DESIGN-FRAMEWORK.kr.md) |
+| K-GAME-ECONOMY / 개별 보상 조정 전 자원 흐름 모델링 | 생성·저장·이전·변환·소모와 기간·상한·피드백을 함께 비교한다. | [읽기](K-GAME-ECONOMY.kr.md) |
+| K-GAME-EXPLORATION / 질문·관찰·발견으로 탐험 설계 | 공간 지도와 정보 관계를 분리하고 발견이 다음 행동을 어떻게 바꾸는지 검증한다. | [읽기](K-GAME-EXPLORATION.kr.md) |
+| K-GAME-HORROR / 불확실성·주도성·회복으로 공포 설계 | 예고·위협·안도를 조절하고 최적화가 의도한 공포를 없애는지 확인한다. | [읽기](K-GAME-HORROR.kr.md) |
+| K-GAME-IDLE-INCREMENTAL / 방치형 성장·프레스티지 설계 | 생산·구매·배율·리셋 이득을 시간에 따라 비교하고 능동·대기·오프라인 선택을 구분한다. | [읽기](K-GAME-IDLE-INCREMENTAL.kr.md) |
+| K-GAME-METROIDVANIA / 능력 해금·재방문·경로 연결 | 얻은 능력을 알아볼 수 있는 장벽과 유용한 재방문에 연결한다. | [읽기](K-GAME-METROIDVANIA.kr.md) |
+| K-GAME-MULTIPLAYER / 정보와 판정 계약으로 공정성 정의 | 가독성·시뮬레이션 일치·수치 밸런스를 구분해 대전 문제를 진단한다. | [읽기](K-GAME-MULTIPLAYER.kr.md) |
+| K-GAME-NARRATIVE-ADVENTURE / 선택·상태·진행 가능한 서사 | 플레이어 지식과 선택 결과를 정의하고 상태가 누적된 대표 경로를 검증한다. | [읽기](K-GAME-NARRATIVE-ADVENTURE.kr.md) |
+| K-GAME-PLATFORMER / 도전 구성 전 이동 계약 확립 | 충돌·이동 발판·상태 전달을 예측 가능하게 만든 뒤 이동 도전을 조합한다. | [읽기](K-GAME-PLATFORMER.kr.md) |
+| K-GAME-PROTOTYPE-PLAYTEST / 설계 불확실성에 맞춘 시제품과 테스트 | 중요 가정을 반증할 최소 플레이 형태를 고르고 관찰·해석·수정·효과를 분리한다. | [읽기](K-GAME-PROTOTYPE-PLAYTEST.kr.md) |
+| K-GAME-PUZZLE / 발견 가능한 상호작용과 추론 | 제공 정보가 발견과 추론을 뒷받침하는지 시험하고 변형과 삭제로 학습 순서를 만든다. | [읽기](K-GAME-PUZZLE.kr.md) |
+| K-GAME-RACING / 주행 향상과 경쟁 결과의 가독성 | 개인 페이스·일관성·경쟁 순위를 구분하고 핸들링 변경 후 트랙을 다시 확인한다. | [읽기](K-GAME-RACING.kr.md) |
+| K-GAME-RESEARCH-USE / 게임 개발 전 과정에서 조건에 맞는 근거 조회 | 기획·설계·구현·디버깅·최적화의 실제 결정과 증상으로 검색하고 채택·조건부·기각, 변경, 실제 검사 결과를 연결한다. | [읽기](K-GAME-RESEARCH-USE.kr.md) |
+| K-GAME-RHYTHM / 리듬 도전·채보 판독·기기 지연 구분 | 타이밍 신뢰성과 읽을 수 있는 채보를 먼저 확보하고 실패 원인을 분리한다. | [읽기](K-GAME-RHYTHM.kr.md) |
+| K-GAME-ROGUELIKE-DECKBUILDER / 회차 맥락의 카드 선택과 콘텐츠 범위 | 카드가 유효한 상황을 찾고 수치와 관찰을 결합하며 신규 상호작용 비용을 관리한다. | [읽기](K-GAME-ROGUELIKE-DECKBUILDER.kr.md) |
+| K-GAME-RPG-PROGRESSION / 빌드·전리품 평가·성장 투자 구분 | 캐릭터와 아이템 성장을 함께 계획하고 확인·수정 가능한 결정에 복잡성을 배분한다. | [읽기](K-GAME-RPG-PROGRESSION.kr.md) |
+| K-GAME-SHOOTER / 무기 역할과 시각 인식의 공동 조정 | 매개변수를 바꿔도 역할을 유지하고 전투·인지 테스트를 함께 수행한다. | [읽기](K-GAME-SHOOTER.kr.md) |
+| K-GAME-SIM-MANAGEMENT / 제작법 확장 전 생산 제약 가시화 | 자원 변환·병목·단계적 학습을 연결해 확장이 의미 있는 결정을 만들게 한다. | [읽기](K-GAME-SIM-MANAGEMENT.kr.md) |
+| K-GAME-SOCIAL-PARTY / 참여·공유 정보·공개 시점의 시제품 | 단순 재료로 사회적 교환을 시험하고 규칙 이해와 개인 기여를 핵심 설계로 다룬다. | [읽기](K-GAME-SOCIAL-PARTY.kr.md) |
+| K-GAME-STRATEGY-RTS / 경제·정보·대응으로 RTS 압박 설계 | 경제 페이싱과 유닛 역할을 읽을 수 있는 대응 기회에 연결한다. | [읽기](K-GAME-STRATEGY-RTS.kr.md) |
+| K-GAME-STRATEGY-TURN-4X / 턴 예산·제국 성장·캠페인 종료 연결 | 같은 자원을 두고 경쟁하는 행동과 전략적 불확실성이 끝난 뒤 승리 조건을 검토한다. | [읽기](K-GAME-STRATEGY-TURN-4X.kr.md) |
+| K-GAME-SURVIVAL-CRAFTING / 생존 압박·제작·자기주도 탐험 | 필요·도구·거점을 플레이어 목표에 연결하고 위험 대응을 이해·실행 가능하게 한다. | [읽기](K-GAME-SURVIVAL-CRAFTING.kr.md) |
+| K-GAME-TECH-AUTHORITY / 서버 권한·클라이언트 예측·보정 | 결과 주장을 신뢰하는 대신 입력 의도를 권한 있는 시뮬레이션에 보내 검증한다. 로컬의 지연 민감 동작을 예측하고 서버 확인 상태로 보정한 뒤 지원되는 이동 모델에서는 미확인 입력을 다시 적용한다. 외형 보간과 권한 충돌은 분리한다. | [읽기](K-GAME-TECH-AUTHORITY.kr.md) |
+| K-GAME-TECH-BILLBOARD / 빌보드·이미지 대체물의 방향 설정 | 파티클·원거리 식생·스타일화된 물체에 이미지 평면을 쓴다. 화면 정렬, 시점 지향, 축 고정 방식을 구분한다. 지면 물체는 위쪽 축을 유지하고 단일 이미지로 부족하면 방향별 아틀라스를 사용한다. | [읽기](K-GAME-TECH-BILLBOARD.kr.md) |
+| K-GAME-TECH-BLEND / 알파·가산·곱하기 블렌딩 | 일반 알파는 C=alpha*S+(1-alpha)*D, 가산은 밝기 누적, 곱하기는 색상 곱으로 이해한다. 선형 색 공간에서 계산하고 프리멀티플라이드 알파와 일반 알파를 구분한다. 마스크 재질은 연속 혼합 대신 픽셀을 버린다. | [읽기](K-GAME-TECH-BLEND.kr.md) |
+| K-GAME-TECH-CAMERA / 데드존·룩어헤드·카메라 감쇠 | 플레이어·전방 예측점·방 앵커·여러 대상 중 구도 목표를 먼저 정하고 감쇠한다. 데드존으로 불필요한 추적을 줄인다. 정지 목표의 지수 감쇠는 x+=(target-x)*(1-exp(-lambda*dt))로 시간 일관성을 확보할 수 있다. 속도·오버슈트가 중요하면 감쇠 스프링을 검토한다. | [읽기](K-GAME-TECH-CAMERA.kr.md) |
+| K-GAME-TECH-CONTROLLER / 코요테 타임·버퍼·코너 보정 | 점프 요청 시각과 마지막 접지 시각을 기록한다. 입력 버퍼와 접지 유예 조건이 겹치면 점프하고 요청을 한 번만 소비한다. 충돌 검사 뒤 제한된 코너 보정을 적용하고 이동 발판 운동량의 소유권을 정한다. 가속·버튼 해제 감속·공중 제어는 목표 도달 범위에 맞춰 조절한다. | [읽기](K-GAME-TECH-CONTROLLER.kr.md) |
+| K-GAME-TECH-CROWD / 군중 충돌·처리량·개별 진전 판단 | 이웃 검사와 협조뿐 아니라 생성 전 대기·개별 ID 응답·과부하를 기록한다. 전체 처리량이 특정 개체 기아를 숨기지 않게 한다. | [읽기](K-GAME-TECH-CROWD.kr.md) |
+| K-GAME-TECH-DDA / 동적 난이도·러버밴딩·페이싱 | 관찰 가능한 성과 지표로 생성 간격·자원·회복 시간·상대 속도를 제한적으로 조정한다. 선택 난이도·동적 압박·경쟁 따라잡기를 구분하고 이력·쿨다운으로 빠른 진동을 막는다. | [읽기](K-GAME-TECH-DDA.kr.md) |
+| K-GAME-TECH-DESTRUCTION / 사전 파쇄·런타임 파괴 선택 | 장식적 피해는 모델 교체와 파편 연출로 충분할 수 있다. 게임플레이 파괴는 Geometry Collection·클러스터·충돌·파괴 임계값을 설계한다. 미리 나눈 조각의 물리 시뮬레이션과 런타임 절단은 구분하고 표면 자국은 데칼로 처리한다. | [읽기](K-GAME-TECH-DESTRUCTION.kr.md) |
+| K-GAME-TECH-DUNGEON / 던전 생성과 통과 가능성 보장 | 원하는 연결 구조에 따라 방 그래프·공간 분할·랜덤 워크·문법을 고른다. 시작점과 목표의 연결을 확보한 뒤 호환 방·문·전투를 배치한다. 시드 기반 구조 생성과 장식을 분리해 외형 변경이 경로를 바꾸지 않게 한다. | [읽기](K-GAME-TECH-DUNGEON.kr.md) |
+| K-GAME-TECH-EASING / 이징·스무드스텝·베지에 곡선 | 정규화 시간을 진행률로 바꾼 뒤 값을 보간한다. 3t²-2t³은 양끝 기울기 0, 6t⁵-15t⁴+10t³은 양끝 이차 미분도 0이다. 3차 베지에는 매개 곡선이며 CSS식 시간 곡선은 x에 맞는 매개값을 구한 뒤 y를 읽는다. 임의의 바운스를 단일 3차 곡선으로 정확히 재현할 수 있는 것은 아니다. | [읽기](K-GAME-TECH-EASING.kr.md) |
+| K-GAME-TECH-FOLIAGE / 잔디·식생의 LOD와 렌더링 예산 | 실루엣 중요도에 따라 교차 카드나 메시를 선택한다. 보이지 않는 영역은 컬링하고 먼 곳은 단순화하며 호환 인스턴스를 묶는다. 공간적으로 이어지는 바람으로 정점을 변형한다. 드로 호출·정점·오버드로·그림자 비용을 나눠 측정한다. | [읽기](K-GAME-TECH-FOLIAGE.kr.md) |
+| K-GAME-TECH-GUIDE / 게임 개발 기술 안내서 | 쇼츠59편·기술43개 대응. 제한된4개 항목의 엔진 근거와39개 미검증, 과부하 실패·출처·가상 판단·실측을 구분한다. | [읽기](K-GAME-TECH-GUIDE.kr.md) |
+| K-GAME-TECH-HAIR / 헤어 카드·스트랜드와 시뮬레이션 | 카드는 제작된 실루엣과 낮은 표현 예산에, 스트랜드는 근접 고품질 캐릭터에 검토한다. 렌더 표현·시뮬레이션 가이드·충돌·LOD를 분리하고 그룸 파이프라인을 고르기 전에 플랫폼 지원을 확인한다. | [읽기](K-GAME-TECH-HAIR.kr.md) |
+| K-GAME-TECH-HITBOX / 공격·피격 판정과 히트스톱 | 공격 영역·피격 영역·이동 충돌을 분리한다. 시뮬레이션 상태·프레임에 따라 공격을 활성화하고 공격 ID로 의도치 않은 중복 피해를 막는다. 무적·유예는 설계가 요구하는 곳에 적용한다. 히트스톱 동안 멈추는 시계와 유지되는 입력 버퍼를 정한다. | [읽기](K-GAME-TECH-HITBOX.kr.md) |
+| K-GAME-TECH-HITSCAN / 히트스캔·총구 차폐 판정 | 탄도 이동을 사실상 즉시 처리할 무기에 사용한다. 카메라 조준점을 구한 뒤 총구→조준점 추적으로 차폐를 검사하고 권한 있는 판정 규칙을 적용한다. 실제 투사체가 아니면 보이는 탄흔은 연출로 분리한다. 비행 시간·낙차가 중요하면 투사체 시뮬레이션을 검토한다. | [읽기](K-GAME-TECH-HITSCAN.kr.md) |
+| K-GAME-TECH-IK / 발 IK·FABRIK·신체 비율 보정 | 발 접촉 지점을 질의하고 이펙터를 놓은 뒤 폴·관절 목표로 무릎 방향을 제한한다. 입력 좌표계를 맞추고 필요하면 골반을 보정하며 보행 단계에 따라 IK를 혼합한다. 팔다리는 2본 해석 해법, 긴 체인은 FABRIK 등을 검토한다. | [읽기](K-GAME-TECH-IK.kr.md) |
+| K-GAME-TECH-INCENTIVES / 반복 보상·공격 유도·리스크와 리워드 | 설계 종합안: 반복 선택의 시간·자원 비용·실패 결과·대안을 정한다. 효율 업그레이드·자동화는 숫자 증가뿐 아니라 작업 방식도 바꿀 수 있다. 공격 회복·시간 압박은 교전을 유도할 수 있지만 안전한 전략과 실력대별로 비교한다. 기존 경제·전투 항목을 먼저 참조한다. | [읽기](K-GAME-TECH-INCENTIVES.kr.md) |
+| K-GAME-TECH-INTERIOR / 접근 불가능한 실내의 인테리어 매핑 | 들어갈 수 없는 건물 창문에 사용한다. 시선 광선을 방 좌표계로 변환하고 가상의 상자와 교차시켜 벽·바닥·천장 텍스처를 고른다. 실내 메시 전체를 만들지 않고 방별 변형을 준다. | [읽기](K-GAME-TECH-INTERIOR.kr.md) |
+| K-GAME-TECH-LAGCOMP / 서버 되감기·지연 보상 | 시각별 충돌 이력을 보관하고 허용된 사격을 제한된 과거 상태에서 질의한다. 시계 대응과 표시 보간 지연을 반영하고 현재 권한 세계와 임시 과거 질의를 구분한다. | [읽기](K-GAME-TECH-LAGCOMP.kr.md) |
+| K-GAME-TECH-LEVEL / 월드 규모·문 크기·랜드마크·경로 | 캐릭터 크기·카메라 범위·회전 반경·전투 시야에서 시작한다. 통과 가능한 문·복도를 블록아웃하고 차폐·랜드마크·경로 길이로 탐험 리듬을 만든다. 제작 범위에 유리하면 분기와 합류를 쓰되 의미 있는 대안은 남긴다. | [읽기](K-GAME-TECH-LEVEL.kr.md) |
+| K-GAME-TECH-LOCKON / 락온·타겟 전환·카메라 | 거리·화면 방향·각도·시야로 후보를 평가한다. 비슷한 후보 간 깜빡임을 막는 이력과 명확한 전환·해제 규칙을 둔다. 카메라·캐릭터 회전을 분리하고 필요하면 선택 적 기준으로 횡이동을 정의한다. | [읽기](K-GAME-TECH-LOCKON.kr.md) |
+| K-GAME-TECH-LOCKSTEP / 결정론적 록스텝 | 모든 물체 상태 대신 틱 번호가 있는 입력을 교환한다. 초기 상태·난수 스트림·처리 순서·수치 연산·시간 간격을 재현 가능하게 만든다. 상태 해시로 불일치를 추적하고 재생 버퍼로 도착 지터를 흡수하되 지연 비용을 기록한다. | [읽기](K-GAME-TECH-LOCKSTEP.kr.md) |
+| K-GAME-TECH-MATCH / Elo·TrueSkill·매치메이킹 | 실력 추정과 실제 매치 선택을 분리한다. TrueSkill은 평균과 불확실성으로 실력을 표현해 결과로 갱신하고, Elo는 예상 결과를 이용해 점수를 갱신한다. 매치 탐색은 핑·파티·대기 시간·허용 실력 차이 정책을 추가한다. | [읽기](K-GAME-TECH-MATCH.kr.md) |
+| K-GAME-TECH-MEMORY / 메모리 오류·임의 코드 실행 | 코드와 데이터는 실행 환경이 해석하는 비트열이다. 메모리·제어 흐름 손상은 의도하지 않은 실행으로 이어질 수 있지만 범위 밖 쓰기만으로 모든 취약점을 설명할 수는 없다. 개발에서는 수명·경계·타입 인터페이스와 저장·외부 데이터 검증을 우선한다. | [읽기](K-GAME-TECH-MEMORY.kr.md) |
+| K-GAME-TECH-MUSIC / 어댑티브 뮤직·스템·전환 구간 | 수직 레이어링은 동기화된 스템, 수평 재배열은 호환 음악 구간을 사용한다. 게임 상태를 음악 강도로 바꾸고 박·마디·제작된 큐에 맞춰 전환한다. 템포·박자·진입·종료점·전환 구간·크로스페이드 정책을 관리한다. | [읽기](K-GAME-TECH-MUSIC.kr.md) |
+| K-GAME-TECH-NOISE / 펄린 노이즈·프랙탈 지형 | 공간적으로 이어지는 변형에 사용한다. 펄린 노이즈는 주변 격자점의 기울기 내적을 부드럽게 보간한다. 내적값을 그대로 더하는 것만으로는 부족하다. 주파수·진폭을 조절한 옥타브를 합쳐 다중 규모 디테일을 만들고 바이옴 필드는 메시 생성과 분리한다. | [읽기](K-GAME-TECH-NOISE.kr.md) |
+| K-GAME-TECH-NORMAL / 노멀 매핑으로 조명 디테일 추가 | 메시보다 세밀한 조명 디테일이 필요할 때 사용한다. 저장 벡터를 정해진 공간으로 복원하고 호환 탄젠트 기저로 변환한 뒤 정규화한다. 베이크·임포트·렌더링의 노멀맵 규약을 일치시킨다. | [읽기](K-GAME-TECH-NORMAL.kr.md) |
+| K-GAME-TECH-PATH / 목표·반경·시간 충돌에 맞는 경로 선택 | 공유 장·동적 장애물·교행 차선·무차선 시간 예약의 조건을 구분한다. 생성 통제와 불변 경로가 필요한 지속 유입 실험을 확인한다. | [읽기](K-GAME-TECH-PATH.kr.md) |
+| K-GAME-TECH-PIXEL / 픽셀 아트와 팔레트 저장 | 실제 표시 배율에서 픽셀 덩어리·윤곽 리듬·팔레트·선택적 안티앨리어싱을 조정한다. 인덱스 색상은 팔레트 번호를 저장하며 이론상 n색에 ceil(log2(n)) 비트가 필요하지만 파일 규격 제약이 있다. 디더링은 공간 패턴으로 중간 명암을 표현한다. | [읽기](K-GAME-TECH-PIXEL.kr.md) |
+| K-GAME-TECH-RANDOM-DESIGN / 입력·출력 무작위성과 천장·셔플백 | 불확실성이 언제 공개되고 결과를 얼마나 바꾸는지 구분한다. 셔플백은 보충 전까지 비복원 추출하며 천장은 실패 후 조건부 확률을 바꾸거나 결과를 보장한다. 첫 성공 확률은 p_n*이전 실패확률의 곱이며 여기서 평균 대기와 긴 실패 꼬리를 계산한다. | [읽기](K-GAME-TECH-RANDOM-DESIGN.kr.md) |
+| K-GAME-TECH-REFLECTION / 평면 반사·환경맵·SSR 선택 | 정확한 평면 거울은 반사 카메라와 클리핑으로 장면을 다시 그린다. 대략적인 주변 반사는 환경맵·프로브를 쓰고 갱신 정책을 정한다. SSR은 화면 깊이 안에서만 추적하므로 화면 밖 정보에 대한 대체 수단이 필요하다. 거칠기·거리·중요도로 방식을 조합한다. | [읽기](K-GAME-TECH-REFLECTION.kr.md) |
+| K-GAME-TECH-RETRO / 아핀 변환·주사선별 의사 원근 | 수학적 유도: 2D 아핀 변환 p'=A*p+b는 평행성을 유지한다. 바닥 원근 표현은 깊이별 배율이 필요하므로 주사선마다 아핀 매개변수를 바꾸는 식으로 근사할 수 있다. 평면 지면의 스타일화 효과나 고전 렌더링 학습에 쓴다. | [읽기](K-GAME-TECH-RETRO.kr.md) |
+| K-GAME-TECH-RNG / 의사난수·시드·스트림 | 결정론적 의사난수기는 내부 상태에서 재현 가능한 수열을 만든다. 리플레이·생성·전리품의 상태를 저장하거나 독립 스트림을 쓰고 장식용 난수 소비가 게임 결과를 바꾸지 않게 한다. 주기·통계 품질·속도·재현 요구로 생성기를 고른다. | [읽기](K-GAME-TECH-RNG.kr.md) |
+| K-GAME-TECH-ROLLBACK / 롤백·입력 지연 넷코드 | 원격 입력을 예측하고 상태 스냅샷을 저장한 뒤 실제 입력과 비교한다. 다르면 과거 상태를 복원해 중간 프레임을 모두 그리지 않고 현재까지 다시 계산한다. 재실행되는 소리·파티클·업적을 중복 처리하지 않는다. 입력 지연과 결합해 보정 범위를 조절할 수 있다. | [읽기](K-GAME-TECH-ROLLBACK.kr.md) |
+| K-GAME-TECH-SAVE / 저장·백업·비트 플래그·패스워드 | 런타임 포인터 대신 영속 상태·안정적인 객체 ID·스키마 버전을 저장한다. 필요하면 독립 플래그를 비트로 압축한다. 패스워드는 작은 복원 상태를 제한된 문자 집합과 오류 검출 정보로 인코딩한다. 내구성 설계안: 새 저장본을 검증한 뒤 정상 슬롯을 교체하고 복구 세대를 남긴다. | [읽기](K-GAME-TECH-SAVE.kr.md) |
+| K-GAME-TECH-SHADOW / 섀도 맵·CSM·필터링 선택 | 움직이는 광원·물체에 사용한다. 광원 시점의 깊이를 저장하고 수신 표면 깊이와 비교한다. CSM은 카메라 시야를 거리별로 나눠 해상도를 배분하고, PCF는 깊이 자체가 아닌 비교 결과를 평균한다. 분할 거리·바이어스·필터 크기·안정화를 따로 조정한다. 정적 조명 베이크는 광원과 물체의 변화 조건부터 확인한다. | [읽기](K-GAME-TECH-SHADOW.kr.md) |
+| K-GAME-TECH-SOUND / 거리 음향·차폐·도플러·리버브 | 감쇠 곡선은 크기, 공기 흡수 필터는 음색, 공간화는 방향, 차폐·리버브는 장애물·공간 반응을 담당한다. 필요하면 상대적인 방사 방향 속도로 도플러 피치를 조절한다. 청취자 위치가 반드시 카메라와 같지는 않다. | [읽기](K-GAME-TECH-SOUND.kr.md) |
+| K-GAME-TECH-SPEED / 속도감·FOV·모션 블러 | 가속 이벤트에 FOV 변화·카메라 오프셋·지연·속도 기반 블러를 연결한다. 기본 구도와 연출을 분리해 강도 설정이 조준·이동 규칙을 바꾸지 않게 한다. 깊이 기반 카메라 블러는 시점 변환으로 픽셀 이동을 복원하지만 움직이는 물체는 추가 운동 정보가 필요하다. | [읽기](K-GAME-TECH-SPEED.kr.md) |
+| K-GAME-TECH-SYSTEMIC / 화학 엔진·원소 상호작용 | 원본 발표의 원소 효과·물질 상태 변화 규칙을 확인했다. 방향성 규칙표·충돌 우선순위·이벤트 처리는 프로젝트별 구현 종합안이다. | [읽기](K-GAME-TECH-SYSTEMIC.kr.md) |
+| K-GAME-TECH-TIMESTEP / 고정 시간 간격·점프 적분·서브픽셀 | 안정적인 물리·리플레이가 필요하면 누적기로 고정 시뮬레이션 간격을 유지하고 화면을 보간한다. 밀린 계산량은 제한한다. 반암시적 오일러는 v+=a*dt 뒤 x+=v*dt를 계산하며 명시적 오일러는 이전 속도를 쓴다. 점프의 상승·하강 가속도는 다르게 설계할 수 있다. 정수 픽셀로 표시해도 소수 위치나 잔여량은 보존한다. | [읽기](K-GAME-TECH-TIMESTEP.kr.md) |
+| K-GAME-TECH-TRACE / 내적·시야각·레이캐스팅 | 단위 전방 f와 방향 d의 시야 원뿔 판정은 dot(f,d)>=cos(반시야각)이다. 거리→각도→차폐 추적 순으로 거른다. 길이 0인 방향을 처리하고 지면 투영 여부를 정한다. 트레이스 채널·무시 대상·단순/복합 충돌·여러 표적점이 실제 가시성 정의를 결정한다. | [읽기](K-GAME-TECH-TRACE.kr.md) |
+| K-GAME-TECH-VOLUME / 볼류메트릭 연기·구름과 게임 판정 분리 | 밀도장과 산란·소광으로 연기·구름을 표현하고 노이즈로 형상을 만든다. 저해상도 계산과 시간축 복원은 품질·성능 절충이다. 경쟁 게임의 연막은 클라이언트 최종 이미지에 맡기지 말고 권한 있는 밀도·가시성 규칙을 공유한다. | [읽기](K-GAME-TECH-VOLUME.kr.md) |
+| K-GAME-TECH-VOXEL / 복셀·듀얼 컨투어링·청크 | 부피 편집이 중요할 때 복셀을 쓴다. 저장·표면 추출·충돌·스트리밍을 분리한다. 듀얼 컨투어링은 부호 샘플 외에도 경계 교차점·노멀인 Hermite 데이터와 이차 오차 최소화가 필요하다. 영향 영역만 다시 만들고 청크 경계 샘플을 동기화한다. | [읽기](K-GAME-TECH-VOXEL.kr.md) |
+| K-GAME-TECH-WATER / 사인파·거스너파 수면 | 진폭·파장·방향·위상을 가진 파동들을 합해 수면을 만든다. 거스너파는 표면점을 수평으로도 움직여 더 뾰족한 마루를 표현한다. 같은 변위장에서 노멀을 계산하고 부력 판정에도 호환되는 수면 질의를 제공한다. | [읽기](K-GAME-TECH-WATER.kr.md) |
 
-폭넓은 출발 조사이며 모든 장르를 포괄하는 백과사전은 아니다. 중요한 세부 사항은 원출처 위치를 확인한다. 본문·슬라이드·요약만 확인한 범위와 미시청 영상은 상세에 명시했다. 아래 모든 항목의 새 프로젝트 적용·게임플레이 검증은 미실행이며, 빠진 장르 변형은 표적 조사가 필요하다.
+## 실제 엔진 확장
 
-영문 상세 메타데이터를 기준으로 생성한 번역 목록이다. 행 대신 상세를 수정한다.
-
-| ID·제목·유형 | 요약 | 범위·근거 확인 맥락 | 검색어 | 상태·확인 날짜 | 상세 |
-| --- | --- | --- | --- | --- | --- |
-| K-GAME-ACCESSIBILITY-ONBOARDING / 장르에 맞게 배울 수 있고 접근 가능한 상호작용 설계 [참고] | 의도한 도전과 정보 인지·목표 이해·조작 장벽을 구분한다. 중복 감각 단서·조정 가능한 입력·재방문 가능한 학습을 계획하고 관련 이용자·기기로 전체 흐름을 검증한다. | 장르별 온보딩·접근성·조작·난이도. Xbox 지침은 준수 인증의 증거가 아니다. 공식 본문 확인; 출처별 접근 한계는 상세에 명시. | accessibility, onboarding, tutorial, input, objective-clarity, difficulty, readability, 접근성, 튜토리얼, 온보딩, 조작, 학습, 난이도, 가독성 | 사용 가능 / 2026-11-07 | [상세](K-GAME-ACCESSIBILITY-ONBOARDING.kr.md) |
-| K-GAME-ACTION-COMBAT / 읽을 수 있는 위협과 의미 있는 대응을 중심으로 전투 설계 [참고] | 위협마다 플레이어가 무엇을 인지하고 할 수 있는지 정하고 적 행동으로 대응을 학습시킨다. 반응 시간을 복사하지 않고 조건에 맞게 방법을 옮긴다. | 액션 전투·적·능력 설계. PvE와 조건부 PvP 전용. 공식 개발자 글 확인. | action, combat, enemy design, counterplay, telegraph, encounter, prototype, playtest, 액션, 전투, 적 설계, 대응, 전조, 전투 기획, 플레이테스트 | 사용 가능 / 2026-11-07 | [상세](K-GAME-ACTION-COMBAT.kr.md) |
-| K-GAME-COOP-DIRECTOR / 협동 의존성과 범위가 정해진 적응형 호흡 연결 [참고] | 서로 도울 이유를 만들고 명시적 호흡 상태로 압박을 조절한다. Director의 강도 추정치를 감정의 측정값으로 취급하지 않는다. | 재플레이 가능한 협동 PvE. 과거 Left 4 Dead Director 모델. Valve 강연 슬라이드 두 편의 협동·호흡 구획 확인. | co-op, cooperative, AI Director, pacing, intensity, rescue, procedural encounters, replayability, 협동, 코옵, 디렉터, 페이싱, 구출, 재플레이, 기획 | 사용 가능 / 2026-11-07 | [상세](K-GAME-COOP-DIRECTOR.kr.md) |
-| K-GAME-DESIGN-FRAMEWORK / 의도한 경험과 관측 가능한 플레이로 장르별 방법 선택 [참고] | 새 게임·복합 장르는 관습을 복제하기 전에 경험을 관측할 시스템 동작·규칙에 연결한다. 실제 설계 질문으로 방법을 선택하고 상호작용을 검증한다. | 콘셉트·핵심 루프·복합 장르의 경험 목표와 시스템 가설. 재미의 보편 공식은 아니다. MDA 논문 본문 확인. | MDA, mechanics, dynamics, aesthetics, core-loop, hybrid, genre-selection, design-pillars, 게임기획, 장르, 핵심루프, 재미, 경험, 혼합장르 | 사용 가능 / 2026-11-07 | [상세](K-GAME-DESIGN-FRAMEWORK.kr.md) |
-| K-GAME-ECONOMY / 개별 보상 조정 전에 게임 자원 흐름 모델링 [참고] | 정한 기간의 생성·보관·이전·전환·소멸을 추적한다. 행동 전략·상한·되먹임을 비교한 뒤 표나 단일 보상률을 균형 근거로 해석한다. | 게임 자원·RPG 성장·전략·경영·거래. 시나리오 모델이며 금융 조언·수익화 의무가 아니다. 논문·저자 교육 자료·공식 가이드 확인. | economy, sources, sinks, resource-flow, feedback-loop, simulation, currency, inflation, 게임경제, 보상, 재화, 수급, 소모처, 성장, 밸런스 | 사용 가능 / 2026-11-07 | [상세](K-GAME-ECONOMY.kr.md) |
-| K-GAME-EXPLORATION / 질문·관측·사용할 발견으로 호기심 중심 탐험 설계 [참고] | 이해가 진척을 만드는 게임에서 눈에 보이는 의문을 조사할 단서와 연결하고 발견이 추론·행동을 바꾸게 한다. 정보 연결망과 지형을 구분해 시제품으로 확인한다. | 작가가 구성한 호기심·지식 기반 탐험. 능력 해금형 진척과 구별한다. Mobius 제품 설명·GDC 요약 확인; 전체 강연·슬라이드는 미확인. | exploration, curiosity, knowledge-progression, environmental-storytelling, mystery, 탐험, 호기심, 지식기반진행, 환경서사, 미스터리 | 사용 가능 / 2026-11-07 | [상세](K-GAME-EXPLORATION.kr.md) |
-| K-GAME-HORROR / 불확실성·행위 가능성·위협 사이 회복으로 공포 설계 [참고] | 두려운 상황과 정보 경계를 의도적으로 설계한다. 예상·위협·안도를 조절하고 최적화·경쟁 과제가 두려움을 지우는지 확인한다. | 분위기 공포·액션 공포의 만남 호흡. 전투·명시 규칙과 공포의 양립 불가를 주장하지 않는다. Frictional·Motive의 서로 다른 접근 확인. | horror, tension, uncertainty, agency, encounter-pacing, survival-horror, 공포, 긴장, 불확실성, 주도성, 조우설계, 생존공포 | 사용 가능 / 2026-11-07 | [상세](K-GAME-HORROR.kr.md) |
-| K-GAME-IDLE-INCREMENTAL / 플레이어 선택을 중심으로 증분 성장과 환생 모델링 [참고] | 생산·구매 비용·배수·초기화 이득을 시간에 따라 비교하고 성장 호흡을 정한다. 능동·대기·오프라인·반복 회차의 의미 있는 선택을 명시한다. | 방치형·증분형 성장. 역사적 수학 사례이며 현재 밸런스·수익화 의무가 아니다. Kongregate 원문·GDC 슬라이드 확인. | idle, incremental, clicker, prestige, growth-curve, generator, offline, automation, 방치형, 증분형, 클리커, 환생, 성장곡선, 자동화, 오프라인 | 사용 가능 / 2026-11-07 | [상세](K-GAME-IDLE-INCREMENTAL.kr.md) |
-| K-GAME-METROIDVANIA / 읽을 수 있는 장애물과 달라지는 귀환 경로로 능력 해금 탐험 설계 [참고] | 획득 능력을 알아볼 수 있는 장벽·유용한 재방문·관리 가능한 길찾기 기억에 연결한다. 이동과 경로 구조를 함께 시제품으로 확인한다. | 능력·재방문을 갖춘 연결형 액션 어드벤처. 장르 태그 전체의 보편 정의가 아니다. Nintendo 탐험 안내·개발자 발언·Team Cherry 공식 설명 확인. | metroidvania, ability-gating, backtracking, traversal, world-map, 메트로배니아, 능력해금, 재방문, 이동, 월드설계 | 사용 가능 / 2026-11-07 | [상세](K-GAME-METROIDVANIA.kr.md) |
-| K-GAME-MULTIPLAYER / 정보와 판정 약속으로 멀티플레이 공정성 정의 [참고] | 인지 가능한 정보와 네트워크 아래의 행동 판정을 맞춘다. 패배 진단에서 지각 명료성·시뮬레이션 공정성·밸런스를 구분한다. | 실시간 경쟁 멀티플레이의 명료성·네트워크 민감 설계. Riot 설계·기술 원문 구획 확인. | multiplayer, PvP, fairness, netcode, latency, clarity, VFX, competitive integrity, prototype, 멀티플레이, 대전, 공정성, 지연, 가독성, 판정, 기획 | 사용 가능 / 2026-11-07 | [상세](K-GAME-MULTIPLAYER.kr.md) |
-| K-GAME-NARRATIVE-ADVENTURE / 선택·상태·이동 가능한 콘텐츠로 서사 어드벤처 설계 [참고] | 무엇을 알고 선택이 무엇을 바꾸며 누적 상태에서 대목들이 어떻게 재연결되는지 정한다. 글의 양을 늘리기 전에 대표 경로와 자원·시간 결과를 검증한다. | 선택형 인터랙티브 픽션·서사 여행. 보편 산문·극작 규칙은 아니다. ink 튜토리얼·inkle 개발 글 확인. | narrative-adventure, interactive-fiction, branching, state, choice, ink, 내러티브어드벤처, 인터랙티브픽션, 분기, 선택, 상태관리 | 사용 가능 / 2026-11-07 | [상세](K-GAME-NARRATIVE-ADVENTURE.kr.md) |
-| K-GAME-PLATFORMER / 과제를 배치하기 전에 플랫포머 이동의 약속 확립 [참고] | 충돌·움직이는 발판·상태 표현을 예측 가능하게 만든 뒤 이동 과제를 결합한다. 스테이지 진행 설계는 별도 계층으로 다룬다. | 타일 기반 2D 이동·레벨 시제품 사례. 3D 전이는 제한적이다. 저자 물리 글·Nintendo 인터뷰 확인; Celeste GDC는 요약만 확인. | platformer, movement, collision, moving platform, level design, animation, prototype, 플랫포머, 이동, 충돌, 발판, 레벨 설계, 기획, 프로토타입 | 사용 가능 / 2026-11-07 | [상세](K-GAME-PLATFORMER.kr.md) |
-| K-GAME-PROTOTYPE-PLAYTEST / 설계 불확실성에 맞춰 시제품·플레이테스트 구성 [참고] | 중요한 가정을 반박할 최소 플레이 표현을 고른다. 관측 행동·해석·제안 수정·수정 빌드의 실제 개선 근거를 구별한다. | 장르별 시제품·사용성·경험 조사. 고정 일정·표본 수·자동 실행 권한은 아니다. 개발자·조사자 원문 확인. | prototype, playtest, hypothesis, usability, iteration, vertical-slice, telemetry, 프로토타입, 플레이테스트, 가설, 시제품, 검증, 재미 | 사용 가능 / 2026-11-07 | [상세](K-GAME-PROTOTYPE-PLAYTEST.kr.md) |
-| K-GAME-PUZZLE / 발견 가능한 상호작용과 추론을 중심으로 퍼즐 콘텐츠 구성 [참고] | 발견할 상호작용·추론을 시제품으로 만들고 주어진 정보가 이를 뒷받침하는지 확인한다. 개수 자체보다 변형·삭제로 학습 순서를 조정한다. | 직접 설계한 시스템 논리·환경 퍼즐. 상식·숨은그림·절차 생성 퍼즐 경제 전체를 다루지 않는다. 개발자 글 확인; 내장 강연 미시청. | puzzle, deduction, rule-discovery, level-design, playtesting, 퍼즐, 추론, 규칙발견, 레벨설계, 플레이테스트 | 사용 가능 / 2026-11-07 | [상세](K-GAME-PUZZLE.kr.md) |
-| K-GAME-RACING / 조작과 경쟁에서 레이싱 실력 향상을 읽을 수 있게 표현 [참고] | 주행 선택을 반복 가능한 개선과 연결하는 피드백을 주고 핸들링 변경 시 트랙을 재검토한다. 개인 속도·일관성·경쟁 순위를 구별한다. | 서킷·타임트라이얼. Forza Motorsport·Trackmania의 개발자 사례. Forza 설계 글·Ubisoft Nadeo UI 글 확인. | racing, handling, corner scoring, track design, telemetry, consistency, competition, prototype, 레이싱, 조작감, 코너, 트랙 설계, 기록, 일관성, 기획 | 사용 가능 / 2026-11-07 | [상세](K-GAME-RACING.kr.md) |
-| K-GAME-RESEARCH-USE / 게임 기획·개고 전에 장르에 맞는 근거 조회 [관례] | 경험·주 활동·불확실성을 분류한 뒤 공통·장르별 자료를 고른다. 모든 규칙을 적용하지 말고 조건·출처 한계·제안 점검을 기존 브리프에 반영한다. | OneStep 및 명시적으로 설정한 타 프로젝트 재사용. 현재 의도·기준 기획이 우선한다. 사용자 요청에 따른 조회 관례이며 출처 확인은 개별 상세에 기록. | game-design, game-planning, genre, hybrid, research-retrieval, GDD, core-loop, prototype, playtest, 게임기획, 장르별기획, 기획방법론, 지식조회, 복합장르, 게임설계 | 사용 가능 / 2026-11-07 | [상세](K-GAME-RESEARCH-USE.kr.md) |
-| K-GAME-RHYTHM / 리듬 도전과 채보 가독성·기기 지연 구분 [참고] | 조작 난이도를 평가하기 전에 타이밍 신뢰성과 읽을 수 있는 채보 언어를 마련한다. 음악 해석·시각 판독·보정을 서로 다른 실패 원인으로 시험한다. | 리듬 채보·타이밍 피드백. Rock Band 보정·osu! 사례. Harmonix 개발 기록·공식 안내와 공동체가 관리하는 공식 위키 확인. | rhythm game, chart design, beatmap, timing, calibration, audio latency, readability, playtest, 리듬 게임, 채보, 박자, 판정, 보정, 오디오 지연, 기획 | 사용 가능 / 2026-11-07 | [상세](K-GAME-RHYTHM.kr.md) |
-| K-GAME-ROGUELIKE-DECKBUILDER / 회차 맥락에서 덱빌딩 선택을 평가하고 콘텐츠 범위 관리 [참고] | 싱글플레이 로그라이크 덱빌딩에서 각 카드가 유효한 맥락을 찾고 지표와 플레이 관찰을 결합하며 새 콘텐츠의 상호작용 비용을 계산한다. | 싱글플레이 로그라이크 덱빌더. Slay the Spire 설계 슬라이드·제작 회고. 실제 GDC 슬라이드·Mega Crit 원문 확인; 강연 전사문을 사용하지 않았다. | roguelike, roguelite, deckbuilder, cards, synergy, metrics, run, balance, 로그라이크, 로그라이트, 덱빌딩, 카드, 시너지, 회차, 밸런스 | 사용 가능 / 2026-11-07 | [상세](K-GAME-ROGUELIKE-DECKBUILDER.kr.md) |
-| K-GAME-RPG-PROGRESSION / 빌드 정체성·전리품 평가·성장 투자를 구분 [참고] | 전리품 중심 액션 RPG에서 캐릭터와 아이템 성장을 함께 기획하며 플레이어가 확인·수정할 수 있는 결정에 복잡성을 배치한다. | 전리품 중심 ARPG. Diablo IV 2020년·2024년 시즌4 사례. 과거 제안과 이후 변경을 구별하며 Blizzard 원문 확인. | RPG, ARPG, progression, itemization, loot, build, respec, economy, 성장, 아이템화, 전리품, 빌드, 재분배, 역할수행게임 | 사용 가능 / 2026-11-07 | [상세](K-GAME-RPG-PROGRESSION.kr.md) |
-| K-GAME-SHOOTER / 시각적 식별과 함께 슈터 무기 역할 조정 [참고] | 변수 변경 시 무기의 의도한 역할을 보존하고 전투에 필요한 정체를 읽을 수 있게 한다. 만남·지각 검증을 함께 수행한다. | 슈터 무기 균형·전투 가독성. Halo 3·TF2의 과거 사례. 개발자 발표 텍스트·Valve 논문 확인. | shooter, FPS, weapon balance, role, silhouette, readability, encounter, playtest, 슈터, 총기, 무기 밸런스, 역할, 실루엣, 가독성, 기획 | 사용 가능 / 2026-11-07 | [상세](K-GAME-SHOOTER.kr.md) |
-| K-GAME-SIM-MANAGEMENT / 레시피를 늘리기 전에 생산 제약을 발견 가능하게 설계 [참고] | 산업 경영에서 자원 전환·보이는 병목·단계별 학습을 연결해 확장이 불투명한 조합 업무 대신 선택을 만들게 한다. | 공장 자동화·산업 자원 경영. Factorio 2.0·Space Age의 2023~2024년 Wube 개발 글 세 편 확인. | simulation, management, factory, automation, production, logistics, bottleneck, recipe, 시뮬레이션, 경영, 자동화, 생산, 물류, 병목, 제작법 | 사용 가능 / 2026-11-07 | [상세](K-GAME-SIM-MANAGEMENT.kr.md) |
-| K-GAME-SOCIAL-PARTY / 참여·공유 정보·공개 타이밍을 중심으로 파티 게임 시제품 구성 [참고] | 제시어·투표·허세·역할극 형식의 사회 교환을 간단한 재료로 시험한 뒤 디지털 표현을 만든다. 규칙 이해·개인 기여·공유 공개 시점을 핵심 설계에 포함한다. | 소규모 사회적 파티, 특히 Jackbox형 제시어·투표. 경쟁 사회 추리·온라인 안전 전체 지침은 아니다. 같은 스튜디오의 다른 게임 개발 글 두 편 확인. | social-party, party-game, voting, prompts, paper-prototype, participation, 파티게임, 소셜게임, 투표, 프롬프트, 종이프로토타입, 참여 | 사용 가능 / 2026-11-07 | [상세](K-GAME-SOCIAL-PARTY.kr.md) |
-| K-GAME-STRATEGY-RTS / 경제·정보·대응 가능성으로 RTS 압박 설계 [참고] | 경쟁 RTS에서 경제 호흡과 유닛 역할을 읽을 수 있는 대응 기회에 연결하고 맵·숙련도별 결과를 평가한다. | 비대칭 경쟁 1대1 RTS. StarCraft II 베타·Legacy of the Void 개발자 사례. Blizzard 원문 두 편의 관련 본문 확인. | RTS, real-time strategy, economy, micro, macro, counterplay, scouting, balance, 실시간전략, 정찰, 견제, 자원, 대응, 밸런스 | 사용 가능 / 2026-11-07 | [상세](K-GAME-STRATEGY-RTS.kr.md) |
-| K-GAME-STRATEGY-TURN-4X / 턴 자원·제국 성장·캠페인 결말 연결 [참고] | 제국 규모 턴 전략에서는 어떤 행동이 자원을 두고 경쟁하며 전략적 불확실성이 사라진 뒤 승리가 캠페인을 어떻게 끝내는지 살핀다. | 턴제 제국·4X. Old World의 Orders·승리 조건. Soren Johnson 원문과 관련 저자 댓글 확인. | 4X, turn-based strategy, action economy, opportunity cost, victory, snowball, empire, 턴제전략, 행동경제, 기회비용, 승리조건, 문명, 제국 | 사용 가능 / 2026-11-07 | [상세](K-GAME-STRATEGY-TURN-4X.kr.md) |
-| K-GAME-SURVIVAL-CRAFTING / 생존 압박·제작을 자율 탐험에 연결 [참고] | 탐험 중심 생존 제작에서 필요·도구·거점을 플레이어가 세운 목표에 연결하며 위험 대응을 이해 가능하고 효과 있게 만든다. | 초기 Dont Starve·Subnautica 거점·2026년 Subnautica 2 설계 응답. Klei 저자 재록·Unknown Worlds 원문 두 편 확인. | survival, crafting, exploration, shelter, resource loop, onboarding, danger, 생존, 제작, 탐험, 거점, 자원순환, 온보딩, 위험 | 사용 가능 / 2026-11-07 | [상세](K-GAME-SURVIVAL-CRAFTING.kr.md) |
+[DynamicLab](../../prototypes/TechniqueLab/DYNAMIC-RESULTS.kr.md)의 같은 반경/동적 문, [TrafficLab](../../prototypes/TechniqueLab/TRAFFIC-RESULTS.kr.md)의 작성한 교행 차선, [StreamLab](../../prototypes/TechniqueLab/STREAM-RESULTS.kr.md)의 무차선 검색·외부 FIFO·지속 유입을 구분한다. StreamLab은 과부하 응답 실패와 최신 우선의 개별 기아도 기록했다. 조건·실제 인원·온라인 탐색 포함 전체 프레임을 함께 읽는다. 누적4개 항목의 제한된 근거이며39개는 로컬 미검증이다.

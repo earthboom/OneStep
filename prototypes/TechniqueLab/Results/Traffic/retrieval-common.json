@@ -1,0 +1,296 @@
+{
+  "ok": true,
+  "command": "evaluate",
+  "index": {
+    "entries": 114,
+    "read_files": 114,
+    "cached_files": 0,
+    "elapsed_ms": 454.356,
+    "warning": null
+  },
+  "elapsed_ms": 606.287,
+  "cases": [
+    {
+      "name": "Observed Korean embedded-value paraphrase",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-CODE-CONFIGURATION-POLICY",
+        "K-CODE-PRINCIPLE-REUSE"
+      ],
+      "snippets_characters": 390,
+      "elapsed_ms": 13.63
+    },
+    {
+      "name": "Observed Korean hidden-implementation paraphrase",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-CODE-INFORMATION-HIDING",
+        "K-CODE-PRINCIPLE-REUSE"
+      ],
+      "snippets_characters": 430,
+      "elapsed_ms": 4.635
+    },
+    {
+      "name": "Observed Korean reader-evidence paraphrase",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-FIC-REF-KNOX-FAIR-PLAY",
+        "K-FIC-REF-BODY-MOTION",
+        "K-FIC-REF-SPATIAL-BLOCKING"
+      ],
+      "snippets_characters": 762,
+      "elapsed_ms": 7.292
+    },
+    {
+      "name": "Korean embedded-value composition variant",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-CODE-CONFIGURATION-POLICY",
+        "K-CODE-PRINCIPLE-REUSE"
+      ],
+      "snippets_characters": 390,
+      "elapsed_ms": 8.723
+    },
+    {
+      "name": "Korean hidden-decision composition variant",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-CODE-INFORMATION-HIDING",
+        "K-CODE-PRINCIPLE-REUSE"
+      ],
+      "snippets_characters": 430,
+      "elapsed_ms": 5.081
+    },
+    {
+      "name": "Korean reader-clue composition variant",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-FIC-REF-KNOX-FAIR-PLAY",
+        "K-FIC-REF-ATTAINMENT-LANGUAGE",
+        "K-FIC-REF-BODY-MOTION"
+      ],
+      "snippets_characters": 662,
+      "elapsed_ms": 10.441
+    },
+    {
+      "name": "Korean shutdown paraphrase preservation",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-CODE-CONCURRENCY-LIFETIMES"
+      ],
+      "snippets_characters": 83,
+      "elapsed_ms": 7.526
+    },
+    {
+      "name": "Real Korean proactive first-catalog lookup",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "R-CATALOG-BOOTSTRAP"
+      ],
+      "snippets_characters": 300,
+      "elapsed_ms": 1.292
+    },
+    {
+      "name": "Korean initial knowledge-list variant",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "R-CATALOG-BOOTSTRAP"
+      ],
+      "snippets_characters": 300,
+      "elapsed_ms": 0.968
+    },
+    {
+      "name": "Korean body-only memory pooling",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-CODE-PERFORMANCE-MEASUREMENT",
+        "K-CODE-GC-LIFETIMES",
+        "K-CODE-CONCURRENCY-LIFETIMES"
+      ],
+      "snippets_characters": 438,
+      "elapsed_ms": 8.285
+    },
+    {
+      "name": "Hardcoding classification",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-CODE-CONFIGURATION-POLICY",
+        "K-CODE-PRINCIPLE-REUSE",
+        "K-CODE-ABSTRACTION-COST"
+      ],
+      "snippets_characters": 429,
+      "elapsed_ms": 11.525
+    },
+    {
+      "name": "Cancellation and shutdown",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-CODE-CONCURRENCY-LIFETIMES",
+        "K-CODE-UE-RENDERDOC-ATTACH"
+      ],
+      "snippets_characters": 383,
+      "elapsed_ms": 7.881
+    },
+    {
+      "name": "Unreal GC ownership distinctions",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-CODE-GC-LIFETIMES",
+        "K-CODE-RESOURCE-OWNERSHIP",
+        "K-CODE-PRINCIPLE-REUSE"
+      ],
+      "snippets_characters": 528,
+      "elapsed_ms": 6.183
+    },
+    {
+      "name": "Readability evidence",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-CODE-READABILITY",
+        "K-CODE-PRINCIPLE-REUSE",
+        "K-CODE-PERFORMANCE-MEASUREMENT"
+      ],
+      "snippets_characters": 469,
+      "elapsed_ms": 3.249
+    },
+    {
+      "name": "Information hiding phrase",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-CODE-INFORMATION-HIDING",
+        "K-CODE-PRINCIPLE-REUSE"
+      ],
+      "snippets_characters": 430,
+      "elapsed_ms": 2.915
+    },
+    {
+      "name": "Dependency lifecycle",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-CODE-DEPENDENCY-SELECTION",
+        "K-CODE-DEPENDENCY-DIRECTION",
+        "K-CODE-PRINCIPLE-REUSE"
+      ],
+      "snippets_characters": 258,
+      "elapsed_ms": 7.584
+    },
+    {
+      "name": "Resolved incident remains discoverable",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "R-CATALOG-BOOTSTRAP"
+      ],
+      "snippets_characters": 300,
+      "elapsed_ms": 1.885
+    },
+    {
+      "name": "Cross-store dialogue retrieval",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-FIC-N2-DIALOGUE-CHOICE",
+        "R-FIC-N2-DIALOGUE-20261106"
+      ],
+      "snippets_characters": 387,
+      "elapsed_ms": 2.852
+    },
+    {
+      "name": "Knox by Korean author name",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-FIC-REF-KNOX-FAIR-PLAY"
+      ],
+      "snippets_characters": 62,
+      "elapsed_ms": 3.551
+    },
+    {
+      "name": "RTS design",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-STRATEGY-RTS",
+        "K-GAME-TECH-LOCKSTEP"
+      ],
+      "snippets_characters": 268,
+      "elapsed_ms": 8.605
+    },
+    {
+      "name": "Exact engine-specific identifier",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-CODE-UE-RENDERDOC-ATTACH"
+      ],
+      "snippets_characters": 235,
+      "elapsed_ms": 2.855
+    },
+    {
+      "name": "Domain boundary excludes unrelated code",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "R-FIC-N2-RECOVERY-GAP-20261106",
+        "K-FIC-N2-DIALOGUE-CHOICE",
+        "R-FIC-N2-DIALOGUE-20261106",
+        "R-FIC-N2-HAND-STATE-20261106",
+        "R-FIC-N2-REFERENT-20261106"
+      ],
+      "snippets_characters": 897,
+      "elapsed_ms": 4.501
+    },
+    {
+      "name": "Absent term stays an explicit gap",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [],
+      "snippets_characters": 0,
+      "elapsed_ms": 12.387
+    }
+  ],
+  "passed": 23,
+  "total": 23,
+  "required_recall": 1.0,
+  "forbidden_hits": 0,
+  "limitation": "Recall covers only declared required IDs; forbidden-hit checks are not a general precision estimate."
+}

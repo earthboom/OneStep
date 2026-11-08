@@ -1,0 +1,59 @@
+{
+  "ok": false,
+  "command": "evaluate",
+  "index": {
+    "entries": 114,
+    "read_files": 114,
+    "cached_files": 0,
+    "elapsed_ms": 298.98,
+    "warning": null
+  },
+  "elapsed_ms": 345.288,
+  "cases": [
+    {
+      "name": "sustained-individual-wait",
+      "passed": false,
+      "missing": [
+        "K-GAME-TECH-CROWD"
+      ],
+      "forbidden_hits": [],
+      "returned": [],
+      "snippets_characters": 0,
+      "elapsed_ms": 10.825
+    },
+    {
+      "name": "unlaned-time-reservations",
+      "passed": false,
+      "missing": [
+        "K-GAME-TECH-PATH"
+      ],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-STRATEGY-RTS"
+      ],
+      "snippets_characters": 342,
+      "elapsed_ms": 7.246
+    },
+    {
+      "name": "overload-vs-starvation",
+      "passed": false,
+      "missing": [
+        "K-GAME-TECH-CROWD"
+      ],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-SIM-MANAGEMENT",
+        "K-GAME-TECH-PATH",
+        "K-GAME-ECONOMY"
+      ],
+      "snippets_characters": 644,
+      "elapsed_ms": 27.834
+    }
+  ],
+  "passed": 0,
+  "total": 3,
+  "required_recall": 0.0,
+  "forbidden_hits": 0,
+  "limitation": "Recall covers only declared required IDs; forbidden-hit checks are not a general precision estimate."
+}

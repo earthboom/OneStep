@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-08",
+  "method": "Actual native Windows StreamLab via supported Computer Use API",
+  "observations": [
+    "Unlaned baffle map showed different disc radii moving around obstacles; requested 214, completed 123, active71, pending20.",
+    "Pause inflow changed to Resume inflow; requested stayed262 while completed increased168 to208 and pending drained17 to0.",
+    "Freeze motion changed to Resume motion; restart choke while frozen restored requested2 completed0 active2 pending0 and the narrow aperture.",
+    "Resume motion continued generation and travel; later requested72 complete4 active67 pending1 around the bottleneck.",
+    "Pause/resume inflow labels toggled in the choke scene, and requests/completions continued after resume.",
+    "Quit closed the native window; wrapper exit0 and subsequent window inventory had no StreamLab."
+  ],
+  "allPassed": true,
+  "limitations": "Qualitative controls and appearance; per-action audit and five-fraction native checks independently establish bounded geometry. Camera PNGs omit OnGUI."
+}

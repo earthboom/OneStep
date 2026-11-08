@@ -9,6 +9,8 @@ Settle software design decisions for the calling operation or [vegabond-code](..
 
 If invoked directly, fill only missing context through [scout's shared setup](../vegabond-scout/SKILL.md#frame-and-classify) and [code's environment assessment](../vegabond-code/SKILL.md#identify-the-working-environment). For a design-only request, deliver the design and its supporting evidence without changing production code. Use isolated experiments only when authorized and needed to settle a decision.
 
+For game architecture and technical choices, use the [game evidence reuse convention](../../knowledge/game/K-GAME-RESEARCH-USE.md), including on direct invocation. Reuse valid retrieved evidence, inspect prerequisites such as restorable state for rollback, and record adoption, conditional use or rejection against actual engine, platform and gameplay constraints. Return the selected entry IDs, implementation boundaries and proposed validation with the design.
+
 ## Resolve the design
 
 Use the shared [information-needs judgment](../vegabond-scout/references/information-needs.md) to test whether required guarantees, boundaries and counterexamples expose missing questions. Keep adopted contracts, conditional assumptions and rejected analogies attached to the choices they affect.

@@ -1,0 +1,1187 @@
+{
+  "sessions": 3,
+  "checksPerSession": 27,
+  "seriesPerSession": 30,
+  "buildGuid": "1fbb60d030dd4a7b81305edd3a7fc38c",
+  "playerSha256": "6B7C119F6C7AA482FD44B2FD70267A2FA31D7E9EED5164FE6B7F3B5681244692",
+  "environment": {
+    "unity": "6000.0.77f1",
+    "os": "Windows 11  (10.0.26200)",
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "processors": 20,
+    "memoryMB": 65395,
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "graphicsApi": "Direct3D11"
+  },
+  "frames": [
+    {
+      "requestedFPS": 30,
+      "measuredFPS": [
+        30.00119400024414,
+        30.000980377197266,
+        29.993391036987305
+      ],
+      "naiveFinal": [
+        9.98203182220459,
+        9.98203182220459,
+        9.98203182220459
+      ],
+      "exponentialFinal": [
+        9.996644973754883,
+        9.996644973754883,
+        9.996644973754883
+      ],
+      "maxAbsoluteError": 0.0
+    },
+    {
+      "requestedFPS": 60,
+      "measuredFPS": [
+        59.9856071472168,
+        59.997657775878906,
+        59.97275924682617
+      ],
+      "naiveFinal": [
+        9.999968528747559,
+        9.999968528747559,
+        9.999968528747559
+      ],
+      "exponentialFinal": [
+        9.9966459274292,
+        9.996644973754883,
+        9.996644020080566
+      ],
+      "maxAbsoluteError": 9.5367431640625e-07
+    },
+    {
+      "requestedFPS": 144,
+      "measuredFPS": [
+        143.8878631591797,
+        143.97962951660156,
+        143.98301696777344
+      ],
+      "naiveFinal": [
+        9.999996185302734,
+        9.999996185302734,
+        9.999996185302734
+      ],
+      "exponentialFinal": [
+        9.996644973754883,
+        9.996646881103516,
+        9.996646881103516
+      ],
+      "maxAbsoluteError": 1.9073486328125e-06
+    }
+  ],
+  "benchmarks": [
+    {
+      "name": "camera.frame-lerp",
+      "group": "100000 scalar followers, dt=1/60, CPU math only",
+      "workPerInvocation": 100000,
+      "medianRangeMs": [
+        1.70835,
+        1.7511
+      ],
+      "p95RangeMs": [
+        1.93825,
+        2.19435
+      ],
+      "rawTimedBatchMinimumMs": 3.3782,
+      "invocationsPerSample": [
+        2,
+        2,
+        2
+      ],
+      "nativeQueriesPerWork": 0.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "camera.exp-per-item",
+      "group": "100000 scalar followers, dt=1/60, CPU math only",
+      "workPerInvocation": 100000,
+      "medianRangeMs": [
+        2.42855,
+        2.81305
+      ],
+      "p95RangeMs": [
+        2.849,
+        3.419
+      ],
+      "rawTimedBatchMinimumMs": 4.7214,
+      "invocationsPerSample": [
+        2,
+        2,
+        2
+      ],
+      "nativeQueriesPerWork": 0.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "camera.exp-shared-alpha",
+      "group": "100000 scalar followers, dt=1/60, CPU math only",
+      "workPerInvocation": 100000,
+      "medianRangeMs": [
+        1.7111,
+        1.7552
+      ],
+      "p95RangeMs": [
+        1.92045,
+        2.0864000000000003
+      ],
+      "rawTimedBatchMinimumMs": 3.3313,
+      "invocationsPerSample": [
+        2,
+        2,
+        2
+      ],
+      "nativeQueriesPerWork": 0.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.camera-only",
+      "group": "native physics cover=0, same static query pose",
+      "workPerInvocation": 32,
+      "medianRangeMs": [
+        0.00861640625,
+        0.010296875
+      ],
+      "p95RangeMs": [
+        0.0101607421875,
+        0.01352265625
+      ],
+      "rawTimedBatchMinimumMs": 2.1794000000000002,
+      "invocationsPerSample": [
+        512,
+        256,
+        512
+      ],
+      "nativeQueriesPerWork": 1.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.intent-muzzle-safe",
+      "group": "native physics cover=0, same static query pose",
+      "workPerInvocation": 32,
+      "medianRangeMs": [
+        0.0307015625,
+        0.035575
+      ],
+      "p95RangeMs": [
+        0.037045312500000004,
+        0.043946875
+      ],
+      "rawTimedBatchMinimumMs": 3.8295000000000003,
+      "invocationsPerSample": [
+        128,
+        128,
+        128
+      ],
+      "nativeQueriesPerWork": 5.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.camera-only",
+      "group": "native physics cover=0, same static query pose",
+      "workPerInvocation": 256,
+      "medianRangeMs": [
+        0.06955,
+        0.0829375
+      ],
+      "p95RangeMs": [
+        0.083965625,
+        0.10600625000000001
+      ],
+      "rawTimedBatchMinimumMs": 2.2149,
+      "invocationsPerSample": [
+        64,
+        64,
+        32
+      ],
+      "nativeQueriesPerWork": 1.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.intent-muzzle-safe",
+      "group": "native physics cover=0, same static query pose",
+      "workPerInvocation": 256,
+      "medianRangeMs": [
+        0.24145625,
+        0.29490625000000004
+      ],
+      "p95RangeMs": [
+        0.29128750000000003,
+        0.35925
+      ],
+      "rawTimedBatchMinimumMs": 3.8187,
+      "invocationsPerSample": [
+        16,
+        16,
+        16
+      ],
+      "nativeQueriesPerWork": 5.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.camera-only",
+      "group": "native physics cover=0, same static query pose",
+      "workPerInvocation": 1024,
+      "medianRangeMs": [
+        0.27424375,
+        0.29835625
+      ],
+      "p95RangeMs": [
+        0.30869375,
+        0.37865000000000004
+      ],
+      "rawTimedBatchMinimumMs": 4.3573,
+      "invocationsPerSample": [
+        16,
+        16,
+        16
+      ],
+      "nativeQueriesPerWork": 1.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.intent-muzzle-safe",
+      "group": "native physics cover=0, same static query pose",
+      "workPerInvocation": 1024,
+      "medianRangeMs": [
+        0.9726750000000001,
+        0.9972000000000001
+      ],
+      "p95RangeMs": [
+        1.1655250000000001,
+        1.3057750000000001
+      ],
+      "rawTimedBatchMinimumMs": 3.8178,
+      "invocationsPerSample": [
+        4,
+        4,
+        4
+      ],
+      "nativeQueriesPerWork": 5.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.camera-only",
+      "group": "native physics cover=1, same static query pose",
+      "workPerInvocation": 32,
+      "medianRangeMs": [
+        0.0085748046875,
+        0.009475585937500001
+      ],
+      "p95RangeMs": [
+        0.008705078125,
+        0.011162109375
+      ],
+      "rawTimedBatchMinimumMs": 4.3398,
+      "invocationsPerSample": [
+        512,
+        512,
+        512
+      ],
+      "nativeQueriesPerWork": 1.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.intent-muzzle-safe",
+      "group": "native physics cover=1, same static query pose",
+      "workPerInvocation": 32,
+      "medianRangeMs": [
+        0.0292328125,
+        0.03234921875
+      ],
+      "p95RangeMs": [
+        0.03044140625,
+        0.04031015625
+      ],
+      "rawTimedBatchMinimumMs": 3.6846,
+      "invocationsPerSample": [
+        128,
+        128,
+        128
+      ],
+      "nativeQueriesPerWork": 5.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.camera-only",
+      "group": "native physics cover=1, same static query pose",
+      "workPerInvocation": 256,
+      "medianRangeMs": [
+        0.06843281250000001,
+        0.07609062500000001
+      ],
+      "p95RangeMs": [
+        0.071278125,
+        0.1044265625
+      ],
+      "rawTimedBatchMinimumMs": 4.2736,
+      "invocationsPerSample": [
+        64,
+        64,
+        64
+      ],
+      "nativeQueriesPerWork": 1.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.intent-muzzle-safe",
+      "group": "native physics cover=1, same static query pose",
+      "workPerInvocation": 256,
+      "medianRangeMs": [
+        0.25083125,
+        0.25254375
+      ],
+      "p95RangeMs": [
+        0.2878625,
+        0.35336875
+      ],
+      "rawTimedBatchMinimumMs": 3.684,
+      "invocationsPerSample": [
+        16,
+        16,
+        16
+      ],
+      "nativeQueriesPerWork": 5.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.camera-only",
+      "group": "native physics cover=1, same static query pose",
+      "workPerInvocation": 1024,
+      "medianRangeMs": [
+        0.27779375,
+        0.34925625
+      ],
+      "p95RangeMs": [
+        0.3254625,
+        0.41492500000000004
+      ],
+      "rawTimedBatchMinimumMs": 4.3439000000000005,
+      "invocationsPerSample": [
+        16,
+        16,
+        16
+      ],
+      "nativeQueriesPerWork": 1.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.intent-muzzle-safe",
+      "group": "native physics cover=1, same static query pose",
+      "workPerInvocation": 1024,
+      "medianRangeMs": [
+        0.931825,
+        1.104025
+      ],
+      "p95RangeMs": [
+        1.099675,
+        1.3992250000000002
+      ],
+      "rawTimedBatchMinimumMs": 3.6735,
+      "invocationsPerSample": [
+        4,
+        4,
+        4
+      ],
+      "nativeQueriesPerWork": 5.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.camera-only",
+      "group": "native physics cover=2, same static query pose",
+      "workPerInvocation": 32,
+      "medianRangeMs": [
+        0.00856796875,
+        0.0103556640625
+      ],
+      "p95RangeMs": [
+        0.010400000000000001,
+        0.012428320312500001
+      ],
+      "rawTimedBatchMinimumMs": 4.3373,
+      "invocationsPerSample": [
+        512,
+        512,
+        512
+      ],
+      "nativeQueriesPerWork": 1.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.intent-muzzle-safe",
+      "group": "native physics cover=2, same static query pose",
+      "workPerInvocation": 32,
+      "medianRangeMs": [
+        0.012451171875,
+        0.014446875000000001
+      ],
+      "p95RangeMs": [
+        0.01522890625,
+        0.019931640625
+      ],
+      "rawTimedBatchMinimumMs": 3.0782000000000003,
+      "invocationsPerSample": [
+        256,
+        256,
+        256
+      ],
+      "nativeQueriesPerWork": 2.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.camera-only",
+      "group": "native physics cover=2, same static query pose",
+      "workPerInvocation": 256,
+      "medianRangeMs": [
+        0.06904062500000001,
+        0.0779203125
+      ],
+      "p95RangeMs": [
+        0.08451718750000001,
+        0.09945625000000001
+      ],
+      "rawTimedBatchMinimumMs": 4.3202,
+      "invocationsPerSample": [
+        64,
+        64,
+        64
+      ],
+      "nativeQueriesPerWork": 1.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.intent-muzzle-safe",
+      "group": "native physics cover=2, same static query pose",
+      "workPerInvocation": 256,
+      "medianRangeMs": [
+        0.099471875,
+        0.11521250000000001
+      ],
+      "p95RangeMs": [
+        0.122075,
+        0.1502125
+      ],
+      "rawTimedBatchMinimumMs": 3.1178000000000003,
+      "invocationsPerSample": [
+        32,
+        32,
+        32
+      ],
+      "nativeQueriesPerWork": 2.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.camera-only",
+      "group": "native physics cover=2, same static query pose",
+      "workPerInvocation": 1024,
+      "medianRangeMs": [
+        0.27726875,
+        0.3418875
+      ],
+      "p95RangeMs": [
+        0.33027500000000004,
+        0.44188125
+      ],
+      "rawTimedBatchMinimumMs": 4.3436,
+      "invocationsPerSample": [
+        16,
+        16,
+        16
+      ],
+      "nativeQueriesPerWork": 1.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shot.intent-muzzle-safe",
+      "group": "native physics cover=2, same static query pose",
+      "workPerInvocation": 1024,
+      "medianRangeMs": [
+        0.39551250000000004,
+        0.497975
+      ],
+      "p95RangeMs": [
+        0.5057,
+        0.6434875
+      ],
+      "rawTimedBatchMinimumMs": 3.128,
+      "invocationsPerSample": [
+        8,
+        8,
+        8
+      ],
+      "nativeQueriesPerWork": 2.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "path.independent-astar-distance",
+      "group": "32x32 weighted grid, same goal; distance answers only; no steering",
+      "workPerInvocation": 32,
+      "medianRangeMs": [
+        1.2473,
+        1.36705
+      ],
+      "p95RangeMs": [
+        1.63755,
+        1.7353
+      ],
+      "rawTimedBatchMinimumMs": 2.4481,
+      "invocationsPerSample": [
+        2,
+        2,
+        4
+      ],
+      "nativeQueriesPerWork": 0.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "path.field-rebuild-plus-distance",
+      "group": "32x32 weighted grid, same goal; distance answers only; no steering",
+      "workPerInvocation": 32,
+      "medianRangeMs": [
+        0.06855625,
+        0.0783109375
+      ],
+      "p95RangeMs": [
+        0.09432343750000001,
+        0.11070468750000001
+      ],
+      "rawTimedBatchMinimumMs": 4.0542,
+      "invocationsPerSample": [
+        64,
+        64,
+        64
+      ],
+      "nativeQueriesPerWork": 0.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "path.cached-field-distance",
+      "group": "32x32 weighted grid, same goal; distance answers only; no steering",
+      "workPerInvocation": 32,
+      "medianRangeMs": [
+        4.4622802734375005e-05,
+        5.069580078125e-05
+      ],
+      "p95RangeMs": [
+        5.8541870117187504e-05,
+        6.45355224609375e-05
+      ],
+      "rawTimedBatchMinimumMs": 2.8433,
+      "invocationsPerSample": [
+        65536,
+        65536,
+        65536
+      ],
+      "nativeQueriesPerWork": 0.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "path.independent-astar-distance",
+      "group": "32x32 weighted grid, same goal; distance answers only; no steering",
+      "workPerInvocation": 128,
+      "medianRangeMs": [
+        4.9485,
+        4.9829
+      ],
+      "p95RangeMs": [
+        5.527900000000001,
+        5.968100000000001
+      ],
+      "rawTimedBatchMinimumMs": 4.7043,
+      "invocationsPerSample": [
+        1,
+        1,
+        1
+      ],
+      "nativeQueriesPerWork": 0.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "path.field-rebuild-plus-distance",
+      "group": "32x32 weighted grid, same goal; distance answers only; no steering",
+      "workPerInvocation": 128,
+      "medianRangeMs": [
+        0.0661203125,
+        0.0685140625
+      ],
+      "p95RangeMs": [
+        0.0834734375,
+        0.0971390625
+      ],
+      "rawTimedBatchMinimumMs": 3.9038000000000004,
+      "invocationsPerSample": [
+        64,
+        64,
+        64
+      ],
+      "nativeQueriesPerWork": 0.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "path.cached-field-distance",
+      "group": "32x32 weighted grid, same goal; distance answers only; no steering",
+      "workPerInvocation": 128,
+      "medianRangeMs": [
+        0.000209075927734375,
+        0.000211016845703125
+      ],
+      "p95RangeMs": [
+        0.000243267822265625,
+        0.0002627685546875
+      ],
+      "rawTimedBatchMinimumMs": 3.2758000000000003,
+      "invocationsPerSample": [
+        16384,
+        16384,
+        16384
+      ],
+      "nativeQueriesPerWork": 0.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "path.independent-astar-distance",
+      "group": "32x32 weighted grid, same goal; distance answers only; no steering",
+      "workPerInvocation": 512,
+      "medianRangeMs": [
+        18.8034,
+        19.967200000000002
+      ],
+      "p95RangeMs": [
+        20.454800000000002,
+        21.1449
+      ],
+      "rawTimedBatchMinimumMs": 18.2,
+      "invocationsPerSample": [
+        1,
+        1,
+        1
+      ],
+      "nativeQueriesPerWork": 0.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "path.field-rebuild-plus-distance",
+      "group": "32x32 weighted grid, same goal; distance answers only; no steering",
+      "workPerInvocation": 512,
+      "medianRangeMs": [
+        0.0678421875,
+        0.068978125
+      ],
+      "p95RangeMs": [
+        0.0836390625,
+        0.0903890625
+      ],
+      "rawTimedBatchMinimumMs": 4.0393,
+      "invocationsPerSample": [
+        64,
+        64,
+        64
+      ],
+      "nativeQueriesPerWork": 0.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "path.cached-field-distance",
+      "group": "32x32 weighted grid, same goal; distance answers only; no steering",
+      "workPerInvocation": 512,
+      "medianRangeMs": [
+        0.0008625732421875,
+        0.0008779296875
+      ],
+      "p95RangeMs": [
+        0.00100927734375,
+        0.0011583984375000001
+      ],
+      "rawTimedBatchMinimumMs": 3.4141000000000004,
+      "invocationsPerSample": [
+        4096,
+        4096,
+        4096
+      ],
+      "nativeQueriesPerWork": 0.0,
+      "groupGCCollections": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ]
+}

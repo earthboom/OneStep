@@ -1,0 +1,290 @@
+{
+  "ok": true,
+  "command": "evaluate",
+  "index": {
+    "entries": 114,
+    "read_files": 114,
+    "cached_files": 0,
+    "elapsed_ms": 463.81,
+    "warning": null
+  },
+  "elapsed_ms": 847.572,
+  "cases": [
+    {
+      "name": "reflect-offscreen",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-REFLECTION",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-TECH-NORMAL"
+      ],
+      "snippets_characters": 547,
+      "elapsed_ms": 26.05
+    },
+    {
+      "name": "interior-fake",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-INTERIOR",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-ECONOMY",
+        "K-GAME-IDLE-INCREMENTAL",
+        "K-GAME-METROIDVANIA"
+      ],
+      "snippets_characters": 1238,
+      "elapsed_ms": 17.03
+    },
+    {
+      "name": "cave-reachability",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-DUNGEON",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-TECH-VOXEL",
+        "K-GAME-TECH-NOISE",
+        "K-GAME-ROGUELIKE-DECKBUILDER"
+      ],
+      "snippets_characters": 1080,
+      "elapsed_ms": 35.888
+    },
+    {
+      "name": "crowd-route",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-CROWD",
+        "K-GAME-TECH-PATH",
+        "K-GAME-ECONOMY",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-RESEARCH-USE"
+      ],
+      "snippets_characters": 501,
+      "elapsed_ms": 24.68
+    },
+    {
+      "name": "smoke-visibility",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-VOLUME",
+        "K-GAME-TECH-GUIDE"
+      ],
+      "snippets_characters": 383,
+      "elapsed_ms": 8.606
+    },
+    {
+      "name": "water-buoyancy",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-WATER",
+        "K-GAME-TECH-GUIDE"
+      ],
+      "snippets_characters": 189,
+      "elapsed_ms": 24.833
+    },
+    {
+      "name": "alpha-fringe",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-BLEND",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-TECH-FOLIAGE",
+        "K-GAME-TECH-BILLBOARD",
+        "K-GAME-TECH-CAMERA"
+      ],
+      "snippets_characters": 1217,
+      "elapsed_ms": 17.954
+    },
+    {
+      "name": "camera-timing",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-CAMERA",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-TECH-LEVEL",
+        "K-GAME-TECH-EASING",
+        "K-GAME-TECH-SPEED"
+      ],
+      "snippets_characters": 868,
+      "elapsed_ms": 17.218
+    },
+    {
+      "name": "sound-music",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-MUSIC",
+        "K-GAME-TECH-SOUND",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-ACTION-COMBAT",
+        "K-GAME-METROIDVANIA"
+      ],
+      "snippets_characters": 1001,
+      "elapsed_ms": 21.026
+    },
+    {
+      "name": "match-pity",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-RANDOM-DESIGN",
+        "K-GAME-TECH-MATCH",
+        "K-GAME-ECONOMY",
+        "K-GAME-TECH-INCENTIVES",
+        "K-GAME-TECH-LAGCOMP"
+      ],
+      "snippets_characters": 1025,
+      "elapsed_ms": 30.549
+    },
+    {
+      "name": "hair-fracture",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-DESTRUCTION",
+        "K-GAME-TECH-HAIR",
+        "K-GAME-ECONOMY",
+        "K-GAME-TECH-GUIDE"
+      ],
+      "snippets_characters": 678,
+      "elapsed_ms": 25.339
+    },
+    {
+      "name": "palette-import",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-MEMORY",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-TECH-PIXEL",
+        "K-GAME-METROIDVANIA",
+        "K-GAME-TECH-PATH"
+      ],
+      "snippets_characters": 624,
+      "elapsed_ms": 21.183
+    },
+    {
+      "name": "parser-ace",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-ECONOMY",
+        "K-GAME-RPG-PROGRESSION",
+        "K-GAME-TECH-CONTROLLER",
+        "K-GAME-TECH-MEMORY",
+        "K-GAME-TECH-NORMAL"
+      ],
+      "snippets_characters": 980,
+      "elapsed_ms": 10.1
+    },
+    {
+      "name": "element-hit",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-HITBOX",
+        "K-GAME-TECH-SYSTEMIC",
+        "K-GAME-NARRATIVE-ADVENTURE",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-PUZZLE"
+      ],
+      "snippets_characters": 867,
+      "elapsed_ms": 30.579
+    },
+    {
+      "name": "negative-reflex",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [],
+      "snippets_characters": 0,
+      "elapsed_ms": 6.016
+    },
+    {
+      "name": "negative-sleep",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-GUIDE"
+      ],
+      "snippets_characters": 162,
+      "elapsed_ms": 7.246
+    },
+    {
+      "name": "negative-array",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [],
+      "snippets_characters": 0,
+      "elapsed_ms": 9.186
+    },
+    {
+      "name": "negative-fragmentation",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-MEMORY",
+        "K-GAME-STRATEGY-RTS",
+        "K-GAME-STRATEGY-TURN-4X",
+        "K-GAME-METROIDVANIA",
+        "K-GAME-PUZZLE"
+      ],
+      "snippets_characters": 733,
+      "elapsed_ms": 10.912
+    },
+    {
+      "name": "negative-settings-window",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-SHADOW"
+      ],
+      "snippets_characters": 75,
+      "elapsed_ms": 17.798
+    },
+    {
+      "name": "negative-indoor-music",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-MUSIC",
+        "K-GAME-IDLE-INCREMENTAL",
+        "K-GAME-METROIDVANIA",
+        "K-GAME-TECH-CROWD",
+        "K-GAME-TECH-PATH"
+      ],
+      "snippets_characters": 1206,
+      "elapsed_ms": 12.316
+    }
+  ],
+  "passed": 20,
+  "total": 20,
+  "required_recall": 1.0,
+  "forbidden_hits": 0,
+  "limitation": "Recall covers only declared required IDs; forbidden-hit checks are not a general precision estimate."
+}

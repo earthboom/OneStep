@@ -1,0 +1,10 @@
+{
+  "date":"2026-11-08",
+  "method":"Local final-run camera PNGs inspected with view_image after all measurements",
+  "captures":[
+    {"file":"stream-run-3-baffles-balanced-active.png","observation":"Different-sized discs occupy both sides and routes around staggered walls; green portals are visible; no prescribed painted lanes."},
+    {"file":"stream-run-3-choke-overload-active.png","observation":"Both source-side colours approach the single aperture from varied grid positions, with a concentrated physical queue around the opening."},
+    {"file":"stream-run-3-choke-arrival-8-per-second.png","observation":"Measured choke scene shows mixed sizes and a dense aperture cluster while outer-portal bodies continue travel."}
+  ],
+  "limitations":"Camera images omit OnGUI and do not reveal external pending IDs or prove continuous collision safety. Per-ID ledgers, independent action audits and actual UI observations supply separate evidence."
+}

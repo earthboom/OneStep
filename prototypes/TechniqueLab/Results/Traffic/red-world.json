@@ -1,0 +1,94 @@
+{
+    "unity": "6000.0.77f1",
+    "utc": "2026-11-08T08:34:43.4723723Z",
+    "editor": true,
+    "playing": false,
+    "failures": 3,
+    "checks": [
+        {
+            "name": "traffic.narrow-small",
+            "detail": "small profiles fit one-unit opening with margin",
+            "passed": true
+        },
+        {
+            "name": "traffic.narrow-large",
+            "detail": "large disc must choose wide corridor",
+            "passed": true
+        },
+        {
+            "name": "traffic.clearance-boundary",
+            "detail": "0.04 margin is part of feasibility",
+            "passed": true
+        },
+        {
+            "name": "traffic.audit-radius-sum",
+            "detail": "fixed .4 diameter must not miss unequal-radius overlap",
+            "passed": true
+        },
+        {
+            "name": "traffic.audit-swept-swap",
+            "detail": "separated endpoints do not excuse crossing trajectories",
+            "passed": true
+        },
+        {
+            "name": "traffic.gate-exclusion",
+            "detail": "opposite leases must not coexist",
+            "passed": true
+        },
+        {
+            "name": "traffic.gate-batch",
+            "detail": "opposite pending caps same-phase admissions at four",
+            "passed": true
+        },
+        {
+            "name": "traffic.gate-fair-turn",
+            "detail": "opposite oldest queue gets next turn",
+            "passed": true
+        },
+        {
+            "name": "traffic.gate-pause",
+            "detail": "admission pause does not grant a new lease",
+            "passed": true
+        },
+        {
+            "name": "traffic.gate-resume",
+            "detail": "resume preserves pending ticket",
+            "passed": true
+        },
+        {
+            "name": "traffic.wait-clock",
+            "detail": "one simulated second of pause is one second of waiting",
+            "passed": false
+        },
+        {
+            "name": "traffic.population-partition",
+            "detail": "NullReferenceException",
+            "passed": false
+        },
+        {
+            "name": "traffic.reverse-arrival",
+            "detail": "reversed eligible arrival order lets westbound ticket enter first",
+            "passed": false
+        },
+        {
+            "name": "traffic.profile-redirect",
+            "detail": "radius-specific shared field rejects large requested narrow route",
+            "passed": true
+        },
+        {
+            "name": "traffic.headon-completes",
+            "detail": "both narrow directions finish without a wait cycle",
+            "passed": true
+        },
+        {
+            "name": "traffic.wide-simultaneous",
+            "detail": "opposite unequal discs actually pass simultaneously in the wide region",
+            "passed": true
+        },
+        {
+            "name": "traffic.deadlock-control",
+            "detail": "pair safety alone must expose a head-on wait cycle without admission control",
+            "passed": true
+        }
+    ]
+}

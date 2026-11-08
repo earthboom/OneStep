@@ -1,0 +1,129 @@
+{
+  "cases": [
+    {
+      "name": "forest-natural-miss",
+      "query": "휴대폰에서 숲 장면만 가면 느려져요",
+      "domains": [
+        "game"
+      ],
+      "required": [
+        "K-GAME-TECH-FOLIAGE"
+      ],
+      "limit": 3
+    },
+    {
+      "name": "muzzle-natural-miss",
+      "query": "벽 뒤에 가려진 총구로 적을 맞혀요",
+      "domains": [
+        "game"
+      ],
+      "required": [
+        "K-GAME-TECH-HITSCAN"
+      ],
+      "limit": 3
+    },
+    {
+      "name": "jump-natural-existing",
+      "query": "착지하기 직전에 눌렀는데 점프 입력이 누락돼요",
+      "domains": [
+        "game"
+      ],
+      "required": [
+        "K-GAME-TECH-CONTROLLER"
+      ],
+      "limit": 3
+    },
+    {
+      "name": "save-identity-natural-miss",
+      "query": "업데이트 뒤 불러오면 장비가 다른 아이템이 돼요",
+      "domains": [
+        "game"
+      ],
+      "required": [
+        "K-GAME-TECH-SAVE"
+      ],
+      "limit": 3
+    },
+    {
+      "name": "forest-uncoached-wording",
+      "query": "수목 밀집 지역에서 식생을 그릴 때 GPU 시간이 늘어나요",
+      "domains": [
+        "game"
+      ],
+      "required": [
+        "K-GAME-TECH-FOLIAGE"
+      ],
+      "limit": 3
+    },
+    {
+      "name": "muzzle-uncoached-wording",
+      "query": "엄폐물 안쪽의 총구에서 발사하면 조준점은 적을 가리켜도 막혀야 해요",
+      "domains": [
+        "game"
+      ],
+      "required": [
+        "K-GAME-TECH-HITSCAN"
+      ],
+      "limit": 3
+    },
+    {
+      "name": "save-uncoached-wording",
+      "query": "패치하고 아이템을 로드했더니 장비가 엉뚱해요",
+      "domains": [
+        "game"
+      ],
+      "required": [
+        "K-GAME-TECH-SAVE"
+      ],
+      "limit": 3
+    },
+    {
+      "name": "negative-loading-icons",
+      "query": "아이콘을 불러오는 경로만 바꿔줘",
+      "domains": [
+        "game"
+      ],
+      "required": [],
+      "forbidden": [
+        "K-GAME-TECH-SAVE"
+      ],
+      "limit": 3
+    },
+    {
+      "name": "negative-image-refresh",
+      "query": "이미지 업데이트 뒤 불러오면 다른 파일이 보여요",
+      "domains": [
+        "game"
+      ],
+      "required": [],
+      "forbidden": [
+        "K-GAME-TECH-SAVE"
+      ],
+      "limit": 3
+    },
+    {
+      "name": "negative-object-pool",
+      "query": "객체 풀 메모리 할당 관리",
+      "domains": [
+        "game"
+      ],
+      "required": [],
+      "forbidden": [
+        "K-GAME-TECH-FOLIAGE"
+      ],
+      "limit": 3
+    },
+    {
+      "name": "negative-item-icon-loading",
+      "query": "업데이트한 아이템 아이콘을 불러오는 UI 이미지 경로만 바꿔줘",
+      "domains": [
+        "game"
+      ],
+      "required": [],
+      "forbidden": [
+        "K-GAME-TECH-SAVE"
+      ],
+      "limit": 3
+    }
+  ]
+}

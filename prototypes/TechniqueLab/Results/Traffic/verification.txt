@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "checksPerProcess": 21,
+  "scenarioExpectationsPerProcess": 11,
+  "safeScenariosPerProcess": 9,
+  "hardware": {
+    "unity": "6000.0.77f1",
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "os": "Windows 11  (10.0.26200)",
+    "graphicsApi": "Direct3D11",
+    "screenWidth": 1280,
+    "screenHeight": 720,
+    "antiAliasing": 2,
+    "buildGuid": "c6d8bbce9d06452f9e439e59c72230fa"
+  },
+  "totalFrames": 131052,
+  "totalEngineFrames": 131052,
+  "gpuMissing": 23429,
+  "over16_67Count": 0,
+  "limitation": "Bounded authored lanes, fixed radii, centralized authority; no universal deadlock freedom, arbitrary steering or GPU-tail claim."
+}
+agents-128-mixed wall p95 [7.6191, 3.585, 3.6172] tick-update p95 [0.272, 0.25, 0.2516] max [9.95, 10.0476, 9.9896] miss% [0.0, 0.0, 0.0]
+agents-128-uniform wall p95 [3.5652, 3.6851, 3.8917] tick-update p95 [0.2645, 0.2714, 0.2534] max [10.0787, 9.9178, 10.5416] miss% [0.0, 0.0, 0.0]
+agents-256-mixed wall p95 [8.0816, 8.321, 8.2835] tick-update p95 [0.404, 0.4436, 0.4247] max [9.9915, 10.5327, 9.9981] miss% [0.0, 0.0, 0.0]
+agents-256-uniform wall p95 [8.2827, 8.1315, 8.2306] tick-update p95 [0.4018, 0.4207, 0.485] max [10.0851, 9.8877, 10.1624] miss% [0.0, 0.0, 0.0]
+agents-64-mixed wall p95 [2.8002, 3.5251, 3.5] tick-update p95 [0.1397, 0.1347, 0.1385] max [9.775, 9.669, 9.9134] miss% [0.0, 0.0, 0.0]
+agents-64-uniform wall p95 [4.2071, 2.8864, 3.4213] tick-update p95 [0.1404, 0.132, 0.1388] max [10.8168, 10.0497, 9.9212] miss% [0.0, 0.0, 0.0]

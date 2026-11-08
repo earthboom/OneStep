@@ -1,0 +1,363 @@
+test_angle_wrapped_reference_and_external_url_do_not_crash (test_catalog.CatalogTests.test_angle_wrapped_reference_and_external_url_do_not_crash) ... ok
+test_archival_reactivation_and_stable_detail (test_catalog.CatalogTests.test_archival_reactivation_and_stable_detail) ... ok
+test_body_schema_and_reference_failures_stop_writes (test_catalog.CatalogTests.test_body_schema_and_reference_failures_stop_writes) ... ok
+test_bootstrap_builds_multiple_stores_without_index_stubs (test_catalog.CatalogTests.test_bootstrap_builds_multiple_stores_without_index_stubs) ... ok
+test_bootstrap_does_not_exempt_unselected_catalogs (test_catalog.CatalogTests.test_bootstrap_does_not_exempt_unselected_catalogs) ... ok
+test_bootstrap_resolves_planned_archive_and_detail_links (test_catalog.CatalogTests.test_bootstrap_resolves_planned_archive_and_detail_links) ... ok
+test_bootstrap_still_rejects_unplanned_missing_files (test_catalog.CatalogTests.test_bootstrap_still_rejects_unplanned_missing_files) ... ok
+test_duplicate_ids_stop_all_catalog_writes (test_catalog.CatalogTests.test_duplicate_ids_stop_all_catalog_writes) ... ok
+test_invalid_metadata_is_diagnostic_not_crash (test_catalog.CatalogTests.test_invalid_metadata_is_diagnostic_not_crash) ... ok
+test_invalid_record_signals_stop_writes (test_catalog.CatalogTests.test_invalid_record_signals_stop_writes) ... ok
+test_legacy_metadata_preserved_without_inference (test_catalog.CatalogTests.test_legacy_metadata_preserved_without_inference) ... ok
+test_markdown_examples_are_not_live_references (test_catalog.CatalogTests.test_markdown_examples_are_not_live_references) ... ok
+test_missing_fields_and_duplicate_header_keys (test_catalog.CatalogTests.test_missing_fields_and_duplicate_header_keys) ... ok
+test_old_structured_records_preserve_metadata_with_migration_warning (test_catalog.CatalogTests.test_old_structured_records_preserve_metadata_with_migration_warning) ... ok
+test_partial_record_header_is_not_silently_legacy (test_catalog.CatalogTests.test_partial_record_header_is_not_silently_legacy) ... ok
+test_preserved_catalog_notes_and_routing_links_are_checked (test_catalog.CatalogTests.test_preserved_catalog_notes_and_routing_links_are_checked) ... ok
+test_projection_staleness_and_read_only_check (test_catalog.CatalogTests.test_projection_staleness_and_read_only_check) ... ok
+test_record_catalog_lookup_across_domains (test_catalog.CatalogTests.test_record_catalog_lookup_across_domains) ... ok
+test_record_signals_are_searchable_and_refresh_independently (test_catalog.CatalogTests.test_record_signals_are_searchable_and_refresh_independently) ... ok
+test_record_states_and_unknown_check_date (test_catalog.CatalogTests.test_record_states_and_unknown_check_date) ... ok
+test_registered_source_links_validate_identity_without_opening_external_content (test_catalog.CatalogTests.test_registered_source_links_validate_identity_without_opening_external_content) ... ok
+test_related_domain_reference_has_one_primary_entry (test_catalog.CatalogTests.test_related_domain_reference_has_one_primary_entry) ... ok
+test_selected_domain_does_not_load_unrelated_invalid_entry (test_catalog.CatalogTests.test_selected_domain_does_not_load_unrelated_invalid_entry) ... ok
+test_translations_are_existence_only_and_build_is_preparation (test_catalog.CatalogTests.test_translations_are_existence_only_and_build_is_preparation) ... ok
+test_unknown_record_conditions_are_not_inferred (test_catalog.CatalogTests.test_unknown_record_conditions_are_not_inferred) ... ok
+test_fixture_paths_cannot_escape_project (test_information_needs_cases.InformationCaseTests.test_fixture_paths_cannot_escape_project) ... ERROR
+test_preparation_never_overwrites_existing_project (test_information_needs_cases.InformationCaseTests.test_preparation_never_overwrites_existing_project) ... ERROR
+test_preparation_never_overwrites_existing_project (test_information_needs_cases.InformationCaseTests.test_preparation_never_overwrites_existing_project) ... ERROR
+test_prepared_projects_use_actual_catalog_and_search_without_answer_key (test_information_needs_cases.InformationCaseTests.test_prepared_projects_use_actual_catalog_and_search_without_answer_key) ... 
+  test_prepared_projects_use_actual_catalog_and_search_without_answer_key (test_information_needs_cases.InformationCaseTests.test_prepared_projects_use_actual_catalog_and_search_without_answer_key) (case='callback-edit') ... ERROR
+  test_prepared_projects_use_actual_catalog_and_search_without_answer_key (test_information_needs_cases.InformationCaseTests.test_prepared_projects_use_actual_catalog_and_search_without_answer_key) (case='provider-swap') ... ERROR
+  test_prepared_projects_use_actual_catalog_and_search_without_answer_key (test_information_needs_cases.InformationCaseTests.test_prepared_projects_use_actual_catalog_and_search_without_answer_key) (case='testimony-scene') ... ERROR
+  test_prepared_projects_use_actual_catalog_and_search_without_answer_key (test_information_needs_cases.InformationCaseTests.test_prepared_projects_use_actual_catalog_and_search_without_answer_key) (case='combat-plan') ... ERROR
+  test_prepared_projects_use_actual_catalog_and_search_without_answer_key (test_information_needs_cases.InformationCaseTests.test_prepared_projects_use_actual_catalog_and_search_without_answer_key) (case='retention-claim') ... ERROR
+  test_prepared_projects_use_actual_catalog_and_search_without_answer_key (test_information_needs_cases.InformationCaseTests.test_prepared_projects_use_actual_catalog_and_search_without_answer_key) (case='spacing-only') ... ERROR
+test_prepared_projects_use_actual_catalog_and_search_without_answer_key (test_information_needs_cases.InformationCaseTests.test_prepared_projects_use_actual_catalog_and_search_without_answer_key) ... ERROR
+test_rubric_covers_inputs_but_is_not_a_semantic_automated_test (test_information_needs_cases.InformationCaseTests.test_rubric_covers_inputs_but_is_not_a_semantic_automated_test) ... ERROR
+test_body_only_korean_expansion_and_line_locator (test_search.SearchTests.test_body_only_korean_expansion_and_line_locator) ... ok
+test_both_stores_include_resolved_incidents_and_rank_specific_match (test_search.SearchTests.test_both_stores_include_resolved_incidents_and_rank_specific_match) ... ok
+test_cache_malformed_json_object_is_rebuilt_not_treated_as_canonical (test_search.SearchTests.test_cache_malformed_json_object_is_rebuilt_not_treated_as_canonical) ... ok
+test_cache_refresh_update_delete_corruption_and_preserved_mtime (test_search.SearchTests.test_cache_refresh_update_delete_corruption_and_preserved_mtime) ... ok
+test_catalog_checks_relations_even_when_target_is_in_another_store (test_search.SearchTests.test_catalog_checks_relations_even_when_target_is_in_another_store) ... ok
+test_catalog_newline_equivalence_and_valid_yaml_relation_ids (test_search.SearchTests.test_catalog_newline_equivalence_and_valid_yaml_relation_ids) ... ok
+test_concept_hints_require_conditions_not_single_generic_words (test_search.SearchTests.test_concept_hints_require_conditions_not_single_generic_words) ... ok
+test_depth_two_pagination_preserves_cross_page_conflict_edges (test_search.SearchTests.test_depth_two_pagination_preserves_cross_page_conflict_edges) ... ok
+test_diversity_keeps_known_and_unknown_context_in_separate_groups (test_search.SearchTests.test_diversity_keeps_known_and_unknown_context_in_separate_groups) ... ok
+test_diversity_preserves_all_candidates_and_raw_order_escape (test_search.SearchTests.test_diversity_preserves_all_candidates_and_raw_order_escape) ... ok
+test_empty_query_bad_filter_and_missing_id_have_explicit_errors (test_search.SearchTests.test_empty_query_bad_filter_and_missing_id_have_explicit_errors) ... ok
+test_exact_technical_identifier_keeps_language_suffix (test_search.SearchTests.test_exact_technical_identifier_keeps_language_suffix) ... ok
+test_excerpt_normalization_and_boundaries_preserve_actual_match (test_search.SearchTests.test_excerpt_normalization_and_boundaries_preserve_actual_match) ... ok
+test_explicit_selected_source_check_is_fresh_even_with_warm_index (test_search.SearchTests.test_explicit_selected_source_check_is_fresh_even_with_warm_index) ... ok
+test_filters_keep_unknown_context_but_exclude_known_incompatibility (test_search.SearchTests.test_filters_keep_unknown_context_but_exclude_known_incompatibility) ... ok
+test_identical_bodies_do_not_crowd_out_a_different_required_answer (test_search.SearchTests.test_identical_bodies_do_not_crowd_out_a_different_required_answer) ... ok
+test_incoming_conflict_and_different_states_are_not_deferred_as_duplicates (test_search.SearchTests.test_incoming_conflict_and_different_states_are_not_deferred_as_duplicates) ... ok
+test_korean_first_catalog_action_finds_english_incident (test_search.SearchTests.test_korean_first_catalog_action_finds_english_incident) ... ok
+test_long_paragraph_excerpt_contains_the_actual_match (test_search.SearchTests.test_long_paragraph_excerpt_contains_the_actual_match) ... ok
+test_missing_relation_and_duplicate_ids_fail_without_partial_success (test_search.SearchTests.test_missing_relation_and_duplicate_ids_fail_without_partial_success) ... ok
+test_missing_yaml_keeps_structured_dependency_error (test_search.SearchTests.test_missing_yaml_keeps_structured_dependency_error) ... FAIL
+test_no_cache_does_not_write_and_unrelated_files_are_not_inputs (test_search.SearchTests.test_no_cache_does_not_write_and_unrelated_files_are_not_inputs) ... ok
+test_observed_korean_paraphrases_retrieve_the_required_concept (test_search.SearchTests.test_observed_korean_paraphrases_retrieve_the_required_concept) ... ok
+test_paginated_results_can_reach_late_conflicts (test_search.SearchTests.test_paginated_results_can_reach_late_conflicts) ... ok
+test_quality_evaluation_reports_missing_forbidden_and_unknown_coverage (test_search.SearchTests.test_quality_evaluation_reports_missing_forbidden_and_unknown_coverage) ... ok
+test_readonly_invocation_without_B_does_not_create_bytecode (test_search.SearchTests.test_readonly_invocation_without_B_does_not_create_bytecode) ... ok
+test_relations_cross_stores_incoming_conflicts_cycles_and_limits (test_search.SearchTests.test_relations_cross_stores_incoming_conflicts_cycles_and_limits) ... ok
+test_scale_1000_entries_cold_warm_and_changed_file (test_search.SearchTests.test_scale_1000_entries_cold_warm_and_changed_file) ... ok
+test_search_marks_registered_originals_unchecked_without_reading_settings (test_search.SearchTests.test_search_marks_registered_originals_unchecked_without_reading_settings) ... ok
+test_source_check_distinguishes_unconfigured_from_accessible_unversioned (test_search.SearchTests.test_source_check_distinguishes_unconfigured_from_accessible_unversioned) ... ok
+test_superseded_default_and_explicit_state_filter (test_search.SearchTests.test_superseded_default_and_explicit_state_filter) ... ok
+test_unavailable_cache_storage_and_optional_yaml_dates_do_not_block_search (test_search.SearchTests.test_unavailable_cache_storage_and_optional_yaml_dates_do_not_block_search) ... ok
+test_unicode_separator_does_not_invent_editor_line_numbers (test_search.SearchTests.test_unicode_separator_does_not_invent_editor_line_numbers) ... ok
+test_changed_research_hash_does_not_match (test_sources.SourceTests.test_changed_research_hash_does_not_match) ... ok
+test_duplicate_ids_and_conflicting_roots_are_explicitly_invalid (test_sources.SourceTests.test_duplicate_ids_and_conflicting_roots_are_explicitly_invalid) ... ok
+test_duplicate_registry_ids_are_invalid (test_sources.SourceTests.test_duplicate_registry_ids_are_invalid) ... ok
+test_existing_unversioned_manuscript_cannot_prove_historical_identity (test_sources.SourceTests.test_existing_unversioned_manuscript_cannot_prove_historical_identity) ... ok
+test_invalid_local_config_is_not_treated_as_absence (test_sources.SourceTests.test_invalid_local_config_is_not_treated_as_absence) ... ok
+test_invalid_middle_id_does_not_hide_other_results (test_sources.SourceTests.test_invalid_middle_id_does_not_hide_other_results) ... ok
+test_multiple_ids_report_every_result_and_separate_access_from_identity (test_sources.SourceTests.test_multiple_ids_report_every_result_and_separate_access_from_identity) ... ok
+test_registry_rejects_escape_translation_absolute_paths_and_bad_hash (test_sources.SourceTests.test_registry_rejects_escape_translation_absolute_paths_and_bad_hash) ... ok
+test_relocation_changes_only_machine_root_and_preserves_evidence (test_sources.SourceTests.test_relocation_changes_only_machine_root_and_preserves_evidence) ... ok
+test_resolved_symlink_cannot_escape_configured_root (test_sources.SourceTests.test_resolved_symlink_cannot_escape_configured_root) ... FAIL
+test_single_id_keeps_shape_and_explicit_root_overrides_unused_settings (test_sources.SourceTests.test_single_id_keeps_shape_and_explicit_root_overrides_unused_settings) ... ok
+test_unconfigured_and_missing_are_distinct_and_never_ok (test_sources.SourceTests.test_unconfigured_and_missing_are_distinct_and_never_ok) ... ok
+test_unknown_source_is_invalid_even_without_a_local_config (test_sources.SourceTests.test_unknown_source_is_invalid_even_without_a_local_config) ... ok
+
+======================================================================
+ERROR: test_fixture_paths_cannot_escape_project (test_information_needs_cases.InformationCaseTests.test_fixture_paths_cannot_escape_project)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\earth\\AppData\\Local\\Packages\\sandbox.{2fb40206-f291-4a95-9af9-9bf7d96c7e65}\\AC\\Temp\\onestep-needs-bwp31_26'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\earth\\AppData\\Local\\Packages\\sandbox.{2fb40206-f291-4a95-9af9-9bf7d96c7e65}\\AC\\Temp\\onestep-needs-bwp31_26'
+
+======================================================================
+ERROR: test_preparation_never_overwrites_existing_project (test_information_needs_cases.InformationCaseTests.test_preparation_never_overwrites_existing_project)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\test_information_needs_cases.py", line 40, in test_preparation_never_overwrites_existing_project
+    fixture.prepare(project, self.cases[0])
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\information-needs\prepare.py", line 44, in prepare
+    root.mkdir(parents=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\earth\\AppData\\Local\\Packages\\sandbox.{2fb40206-f291-4a95-9af9-9bf7d96c7e65}\\AC\\Temp\\onestep-needs-vvhih5qi\\case'
+
+======================================================================
+ERROR: test_preparation_never_overwrites_existing_project (test_information_needs_cases.InformationCaseTests.test_preparation_never_overwrites_existing_project)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\earth\\AppData\\Local\\Packages\\sandbox.{2fb40206-f291-4a95-9af9-9bf7d96c7e65}\\AC\\Temp\\onestep-needs-vvhih5qi'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\earth\\AppData\\Local\\Packages\\sandbox.{2fb40206-f291-4a95-9af9-9bf7d96c7e65}\\AC\\Temp\\onestep-needs-vvhih5qi'
+
+======================================================================
+ERROR: test_prepared_projects_use_actual_catalog_and_search_without_answer_key (test_information_needs_cases.InformationCaseTests.test_prepared_projects_use_actual_catalog_and_search_without_answer_key) (case='callback-edit')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\test_information_needs_cases.py", line 29, in test_prepared_projects_use_actual_catalog_and_search_without_answer_key
+    fixture.prepare(project, case)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\information-needs\prepare.py", line 44, in prepare
+    root.mkdir(parents=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\earth\\AppData\\Local\\Packages\\sandbox.{2fb40206-f291-4a95-9af9-9bf7d96c7e65}\\AC\\Temp\\onestep-needs-sh9asc7m\\callback-edit'
+
+======================================================================
+ERROR: test_prepared_projects_use_actual_catalog_and_search_without_answer_key (test_information_needs_cases.InformationCaseTests.test_prepared_projects_use_actual_catalog_and_search_without_answer_key) (case='provider-swap')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\test_information_needs_cases.py", line 29, in test_prepared_projects_use_actual_catalog_and_search_without_answer_key
+    fixture.prepare(project, case)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\information-needs\prepare.py", line 44, in prepare
+    root.mkdir(parents=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\earth\\AppData\\Local\\Packages\\sandbox.{2fb40206-f291-4a95-9af9-9bf7d96c7e65}\\AC\\Temp\\onestep-needs-sh9asc7m\\provider-swap'
+
+======================================================================
+ERROR: test_prepared_projects_use_actual_catalog_and_search_without_answer_key (test_information_needs_cases.InformationCaseTests.test_prepared_projects_use_actual_catalog_and_search_without_answer_key) (case='testimony-scene')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\test_information_needs_cases.py", line 29, in test_prepared_projects_use_actual_catalog_and_search_without_answer_key
+    fixture.prepare(project, case)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\information-needs\prepare.py", line 44, in prepare
+    root.mkdir(parents=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\earth\\AppData\\Local\\Packages\\sandbox.{2fb40206-f291-4a95-9af9-9bf7d96c7e65}\\AC\\Temp\\onestep-needs-sh9asc7m\\testimony-scene'
+
+======================================================================
+ERROR: test_prepared_projects_use_actual_catalog_and_search_without_answer_key (test_information_needs_cases.InformationCaseTests.test_prepared_projects_use_actual_catalog_and_search_without_answer_key) (case='combat-plan')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\test_information_needs_cases.py", line 29, in test_prepared_projects_use_actual_catalog_and_search_without_answer_key
+    fixture.prepare(project, case)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\information-needs\prepare.py", line 44, in prepare
+    root.mkdir(parents=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\earth\\AppData\\Local\\Packages\\sandbox.{2fb40206-f291-4a95-9af9-9bf7d96c7e65}\\AC\\Temp\\onestep-needs-sh9asc7m\\combat-plan'
+
+======================================================================
+ERROR: test_prepared_projects_use_actual_catalog_and_search_without_answer_key (test_information_needs_cases.InformationCaseTests.test_prepared_projects_use_actual_catalog_and_search_without_answer_key) (case='retention-claim')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\test_information_needs_cases.py", line 29, in test_prepared_projects_use_actual_catalog_and_search_without_answer_key
+    fixture.prepare(project, case)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\information-needs\prepare.py", line 44, in prepare
+    root.mkdir(parents=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\earth\\AppData\\Local\\Packages\\sandbox.{2fb40206-f291-4a95-9af9-9bf7d96c7e65}\\AC\\Temp\\onestep-needs-sh9asc7m\\retention-claim'
+
+======================================================================
+ERROR: test_prepared_projects_use_actual_catalog_and_search_without_answer_key (test_information_needs_cases.InformationCaseTests.test_prepared_projects_use_actual_catalog_and_search_without_answer_key) (case='spacing-only')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\test_information_needs_cases.py", line 29, in test_prepared_projects_use_actual_catalog_and_search_without_answer_key
+    fixture.prepare(project, case)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\information-needs\prepare.py", line 44, in prepare
+    root.mkdir(parents=True)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\earth\\AppData\\Local\\Packages\\sandbox.{2fb40206-f291-4a95-9af9-9bf7d96c7e65}\\AC\\Temp\\onestep-needs-sh9asc7m\\spacing-only'
+
+======================================================================
+ERROR: test_prepared_projects_use_actual_catalog_and_search_without_answer_key (test_information_needs_cases.InformationCaseTests.test_prepared_projects_use_actual_catalog_and_search_without_answer_key)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\earth\\AppData\\Local\\Packages\\sandbox.{2fb40206-f291-4a95-9af9-9bf7d96c7e65}\\AC\\Temp\\onestep-needs-sh9asc7m'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\earth\\AppData\\Local\\Packages\\sandbox.{2fb40206-f291-4a95-9af9-9bf7d96c7e65}\\AC\\Temp\\onestep-needs-sh9asc7m'
+
+======================================================================
+ERROR: test_rubric_covers_inputs_but_is_not_a_semantic_automated_test (test_information_needs_cases.InformationCaseTests.test_rubric_covers_inputs_but_is_not_a_semantic_automated_test)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\earth\\AppData\\Local\\Packages\\sandbox.{2fb40206-f291-4a95-9af9-9bf7d96c7e65}\\AC\\Temp\\onestep-needs-ujmtnqbn'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 287, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\tempfile.py", line 276, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\earth\\AppData\\Local\\Packages\\sandbox.{2fb40206-f291-4a95-9af9-9bf7d96c7e65}\\AC\\Temp\\onestep-needs-ujmtnqbn'
+
+======================================================================
+FAIL: test_missing_yaml_keeps_structured_dependency_error (test_search.SearchTests.test_missing_yaml_keeps_structured_dependency_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\test_search.py", line 81, in test_missing_yaml_keeps_structured_dependency_error
+    self.assertEqual(run.returncode, 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 2
+
+======================================================================
+FAIL: test_resolved_symlink_cannot_escape_configured_root (test_sources.SourceTests.test_resolved_symlink_cannot_escape_configured_root)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\test_sources.py", line 182, in test_resolved_symlink_cannot_escape_configured_root
+    (source / "escape").symlink_to(outside, target_is_directory=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\earth\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\pathlib\__init__.py", line 1213, in symlink_to
+    os.symlink(target, self, target_is_directory)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError 1314] 클라이언트가 필요한 권한을 가지고 있지 않습니다: 'C:\\Projects\\OneStep\\.cache\\onestep\\stream-tests\\onestep-sources-dau9mqg9\\outside' -> 'C:\\Projects\\OneStep\\.cache\\onestep\\stream-tests\\onestep-sources-dau9mqg9\\source\\escape'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Projects\OneStep\skills\vegabond-knowledge\tests\test_sources.py", line 188, in test_resolved_symlink_cannot_escape_configured_root
+    self.assertEqual(run.returncode, 0, run.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : b'Access is denied.\r\n'
+
+----------------------------------------------------------------------
+Ran 75 tests in 58.697s
+
+FAILED (failures=2, errors=11)
+{"synthetic_entries": 1000, "cold_ms": 7223.114, "warm_ms": 481.129, "changed_ms": 533.596, "warm_canonical_reads": 0}

@@ -1,0 +1,56 @@
+{
+  "ok": true,
+  "command": "evaluate",
+  "index": {
+    "entries": 114,
+    "read_files": 114,
+    "cached_files": 0,
+    "elapsed_ms": 651.823,
+    "warning": null
+  },
+  "elapsed_ms": 727.464,
+  "cases": [
+    {
+      "name": "opposing-narrow-traffic",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-CROWD",
+        "K-GAME-TECH-PATH"
+      ],
+      "snippets_characters": 498,
+      "elapsed_ms": 13.388
+    },
+    {
+      "name": "radius-route-compatibility",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-CROWD",
+        "K-GAME-TECH-PATH"
+      ],
+      "snippets_characters": 507,
+      "elapsed_ms": 15.553
+    },
+    {
+      "name": "collision-safe-but-stalled",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-CROWD",
+        "K-GAME-TECH-PATH",
+        "K-GAME-RESEARCH-USE"
+      ],
+      "snippets_characters": 457,
+      "elapsed_ms": 46.111
+    }
+  ],
+  "passed": 3,
+  "total": 3,
+  "required_recall": 1.0,
+  "forbidden_hits": 0,
+  "limitation": "Recall covers only declared required IDs; forbidden-hit checks are not a general precision estimate."
+}

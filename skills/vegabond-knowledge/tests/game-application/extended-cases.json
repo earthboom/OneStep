@@ -1,0 +1,95 @@
+{
+  "synthetic": true,
+  "cases": [
+    {
+      "id": "N01",
+      "title": "건물 창문과 거울의 표현",
+      "skill": "vegabond-code-design",
+      "request": "도시 상점가의 창문·거울·벽돌 표현이 카메라 각도에 따라 틀어진다. 실내를 전부 실제 방으로 만들자는 제안, 모든 면을 카메라 쪽으로 돌리자는 제안, 노멀 맵으로 벽돌 윤곽까지 해결하자는 제안이 있다. 자료를 보고 표현별 기술을 구분하고 최소 실험을 정해줘.",
+      "files": {
+        "scene.md": "Synthetic: third-person PC game; engine version unspecified. Flat shop mirror must reflect moving actors when they leave the main camera view. Current SSR reflection vanishes off-screen. Sealed decorative windows are never entered, show room depth from sidewalks and have no collision/gameplay inside. Far skyline shop signs are flat cards; near street signs have readable side silhouettes and must not rotate with camera. Brick normal textures improve lighting but side silhouettes are flat and gameplay wall collision must remain unchanged. One additional reflected-camera pass may be budgeted only after target-GPU measurement; no actual profiler or project supplied."
+      }
+    },
+    {
+      "id": "N02",
+      "title": "굴착 가능한 절차 동굴",
+      "skill": "vegabond-code-design",
+      "request": "굴착 가능한 동굴 던전을 만들고 있다. 노이즈만 바꾸면 천장·오버행·매번 갈 수 있는 출구·청크 이음새까지 해결할 수 있을까? 제공한 데이터에서 서로 다른 문제를 분리하고 구현 순서와 실패 검사를 정해줘.",
+      "files": {
+        "world.md": "Synthetic: editable 3D cave; seed must reproduce initial world. Current representation y=height(x,z) cannot encode overhangs. Existing scalar density chunks have no edge-intersection normals; team proposes Dual Contouring directly from these values. Player edits on shared chunk boundaries cause visual seams; render updates immediately but collision mesh updates next frame without explicit gate. Generation sometimes seals the exit. Minimum passable tunnel radius and entrance-to-exit reachability are hard constraints, aesthetics secondary. Runtime engine and target memory budget unprovided."
+      }
+    },
+    {
+      "id": "N03",
+      "title": "대피 군중과 적 선택",
+      "skill": "vegabond-code-design",
+      "request": "수백 명이 같은 출구로 가다 막히고, 경비는 벽 뒤 사람을 발견하며, 플레이어 락온은 비슷한 두 적 사이를 계속 튄다. 팀은 전부 A* 재탐색 주기를 줄이면 된다고 한다. 같은 AI 문제인지 구분하고 적절한 후보를 비교해줘.",
+      "files": {
+        "ai.md": "Synthetic: many ambient agents share a few exits on a weighted 2.5D navigation grid. Doors can close and alter connectivity. Narrow-door jams persist with valid global paths. Guards currently check only distance and forward dot product; forward/direction vectors are not normalized and no occlusion trace exists. Player target acquisition recomputes best score every frame, even while current enemy remains valid. Explicit player target-switch input must remain available. Avoidance must not permit wall or character overlap. Unknown licensed plugin PteroNav-Q31 is claimed to support incremental exit fields; its exact API/guarantees are not in supplied project files. Find whether this store supports that claim before naming plugin functions."
+      }
+    },
+    {
+      "id": "N04",
+      "title": "연막과 물의 시각·판정 일치",
+      "skill": "vegabond-code-design",
+      "request": "습지 전투에서 연막 품질을 낮추면 상대가 더 잘 보이고, 물 위 부표는 보이는 수면과 어긋나며, 투명 이펙트에 검은 테두리가 생긴다. 하나의 고급 유체 시뮬레이션으로 바꾸자는 제안을 검토하고 각 문제의 최소 대응을 정해줘.",
+      "files": {
+        "effects.md": "Synthetic: competitive match, server hit authority. Smoke uses client-only noise density and per-quality step count; final pixels currently determine target visibility. Water is sum-of-wave vertex displacement on the GPU, but buoyancy samples a flat CPU plane. Desired water feature is open-surface waves, not breaking surf or obstacle flow. Smoke sprites were authored with premultiplied alpha but renderer applies straight-alpha factors; color-space configuration also unverified. Must preserve near geometry depth edges, compatible visibility across quality tiers and player-readable silhouettes. No engine/package version or actual renderer supplied."
+      }
+    },
+    {
+      "id": "N05",
+      "title": "불편한 카메라와 좁은 공간",
+      "skill": "vegabond-code-design",
+      "request": "탐험 게임 카메라가 30fps에서 더 늦게 따라오고 가속 연출은 멀미를 유발한다. 문 통과도 답답하다. 카메라를 더 크게 흔들고 보간 곡선을 바꾸면 모두 해결될까? 움직임·전환·공간 문제를 분리해줘.",
+      "files": {
+        "camera.md": "Synthetic: third-person exploration. Camera follow uses position=Lerp(position,target,0.1) once per rendered frame. Scripted 2-second doorway framing transition uses a cubic Bezier animation; designer currently sets curve parameter t equal to desired elapsed progress and assumes arbitrary x control handles need no inversion. Gameplay must retain authored 2-second timing. Player capsule and spring-arm sweep collide in narrow doorways; path is physically blocked for large body variants. Sprint adds large FOV pulses, forced camera roll and velocity blur; comfort preference must disable/reduce these without changing movement or aiming. No engine version or actual scene provided."
+      }
+    },
+    {
+      "id": "N06",
+      "title": "문 너머 소리와 전투 음악",
+      "skill": "vegabond-code-design",
+      "request": "같은 거리인데 문을 닫으면 소리가 부자연스럽고, 전투 상태가 잠깐 바뀔 때 음악이 계속 처음부터 재생된다. 모두 볼륨 페이드만 길게 하면 되는지 판단하고, 실제 적용 전에 들어볼 검사를 정해줘.",
+      "files": {
+        "audio.md": "Synthetic: attenuation controls volume by source/listener distance. Closing a door currently mutes a sound completely; rooms have no reverb transition or filtering. Gameplay warning cues must remain recognizable. Listener follows avatar head rather than detached spectator camera. Combat music has synchronized stems with shared 120 BPM 4/4; current state edge stops/restarts the entire cue instantly, including rapid one-frame combat toggles. Composer provided bar entry/exit markers and one bridge section. External audio middleware version unknown; no actual audio files/runtime supplied."
+      }
+    },
+    {
+      "id": "N07",
+      "title": "연패·보상과 난이도 해석",
+      "skill": "vegabond-planning",
+      "request": "경쟁 게임에서 연패가 나오면 매칭·아이템 확률·난이도를 몰래 바꿔 승률을 50%로 고정하자는 제안이 있다. 동시에 PvE 훈련에서는 피격 후 반격하면 체력을 일부 되찾게 하고 싶다. 같은 공정성 해법인지 구분하고 필요한 측정과 적용 판단을 정해줘.",
+      "files": {
+        "balance.md": "Synthetic: ranked PvP parties vary in skill and uncertainty; sparse queues trade waiting time, latency and skill spread. Only observed aggregate win rate 50% exists, not calibrated per-match predictions. Designer promises ranked rules do not secretly alter damage or loot based on losses. A separate cosmetic reward mode proposes increasing conditional success chance after failures; advertised independent fixed odds must be revised if pity is introduced. PvE training can modulate encounter pacing without changing ranked outcomes. PvE counterattack recovery must be bounded by recently lost recoverable health and an authored expiry; exact frames/percent not specified. No player dataset or implementation provided."
+      }
+    },
+    {
+      "id": "N08",
+      "title": "캐릭터 접지·긴 머리·파괴 계단",
+      "skill": "vegabond-code-design",
+      "request": "하이힐 캐릭터가 파괴되는 계단을 밟으면 뜨고, 긴 머리가 화면 밖에서도 비싸며, 파편을 전부 물리 활성화하면 프레임이 떨어진다. 같은 물리 설정으로 고칠 수 있을까? OrioleCloth-K9의 정확한 콜백·스레드 보장도 지식에서 확인해 확정할 수 있는지 알려줘.",
+      "files": {
+        "character.md": "Synthetic: cinematic action game with gameplay capsule fixed by combat rules. Feet currently use pelvis shift only, no shoe sole/heel offset or gait contact blending. Stairs become fractured pieces; some support gameplay, others are decorative debris. Fractured geometry is preauthored; team activates every piece immediately. Strand renderer simulates guides/interpolates render strands and casts hair shadows even when head is off camera; target platform includes one without confirmed strand support. Vendor OrioleCloth-K9 handles collision callbacks; SDK headers/docs/version/thread guarantees not supplied. Exact plugin ABI is an essential unknown for implementation but does not prevent engine-independent representation and contact analysis. No engine build provided."
+      }
+    },
+    {
+      "id": "N09",
+      "title": "레트로 렌더러와 가져오기 경계",
+      "skill": "vegabond-code",
+      "request": "레트로 맵 편집기의 16색 PNG가 작으니 GPU 메모리도 항상 작다고 볼 수 있을까? Mode 7 비슷한 바닥과 외부 맵 가져오기도 구현하려 한다. 사내 TileScript-Z17 포맷의 길이·포인터 규칙을 지식에서 찾아 디코더를 바로 확정할 수 있는지 판단해줘.",
+      "files": {
+        "retro.md": "Synthetic: editor previews low-resolution palette art at integer and noninteger window scaling; importer expands textures to an unspecified GPU format. A single affine transform is proposed for perspective ground with fixed-point look. Exact SNES cycle emulation is out of scope. Downloaded maps are untrusted byte streams. The private TileScript-Z17 format has no supplied grammar, record lengths, endianness, version rules or parser code. Team cites a controller-driven retro exploit as proof all input is executable; no exploit/version evidence is supplied. Need a bounded technical recommendation and missing contract questions, not a decoder implementation."
+      }
+    },
+    {
+      "id": "N10",
+      "title": "불·물 상호작용과 피해 판정",
+      "skill": "vegabond-code-design",
+      "request": "불타는 나무·물·전기가 상호작용하는 전투를 설계한다. 물리 콜라이더가 닿으면 모두 직접 상태를 바꾸고 매 물리 틱 피해를 주면 될까? 원소 반응과 공격·피격·이동 충돌을 구분해서 적용 판단을 내려줘.",
+      "files": {
+        "rules.md": "Synthetic: interactive action game; authoritative gameplay rules. Material objects may emit elemental effects. Two simultaneous effects can target the same object; save/load and network replication must preserve resolved state. Team interprets Nintendo chemistry model as universal real chemistry and wants to copy its private update order. Attack volumes, hurt volumes and blocking capsule currently share one collider; an attack overlapping across several ticks repeats damage unintentionally. Each swing should hit a particular target at most once, while sustained burning uses a separately authored rate. Visual flames cannot alone prove damage. No exact source-game coefficients, engine build or current combat code supplied."
+      }
+    }
+  ]
+}

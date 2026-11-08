@@ -1,0 +1,362 @@
+{
+    "schemaVersion": 1,
+    "failures": 1,
+    "width": 0,
+    "height": 0,
+    "logicalProcessors": 20,
+    "memoryMB": 65395,
+    "screenWidth": 640,
+    "screenHeight": 480,
+    "vSync": 0,
+    "antiAliasing": 2,
+    "cpuTimerFrequency": 10000000,
+    "utc": "2026-11-07T16:43:19.6846307Z",
+    "unity": "6000.0.77f1",
+    "mode": "Editor PlayMode",
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "graphicsApi": "Direct3D11",
+    "os": "Windows 11  (10.0.26200)",
+    "buildGuid": "00000000000000000000000000000000",
+    "phase": "finished",
+    "finished": true,
+    "editor": true,
+    "batch": true,
+    "frameTimingEnabled": true,
+    "checks": [
+        {
+            "name": "dynamic.close-preserves-pose",
+            "detail": "close must preserve continuous pose and ID",
+            "passed": true
+        },
+        {
+            "name": "dynamic.close-occupied-deferred",
+            "detail": "reserved doorway waits for occupant, not an immediate solid",
+            "passed": true
+        },
+        {
+            "name": "dynamic.close-invalidates-routes",
+            "detail": "new routes avoid pending close and field is fresh",
+            "passed": true
+        },
+        {
+            "name": "dynamic.close-drains",
+            "detail": "existing traveler must leave and close must commit",
+            "passed": true
+        },
+        {
+            "name": "dynamic.reopen",
+            "detail": "reopen refreshes routing",
+            "passed": true
+        },
+        {
+            "name": "dynamic.following-separation",
+            "detail": "following movers advance without overlap",
+            "passed": true
+        },
+        {
+            "name": "dynamic.unreachable-waits",
+            "detail": "no path waits safely without reset",
+            "passed": true
+        },
+        {
+            "name": "dynamic.reachable-resumes",
+            "detail": "reopen resumes and completes the original agent",
+            "passed": true
+        },
+        {
+            "name": "dynamic.repeated-crate-24",
+            "detail": "40 repeated relocations remain valid floor cells",
+            "passed": true
+        },
+        {
+            "name": "dynamic.repeated-crate-32",
+            "detail": "40 repeated relocations remain valid floor cells",
+            "passed": true
+        },
+        {
+            "name": "dynamic.audit-arrival-segment",
+            "detail": "controlled overlap on terminal segment must be observed even after arrival removal",
+            "passed": true
+        },
+        {
+            "name": "dynamic.paused-native-sync",
+            "detail": "paused public close control must immediately update visible obstacle/native collider",
+            "passed": true
+        }
+    ],
+    "behavior": [
+        {
+            "name": "occupied-door",
+            "agents": 16,
+            "arrived": 16,
+            "ticks": 981,
+            "nativeChecks": 1332,
+            "nativeWallOverlaps": 0,
+            "alternateCrossings": 15,
+            "width": 24,
+            "height": 16,
+            "closeRequestTick": 3,
+            "closeCommitTick": 41,
+            "simulatedSeconds": 16.350000381469728,
+            "triggered": true,
+            "passed": false,
+            "bodyOccupiedAtRequest": false,
+            "audit": {
+                "observations": 981,
+                "pairPenetrations": 0,
+                "wallPenetrations": 0,
+                "teleports": 0,
+                "reservationErrors": 0,
+                "staleReads": 0,
+                "minimumSeparation": 1.0,
+                "maximumStep": 0.05000019073486328
+            },
+            "events": [
+                {
+                    "action": "close-occupied-door",
+                    "cell": 108,
+                    "moving": 11,
+                    "pending": 1,
+                    "solid": 0,
+                    "engineFrame": 2,
+                    "simulatedSeconds": 0.05000000260770321,
+                    "milliseconds": 0.027700000000000004,
+                    "maximumPoseChange": 0.0
+                }
+            ]
+        },
+        {
+            "name": "all-blocked",
+            "agents": 32,
+            "arrived": 32,
+            "ticks": 2054,
+            "nativeChecks": 5656,
+            "nativeWallOverlaps": 0,
+            "alternateCrossings": 0,
+            "width": 32,
+            "height": 24,
+            "closeRequestTick": -1,
+            "closeCommitTick": -1,
+            "simulatedSeconds": 34.233333587646487,
+            "triggered": true,
+            "passed": true,
+            "bodyOccupiedAtRequest": false,
+            "audit": {
+                "observations": 2054,
+                "pairPenetrations": 0,
+                "wallPenetrations": 0,
+                "teleports": 0,
+                "reservationErrors": 0,
+                "staleReads": 0,
+                "minimumSeparation": 1.0,
+                "maximumStep": 0.05000019073486328
+            },
+            "events": [
+                {
+                    "action": "close-main",
+                    "cell": 208,
+                    "moving": 32,
+                    "pending": 0,
+                    "solid": 1,
+                    "engineFrame": 141,
+                    "simulatedSeconds": 2.0000001043081285,
+                    "milliseconds": 0.061900000000000007,
+                    "maximumPoseChange": 0.0
+                },
+                {
+                    "action": "close-alternate",
+                    "cell": 592,
+                    "moving": 32,
+                    "pending": 0,
+                    "solid": 2,
+                    "engineFrame": 141,
+                    "simulatedSeconds": 2.0000001043081285,
+                    "milliseconds": 0.0264,
+                    "maximumPoseChange": 0.0
+                },
+                {
+                    "action": "reopen-main",
+                    "cell": 208,
+                    "moving": 0,
+                    "pending": 0,
+                    "solid": 1,
+                    "engineFrame": 171,
+                    "simulatedSeconds": 6.000000312924385,
+                    "milliseconds": 0.0623,
+                    "maximumPoseChange": 0.0
+                }
+            ]
+        },
+        {
+            "name": "moving-crate",
+            "agents": 32,
+            "arrived": 32,
+            "ticks": 1061,
+            "nativeChecks": 2654,
+            "nativeWallOverlaps": 0,
+            "alternateCrossings": 13,
+            "width": 24,
+            "height": 16,
+            "closeRequestTick": 3,
+            "closeCommitTick": 41,
+            "simulatedSeconds": 17.683334350585939,
+            "triggered": true,
+            "passed": true,
+            "bodyOccupiedAtRequest": false,
+            "audit": {
+                "observations": 1061,
+                "pairPenetrations": 0,
+                "wallPenetrations": 0,
+                "teleports": 0,
+                "reservationErrors": 0,
+                "staleReads": 0,
+                "minimumSeparation": 0.9999980926513672,
+                "maximumStep": 0.05000019073486328
+            },
+            "events": [
+                {
+                    "action": "crate-occupied-request",
+                    "cell": 102,
+                    "moving": 12,
+                    "pending": 1,
+                    "solid": 0,
+                    "engineFrame": 384,
+                    "simulatedSeconds": 0.05000000260770321,
+                    "milliseconds": 0.0268,
+                    "maximumPoseChange": 0.0
+                },
+                {
+                    "action": "crate-remove-1",
+                    "cell": 102,
+                    "moving": 30,
+                    "pending": 0,
+                    "solid": 0,
+                    "engineFrame": 399,
+                    "simulatedSeconds": 2.0000001043081285,
+                    "milliseconds": 0.028200000000000004,
+                    "maximumPoseChange": 0.0
+                },
+                {
+                    "action": "crate-place-2",
+                    "cell": 104,
+                    "moving": 30,
+                    "pending": 0,
+                    "solid": 1,
+                    "engineFrame": 399,
+                    "simulatedSeconds": 2.0000001043081285,
+                    "milliseconds": 0.0223,
+                    "maximumPoseChange": 0.0
+                },
+                {
+                    "action": "crate-remove-2",
+                    "cell": 104,
+                    "moving": 12,
+                    "pending": 0,
+                    "solid": 0,
+                    "engineFrame": 414,
+                    "simulatedSeconds": 4.000000208616257,
+                    "milliseconds": 0.0284,
+                    "maximumPoseChange": 0.0
+                },
+                {
+                    "action": "crate-place-3",
+                    "cell": 105,
+                    "moving": 12,
+                    "pending": 1,
+                    "solid": 0,
+                    "engineFrame": 414,
+                    "simulatedSeconds": 4.000000208616257,
+                    "milliseconds": 0.0213,
+                    "maximumPoseChange": 0.0
+                }
+            ]
+        },
+        {
+            "name": "dense-64",
+            "agents": 64,
+            "arrived": 64,
+            "ticks": 1876,
+            "nativeChecks": 9252,
+            "nativeWallOverlaps": 0,
+            "alternateCrossings": 30,
+            "width": 32,
+            "height": 24,
+            "closeRequestTick": -1,
+            "closeCommitTick": -1,
+            "simulatedSeconds": 31.26666831970215,
+            "triggered": false,
+            "passed": true,
+            "bodyOccupiedAtRequest": false,
+            "audit": {
+                "observations": 1876,
+                "pairPenetrations": 0,
+                "wallPenetrations": 0,
+                "teleports": 0,
+                "reservationErrors": 0,
+                "staleReads": 0,
+                "minimumSeparation": 0.999969482421875,
+                "maximumStep": 0.05000019073486328
+            },
+            "events": []
+        },
+        {
+            "name": "dense-256",
+            "agents": 256,
+            "arrived": 256,
+            "ticks": 6088,
+            "nativeChecks": 105411,
+            "nativeWallOverlaps": 0,
+            "alternateCrossings": 123,
+            "width": 48,
+            "height": 28,
+            "closeRequestTick": -1,
+            "closeCommitTick": -1,
+            "simulatedSeconds": 101.4666748046875,
+            "triggered": false,
+            "passed": true,
+            "bodyOccupiedAtRequest": false,
+            "audit": {
+                "observations": 6088,
+                "pairPenetrations": 0,
+                "wallPenetrations": 0,
+                "teleports": 0,
+                "reservationErrors": 0,
+                "staleReads": 0,
+                "minimumSeparation": 0.999908447265625,
+                "maximumStep": 0.05000019073486328
+            },
+            "events": []
+        },
+        {
+            "name": "avoidance-disabled-control",
+            "agents": 32,
+            "arrived": 11,
+            "ticks": 600,
+            "nativeChecks": 2354,
+            "nativeWallOverlaps": 0,
+            "alternateCrossings": 12,
+            "width": 32,
+            "height": 24,
+            "closeRequestTick": -1,
+            "closeCommitTick": -1,
+            "simulatedSeconds": 10.000000953674317,
+            "triggered": false,
+            "passed": true,
+            "bodyOccupiedAtRequest": false,
+            "audit": {
+                "observations": 600,
+                "pairPenetrations": 8979,
+                "wallPenetrations": 0,
+                "teleports": 0,
+                "reservationErrors": 0,
+                "staleReads": 0,
+                "minimumSeparation": 0.0,
+                "maximumStep": 0.05000019073486328
+            },
+            "events": []
+        }
+    ],
+    "cases": [],
+    "timingScope": "Whole rendered frame intervals; Unity FrameTimingManager CPU/GPU when nonzero, asynchronously reported; CPU/GPU overlap and must not be added. 60Hz simulation, no discarded wall deltas. Update component timer includes transactions, movement, transform sync; geometry/native audits disabled in performance. Setup, JSON and captures outside performance windows."
+}

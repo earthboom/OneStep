@@ -1,0 +1,59 @@
+{
+    "unity": "6000.0.77f1",
+    "utc": "2026-11-08T08:28:57.3289470Z",
+    "editor": true,
+    "playing": false,
+    "failures": 7,
+    "checks": [
+        {
+            "name": "traffic.narrow-small",
+            "detail": "small profiles fit one-unit opening with margin",
+            "passed": true
+        },
+        {
+            "name": "traffic.narrow-large",
+            "detail": "large disc must choose wide corridor",
+            "passed": false
+        },
+        {
+            "name": "traffic.clearance-boundary",
+            "detail": "0.04 margin is part of feasibility",
+            "passed": false
+        },
+        {
+            "name": "traffic.audit-radius-sum",
+            "detail": "fixed .4 diameter must not miss unequal-radius overlap",
+            "passed": false
+        },
+        {
+            "name": "traffic.audit-swept-swap",
+            "detail": "separated endpoints do not excuse crossing trajectories",
+            "passed": false
+        },
+        {
+            "name": "traffic.gate-exclusion",
+            "detail": "opposite leases must not coexist",
+            "passed": false
+        },
+        {
+            "name": "traffic.gate-batch",
+            "detail": "opposite pending caps same-phase admissions at four",
+            "passed": false
+        },
+        {
+            "name": "traffic.gate-fair-turn",
+            "detail": "opposite oldest queue gets next turn",
+            "passed": true
+        },
+        {
+            "name": "traffic.gate-pause",
+            "detail": "admission pause does not grant a new lease",
+            "passed": false
+        },
+        {
+            "name": "traffic.gate-resume",
+            "detail": "resume preserves pending ticket",
+            "passed": true
+        }
+    ]
+}

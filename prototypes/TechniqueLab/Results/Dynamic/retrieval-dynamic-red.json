@@ -1,0 +1,60 @@
+{
+  "ok": false,
+  "command": "evaluate",
+  "index": {
+    "entries": 114,
+    "read_files": 114,
+    "cached_files": 0,
+    "elapsed_ms": 271.94,
+    "warning": null
+  },
+  "elapsed_ms": 347.721,
+  "cases": [
+    {
+      "name": "closed-door-crowd-symptom",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-CROWD",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-RESEARCH-USE"
+      ],
+      "snippets_characters": 313,
+      "elapsed_ms": 14.222
+    },
+    {
+      "name": "in-flight-topology-transaction",
+      "passed": false,
+      "missing": [
+        "K-GAME-TECH-PATH"
+      ],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-METROIDVANIA",
+        "K-GAME-TECH-CROWD",
+        "K-GAME-TECH-GUIDE"
+      ],
+      "snippets_characters": 794,
+      "elapsed_ms": 32.795
+    },
+    {
+      "name": "complete-frame-and-missing-gpu",
+      "passed": true,
+      "missing": [],
+      "forbidden_hits": [],
+      "returned": [
+        "K-GAME-TECH-CROWD",
+        "K-GAME-RESEARCH-USE",
+        "K-GAME-TECH-PATH"
+      ],
+      "snippets_characters": 603,
+      "elapsed_ms": 28.421
+    }
+  ],
+  "passed": 2,
+  "total": 3,
+  "required_recall": 0.6667,
+  "forbidden_hits": 0,
+  "limitation": "Recall covers only declared required IDs; forbidden-hit checks are not a general precision estimate."
+}

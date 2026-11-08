@@ -1,0 +1,4017 @@
+{
+  "date": "2026-11-07",
+  "synthetic": true,
+  "baseline_semantic_cases": 10,
+  "fresh_retests": 3,
+  "new_topics_inspected": 32,
+  "previous_topics_inspected": 11,
+  "total_technical_topic_coverage": 43,
+  "application_review": "AI semantic review under finite hypothetical inputs; not engine implementation or human playtest",
+  "query_replays": [
+    {
+      "phase": "baseline",
+      "case": "N01",
+      "queries": [
+        {
+          "query": "mirror off-screen actors planar reflection SSR",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 7,
+          "returned": [
+            "K-GAME-TECH-REFLECTION",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-ACTION-COMBAT",
+            "K-GAME-PLATFORMER",
+            "K-GAME-TECH-CROWD"
+          ],
+          "expanded_terms": [
+            [
+              "거울",
+              "mirror",
+              "reflection"
+            ],
+            [
+              "off-screen"
+            ],
+            [
+              "actors"
+            ],
+            [
+              "planar"
+            ],
+            [
+              "ssr"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "sealed window room depth interior mapping",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 22,
+          "returned": [
+            "K-GAME-TECH-INTERIOR",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-CAMERA",
+            "K-GAME-TECH-SOUND",
+            "K-GAME-TECH-SPEED"
+          ],
+          "expanded_terms": [
+            [
+              "인테리어매핑",
+              "실내매핑",
+              "interior mapping"
+            ],
+            [
+              "sealed"
+            ],
+            [
+              "window"
+            ],
+            [
+              "room"
+            ],
+            [
+              "depth"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "billboard signs silhouette normal mapping displacement",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 15,
+          "returned": [
+            "K-GAME-TECH-NORMAL",
+            "K-GAME-TECH-BILLBOARD",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-INTERIOR",
+            "K-GAME-SHOOTER"
+          ],
+          "expanded_terms": [
+            [
+              "billboard"
+            ],
+            [
+              "signs"
+            ],
+            [
+              "silhouette"
+            ],
+            [
+              "normal"
+            ],
+            [
+              "mapping"
+            ],
+            [
+              "displacement"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "reflection interior billboard normal",
+          "store": "records",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "거울",
+              "mirror",
+              "reflection"
+            ],
+            [
+              "interior"
+            ],
+            [
+              "billboard"
+            ],
+            [
+              "normal"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "mirror window sign brick",
+          "store": "records",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "거울",
+              "mirror",
+              "reflection"
+            ],
+            [
+              "window"
+            ],
+            [
+              "sign"
+            ],
+            [
+              "brick"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "core_evidence_missing": []
+    },
+    {
+      "phase": "baseline",
+      "case": "N02",
+      "queries": [
+        {
+          "query": "cave overhang scalar density Dual Contouring Hermite",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 7,
+          "returned": [
+            "K-GAME-TECH-VOXEL",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-NOISE"
+          ],
+          "expanded_terms": [
+            [
+              "동굴",
+              "cave",
+              "caves"
+            ],
+            [
+              "overhang"
+            ],
+            [
+              "scalar"
+            ],
+            [
+              "density"
+            ],
+            [
+              "dual"
+            ],
+            [
+              "contouring"
+            ],
+            [
+              "hermite"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "procedural dungeon connectivity minimum tunnel radius seed",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 12,
+          "returned": [
+            "K-GAME-TECH-DUNGEON",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-COOP-DIRECTOR"
+          ],
+          "expanded_terms": [
+            [
+              "던전",
+              "dungeon"
+            ],
+            [
+              "procedural"
+            ],
+            [
+              "connectivity"
+            ],
+            [
+              "minimum"
+            ],
+            [
+              "tunnel"
+            ],
+            [
+              "radius"
+            ],
+            [
+              "seed"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "chunk boundary edit collision mesh seam",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "청크",
+              "chunk",
+              "chunks"
+            ],
+            [
+              "boundary"
+            ],
+            [
+              "edit"
+            ],
+            [
+              "collision"
+            ],
+            [
+              "mesh"
+            ],
+            [
+              "seam"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "terrain voxel edit streaming",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "terrain"
+            ],
+            [
+              "voxel"
+            ],
+            [
+              "edit"
+            ],
+            [
+              "streaming"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "chunk boundary collision synchronization",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 26,
+          "returned": [
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-VOXEL",
+            "K-GAME-TECH-HITBOX"
+          ],
+          "expanded_terms": [
+            [
+              "청크",
+              "chunk",
+              "chunks"
+            ],
+            [
+              "boundary"
+            ],
+            [
+              "collision"
+            ],
+            [
+              "synchronization"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "core_evidence_missing": []
+    },
+    {
+      "phase": "baseline",
+      "case": "N03",
+      "queries": [
+        {
+          "query": "crowd shared exits weighted grid flow field dynamic doors avoidance",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 24,
+          "returned": [
+            "K-GAME-TECH-CROWD",
+            "K-GAME-TECH-PATH",
+            "K-GAME-ECONOMY"
+          ],
+          "expanded_terms": [
+            [
+              "군중",
+              "crowd"
+            ],
+            [
+              "흐름장",
+              "플로필드",
+              "flow field",
+              "flow"
+            ],
+            [
+              "shared"
+            ],
+            [
+              "exits"
+            ],
+            [
+              "weighted"
+            ],
+            [
+              "grid"
+            ],
+            [
+              "dynamic"
+            ],
+            [
+              "doors"
+            ],
+            [
+              "avoidance"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "guard vision normalized dot product occlusion",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 11,
+          "returned": [
+            "K-GAME-TECH-TRACE",
+            "K-GAME-TECH-SOUND",
+            "K-GAME-TECH-GUIDE"
+          ],
+          "expanded_terms": [
+            [
+              "guard"
+            ],
+            [
+              "vision"
+            ],
+            [
+              "normalized"
+            ],
+            [
+              "dot"
+            ],
+            [
+              "product"
+            ],
+            [
+              "occlusion"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "target lock hysteresis explicit switch",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 31,
+          "returned": [
+            "K-GAME-TECH-LOCKON",
+            "K-GAME-TECH-CAMERA",
+            "K-GAME-TECH-GUIDE"
+          ],
+          "expanded_terms": [
+            [
+              "target"
+            ],
+            [
+              "lock"
+            ],
+            [
+              "hysteresis"
+            ],
+            [
+              "explicit"
+            ],
+            [
+              "switch"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "PteroNav-Q31",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "pteronav-q31"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "PteroNav Q31 incremental exit fields",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 16,
+          "returned": [
+            "K-GAME-IDLE-INCREMENTAL",
+            "K-GAME-TECH-PATH",
+            "K-CODE-CONCURRENCY-LIFETIMES"
+          ],
+          "expanded_terms": [
+            [
+              "pteronav"
+            ],
+            [
+              "q31"
+            ],
+            [
+              "incremental"
+            ],
+            [
+              "exit"
+            ],
+            [
+              "fields"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "PteroNav Q31",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "pteronav"
+            ],
+            [
+              "q31"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "core_evidence_missing": []
+    },
+    {
+      "phase": "baseline",
+      "case": "N04",
+      "queries": [
+        {
+          "query": "smoke quality visibility competitive density",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 26,
+          "returned": [
+            "K-GAME-TECH-VOLUME",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-RESEARCH-USE",
+            "K-GAME-TECH-REFLECTION",
+            "K-GAME-MULTIPLAYER"
+          ],
+          "expanded_terms": [
+            [
+              "smoke"
+            ],
+            [
+              "quality"
+            ],
+            [
+              "visibility"
+            ],
+            [
+              "competitive"
+            ],
+            [
+              "density"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "water waves buoyancy CPU GPU surface",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 15,
+          "returned": [
+            "K-GAME-TECH-WATER",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-NORMAL",
+            "K-GAME-TECH-PIXEL",
+            "K-GAME-RESEARCH-USE"
+          ],
+          "expanded_terms": [
+            [
+              "물결",
+              "파도",
+              "wave",
+              "waves",
+              "부표",
+              "부력",
+              "buoyancy"
+            ],
+            [
+              "water"
+            ],
+            [
+              "cpu"
+            ],
+            [
+              "gpu"
+            ],
+            [
+              "surface"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "premultiplied alpha straight alpha black edges",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 9,
+          "returned": [
+            "K-GAME-TECH-BLEND",
+            "K-GAME-TECH-FOLIAGE",
+            "K-GAME-TECH-BILLBOARD",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-INTERIOR"
+          ],
+          "expanded_terms": [
+            [
+              "알파",
+              "블렌딩",
+              "alpha",
+              "blending"
+            ],
+            [
+              "premultiplied"
+            ],
+            [
+              "straight"
+            ],
+            [
+              "black"
+            ],
+            [
+              "edges"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "smoke water alpha blending",
+          "store": "records",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "알파",
+              "블렌딩",
+              "alpha",
+              "blending"
+            ],
+            [
+              "smoke"
+            ],
+            [
+              "water"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "fluid simulation incompressible",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 19,
+          "returned": [
+            "K-GAME-TECH-VOLUME",
+            "K-GAME-TECH-WATER",
+            "K-GAME-TECH-HAIR",
+            "K-GAME-TECH-TIMESTEP",
+            "K-GAME-ECONOMY"
+          ],
+          "expanded_terms": [
+            [
+              "fluid"
+            ],
+            [
+              "simulation"
+            ],
+            [
+              "incompressible"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "visibility buoyancy premultiplied",
+          "store": "records",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "물결",
+              "파도",
+              "wave",
+              "waves",
+              "부표",
+              "부력",
+              "buoyancy"
+            ],
+            [
+              "visibility"
+            ],
+            [
+              "premultiplied"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "core_evidence_missing": []
+    },
+    {
+      "phase": "baseline",
+      "case": "N05",
+      "queries": [
+        {
+          "query": "camera follow frame rate interpolation",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 4,
+          "offset": 0,
+          "total_matches": 38,
+          "returned": [
+            "K-GAME-TECH-CAMERA",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-TIMESTEP",
+            "K-GAME-TECH-LEVEL"
+          ],
+          "expanded_terms": [
+            [
+              "카메라",
+              "camera"
+            ],
+            [
+              "보간",
+              "interpolation"
+            ],
+            [
+              "follow"
+            ],
+            [
+              "frame"
+            ],
+            [
+              "rate"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "Bezier easing duration inversion",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 2,
+          "returned": [
+            "K-GAME-TECH-EASING",
+            "K-GAME-TECH-GUIDE"
+          ],
+          "expanded_terms": [
+            [
+              "bezier"
+            ],
+            [
+              "easing"
+            ],
+            [
+              "duration"
+            ],
+            [
+              "inversion"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "doorway capsule camera collision",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 28,
+          "returned": [
+            "K-GAME-TECH-CAMERA",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-PLATFORMER"
+          ],
+          "expanded_terms": [
+            [
+              "카메라",
+              "camera"
+            ],
+            [
+              "doorway"
+            ],
+            [
+              "capsule"
+            ],
+            [
+              "collision"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "sprint FOV roll motion blur comfort",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 7,
+          "returned": [
+            "K-GAME-TECH-SPEED",
+            "K-GAME-TECH-TRACE",
+            "K-GAME-TECH-GUIDE"
+          ],
+          "expanded_terms": [
+            [
+              "sprint"
+            ],
+            [
+              "fov"
+            ],
+            [
+              "roll"
+            ],
+            [
+              "motion"
+            ],
+            [
+              "blur"
+            ],
+            [
+              "comfort"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "camera interpolation doorway comfort",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "카메라",
+              "camera"
+            ],
+            [
+              "보간",
+              "interpolation"
+            ],
+            [
+              "doorway"
+            ],
+            [
+              "comfort"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "door character dimensions turning radius",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 11,
+          "returned": [
+            "K-GAME-TECH-LEVEL",
+            "K-GAME-METROIDVANIA",
+            "K-GAME-RPG-PROGRESSION"
+          ],
+          "expanded_terms": [
+            [
+              "door"
+            ],
+            [
+              "character"
+            ],
+            [
+              "dimensions"
+            ],
+            [
+              "turning"
+            ],
+            [
+              "radius"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "smoothing collision FOV",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "smoothing"
+            ],
+            [
+              "collision"
+            ],
+            [
+              "fov"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "core_evidence_missing": []
+    },
+    {
+      "phase": "baseline",
+      "case": "N06",
+      "queries": [
+        {
+          "query": "audio occlusion door reverb filtering",
+          "store": "both",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 14,
+          "returned": [
+            "K-GAME-TECH-SOUND",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-LEVEL",
+            "K-GAME-TECH-LOCKON",
+            "K-GAME-TECH-SHADOW"
+          ],
+          "expanded_terms": [
+            [
+              "audio"
+            ],
+            [
+              "occlusion"
+            ],
+            [
+              "door"
+            ],
+            [
+              "reverb"
+            ],
+            [
+              "filtering"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "music transition synchronized stems bar restart",
+          "store": "both",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 16,
+          "returned": [
+            "K-GAME-TECH-MUSIC",
+            "K-FIC-REF-SPATIAL-BLOCKING",
+            "R-FIC-N2-HAND-STATE-20261106",
+            "K-GAME-TECH-GUIDE",
+            "K-CODE-DATA-INVARIANTS"
+          ],
+          "expanded_terms": [
+            [
+              "음악",
+              "music"
+            ],
+            [
+              "transition"
+            ],
+            [
+              "synchronized"
+            ],
+            [
+              "stems"
+            ],
+            [
+              "bar"
+            ],
+            [
+              "restart"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "core_evidence_missing": []
+    },
+    {
+      "phase": "baseline",
+      "case": "N07",
+      "queries": [
+        {
+          "query": "matchmaking skill uncertainty calibration",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 20,
+          "returned": [
+            "K-GAME-TECH-MATCH",
+            "K-GAME-RESEARCH-USE",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-RHYTHM",
+            "K-GAME-HORROR"
+          ],
+          "expanded_terms": [
+            [
+              "매칭",
+              "matchmaking",
+              "matching"
+            ],
+            [
+              "skill"
+            ],
+            [
+              "uncertainty"
+            ],
+            [
+              "calibration"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "pity independent probability failures",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 52,
+          "returned": [
+            "K-GAME-TECH-RANDOM-DESIGN",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-SHADOW",
+            "K-GAME-TECH-INCENTIVES",
+            "K-GAME-TECH-MATCH"
+          ],
+          "expanded_terms": [
+            [
+              "확률 천장",
+              "확률천장",
+              "보상 천장",
+              "pity",
+              "pity system"
+            ],
+            [
+              "independent"
+            ],
+            [
+              "probability"
+            ],
+            [
+              "failures"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "counterattack recoverable health expiry",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 5,
+          "returned": [
+            "K-GAME-TECH-INCENTIVES",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-MULTIPLAYER",
+            "K-GAME-SURVIVAL-CRAFTING",
+            "K-GAME-TECH-SAVE"
+          ],
+          "expanded_terms": [
+            [
+              "counterattack"
+            ],
+            [
+              "recoverable"
+            ],
+            [
+              "health"
+            ],
+            [
+              "expiry"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "ranked loss streak hidden odds fairness",
+          "store": "records",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 1,
+          "returned": [
+            "R-FIC-N2-RECOVERY-GAP-20261106"
+          ],
+          "expanded_terms": [
+            [
+              "ranked"
+            ],
+            [
+              "loss"
+            ],
+            [
+              "streak"
+            ],
+            [
+              "hidden"
+            ],
+            [
+              "odds"
+            ],
+            [
+              "fairness"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "ranked loss streak hidden odds fairness",
+          "store": "records",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "ranked"
+            ],
+            [
+              "loss"
+            ],
+            [
+              "streak"
+            ],
+            [
+              "hidden"
+            ],
+            [
+              "odds"
+            ],
+            [
+              "fairness"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "dynamic difficulty pacing performance",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 61,
+          "returned": [
+            "K-GAME-TECH-DDA",
+            "K-GAME-COOP-DIRECTOR",
+            "K-GAME-TECH-GUIDE"
+          ],
+          "expanded_terms": [
+            [
+              "dynamic"
+            ],
+            [
+              "difficulty"
+            ],
+            [
+              "pacing"
+            ],
+            [
+              "performance"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "core_evidence_missing": []
+    },
+    {
+      "phase": "baseline",
+      "case": "N08",
+      "queries": [
+        {
+          "query": "high heel foot contact IK pelvis stairs",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 6,
+          "returned": [
+            "K-GAME-TECH-IK",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-ACCESSIBILITY-ONBOARDING"
+          ],
+          "expanded_terms": [
+            [
+              "high"
+            ],
+            [
+              "heel"
+            ],
+            [
+              "foot"
+            ],
+            [
+              "contact"
+            ],
+            [
+              "ik"
+            ],
+            [
+              "pelvis"
+            ],
+            [
+              "stairs"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "hair strands offscreen shadow simulation LOD",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 20,
+          "returned": [
+            "K-GAME-TECH-HAIR",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-SHADOW"
+          ],
+          "expanded_terms": [
+            [
+              "hair"
+            ],
+            [
+              "strands"
+            ],
+            [
+              "offscreen"
+            ],
+            [
+              "shadow"
+            ],
+            [
+              "simulation"
+            ],
+            [
+              "lod"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "destruction fractured debris activation support collision",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 29,
+          "returned": [
+            "K-GAME-TECH-DESTRUCTION",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-HITBOX"
+          ],
+          "expanded_terms": [
+            [
+              "파괴",
+              "destruction",
+              "fracture",
+              "debris"
+            ],
+            [
+              "fractured"
+            ],
+            [
+              "activation"
+            ],
+            [
+              "support"
+            ],
+            [
+              "collision"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "collision callback shutdown thread plugin",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "종료",
+              "shutdown",
+              "teardown"
+            ],
+            [
+              "collision"
+            ],
+            [
+              "callback"
+            ],
+            [
+              "thread"
+            ],
+            [
+              "plugin"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "OrioleCloth-K9",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "oriolecloth-k9"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "fracture hair IK",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "파괴",
+              "destruction",
+              "fracture",
+              "debris"
+            ],
+            [
+              "hair"
+            ],
+            [
+              "ik"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "cloth collision callback ABI thread",
+          "store": "both",
+          "domains": [],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 23,
+          "returned": [
+            "K-GAME-TECH-HITBOX",
+            "K-GAME-TECH-TRACE",
+            "K-GAME-PLATFORMER"
+          ],
+          "expanded_terms": [
+            [
+              "cloth"
+            ],
+            [
+              "collision"
+            ],
+            [
+              "callback"
+            ],
+            [
+              "abi"
+            ],
+            [
+              "thread"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "core_evidence_missing": []
+    },
+    {
+      "phase": "baseline",
+      "case": "N09",
+      "queries": [
+        {
+          "query": "palette PNG GPU texture memory pixel art scaling",
+          "store": "both",
+          "domains": [
+            "game",
+            "code"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 29,
+          "returned": [
+            "K-GAME-TECH-PIXEL",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-MEMORY"
+          ],
+          "expanded_terms": [
+            [
+              "메모리",
+              "memory"
+            ],
+            [
+              "palette"
+            ],
+            [
+              "png"
+            ],
+            [
+              "gpu"
+            ],
+            [
+              "texture"
+            ],
+            [
+              "pixel"
+            ],
+            [
+              "art"
+            ],
+            [
+              "scaling"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "Mode 7 affine perspective scanline fixed point",
+          "store": "both",
+          "domains": [
+            "game",
+            "code"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 37,
+          "returned": [
+            "K-GAME-TECH-RETRO",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-CAMERA"
+          ],
+          "expanded_terms": [
+            [
+              "mode"
+            ],
+            [
+              "7"
+            ],
+            [
+              "affine"
+            ],
+            [
+              "perspective"
+            ],
+            [
+              "scanline"
+            ],
+            [
+              "fixed"
+            ],
+            [
+              "point"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "untrusted map import parser length pointer bounds integer overflow",
+          "store": "records",
+          "domains": [
+            "game",
+            "code"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "untrusted"
+            ],
+            [
+              "map"
+            ],
+            [
+              "import"
+            ],
+            [
+              "parser"
+            ],
+            [
+              "length"
+            ],
+            [
+              "pointer"
+            ],
+            [
+              "bounds"
+            ],
+            [
+              "integer"
+            ],
+            [
+              "overflow"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "TileScript-Z17",
+          "store": "both",
+          "domains": [
+            "game",
+            "code"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "tilescript-z17"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "controller arbitrary code execution memory safety parser",
+          "store": "both",
+          "domains": [
+            "game",
+            "code"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 50,
+          "returned": [
+            "K-GAME-TECH-MEMORY",
+            "K-CODE-PRINCIPLE-REUSE",
+            "K-GAME-TECH-GUIDE"
+          ],
+          "expanded_terms": [
+            [
+              "메모리",
+              "memory"
+            ],
+            [
+              "controller"
+            ],
+            [
+              "arbitrary"
+            ],
+            [
+              "code"
+            ],
+            [
+              "execution"
+            ],
+            [
+              "safety"
+            ],
+            [
+              "parser"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "TileScript Z17",
+          "store": "both",
+          "domains": [
+            "game",
+            "code"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "tilescript"
+            ],
+            [
+              "z17"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "texture import palette scaling affine untrusted",
+          "store": "records",
+          "domains": [
+            "game",
+            "code"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "texture"
+            ],
+            [
+              "import"
+            ],
+            [
+              "palette"
+            ],
+            [
+              "scaling"
+            ],
+            [
+              "affine"
+            ],
+            [
+              "untrusted"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "core_evidence_missing": []
+    },
+    {
+      "phase": "baseline",
+      "case": "N10",
+      "queries": [
+        {
+          "query": "chemistry elemental reaction state fire water electricity",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 33,
+          "returned": [
+            "K-GAME-TECH-SYSTEMIC",
+            "K-GAME-TECH-WATER",
+            "K-GAME-TECH-GUIDE"
+          ],
+          "expanded_terms": [
+            [
+              "원소상호작용",
+              "systemic",
+              "elemental"
+            ],
+            [
+              "chemistry"
+            ],
+            [
+              "reaction"
+            ],
+            [
+              "state"
+            ],
+            [
+              "fire"
+            ],
+            [
+              "water"
+            ],
+            [
+              "electricity"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "hitbox hurtbox repeated damage swing",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 18,
+          "returned": [
+            "K-GAME-TECH-HITBOX",
+            "K-GAME-TECH-DESTRUCTION",
+            "K-GAME-TECH-INCENTIVES"
+          ],
+          "expanded_terms": [
+            [
+              "히트박스",
+              "허트박스",
+              "hitbox",
+              "hurtbox"
+            ],
+            [
+              "repeated"
+            ],
+            [
+              "damage"
+            ],
+            [
+              "swing"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "collision callback state mutation damage",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 4,
+          "returned": [
+            "R-FIC-N2-HAND-STATE-20261106",
+            "R-FIC-N2-DIALOGUE-20261106",
+            "R-FIC-N2-RECOVERY-GAP-20261106"
+          ],
+          "expanded_terms": [
+            [
+              "collision"
+            ],
+            [
+              "callback"
+            ],
+            [
+              "state"
+            ],
+            [
+              "mutation"
+            ],
+            [
+              "damage"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "collision callback damage elemental transition",
+          "store": "records",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "원소상호작용",
+              "systemic",
+              "elemental"
+            ],
+            [
+              "collision"
+            ],
+            [
+              "callback"
+            ],
+            [
+              "damage"
+            ],
+            [
+              "transition"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "core_evidence_missing": []
+    },
+    {
+      "phase": "retest",
+      "case": "N03",
+      "queries": [
+        {
+          "query": "shared exits weighted grid dynamic doors flow field",
+          "store": "both",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 38,
+          "returned": [
+            "K-GAME-TECH-PATH",
+            "K-GAME-ECONOMY",
+            "K-GAME-TECH-CROWD",
+            "K-GAME-TECH-GUIDE",
+            "K-CODE-ABSTRACTION-COST"
+          ],
+          "expanded_terms": [
+            [
+              "흐름장",
+              "플로필드",
+              "flow field",
+              "flow"
+            ],
+            [
+              "shared"
+            ],
+            [
+              "exits"
+            ],
+            [
+              "weighted"
+            ],
+            [
+              "grid"
+            ],
+            [
+              "dynamic"
+            ],
+            [
+              "doors"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "narrow door crowd local avoidance collision overlap",
+          "store": "both",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 74,
+          "returned": [
+            "K-GAME-TECH-CROWD",
+            "K-GAME-TECH-PATH",
+            "K-CODE-UE-LOCAL-ONLY-WORK",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-PLATFORMER"
+          ],
+          "expanded_terms": [
+            [
+              "군중",
+              "crowd"
+            ],
+            [
+              "narrow"
+            ],
+            [
+              "door"
+            ],
+            [
+              "local"
+            ],
+            [
+              "avoidance"
+            ],
+            [
+              "collision"
+            ],
+            [
+              "overlap"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "guard perception normalized dot product occlusion",
+          "store": "both",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 14,
+          "returned": [
+            "K-GAME-TECH-TRACE",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-SOUND",
+            "K-GAME-TECH-LOCKON",
+            "K-GAME-SHOOTER"
+          ],
+          "expanded_terms": [
+            [
+              "guard"
+            ],
+            [
+              "perception"
+            ],
+            [
+              "normalized"
+            ],
+            [
+              "dot"
+            ],
+            [
+              "product"
+            ],
+            [
+              "occlusion"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "lock on target selection hysteresis explicit switch",
+          "store": "both",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 107,
+          "returned": [
+            "K-GAME-TECH-LOCKON",
+            "K-CODE-DEPENDENCY-SELECTION",
+            "K-GAME-TECH-GUIDE",
+            "K-CODE-RESOURCE-OWNERSHIP",
+            "K-GAME-TECH-CAMERA"
+          ],
+          "expanded_terms": [
+            [
+              "lock"
+            ],
+            [
+              "on"
+            ],
+            [
+              "target"
+            ],
+            [
+              "selection"
+            ],
+            [
+              "hysteresis"
+            ],
+            [
+              "explicit"
+            ],
+            [
+              "switch"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "PteroNav-Q31",
+          "store": "both",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "pteronav-q31"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "PteroNav",
+          "store": "both",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "pteronav"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "incremental exit fields",
+          "store": "both",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 16,
+          "returned": [
+            "K-GAME-IDLE-INCREMENTAL",
+            "K-CODE-CONCURRENCY-LIFETIMES",
+            "K-GAME-TECH-CROWD",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-PATH"
+          ],
+          "expanded_terms": [
+            [
+              "incremental"
+            ],
+            [
+              "exit"
+            ],
+            [
+              "fields"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "core_evidence_missing": []
+    },
+    {
+      "phase": "retest",
+      "case": "N04",
+      "queries": [
+        {
+          "query": "smoke quality visibility authority",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 18,
+          "returned": [
+            "K-GAME-TECH-VOLUME",
+            "K-GAME-RESEARCH-USE",
+            "K-GAME-TECH-AUTHORITY",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-REFLECTION"
+          ],
+          "expanded_terms": [
+            [
+              "smoke"
+            ],
+            [
+              "quality"
+            ],
+            [
+              "visibility"
+            ],
+            [
+              "authority"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "water wave buoyancy simulation",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 19,
+          "returned": [
+            "K-GAME-TECH-WATER",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-SYSTEMIC",
+            "K-GAME-TECH-HAIR",
+            "K-GAME-TECH-TIMESTEP"
+          ],
+          "expanded_terms": [
+            [
+              "물결",
+              "파도",
+              "wave",
+              "waves",
+              "부표",
+              "부력",
+              "buoyancy"
+            ],
+            [
+              "water"
+            ],
+            [
+              "simulation"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "premultiplied alpha black fringe",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 5,
+          "returned": [
+            "K-GAME-TECH-BLEND",
+            "K-GAME-TECH-FOLIAGE",
+            "K-GAME-TECH-BILLBOARD",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-NOISE"
+          ],
+          "expanded_terms": [
+            [
+              "알파",
+              "블렌딩",
+              "alpha",
+              "blending"
+            ],
+            [
+              "premultiplied"
+            ],
+            [
+              "black"
+            ],
+            [
+              "fringe"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "fluid simulation smoke water",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 19,
+          "returned": [
+            "K-GAME-TECH-WATER",
+            "K-GAME-TECH-VOLUME",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-HAIR",
+            "K-GAME-TECH-TIMESTEP"
+          ],
+          "expanded_terms": [
+            [
+              "fluid"
+            ],
+            [
+              "simulation"
+            ],
+            [
+              "smoke"
+            ],
+            [
+              "water"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "smoke quality buoyancy alpha",
+          "store": "records",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "물결",
+              "파도",
+              "wave",
+              "waves",
+              "부표",
+              "부력",
+              "buoyancy"
+            ],
+            [
+              "알파",
+              "블렌딩",
+              "alpha",
+              "blending"
+            ],
+            [
+              "smoke"
+            ],
+            [
+              "quality"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "core_evidence_missing": []
+    },
+    {
+      "phase": "retest",
+      "case": "N09",
+      "queries": [
+        {
+          "query": "palette PNG texture GPU memory",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 15,
+          "returned": [
+            "K-GAME-TECH-PIXEL",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-MEMORY",
+            "K-GAME-TECH-RETRO",
+            "K-GAME-TECH-SHADOW"
+          ],
+          "expanded_terms": [
+            [
+              "메모리",
+              "memory"
+            ],
+            [
+              "palette"
+            ],
+            [
+              "png"
+            ],
+            [
+              "texture"
+            ],
+            [
+              "gpu"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "Mode 7 perspective affine fixed point",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 26,
+          "returned": [
+            "K-GAME-TECH-RETRO",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-CAMERA",
+            "K-GAME-PROTOTYPE-PLAYTEST",
+            "K-GAME-TECH-TIMESTEP"
+          ],
+          "expanded_terms": [
+            [
+              "mode"
+            ],
+            [
+              "7"
+            ],
+            [
+              "perspective"
+            ],
+            [
+              "affine"
+            ],
+            [
+              "fixed"
+            ],
+            [
+              "point"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "untrusted input parser length pointer controller exploit",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 26,
+          "returned": [
+            "K-GAME-TECH-CONTROLLER",
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-TECH-MEMORY",
+            "K-GAME-ACCESSIBILITY-ONBOARDING",
+            "K-GAME-TECH-ROLLBACK"
+          ],
+          "expanded_terms": [
+            [
+              "untrusted"
+            ],
+            [
+              "input"
+            ],
+            [
+              "parser"
+            ],
+            [
+              "length"
+            ],
+            [
+              "pointer"
+            ],
+            [
+              "controller"
+            ],
+            [
+              "exploit"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "TileScript-Z17",
+          "store": "both",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "tilescript-z17"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "map importer parser texture",
+          "store": "records",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "map"
+            ],
+            [
+              "importer"
+            ],
+            [
+              "parser"
+            ],
+            [
+              "texture"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "private map format decoder record length endianness",
+          "store": "both",
+          "domains": [],
+          "limit": 5,
+          "offset": 0,
+          "total_matches": 52,
+          "returned": [
+            "K-GAME-TECH-GUIDE",
+            "K-GAME-RESEARCH-USE",
+            "K-GAME-STRATEGY-TURN-4X",
+            "K-CODE-UE-LOC-MERGE",
+            "K-CODE-UE-RENDER-ORIENTATION"
+          ],
+          "expanded_terms": [
+            [
+              "private"
+            ],
+            [
+              "map"
+            ],
+            [
+              "format"
+            ],
+            [
+              "decoder"
+            ],
+            [
+              "record"
+            ],
+            [
+              "length"
+            ],
+            [
+              "endianness"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "core_evidence_missing": []
+    },
+    {
+      "phase": "weighted-followup",
+      "case": "weighted-followup",
+      "queries": [
+        {
+          "query": "weighted flow field cost to goal Dijkstra",
+          "store": "both",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 27,
+          "returned": [
+            "K-GAME-TECH-PATH",
+            "K-GAME-ECONOMY",
+            "K-GAME-TECH-GUIDE"
+          ],
+          "expanded_terms": [
+            [
+              "흐름장",
+              "플로필드",
+              "flow field",
+              "flow"
+            ],
+            [
+              "weighted"
+            ],
+            [
+              "cost"
+            ],
+            [
+              "goal"
+            ],
+            [
+              "dijkstra"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "flow field weighted zero cost cycle reverse directed",
+          "store": "records",
+          "domains": [],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 1,
+          "returned": [
+            "R-FIC-N2-DIALOGUE-20261106"
+          ],
+          "expanded_terms": [
+            [
+              "흐름장",
+              "플로필드",
+              "flow field",
+              "flow"
+            ],
+            [
+              "weighted"
+            ],
+            [
+              "zero"
+            ],
+            [
+              "cost"
+            ],
+            [
+              "cycle"
+            ],
+            [
+              "reverse"
+            ],
+            [
+              "directed"
+            ]
+          ],
+          "inferred_concepts": []
+        },
+        {
+          "query": "flow field weighted zero cost cycle reverse directed",
+          "store": "records",
+          "domains": [
+            "game"
+          ],
+          "limit": 3,
+          "offset": 0,
+          "total_matches": 0,
+          "returned": [],
+          "expanded_terms": [
+            [
+              "흐름장",
+              "플로필드",
+              "flow field",
+              "flow"
+            ],
+            [
+              "weighted"
+            ],
+            [
+              "zero"
+            ],
+            [
+              "cost"
+            ],
+            [
+              "cycle"
+            ],
+            [
+              "reverse"
+            ],
+            [
+              "directed"
+            ]
+          ],
+          "inferred_concepts": []
+        }
+      ],
+      "core_evidence_missing": []
+    }
+  ],
+  "lexical_regressions": [
+    {
+      "suite": "extended",
+      "result": {
+        "ok": true,
+        "command": "evaluate",
+        "index": {
+          "entries": 114,
+          "read_files": 2,
+          "cached_files": 112,
+          "elapsed_ms": 86.504,
+          "warning": null
+        },
+        "elapsed_ms": 422.253,
+        "cases": [
+          {
+            "name": "reflect-offscreen",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-REFLECTION",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-TECH-NORMAL"
+            ],
+            "snippets_characters": 547,
+            "elapsed_ms": 21.795
+          },
+          {
+            "name": "interior-fake",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-INTERIOR",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-ECONOMY",
+              "K-GAME-IDLE-INCREMENTAL",
+              "K-GAME-METROIDVANIA"
+            ],
+            "snippets_characters": 1238,
+            "elapsed_ms": 16.48
+          },
+          {
+            "name": "cave-reachability",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-DUNGEON",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-TECH-VOXEL",
+              "K-GAME-TECH-NOISE",
+              "K-GAME-ROGUELIKE-DECKBUILDER"
+            ],
+            "snippets_characters": 1080,
+            "elapsed_ms": 31.096
+          },
+          {
+            "name": "crowd-route",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-CROWD",
+              "K-GAME-TECH-PATH",
+              "K-GAME-ECONOMY",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-SIM-MANAGEMENT"
+            ],
+            "snippets_characters": 615,
+            "elapsed_ms": 22.686
+          },
+          {
+            "name": "smoke-visibility",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-VOLUME",
+              "K-GAME-TECH-GUIDE"
+            ],
+            "snippets_characters": 383,
+            "elapsed_ms": 7.439
+          },
+          {
+            "name": "water-buoyancy",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-WATER",
+              "K-GAME-TECH-GUIDE"
+            ],
+            "snippets_characters": 189,
+            "elapsed_ms": 20.891
+          },
+          {
+            "name": "alpha-fringe",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-BLEND",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-TECH-FOLIAGE",
+              "K-GAME-TECH-BILLBOARD",
+              "K-GAME-TECH-NOISE"
+            ],
+            "snippets_characters": 1093,
+            "elapsed_ms": 16.666
+          },
+          {
+            "name": "camera-timing",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-CAMERA",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-TECH-LEVEL",
+              "K-GAME-TECH-EASING",
+              "K-GAME-TECH-SPEED"
+            ],
+            "snippets_characters": 789,
+            "elapsed_ms": 16.27
+          },
+          {
+            "name": "sound-music",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-MUSIC",
+              "K-GAME-TECH-SOUND",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-ACTION-COMBAT",
+              "K-GAME-METROIDVANIA"
+            ],
+            "snippets_characters": 1001,
+            "elapsed_ms": 19.667
+          },
+          {
+            "name": "match-pity",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-RANDOM-DESIGN",
+              "K-GAME-TECH-MATCH",
+              "K-GAME-ECONOMY",
+              "K-GAME-TECH-INCENTIVES",
+              "K-GAME-TECH-LAGCOMP"
+            ],
+            "snippets_characters": 1025,
+            "elapsed_ms": 27.441
+          },
+          {
+            "name": "hair-fracture",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-DESTRUCTION",
+              "K-GAME-TECH-HAIR",
+              "K-GAME-ECONOMY",
+              "K-GAME-TECH-GUIDE"
+            ],
+            "snippets_characters": 678,
+            "elapsed_ms": 21.939
+          },
+          {
+            "name": "palette-import",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-MEMORY",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-TECH-PIXEL",
+              "K-GAME-METROIDVANIA",
+              "K-GAME-TECH-SHADOW"
+            ],
+            "snippets_characters": 629,
+            "elapsed_ms": 19.493
+          },
+          {
+            "name": "parser-ace",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-ECONOMY",
+              "K-GAME-RPG-PROGRESSION",
+              "K-GAME-TECH-CONTROLLER",
+              "K-GAME-TECH-MEMORY",
+              "K-GAME-TECH-NORMAL"
+            ],
+            "snippets_characters": 980,
+            "elapsed_ms": 9.231
+          },
+          {
+            "name": "element-hit",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-HITBOX",
+              "K-GAME-TECH-SYSTEMIC",
+              "K-GAME-NARRATIVE-ADVENTURE",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-PUZZLE"
+            ],
+            "snippets_characters": 867,
+            "elapsed_ms": 27.607
+          },
+          {
+            "name": "negative-reflex",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [],
+            "snippets_characters": 0,
+            "elapsed_ms": 5.82
+          },
+          {
+            "name": "negative-sleep",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-GUIDE"
+            ],
+            "snippets_characters": 162,
+            "elapsed_ms": 6.312
+          },
+          {
+            "name": "negative-array",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [],
+            "snippets_characters": 0,
+            "elapsed_ms": 7.008
+          },
+          {
+            "name": "negative-fragmentation",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-MEMORY",
+              "K-GAME-STRATEGY-RTS",
+              "K-GAME-STRATEGY-TURN-4X",
+              "K-GAME-METROIDVANIA",
+              "K-GAME-PUZZLE"
+            ],
+            "snippets_characters": 733,
+            "elapsed_ms": 9.987
+          },
+          {
+            "name": "negative-settings-window",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-SHADOW"
+            ],
+            "snippets_characters": 75,
+            "elapsed_ms": 16.183
+          },
+          {
+            "name": "negative-indoor-music",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-MUSIC",
+              "K-GAME-IDLE-INCREMENTAL",
+              "K-GAME-METROIDVANIA",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-COOP-DIRECTOR"
+            ],
+            "snippets_characters": 1089,
+            "elapsed_ms": 11.206
+          }
+        ],
+        "passed": 20,
+        "total": 20,
+        "required_recall": 1.0,
+        "forbidden_hits": 0,
+        "limitation": "Recall covers only declared required IDs; forbidden-hit checks are not a general precision estimate."
+      }
+    },
+    {
+      "suite": "prior-game",
+      "result": {
+        "ok": true,
+        "command": "evaluate",
+        "index": {
+          "entries": 114,
+          "read_files": 0,
+          "cached_files": 114,
+          "elapsed_ms": 62.326,
+          "warning": null
+        },
+        "elapsed_ms": 225.958,
+        "cases": [
+          {
+            "name": "forest-natural-miss",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-FOLIAGE",
+              "K-GAME-TECH-BILLBOARD",
+              "K-GAME-RESEARCH-USE"
+            ],
+            "snippets_characters": 620,
+            "elapsed_ms": 24.826
+          },
+          {
+            "name": "muzzle-natural-miss",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-HITSCAN",
+              "K-GAME-SHOOTER",
+              "K-GAME-TECH-GUIDE"
+            ],
+            "snippets_characters": 309,
+            "elapsed_ms": 11.204
+          },
+          {
+            "name": "jump-natural-existing",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-CONTROLLER",
+              "K-GAME-TECH-GUIDE"
+            ],
+            "snippets_characters": 319,
+            "elapsed_ms": 7.261
+          },
+          {
+            "name": "save-identity-natural-miss",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-SAVE",
+              "K-GAME-TECH-ROLLBACK",
+              "K-GAME-EXPLORATION"
+            ],
+            "snippets_characters": 685,
+            "elapsed_ms": 17.371
+          },
+          {
+            "name": "forest-uncoached-wording",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-FOLIAGE",
+              "K-GAME-TECH-BILLBOARD",
+              "K-GAME-TECH-GUIDE"
+            ],
+            "snippets_characters": 461,
+            "elapsed_ms": 25.421
+          },
+          {
+            "name": "muzzle-uncoached-wording",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-HITSCAN",
+              "K-GAME-SHOOTER",
+              "K-GAME-TECH-GUIDE"
+            ],
+            "snippets_characters": 309,
+            "elapsed_ms": 13.293
+          },
+          {
+            "name": "save-uncoached-wording",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-SAVE",
+              "K-GAME-TECH-ROLLBACK",
+              "K-GAME-EXPLORATION"
+            ],
+            "snippets_characters": 685,
+            "elapsed_ms": 15.91
+          },
+          {
+            "name": "negative-loading-icons",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [],
+            "snippets_characters": 0,
+            "elapsed_ms": 4.801
+          },
+          {
+            "name": "negative-image-refresh",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-GUIDE"
+            ],
+            "snippets_characters": 163,
+            "elapsed_ms": 7.492
+          },
+          {
+            "name": "negative-object-pool",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-TECH-MEMORY",
+              "K-GAME-ROGUELIKE-DECKBUILDER"
+            ],
+            "snippets_characters": 373,
+            "elapsed_ms": 24.031
+          },
+          {
+            "name": "negative-item-icon-loading",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-RPG-PROGRESSION",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-RACING"
+            ],
+            "snippets_characters": 551,
+            "elapsed_ms": 11.763
+          }
+        ],
+        "passed": 11,
+        "total": 11,
+        "required_recall": 1.0,
+        "forbidden_hits": 0,
+        "limitation": "Recall covers only declared required IDs; forbidden-hit checks are not a general precision estimate."
+      }
+    },
+    {
+      "suite": "common",
+      "result": {
+        "ok": true,
+        "command": "evaluate",
+        "index": {
+          "entries": 114,
+          "read_files": 0,
+          "cached_files": 114,
+          "elapsed_ms": 54.432,
+          "warning": null
+        },
+        "elapsed_ms": 186.628,
+        "cases": [
+          {
+            "name": "Observed Korean embedded-value paraphrase",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-CODE-CONFIGURATION-POLICY",
+              "K-CODE-PRINCIPLE-REUSE"
+            ],
+            "snippets_characters": 390,
+            "elapsed_ms": 13.359
+          },
+          {
+            "name": "Observed Korean hidden-implementation paraphrase",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-CODE-INFORMATION-HIDING",
+              "K-CODE-PRINCIPLE-REUSE"
+            ],
+            "snippets_characters": 430,
+            "elapsed_ms": 4.502
+          },
+          {
+            "name": "Observed Korean reader-evidence paraphrase",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-FIC-REF-KNOX-FAIR-PLAY",
+              "K-FIC-REF-BODY-MOTION",
+              "K-FIC-REF-SPATIAL-BLOCKING"
+            ],
+            "snippets_characters": 762,
+            "elapsed_ms": 7.201
+          },
+          {
+            "name": "Korean embedded-value composition variant",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-CODE-CONFIGURATION-POLICY",
+              "K-CODE-PRINCIPLE-REUSE"
+            ],
+            "snippets_characters": 390,
+            "elapsed_ms": 8.887
+          },
+          {
+            "name": "Korean hidden-decision composition variant",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-CODE-INFORMATION-HIDING",
+              "K-CODE-PRINCIPLE-REUSE"
+            ],
+            "snippets_characters": 430,
+            "elapsed_ms": 5.303
+          },
+          {
+            "name": "Korean reader-clue composition variant",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-FIC-REF-KNOX-FAIR-PLAY",
+              "K-FIC-REF-ATTAINMENT-LANGUAGE",
+              "K-FIC-REF-BODY-MOTION"
+            ],
+            "snippets_characters": 662,
+            "elapsed_ms": 9.723
+          },
+          {
+            "name": "Korean shutdown paraphrase preservation",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-CODE-CONCURRENCY-LIFETIMES"
+            ],
+            "snippets_characters": 83,
+            "elapsed_ms": 6.189
+          },
+          {
+            "name": "Real Korean proactive first-catalog lookup",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "R-CATALOG-BOOTSTRAP"
+            ],
+            "snippets_characters": 300,
+            "elapsed_ms": 1.138
+          },
+          {
+            "name": "Korean initial knowledge-list variant",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "R-CATALOG-BOOTSTRAP"
+            ],
+            "snippets_characters": 300,
+            "elapsed_ms": 1.003
+          },
+          {
+            "name": "Korean body-only memory pooling",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-CODE-PERFORMANCE-MEASUREMENT",
+              "K-CODE-GC-LIFETIMES",
+              "K-CODE-CONCURRENCY-LIFETIMES"
+            ],
+            "snippets_characters": 438,
+            "elapsed_ms": 8.106
+          },
+          {
+            "name": "Hardcoding classification",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-CODE-CONFIGURATION-POLICY",
+              "K-CODE-PRINCIPLE-REUSE",
+              "K-CODE-ABSTRACTION-COST"
+            ],
+            "snippets_characters": 429,
+            "elapsed_ms": 9.188
+          },
+          {
+            "name": "Cancellation and shutdown",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-CODE-CONCURRENCY-LIFETIMES",
+              "K-CODE-UE-RENDERDOC-ATTACH"
+            ],
+            "snippets_characters": 383,
+            "elapsed_ms": 7.881
+          },
+          {
+            "name": "Unreal GC ownership distinctions",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-CODE-GC-LIFETIMES",
+              "K-CODE-RESOURCE-OWNERSHIP",
+              "K-CODE-PRINCIPLE-REUSE"
+            ],
+            "snippets_characters": 528,
+            "elapsed_ms": 5.74
+          },
+          {
+            "name": "Readability evidence",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-CODE-READABILITY",
+              "K-CODE-PRINCIPLE-REUSE",
+              "K-CODE-PERFORMANCE-MEASUREMENT"
+            ],
+            "snippets_characters": 469,
+            "elapsed_ms": 2.804
+          },
+          {
+            "name": "Information hiding phrase",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-CODE-INFORMATION-HIDING",
+              "K-CODE-PRINCIPLE-REUSE"
+            ],
+            "snippets_characters": 430,
+            "elapsed_ms": 2.744
+          },
+          {
+            "name": "Dependency lifecycle",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-CODE-DEPENDENCY-SELECTION",
+              "K-CODE-DEPENDENCY-DIRECTION",
+              "K-CODE-PRINCIPLE-REUSE"
+            ],
+            "snippets_characters": 258,
+            "elapsed_ms": 7.053
+          },
+          {
+            "name": "Resolved incident remains discoverable",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "R-CATALOG-BOOTSTRAP"
+            ],
+            "snippets_characters": 300,
+            "elapsed_ms": 1.659
+          },
+          {
+            "name": "Cross-store dialogue retrieval",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-FIC-N2-DIALOGUE-CHOICE",
+              "R-FIC-N2-DIALOGUE-20261106"
+            ],
+            "snippets_characters": 387,
+            "elapsed_ms": 2.748
+          },
+          {
+            "name": "Knox by Korean author name",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-FIC-REF-KNOX-FAIR-PLAY"
+            ],
+            "snippets_characters": 62,
+            "elapsed_ms": 2.406
+          },
+          {
+            "name": "RTS design",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-GAME-STRATEGY-RTS",
+              "K-GAME-TECH-LOCKSTEP"
+            ],
+            "snippets_characters": 268,
+            "elapsed_ms": 6.599
+          },
+          {
+            "name": "Exact engine-specific identifier",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "K-CODE-UE-RENDERDOC-ATTACH"
+            ],
+            "snippets_characters": 235,
+            "elapsed_ms": 2.54
+          },
+          {
+            "name": "Domain boundary excludes unrelated code",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [
+              "R-FIC-N2-RECOVERY-GAP-20261106",
+              "K-FIC-N2-DIALOGUE-CHOICE",
+              "R-FIC-N2-DIALOGUE-20261106",
+              "R-FIC-N2-HAND-STATE-20261106",
+              "R-FIC-N2-REFERENT-20261106"
+            ],
+            "snippets_characters": 897,
+            "elapsed_ms": 4.499
+          },
+          {
+            "name": "Absent term stays an explicit gap",
+            "passed": true,
+            "missing": [],
+            "forbidden_hits": [],
+            "returned": [],
+            "snippets_characters": 0,
+            "elapsed_ms": 10.616
+          }
+        ],
+        "passed": 23,
+        "total": 23,
+        "required_recall": 1.0,
+        "forbidden_hits": 0,
+        "limitation": "Recall covers only declared required IDs; forbidden-hit checks are not a general precision estimate."
+      }
+    }
+  ],
+  "exact_empty_contracts": [
+    {
+      "query": "PteroNav-Q31",
+      "retrieval_ok": true,
+      "total_matches": 0,
+      "meaning": "No matching stored contract; not proof of nonexistence or unsupported functionality"
+    },
+    {
+      "query": "OrioleCloth-K9",
+      "retrieval_ok": true,
+      "total_matches": 0,
+      "meaning": "No matching stored contract; not proof of nonexistence or unsupported functionality"
+    },
+    {
+      "query": "TileScript-Z17",
+      "retrieval_ok": true,
+      "total_matches": 0,
+      "meaning": "No matching stored contract; not proof of nonexistence or unsupported functionality"
+    }
+  ],
+  "initial_lexical": {
+    "ok": false,
+    "command": "evaluate",
+    "index": {
+      "entries": 114,
+      "read_files": 0,
+      "cached_files": 114,
+      "elapsed_ms": 58.778,
+      "warning": null
+    },
+    "elapsed_ms": 240.069,
+    "cases": [
+      {
+        "name": "reflect-offscreen",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-REFLECTION"
+        ],
+        "forbidden_hits": [],
+        "returned": [],
+        "snippets_characters": 0,
+        "elapsed_ms": 10.425
+      },
+      {
+        "name": "interior-fake",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-INTERIOR"
+        ],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-GUIDE",
+          "K-GAME-ECONOMY",
+          "K-GAME-IDLE-INCREMENTAL",
+          "K-GAME-METROIDVANIA",
+          "K-GAME-RPG-PROGRESSION"
+        ],
+        "snippets_characters": 1167,
+        "elapsed_ms": 9.743
+      },
+      {
+        "name": "cave-reachability",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-DUNGEON",
+          "K-GAME-TECH-VOXEL"
+        ],
+        "forbidden_hits": [],
+        "returned": [],
+        "snippets_characters": 0,
+        "elapsed_ms": 8.101
+      },
+      {
+        "name": "crowd-route",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-CROWD",
+          "K-GAME-TECH-PATH"
+        ],
+        "forbidden_hits": [],
+        "returned": [],
+        "snippets_characters": 0,
+        "elapsed_ms": 7.539
+      },
+      {
+        "name": "smoke-visibility",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-VOLUME",
+          "K-GAME-TECH-GUIDE"
+        ],
+        "snippets_characters": 383,
+        "elapsed_ms": 6.793
+      },
+      {
+        "name": "water-buoyancy",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-WATER"
+        ],
+        "forbidden_hits": [],
+        "returned": [],
+        "snippets_characters": 0,
+        "elapsed_ms": 5.31
+      },
+      {
+        "name": "alpha-fringe",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-BLEND"
+        ],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-GUIDE"
+        ],
+        "snippets_characters": 155,
+        "elapsed_ms": 6.25
+      },
+      {
+        "name": "camera-timing",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-CAMERA",
+          "K-GAME-TECH-EASING"
+        ],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-GUIDE"
+        ],
+        "snippets_characters": 149,
+        "elapsed_ms": 7.638
+      },
+      {
+        "name": "sound-music",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-SOUND"
+        ],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-ACTION-COMBAT",
+          "K-GAME-METROIDVANIA",
+          "K-GAME-STRATEGY-TURN-4X",
+          "K-GAME-TECH-GUIDE",
+          "K-GAME-TECH-MUSIC"
+        ],
+        "snippets_characters": 1046,
+        "elapsed_ms": 9.271
+      },
+      {
+        "name": "match-pity",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-MATCH"
+        ],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-ECONOMY",
+          "K-GAME-TECH-INCENTIVES",
+          "K-GAME-TECH-LAGCOMP",
+          "K-GAME-TECH-RANDOM-DESIGN",
+          "K-GAME-TECH-GUIDE"
+        ],
+        "snippets_characters": 1112,
+        "elapsed_ms": 7.828
+      },
+      {
+        "name": "hair-fracture",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-DESTRUCTION"
+        ],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-HAIR"
+        ],
+        "snippets_characters": 197,
+        "elapsed_ms": 7.67
+      },
+      {
+        "name": "palette-import",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-MEMORY",
+          "K-GAME-TECH-GUIDE",
+          "K-GAME-TECH-PIXEL",
+          "K-GAME-METROIDVANIA",
+          "K-GAME-TECH-SHADOW"
+        ],
+        "snippets_characters": 629,
+        "elapsed_ms": 19.119
+      },
+      {
+        "name": "parser-ace",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-ECONOMY",
+          "K-GAME-RPG-PROGRESSION",
+          "K-GAME-TECH-CONTROLLER",
+          "K-GAME-TECH-MEMORY",
+          "K-GAME-TECH-NORMAL"
+        ],
+        "snippets_characters": 980,
+        "elapsed_ms": 9.149
+      },
+      {
+        "name": "element-hit",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-HITBOX",
+          "K-GAME-TECH-SYSTEMIC"
+        ],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-NARRATIVE-ADVENTURE"
+        ],
+        "snippets_characters": 279,
+        "elapsed_ms": 8.15
+      },
+      {
+        "name": "negative-reflex",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [],
+        "snippets_characters": 0,
+        "elapsed_ms": 5.582
+      },
+      {
+        "name": "negative-sleep",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-GUIDE"
+        ],
+        "snippets_characters": 162,
+        "elapsed_ms": 6.552
+      },
+      {
+        "name": "negative-array",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [],
+        "snippets_characters": 0,
+        "elapsed_ms": 6.702
+      },
+      {
+        "name": "negative-fragmentation",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-MEMORY",
+          "K-GAME-STRATEGY-RTS",
+          "K-GAME-STRATEGY-TURN-4X",
+          "K-GAME-METROIDVANIA",
+          "K-GAME-PUZZLE"
+        ],
+        "snippets_characters": 733,
+        "elapsed_ms": 10.213
+      },
+      {
+        "name": "negative-settings-window",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-SHADOW"
+        ],
+        "snippets_characters": 75,
+        "elapsed_ms": 16.154
+      },
+      {
+        "name": "negative-indoor-music",
+        "passed": false,
+        "missing": [],
+        "forbidden_hits": [
+          "K-GAME-TECH-INTERIOR"
+        ],
+        "returned": [
+          "K-GAME-IDLE-INCREMENTAL",
+          "K-GAME-METROIDVANIA",
+          "K-GAME-TECH-INTERIOR",
+          "K-GAME-TECH-GUIDE"
+        ],
+        "snippets_characters": 941,
+        "elapsed_ms": 6.325
+      }
+    ],
+    "passed": 8,
+    "total": 20,
+    "required_recall": 0.2857,
+    "forbidden_hits": 1,
+    "limitation": "Recall covers only declared required IDs; forbidden-hit checks are not a general precision estimate."
+  },
+  "aliases_only_intermediate": {
+    "ok": false,
+    "command": "evaluate",
+    "index": {
+      "entries": 114,
+      "read_files": 114,
+      "cached_files": 0,
+      "elapsed_ms": 305.691,
+      "warning": null
+    },
+    "elapsed_ms": 572.066,
+    "cases": [
+      {
+        "name": "reflect-offscreen",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-REFLECTION",
+          "K-GAME-TECH-GUIDE",
+          "K-GAME-TECH-NORMAL"
+        ],
+        "snippets_characters": 547,
+        "elapsed_ms": 20.87
+      },
+      {
+        "name": "interior-fake",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-INTERIOR"
+        ],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-GUIDE",
+          "K-GAME-ECONOMY",
+          "K-GAME-IDLE-INCREMENTAL",
+          "K-GAME-METROIDVANIA",
+          "K-GAME-RPG-PROGRESSION"
+        ],
+        "snippets_characters": 1167,
+        "elapsed_ms": 9.758
+      },
+      {
+        "name": "cave-reachability",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-DUNGEON"
+        ],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-VOXEL",
+          "K-GAME-TECH-GUIDE",
+          "K-GAME-TECH-NOISE"
+        ],
+        "snippets_characters": 560,
+        "elapsed_ms": 26.325
+      },
+      {
+        "name": "crowd-route",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-PATH"
+        ],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-CROWD",
+          "K-GAME-TECH-GUIDE"
+        ],
+        "snippets_characters": 127,
+        "elapsed_ms": 12.142
+      },
+      {
+        "name": "smoke-visibility",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-VOLUME",
+          "K-GAME-TECH-GUIDE"
+        ],
+        "snippets_characters": 383,
+        "elapsed_ms": 7.431
+      },
+      {
+        "name": "water-buoyancy",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-WATER",
+          "K-GAME-TECH-GUIDE"
+        ],
+        "snippets_characters": 189,
+        "elapsed_ms": 20.858
+      },
+      {
+        "name": "alpha-fringe",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-BLEND"
+        ],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-GUIDE"
+        ],
+        "snippets_characters": 155,
+        "elapsed_ms": 7.16
+      },
+      {
+        "name": "camera-timing",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-CAMERA",
+          "K-GAME-TECH-GUIDE",
+          "K-GAME-TECH-LEVEL",
+          "K-GAME-TECH-EASING",
+          "K-GAME-TECH-SPEED"
+        ],
+        "snippets_characters": 789,
+        "elapsed_ms": 16.056
+      },
+      {
+        "name": "sound-music",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-MUSIC",
+          "K-GAME-TECH-SOUND",
+          "K-GAME-TECH-GUIDE",
+          "K-GAME-ACTION-COMBAT",
+          "K-GAME-METROIDVANIA"
+        ],
+        "snippets_characters": 1001,
+        "elapsed_ms": 19.974
+      },
+      {
+        "name": "match-pity",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-RANDOM-DESIGN"
+        ],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-GUIDE",
+          "K-GAME-TECH-MATCH",
+          "K-GAME-ECONOMY",
+          "K-GAME-TECH-INCENTIVES",
+          "K-GAME-TECH-LAGCOMP"
+        ],
+        "snippets_characters": 942,
+        "elapsed_ms": 17.863
+      },
+      {
+        "name": "hair-fracture",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-DESTRUCTION"
+        ],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-HAIR"
+        ],
+        "snippets_characters": 197,
+        "elapsed_ms": 8.719
+      },
+      {
+        "name": "palette-import",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-MEMORY",
+          "K-GAME-TECH-GUIDE",
+          "K-GAME-TECH-PIXEL",
+          "K-GAME-METROIDVANIA",
+          "K-GAME-TECH-SHADOW"
+        ],
+        "snippets_characters": 629,
+        "elapsed_ms": 20.003
+      },
+      {
+        "name": "parser-ace",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-ECONOMY",
+          "K-GAME-RPG-PROGRESSION",
+          "K-GAME-TECH-CONTROLLER",
+          "K-GAME-TECH-MEMORY",
+          "K-GAME-TECH-NORMAL"
+        ],
+        "snippets_characters": 980,
+        "elapsed_ms": 9.737
+      },
+      {
+        "name": "element-hit",
+        "passed": false,
+        "missing": [
+          "K-GAME-TECH-HITBOX",
+          "K-GAME-TECH-SYSTEMIC"
+        ],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-NARRATIVE-ADVENTURE"
+        ],
+        "snippets_characters": 279,
+        "elapsed_ms": 8.819
+      },
+      {
+        "name": "negative-reflex",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [],
+        "snippets_characters": 0,
+        "elapsed_ms": 5.801
+      },
+      {
+        "name": "negative-sleep",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-GUIDE"
+        ],
+        "snippets_characters": 162,
+        "elapsed_ms": 6.536
+      },
+      {
+        "name": "negative-array",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [],
+        "snippets_characters": 0,
+        "elapsed_ms": 7.65
+      },
+      {
+        "name": "negative-fragmentation",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-MEMORY",
+          "K-GAME-STRATEGY-RTS",
+          "K-GAME-STRATEGY-TURN-4X",
+          "K-GAME-METROIDVANIA",
+          "K-GAME-PUZZLE"
+        ],
+        "snippets_characters": 733,
+        "elapsed_ms": 10.361
+      },
+      {
+        "name": "negative-settings-window",
+        "passed": true,
+        "missing": [],
+        "forbidden_hits": [],
+        "returned": [
+          "K-GAME-TECH-SHADOW"
+        ],
+        "snippets_characters": 75,
+        "elapsed_ms": 17.75
+      },
+      {
+        "name": "negative-indoor-music",
+        "passed": false,
+        "missing": [],
+        "forbidden_hits": [
+          "K-GAME-TECH-INTERIOR"
+        ],
+        "returned": [
+          "K-GAME-TECH-MUSIC",
+          "K-GAME-IDLE-INCREMENTAL",
+          "K-GAME-METROIDVANIA",
+          "K-GAME-TECH-INTERIOR",
+          "K-GAME-TECH-GUIDE"
+        ],
+        "snippets_characters": 988,
+        "elapsed_ms": 11.755
+      }
+    ],
+    "passed": 12,
+    "total": 20,
+    "required_recall": 0.619,
+    "forbidden_hits": 1,
+    "limitation": "Recall covers only declared required IDs; forbidden-hit checks are not a general precision estimate."
+  },
+  "weighted_counterexamples": {
+    "passed": 3,
+    "cases": [
+      {
+        "case": "unequal-edges",
+        "naive_cost": 101,
+        "optimal_cost": 3,
+        "next_hop": "B",
+        "tree_terminates": true,
+        "arbitrary_argmin_tie_cycles": false
+      },
+      {
+        "case": "zero-cost-tie",
+        "naive_cost": 2,
+        "optimal_cost": 1,
+        "next_hop": "A",
+        "tree_terminates": true,
+        "arbitrary_argmin_tie_cycles": true
+      },
+      {
+        "case": "directed-reverse",
+        "naive_cost": 2,
+        "optimal_cost": 2,
+        "next_hop": "A",
+        "tree_terminates": true,
+        "arbitrary_argmin_tie_cycles": false
+      }
+    ],
+    "limit": "Graph arithmetic and termination only; no game/runtime execution."
+  },
+  "weighted_variant_math": [
+    {
+      "case": "different-costs",
+      "naive_cost": 20,
+      "optimal_cost": 8,
+      "next_hop": "Q",
+      "tree_terminates": true,
+      "arbitrary_argmin_tie_cycles": false
+    },
+    {
+      "case": "zero-link",
+      "naive_cost": 5,
+      "optimal_cost": 4,
+      "next_hop": "Z",
+      "tree_terminates": true,
+      "arbitrary_argmin_tie_cycles": true
+    },
+    {
+      "case": "one-way-costs",
+      "naive_cost": 5,
+      "optimal_cost": 5,
+      "next_hop": "L",
+      "tree_terminates": true,
+      "arbitrary_argmin_tie_cycles": false
+    }
+  ],
+  "search_unit_tests": {
+    "passed": 33,
+    "total": 33,
+    "log": ".................................\n----------------------------------------------------------------------\nRan 33 tests in 27.890s\n\nOK\n"
+  },
+  "frozen_inputs_and_rubric": "unchanged; supplied native-Windows bytes match",
+  "changed_canonical_files_since_baseline": [
+    "knowledge\\game\\index.md",
+    "knowledge\\game\\K-GAME-RESEARCH-USE.md",
+    "knowledge\\game\\K-GAME-TECH-GUIDE.md",
+    "knowledge\\game\\K-GAME-TECH-INTERIOR.md",
+    "knowledge\\game\\K-GAME-TECH-PATH.md",
+    "skills\\vegabond-knowledge\\scripts\\search_terms.json"
+  ],
+  "final_identities": {
+    "skills\\vegabond-knowledge\\scripts\\search.py": "3fd7fcbafc249884a7030b42998eace543a4d5db79d1105b9aa00ba123246074",
+    "skills\\vegabond-knowledge\\scripts\\search_terms.json": "7ddf2bf719d5186cb54f1287322b9ce2cd5bd88c077b407c286a3d155d641b89",
+    "knowledge\\game\\K-GAME-RESEARCH-USE.md": "f6606414cd3790f64c4e406641863d1634c8284d7c7eadc4aed7f408566cf6cb",
+    "knowledge\\game\\K-GAME-TECH-INTERIOR.md": "5e78b7fcbb7967c3faf93426bbcb215bc3629d1e8495eac077dba6796033313d",
+    "knowledge\\game\\K-GAME-TECH-PATH.md": "ae91eb9a15542bec0c7ffbcd45bc3871029328d6e4930a96cddb0b3a7a4a4462",
+    "skills\\vegabond-knowledge\\tests\\game-application\\extended-cases.json": "84db178ed5501b73608b1d10b0d4c6dd65f287930749176d16510b071bc0419c",
+    "skills\\vegabond-knowledge\\tests\\game-application\\extended-rubric.json": "ba175ed33ddfecaa299fe6ec32f72e3f2ede8023d096495bb3ff6262581b3d08",
+    "skills\\vegabond-knowledge\\tests\\game-application\\extended-retrieval-cases.json": "a05f7fa1fc8c7bc4b73314c375e011cd5cb748c07b022e5c3186f04bce054b41",
+    "skills\\vegabond-knowledge\\tests\\game-application\\weighted-flow-cases.json": "348429467d559567b9f3c961be30697461b1cb132efb67dabeb8fea295a1425e",
+    "skills\\vegabond-knowledge\\tests\\game-application\\check_weighted_flow.py": "bbd517b7d704084f5044a20c71b5db4b708df1254cc8d7858a33b6f8e29bcee2"
+  },
+  "human_companions": "exist; contents not read",
+  "local_report_links": "All English links resolve; companion existence only",
+  "catalog": {
+    "ok": true,
+    "command": "check",
+    "domains": [
+      "knowledge/game"
+    ],
+    "structured_entries": 69,
+    "legacy_entries": 0,
+    "catalogs_written": [],
+    "errors": 0,
+    "warnings": 0,
+    "diagnostics": [],
+    "diagnostics_total": 0
+  },
+  "runtime_checks_executed": false,
+  "known_limit": "Earlier wider source symlink/junction privilege limitation not rerun or declared fixed",
+  "final_whitespace": "pass for changed canonical entry/test/report files"
+}

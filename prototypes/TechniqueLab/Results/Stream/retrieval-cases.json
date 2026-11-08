@@ -1,0 +1,7 @@
+{
+  "cases": [
+    {"name":"sustained-individual-wait","query":"지속 유입 개별 무한 대기","domains":["game"],"limit":3,"required":["K-GAME-TECH-CROWD"]},
+    {"name":"unlaned-time-reservations","query":"차선 없는 지형 시간 확장 예약","domains":["game"],"limit":3,"required":["K-GAME-TECH-PATH"]},
+    {"name":"overload-vs-starvation","query":"lifelong queue overload throughput starvation","domains":["game"],"limit":3,"required":["K-GAME-TECH-CROWD"]}
+  ]
+}

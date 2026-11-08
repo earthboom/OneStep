@@ -1,0 +1,2642 @@
+{
+  "ok": true,
+  "checksPerProcess": 21,
+  "scenarioExpectationsPerProcess": 11,
+  "safeScenariosPerProcess": 9,
+  "hardware": {
+    "unity": "6000.0.77f1",
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "os": "Windows 11  (10.0.26200)",
+    "graphicsApi": "Direct3D11",
+    "screenWidth": 1280,
+    "screenHeight": 720,
+    "antiAliasing": 2,
+    "buildGuid": "c6d8bbce9d06452f9e439e59c72230fa"
+  },
+  "behavior": [
+    {
+      "name": "narrow-headon",
+      "agents": 2,
+      "arrived": 2,
+      "eastArrived": 1,
+      "westArrived": 1,
+      "simulatedSeconds": 28.650001525878906,
+      "wideOpposingTicks": 0,
+      "maxBatch": 1,
+      "maximumWait": 5.133345127105713,
+      "maximumStall": 0.0,
+      "firstEastRequest": 1,
+      "firstWestRequest": 1,
+      "firstPhase": 1,
+      "audit": {
+        "observations": 1719,
+        "pairPenetrations": 0,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "wrongLeases": 0,
+        "forbiddenNarrow": 0,
+        "diagonalSteps": 0,
+        "minimumSurfaceGap": 1.704232927387995,
+        "minimumWallGap": 0.15000000596046448,
+        "maximumStep": 0.0500030517578125
+      }
+    },
+    {
+      "name": "wide-opposing",
+      "agents": 2,
+      "arrived": 2,
+      "eastArrived": 1,
+      "westArrived": 1,
+      "simulatedSeconds": 21.51666831970215,
+      "wideOpposingTicks": 88,
+      "maxBatch": 0,
+      "maximumWait": 0.0,
+      "maximumStall": 0.0,
+      "firstEastRequest": -1,
+      "firstWestRequest": -1,
+      "firstPhase": 0,
+      "audit": {
+        "observations": 1291,
+        "pairPenetrations": 0,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "wrongLeases": 0,
+        "forbiddenNarrow": 0,
+        "diagonalSteps": 0,
+        "minimumSurfaceGap": 1.1999999731779099,
+        "minimumWallGap": 0.3999999761581421,
+        "maximumStep": 0.0500030517578125
+      }
+    },
+    {
+      "name": "large-redirect",
+      "agents": 2,
+      "arrived": 2,
+      "eastArrived": 1,
+      "westArrived": 1,
+      "simulatedSeconds": 23.51666831970215,
+      "wideOpposingTicks": 0,
+      "maxBatch": 0,
+      "maximumWait": 0.0,
+      "maximumStall": 0.0,
+      "firstEastRequest": -1,
+      "firstWestRequest": 1,
+      "firstPhase": -1,
+      "audit": {
+        "observations": 1411,
+        "pairPenetrations": 0,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "wrongLeases": 0,
+        "forbiddenNarrow": 0,
+        "diagonalSteps": 0,
+        "minimumSurfaceGap": 13.049999982118607,
+        "minimumWallGap": 0.15000000596046448,
+        "maximumStep": 0.0500030517578125
+      }
+    },
+    {
+      "name": "mixed-64",
+      "agents": 64,
+      "arrived": 64,
+      "eastArrived": 32,
+      "westArrived": 32,
+      "simulatedSeconds": 42.73333740234375,
+      "wideOpposingTicks": 370,
+      "maxBatch": 4,
+      "maximumWait": 10.900005340576172,
+      "maximumStall": 0.0,
+      "firstEastRequest": 1,
+      "firstWestRequest": 1,
+      "firstPhase": 1,
+      "audit": {
+        "observations": 2564,
+        "pairPenetrations": 0,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "wrongLeases": 0,
+        "forbiddenNarrow": 0,
+        "diagonalSteps": 0,
+        "minimumSurfaceGap": 0.04950256645679474,
+        "minimumWallGap": 0.15000000596046448,
+        "maximumStep": 0.0500030517578125
+      }
+    },
+    {
+      "name": "mixed-128",
+      "agents": 128,
+      "arrived": 128,
+      "eastArrived": 64,
+      "westArrived": 64,
+      "simulatedSeconds": 66.68333435058594,
+      "wideOpposingTicks": 670,
+      "maxBatch": 4,
+      "maximumWait": 10.916671752929688,
+      "maximumStall": 0.0,
+      "firstEastRequest": 1,
+      "firstWestRequest": 1,
+      "firstPhase": 1,
+      "audit": {
+        "observations": 4001,
+        "pairPenetrations": 0,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "wrongLeases": 0,
+        "forbiddenNarrow": 0,
+        "diagonalSteps": 0,
+        "minimumSurfaceGap": 0.04889221489429474,
+        "minimumWallGap": 0.15000000596046448,
+        "maximumStep": 0.0500030517578125
+      }
+    },
+    {
+      "name": "mixed-256",
+      "agents": 256,
+      "arrived": 256,
+      "eastArrived": 128,
+      "westArrived": 128,
+      "simulatedSeconds": 114.75000762939453,
+      "wideOpposingTicks": 1270,
+      "maxBatch": 4,
+      "maximumWait": 10.966670989990234,
+      "maximumStall": 0.0,
+      "firstEastRequest": 1,
+      "firstWestRequest": 1,
+      "firstPhase": 1,
+      "audit": {
+        "observations": 6885,
+        "pairPenetrations": 0,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "wrongLeases": 0,
+        "forbiddenNarrow": 0,
+        "diagonalSteps": 0,
+        "minimumSurfaceGap": 0.04767151176929474,
+        "minimumWallGap": 0.1499999761581421,
+        "maximumStep": 0.0500030517578125
+      }
+    },
+    {
+      "name": "reverse-128",
+      "agents": 128,
+      "arrived": 128,
+      "eastArrived": 64,
+      "westArrived": 64,
+      "simulatedSeconds": 66.68333435058594,
+      "wideOpposingTicks": 670,
+      "maxBatch": 4,
+      "maximumWait": 10.916671752929688,
+      "maximumStall": 0.0,
+      "firstEastRequest": 1,
+      "firstWestRequest": 1,
+      "firstPhase": -1,
+      "audit": {
+        "observations": 4001,
+        "pairPenetrations": 0,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "wrongLeases": 0,
+        "forbiddenNarrow": 0,
+        "diagonalSteps": 0,
+        "minimumSurfaceGap": 0.04889221489429474,
+        "minimumWallGap": 0.15000000596046448,
+        "maximumStep": 0.0500030517578125
+      }
+    },
+    {
+      "name": "late-west-64",
+      "agents": 64,
+      "arrived": 64,
+      "eastArrived": 32,
+      "westArrived": 32,
+      "simulatedSeconds": 42.73333740234375,
+      "wideOpposingTicks": 370,
+      "maxBatch": 4,
+      "maximumWait": 10.900005340576172,
+      "maximumStall": 0.0,
+      "firstEastRequest": 1,
+      "firstWestRequest": 90,
+      "firstPhase": 1,
+      "audit": {
+        "observations": 2564,
+        "pairPenetrations": 0,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "wrongLeases": 0,
+        "forbiddenNarrow": 0,
+        "diagonalSteps": 0,
+        "minimumSurfaceGap": 0.04950256645679474,
+        "minimumWallGap": 0.15000000596046448,
+        "maximumStep": 0.0500030517578125
+      }
+    },
+    {
+      "name": "admission-pause",
+      "agents": 64,
+      "arrived": 64,
+      "eastArrived": 32,
+      "westArrived": 32,
+      "simulatedSeconds": 44.35000228881836,
+      "wideOpposingTicks": 370,
+      "maxBatch": 4,
+      "maximumWait": 12.333316802978516,
+      "maximumStall": 0.0,
+      "firstEastRequest": 1,
+      "firstWestRequest": 1,
+      "firstPhase": 1,
+      "audit": {
+        "observations": 2661,
+        "pairPenetrations": 0,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "wrongLeases": 0,
+        "forbiddenNarrow": 0,
+        "diagonalSteps": 0,
+        "minimumSurfaceGap": 0.04957886040210724,
+        "minimumWallGap": 0.15000000596046448,
+        "maximumStep": 0.0500030517578125
+      }
+    },
+    {
+      "name": "deadlock-control",
+      "agents": 2,
+      "arrived": 0,
+      "eastArrived": 0,
+      "westArrived": 0,
+      "simulatedSeconds": 7.883333683013916,
+      "wideOpposingTicks": 0,
+      "maxBatch": 0,
+      "maximumWait": 5.016676902770996,
+      "maximumStall": 5.000000260770321,
+      "firstEastRequest": -1,
+      "firstWestRequest": -1,
+      "firstPhase": 0,
+      "audit": {
+        "observations": 473,
+        "pairPenetrations": 0,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "wrongLeases": 0,
+        "forbiddenNarrow": 0,
+        "diagonalSteps": 0,
+        "minimumSurfaceGap": 0.049740612506866455,
+        "minimumWallGap": 0.15000000596046448,
+        "maximumStep": 0.0500030517578125
+      }
+    },
+    {
+      "name": "collision-control",
+      "agents": 2,
+      "arrived": 0,
+      "eastArrived": 0,
+      "westArrived": 0,
+      "simulatedSeconds": 2.883333444595337,
+      "wideOpposingTicks": 0,
+      "maxBatch": 0,
+      "maximumWait": 0.0,
+      "maximumStall": 0.0,
+      "firstEastRequest": -1,
+      "firstWestRequest": -1,
+      "firstPhase": 0,
+      "audit": {
+        "observations": 173,
+        "pairPenetrations": 1,
+        "wallPenetrations": 0,
+        "teleports": 0,
+        "wrongLeases": 0,
+        "forbiddenNarrow": 0,
+        "diagonalSteps": 0,
+        "minimumSurfaceGap": -0.0002586245536804199,
+        "minimumWallGap": 0.15000000596046448,
+        "maximumStep": 0.0500030517578125
+      }
+    }
+  ],
+  "runs": [
+    {
+      "session": "traffic-run-1",
+      "cases": [
+        {
+          "name": "agents-64-mixed",
+          "agents": 64,
+          "mixed": true,
+          "population": [
+            24,
+            24,
+            16
+          ],
+          "wallMs": {
+            "samples": 9103,
+            "median": 0.2364999999997508,
+            "p95": 2.8001999999958116,
+            "p99": 9.046900000001301,
+            "maximum": 9.775000000004752,
+            "mean": 0.6600666813138516
+          },
+          "updateMs": {
+            "samples": 9103,
+            "median": 0.0061,
+            "p95": 0.0132,
+            "p99": 0.10640000000000001,
+            "maximum": 0.234,
+            "mean": 0.010084411732395914
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.08600000000000001,
+            "p95": 0.13970000000000002,
+            "p99": 0.2111,
+            "maximum": 0.234,
+            "mean": 0.09549058171745153
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.3907500000011055,
+            "p95": 0.628599999998869,
+            "p99": 1.8169000000014535,
+            "maximum": 6.369399999996972,
+            "mean": 0.4526525000000466
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 5.999550799999987,
+          "steps": 361,
+          "maximumBacklog": 0.016646272601050782,
+          "engineSamples": 9103,
+          "gpuMissing": 1915,
+          "gc": [
+            76,
+            76,
+            76
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.0115,
+              "updateMs": 0.1245,
+              "followingWallMs": 0.4577999999995086
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.0103,
+              "updateMs": 0.1053,
+              "followingWallMs": 0.5972999999954709
+            }
+          ],
+          "cpuMs": {
+            "positive": 9103,
+            "zero": 0,
+            "allSamples": {
+              "samples": 9103,
+              "median": 0.2375,
+              "p95": 2.7745,
+              "p99": 8.9693,
+              "maximum": 9.627,
+              "mean": 0.6591290453696583
+            }
+          },
+          "mainMs": {
+            "positive": 9103,
+            "zero": 0,
+            "allSamples": {
+              "samples": 9103,
+              "median": 0.1934,
+              "p95": 2.6604,
+              "p99": 8.8852,
+              "maximum": 9.5478,
+              "mean": 0.6024058771833462
+            }
+          },
+          "renderMs": {
+            "positive": 9103,
+            "zero": 0,
+            "allSamples": {
+              "samples": 9103,
+              "median": 0.088,
+              "p95": 0.1318,
+              "p99": 0.1769,
+              "maximum": 0.2902,
+              "mean": 0.09180294408436779
+            }
+          },
+          "presentWaitMs": {
+            "positive": 9103,
+            "zero": 0,
+            "allSamples": {
+              "samples": 9103,
+              "median": 0.0387,
+              "p95": 0.1699,
+              "p99": 0.2796,
+              "maximum": 8.3042,
+              "mean": 0.05567549159617709
+            }
+          },
+          "gpuMs": {
+            "positive": 7188,
+            "missing": 1915,
+            "validOnly": {
+              "samples": 7188,
+              "median": 0.077824,
+              "p95": 3.096576,
+              "p99": 8.812544,
+              "maximum": 9.37472,
+              "mean": 0.5417848948247078
+            }
+          }
+        },
+        {
+          "name": "agents-64-uniform",
+          "agents": 64,
+          "mixed": false,
+          "population": [
+            0,
+            64,
+            0
+          ],
+          "wallMs": {
+            "samples": 7457,
+            "median": 0.2536000000077365,
+            "p95": 4.207100000002129,
+            "p99": 8.938499999999294,
+            "maximum": 10.816800000000626,
+            "mean": 0.8058010594072686
+          },
+          "updateMs": {
+            "samples": 7457,
+            "median": 0.006200000000000001,
+            "p95": 0.040600000000000004,
+            "p99": 0.1033,
+            "maximum": 0.19290000000000002,
+            "mean": 0.010969652675338608
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.0867,
+            "p95": 0.1404,
+            "p99": 0.1789,
+            "maximum": 0.19290000000000002,
+            "mean": 0.09339501385041551
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.4237499999959482,
+            "p95": 3.2826999999997497,
+            "p99": 8.47419999999488,
+            "maximum": 8.87620000000311,
+            "mean": 0.819791944444306
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 5.999222899999992,
+          "steps": 361,
+          "maximumBacklog": 0.01664628643271726,
+          "engineSamples": 7457,
+          "gpuMissing": 1319,
+          "gc": [
+            54,
+            54,
+            54
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.0137,
+              "updateMs": 0.13540000000000002,
+              "followingWallMs": 0.7982000000055223
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.011000000000000001,
+              "updateMs": 0.0994,
+              "followingWallMs": 0.41070000000331675
+            }
+          ],
+          "cpuMs": {
+            "positive": 7457,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7457,
+              "median": 0.2542,
+              "p95": 4.1735,
+              "p99": 8.8698,
+              "maximum": 10.6882,
+              "mean": 0.8047264449510527
+            }
+          },
+          "mainMs": {
+            "positive": 7457,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7457,
+              "median": 0.2092,
+              "p95": 3.5104,
+              "p99": 8.7994,
+              "maximum": 10.6353,
+              "mean": 0.7124940190425104
+            }
+          },
+          "renderMs": {
+            "positive": 7457,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7457,
+              "median": 0.0914,
+              "p95": 0.1466,
+              "p99": 0.1905,
+              "maximum": 0.3158,
+              "mean": 0.09725860265522328
+            }
+          },
+          "presentWaitMs": {
+            "positive": 7457,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7457,
+              "median": 0.0366,
+              "p95": 0.1959,
+              "p99": 0.4665,
+              "maximum": 8.1087,
+              "mean": 0.09089935630950785
+            }
+          },
+          "gpuMs": {
+            "positive": 6138,
+            "missing": 1319,
+            "validOnly": {
+              "samples": 6138,
+              "median": 0.079872,
+              "p95": 3.509248,
+              "p99": 8.690688,
+              "maximum": 10.058752,
+              "mean": 0.583885367220593
+            }
+          }
+        },
+        {
+          "name": "agents-128-mixed",
+          "agents": 128,
+          "mixed": true,
+          "population": [
+            48,
+            48,
+            32
+          ],
+          "wallMs": {
+            "samples": 7075,
+            "median": 0.3026000000119211,
+            "p95": 7.619099999999435,
+            "p99": 9.174700000002645,
+            "maximum": 9.949999999989245,
+            "mean": 0.849305597173144
+          },
+          "updateMs": {
+            "samples": 7075,
+            "median": 0.0109,
+            "p95": 0.1469,
+            "p99": 0.2313,
+            "maximum": 0.3748,
+            "mean": 0.021058204946996468
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.1688,
+            "p95": 0.272,
+            "p99": 0.3138,
+            "maximum": 0.3748,
+            "mean": 0.18839113573407204
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.5038999999982252,
+            "p95": 0.7653999999917005,
+            "p99": 3.4897000000029266,
+            "maximum": 7.718600000004017,
+            "mean": 0.5816488888890032
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 5.999905999999996,
+          "steps": 361,
+          "maximumBacklog": 0.016662945352365455,
+          "engineSamples": 7075,
+          "gpuMissing": 1388,
+          "gc": [
+            46,
+            46,
+            46
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.023100000000000002,
+              "updateMs": 0.22310000000000002,
+              "followingWallMs": 0.6655999999907181
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.024,
+              "updateMs": 0.19190000000000002,
+              "followingWallMs": 0.5540000000081591
+            }
+          ],
+          "cpuMs": {
+            "positive": 7075,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7075,
+              "median": 0.3042,
+              "p95": 7.5087,
+              "p99": 9.0882,
+              "maximum": 9.7537,
+              "mean": 0.8480776254416961
+            }
+          },
+          "mainMs": {
+            "positive": 7075,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7075,
+              "median": 0.235,
+              "p95": 3.8029,
+              "p99": 8.9534,
+              "maximum": 9.6581,
+              "mean": 0.7681540777385159
+            }
+          },
+          "renderMs": {
+            "positive": 7075,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7075,
+              "median": 0.1152,
+              "p95": 0.1783,
+              "p99": 0.2204,
+              "maximum": 0.3288,
+              "mean": 0.12184668551236749
+            }
+          },
+          "presentWaitMs": {
+            "positive": 7075,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7075,
+              "median": 0.0618,
+              "p95": 0.1969,
+              "p99": 0.3055,
+              "maximum": 8.1067,
+              "mean": 0.07866185159010601
+            }
+          },
+          "gpuMs": {
+            "positive": 5687,
+            "missing": 1388,
+            "validOnly": {
+              "samples": 5687,
+              "median": 0.083968,
+              "p95": 7.86944,
+              "p99": 8.807424,
+              "maximum": 16652615504704.518,
+              "mean": 5856379639.534895
+            }
+          }
+        },
+        {
+          "name": "agents-128-uniform",
+          "agents": 128,
+          "mixed": false,
+          "population": [
+            0,
+            128,
+            0
+          ],
+          "wallMs": {
+            "samples": 7580,
+            "median": 0.2824000000032356,
+            "p95": 3.5651999999970485,
+            "p99": 9.288599999990765,
+            "maximum": 10.078699999994,
+            "mean": 0.7927002242744068
+          },
+          "updateMs": {
+            "samples": 7580,
+            "median": 0.0108,
+            "p95": 0.0499,
+            "p99": 0.229,
+            "maximum": 0.3598,
+            "mean": 0.02009730870712401
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.1683,
+            "p95": 0.2645,
+            "p99": 0.3336,
+            "maximum": 0.3598,
+            "mean": 0.18917922437673132
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.5141000000037366,
+            "p95": 0.7506000000034874,
+            "p99": 2.404299999994919,
+            "maximum": 3.4351999999984173,
+            "mean": 0.5607419444446451
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 5.999186399999999,
+          "steps": 361,
+          "maximumBacklog": 0.016654503893505535,
+          "engineSamples": 7580,
+          "gpuMissing": 1384,
+          "gc": [
+            44,
+            44,
+            44
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.0398,
+              "updateMs": 0.2645,
+              "followingWallMs": 0.6082999999961203
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.02,
+              "updateMs": 0.1857,
+              "followingWallMs": 0.5189000000029864
+            }
+          ],
+          "cpuMs": {
+            "positive": 7580,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7580,
+              "median": 0.2833,
+              "p95": 3.5063,
+              "p99": 9.198,
+              "maximum": 9.9215,
+              "mean": 0.7915664907651715
+            }
+          },
+          "mainMs": {
+            "positive": 7580,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7580,
+              "median": 0.2158,
+              "p95": 3.301,
+              "p99": 9.0748,
+              "maximum": 9.7608,
+              "mean": 0.713839129287599
+            }
+          },
+          "renderMs": {
+            "positive": 7580,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7580,
+              "median": 0.1107,
+              "p95": 0.1699,
+              "p99": 0.2221,
+              "maximum": 0.3136,
+              "mean": 0.1166714907651715
+            }
+          },
+          "presentWaitMs": {
+            "positive": 7580,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7580,
+              "median": 0.0645,
+              "p95": 0.1917,
+              "p99": 0.3078,
+              "maximum": 8.0278,
+              "mean": 0.07660807387862797
+            }
+          },
+          "gpuMs": {
+            "positive": 6196,
+            "missing": 1384,
+            "validOnly": {
+              "samples": 6196,
+              "median": 0.083968,
+              "p95": 7.665664,
+              "p99": 8.95488,
+              "maximum": 9.573376,
+              "mean": 0.6054100865074241
+            }
+          }
+        },
+        {
+          "name": "agents-256-mixed",
+          "agents": 256,
+          "mixed": true,
+          "population": [
+            96,
+            96,
+            64
+          ],
+          "wallMs": {
+            "samples": 5690,
+            "median": 0.4026499999980615,
+            "p95": 8.081599999997024,
+            "p99": 9.110399999997298,
+            "maximum": 9.991499999998155,
+            "mean": 1.054522636203867
+          },
+          "updateMs": {
+            "samples": 5690,
+            "median": 0.020200000000000003,
+            "p95": 0.2881,
+            "p99": 0.35900000000000004,
+            "maximum": 0.45740000000000003,
+            "mean": 0.040886959578207385
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.299,
+            "p95": 0.404,
+            "p99": 0.438,
+            "maximum": 0.45740000000000003,
+            "mean": 0.3160373961218837
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.5793499999953156,
+            "p95": 0.9109000000080414,
+            "p99": 8.095699999998374,
+            "maximum": 8.165599999998108,
+            "mean": 0.9049900000006359
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 5.999643699999993,
+          "steps": 361,
+          "maximumBacklog": 0.016665921504525727,
+          "engineSamples": 5690,
+          "gpuMissing": 784,
+          "gc": [
+            30,
+            30,
+            30
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.0204,
+              "updateMs": 0.3151,
+              "followingWallMs": 0.6574000000085789
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.020300000000000002,
+              "updateMs": 0.4021,
+              "followingWallMs": 0.6446000000011054
+            }
+          ],
+          "cpuMs": {
+            "positive": 5690,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5690,
+              "median": 0.4047,
+              "p95": 8.0211,
+              "p99": 9.0084,
+              "maximum": 9.959,
+              "mean": 1.0543891388400704
+            }
+          },
+          "mainMs": {
+            "positive": 5690,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5690,
+              "median": 0.27585,
+              "p95": 7.8518,
+              "p99": 8.8511,
+              "maximum": 9.7652,
+              "mean": 0.9156317398945518
+            }
+          },
+          "renderMs": {
+            "positive": 5690,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5690,
+              "median": 0.1901,
+              "p95": 0.2557,
+              "p99": 0.3016,
+              "maximum": 0.4977,
+              "mean": 0.1948948330404218
+            }
+          },
+          "presentWaitMs": {
+            "positive": 5690,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5690,
+              "median": 0.12445,
+              "p95": 0.2733,
+              "p99": 0.3761,
+              "maximum": 7.9887,
+              "mean": 0.1376523725834798
+            }
+          },
+          "gpuMs": {
+            "positive": 4906,
+            "missing": 784,
+            "validOnly": {
+              "samples": 4906,
+              "median": 0.08192,
+              "p95": 7.774208,
+              "p99": 8.720384,
+              "maximum": 9.638912,
+              "mean": 0.7572534268242967
+            }
+          }
+        },
+        {
+          "name": "agents-256-uniform",
+          "agents": 256,
+          "mixed": false,
+          "population": [
+            0,
+            256,
+            0
+          ],
+          "wallMs": {
+            "samples": 5617,
+            "median": 0.4067999999932681,
+            "p95": 8.282699999995202,
+            "p99": 9.24380000000724,
+            "maximum": 10.085099999997738,
+            "mean": 1.0682792593911326
+          },
+          "updateMs": {
+            "samples": 5617,
+            "median": 0.0205,
+            "p95": 0.2918,
+            "p99": 0.3584,
+            "maximum": 1.3715000000000002,
+            "mean": 0.04223197436353926
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.3008,
+            "p95": 0.40180000000000005,
+            "p99": 0.49560000000000004,
+            "maximum": 1.3715000000000002,
+            "mean": 0.32038781163434904
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.6172499999905767,
+            "p95": 8.929100000003132,
+            "p99": 9.318400000012161,
+            "maximum": 9.670899999989047,
+            "mean": 1.7681422222227166
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 6.000069999999994,
+          "steps": 361,
+          "maximumBacklog": 0.016666394255821615,
+          "engineSamples": 5617,
+          "gpuMissing": 798,
+          "gc": [
+            27,
+            27,
+            27
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.021,
+              "updateMs": 0.3155,
+              "followingWallMs": 0.583500000004733
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.020200000000000003,
+              "updateMs": 0.3754,
+              "followingWallMs": 0.667400000011753
+            }
+          ],
+          "cpuMs": {
+            "positive": 5617,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5617,
+              "median": 0.409,
+              "p95": 8.2098,
+              "p99": 9.1809,
+              "maximum": 10.0484,
+              "mean": 1.0683094712479972
+            }
+          },
+          "mainMs": {
+            "positive": 5617,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5617,
+              "median": 0.2837,
+              "p95": 8.0545,
+              "p99": 9.0333,
+              "maximum": 9.9085,
+              "mean": 0.9369564358198327
+            }
+          },
+          "renderMs": {
+            "positive": 5617,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5617,
+              "median": 0.1923,
+              "p95": 0.2619,
+              "p99": 0.3091,
+              "maximum": 0.5064,
+              "mean": 0.19723033647854726
+            }
+          },
+          "presentWaitMs": {
+            "positive": 5617,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5617,
+              "median": 0.121,
+              "p95": 0.2708,
+              "p99": 0.3795,
+              "maximum": 8.2854,
+              "mean": 0.13012704290546556
+            }
+          },
+          "gpuMs": {
+            "positive": 4819,
+            "missing": 798,
+            "validOnly": {
+              "samples": 4819,
+              "median": 0.08192,
+              "p95": 7.922688,
+              "p99": 8.813568,
+              "maximum": 9.407488,
+              "mean": 0.7401728690599709
+            }
+          }
+        }
+      ]
+    },
+    {
+      "session": "traffic-run-2",
+      "cases": [
+        {
+          "name": "agents-64-uniform",
+          "agents": 64,
+          "mixed": false,
+          "population": [
+            0,
+            64,
+            0
+          ],
+          "wallMs": {
+            "samples": 9083,
+            "median": 0.23760000000550008,
+            "p95": 2.8863999999941825,
+            "p99": 9.132700000009208,
+            "maximum": 10.04970000000327,
+            "mean": 0.6605804910271933
+          },
+          "updateMs": {
+            "samples": 9083,
+            "median": 0.0061,
+            "p95": 0.0162,
+            "p99": 0.0877,
+            "maximum": 0.1855,
+            "mean": 0.009835891225366069
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.0814,
+            "p95": 0.132,
+            "p99": 0.1554,
+            "maximum": 0.1855,
+            "mean": 0.08783767313019392
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.29105000000129166,
+            "p95": 0.4370999999991909,
+            "p99": 0.5817999999919721,
+            "maximum": 0.7066000000008898,
+            "mean": 0.29921361111126843
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 5.999846900000001,
+          "steps": 361,
+          "maximumBacklog": 0.01666535748359621,
+          "engineSamples": 9083,
+          "gpuMissing": 1979,
+          "gc": [
+            76,
+            76,
+            76
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.0063,
+              "updateMs": 0.11420000000000001,
+              "followingWallMs": 0.3284000000007836
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.006,
+              "updateMs": 0.0966,
+              "followingWallMs": 0.24779999999680058
+            }
+          ],
+          "cpuMs": {
+            "positive": 9083,
+            "zero": 0,
+            "allSamples": {
+              "samples": 9083,
+              "median": 0.2382,
+              "p95": 2.8699,
+              "p99": 9.0411,
+              "maximum": 10.0081,
+              "mean": 0.6605979742375867
+            }
+          },
+          "mainMs": {
+            "positive": 9083,
+            "zero": 0,
+            "allSamples": {
+              "samples": 9083,
+              "median": 0.1884,
+              "p95": 2.7456,
+              "p99": 8.9423,
+              "maximum": 9.9154,
+              "mean": 0.6007821314543653
+            }
+          },
+          "renderMs": {
+            "positive": 9083,
+            "zero": 0,
+            "allSamples": {
+              "samples": 9083,
+              "median": 0.0882,
+              "p95": 0.1354,
+              "p99": 0.1805,
+              "maximum": 0.2878,
+              "mean": 0.09204664758339756
+            }
+          },
+          "presentWaitMs": {
+            "positive": 9083,
+            "zero": 0,
+            "allSamples": {
+              "samples": 9083,
+              "median": 0.0436,
+              "p95": 0.1882,
+              "p99": 0.3053,
+              "maximum": 4.33,
+              "mean": 0.05880257624132996
+            }
+          },
+          "gpuMs": {
+            "positive": 7104,
+            "missing": 1979,
+            "validOnly": {
+              "samples": 7104,
+              "median": 0.077824,
+              "p95": 3.070976,
+              "p99": 8.895488,
+              "maximum": 9.764864,
+              "mean": 0.5323983063063064
+            }
+          }
+        },
+        {
+          "name": "agents-64-mixed",
+          "agents": 64,
+          "mixed": true,
+          "population": [
+            24,
+            24,
+            16
+          ],
+          "wallMs": {
+            "samples": 8611,
+            "median": 0.2439000000009628,
+            "p95": 3.525099999990289,
+            "p99": 8.96860000000288,
+            "maximum": 9.66900000000237,
+            "mean": 0.6978293345720589
+          },
+          "updateMs": {
+            "samples": 8611,
+            "median": 0.0061,
+            "p95": 0.0228,
+            "p99": 0.09390000000000001,
+            "maximum": 0.20350000000000001,
+            "mean": 0.010196725119033795
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.0843,
+            "p95": 0.13470000000000001,
+            "p99": 0.1723,
+            "maximum": 0.20350000000000001,
+            "mean": 0.09118337950138504
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.351249999994252,
+            "p95": 0.6203999999883081,
+            "p99": 1.4289000000076157,
+            "maximum": 3.665699999999106,
+            "mean": 0.4105561111114437
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 5.999668200000002,
+          "steps": 361,
+          "maximumBacklog": 0.016662909373295065,
+          "engineSamples": 8611,
+          "gpuMissing": 1738,
+          "gc": [
+            63,
+            63,
+            63
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.007200000000000001,
+              "updateMs": 0.0945,
+              "followingWallMs": 0.38770000000454274
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.007,
+              "updateMs": 0.0931,
+              "followingWallMs": 0.25800000000231194
+            }
+          ],
+          "cpuMs": {
+            "positive": 8611,
+            "zero": 0,
+            "allSamples": {
+              "samples": 8611,
+              "median": 0.2446,
+              "p95": 3.5043,
+              "p99": 8.8838,
+              "maximum": 9.6331,
+              "mean": 0.6968495064452445
+            }
+          },
+          "mainMs": {
+            "positive": 8611,
+            "zero": 0,
+            "allSamples": {
+              "samples": 8611,
+              "median": 0.1955,
+              "p95": 3.3809,
+              "p99": 8.7876,
+              "maximum": 9.5739,
+              "mean": 0.6349717106027174
+            }
+          },
+          "renderMs": {
+            "positive": 8611,
+            "zero": 0,
+            "allSamples": {
+              "samples": 8611,
+              "median": 0.0889,
+              "p95": 0.1385,
+              "p99": 0.1845,
+              "maximum": 0.3428,
+              "mean": 0.09343468818952502
+            }
+          },
+          "presentWaitMs": {
+            "positive": 8611,
+            "zero": 0,
+            "allSamples": {
+              "samples": 8611,
+              "median": 0.0427,
+              "p95": 0.1878,
+              "p99": 0.3069,
+              "maximum": 7.4768,
+              "mean": 0.06081494599930322
+            }
+          },
+          "gpuMs": {
+            "positive": 6873,
+            "missing": 1738,
+            "validOnly": {
+              "samples": 6873,
+              "median": 0.078848,
+              "p95": 3.42016,
+              "p99": 8.696832,
+              "maximum": 9.473024,
+              "mean": 0.565472228139095
+            }
+          }
+        },
+        {
+          "name": "agents-128-uniform",
+          "agents": 128,
+          "mixed": false,
+          "population": [
+            0,
+            128,
+            0
+          ],
+          "wallMs": {
+            "samples": 7523,
+            "median": 0.2858000000003358,
+            "p95": 3.6851000000126533,
+            "p99": 9.209200000000806,
+            "maximum": 9.917799999996646,
+            "mean": 0.7987568124418443
+          },
+          "updateMs": {
+            "samples": 7523,
+            "median": 0.0106,
+            "p95": 0.050800000000000005,
+            "p99": 0.232,
+            "maximum": 0.4015,
+            "mean": 0.0199419513491958
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.1652,
+            "p95": 0.27140000000000003,
+            "p99": 0.3156,
+            "maximum": 0.4015,
+            "mean": 0.1895185595567867
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.508299999999906,
+            "p95": 0.7945000000120217,
+            "p99": 2.8480000000001837,
+            "maximum": 3.2661000000047125,
+            "mean": 0.5908583333336203
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 6.000621899999999,
+          "steps": 361,
+          "maximumBacklog": 0.016666005593918953,
+          "engineSamples": 7523,
+          "gpuMissing": 1282,
+          "gc": [
+            49,
+            49,
+            49
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.038700000000000005,
+              "updateMs": 0.219,
+              "followingWallMs": 0.5432000000098469
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.0207,
+              "updateMs": 0.1962,
+              "followingWallMs": 0.5741000000085705
+            }
+          ],
+          "cpuMs": {
+            "positive": 7523,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7523,
+              "median": 0.2863,
+              "p95": 3.6458,
+              "p99": 9.1189,
+              "maximum": 9.8613,
+              "mean": 0.7975750631397049
+            }
+          },
+          "mainMs": {
+            "positive": 7523,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7523,
+              "median": 0.2171,
+              "p95": 3.4444,
+              "p99": 9.0245,
+              "maximum": 9.7438,
+              "mean": 0.7161845939120032
+            }
+          },
+          "renderMs": {
+            "positive": 7523,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7523,
+              "median": 0.1139,
+              "p95": 0.169,
+              "p99": 0.2162,
+              "maximum": 0.4704,
+              "mean": 0.11922893792370065
+            }
+          },
+          "presentWaitMs": {
+            "positive": 7523,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7523,
+              "median": 0.0672,
+              "p95": 0.1859,
+              "p99": 0.2841,
+              "maximum": 7.6177,
+              "mean": 0.08032101555230627
+            }
+          },
+          "gpuMs": {
+            "positive": 6241,
+            "missing": 1282,
+            "validOnly": {
+              "samples": 6241,
+              "median": 0.083968,
+              "p95": 7.322624,
+              "p99": 8.907776,
+              "maximum": 9.45664,
+              "mean": 0.6085695907707098
+            }
+          }
+        },
+        {
+          "name": "agents-128-mixed",
+          "agents": 128,
+          "mixed": true,
+          "population": [
+            48,
+            48,
+            32
+          ],
+          "wallMs": {
+            "samples": 7515,
+            "median": 0.28679999999781103,
+            "p95": 3.5850000000010596,
+            "p99": 9.339199999999437,
+            "maximum": 10.04759999999294,
+            "mean": 0.7994734131736533
+          },
+          "updateMs": {
+            "samples": 7515,
+            "median": 0.0106,
+            "p95": 0.054200000000000005,
+            "p99": 0.2222,
+            "maximum": 0.3587,
+            "mean": 0.01979049900199601
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.167,
+            "p95": 0.25,
+            "p99": 0.3048,
+            "maximum": 0.3587,
+            "mean": 0.18638614958448754
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.5242500000051109,
+            "p95": 0.8403000000072325,
+            "p99": 3.2060999999998785,
+            "maximum": 7.649000000000683,
+            "mean": 0.6217641666664362
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 5.999613199999999,
+          "steps": 361,
+          "maximumBacklog": 0.016576442630537258,
+          "engineSamples": 7515,
+          "gpuMissing": 1525,
+          "gc": [
+            44,
+            44,
+            44
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.022000000000000002,
+              "updateMs": 0.1893,
+              "followingWallMs": 0.5733999999932848
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.0123,
+              "updateMs": 0.1743,
+              "followingWallMs": 2.677300000001992
+            }
+          ],
+          "cpuMs": {
+            "positive": 7515,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7515,
+              "median": 0.2874,
+              "p95": 3.5696,
+              "p99": 9.2602,
+              "maximum": 9.9718,
+              "mean": 0.7996555555555556
+            }
+          },
+          "mainMs": {
+            "positive": 7515,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7515,
+              "median": 0.223,
+              "p95": 3.1783,
+              "p99": 9.1524,
+              "maximum": 9.8358,
+              "mean": 0.7111987358616101
+            }
+          },
+          "renderMs": {
+            "positive": 7515,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7515,
+              "median": 0.1134,
+              "p95": 0.1712,
+              "p99": 0.219,
+              "maximum": 0.3913,
+              "mean": 0.11927123087159015
+            }
+          },
+          "presentWaitMs": {
+            "positive": 7515,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7515,
+              "median": 0.0612,
+              "p95": 0.1995,
+              "p99": 0.3255,
+              "maximum": 7.9584,
+              "mean": 0.08730441783100466
+            }
+          },
+          "gpuMs": {
+            "positive": 5990,
+            "missing": 1525,
+            "validOnly": {
+              "samples": 5990,
+              "median": 0.083968,
+              "p95": 3.390464,
+              "p99": 8.98048,
+              "maximum": 9.631744,
+              "mean": 0.593298420033389
+            }
+          }
+        },
+        {
+          "name": "agents-256-uniform",
+          "agents": 256,
+          "mixed": false,
+          "population": [
+            0,
+            256,
+            0
+          ],
+          "wallMs": {
+            "samples": 5783,
+            "median": 0.39219999999318134,
+            "p95": 8.131500000004621,
+            "p99": 9.109399999999823,
+            "maximum": 9.88769999999306,
+            "mean": 1.0389513055507515
+          },
+          "updateMs": {
+            "samples": 5783,
+            "median": 0.0199,
+            "p95": 0.2898,
+            "p99": 0.37260000000000004,
+            "maximum": 0.5268,
+            "mean": 0.039955905239495076
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.30060000000000003,
+            "p95": 0.4207,
+            "p99": 0.4722,
+            "maximum": 0.5268,
+            "mean": 0.32138891966759003
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.6946000000027652,
+            "p95": 9.249699999998029,
+            "p99": 9.580499999998437,
+            "maximum": 9.777699999986567,
+            "mean": 2.6269572222222988
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 5.998799099999999,
+          "steps": 361,
+          "maximumBacklog": 0.016665231406562953,
+          "engineSamples": 5783,
+          "gpuMissing": 854,
+          "gc": [
+            30,
+            30,
+            30
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.030000000000000002,
+              "updateMs": 0.3292,
+              "followingWallMs": 0.7380999999924143
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.0236,
+              "updateMs": 0.32880000000000004,
+              "followingWallMs": 0.6185000000016316
+            }
+          ],
+          "cpuMs": {
+            "positive": 5783,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5783,
+              "median": 0.393,
+              "p95": 8.0659,
+              "p99": 9.0292,
+              "maximum": 9.8419,
+              "mean": 1.037641967836763
+            }
+          },
+          "mainMs": {
+            "positive": 5783,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5783,
+              "median": 0.2709,
+              "p95": 7.8312,
+              "p99": 8.9482,
+              "maximum": 9.6892,
+              "mean": 0.9023159951582224
+            }
+          },
+          "renderMs": {
+            "positive": 5783,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5783,
+              "median": 0.1865,
+              "p95": 0.2545,
+              "p99": 0.3042,
+              "maximum": 0.469,
+              "mean": 0.1912804253847484
+            }
+          },
+          "presentWaitMs": {
+            "positive": 5783,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5783,
+              "median": 0.1198,
+              "p95": 0.2708,
+              "p99": 0.3961,
+              "maximum": 7.8321,
+              "mean": 0.13422538474840048
+            }
+          },
+          "gpuMs": {
+            "positive": 4929,
+            "missing": 854,
+            "validOnly": {
+              "samples": 4929,
+              "median": 0.082944,
+              "p95": 7.821312,
+              "p99": 8.722432,
+              "maximum": 9.481216,
+              "mean": 0.7348584654088051
+            }
+          }
+        },
+        {
+          "name": "agents-256-mixed",
+          "agents": 256,
+          "mixed": true,
+          "population": [
+            96,
+            96,
+            64
+          ],
+          "wallMs": {
+            "samples": 5910,
+            "median": 0.3835999999992623,
+            "p95": 8.320999999995138,
+            "p99": 9.293999999997027,
+            "maximum": 10.532700000013051,
+            "mean": 1.0168491878172599
+          },
+          "updateMs": {
+            "samples": 5910,
+            "median": 0.02,
+            "p95": 0.29350000000000004,
+            "p99": 0.37970000000000004,
+            "maximum": 0.5222,
+            "mean": 0.040167021996615905
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.3048,
+            "p95": 0.4436,
+            "p99": 0.4964,
+            "maximum": 0.5222,
+            "mean": 0.3276434903047092
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.7043000000024335,
+            "p95": 3.0220000000014124,
+            "p99": 3.634800000000382,
+            "maximum": 6.4306999999956815,
+            "mean": 1.1813458333332645
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 6.000739899999999,
+          "steps": 361,
+          "maximumBacklog": 0.016664753439854962,
+          "engineSamples": 5910,
+          "gpuMissing": 783,
+          "gc": [
+            28,
+            28,
+            28
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.035,
+              "updateMs": 0.3327,
+              "followingWallMs": 0.6965999999977157
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.0262,
+              "updateMs": 0.3282,
+              "followingWallMs": 0.6755999999938922
+            }
+          ],
+          "cpuMs": {
+            "positive": 5910,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5910,
+              "median": 0.385,
+              "p95": 8.269,
+              "p99": 9.2092,
+              "maximum": 10.4192,
+              "mean": 1.0153509813874788
+            }
+          },
+          "mainMs": {
+            "positive": 5910,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5910,
+              "median": 0.26255,
+              "p95": 8.0777,
+              "p99": 9.054,
+              "maximum": 10.2441,
+              "mean": 0.8828539763113367
+            }
+          },
+          "renderMs": {
+            "positive": 5910,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5910,
+              "median": 0.1842,
+              "p95": 0.252,
+              "p99": 0.2997,
+              "maximum": 0.4147,
+              "mean": 0.1898187817258883
+            }
+          },
+          "presentWaitMs": {
+            "positive": 5910,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5910,
+              "median": 0.11965,
+              "p95": 0.2638,
+              "p99": 0.3756,
+              "maximum": 8.1342,
+              "mean": 0.1313866328257191
+            }
+          },
+          "gpuMs": {
+            "positive": 5127,
+            "missing": 783,
+            "validOnly": {
+              "samples": 5127,
+              "median": 0.08192,
+              "p95": 7.9872,
+              "p99": 8.892416,
+              "maximum": 9.373696,
+              "mean": 0.7075400600741174
+            }
+          }
+        }
+      ]
+    },
+    {
+      "session": "traffic-run-3",
+      "cases": [
+        {
+          "name": "agents-64-mixed",
+          "agents": 64,
+          "mixed": true,
+          "population": [
+            24,
+            24,
+            16
+          ],
+          "wallMs": {
+            "samples": 8611,
+            "median": 0.2439000000009628,
+            "p95": 3.500000000002501,
+            "p99": 9.056800000010412,
+            "maximum": 9.91340000000207,
+            "mean": 0.6976564742770889
+          },
+          "updateMs": {
+            "samples": 8611,
+            "median": 0.0061,
+            "p95": 0.0219,
+            "p99": 0.0983,
+            "maximum": 0.19010000000000002,
+            "mean": 0.01031805829752642
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.084,
+            "p95": 0.1385,
+            "p99": 0.18000000000000002,
+            "maximum": 0.19010000000000002,
+            "mean": 0.09245761772853187
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.3415000000046575,
+            "p95": 0.5645999999970286,
+            "p99": 0.7116000000024769,
+            "maximum": 3.8914000000005444,
+            "mean": 0.37095916666625645
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 5.999340300000014,
+          "steps": 361,
+          "maximumBacklog": 0.01666407169378914,
+          "engineSamples": 8611,
+          "gpuMissing": 1786,
+          "gc": [
+            72,
+            72,
+            72
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.0122,
+              "updateMs": 0.1278,
+              "followingWallMs": 0.5093999999985499
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.0516,
+              "updateMs": 0.1495,
+              "followingWallMs": 0.5115999999958376
+            }
+          ],
+          "cpuMs": {
+            "positive": 8611,
+            "zero": 0,
+            "allSamples": {
+              "samples": 8611,
+              "median": 0.2451,
+              "p95": 3.445,
+              "p99": 8.9703,
+              "maximum": 9.6997,
+              "mean": 0.6978696550923238
+            }
+          },
+          "mainMs": {
+            "positive": 8611,
+            "zero": 0,
+            "allSamples": {
+              "samples": 8611,
+              "median": 0.1965,
+              "p95": 3.3357,
+              "p99": 8.9116,
+              "maximum": 9.5658,
+              "mean": 0.638448298687725
+            }
+          },
+          "renderMs": {
+            "positive": 8611,
+            "zero": 0,
+            "allSamples": {
+              "samples": 8611,
+              "median": 0.0888,
+              "p95": 0.1349,
+              "p99": 0.1728,
+              "maximum": 0.3148,
+              "mean": 0.09228360236906283
+            }
+          },
+          "presentWaitMs": {
+            "positive": 8611,
+            "zero": 0,
+            "allSamples": {
+              "samples": 8611,
+              "median": 0.0427,
+              "p95": 0.1827,
+              "p99": 0.2943,
+              "maximum": 7.3207,
+              "mean": 0.05831334339797933
+            }
+          },
+          "gpuMs": {
+            "positive": 6825,
+            "missing": 1786,
+            "validOnly": {
+              "samples": 6825,
+              "median": 0.078848,
+              "p95": 3.443712,
+              "p99": 8.79104,
+              "maximum": 9.355264,
+              "mean": 0.5663174610989011
+            }
+          }
+        },
+        {
+          "name": "agents-64-uniform",
+          "agents": 64,
+          "mixed": false,
+          "population": [
+            0,
+            64,
+            0
+          ],
+          "wallMs": {
+            "samples": 8843,
+            "median": 0.2386999999970385,
+            "p95": 3.4212999999994054,
+            "p99": 8.998399999995854,
+            "maximum": 9.921199999993746,
+            "mean": 0.6795501978966411
+          },
+          "updateMs": {
+            "samples": 8843,
+            "median": 0.0061,
+            "p95": 0.0146,
+            "p99": 0.095,
+            "maximum": 0.1952,
+            "mean": 0.010002861020015833
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.08410000000000001,
+            "p95": 0.1388,
+            "p99": 0.1864,
+            "maximum": 0.1952,
+            "mean": 0.09181994459833795
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.34430000000185146,
+            "p95": 0.5553000000020347,
+            "p99": 6.446099999990906,
+            "maximum": 8.115899999992848,
+            "mean": 0.4652219444443754
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 6.000629599999996,
+          "steps": 361,
+          "maximumBacklog": 0.016665836621967856,
+          "engineSamples": 8843,
+          "gpuMissing": 1820,
+          "gc": [
+            65,
+            65,
+            65
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.0109,
+              "updateMs": 0.1005,
+              "followingWallMs": 0.3620000000097434
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.0097,
+              "updateMs": 0.1915,
+              "followingWallMs": 0.5277000000063481
+            }
+          ],
+          "cpuMs": {
+            "positive": 8843,
+            "zero": 0,
+            "allSamples": {
+              "samples": 8843,
+              "median": 0.2397,
+              "p95": 3.3709,
+              "p99": 8.9197,
+              "maximum": 9.8918,
+              "mean": 0.6785198009725206
+            }
+          },
+          "mainMs": {
+            "positive": 8843,
+            "zero": 0,
+            "allSamples": {
+              "samples": 8843,
+              "median": 0.1915,
+              "p95": 3.2777,
+              "p99": 8.8331,
+              "maximum": 9.7442,
+              "mean": 0.6219879791925818
+            }
+          },
+          "renderMs": {
+            "positive": 8843,
+            "zero": 0,
+            "allSamples": {
+              "samples": 8843,
+              "median": 0.0877,
+              "p95": 0.1355,
+              "p99": 0.1793,
+              "maximum": 0.2775,
+              "mean": 0.0915429379169965
+            }
+          },
+          "presentWaitMs": {
+            "positive": 8843,
+            "zero": 0,
+            "allSamples": {
+              "samples": 8843,
+              "median": 0.0414,
+              "p95": 0.1811,
+              "p99": 0.2903,
+              "maximum": 6.3956,
+              "mean": 0.05547921519846206
+            }
+          },
+          "gpuMs": {
+            "positive": 7023,
+            "missing": 1820,
+            "validOnly": {
+              "samples": 7023,
+              "median": 0.078848,
+              "p95": 3.398656,
+              "p99": 8.781824,
+              "maximum": 18226890126665.973,
+              "mean": 2595313986.9894586
+            }
+          }
+        },
+        {
+          "name": "agents-128-mixed",
+          "agents": 128,
+          "mixed": true,
+          "population": [
+            48,
+            48,
+            32
+          ],
+          "wallMs": {
+            "samples": 7489,
+            "median": 0.28530000000159816,
+            "p95": 3.617199999993659,
+            "p99": 9.302599999998051,
+            "maximum": 9.989600000011478,
+            "mean": 0.8023495393243434
+          },
+          "updateMs": {
+            "samples": 7489,
+            "median": 0.010700000000000001,
+            "p95": 0.060000000000000005,
+            "p99": 0.2016,
+            "maximum": 0.33530000000000004,
+            "mean": 0.019683629323007077
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.1648,
+            "p95": 0.2516,
+            "p99": 0.3007,
+            "maximum": 0.33530000000000004,
+            "mean": 0.18147451523545707
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.491850000003069,
+            "p95": 0.7279000000011138,
+            "p99": 1.6734999999954425,
+            "maximum": 8.370700000000397,
+            "mean": 0.5489099999997175
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 5.999936099999999,
+          "steps": 361,
+          "maximumBacklog": 0.016659487075614265,
+          "engineSamples": 7489,
+          "gpuMissing": 1280,
+          "gc": [
+            49,
+            49,
+            49
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.0227,
+              "updateMs": 0.33530000000000004,
+              "followingWallMs": 0.956500000000915
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.0167,
+              "updateMs": 0.324,
+              "followingWallMs": 0.678800000002866
+            }
+          ],
+          "cpuMs": {
+            "positive": 7489,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7489,
+              "median": 0.287,
+              "p95": 3.5616,
+              "p99": 9.2142,
+              "maximum": 9.9073,
+              "mean": 0.8011845106155695
+            }
+          },
+          "mainMs": {
+            "positive": 7489,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7489,
+              "median": 0.2151,
+              "p95": 3.2716,
+              "p99": 9.102,
+              "maximum": 9.9038,
+              "mean": 0.7155297369475231
+            }
+          },
+          "renderMs": {
+            "positive": 7489,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7489,
+              "median": 0.1138,
+              "p95": 0.1736,
+              "p99": 0.2196,
+              "maximum": 0.4406,
+              "mean": 0.12004312992388837
+            }
+          },
+          "presentWaitMs": {
+            "positive": 7489,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7489,
+              "median": 0.0665,
+              "p95": 0.2037,
+              "p99": 0.3262,
+              "maximum": 7.3046,
+              "mean": 0.08453495793830952
+            }
+          },
+          "gpuMs": {
+            "positive": 6209,
+            "missing": 1280,
+            "validOnly": {
+              "samples": 6209,
+              "median": 0.083968,
+              "p95": 3.545088,
+              "p99": 8.963072,
+              "maximum": 9.61536,
+              "mean": 0.5924757790304397
+            }
+          }
+        },
+        {
+          "name": "agents-128-uniform",
+          "agents": 128,
+          "mixed": false,
+          "population": [
+            0,
+            128,
+            0
+          ],
+          "wallMs": {
+            "samples": 7506,
+            "median": 0.28349999999477404,
+            "p95": 3.8917000000111557,
+            "p99": 9.013000000010152,
+            "maximum": 10.541600000010476,
+            "mean": 0.8004577005062633
+          },
+          "updateMs": {
+            "samples": 7506,
+            "median": 0.010700000000000001,
+            "p95": 0.0594,
+            "p99": 0.2144,
+            "maximum": 0.3242,
+            "mean": 0.019683040234479084
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.165,
+            "p95": 0.2534,
+            "p99": 0.2798,
+            "maximum": 0.3242,
+            "mean": 0.18335069252077563
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.4848000000023944,
+            "p95": 0.7562999999919384,
+            "p99": 3.0644999999935862,
+            "maximum": 8.31230000000005,
+            "mean": 0.5846955555553911
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 6.00004340000001,
+          "steps": 361,
+          "maximumBacklog": 0.016507748753213036,
+          "engineSamples": 7506,
+          "gpuMissing": 1282,
+          "gc": [
+            43,
+            43,
+            43
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.0219,
+              "updateMs": 0.18430000000000002,
+              "followingWallMs": 0.5244000000033111
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.0526,
+              "updateMs": 0.26230000000000003,
+              "followingWallMs": 0.6288000000012062
+            }
+          ],
+          "cpuMs": {
+            "positive": 7506,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7506,
+              "median": 0.2857,
+              "p95": 3.7692,
+              "p99": 8.9439,
+              "maximum": 10.3978,
+              "mean": 0.7993745403677058
+            }
+          },
+          "mainMs": {
+            "positive": 7506,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7506,
+              "median": 0.2121,
+              "p95": 3.5612,
+              "p99": 8.8145,
+              "maximum": 10.3318,
+              "mean": 0.7146525712763123
+            }
+          },
+          "renderMs": {
+            "positive": 7506,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7506,
+              "median": 0.1129,
+              "p95": 0.1735,
+              "p99": 0.224,
+              "maximum": 0.3934,
+              "mean": 0.11915754063415934
+            }
+          },
+          "presentWaitMs": {
+            "positive": 7506,
+            "zero": 0,
+            "allSamples": {
+              "samples": 7506,
+              "median": 0.0665,
+              "p95": 0.1931,
+              "p99": 0.2863,
+              "maximum": 7.9954,
+              "mean": 0.08362835065281109
+            }
+          },
+          "gpuMs": {
+            "positive": 6224,
+            "missing": 1282,
+            "validOnly": {
+              "samples": 6224,
+              "median": 0.083968,
+              "p95": 3.876864,
+              "p99": 8.70912,
+              "maximum": 16652615043807.809,
+              "mean": 5351097379.675609
+            }
+          }
+        },
+        {
+          "name": "agents-256-mixed",
+          "agents": 256,
+          "mixed": true,
+          "population": [
+            96,
+            96,
+            64
+          ],
+          "wallMs": {
+            "samples": 5779,
+            "median": 0.388700000002018,
+            "p95": 8.283500000004551,
+            "p99": 9.149800000002983,
+            "maximum": 9.998099999990018,
+            "mean": 1.0382988925419605
+          },
+          "updateMs": {
+            "samples": 5779,
+            "median": 0.02,
+            "p95": 0.2918,
+            "p99": 0.3563,
+            "maximum": 0.5181,
+            "mean": 0.04025381553902059
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.3004,
+            "p95": 0.4247,
+            "p99": 0.4909,
+            "maximum": 0.5181,
+            "mean": 0.31877562326869807
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.5959499999974582,
+            "p95": 0.8936999999917816,
+            "p99": 2.8544999999979837,
+            "maximum": 8.932399999991958,
+            "mean": 0.6896391666668222
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 5.996745199999992,
+          "steps": 361,
+          "maximumBacklog": 0.01666274327342876,
+          "engineSamples": 5779,
+          "gpuMissing": 716,
+          "gc": [
+            30,
+            30,
+            30
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.0304,
+              "updateMs": 0.3289,
+              "followingWallMs": 0.7379999999983511
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.0238,
+              "updateMs": 0.3254,
+              "followingWallMs": 0.6199999999978445
+            }
+          ],
+          "cpuMs": {
+            "positive": 5779,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5779,
+              "median": 0.3912,
+              "p95": 8.2092,
+              "p99": 9.1132,
+              "maximum": 9.8552,
+              "mean": 1.036761204360616
+            }
+          },
+          "mainMs": {
+            "positive": 5779,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5779,
+              "median": 0.2586,
+              "p95": 8.047,
+              "p99": 8.9374,
+              "maximum": 9.6521,
+              "mean": 0.8995278248831978
+            }
+          },
+          "renderMs": {
+            "positive": 5779,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5779,
+              "median": 0.1867,
+              "p95": 0.2547,
+              "p99": 0.3056,
+              "maximum": 0.4556,
+              "mean": 0.19161751168022148
+            }
+          },
+          "presentWaitMs": {
+            "positive": 5779,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5779,
+              "median": 0.1255,
+              "p95": 0.2665,
+              "p99": 0.3544,
+              "maximum": 8.0689,
+              "mean": 0.13615956047759128
+            }
+          },
+          "gpuMs": {
+            "positive": 5063,
+            "missing": 716,
+            "validOnly": {
+              "samples": 5063,
+              "median": 0.080896,
+              "p95": 7.939072,
+              "p99": 8.80128,
+              "maximum": 9.18016,
+              "mean": 0.7298897254592139
+            }
+          }
+        },
+        {
+          "name": "agents-256-uniform",
+          "agents": 256,
+          "mixed": false,
+          "population": [
+            0,
+            256,
+            0
+          ],
+          "wallMs": {
+            "samples": 5877,
+            "median": 0.38740000000814234,
+            "p95": 8.230600000004529,
+            "p99": 9.391699999994785,
+            "maximum": 10.162399999998684,
+            "mean": 1.0223964948102773
+          },
+          "updateMs": {
+            "samples": 5877,
+            "median": 0.02,
+            "p95": 0.2953,
+            "p99": 0.43010000000000004,
+            "maximum": 0.527,
+            "mean": 0.04126705802280075
+          },
+          "tickUpdateMs": {
+            "samples": 361,
+            "median": 0.30860000000000004,
+            "p95": 0.48500000000000004,
+            "p99": 0.5225000000000001,
+            "maximum": 0.527,
+            "mean": 0.34494072022160666
+          },
+          "tickFollowingWallMs": {
+            "samples": 360,
+            "median": 0.7073499999989963,
+            "p95": 1.1776999999995041,
+            "p99": 2.804600000004598,
+            "maximum": 8.849799999993024,
+            "mean": 0.836665277777963
+          },
+          "over16_67Count": 0,
+          "over16_67Percent": 0.0,
+          "measuredSeconds": 5.999482699999987,
+          "steps": 361,
+          "maximumBacklog": 0.01659629372706206,
+          "engineSamples": 5877,
+          "gpuMissing": 796,
+          "gc": [
+            29,
+            29,
+            29
+          ],
+          "events": [
+            {
+              "action": "pause-admission",
+              "transactionMs": 0.034800000000000005,
+              "updateMs": 0.42560000000000003,
+              "followingWallMs": 0.8357999999901722
+            },
+            {
+              "action": "resume-admission",
+              "transactionMs": 0.0627,
+              "updateMs": 0.44380000000000003,
+              "followingWallMs": 0.9641999999985273
+            }
+          ],
+          "cpuMs": {
+            "positive": 5877,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5877,
+              "median": 0.3879,
+              "p95": 8.2583,
+              "p99": 9.3186,
+              "maximum": 10.0282,
+              "mean": 1.0209876807895184
+            }
+          },
+          "mainMs": {
+            "positive": 5877,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5877,
+              "median": 0.2665,
+              "p95": 7.7333,
+              "p99": 9.147,
+              "maximum": 9.8792,
+              "mean": 0.8461164369576315
+            }
+          },
+          "renderMs": {
+            "positive": 5877,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5877,
+              "median": 0.1868,
+              "p95": 0.2627,
+              "p99": 0.3124,
+              "maximum": 0.4356,
+              "mean": 0.19313886336566274
+            }
+          },
+          "presentWaitMs": {
+            "positive": 5877,
+            "zero": 0,
+            "allSamples": {
+              "samples": 5877,
+              "median": 0.1213,
+              "p95": 0.2983,
+              "p99": 0.5013,
+              "maximum": 8.6681,
+              "mean": 0.1737335885655947
+            }
+          },
+          "gpuMs": {
+            "positive": 5081,
+            "missing": 796,
+            "validOnly": {
+              "samples": 5081,
+              "median": 0.080896,
+              "p95": 7.698432,
+              "p99": 8.945664,
+              "maximum": 9.667584,
+              "mean": 0.6422644487305649
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "totalFrames": 131052,
+  "totalEngineFrames": 131052,
+  "gpuMissing": 23429,
+  "over16_67Count": 0,
+  "limitation": "Bounded authored lanes, fixed radii, centralized authority; no universal deadlock freedom, arbitrary steering or GPU-tail claim."
+}

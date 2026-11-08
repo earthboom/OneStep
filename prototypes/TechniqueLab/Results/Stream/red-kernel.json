@@ -1,0 +1,34 @@
+{
+    "unity": "6000.0.77f1",
+    "utc": "2026-11-08T09:28:52.1414434Z",
+    "editor": true,
+    "playing": false,
+    "failures": 3,
+    "checks": [
+        {
+            "name": "stream.swept-swap",
+            "detail": "opposite edge traversal collides between endpoints",
+            "passed": false
+        },
+        {
+            "name": "stream.corner-large",
+            "detail": "following around a corner can collide without vertex conflicts",
+            "passed": false
+        },
+        {
+            "name": "stream.corner-small",
+            "detail": "small following pair has adequate swept clearance",
+            "passed": true
+        },
+        {
+            "name": "stream.pending-age",
+            "detail": "pending requests count toward response deadline even before spawn",
+            "passed": false
+        },
+        {
+            "name": "stream.deadline-boundary",
+            "detail": "deadline comparison does not invent an earlier miss",
+            "passed": true
+        }
+    ]
+}

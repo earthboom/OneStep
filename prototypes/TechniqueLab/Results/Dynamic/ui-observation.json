@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-08",
+  "source": "AI-observed Windows player controls through computer-use in this chat; not a user acceptance test",
+  "allPassed": true,
+  "observations": [
+    "Pause changed to Resume; Restart 64 retained pause and showed active 64, arrived 0",
+    "While paused, Close both immediately filled both visual gaps and showed solid 2",
+    "While paused, Open both immediately restored both gaps and showed solid 0",
+    "Three Move crate clicks moved the yellow pending marker across three occupied cells without changing active 64 or paused positions",
+    "Resume restarted movement; pending changed to 0 and solid to 1 as the occupied crate cell drained",
+    "Quit returned native exit code 0; the prototype window disappeared"
+  ],
+  "automatedCoverage": "Final PlayMode additionally checks 40 crate relocations at each of two grid sizes and paused native collider synchronization",
+  "processRecord": "dynamic-ui-process.json"
+}

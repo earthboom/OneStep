@@ -1,0 +1,1852 @@
+{
+  "synthetic": true,
+  "phase": "three fresh-context retests after lexical/branch repair, before weighted-successor clarification",
+  "inputs_unchanged": true,
+  "route_hashes_at_start": {
+    "skills\\vegabond-knowledge\\scripts\\search.py": "3fd7fcbafc249884a7030b42998eace543a4d5db79d1105b9aa00ba123246074",
+    "skills\\vegabond-knowledge\\scripts\\search_terms.json": "7ddf2bf719d5186cb54f1287322b9ce2cd5bd88c077b407c286a3d155d641b89",
+    "knowledge\\game\\K-GAME-RESEARCH-USE.md": "f6606414cd3790f64c4e406641863d1634c8284d7c7eadc4aed7f408566cf6cb",
+    "knowledge\\game\\K-GAME-TECH-INTERIOR.md": "5e78b7fcbb7967c3faf93426bbcb215bc3629d1e8495eac077dba6796033313d"
+  },
+  "cases": [
+    {
+      "id": "N03",
+      "response": "같은 AI 결함이 아닙니다. **전부 A* 재탐색 주기를 줄이는 제안은 기각**합니다. 문 앞 충돌, 벽 뒤 감지, 락온 진동의 원인을 남기며 재탐색 부하도 측정해야 합니다.\n\n- **장거리 이동:** 수백 명이 소수 출구를 공유하므로 출구별 역방향 비용·방향 필드를 채택 후보로 권합니다(K-GAME-TECH-PATH:18, CROWD:24). 가중치가 비음수인 격자는 Dijkstra로 계산하고 감소하는 비용을 따릅니다. 개별 목적지나 드문 질의에는 A*가 적합하며 소규모 Dijkstra 결과와 비교합니다. 내비게이션 서비스가 지도·문 상태 버전과 필드를 소유하고, 문 폐쇄 시 무효화·재계산합니다. 갱신 전 오래된 필드로 닫힌 문을 통과시키지 않고, 도달 불가 상태를 명시합니다.\n- **문 앞 정체:** 유효 경로가 있으므로 별도 국소 이동 문제입니다. 공간 분할로 이웃을 찾고 회피를 적용하되, 좁은 문에는 대기열·통행 우선권 같은 안내를 비교하는 설계안을 제시합니다(CROWD:18–32). 회피 속도만으로 비겹침을 보장하지 말고 반경·벽·대각 모서리를 반영한 충돌 제한 이동을 유지합니다. 밀어서 겹침을 허용하는 해법은 기각합니다.\n- **경비 시야:** 거리 → 정규화된 전방/대상 방향의 내적 ≥ cos(반시야각) → 가림 추적을 채택합니다(TRACE:18–28). 영벡터, 2.5D 평면 투영 여부, 무시할 액터·충돌 채널을 정해야 합니다. 각도 통과만으로 발견시키지 않습니다.\n- **락온:** 플레이어 제어기가 현재 대상 ID를 소유하고 유효한 동안 유지합니다. 획득·명시적 전환·상실 후 재획득 때 후보를 평가하고, 비슷한 점수에는 히스테리시스를 적용합니다(LOCKON:18–32). 매 프레임 최고점 재선정은 기각하며 수동 전환은 유지합니다. 가림 유예는 게임의 상실 정책에 한해 조건부입니다.\n\n**플러그인:** PteroNav-Q31 및 PteroNav 검색은 각각 0건입니다. 일반 출구 필드 근거는 해당 제품의 증분 갱신 보장이 아닙니다. 부재를 단정하지 않으며 함수명을 만들지 않습니다. 정확한 제품·버전의 허가된 API 문서에서 가중치, 문 변경, 무효화·완료 시점, 도달 불가 계약을 확인하기 전 플러그인 의존 구현은 보류합니다.\n\n검증 제안: 문 개폐·단절 지도에서 기준 최단비용/재도달을 비교하고, 좁은 문·정지 군중에서 겹침 0회, 정체시간·통과량·CPU를 기록합니다. 얇은 벽·시야 경계·동일 위치 감지, 두 적의 점수 교차·가림·소멸·수동 전환을 회귀 확인합니다. 엔진·플랫폼·성능 예산은 미제공이며 임계값 합의가 필요합니다. 실행한 것은 입력·저장 근거 대조와 설계 검토뿐입니다. 엔진·성능 검증은 미실행입니다. AI 문서 검증 완료; vagabond 검토 대기.\n\n",
+      "trace": {
+        "case": "N03",
+        "scope": "Independent synthetic analysis only. No web, engine, source changes, or delegation; writes limited to response.md and trace.json.",
+        "profile": {
+          "target": "Separate crowd route/local avoidance, guard perception, and player lock-on causes; compare candidates and check named vendor claim.",
+          "language": "Korean",
+          "response_word_limit": 350,
+          "authoritative_inputs": [
+            {
+              "path": ".cache/onestep/game-application-extended/retest/N03/request.md",
+              "sha256": "56096125e35601c10dcaa00e1415f5f84a94fa8900648952864ae0a8ca9b4c56"
+            },
+            {
+              "path": ".cache/onestep/game-application-extended/retest/N03/ai.md",
+              "sha256": "baa06f424b533936aea98aca5bcf66fc9038b195a708c001eeddef1b694905b3"
+            }
+          ],
+          "environment": "Weighted 2.5D grid; many agents/few exits; dynamic doors. Actual engine/version/platform/budgets unspecified."
+        },
+        "material_questions": [
+          {
+            "question": "Can shared destination work replace repeated per-agent A*, and what does a closing door invalidate?",
+            "reason": "Weighted graph and topology changes determine algorithm and stale-route safety.",
+            "state": "Shared reverse fields supported; incremental vendor update semantics unresolved."
+          },
+          {
+            "question": "Can valid global paths resolve narrow doorway jams without overlap?",
+            "reason": "Route existence is separate from local collision avoidance and bottleneck progress.",
+            "state": "Separate local avoidance and doorway coordination required; runtime effectiveness untested."
+          },
+          {
+            "question": "Do distance and unnormalized dot prove visibility?",
+            "reason": "Magnitude corrupts cone test and missing occlusion allows wall detection.",
+            "state": "No; normalize with zero-vector policy and add occlusion query."
+          },
+          {
+            "question": "Why do two similar targets alternate, and how is explicit switch preserved?",
+            "reason": "Recomputing best every frame ignores persistent player selection.",
+            "state": "Retain valid target; explicit acquisition/switch/loss transitions and hysteresis."
+          },
+          {
+            "question": "Does this store establish PteroNav-Q31 incremental exit field APIs?",
+            "reason": "Exact vendor contract is prerequisite for plugin-dependent integration.",
+            "state": "No supporting exact-name match found; nonexistence not established. Vendor integration blocked pending authorized versioned documentation."
+          }
+        ],
+        "searches": [
+          {
+            "query": "shared exits weighted grid dynamic doors flow field",
+            "command": "$env:PYTHONPATH='C:/Users/earth/AppData/Local/uv/cache/archive-v0/_LDAg4lOjStraXTfY0SGr/Lib/site-packages'; $env:PYTHONIOENCODING='utf-8'; & 'C:/Users/earth/AppData/Roaming/uv/python/cpython-3.14-windows-x86_64-none/python.exe' 'skills/vegabond-knowledge/scripts/search.py' search --project C:/Projects/OneStep --no-cache --query 'shared exits weighted grid dynamic doors flow field' --limit 5",
+            "filters": {
+              "project": "C:/Projects/OneStep",
+              "no_cache": true,
+              "store": "both (default)",
+              "domain": null,
+              "status": "non-superseded primary default",
+              "scope": null,
+              "context": [],
+              "limit": 5,
+              "offset": 0,
+              "depth": "1 (default)"
+            },
+            "exit_code": 0,
+            "retrieval_ok": true,
+            "total_matches": 38,
+            "truncated": true,
+            "zero_result": false,
+            "top_ids": [
+              "K-GAME-TECH-PATH",
+              "K-GAME-ECONOMY",
+              "K-GAME-TECH-CROWD",
+              "K-CODE-ABSTRACTION-COST",
+              "K-GAME-TECH-GUIDE"
+            ],
+            "hits": [
+              {
+                "id": "K-GAME-TECH-PATH",
+                "path": "knowledge/game/K-GAME-TECH-PATH.md",
+                "sha256": "bdc96fdf4043d9416baaff763ff1dfaee0c64d0af06465b54b796c34c16f8c1c",
+                "query_coverage": "2/7",
+                "snippet": {
+                  "line": 14,
+                  "text": "# Choose A-star or flow fields by query structure"
+                }
+              },
+              {
+                "id": "K-GAME-ECONOMY",
+                "path": "knowledge/game/K-GAME-ECONOMY.md",
+                "sha256": "e9670db4e64a1b251bf999a9b2c634ee4b7f2bec7fe3ebdf3ad3dcab3fce2131",
+                "query_coverage": "1/7",
+                "snippet": {
+                  "line": 33,
+                  "text": "….pdf), 2011, university repository original paper; Resource Flow / Simulating SimWar / Discussion, PDF pp. 3-7 including repository cover."
+                }
+              },
+              {
+                "id": "K-GAME-TECH-CROWD",
+                "path": "knowledge/game/K-GAME-TECH-CROWD.md",
+                "sha256": "2a0df13cf4409705bd83746cc51d1dac66c1a2d83c1aff1dfb4d23ac32a56fea",
+                "query_coverage": "3/7",
+                "snippet": {
+                  "line": 18,
+                  "text": "…ghbor searches, local avoidance for imminent collisions and shared route information for long-range travel. Budget behavior update frequency, animation and render representation independently. Preserve important actors/events when reducing distant simulation detail."
+                }
+              },
+              {
+                "id": "K-CODE-ABSTRACTION-COST",
+                "path": "knowledge/code/K-CODE-ABSTRACTION-COST.md",
+                "sha256": "e192f52f9b585f8c571c4b9960e29f1fce44609e42bdcf3bdd650d2e52874a81",
+                "query_coverage": "2/7",
+                "snippet": {
+                  "line": 21,
+                  "text": "…dded contracts, navigation, configuration, indirect control flow, debugging, and compatibility. Moving lines can simply relocate complexity."
+                }
+              },
+              {
+                "id": "K-GAME-TECH-GUIDE",
+                "path": "knowledge/game/K-GAME-TECH-GUIDE.md",
+                "sha256": "d0f1e17c853bcfdbe23e0c40326d2f691c273059157ff51b14697b8f3fa1fd5a",
+                "query_coverage": "2/7",
+                "snippet": {
+                  "line": 53,
+                  "text": "| [Crowd architecture](K-GAME-TECH-CROWD.md) | Grid, per-exit fields, local steering and NPC promotion confirmed in original Hitman slides; historical budgets. |"
+                }
+              }
+            ],
+            "related_ids": [],
+            "relation_edges": [],
+            "gap": null,
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            }
+          },
+          {
+            "query": "narrow door crowd local avoidance collision overlap",
+            "command": "$env:PYTHONPATH='C:/Users/earth/AppData/Local/uv/cache/archive-v0/_LDAg4lOjStraXTfY0SGr/Lib/site-packages'; $env:PYTHONIOENCODING='utf-8'; & 'C:/Users/earth/AppData/Roaming/uv/python/cpython-3.14-windows-x86_64-none/python.exe' 'skills/vegabond-knowledge/scripts/search.py' search --project C:/Projects/OneStep --no-cache --query 'narrow door crowd local avoidance collision overlap' --limit 5",
+            "filters": {
+              "project": "C:/Projects/OneStep",
+              "no_cache": true,
+              "store": "both (default)",
+              "domain": null,
+              "status": "non-superseded primary default",
+              "scope": null,
+              "context": [],
+              "limit": 5,
+              "offset": 0,
+              "depth": "1 (default)"
+            },
+            "exit_code": 0,
+            "retrieval_ok": true,
+            "total_matches": 74,
+            "truncated": true,
+            "zero_result": false,
+            "top_ids": [
+              "K-GAME-TECH-CROWD",
+              "K-GAME-TECH-PATH",
+              "K-CODE-UE-LOCAL-ONLY-WORK",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-PLATFORMER"
+            ],
+            "hits": [
+              {
+                "id": "K-GAME-TECH-CROWD",
+                "path": "knowledge/game/K-GAME-TECH-CROWD.md",
+                "sha256": "2a0df13cf4409705bd83746cc51d1dac66c1a2d83c1aff1dfb4d23ac32a56fea",
+                "query_coverage": "4/7",
+                "snippet": {
+                  "line": 14,
+                  "text": "# Scale crowd decisions separately from crowd rendering"
+                }
+              },
+              {
+                "id": "K-GAME-TECH-PATH",
+                "path": "knowledge/game/K-GAME-TECH-PATH.md",
+                "sha256": "bdc96fdf4043d9416baaff763ff1dfaee0c64d0af06465b54b796c34c16f8c1c",
+                "query_coverage": "3/7",
+                "snippet": {
+                  "line": 24,
+                  "text": "Pathfinding is not local collision avoidance. Agent radius, diagonal corner cutting, changing obstacles and unequal terrain costs must be represented explicitly."
+                }
+              },
+              {
+                "id": "K-CODE-UE-LOCAL-ONLY-WORK",
+                "path": "knowledge/code/K-CODE-UE-LOCAL-ONLY-WORK.md",
+                "sha256": "2d97404354d888325f5b33f7809679030746c8c0cfe8f1bece07f38eeb9acea3",
+                "query_coverage": "1/7",
+                "snippet": {
+                  "line": 17,
+                  "text": "When a task must stay on the local machine, check each path by which an editor build or editor session touches team infrastructure. Do not assume that a local command stays local."
+                }
+              },
+              {
+                "id": "K-GAME-TECH-GUIDE",
+                "path": "knowledge/game/K-GAME-TECH-GUIDE.md",
+                "sha256": "d0f1e17c853bcfdbe23e0c40326d2f691c273059157ff51b14697b8f3fa1fd5a",
+                "query_coverage": "4/7",
+                "snippet": {
+                  "line": 28,
+                  "text": "…md), [Shadows](K-GAME-TECH-SHADOW.md), [Crowds](K-GAME-TECH-CROWD.md) |"
+                }
+              },
+              {
+                "id": "K-GAME-PLATFORMER",
+                "path": "knowledge/game/K-GAME-PLATFORMER.md",
+                "sha256": "059169a86dc37e362fa15dc4edcec013875b1092f2c431297706d8f50a8aad2f",
+                "query_coverage": "2/7",
+                "snippet": {
+                  "line": 20,
+                  "text": "…tent → input → movement → contact → feedback → retry as the local loop. A geometry change can alter contact timing, camera visibility, hazard readability, and checkpoint cost together."
+                }
+              }
+            ],
+            "related_ids": [],
+            "relation_edges": [],
+            "gap": null,
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            }
+          },
+          {
+            "query": "guard perception normalized dot product occlusion",
+            "command": "$env:PYTHONPATH='C:/Users/earth/AppData/Local/uv/cache/archive-v0/_LDAg4lOjStraXTfY0SGr/Lib/site-packages'; $env:PYTHONIOENCODING='utf-8'; & 'C:/Users/earth/AppData/Roaming/uv/python/cpython-3.14-windows-x86_64-none/python.exe' 'skills/vegabond-knowledge/scripts/search.py' search --project C:/Projects/OneStep --no-cache --query 'guard perception normalized dot product occlusion' --limit 5",
+            "filters": {
+              "project": "C:/Projects/OneStep",
+              "no_cache": true,
+              "store": "both (default)",
+              "domain": null,
+              "status": "non-superseded primary default",
+              "scope": null,
+              "context": [],
+              "limit": 5,
+              "offset": 0,
+              "depth": "1 (default)"
+            },
+            "exit_code": 0,
+            "retrieval_ok": true,
+            "total_matches": 14,
+            "truncated": true,
+            "zero_result": false,
+            "top_ids": [
+              "K-GAME-TECH-TRACE",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-TECH-SOUND",
+              "K-GAME-TECH-LOCKON",
+              "K-GAME-SHOOTER"
+            ],
+            "hits": [
+              {
+                "id": "K-GAME-TECH-TRACE",
+                "path": "knowledge/game/K-GAME-TECH-TRACE.md",
+                "sha256": "e1f58574f48921294ce187c8e478f3f6478e6f33d7c26ef947b2083a5e809fa7",
+                "query_coverage": "5/6",
+                "snippet": {
+                  "line": 14,
+                  "text": "# Combine distance, angle and collision queries for perception"
+                }
+              },
+              {
+                "id": "K-GAME-TECH-GUIDE",
+                "path": "knowledge/game/K-GAME-TECH-GUIDE.md",
+                "sha256": "d0f1e17c853bcfdbe23e0c40326d2f691c273059157ff51b14697b8f3fa1fd5a",
+                "query_coverage": "3/6",
+                "snippet": {
+                  "line": 107,
+                  "text": "…Z49NU) | [Combine distance, angle and collision queries for perception](K-GAME-TECH-TRACE.md) |"
+                }
+              },
+              {
+                "id": "K-GAME-TECH-SOUND",
+                "path": "knowledge/game/K-GAME-TECH-SOUND.md",
+                "sha256": "9a2bb72c423218566dddd57753ed0d76bdc3c5d4a5cf4a8cbe5dc5a245b6e184",
+                "query_coverage": "1/6",
+                "snippet": {
+                  "line": 14,
+                  "text": "# Model distance, occlusion and room response separately"
+                }
+              },
+              {
+                "id": "K-GAME-TECH-LOCKON",
+                "path": "knowledge/game/K-GAME-TECH-LOCKON.md",
+                "sha256": "828232f414ba9f8990916d17af905376facb87ad564ee3401232e75aa59813e7",
+                "query_coverage": "2/6",
+                "snippet": {
+                  "line": 24,
+                  "text": "…ent and camera framing. Introduce target-loss grace only if occlusion policy allows it."
+                }
+              },
+              {
+                "id": "K-GAME-SHOOTER",
+                "path": "knowledge/game/K-GAME-SHOOTER.md",
+                "sha256": "939973d88ad69945d903a21aab1af60c2ed9e44e4ca3cb0ef42bca0fcd0bb92b",
+                "query_coverage": "1/6",
+                "snippet": {
+                  "line": 22,
+                  "text": "…matically reducing every hit's satisfaction. Pair this with perception: opponents must recognize the threat early enough for the intended response. Evaluate character shape, weapon pose, muzzle effects, sound, background detail, and lighting as one communication system."
+                }
+              }
+            ],
+            "related_ids": [],
+            "relation_edges": [],
+            "gap": null,
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            }
+          },
+          {
+            "query": "lock on target selection hysteresis explicit switch",
+            "command": "$env:PYTHONPATH='C:/Users/earth/AppData/Local/uv/cache/archive-v0/_LDAg4lOjStraXTfY0SGr/Lib/site-packages'; $env:PYTHONIOENCODING='utf-8'; & 'C:/Users/earth/AppData/Roaming/uv/python/cpython-3.14-windows-x86_64-none/python.exe' 'skills/vegabond-knowledge/scripts/search.py' search --project C:/Projects/OneStep --no-cache --query 'lock on target selection hysteresis explicit switch' --limit 5",
+            "filters": {
+              "project": "C:/Projects/OneStep",
+              "no_cache": true,
+              "store": "both (default)",
+              "domain": null,
+              "status": "non-superseded primary default",
+              "scope": null,
+              "context": [],
+              "limit": 5,
+              "offset": 0,
+              "depth": "1 (default)"
+            },
+            "exit_code": 0,
+            "retrieval_ok": true,
+            "total_matches": 107,
+            "truncated": true,
+            "zero_result": false,
+            "top_ids": [
+              "K-GAME-TECH-LOCKON",
+              "K-CODE-DEPENDENCY-SELECTION",
+              "K-GAME-TECH-GUIDE",
+              "K-CODE-RESOURCE-OWNERSHIP",
+              "K-GAME-TECH-CAMERA"
+            ],
+            "hits": [
+              {
+                "id": "K-GAME-TECH-LOCKON",
+                "path": "knowledge/game/K-GAME-TECH-LOCKON.md",
+                "sha256": "828232f414ba9f8990916d17af905376facb87ad564ee3401232e75aa59813e7",
+                "query_coverage": "7/7",
+                "snippet": {
+                  "line": 14,
+                  "text": "# Select stable lock-on targets before changing movement framing"
+                }
+              },
+              {
+                "id": "K-CODE-DEPENDENCY-SELECTION",
+                "path": "knowledge/code/K-CODE-DEPENDENCY-SELECTION.md",
+                "sha256": "73b58470529e062c266a3f54dc1830d7a91097e5dd9c9281287662d5ab653184",
+                "query_coverage": "2/7",
+                "snippet": {
+                  "line": 1,
+                  "text": "Metadata match: context, id, keywords; Compare useful capability with adoption, transitive, upgrade, and replacement costs; minimizing avoidable commitments does not imply avoiding mature external code."
+                }
+              },
+              {
+                "id": "K-GAME-TECH-GUIDE",
+                "path": "knowledge/game/K-GAME-TECH-GUIDE.md",
+                "sha256": "d0f1e17c853bcfdbe23e0c40326d2f691c273059157ff51b14697b8f3fa1fd5a",
+                "query_coverage": "5/7",
+                "snippet": {
+                  "line": 20,
+                  "text": "1. State the problem, target engine/version, platforms, frame budget, camera and network authority."
+                }
+              },
+              {
+                "id": "K-CODE-RESOURCE-OWNERSHIP",
+                "path": "knowledge/code/K-CODE-RESOURCE-OWNERSHIP.md",
+                "sha256": "716f74b29b276c303a6bd95a35cd5b654faec12a1cb857e5bc3c233654142f70",
+                "query_coverage": "3/7",
+                "snippet": {
+                  "line": 15,
+                  "text": "# Make resource ownership and borrowing explicit at module boundaries"
+                }
+              },
+              {
+                "id": "K-GAME-TECH-CAMERA",
+                "path": "knowledge/game/K-GAME-TECH-CAMERA.md",
+                "sha256": "736c1555d1447a92664504d4065853b67298ca972e605df808cbc92880387f0a",
+                "query_coverage": "3/7",
+                "snippet": {
+                  "line": 18,
+                  "text": "Choose a framing target before smoothing: player, look-ahead point, room anchor or multiple subjects. Use a dead zone to suppress unnecessary tracking. For a stationary target, exponential damping x+=(target-x)*(1-exp(-lambda*dt)) has a time-consistent decay; use a damped spring if velocity and ove…"
+                }
+              }
+            ],
+            "related_ids": [
+              "K-CODE-CONCURRENCY-LIFETIMES"
+            ],
+            "relation_edges": [
+              {
+                "source": "K-CODE-CONCURRENCY-LIFETIMES",
+                "type": "requires",
+                "target": "K-CODE-RESOURCE-OWNERSHIP"
+              }
+            ],
+            "gap": null,
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            }
+          },
+          {
+            "query": "PteroNav-Q31",
+            "command": "$env:PYTHONPATH='C:/Users/earth/AppData/Local/uv/cache/archive-v0/_LDAg4lOjStraXTfY0SGr/Lib/site-packages'; $env:PYTHONIOENCODING='utf-8'; & 'C:/Users/earth/AppData/Roaming/uv/python/cpython-3.14-windows-x86_64-none/python.exe' 'skills/vegabond-knowledge/scripts/search.py' search --project C:/Projects/OneStep --no-cache --query 'PteroNav-Q31' --limit 5",
+            "filters": {
+              "project": "C:/Projects/OneStep",
+              "no_cache": true,
+              "store": "both (default)",
+              "domain": null,
+              "status": "non-superseded primary default",
+              "scope": null,
+              "context": [],
+              "limit": 5,
+              "offset": 0,
+              "depth": "1 (default)"
+            },
+            "exit_code": 0,
+            "retrieval_ok": true,
+            "total_matches": 0,
+            "truncated": false,
+            "zero_result": true,
+            "top_ids": [],
+            "hits": [],
+            "related_ids": [],
+            "relation_edges": [],
+            "gap": "No lexical match under these filters; try alternate terms or a broader scope. Absence is not proved.",
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            }
+          },
+          {
+            "query": "PteroNav",
+            "command": "$env:PYTHONPATH='C:/Users/earth/AppData/Local/uv/cache/archive-v0/_LDAg4lOjStraXTfY0SGr/Lib/site-packages'; $env:PYTHONIOENCODING='utf-8'; & 'C:/Users/earth/AppData/Roaming/uv/python/cpython-3.14-windows-x86_64-none/python.exe' 'skills/vegabond-knowledge/scripts/search.py' search --project C:/Projects/OneStep --no-cache --query 'PteroNav' --limit 5",
+            "filters": {
+              "project": "C:/Projects/OneStep",
+              "no_cache": true,
+              "store": "both (default)",
+              "domain": null,
+              "status": "non-superseded primary default",
+              "scope": null,
+              "context": [],
+              "limit": 5,
+              "offset": 0,
+              "depth": "1 (default)"
+            },
+            "exit_code": 0,
+            "retrieval_ok": true,
+            "total_matches": 0,
+            "truncated": false,
+            "zero_result": true,
+            "top_ids": [],
+            "hits": [],
+            "related_ids": [],
+            "relation_edges": [],
+            "gap": "No lexical match under these filters; try alternate terms or a broader scope. Absence is not proved.",
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            }
+          },
+          {
+            "query": "incremental exit fields",
+            "command": "$env:PYTHONPATH='C:/Users/earth/AppData/Local/uv/cache/archive-v0/_LDAg4lOjStraXTfY0SGr/Lib/site-packages'; $env:PYTHONIOENCODING='utf-8'; & 'C:/Users/earth/AppData/Roaming/uv/python/cpython-3.14-windows-x86_64-none/python.exe' 'skills/vegabond-knowledge/scripts/search.py' search --project C:/Projects/OneStep --no-cache --query 'incremental exit fields' --limit 5",
+            "filters": {
+              "project": "C:/Projects/OneStep",
+              "no_cache": true,
+              "store": "both (default)",
+              "domain": null,
+              "status": "non-superseded primary default",
+              "scope": null,
+              "context": [],
+              "limit": 5,
+              "offset": 0,
+              "depth": "1 (default)"
+            },
+            "exit_code": 0,
+            "retrieval_ok": true,
+            "total_matches": 16,
+            "truncated": true,
+            "zero_result": false,
+            "top_ids": [
+              "K-GAME-IDLE-INCREMENTAL",
+              "K-CODE-CONCURRENCY-LIFETIMES",
+              "K-GAME-TECH-CROWD",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-TECH-PATH"
+            ],
+            "hits": [
+              {
+                "id": "K-GAME-IDLE-INCREMENTAL",
+                "path": "knowledge/game/K-GAME-IDLE-INCREMENTAL.md",
+                "sha256": "ed158a327e7deb9909048bab68f6790676eed9f66cabd1816ebad4025f3f3d56",
+                "query_coverage": "1/3",
+                "snippet": {
+                  "line": 15,
+                  "text": "# Model incremental growth and prestige around player decisions"
+                }
+              },
+              {
+                "id": "K-CODE-CONCURRENCY-LIFETIMES",
+                "path": "knowledge/code/K-CODE-CONCURRENCY-LIFETIMES.md",
+                "sha256": "9d880d15d69a21099f85319707786600c5906a81b1d5e403ee9ef303d623e604",
+                "query_coverage": "2/3",
+                "snippet": {
+                  "line": 23,
+                  "text": "…for data races. Reference counting does not protect mutable fields; review the pointer variable separately from distinct owners. With aliasing constructors, shared ownership does not extend an unrelated stored target's lifetime; dereferencing it requires a valid target. A reference count is not a …"
+                }
+              },
+              {
+                "id": "K-GAME-TECH-CROWD",
+                "path": "knowledge/game/K-GAME-TECH-CROWD.md",
+                "sha256": "2a0df13cf4409705bd83746cc51d1dac66c1a2d83c1aff1dfb4d23ac32a56fea",
+                "query_coverage": "2/3",
+                "snippet": {
+                  "line": 24,
+                  "text": "…uses a separately precomputed direction/cost field for each exit. Agents can change exit channels; narrow passages still need authored guidance. A small pool can promote a crowd agent to full NPC behavior on demand. Hot data is separated from full agent state, and cell attributes use separate arra…"
+                }
+              },
+              {
+                "id": "K-GAME-TECH-GUIDE",
+                "path": "knowledge/game/K-GAME-TECH-GUIDE.md",
+                "sha256": "d0f1e17c853bcfdbe23e0c40326d2f691c273059157ff51b14697b8f3fa1fd5a",
+                "query_coverage": "2/3",
+                "snippet": {
+                  "line": 53,
+                  "text": "| [Crowd architecture](K-GAME-TECH-CROWD.md) | Grid, per-exit fields, local steering and NPC promotion confirmed in original Hitman slides; historical budgets. |"
+                }
+              },
+              {
+                "id": "K-GAME-TECH-PATH",
+                "path": "knowledge/game/K-GAME-TECH-PATH.md",
+                "sha256": "bdc96fdf4043d9416baaff763ff1dfaee0c64d0af06465b54b796c34c16f8c1c",
+                "query_coverage": "1/3",
+                "snippet": {
+                  "line": 14,
+                  "text": "# Choose A-star or flow fields by query structure"
+                }
+              }
+            ],
+            "related_ids": [
+              "K-CODE-API-CONTRACTS",
+              "K-CODE-RESOURCE-OWNERSHIP"
+            ],
+            "relation_edges": [
+              {
+                "source": "K-CODE-CONCURRENCY-LIFETIMES",
+                "type": "requires",
+                "target": "K-CODE-RESOURCE-OWNERSHIP"
+              },
+              {
+                "source": "K-CODE-CONCURRENCY-LIFETIMES",
+                "type": "requires",
+                "target": "K-CODE-API-CONTRACTS"
+              }
+            ],
+            "gap": null,
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            }
+          }
+        ],
+        "zero_result_queries": 2,
+        "inspected": [
+          {
+            "id": "K-GAME-TECH-PATH",
+            "path": "knowledge/game/K-GAME-TECH-PATH.md",
+            "sha256": "bdc96fdf4043d9416baaff763ff1dfaee0c64d0af06465b54b796c34c16f8c1c",
+            "passages": [
+              {
+                "line": 18,
+                "text": "Use Dijkstra with nonnegative edge costs for distance maps; A* uses f=g+h to prioritize one destination. With admissible heuristics and suitable reopening/termination handling it can retain shortest-path guarantees. For many agents sharing a goal, build a reverse distance field and follow decreasing cost."
+              },
+              {
+                "line": 20,
+                "text": "Implementation selection and checks are engineering synthesis, not a promise of a source game's exact implementation."
+              },
+              {
+                "line": 24,
+                "text": "Pathfinding is not local collision avoidance. Agent radius, diagonal corner cutting, changing obstacles and unequal terrain costs must be represented explicitly."
+              },
+              {
+                "line": 28,
+                "text": "Proposed: compare A* against Dijkstra on small maps, include unreachable goals, and rebuild shared fields after topology changes."
+              },
+              {
+                "line": 32,
+                "text": "- [Amit Patel — Introduction to A*](https://www.redblobgames.com/pathfinding/a-star/introduction.html) — Author interactive article; graph representation and heuristic search. Checked 2026-11-07, except items explicitly marked further reading."
+              },
+              {
+                "line": 33,
+                "text": "- [Amit Patel — Flow Field Pathfinding for Tower Defense](https://www.redblobgames.com/pathfinding/tower-defense/) — Author article; all-sources/one-destination search. Checked 2026-11-07, except items explicitly marked further reading."
+              },
+              {
+                "line": 34,
+                "text": "- Originating channel shorts: V36 in [the coverage guide](K-GAME-TECH-GUIDE.md). Originating shorts are discovery leads, not independent proof."
+              }
+            ],
+            "original_source_state": "Local Evidence section inspected; external original not reopened, access/identity not freshly verified."
+          },
+          {
+            "id": "K-GAME-TECH-CROWD",
+            "path": "knowledge/game/K-GAME-TECH-CROWD.md",
+            "sha256": "2a0df13cf4409705bd83746cc51d1dac66c1a2d83c1aff1dfb4d23ac32a56fea",
+            "passages": [
+              {
+                "line": 18,
+                "text": "Use spatial partitions to limit neighbor searches, local avoidance for imminent collisions and shared route information for long-range travel. Budget behavior update frequency, animation and render representation independently. Preserve important actors/events when reducing distant simulation detail."
+              },
+              {
+                "line": 20,
+                "text": "Implementation selection and checks are engineering synthesis, not a promise of a source game's exact implementation."
+              },
+              {
+                "line": 24,
+                "text": "Fauerby's slides specify a regular cell grid over a 2.5D navigation region. Cells store occupancy and annotations; ambient agents use local steering/state machines, while evacuation uses a separately precomputed direction/cost field for each exit. Agents can change exit channels; narrow passages still need authored guidance. A small pool can promote a crowd agent to full NPC behavior on demand. Hot data is separated from full agent state, and cell attributes use separate arrays. These are confirmed 2012 design choices; a modern ECS/Mass implementation is a transfer, not the same engine."
+              },
+              {
+                "line": 28,
+                "text": "The original 2012 slides now substantiate the cell map, exit fields, behavior and NPC promotion. Their PS3 timings and counts are historical examples, not modern performance guarantees. Mass Avoidance remains version/platform-dependent."
+              },
+              {
+                "line": 32,
+                "text": "Proposed: profile bottlenecks, narrow exits, stopped groups and LOD transitions; log overlaps and stuck actors."
+              },
+              {
+                "line": 34,
+                "text": "## Evidence"
+              },
+              {
+                "line": 38,
+                "text": "- Originating channel shorts: V01 in [the coverage guide](K-GAME-TECH-GUIDE.md). Originating shorts are discovery leads, not independent proof."
+              }
+            ],
+            "original_source_state": "Local Evidence section inspected; external original not reopened, access/identity not freshly verified."
+          },
+          {
+            "id": "K-GAME-TECH-TRACE",
+            "path": "knowledge/game/K-GAME-TECH-TRACE.md",
+            "sha256": "e1f58574f48921294ce187c8e478f3f6478e6f33d7c26ef947b2083a5e809fa7",
+            "passages": [
+              {
+                "line": 18,
+                "text": "For unit forward f and direction d, the cone test is dot(f,d)>=cos(halfFOV). Reject by distance first, then angle, then trace for occlusion. Handle zero-length directions and decide whether to project onto the ground plane. Trace channels, ignored actors, simple/complex collision and multi-point targets determine what visible means."
+              },
+              {
+                "line": 20,
+                "text": "Implementation selection and checks are engineering synthesis, not a promise of a source game's exact implementation."
+              },
+              {
+                "line": 24,
+                "text": "The [-1,1] dot-product range requires normalized vectors. Angle inclusion alone does not prove visibility. Lambert diffuse max(0,n dot l) is a separate shading use of the same operation."
+              },
+              {
+                "line": 28,
+                "text": "Proposed: targets behind thin cover, at cone edges and at identical positions; draw traces and normals."
+              },
+              {
+                "line": 32,
+                "text": "- [Epic — EQS Node Reference: Tests](https://dev.epicgames.com/documentation/unreal-engine/eqs-node-reference-tests-in-unreal-engine?lang=en-US) — Official documentation; Distance, Dot and Trace. Checked 2026-11-07, except items explicitly marked further reading."
+              },
+              {
+                "line": 33,
+                "text": "- [Epic — Mover Grappling Hook Movement Mode](https://dev.epicgames.com/documentation/unreal-engine/mover-03-grappling-hook-movement-mode?lang=en-US) — Official worked example; dot, distance and line-of-sight target filtering. Checked 2026-11-07, except items explicitly marked further reading."
+              },
+              {
+                "line": 34,
+                "text": "- Originating channel shorts: V18, V38 in [the coverage guide](K-GAME-TECH-GUIDE.md). Originating shorts are discovery leads, not independent proof."
+              }
+            ],
+            "original_source_state": "Local Evidence section inspected; external original not reopened, access/identity not freshly verified."
+          },
+          {
+            "id": "K-GAME-TECH-LOCKON",
+            "path": "knowledge/game/K-GAME-TECH-LOCKON.md",
+            "sha256": "828232f414ba9f8990916d17af905376facb87ad564ee3401232e75aa59813e7",
+            "passages": [
+              {
+                "line": 18,
+                "text": "Score eligible targets by distance, screen direction, angle and line of sight. Use hysteresis so nearly equal candidates do not flicker, and explicit rules for target switching or loss. Orient camera and character independently; map strafe movement relative to the selected target when appropriate."
+              },
+              {
+                "line": 20,
+                "text": "Implementation selection and checks are engineering synthesis, not a promise of a source game's exact implementation."
+              },
+              {
+                "line": 24,
+                "text": "Nintendo's original staff interview connects Z-targeting to making a selected opponent legible and describes replacing the prototype marker with Navi. This supports target-selection feedback, not a claim of worldwide invention priority. A practical implementation should retain the current target until loss rules fire, score new candidates only on acquisition/switch, and separate character orientation, orbit movement and camera framing. Introduce target-loss grace only if occlusion policy allows it."
+              },
+              {
+                "line": 28,
+                "text": "The original staff account supports Z-targeting's marker/Navi feedback design. It does not establish worldwide first-invention priority or prescribe an exact scoring formula."
+              },
+              {
+                "line": 32,
+                "text": "Proposed: overlapping enemies, occlusion, targets crossing behind the camera and controller target-switch inputs."
+              },
+              {
+                "line": 34,
+                "text": "## Evidence"
+              },
+              {
+                "line": 38,
+                "text": "- Originating channel shorts: V53 in [the coverage guide](K-GAME-TECH-GUIDE.md). Originating shorts are discovery leads, not independent proof."
+              }
+            ],
+            "original_source_state": "Local Evidence section inspected; external original not reopened, access/identity not freshly verified."
+          }
+        ],
+        "competing_proposals": [
+          {
+            "proposal": "Reduce every A* replanning period",
+            "decision": "reject",
+            "reason": "Global path repair cannot supply local nonoverlap, visibility occlusion, or persistent target identity; higher CPU cost is unmeasured."
+          },
+          {
+            "proposal": "Per-exit reverse Dijkstra cost/direction field",
+            "decision": "adopt as design candidate",
+            "evidence": [
+              "K-GAME-TECH-PATH:18,24,28",
+              "K-GAME-TECH-CROWD:24"
+            ],
+            "conditions": "Nonnegative weighted costs; correct radius/corners; authoritative topology revision; invalidate/rebuild after door change. Incremental recomputation remains unproven.",
+            "boundaries": "Navigation service owns map revision and shared fields; agents consume current valid fields or wait/replan/unreachable."
+          },
+          {
+            "proposal": "Individual A*",
+            "decision": "conditional",
+            "reason": "Suitable for distinct destinations/few queries; not inherently wrong. Compare representative total update costs; admissible heuristic and reopening/termination contract required for shortest paths."
+          },
+          {
+            "proposal": "Spatial partition plus local avoidance and authored bottleneck guidance",
+            "decision": "adopt mechanism separation; conditional tuning",
+            "evidence": [
+              "K-GAME-TECH-CROWD:18,24,32",
+              "K-GAME-TECH-PATH:24"
+            ],
+            "reason": "Valid route plus doorway jam points to local interactions. Queue/reservation/priority are proposed synthesis to compare, not proven source-game implementation.",
+            "invariant": "Wall and character overlap forbidden; steering does not replace collision-constrained movement."
+          },
+          {
+            "proposal": "Allow character/wall overlap to discharge jams",
+            "decision": "reject",
+            "reason": "Violates explicit supplied preservation condition."
+          },
+          {
+            "proposal": "Distance then normalized cone then occlusion trace",
+            "decision": "adopt",
+            "evidence": [
+              "K-GAME-TECH-TRACE:18,24,28"
+            ],
+            "conditions": "Choose zero-length, projection, trace channel, ignored actors and target-point policies; actual engine API unspecified."
+          },
+          {
+            "proposal": "Every-frame best target",
+            "decision": "reject",
+            "reason": "Supplied target remains valid; score jitter should not silently change selected identity."
+          },
+          {
+            "proposal": "Persistent current target with hysteresis and explicit switching/loss",
+            "decision": "adopt",
+            "evidence": [
+              "K-GAME-TECH-LOCKON:18,24,32"
+            ],
+            "conditions": "Controller owns current ID, validity and transitions. Explicit player switch preserved; loss grace conditional on occlusion policy. No arbitrary scoring constants claimed."
+          },
+          {
+            "proposal": "PteroNav-Q31 incremental exit fields",
+            "decision": "conditional; dependent integration blocked",
+            "reason": "Exact and shortened vendor queries both zero. Generic mechanism query returned unrelated idle/concurrency hits and CROWD/PATH but cannot establish vendor API or guarantees.",
+            "minimum_evidence": "Authorized vendor docs/API for exact product/version, weighted grids, topology invalidation, update completion/consistency, unreachable output and engine/platform support.",
+            "rejected_transfer": "Do not map historical exit fields or generic pathfinding to invented plugin function names."
+          }
+        ],
+        "unresolved_conditions": [
+          {
+            "condition": "Exact engine/package/plugin versions, platform and frame budget",
+            "consequence": "No API or performance/compatibility guarantee; agree representative measurement budgets before implementation acceptance."
+          },
+          {
+            "condition": "PteroNav-Q31 contract unavailable",
+            "consequence": "Do not name functions or commit incremental plugin integration; independent generic design continues."
+          },
+          {
+            "condition": "Doorway throughput/fairness targets and collision movement contract",
+            "consequence": "Proposed bottleneck guidance needs engine tests; safety can require stopping, and progress is not yet guaranteed."
+          },
+          {
+            "condition": "Perception ground-plane projection, blockers and target-loss/occlusion policy",
+            "consequence": "Specify before implementing trace and lock-loss transitions."
+          }
+        ],
+        "checks": {
+          "executed": [
+            {
+              "check": "Read synthetic request and ai.md, then four canonical candidate entries including Guidance/Applicability/Checks/Evidence",
+              "result": "Complete; hashes and exact passages retained."
+            },
+            {
+              "check": "Seven no-cache local searches",
+              "result": "All exited 0; 2 zero matches; no source verification requested; no web."
+            },
+            {
+              "check": "Hash/passage capture",
+              "result": "Initial output encoding probe failed; repeated with ensure_ascii=True and PYTHONIOENCODING=utf-8 succeeded. No file mutation in either capture."
+            },
+            {
+              "check": "Design counterexamples",
+              "result": "Reviewed closed door with stale field, valid route with jam, wall target within cone, alternating near-equal scores, and explicit switch while current target remains valid. Mechanisms or unresolved conditions made explicit."
+            },
+            {
+              "check": "Artifact write and readback",
+              "result": "First oversized shell write failed with Windows error 206 before process creation; apply_patch wrote only the two authorized case artifacts. A JS verification syntax error executed no tool; corrected verification exited 0. Response 281 words, trace parses, 7 queries/2 zero matches, 4 hashes match."
+            },
+            {
+              "check": "Final prose review",
+              "result": "Softened unmeasured A* cost claim to requiring a measured replanning load; final response 283 words, 4/4 hashes still match. Readback and JSON reparse passed."
+            }
+          ],
+          "proposed": [
+            {
+              "trigger": "Small weighted grid including unequal terrain, unreachable goal, agent-radius corners and door open->closed",
+              "expected": "A*/field costs and reachability agree with baseline Dijkstra; no use of stale closed-door routes; reachable alternatives usable after recompute.",
+              "failure": "Wrong cost/reachability, corner penetration, closed-door traversal or old revision adopted.",
+              "environment": "Actual navigation implementation and engine; not executed."
+            },
+            {
+              "trigger": "Hundreds of agents at narrow exits, stopped groups, opposing flows and closing doors",
+              "expected": "Zero wall/character overlaps; log stuck agents, wait distribution, throughput and p95 CPU/update cost across A*, shared-field and bottleneck coordination variants.",
+              "failure": "Any overlap, starvation/unbounded wait on available route, or agreed performance budget exceeded.",
+              "environment": "Representative game scene/hardware; numerical throughput/time/CPU budgets not supplied; not executed."
+            },
+            {
+              "trigger": "Targets behind thin wall, on cone edges, at same position; varying vector magnitudes and 2.5D elevations",
+              "expected": "Magnitude invariant cone test, defined zero-direction result, blocked visibility rejected, trace configuration visible in debug.",
+              "failure": "Through-wall detection, NaN/undefined case, changed cone due to magnitude.",
+              "environment": "Actual engine collision queries; not executed."
+            },
+            {
+              "trigger": "Near-equal enemies crossing, occlusion, target destruction, camera crossing and explicit switch",
+              "expected": "No automatic identity flip while retained target valid; eligible explicit switch works; defined loss/reacquisition and UI/camera follow same target.",
+              "failure": "Unrequested switch, ignored manual input, stale destroyed target, or policy mismatch.",
+              "environment": "Player controller/input/camera integration; not executed."
+            },
+            {
+              "trigger": "Versioned authorized PteroNav-Q31 documentation supplied",
+              "expected": "Reconcile exact APIs and all required guarantees before dependent prototype.",
+              "failure": "Unspecified dynamic update safety/weights or incompatible target version.",
+              "environment": "Vendor material unavailable in task; external access prohibited."
+            }
+          ],
+          "final_artifact_check": {
+            "status": "passed",
+            "response_words": 283,
+            "word_limit": 350,
+            "json_parse": "passed",
+            "search_count": 7,
+            "zero_result_queries": 2,
+            "inspected_hashes": "4/4 match current canonical bytes",
+            "scope": "Only response.md and trace.json written; engine tests not executed."
+          }
+        },
+        "evidence_limits": "Local hashes establish consulted bytes only; original source links were read in local Evidence sections but not accessed. Historical Hitman slides and example engine documentation are reusable support, not present-engine or plugin guarantees. Search ranking/truncation does not imply completeness; irrelevant top/related hits not adopted."
+      }
+    },
+    {
+      "id": "N04",
+      "response": "통합 고급 유체 시뮬레이션 도입은 기각합니다. 현재 요구는 개방 수면의 파도이며, 세 결함은 각각 게임플레이 차폐 권한, 수면 조회, 합성 규약의 불일치입니다. 물리 솔버를 바꿔도 이 계약들은 별도로 맞춰야 합니다.\n\n- **연막 — 채택:** 서버의 명중 판정만으로 품질별 시야 공정성은 보장되지 않습니다. 서버가 소유하는 연막 점유/밀도·차폐 상태를 공유하고, 표적 가림 규칙을 클라이언트 최종 픽셀과 분리합니다. 품질 옵션은 조명·장식·샘플링 비용에 적용하되 모든 등급에 동일한 차폐 기준과 최소 가림 표현을 강제합니다. 클라이언트별 노이즈와 적은 스텝이 실루엣을 더 드러내면 실패입니다. 저해상도·시간 재구성은 조건부이며 깊이 인식 복원으로 근접 지형 경계를 보존해야 합니다. 스텝 수 증가만으로 해결했다는 판단은 기각합니다. 근거: **K-GAME-TECH-VOLUME**, Guidance·Implementation follow-up·Checks.\n- **물/부표 — 채택:** 기존 파도 합을 유지하고 CPU 부력 조회가 GPU와 같은 진폭·방향·위상·시간·좌표계의 수면 함수와 법선을 쓰게 합니다. 수평 변위도 있다면 월드 위치 조회를 그 변위와 일치시켜야 합니다. 단순 높이 대입으로 충분하다고 가정하지 않습니다. 쇄파·장애물 유동이 요구될 때만 별도 시뮬레이션을 재검토합니다. 근거: **K-GAME-TECH-WATER**, Guidance·Applicability.\n- **검은 테두리 — 채택:** premultiplied 자산에 맞는 합성으로 통일합니다. 수학적으로 색상은 `C=S_p+(1-a)D`이며 RGB 계수는 `ONE, ONE_MINUS_SRC_ALPHA`입니다. 현재 straight-alpha 적용은 색을 다시 감쇠시킵니다. 임포트부터 셰이더까지 선형광·sRGB 변환도 확인해야 합니다. additive 전환은 밝은 배경과 실루엣 가독성을 보장하지 못하므로 기각합니다. 정렬·깊이 처리도 보존합니다. 근거: **K-GAME-TECH-BLEND**, Guidance·Checks; 계수는 합성식에서 도출한 설계입니다.\n\n**미실행 검증:** 동일 연막 상태·표적·시점에서 품질 전 조합의 노출과 근접 깊이 경계, 카메라 컷·연막 내부를 비교합니다. 여러 파도 위상·프레임률에서 부표와 가시 수면의 오차를 측정합니다. 밝고 어두운 배경·중첩·스프라이트 가장자리에서 합성과 실루엣을 검사합니다. 엔진/버전·렌더러·허용 오차·GPU 예산이 없어 구체 API, 성능, 공정성 달성은 아직 확정할 수 없습니다.\n\n실행한 것은 입력·저장 근거 조회와 설계 일관성 검토뿐입니다. AI verification complete; awaiting vagabond testing or review — 설계 문서 검토 범위이며 엔진 검증 완료를 뜻하지 않습니다.\n",
+      "trace": {
+        "case": "N04",
+        "language": "Korean",
+        "scope": "Independent synthetic design-only evaluation; no external services, engine execution, source edits or delegation.",
+        "brief": {
+          "operation": "research/design",
+          "scale": "single",
+          "deliverables": [
+            "response.md <=350 whitespace words",
+            "trace.json"
+          ],
+          "preserve": [
+            "compatible competitive visibility across quality tiers",
+            "near geometry depth edges",
+            "player-readable silhouettes"
+          ],
+          "environment": "Competitive match, server hit authority; engine/package/version/platform/renderer/budgets unspecified."
+        },
+        "inputs_and_guidance": [
+          {
+            "path": "skills/vegabond-code-design/SKILL.md",
+            "sha256": "9902c084937f80e8815a8081170071f350ca628cee5b07c70bd8d4e96da516cb"
+          },
+          {
+            "path": "skills/vegabond-knowledge/tests/game-application/README.md",
+            "sha256": "c34c4261745280b70d5bb2004b6977fb17cc6c93b07c84c2b6e22965cd12b287"
+          },
+          {
+            "path": "agents/vegabond-agent.md",
+            "sha256": "1953e868e65290be558f0c9da5843e4cf48128cf736fbe350146ba28534db732"
+          },
+          {
+            "path": "knowledge/game/K-GAME-RESEARCH-USE.md",
+            "sha256": "f6606414cd3790f64c4e406641863d1634c8284d7c7eadc4aed7f408566cf6cb"
+          },
+          {
+            "path": "skills/vegabond-knowledge/SKILL.md",
+            "sha256": "a5f18911e92461e5ed673b0d79378630e1a36a21e4c35503cc1aaed762fc00b9"
+          },
+          {
+            "path": "skills/vegabond-code-design/references/review.md",
+            "sha256": "6e1e95f7b73405e50938689305586a705263e278473c5d034ed382460d6800f4"
+          },
+          {
+            "path": "agents/references/design-communication.md",
+            "sha256": "7417ed60b9c369d120102c4efffaa1daa0c95aa04f56e70fff7ce8300c4fa154"
+          },
+          {
+            "path": "skills/vegabond-scout/references/information-needs.md",
+            "sha256": "ae498176aa8fd0e1522b620873def75846d167ee40ae571da7537813359cf45d"
+          },
+          {
+            "path": "skills/vegabond-scout/SKILL.md",
+            "sha256": "2ce32afeba58f02264cab93132ed84abf81f7422d1c252104431a8811228d417"
+          },
+          {
+            "path": "skills/vegabond-knowledge/references/retrieval.md",
+            "sha256": "6a93cb107e235fe691e42e313194f10c3e940612cd431ba5dc5ad0f320ce1c72"
+          },
+          {
+            "path": ".cache/onestep/game-application-extended/retest/N04/request.md",
+            "sha256": "5ceb662a36b31d90e09ceacc63a0d25f33e51981029de4cb8dc0e12f014994a8"
+          },
+          {
+            "path": ".cache/onestep/game-application-extended/retest/N04/effects.md",
+            "sha256": "96d052b779fd52a917e5517720be0f31c9fef23bfc31b0ace11a20557062051b"
+          }
+        ],
+        "questions": [
+          {
+            "question": "Does server hit authority or higher rendering quality establish equal smoke visibility?",
+            "why": "Final pixels currently determine target visibility; local density/step count changes expose opponents.",
+            "status": "answered structurally; empirical visibility guarantee pending"
+          },
+          {
+            "question": "Can existing wave sums drive both GPU appearance and CPU buoyancy?",
+            "why": "Flat CPU plane contradicts moving GPU surface; no breaking/obstacle flow requirement.",
+            "status": "adopt shared surface contract; displacement representation and tolerances unknown"
+          },
+          {
+            "question": "Are texture alpha convention, blend equation and colour space compatible?",
+            "why": "Premultiplied source with straight-alpha factors double-attenuates colour; colour space unverified.",
+            "status": "known mismatch; exact renderer integration conditional"
+          },
+          {
+            "question": "Would a single advanced fluid solver meet all requirements?",
+            "why": "Proposal crosses gameplay authority, surface query and compositing layers.",
+            "status": "reject as minimum fix"
+          }
+        ],
+        "queries": [
+          {
+            "query": "smoke quality visibility authority",
+            "filters": {
+              "project": "C:/Projects/OneStep",
+              "domain": "game",
+              "store": "both",
+              "limit": 5,
+              "offset": 0,
+              "depth": 1,
+              "no_cache": true,
+              "status": "default excludes superseded primary"
+            },
+            "total_matches": 18,
+            "zero_result_count": 0,
+            "top_ids": [
+              "K-GAME-TECH-VOLUME",
+              "K-GAME-RESEARCH-USE",
+              "K-GAME-TECH-AUTHORITY",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-TECH-REFLECTION"
+            ],
+            "truncated": true,
+            "related_ids": [],
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            },
+            "interpretation": "Candidates only; no ranking-based adoption."
+          },
+          {
+            "query": "water wave buoyancy simulation",
+            "filters": {
+              "project": "C:/Projects/OneStep",
+              "domain": "game",
+              "store": "both",
+              "limit": 5,
+              "offset": 0,
+              "depth": 1,
+              "no_cache": true,
+              "status": "default excludes superseded primary"
+            },
+            "total_matches": 19,
+            "zero_result_count": 0,
+            "top_ids": [
+              "K-GAME-TECH-WATER",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-TECH-SYSTEMIC",
+              "K-GAME-TECH-HAIR",
+              "K-GAME-TECH-TIMESTEP"
+            ],
+            "truncated": true,
+            "related_ids": [],
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            },
+            "interpretation": "Candidates only; no ranking-based adoption."
+          },
+          {
+            "query": "premultiplied alpha black fringe",
+            "filters": {
+              "project": "C:/Projects/OneStep",
+              "domain": "game",
+              "store": "both",
+              "limit": 5,
+              "offset": 0,
+              "depth": 1,
+              "no_cache": true,
+              "status": "default excludes superseded primary"
+            },
+            "total_matches": 5,
+            "zero_result_count": 0,
+            "top_ids": [
+              "K-GAME-TECH-BLEND",
+              "K-GAME-TECH-FOLIAGE",
+              "K-GAME-TECH-BILLBOARD",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-TECH-NOISE"
+            ],
+            "truncated": false,
+            "related_ids": [],
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            },
+            "interpretation": "Candidates only; no ranking-based adoption."
+          },
+          {
+            "query": "fluid simulation smoke water",
+            "filters": {
+              "project": "C:/Projects/OneStep",
+              "domain": "game",
+              "store": "both",
+              "limit": 5,
+              "offset": 0,
+              "depth": 1,
+              "no_cache": true,
+              "status": "default excludes superseded primary"
+            },
+            "total_matches": 19,
+            "zero_result_count": 0,
+            "top_ids": [
+              "K-GAME-TECH-WATER",
+              "K-GAME-TECH-VOLUME",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-TECH-HAIR",
+              "K-GAME-TECH-TIMESTEP"
+            ],
+            "truncated": true,
+            "related_ids": [],
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            },
+            "interpretation": "Candidates only; no ranking-based adoption."
+          },
+          {
+            "query": "smoke quality buoyancy alpha",
+            "filters": {
+              "project": "C:/Projects/OneStep",
+              "domain": null,
+              "store": "records",
+              "limit": 5,
+              "offset": 0,
+              "depth": 1,
+              "no_cache": true,
+              "status": "default excludes superseded primary"
+            },
+            "total_matches": 0,
+            "zero_result_count": 1,
+            "top_ids": [],
+            "truncated": false,
+            "related_ids": [],
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            },
+            "interpretation": "No lexical record match; not evidence that no relevant incident exists."
+          }
+        ],
+        "zero_result_queries": 1,
+        "inspected_entries": [
+          {
+            "id": "K-GAME-RESEARCH-USE",
+            "path": "knowledge/game/K-GAME-RESEARCH-USE.md",
+            "sha256": "f6606414cd3790f64c4e406641863d1634c8284d7c7eadc4aed7f408566cf6cb",
+            "passages": [
+              {
+                "section": "Guidance",
+                "text": "Different layers can need different techniques ... visual quality does not establish competitive visibility."
+              },
+              {
+                "section": "Guidance",
+                "text": "A top-ranked hit is a candidate, not an adoption decision."
+              }
+            ],
+            "use": "Split decisions; preserve unknown engine context and pending checks."
+          },
+          {
+            "id": "K-GAME-TECH-VOLUME",
+            "path": "knowledge/game/K-GAME-TECH-VOLUME.md",
+            "sha256": "bd0c36dce84bfd34a0e9c6ef5b294cbad7669d8ea0d25c69a563742bc37fd54e",
+            "passages": [
+              {
+                "lines": "18",
+                "text": "For competitive smoke, share authoritative density/visibility rules rather than relying on each client's final image."
+              },
+              {
+                "lines": "24",
+                "text": "Geometry intersection and reconstruction must preserve gameplay visibility across quality levels."
+              },
+              {
+                "lines": "28,32",
+                "text": "Complete density solver, replication and ray-marching code remain undisclosed; equal competitive visibility needs target-game tests. Proposed: moving lights, camera cuts, inside-volume views, depth edges and visibility agreement."
+              }
+            ],
+            "evidence_review": "Read local Evidence 36-44: Epic volumetric fog, PCG chapter, self-reported quarter-resolution depth-edge upsample, dated Valve smoke-volume notes; source code and determinism undisclosed. No original visited."
+          },
+          {
+            "id": "K-GAME-TECH-WATER",
+            "path": "knowledge/game/K-GAME-TECH-WATER.md",
+            "sha256": "5657da2aae1d7f496b61ff37d2896be5c2fe15e8229fe512d3de07a8cc379e8f",
+            "passages": [
+              {
+                "lines": "18",
+                "text": "Compute normals from the same displacement field and share a compatible surface query with buoyancy gameplay."
+              },
+              {
+                "lines": "24",
+                "text": "Steepness must be bounded to avoid folding. Wave sums ... do not automatically handle breaking waves, shore interaction or flow around obstacles."
+              },
+              {
+                "lines": "28",
+                "text": "Proposed: inspect overhead repetition, shallow coastlines, floating objects and different simulation rates."
+              }
+            ],
+            "evidence_review": "Read local Evidence 32-33: GPU Gems chapter 1 sum-of-sines/Gerstner; source not opened. No claim of current engine API compatibility."
+          },
+          {
+            "id": "K-GAME-TECH-BLEND",
+            "path": "knowledge/game/K-GAME-TECH-BLEND.md",
+            "sha256": "e82be02047eb3d22953d51c3aa9ae0a59e207cf6ce99a46f1d1a3e6c530571fd",
+            "passages": [
+              {
+                "lines": "18",
+                "text": "Straight alpha: C=alpha*S+(1-alpha)*D ... Use linear-light calculations and distinguish premultiplied from straight-alpha assets."
+              },
+              {
+                "lines": "24",
+                "text": "Blend mode affects sorting, depth writes and supported lighting. Adding colour does not make effects readable on all backgrounds."
+              },
+              {
+                "lines": "28",
+                "text": "Proposed: inspect bright/dark backgrounds, overlapping particles and sprite edges; compare blend equations with imported texture data."
+              }
+            ],
+            "evidence_review": "Read local Evidence 32-33: Epic Material Blend Modes; original not opened. Premultiplied factors derived mathematically in design, not claimed as inspected API."
+          }
+        ],
+        "competing_proposals": [
+          {
+            "proposal": "One advanced fluid simulation replaces all three systems",
+            "decision": "reject",
+            "reason": "Does not fix authority, CPU/GPU surface disagreement or alpha conventions; breaking/obstacle flow not required."
+          },
+          {
+            "proposal": "Server authoritative smoke state and quality-independent visibility rules",
+            "decision": "adopt",
+            "boundary": "Server owns occupancy/density/occlusion state; cosmetic rendering may vary but must enforce common occlusion and minimum visual masking. Server hit authority alone insufficient.",
+            "check": "All quality tiers must preserve exposure/occlusion and silhouettes in identical state."
+          },
+          {
+            "proposal": "More steps or same noise seed alone",
+            "decision": "reject",
+            "reason": "Does not establish shared visibility contract or compensate arbitrary quality differences."
+          },
+          {
+            "proposal": "Low-resolution temporal smoke reconstruction",
+            "decision": "conditional",
+            "condition": "Depth-aware reconstruction preserves near-geometry depth boundaries and visibility under cuts and motion; budget measured."
+          },
+          {
+            "proposal": "Retain wave sums; compatible CPU/GPU surface query",
+            "decision": "adopt",
+            "boundary": "Same wave parameters/time/coordinates/normals; horizontal displacement requires matching world-position query. CPU plane retired from buoyancy query.",
+            "condition": "Actual shader displacement details unavailable; Gerstner not assumed."
+          },
+          {
+            "proposal": "Premultiplied-aware blending",
+            "decision": "adopt",
+            "boundary": "Colour C=Sp+(1-a)D, RGB ONE and ONE_MINUS_SRC_ALPHA; do not multiply premultiplied colour by alpha again.",
+            "condition": "Exact renderer state, import colour conventions and alpha-channel settings must be inspected before coding."
+          },
+          {
+            "proposal": "Additive blend hides dark fringe",
+            "decision": "reject",
+            "reason": "Different compositing meaning and poor bright-background/readable silhouette guarantee."
+          }
+        ],
+        "unresolved_conditions": [
+          {
+            "gap": "Engine/package/version/renderer not provided",
+            "blocks": "Concrete APIs, compatibility and implementation commitment",
+            "minimum_evidence": "Actual renderer/import/material/depth state and engine documentation within later authorization."
+          },
+          {
+            "gap": "Smoke state representation, quality baselines and synchronization not provided",
+            "blocks": "Claim of competitive visibility fairness",
+            "minimum_evidence": "Shared state/visibility contract plus cross-quality replay captures at common ticks."
+          },
+          {
+            "gap": "Exact GPU wave function, horizontal displacement, clock/coordinates and buoyancy tolerances unknown",
+            "blocks": "Correct surface-query implementation and numeric acceptance",
+            "minimum_evidence": "Shader/CPU query definitions and agreed visual/physics error budget."
+          },
+          {
+            "gap": "Colour-space configuration and premultiplication stage unverified",
+            "blocks": "Claim that proposed blend change removes every fringe",
+            "minimum_evidence": "Imported texels, conversions and actual output equations on background reference images."
+          },
+          {
+            "gap": "Hardware/frame/resource budgets unavailable",
+            "blocks": "Performance guarantee",
+            "minimum_evidence": "Target hardware budgets and representative GPU measurements."
+          }
+        ],
+        "checks": {
+          "executed": [
+            {
+              "check": "Read synthetic inputs and canonical guidance",
+              "result": "complete within authorized files"
+            },
+            {
+              "check": "Five no-cache retrievals with exact query/filter and returned IDs",
+              "result": "complete; one records zero; source originals not checked"
+            },
+            {
+              "check": "Inspect three selected technical entries, evidence limits and file hashes",
+              "result": "complete"
+            },
+            {
+              "check": "Design review against supplied failure sequences and preserved constraints",
+              "result": "Shared smoke rules cannot be replaced by per-client pixels; shared wave query addresses flat-plane mismatch; premult mismatch addressed without losing compositing semantics."
+            },
+            {
+              "check": "Final artifact validation",
+              "result": "response.md 261 whitespace words <=350; trace.json parsed; five queries and one zero-result reconciled; four inspected-entry SHA-256 digests matched current bytes."
+            }
+          ],
+          "proposed": [
+            {
+              "check": "Smoke quality matrix with same state/tick/camera/target",
+              "expected": "No quality tier reveals a target hidden by common rule; test near depth edges, lights, inside views, cuts and motion",
+              "status": "not executed; engine prohibited/absent"
+            },
+            {
+              "check": "Wave/float comparison across phases, coordinates and different rates",
+              "expected": "CPU/GPU height/normal discrepancy within agreed tolerance; no folded waves; test horizontal displacement if present",
+              "status": "not executed; implementation and tolerance absent"
+            },
+            {
+              "check": "Premult reference compositing on bright/dark backgrounds, overlap and edges",
+              "expected": "No extra alpha multiplication/black fringe; preserve silhouettes, sorting and near-depth geometry",
+              "status": "not executed; renderer and colour-space state absent"
+            },
+            {
+              "check": "GPU timing and resources by quality on target hardware",
+              "expected": "Meet agreed budget without altering visibility contract",
+              "status": "not executed; target/budget absent"
+            }
+          ]
+        },
+        "limits": "Entry hashes identify local bytes only. Source dates are recorded provenance, not fresh source verification. No engine run, real match/playtest, local performance proof or source edits. Truncated broad retrieval is not exhaustive; selected direct mechanisms settle bounded design, not exact API implementation."
+      }
+    },
+    {
+      "id": "N09",
+      "response": "PNG가 작다는 이유로 GPU 메모리도 항상 작다고 볼 수 없습니다. 16색은 원리상 픽셀당 4비트 인덱스로 표현할 수 있지만, PNG 파일 크기·디코딩한 CPU 메모리·GPU 텍스처 할당량은 별개입니다. 가져오기가 RGBA8로 확장한다면 기본 레벨만 대략 가로×세로×4바이트이며 밉맵·정렬·복사본은 추가됩니다. 실제 업로드 포맷, 크기, 밉 수준과 상주 할당을 확인해야 합니다. 정수/비정수 배율에서 필터링·팔레트 교체와 픽셀 가독성도 비교하십시오. 근거: K-GAME-TECH-PIXEL의 Guidance/Checks.\n\n단일 아핀 변환은 평행성을 보존하므로 원근 바닥을 만들 수 없습니다. 깊이에 따라 스케일을 바꾸는 주사선별 매핑이나 원근 투영을 조건부 채택하십시오. 고정소수점 느낌은 좌표 양자화·부호 범위·중간 절삭·경계의 wrap/clamp 규칙을 명시하여 설계하고, 체크무늬의 근거리/원거리와 수평선 부근으로 확인할 수 있습니다. 정확한 SNES 사이클·래치 타이밍 재현은 현재 범위 밖입니다. bsnes를 읽었다는 저장 근거도 원작 게임 코드나 하드웨어 타이밍의 보장은 아닙니다. 근거: K-GAME-TECH-RETRO.\n\n외부 맵은 비신뢰 데이터로 취급하십시오. 컨트롤러가 페이로드를 운반했다는 사례와 실행 흐름을 바꾼 취약점은 구분해야 합니다. 모든 입력이 실행 가능하다는 주장은 기각합니다. 특정 재현에는 ROM 버전·초기 상태·프로토콜·취약점 근거가 필요합니다. 근거: K-GAME-TECH-MEMORY.\n\nTileScript-Z17 직접 검색은 0건이고 넓힌 검색도 규격을 제공하지 않았습니다. 이는 규격의 부재 증명이 아니며, 일반 파싱 지식으로 디코더를 확정할 수 없습니다. 권위 있는 최소 명세와 버전별 정상/거부 바이트 예시, 가능하면 참조 작성기/파서를 확보해야 합니다. 문법·레코드 길이·길이 단위·엔디언·정렬·버전 호환성·포인터가 오프셋인지와 기준점·널/센티널·참조 수명을 질문하십시오.\n\n그 계약 뒤에 범위 검사, 덧셈/곱셈 오버플로 검사, 개수·메모리 상한과 실패 시 부분 반영 방지를 구체화하십시오. 잘린 파일·과대 길이·잘못된 오프셋·미지원 버전 회귀 검사와 퍼징/지원되는 메모리 검사기를 제안합니다. 실행한 것은 입력·저장 지식 검토와 검색뿐이며, GPU 측정·렌더링·파서 검사는 수행하지 않았습니다. AI 분석 산출물 검증 완료; vagabond의 독립 검토 대기입니다.\n",
+      "trace": {
+        "case": "N09",
+        "operation": "research / single; analysis only",
+        "profile": {
+          "target": "Retro map editor palette texture budgets, Mode7-like ground and untrusted private map import",
+          "deliverable": "Korean response <=350 words and evidence trace",
+          "constraints": [
+            "Synthetic supplied project facts govern",
+            "No web/services, engine, production changes, delegation or decoder implementation",
+            "Read canonical authorized guidance/knowledge/records only; no translations, evaluators, rubrics, registries or sibling cases explicitly opened"
+          ]
+        },
+        "questions": [
+          {
+            "decision": "GPU budget",
+            "question": "What is decoded/uploaded format, dimensions, mip chain and residency? Does importer preserve palette indices?",
+            "effect": "PNG size cannot establish runtime memory"
+          },
+          {
+            "decision": "Preview quality",
+            "question": "What happens at integer/noninteger scaling and chosen filtering/palette swaps?",
+            "effect": "Readability and shimmer require visual checks"
+          },
+          {
+            "decision": "Ground rendering",
+            "question": "Is per-scanline/depth-dependent scale permitted, and what fixed-point appearance is desired?",
+            "effect": "Single affine transform cannot generate perspective; bit-exact hardware fidelity is out of scope"
+          },
+          {
+            "decision": "Private importer",
+            "question": "What authoritative grammar/version, byte order, record sizes, length units and pointer/offset rules define TileScript-Z17?",
+            "effect": "Exact decoder contract missing; cannot finalize"
+          },
+          {
+            "decision": "Trust boundary",
+            "question": "What validates counts/offsets, budgets, ownership/lifetime and malformed files before project mutation?",
+            "effect": "Untrusted bytes require bounded validation regardless of controller analogy"
+          },
+          {
+            "decision": "Exploit analogy",
+            "question": "Which ROM revision, initial state, controller protocol and control-flow defect support the anecdote?",
+            "effect": "No evidence that all ordinary inputs execute"
+          }
+        ],
+        "search_method": {
+          "executable": "C:/Users/earth/AppData/Roaming/uv/python/cpython-3.14-windows-x86_64-none/python.exe",
+          "script": "skills/vegabond-knowledge/scripts/search.py",
+          "PYTHONPATH": "C:/Users/earth/AppData/Local/uv/cache/archive-v0/_LDAg4lOjStraXTfY0SGr/Lib/site-packages",
+          "PYTHONIOENCODING": "utf-8",
+          "common_args": [
+            "search",
+            "--project",
+            "C:/Projects/OneStep",
+            "--no-cache",
+            "--limit",
+            "5"
+          ],
+          "notes": "Tool JSON summarized, no search cache writes. Default stores both unless records selected. No context/status/scope filters. Primary and related result metadata were inspected; unopened snippets are not adopted evidence."
+        },
+        "queries": [
+          {
+            "query": "palette PNG texture GPU memory",
+            "filters": {
+              "domain": [
+                "game"
+              ]
+            },
+            "limit": 5,
+            "offset": 0,
+            "total_matches": 15,
+            "zero_result_count": 0,
+            "top_ids": [
+              "K-GAME-TECH-PIXEL",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-TECH-MEMORY",
+              "K-GAME-TECH-RETRO",
+              "K-GAME-TECH-SHADOW"
+            ],
+            "truncated": true,
+            "expanded_terms": [
+              [
+                "메모리",
+                "memory"
+              ],
+              [
+                "palette"
+              ],
+              [
+                "png"
+              ],
+              [
+                "texture"
+              ],
+              [
+                "gpu"
+              ]
+            ],
+            "related": {
+              "related": [],
+              "edges": [],
+              "total_related": 0,
+              "offset": 0,
+              "truncated": false
+            },
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            }
+          },
+          {
+            "query": "Mode 7 perspective affine fixed point",
+            "filters": {
+              "domain": [
+                "game"
+              ]
+            },
+            "limit": 5,
+            "offset": 0,
+            "total_matches": 26,
+            "zero_result_count": 0,
+            "top_ids": [
+              "K-GAME-TECH-RETRO",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-TECH-CAMERA",
+              "K-GAME-PROTOTYPE-PLAYTEST",
+              "K-GAME-TECH-TIMESTEP"
+            ],
+            "truncated": true,
+            "expanded_terms": [
+              [
+                "mode"
+              ],
+              [
+                "7"
+              ],
+              [
+                "perspective"
+              ],
+              [
+                "affine"
+              ],
+              [
+                "fixed"
+              ],
+              [
+                "point"
+              ]
+            ],
+            "related": {
+              "related": [],
+              "edges": [],
+              "total_related": 0,
+              "offset": 0,
+              "truncated": false
+            },
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            }
+          },
+          {
+            "query": "untrusted input parser length pointer controller exploit",
+            "filters": {
+              "domain": [
+                "game"
+              ]
+            },
+            "limit": 5,
+            "offset": 0,
+            "total_matches": 26,
+            "zero_result_count": 0,
+            "top_ids": [
+              "K-GAME-TECH-CONTROLLER",
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-TECH-MEMORY",
+              "K-GAME-ACCESSIBILITY-ONBOARDING",
+              "K-GAME-TECH-ROLLBACK"
+            ],
+            "truncated": true,
+            "expanded_terms": [
+              [
+                "untrusted"
+              ],
+              [
+                "input"
+              ],
+              [
+                "parser"
+              ],
+              [
+                "length"
+              ],
+              [
+                "pointer"
+              ],
+              [
+                "controller"
+              ],
+              [
+                "exploit"
+              ]
+            ],
+            "related": {
+              "related": [],
+              "edges": [],
+              "total_related": 0,
+              "offset": 0,
+              "truncated": false
+            },
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            }
+          },
+          {
+            "query": "TileScript-Z17",
+            "filters": {},
+            "limit": 5,
+            "offset": 0,
+            "total_matches": 0,
+            "zero_result_count": 1,
+            "top_ids": [],
+            "truncated": false,
+            "expanded_terms": [
+              [
+                "tilescript-z17"
+              ]
+            ],
+            "related": null,
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            }
+          },
+          {
+            "query": "map importer parser texture",
+            "filters": {
+              "store": "records"
+            },
+            "limit": 5,
+            "offset": 0,
+            "total_matches": 0,
+            "zero_result_count": 1,
+            "top_ids": [],
+            "truncated": false,
+            "expanded_terms": [
+              [
+                "map"
+              ],
+              [
+                "importer"
+              ],
+              [
+                "parser"
+              ],
+              [
+                "texture"
+              ]
+            ],
+            "related": null,
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            }
+          },
+          {
+            "query": "private map format decoder record length endianness",
+            "filters": {},
+            "limit": 5,
+            "offset": 0,
+            "total_matches": 52,
+            "zero_result_count": 0,
+            "top_ids": [
+              "K-GAME-TECH-GUIDE",
+              "K-GAME-RESEARCH-USE",
+              "K-GAME-STRATEGY-TURN-4X",
+              "K-CODE-UE-LOC-MERGE",
+              "K-CODE-UE-RENDER-ORIENTATION"
+            ],
+            "truncated": true,
+            "expanded_terms": [
+              [
+                "private"
+              ],
+              [
+                "map"
+              ],
+              [
+                "format"
+              ],
+              [
+                "decoder"
+              ],
+              [
+                "record"
+              ],
+              [
+                "length"
+              ],
+              [
+                "endianness"
+              ]
+            ],
+            "related": {
+              "related": [],
+              "edges": [],
+              "total_related": 0,
+              "offset": 0,
+              "truncated": false
+            },
+            "source_verification": {
+              "requested": false,
+              "source_ids": [],
+              "completed": 0,
+              "checked": 0,
+              "ok": null,
+              "statuses": {},
+              "scope": "Returned linked registry IDs only; no automatic web verification or historical-date updates."
+            }
+          }
+        ],
+        "zero_result_queries": 2,
+        "inspected": [
+          {
+            "id": "K-GAME-TECH-PIXEL",
+            "path": "knowledge/game/K-GAME-TECH-PIXEL.md",
+            "sha256": "6bc4b71c47f246587700cf69d494656312727ef7a454169b3f5a3e5a8d090c52",
+            "sections": [
+              "Guidance",
+              "Applicability and exceptions",
+              "Checks",
+              "Evidence"
+            ],
+            "passages": [
+              "Indexed colour stores palette indices; n colours need ceil(log2(n)) index bits in principle, subject to format constraints.",
+              "File size, decoded CPU memory and GPU texture format are different budgets.",
+              "Proposed: preview integer and noninteger scaling, filtering and palette swaps; inspect runtime texture memory rather than PNG size."
+            ],
+            "evidence_limit": "Local reference inspected; PNG specification and art tutorial links not contacted. No runtime memory measurement."
+          },
+          {
+            "id": "K-GAME-TECH-RETRO",
+            "path": "knowledge/game/K-GAME-TECH-RETRO.md",
+            "sha256": "647930f77a25896c8c528d03468aa3807843f2df7038f7382d8dfc0368ff8c5d",
+            "sections": [
+              "Guidance",
+              "Implementation follow-up — 2026-11-07",
+              "Applicability and exceptions",
+              "Checks",
+              "Evidence",
+              "Follow-up evidence"
+            ],
+            "passages": [
+              "An affine 2D transform is p'=A*p+b and preserves parallelism.",
+              "Perspective ground rendering needs scale varying with depth; changing affine parameters per scanline can approximate that view.",
+              "For faithful emulation, retain signed widths, intermediate truncation, wrap/clamp behavior and register-latch timing instead of substituting unrestricted floats.",
+              "Hardware bus timing, register-latch fidelity and original Mario Kart per-scanline code are not verified by reading this renderer alone."
+            ],
+            "evidence_limit": "bsnes behavior is recorded source reading, not inspected original code or engine execution in this case."
+          },
+          {
+            "id": "K-GAME-TECH-MEMORY",
+            "path": "knowledge/game/K-GAME-TECH-MEMORY.md",
+            "sha256": "0f852a0418999bb2d50c0e839523c64c653c437b609c24b2600994799db73040",
+            "sections": [
+              "Guidance",
+              "Implementation follow-up — 2026-11-07",
+              "Applicability and exceptions",
+              "Checks",
+              "Evidence",
+              "Follow-up evidence"
+            ],
+            "passages": [
+              "Corrupted memory or control flow may cause unintended execution; an out-of-bounds write is one possible primitive, not a complete explanation of every exploit.",
+              "Distinguish a bug that redirects execution from the input stream that transports a payload; neither implies that ordinary controller data is executable on every game.",
+              "Keep ROM revision, initial state and controller protocol in any future reproduction.",
+              "Proposed: run memory sanitizers where supported, fuzz parsers and verify bounds/lifetimes around scene transitions and save loading."
+            ],
+            "evidence_limit": "No exploit reproduced; historical replay documentation is not a current importer contract."
+          }
+        ],
+        "decisions": [
+          {
+            "proposal": "Small 16-colour PNG always has small GPU allocation",
+            "decision": "reject",
+            "reason": "Storage/index representation differs from decoded CPU and GPU format; importer expansion unspecified",
+            "action": "Measure upload/residency by concrete GPU format, dimensions, mipmaps and allocation; 4-bit palette capacity is conceptual, not actual residency",
+            "source": "K-GAME-TECH-PIXEL"
+          },
+          {
+            "proposal": "One affine transform produces perspective ground",
+            "decision": "reject",
+            "reason": "Affine mapping preserves parallelism",
+            "action": "Conditional scanline/depth-varying sampling or perspective rendering",
+            "source": "K-GAME-TECH-RETRO"
+          },
+          {
+            "proposal": "Bit-exact SNES emulation required for fixed-point look",
+            "decision": "defer",
+            "reason": "Exact cycle emulation excluded by project facts",
+            "action": "Specify intentional quantization/truncation, signed range and wrap/clamp visually; timing only if scope changes",
+            "source": "K-GAME-TECH-RETRO"
+          },
+          {
+            "proposal": "All controller/map input is executable",
+            "decision": "reject",
+            "reason": "Payload transport and an exploit's control-flow bug are distinct; version/trigger evidence absent",
+            "action": "Treat imported bytes as data; validate bounds, lifetimes and typed structures",
+            "source": "K-GAME-TECH-MEMORY"
+          },
+          {
+            "proposal": "Finalize TileScript-Z17 decoder from generic knowledge",
+            "decision": "conditional / blocked",
+            "reason": "Exact query 0; nearby results do not provide authoritative format contract, absence not proven",
+            "action": "Obtain minimal authoritative spec, accepted/rejected versioned byte examples and reference parser/writer before finalizing length/pointer semantics"
+          },
+          {
+            "proposal": "Bounded robust importer planning",
+            "decision": "adopt as proposal",
+            "reason": "Untrusted stream is authoritative fact",
+            "action": "Specify checked arithmetic, offsets within file/buffer, lengths/count budgets, lifetime-safe handles and fail-without-partial-mutation behavior; no implementation claimed",
+            "source": "K-GAME-TECH-MEMORY"
+          }
+        ],
+        "unresolved_conditions": [
+          "GPU target/API/import format/compression, dimensions, mip levels and residency are unknown",
+          "Desired fixed-point visual precision, rounding and wrap/clamp policy are unspecified",
+          "TileScript-Z17 grammar/version, endianness, record sizes, alignment, count/length units, offset base and null/sentinel rules missing",
+          "No ROM/revision/state/controller-protocol/bug evidence for the cited exploit",
+          "No local graphics/parser/engine tests permitted or executed; sources' historical external checks not renewed"
+        ],
+        "checks": {
+          "executed": [
+            "Read supplied request.md and retro.md",
+            "Read canonical named skill and necessary linked guidance",
+            "Six focused read-only helper queries, including planned action records lookup; inspected 3 relevant detail files",
+            "Compared each material proposal to supplied facts and source applicability",
+            "Final UTF-8 response re-read; whitespace word count 232 <=350; trace JSON parsed; 6 queries and 2 zero-result queries confirmed; 3 inspected entry SHA-256 digests matched current bytes; material topic/source coverage checked."
+          ],
+          "proposed": [
+            "Inspect actual GPU uploaded format/allocation and CPU decoded peak for representative textures, including mipmaps and expansion",
+            "Preview integer/noninteger scales, filtering and palette swaps",
+            "Checkerboard ground: compare single-affine and depth/scanline-varying mappings, near/far lines and horizon; verify intended truncation/range/wrap",
+            "After authoritative format available: tests for valid versioned files, truncation, oversized/negative-equivalent lengths/counts, offset addition/multiplication overflow, out-of-range/unaligned offsets, cycles if references allow them, unsupported versions and rejection without partial mutation",
+            "Fuzz importer and run memory sanitizers where platform supports them; check ownership/lifetime through import failure and scene transitions"
+          ],
+          "not_applicable": "Production build/runtime/real-use acceptance is not needed for this analysis artifact; implementation and engine verification remain unexecuted and would be necessary before claiming importer/rendering correctness"
+        },
+        "status": "AI analysis-artifact verification complete; implementation/runtime unverified; awaiting vagabond independent review"
+      }
+    }
+  ]
+}

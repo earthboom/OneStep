@@ -1,0 +1,117 @@
+{
+    "utc": "2026-11-08T09:58:07.6059411Z",
+    "sources": [
+        {
+            "path": "Assets/Editor/DynamicBatch.cs",
+            "sha256": "359B451D8FFD5DD5319114ED641554A5F6533ADC0C2B02C7119628E03AC29405"
+        },
+        {
+            "path": "Assets/Editor/LabBatch.cs",
+            "sha256": "6ED5A3F2D087C5F8533CAAA9397F27F1EE9D1267AFD00769EDE38332F11BFD13"
+        },
+        {
+            "path": "Assets/Editor/LabProbe.cs",
+            "sha256": "27349FFB66C646AD2B7693FCE3CFDE49FF209FA8D0FEC0CBF38927BFA2021A8D"
+        },
+        {
+            "path": "Assets/Editor/StreamBatch.cs",
+            "sha256": "C602D53E0DDC93EE365B68953450716412856C020E206AAEEFF5B3EE696EFF28"
+        },
+        {
+            "path": "Assets/Editor/TrafficBatch.cs",
+            "sha256": "5C2CE44B1B17C4F404A88C6B020C5E4FCFA0D4BEB0B47CCA94B1DA664015E73B"
+        },
+        {
+            "path": "Assets/TechniqueLab/CameraDamping.cs",
+            "sha256": "009D47E97BABFF8FC86F66D348F99B16ED75F94EB9CBA5F72A849C2AE71AD7B4"
+        },
+        {
+            "path": "Assets/TechniqueLab/CrowdAudit.cs",
+            "sha256": "5C7A91939CD17072BE18B15446635E4E1FDE27A0E2D22CE447B906A9B0E3403C"
+        },
+        {
+            "path": "Assets/TechniqueLab/CrowdChecks.cs",
+            "sha256": "982D8C1517109C8981A4839D24AB6C6BD1D455FA1F5FE9BE50386A8EA5E24AB9"
+        },
+        {
+            "path": "Assets/TechniqueLab/CrowdWorld.cs",
+            "sha256": "6A33BE749DD4FFB40C426E2503EA70D31348504CE0C2E9680206C1F6593CF5E1"
+        },
+        {
+            "path": "Assets/TechniqueLab/DynamicRunner.cs",
+            "sha256": "47E4F2C4B574954DC9AC399BBD60D76E7D20A29D17E9A8F9BC6C927985670FE0"
+        },
+        {
+            "path": "Assets/TechniqueLab/DynamicView.cs",
+            "sha256": "0C852D82F5E83EE20ADD705F1C2BE5317343B97389B020FE8480477BC3A8E4B4"
+        },
+        {
+            "path": "Assets/TechniqueLab/LabChecks.cs",
+            "sha256": "5864588636C5EA72D1B81B529B0EC49AE6F9578D9B65063FBFCBE4696229D8CE"
+        },
+        {
+            "path": "Assets/TechniqueLab/LabRunner.cs",
+            "sha256": "3121F206CFBCDAD413B87D46590244596631370F4156968F45C9B6B3F3EF2698"
+        },
+        {
+            "path": "Assets/TechniqueLab/LabView.cs",
+            "sha256": "C1F4027D08204B5C55BC59ADA7B6438396855C572964534DCBF7A513C41861C7"
+        },
+        {
+            "path": "Assets/TechniqueLab/ShotResolver.cs",
+            "sha256": "48F10C18351523E6BF469E40A4AF05473FDB53BC828080893029A662F968FA3C"
+        },
+        {
+            "path": "Assets/TechniqueLab/StreamAudit.cs",
+            "sha256": "115838C080482DA9D7D8A94833B9F5791F5B0B521608FDDBC69333EB15781867"
+        },
+        {
+            "path": "Assets/TechniqueLab/StreamChecks.cs",
+            "sha256": "05CFF8F5987A3D2FDF1BA60E89E5ADF5896B1EAF7C51025259E34148FAD9437A"
+        },
+        {
+            "path": "Assets/TechniqueLab/StreamKernel.cs",
+            "sha256": "99E2E00CE4B6BEE22C6047CC7118EC2835AC04540EE205B45CC8B7C56D520DF3"
+        },
+        {
+            "path": "Assets/TechniqueLab/StreamRunner.cs",
+            "sha256": "06C83896BA209F090983D133EA12623B769B42DC961F2BDEE780409064B4D61D"
+        },
+        {
+            "path": "Assets/TechniqueLab/StreamView.cs",
+            "sha256": "85D3706DDFE25EAAFA0ECF11FD95BE5C178FF4A5C7C5C32E08C8D5FAF716122F"
+        },
+        {
+            "path": "Assets/TechniqueLab/StreamWorld.cs",
+            "sha256": "269332147C6791379C4D6140A4E2AEE0EEDB789FD3F58C21781B2FB1505C325C"
+        },
+        {
+            "path": "Assets/TechniqueLab/TrafficAudit.cs",
+            "sha256": "F20AF189FB6A36E70202FAF585CF9532A41F7C733B86A62F86B362F9D5128B9E"
+        },
+        {
+            "path": "Assets/TechniqueLab/TrafficChecks.cs",
+            "sha256": "6C67EBDD6755C831BC5027E966CD39116BD7F895ECB5D442687BD007B882A1B0"
+        },
+        {
+            "path": "Assets/TechniqueLab/TrafficGeometry.cs",
+            "sha256": "6BEBE9F0C9D1C50924A7AAAF60C5C7090AED89686ED9C1336338609364EFDE35"
+        },
+        {
+            "path": "Assets/TechniqueLab/TrafficRunner.cs",
+            "sha256": "E119414B92E13A677E9A19593217F21D33640D56E6433622468EB142D3CF6D76"
+        },
+        {
+            "path": "Assets/TechniqueLab/TrafficView.cs",
+            "sha256": "5461EAD6DDBD100CBEF1378867446B90116A7CEF389DBFB923917045339873BF"
+        },
+        {
+            "path": "Assets/TechniqueLab/TrafficWorld.cs",
+            "sha256": "A798792BA6017E64C07592F7EF575252DEDA20644B5D7EDE44ABEC4DB87BF0D6"
+        },
+        {
+            "path": "Assets/TechniqueLab/WeightedField.cs",
+            "sha256": "8353A133723D411ACAE19F9108C88113954823EA21EC82D7326A8C2DEE4AAC82"
+        }
+    ]
+}

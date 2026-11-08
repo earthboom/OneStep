@@ -1,0 +1,14 @@
+{
+  "limitations": "Live qualitative controls and appearance only; automated per-tick audits establish bounded safety and completion. Camera PNGs omit OnGUI.",
+  "observations": [
+    "Initial completed scene showed 32 east and 32 west arrivals.",
+    "Freeze motion changed its label to Resume motion.",
+    "Restart while frozen restored 64 active actors and zero arrivals; visibly different disc sizes and separate cyan/red streams.",
+    "Pause admission changed label to Resume admission. After resuming motion, wide streams advanced while narrow queues stayed outside the passage.",
+    "Resume admission restored narrow leases (3 observed) and a direction switch; both directions showed 24 arrivals while 16 narrow actors remained.",
+    "Quit closed the TrafficLab window; wrapper exit code 0."
+  ],
+  "date": "2026-11-08",
+  "method": "Actual Windows TrafficLab window through supported Computer Use API",
+  "allPassed": true
+}

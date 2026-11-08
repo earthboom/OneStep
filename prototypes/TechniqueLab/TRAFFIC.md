@@ -1,0 +1,25 @@
+# Bidirectional heterogeneous-disc experiment — 2026-11-08
+
+Extend the experiment with a separate TrafficLab scene/build; preserve the original and DynamicLab source/evidence. User intent: verify opposing traffic and unequal radii under dense queues, record complete frames and feed applicable lessons back to PATH/CROWD. This is an authorized prototype, not production integration or a universal deadlock-free crowd solver.
+
+## Model and decisions
+
+Use authored cardinal lanes through a 128×40 environment. The narrow opening is one unit wide at y=9; four wide-opening lanes at y=23/25/27/29 carry opposing directions simultaneously. Equal-priority agents have radius 0.20/0.35/0.60, speed 3 and clearance margin 0.04. Radius-specific coarse reverse fields connect left/right hubs through narrow/wide channel nodes; the fields select a compatible corridor, while authored lane waypoints define continuous movement. Large discs cannot use the narrow opening. Shared distances do not establish physical clearance or liveness.
+
+Narrow access uses direction leases and FIFO tickets within each direction; bounded phase fairness can override global ticket order. Existing leases drain before direction changes. When the opposite direction is waiting, at most four new same-direction admissions occur per phase. Waiting stems at y=6/12 are separate from the y=9 exit path, so queues cannot occupy the departing stream. An agent releases its lease only after its whole disc clears the controlled region. Wider lanes have enough separation for the largest supported pair. Per-tick proposals are conservatively checked against other current/chosen trajectories using each radius sum and against inflated walls. Radii are fixed at spawn and capped at 0.60; direct mutation bypasses the profile and spatial-bin assumptions. This is centralized structured traffic coordination, not ORCA, CBS or a complete MAPF implementation.
+
+The author chose lane/gate control because the old equal-disc single-goal downhill policy cannot resolve a head-on wait cycle. Unrestricted continuous steering or a time-expanded multi-agent planner would require a different model and validation. Corridor symmetry literature motivates coordination; no paper's guarantee is inherited by this custom implementation. Consulted source leads: Li et al., ICAPS 2020 corridor reasoning (mapf.info/Main.SKoen20k); LaValle Planning Algorithms §4.3 C-space obstacles (lavalle.pl/planning/node156.html).
+
+## Acceptance and evidence plan
+
+Demonstrate failing checks before implementation. Required: radius clearance boundary/rejection, individual-radius swept-pair audit including terminal segments, bidirectional narrow passage, simultaneous opposing wide passage, 64/128/256 mixed-radius dense completion, asymmetric arrival/FIFO fairness, and admission pause/resume without resetting IDs or positions. A gate-disabled/pair-guard-enabled control must detect head-on deadlock; a guard-disabled control must expose collision sensitivity. Independent geometric checks and native Unity wall overlaps inspect actual rendered movers.
+
+Safe fixtures must have no pair/wall penetration, teleport, wrong-direction lease, forbidden narrow use or algorithmic global stall (>5 simulated seconds with active agents and admissions enabled). Both directions must finish. Completion limits: two-agent 120 s, 64/128 agents 180 s, 256 agents 300 s; these are simulated seconds with eight fixed 1/60 ticks per display frame for behavior. Deliberate admission pauses are recorded external blocking, not hidden as algorithmic progress. Completion deadlines still apply after resume.
+
+Performance: real-time 60 Hz accumulation, 64/128/256 active agents, uniform versus mixed radii, identical scene/window/render settings, one second warmup plus six seconds recorded, three sequential release Mono players. Preserve every wall interval and engine CPU/render/GPU fields, tick-bearing component statistics, comparison order, active/visible counts, source/assembly identities and missing GPU coverage. p95 target 16.67 ms; misses remain evidence. No simulation agent reaches an exit during these short windows. Do not infer individual tick cost from mostly tick-free uncapped render frames.
+
+All support is scoped to the authored lanes, circular footprints, fixed speed, shared authority and bounded fixtures. No arbitrary meshes, curved trajectories, acceleration/braking guarantees, unannounced obstacles, multi-authority state, perpetual arrival fairness proof or shipping performance guarantee. Existing dynamic-obstacle experiments remain separately available; this mode's gate pause is admission control, not a new physical crushing-door policy.
+
+## Progress
+
+Implemented and reviewed. Final PlayMode and three release players passed 21 regressions and 11 scenario expectations each. Actual native controls and camera captures were inspected. Complete-frame distributions, identity checks, retrieval fixes and scoped adoption are in [TRAFFIC-RESULTS.md](TRAFFIC-RESULTS.md). This experiment is complete; production integration and user review are separate.

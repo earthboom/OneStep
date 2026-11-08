@@ -1,0 +1,7 @@
+{
+  "cases": [
+    {"name":"opposing-narrow-traffic","query":"양방향 교행 좁은 통로 교착","domains":["game"],"limit":3,"required":["K-GAME-TECH-CROWD"]},
+    {"name":"radius-route-compatibility","query":"서로 다른 반경 개체 통로 clearance 경로장","domains":["game"],"limit":3,"required":["K-GAME-TECH-PATH"]},
+    {"name":"collision-safe-but-stalled","query":"crowd collision free deadlock corridor direction leases","domains":["game"],"limit":3,"required":["K-GAME-TECH-CROWD"]}
+  ]
+}

@@ -1,0 +1,49 @@
+{
+    "unity": "6000.0.77f1",
+    "utc": "2026-11-07T16:10:58.2697678Z",
+    "editor": true,
+    "playing": false,
+    "failures": 5,
+    "checks": [
+        {
+            "name": "dynamic.close-preserves-pose",
+            "detail": "close must preserve continuous pose and ID",
+            "passed": true
+        },
+        {
+            "name": "dynamic.close-occupied-deferred",
+            "detail": "reserved doorway waits for occupant, not an immediate solid",
+            "passed": false
+        },
+        {
+            "name": "dynamic.close-invalidates-routes",
+            "detail": "new routes avoid pending close and field is fresh",
+            "passed": false
+        },
+        {
+            "name": "dynamic.close-drains",
+            "detail": "existing traveler must leave and close must commit",
+            "passed": false
+        },
+        {
+            "name": "dynamic.reopen",
+            "detail": "reopen refreshes routing",
+            "passed": true
+        },
+        {
+            "name": "dynamic.following-separation",
+            "detail": "following movers advance without overlap",
+            "passed": false
+        },
+        {
+            "name": "dynamic.unreachable-waits",
+            "detail": "no path waits safely without reset",
+            "passed": true
+        },
+        {
+            "name": "dynamic.reachable-resumes",
+            "detail": "reopen resumes and completes the original agent",
+            "passed": false
+        }
+    ]
+}

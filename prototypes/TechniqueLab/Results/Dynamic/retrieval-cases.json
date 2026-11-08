@@ -1,0 +1,25 @@
+{
+  "cases": [
+    {
+      "name": "closed-door-crowd-symptom",
+      "query": "문이 닫힐 때 군중이 겹치지 않게",
+      "domains": ["game"],
+      "limit": 3,
+      "required": ["K-GAME-TECH-CROWD"]
+    },
+    {
+      "name": "in-flight-topology-transaction",
+      "query": "dynamic topology changed while agent traversing door",
+      "domains": ["game"],
+      "limit": 3,
+      "required": ["K-GAME-TECH-PATH"]
+    },
+    {
+      "name": "complete-frame-and-missing-gpu",
+      "query": "crowd whole frame budget GPU missing",
+      "domains": ["game"],
+      "limit": 3,
+      "required": ["K-GAME-TECH-CROWD"]
+    }
+  ]
+}

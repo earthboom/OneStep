@@ -39,6 +39,8 @@ Choose scale independently:
 
 Several tools, files, ordinary steps, or long waiting times alone do not require staged work. Risk can require stronger checks without changing scale. If no concrete checkpoint is needed, start single; reassess and update the brief when new dependencies or uncertainty emerge. A full novel can be create + staged; editing one chapter can be revise + single.
 
+For game planning or development in this store's authorized scope, apply the [game evidence reuse convention](../../knowledge/game/K-GAME-RESEARCH-USE.md). Derive retrieval from the concrete decision or symptom; carry selected knowledge IDs, applicability, adoption decisions and actual checks into this same brief. Use the technique guide when a symptom query misses, and refine with the executing specialist. Unrelated work does not require game references.
+
 ## Give a short work brief
 
 Before execution, state these in a few lines in the conversation:

@@ -1,0 +1,58 @@
+{
+  "frozen_before_execution": true,
+  "assessment": "Semantic review; equivalent evidence paths allowed. No keyword-only pass. Hypothetical inputs, no engine test.",
+  "cases": [
+    {
+      "id": "G01",
+      "criteria": [
+        "Read input lifecycle and stable apex evidence; separate lost edge / missing buffer from integrator-height problem.",
+        "Select buffered intent with timestamps/expiry and single-consumption; preserve 80ms bound, hold behavior and fixed-step contacts.",
+        "Treat 120Hz as insufficient for the observed reset-before-consume and prelanding discard; name Update/physics ordering rather than only cite coyote time.",
+        "Propose varied render/step phases and landing-edge/expiry/hold/repeat checks; no runtime-pass claim."
+      ]
+    },
+    {
+      "id": "G02",
+      "criteria": [
+        "Use measured GPU vs CPU, pixel and shadow comparisons; do not claim draw count bottleneck or additive independent time gains.",
+        "Notice already instanced; conditional density/LOD/card coverage/shadow changes and near silhouettes/hysteresis.",
+        "Do not transfer Crysis historical numbers or unpinned Unity API as target guarantee.",
+        "Small controlled experiments on target hardware with budget and visual transitions; no guaranteed FPS uplift."
+      ]
+    },
+    {
+      "id": "G03",
+      "criteria": [
+        "Inspect missing state, shared RNG and irreversible effects, not only save/load player position.",
+        "Conditional rollback requires restorable full gameplay state, repeatable outcomes, isolated presentation RNG/side-effect confirmation/deduplication.",
+        "Unknown plugin determinism blocks committing the full existing simulation; propose isolated deterministic combat or investigation, with boundary on props.",
+        "Compare actual wait-for-input architecture without silently removing server/competitive ownership or asserting unknown engine guarantees; proposed checks for replay/delay/loss and side effects."
+      ]
+    },
+    {
+      "id": "G04",
+      "criteria": [
+        "Checksum-valid index-to-array schema mismatch is distinct from torn save writes.",
+        "Stable IDs plus version migration using old mapping preserve progress; reject deletion and relying on checksum to validate semantic identity.",
+        "Generation/validation/commit recovery separately; no unconditional filesystem atomicity guarantee.",
+        "Round-trip/migration catalog reorder and interrupted writes/generation checks are distinct and pending."
+      ]
+    },
+    {
+      "id": "G05",
+      "criteria": [
+        "Zero-latency static-cover bug requires aim-intention and muzzle obstruction separation; no blind rewind increase.",
+        "Keep camera intended point, authoritative muzzle-to-point validation and static obstruction; simple ray transfer changes reticle behavior.",
+        "Treat moving-target latency as separate evidence gap with bounded historical policy and data collection; no invented perfect compensation.",
+        "Server authority/advisory client hits and proposed zero-latency cover plus timed moving-target tests retained."
+      ]
+    },
+    {
+      "id": "G06",
+      "criteria": [
+        "Return only exact requested string fix preserving all other fields; no broad gameplay-tech retrieval or blocking.",
+        "Do not change scope or claim runtime tests for a spelling-only proposal."
+      ]
+    }
+  ]
+}

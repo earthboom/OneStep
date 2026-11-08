@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-08",
+  "method": "Inspected local camera PNGs with view_image after all final measurements",
+  "captures": [
+    {"file":"traffic-run-3-mixed-256-active.png", "observation":"Distinct small/medium/large discs in separated cyan/red opposing wide streams; separate narrow holding stems and a red narrow transit are visible."},
+    {"file":"traffic-run-3-wide-opposing-active.png", "observation":"Large cyan and smaller red discs are on opposing wide lanes beside the central opening."},
+    {"file":"traffic-run-3-agents-256-mixed.png", "observation":"Measured mixed-population world shows both wide streams and narrow queues without a reset to a different visual scene."}
+  ],
+  "limitations":"Camera.Render images omit OnGUI and do not prove swept safety or completion; independent per-tick audits and native UI observations provide separate evidence."
+}

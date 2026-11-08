@@ -1,0 +1,26 @@
+{
+  "method": "gzip, lossless byte-for-byte roundtrip verified before removing selected raw duplicates",
+  "files": [
+    {
+      "original": "traffic-run-1.json",
+      "compressed": "traffic-run-1.json.gz",
+      "rawBytes": 27671512,
+      "compressedBytes": 1894944,
+      "sha256": "9a0f754983b99c2d2d3ae5d5679dbfd508d987769c64bafb2cd98f7edf20fcfc"
+    },
+    {
+      "original": "traffic-run-2.json",
+      "compressed": "traffic-run-2.json.gz",
+      "rawBytes": 28908021,
+      "compressedBytes": 1970616,
+      "sha256": "515916a3e5a932ffb99ee52c11d8da669c0713849527d1133297e6d29d507645"
+    },
+    {
+      "original": "traffic-run-3.json",
+      "compressed": "traffic-run-3.json.gz",
+      "rawBytes": 28700923,
+      "compressedBytes": 1956689,
+      "sha256": "ad59ac3fe8cf1a8bb58c0f0e38347908b46ce27760ea3509d3d23f804dfcb297"
+    }
+  ]
+}

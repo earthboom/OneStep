@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "checksPerProcess": 23,
+  "ordinaryDeadlineFixtures": 7,
+  "overloadDeadlineFailureFixtures": 1,
+  "otherNegativeControls": 2,
+  "hardware": {
+    "unity": "6000.0.77f1",
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "os": "Windows 11  (10.0.26200)",
+    "graphicsApi": "Direct3D11",
+    "screenWidth": 1280,
+    "screenHeight": 720,
+    "antiAliasing": 2,
+    "buildGuid": "478eadee49044227b49d59c486e8e240"
+  },
+  "totalFrames": 134145,
+  "totalEngineFrames": 134145,
+  "gpuMissing": 25230,
+  "over16_67Count": 9,
+  "limitation": "Finite sustained streams and conditional FIFO/complete-route argument; external pending queue and unlaned cardinal graph, not unrestricted physical crowd or observed infinity."
+}
+baffles-arrival-2-per-second whole p95 [5.948, 3.732, 3.822] planning-following p95 [1.177, 1.275, 1.673] misses [0, 0, 0] active ranges [(37.0, 39), (37.0, 39), (37, 39)]
+baffles-arrival-4-per-second whole p95 [6.037, 3.806, 3.856] planning-following p95 [1.456, 1.449, 1.101] misses [0, 0, 0] active ranges [(63, 66), (63.0, 66), (63.0, 66)]
+baffles-arrival-8-per-second whole p95 [5.893, 3.728, 3.899] planning-following p95 [1.761, 1.119, 1.188] misses [0, 0, 0] active ranges [(63.0, 81), (63.0, 81), (63, 81)]
+choke-arrival-2-per-second whole p95 [5.992, 3.645, 3.952] planning-following p95 [3.961, 2.342, 2.118] misses [0, 0, 0] active ranges [(39, 41), (39.0, 41), (39.0, 41)]
+choke-arrival-4-per-second whole p95 [6.074, 3.823, 3.747] planning-following p95 [23.489, 21.351, 20.5] misses [2, 2, 2] active ranges [(65, 67), (65, 67), (66, 67)]
+choke-arrival-8-per-second whole p95 [3.809, 3.515, 6.095] planning-following p95 [20.517, 20.231, 20.408] misses [1, 1, 1] active ranges [(64, 64), (64.0, 64), (64, 64)]

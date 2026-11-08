@@ -1,0 +1,9 @@
+{
+  "suite":"python -m unittest discover -s skills/vegabond-knowledge/tests -v",
+  "final":{"tests":75,"failures":0,"errors":0,"log":"knowledge-tests.txt","process":"outside restricted sandbox","temporaryRoot":"C:/Projects/OneStep/.cache/onestep/stream-test-temp","existingDependency":"PyYAML from existing uv cache; normal sitecustomize hook under .cache/onestep/stream-test-bootstrap, omitted by Python -S"},
+  "initial":{"tests":75,"failures":2,"errors":11,"log":"knowledge-tests-sandbox.txt","causes":["Restricted default temporary-directory creation/cleanup", "Test symlink/junction creation denied", "Direct package PYTHONPATH also exposed PyYAML to a dependency-absence Python -S subprocess"]},
+  "testCodeChanged":false,
+  "gameCodeChangedForSuite":false,
+  "packagesInstalled":false,
+  "limitation":"Tooling fixture/lookup tests, separate from Unity execution and finite-stream behavior; no human translation outputs were read."
+}

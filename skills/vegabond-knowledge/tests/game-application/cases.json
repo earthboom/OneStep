@@ -1,0 +1,60 @@
+{
+  "synthetic": true,
+  "language": "ko",
+  "cases": [
+    {
+      "id": "G01",
+      "title": "점프 입력 누락",
+      "skill": "vegabond-code",
+      "request": "Unity 2022.3 기반 2D 플랫폼 게임에서 착지 직전에 누른 점프가 가끔 사라진다. 개발자는 FixedUpdate를 120Hz로 올리면 해결될 거라고 한다. 제공한 기록을 보고 우선 확인할 원인과 적용할 설계를 정해줘. 게임 코드를 지금 구현할 필요는 없다.",
+      "files": {
+        "project.md": "Synthetic supplied project facts: Unity 2022.3, Windows keyboard, 60 Hz simulation, variable display 30/60/144 FPS. Jump intent is a one-render-frame bool set by input polling in Update and cleared at the end of Update. FixedUpdate reads that bool, tests grounded and assigns launch velocity. Input pressed 35 ms before landing is discarded when not grounded. Jump height in successful launches is within 1% at all display rates. Grounding and contacts are resolved in the physics step. Designer wants a maximum 80 ms pre-landing input allowance and permits at most one launch per press. Holding jump must not repeatedly trigger. No engine executable or actual project is supplied."
+      }
+    },
+    {
+      "id": "G02",
+      "title": "모바일 숲 성능",
+      "skill": "vegabond-code",
+      "request": "모바일용 숲 장면이 30fps 아래로 떨어진다. 풀을 모두 GPU 인스턴싱으로 바꾸면 될까? 첨부한 프로파일을 기준으로 우선순위와 최소 검증 실험을 정해줘. 화질 손실과 그림자 품질도 고려해줘.",
+      "files": {
+        "profile.json": "{\"synthetic\":true,\"engine\":\"Unity 2022.3 URP; package exact patch unknown\",\"target\":\"Android midrange; 30 FPS budget 33.3ms\",\"cpu_main_ms\":8,\"cpu_render_ms\":5,\"gpu_ms\":42,\"gpu_ms_at_half_pixel_count\":25,\"gpu_ms_without_grass_shadow\":34,\"draw_calls\":140,\"grass\":\"already instanced repeated mesh/material; alpha-clipped cards overlap heavily; no distance density reduction\",\"requirements\":\"retain near-camera grass silhouette; avoid sudden grass and shadow popping; no measured alternative yet\"}"
+      }
+    },
+    {
+      "id": "G03",
+      "title": "대전 지연과 롤백 선택",
+      "skill": "vegabond-code-design",
+      "request": "2인 대전 액션에서 원격 입력을 기다리느라 조작이 답답하다. 롤백을 바로 도입하면 되는지, 제공된 현재 구조를 근거로 적용 판단과 선행 작업을 정리해줘. 이번에는 설계 판단만 필요해.",
+      "files": {
+        "architecture.md": "Synthetic facts: custom C++ fixed 60Hz game; deterministic integer character motion; physics plugin drives destructible props and ragdolls but its deterministic replay guarantee is unknown. Currently both peers wait for the other input. All gameplay RNG uses one global stream also advanced by visual particles. Snapshot API saves player positions and health only. Active hitboxes, cooldowns, spawned entities, RNG state and pending damage events are not saved. Playing a hit immediately sends audio, particles and an irreversible reward notification. Goal: direct local response under typical 100ms RTT and occasional loss. No build, live service or actual implementation supplied."
+      }
+    },
+    {
+      "id": "G04",
+      "title": "저장 복구 설계",
+      "skill": "vegabond-code-design",
+      "request": "게임을 업데이트한 뒤 저장을 불러오면 장비가 가끔 다른 아이템으로 바뀐다. 체크섬은 통과하고 전원을 끄지 않아도 재현된다. 동시에 저장 도중 종료됐을 때 복구도 보강하고 싶다. 원인을 분리해서 최소 수정 순서와 검증을 제안해줘.",
+      "files": {
+        "save-contract.md": "Synthetic facts: custom engine; save schemaVersion=1 stores equippedItem as index into the runtime item array. Update v2 sorts the catalog by localized name and inserts new items; old catalog mapping is available in build data. Both versions use the same schemaVersion. Payload checksum validates stored bytes. Save writes A then overwrites B, choosing whichever file has the latest OS timestamp on load; no generation ID or commit marker exists. Windows target; exact durability/fsync/rename guarantee not supplied. User progress must be preserved; do not delete old saves. No real game files provided."
+      }
+    },
+    {
+      "id": "G05",
+      "title": "벽 뒤 총구 사격",
+      "skill": "vegabond-code",
+      "request": "3인칭 온라인 슈터에서 화면 중앙으로 적을 겨누면 명중하지만 총구가 벽 뒤에 있어도 맞는다. 시점 레이를 총구로 옮기자는 제안도 있고, 지연 보정을 더 늘리자는 제안도 있다. 현재 판정 규칙을 보고 기술 선택과 적용 순서를 정해줘.",
+      "files": {
+        "combat.md": "Synthetic facts: authoritative server. Camera ray through reticle chooses intended target point. Server currently checks only historical target hitboxes along the camera ray. Weapon muzzle is a separate offset from camera and can be behind static cover. A wall-cover reproduction occurs at zero added latency. Moving-target miss complaints under latency also exist, but no timestamps or rewind traces are supplied. Client hit reports must remain advisory. Aim reticle should continue to express camera intention; authoritative bullets must not pass through walls. No engine version or actual runtime provided."
+      }
+    },
+    {
+      "id": "G06",
+      "title": "작은 수정 범위",
+      "skill": "vegabond-code",
+      "request": "게임 일시정지 메뉴의 영어 오탈자만 고쳐줘. 아래 문자열의 Contineu를 Continue로 바꿔서 수정안만 보여줘. 배치, 번역 키, 입력 바인딩이나 게임 기능은 바꾸지 말아줘.",
+      "files": {
+        "pause-menu.json": "{\"resume_button\":{\"localization_key\":\"ui.pause.resume\",\"fallback_text\":\"Contineu\",\"action\":\"resume_game\",\"layout\":\"unchanged\"}}"
+      }
+    }
+  ]
+}

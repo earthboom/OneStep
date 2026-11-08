@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "canonicalFiles": 9,
+  "localLinks": 240,
+  "brokenLinks": [],
+  "translationPairsExist": 9,
+  "translationContentsRead": 0,
+  "originatingVideos": 59,
+  "retrievalPassed": 54,
+  "limitations": "Checks declared cases and file existence; translation meaning and unseen-task judgment are not automated by this script."
+}

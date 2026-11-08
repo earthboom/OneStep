@@ -1,0 +1,77 @@
+{
+  "summarySha256Before": "2bf46b542c1539de649a8a387e7814eb29760bfb297edb2d4f30038fe4e1d717",
+  "files": [
+    {
+      "source": "dynamic-editor-pilot.json",
+      "compressed": "dynamic-editor-pilot.json.gz",
+      "sha256": "772bd378c5906876fd1ad71ac2a3e2dd089b0a206c571b3f73a530bec8b2a51e",
+      "rawBytes": 37562629,
+      "compressedBytes": 2208379,
+      "roundTripVerified": true
+    },
+    {
+      "source": "dynamic-player-pilot.json",
+      "compressed": "dynamic-player-pilot.json.gz",
+      "sha256": "e43620371475c36cefeff5bf448efbaee8f5da6dcbb9fd9c364b35773d1901c5",
+      "rawBytes": 62774607,
+      "compressedBytes": 3816948,
+      "roundTripVerified": true
+    },
+    {
+      "source": "dynamic-visible-pilot.json",
+      "compressed": "dynamic-visible-pilot.json.gz",
+      "sha256": "7d56f41bdcd929fa94333242be42f512b0e642e8c2b33c9cd0b577d710044ec1",
+      "rawBytes": 4188073,
+      "compressedBytes": 381334,
+      "roundTripVerified": true
+    },
+    {
+      "source": "dynamic-run-1.json",
+      "compressed": "dynamic-run-1.json.gz",
+      "sha256": "a136c565a2bcf542020e89daac204f82a4a4f63caf984d0f8db5bf11f84b3679",
+      "rawBytes": 32277256,
+      "compressedBytes": 2437946,
+      "roundTripVerified": true
+    },
+    {
+      "source": "dynamic-run-2.json",
+      "compressed": "dynamic-run-2.json.gz",
+      "sha256": "b1a92f4d076e300650069d02026e1905212047fe7c0745ee636c960d11282505",
+      "rawBytes": 29841300,
+      "compressedBytes": 2283322,
+      "roundTripVerified": true
+    },
+    {
+      "source": "dynamic-run-3.json",
+      "compressed": "dynamic-run-3.json.gz",
+      "sha256": "92075370e4c35650108d955202c83b1cab0324c34e46324489c18769af0e1515",
+      "rawBytes": 30161812,
+      "compressedBytes": 2303524,
+      "roundTripVerified": true
+    },
+    {
+      "source": "pre-body-capture/dynamic-run-1.json",
+      "compressed": "pre-body-capture/dynamic-run-1.json.gz",
+      "sha256": "3d3d5fc35c44de59e21f13040b98c5ce5a945f0ec6afdf3064141b92c2a9c06e",
+      "rawBytes": 2572905,
+      "compressedBytes": 236893,
+      "roundTripVerified": true
+    },
+    {
+      "source": "pre-body-capture/dynamic-run-2.json",
+      "compressed": "pre-body-capture/dynamic-run-2.json.gz",
+      "sha256": "53674f2af03884ec590613898ee7203eeb2731c3cf4e52e3807ec536dec824b5",
+      "rawBytes": 9273734,
+      "compressedBytes": 764986,
+      "roundTripVerified": true
+    },
+    {
+      "source": "pre-body-capture/dynamic-run-3.json",
+      "compressed": "pre-body-capture/dynamic-run-3.json.gz",
+      "sha256": "6c43a42afebf7709f1efa66e56670d2099c8f0e92ece6784076842040ff7b5dd",
+      "rawBytes": 7443479,
+      "compressedBytes": 632514,
+      "roundTripVerified": true
+    }
+  ]
+}

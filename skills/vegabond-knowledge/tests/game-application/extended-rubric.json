@@ -1,0 +1,161 @@
+{
+  "frozen_before_execution": true,
+  "previously_exercised": [
+    "CONTROLLER",
+    "TIMESTEP",
+    "FOLIAGE",
+    "SHADOW",
+    "ROLLBACK",
+    "LOCKSTEP",
+    "RNG",
+    "SAVE",
+    "HITSCAN",
+    "LAGCOMP",
+    "AUTHORITY"
+  ],
+  "scope": "Remaining 32 technical sheets; inspected applicability counts separately from adoption and from runtime validation.",
+  "cases": [
+    {
+      "id": "N01",
+      "coverage": [
+        "REFLECTION",
+        "INTERIOR",
+        "NORMAL",
+        "BILLBOARD"
+      ],
+      "criteria": [
+        "Separate mirror accuracy/offscreen limits from fake interior and far impostors; SSR-only cannot satisfy unseen moving actors.",
+        "Use interior mapping only for sealed decorative rooms and reject it for walkable/collision space; camera-facing cards conditional on distant silhouette.",
+        "Normal mapping cannot change silhouette/collision; preserve separate authored wall collision.",
+        "Read applicable competing references, choose per surface/view/cost with actual GPU/angle tests; no engine-guarantee invention."
+      ]
+    },
+    {
+      "id": "N02",
+      "coverage": [
+        "NOISE",
+        "VOXEL",
+        "DUNGEON"
+      ],
+      "criteria": [
+        "Heightfields cannot represent overhangs; coherent field generation and chunk surface extraction are distinct.",
+        "Dual contouring needs edge crossings/normals or a stated method to derive Hermite inputs; scalar values alone are not complete.",
+        "Enforce traversability/radius and entrance-exit reachability independently of pretty noise; retain/edit shared boundaries and visual/collision consistency.",
+        "No claim seed alone restores edited state; propose fixed seed, border edits, sealed exits, memory/rebuild and collision gate tests."
+      ]
+    },
+    {
+      "id": "N03",
+      "coverage": [
+        "PATH",
+        "CROWD",
+        "TRACE",
+        "LOCKON"
+      ],
+      "criteria": [
+        "Shared weighted exit fields differ from per-agent A* and local avoidance; topology changes and bottlenecks still require explicit handling.",
+        "Normalize cone inputs and add distance/angle/occlusion checks; shortest paths are not perception.",
+        "Retain valid lock-on with hysteresis/loss rules and explicit switch; do not blindly recompute every frame.",
+        "Seek specific PteroNav-Q31 contract; no matching exact API evidence must stay missing, with bounded fallback/research questions rather than inventing plugin functions. Continue engine-independent work."
+      ]
+    },
+    {
+      "id": "N04",
+      "coverage": [
+        "VOLUME",
+        "BLEND",
+        "WATER"
+      ],
+      "criteria": [
+        "Separate authoritative smoke visibility/occupancy from per-view low-resolution rendering; avoid blessing quality-dependent competitive visibility.",
+        "Share wave function/time/coordinates with buoyancy; bounded Gerstner/summed waves do not promise full fluid interactions.",
+        "Match premultiplied data with blend factors and verify color space; don't treat every transparency bug as fluid simulation.",
+        "Compare separate minimal changes vs full solver; depth edges, quality tiers, buoyancy and blend captures remain proposed actual checks."
+      ]
+    },
+    {
+      "id": "N05",
+      "coverage": [
+        "CAMERA",
+        "EASING",
+        "SPEED",
+        "LEVEL"
+      ],
+      "criteria": [
+        "Frame-based constant lerp causes time-dependent follow; choose time-consistent damping with explicit model and test target movement/long frames.",
+        "Distinguish elapsed x progress and Bezier parameter; arbitrary x handles require inversion or constrained curve, preserving 2-second transition.",
+        "Camera/easing can't resolve physically impassable bodies or sweep contacts; inspect camera/capsule/space contracts.",
+        "Comfort effects optional without changing movement/aim; blur/FOV/shake do not restore responsiveness or geometry. Independent proposed checks."
+      ]
+    },
+    {
+      "id": "N06",
+      "coverage": [
+        "SOUND",
+        "MUSIC"
+      ],
+      "criteria": [
+        "Distance, obstruction filtering and room response are different; one ray/mute is not full propagation.",
+        "Musical stems/layers differ from sections/bridge scheduling, which uses shared beat/bar/cue time.",
+        "Debounce/hysteresis/persistence policy for rapid combat edges; avoid constant restarting and phase mismatches.",
+        "Do not invent middleware API; preserve warning recognition and listener authority; propose door, room, beat-offset, reversal and stall listening tests."
+      ]
+    },
+    {
+      "id": "N07",
+      "coverage": [
+        "MATCH",
+        "RANDOM-DESIGN",
+        "DDA",
+        "INCENTIVES"
+      ],
+      "criteria": [
+        "Skill estimation uncertainty is separate from search constraints, and aggregate 50% is not per-match guarantee.",
+        "Reject hidden ranked damage/loot changes under explicit promise; do not universally condemn adaptive PvE pacing.",
+        "Pity changes conditional process and advertised fixed independent odds; check tails as well as mean without fake dataset results.",
+        "Recoverable-damage pool/window is bounded and not generic kill-to-heal; distinguish train-mode proposals and unspecified values. No unearned statistical conclusions."
+      ]
+    },
+    {
+      "id": "N08",
+      "coverage": [
+        "IK",
+        "HAIR",
+        "DESTRUCTION"
+      ],
+      "criteria": [
+        "Foot contact requires support/shoe/gait/pelvis constraints while preserving gameplay capsule; not just shorten bones.",
+        "Profile guide simulation/render interpolation/shadows separately; off-camera hair may still cost and target strand support isn't guaranteed.",
+        "Use prefracture cluster activation/LOD/sleep/budgets and preserve authoritative support/collision separately from decorative debris.",
+        "Exact OrioleCloth-K9 ABI/thread contract is unsupported; attempt scoped lookup/alternate once, keep dependent callback integration conditional, complete independent analysis."
+      ]
+    },
+    {
+      "id": "N09",
+      "coverage": [
+        "PIXEL",
+        "RETRO",
+        "MEMORY"
+      ],
+      "criteria": [
+        "Palette file size, decoded memory and GPU format differ; inspect actual runtime and scaling readability.",
+        "A single affine transform is not perspective; vary scanline parameters or chosen projection; exact timing not claimed.",
+        "Input data isn't automatically executable; bounds/lifetime/control-flow failure is a required mechanism, not every controller's property.",
+        "TileScript-Z17 grammar/length/endian/version are missing: no fabricated decoder. Record absent exact evidence, bounded alternative search/research questions, validation/fuzz plan and independent visual recommendation."
+      ]
+    },
+    {
+      "id": "N10",
+      "coverage": [
+        "SYSTEMIC",
+        "HITBOX"
+      ],
+      "criteria": [
+        "Nintendo conceptual element/material rules are not universal chemistry or verified private implementation order.",
+        "Directed state rules/precedence and cycle/simultaneous-effect handling need authored contracts, save/replication checks.",
+        "Attack/hurt/blocking collision distinct; explicit per-swing target identity vs authored sustained-damage rate, not every contact every tick.",
+        "Visual VFX isn't authoritative damage; unknown coefficients stay unknown and actual interaction/persistence/duplicate-hit checks remain proposed."
+      ]
+    }
+  ]
+}

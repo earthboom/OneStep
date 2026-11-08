@@ -7,6 +7,8 @@ description: Use when drafting, revising, or evaluating planning and proposal do
 
 Provide planning-document methods for the active operation. Reuse its brief and task profile; follow the [agent instructions](../../agents/vegabond-agent.md) for common boundaries and completion. If invoked directly, use [scout's shared setup](../vegabond-scout/SKILL.md#frame-and-classify) and its linked operation skill, then continue here without restarting classification.
 
+For game planning, apply the [game evidence reuse convention](../../knowledge/game/K-GAME-RESEARCH-USE.md), including on direct invocation. Retrieve by the intended experience and concrete design uncertainty; connect genre methods and technical feasibility only where the decision needs them. Carry selected IDs, conditions, adoption decisions and prototype/playtest checks into the existing plan.
+
 ## Execute
 
 Use the shared [information-needs judgment](../vegabond-scout/references/information-needs.md) to derive questions from the decision, beneficiaries, assumptions and shared dependencies. Refine them after inspecting sources; distinguish evidence needed to commit now from later outcome measurement and optional refinement.

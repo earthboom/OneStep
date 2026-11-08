@@ -17,6 +17,8 @@ Request relevant contracts, version-specific sources, and prior failure/preventi
 
 Apply the shared [information-needs judgment](../vegabond-scout/references/information-needs.md) after inspecting the component and callers: refine questions about affected state, ownership, lifecycle, failure and verification as relevant. Check actual version and mechanism before applying a retrieved API guarantee or incident fix.
 
+For game implementation, debugging or optimization, apply the [game evidence reuse convention](../../knowledge/game/K-GAME-RESEARCH-USE.md), reusing scout's lookup when valid. Retrieve from the concrete feature or reproduced symptom, check engine/platform and state-authority conditions, and connect the selected technique to a code change and observable check. Preserve rejection reasons and feed measured outcomes back through knowledge; a source-game example is not proof of this implementation.
+
 ## Choose the design depth
 
 Use [vegabond-code-design](../vegabond-code-design/SKILL.md) when a meaningful choice about state ownership, lifecycle, interfaces used by other callers, concurrency, persistence, external integration, or migration must be settled before implementation. A local edit following an established pattern can state its relevant contract and preservation conditions inline and proceed. File count alone does not decide; reuse a valid existing design and revisit only decisions changed by evidence.
