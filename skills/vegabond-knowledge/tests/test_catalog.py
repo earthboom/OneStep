@@ -81,6 +81,10 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(code, 0, result)
         self.assertTrue(any(d["code"] == "source_unverified" for d in result["diagnostics"]))
         self.assertEqual(self.run_cli("check", "--strict")[0], 0)
+        registry.write_text(registry.read_text(encoding="utf-8").replace("project: external", "project: null").replace("path: proof.md", "path: null"), encoding="utf-8")
+        code, result = self.run_cli("check", "--strict")
+        self.assertEqual(code, 0, result)
+        self.assertTrue(any(d["code"] == "source_unbound" for d in result["diagnostics"]))
 
     def test_bootstrap_builds_multiple_stores_without_index_stubs(self):
         self.domain("knowledge", "code")

@@ -1,60 +1,61 @@
-# Novel_0 조사 자료를 장면별 집필 결정에 활용
+# 과거 Novel_0 조사 활용 설정
 
 - ID: K-FIC-NOVEL0-RESEARCH-USE
-- 요약: Novel_0 집필에서는 설정된 OneStep 소설 카탈로그에 장면 질문으로 조회하고 근거·조건을 반환한 뒤, 현재 설정과 작가 문체에 맞는 지침만 적용합니다.
+- 요약: 장면별 지식 조회의 과거 기록입니다. 이전 외부 프로젝트 연결은 철회되었고 현재 설정을 구성하지 않습니다.
 - 종류: convention
-- 범위: Novel_0 저장소; OneStep 소설 지식 저장소의 명시적으로 설정된 사용
-- 검색어: Novel_0, writing-strategy, research-retrieval, scene-brief, 집필, 지식조회, AI전략
-- 상태: active
+- 범위: 과거 Novel_0 작업 방식; 출처 이력만 보존하며 활성 외부 프로젝트 설정이 아님
+- 상태: superseded
 - 근거 확인일: 2026-11-05
-- 맥락: 원본 프로젝트 Novel_0; OneStep scout + create/revise + fiction + knowledge; 요청된 설정이며 AI 점검이 향후 원고의 작가 수락을 뜻하지 않음
+- 맥락: 원본 프로젝트 Novel_0; scout + create/revise + fiction + knowledge. 당시 요청된 설정과 이후 원고의 작가 수락은 별개임. 사용자 정정으로 연결을 제거하고 위치 없는 출처 이력만 보존함
 
 ## 지침
 
-1. scout가 작품·장·장면, 원하는 변화, 유지 조건, 작업 방식·규모와 점검을 파악합니다. 새 초고는 create, 허용된 수정은 revise를 사용하며 소설 방법을 해당 작업 안에서 적용합니다.
-2. 지식 스킬은 현재 프로젝트의 안내 색인과 명시적으로 설정된 공유 OneStep 소설 카탈로그를 조회합니다. 관련 영문 개념과 한국어 별칭을 검색하고 처음에는 최대 세 개의 상세 항목을 선택합니다. 장면마다 조사 전체를 읽지 않습니다.
-3. 출처 위치, 유용한 지침, 적용·예외 조건, 설정·문체 제약, 유용한 점검과 근거 공백을 반환합니다. 현재 작품의 원래 설정, 장면 상태, 인물 정보, 공개 계획과 작가 선택 문체 기준은 별도로 확인합니다.
-4. 집필 전에 정보 요약을 구체적인 선택으로 바꿉니다. 경로나 자세, 초점 인물이 알 수 있는 정보, 감정을 담을 세부, 남는 대가·여파를 정합니다. 결과를 결정하기 전에 실제 의존성을 해결합니다.
-5. 한국어로 집필·수정한 뒤 영향받는 장면 전체를 읽어 인과성, 개연성, 연속성, 독자 이해, 문체와 형식을 확인합니다. 인용이나 깨끗한 카탈로그만으로 문장이 검증되지는 않습니다.
-6. 중요한 수정과 재사용 가능한 발견은 허용된 프로젝트 범위에서 지식 스킬로 기록합니다. 작가 취향과 작품 사실은 기준 원본에 두고 출처 변경 시 영향받는 요약을 갱신합니다.
+아래는 과거 사용 근거로 남긴 작업 방식이며 외부 프로젝트를 찾거나 설정·연결하라는 현재 지시가 아닙니다. 새 작업은 활성 스킬과 실제 작업 프로젝트의 지침을 따릅니다.
 
-문 방어 장면은 공간 이동, 신체 동작과 장면 연출부터 시작합니다. 장비·역사·능력 설계가 구체적 의존성을 만들 때만 다른 항목을 읽습니다. 돌파는 성취어, 돌파 사례와 해당 무학 설정을 사용합니다. 예시 문장을 복제하지 않고 원리를 적용합니다.
+1. scout는 작품·장·장면, 원하는 변화, 유지 조건, 작업 방식·규모와 점검을 파악했습니다. 새 초고는 create, 허용된 수정은 revise를 사용하고 소설 방법을 그 안에 적용했습니다.
+2. 당시 명시적으로 설정된 OneStep 소설 카탈로그와 현재 프로젝트 안내 색인을 관련 영문 개념·한국어 별칭으로 검색했습니다. 처음에는 최대 세 상세 항목을 선택하고 매 장면마다 조사 전체를 읽지 않았습니다.
+3. 출처 위치, 유용한 지침, 적용·예외 조건, 설정·문체 제약, 점검과 근거 공백을 반환했습니다. 작품의 원래 설정·장면 상태·인물 정보·공개 계획·문체 기준은 별도로 확인했습니다.
+4. 집필 전에 필요한 경로·자세, 초점 인물의 지식, 감정을 담는 세부와 대가·여파를 결정하고 실제 의존성을 해결했습니다.
+5. 한국어 집필·수정 후 장면 전체의 인과성·개연성·연속성·독자 이해·문체·형식을 확인했습니다. 인용이나 카탈로그만으로 문장을 검증하지 않았습니다.
+6. 중요한 수정과 재사용 지식은 허용된 범위에서 기록하고 작가 취향·작품 사실은 원래 기준에 두며 출처 변경 시 요약을 갱신했습니다.
+
+문 방어 장면은 공간 이동·신체 동작·장면 연출에서 시작하고, 장비·역사·능력이 구체적 의존성을 만들 때만 범위를 넓히는 방식이었습니다. 돌파에는 성취어·돌파 사례·해당 작품 무학을 사용했고 예시 문구보다 원리를 적용했습니다.
 
 ## 적용 조건과 예외
 
-사용자가 요청한 Novel_0 설정이며 무관한 프로젝트의 전역 의무가 아닙니다. OneStep 방법은 설정된 저장소에서 찾고 원래 조사는 등록된 `novel0` 프로젝트 루트를 통해 해석합니다. 원래 조사가 인용과 검증 한계의 기준입니다. 이 저장소는 제한된 검색용 종합을 두며 별도 설정집이나 보고서 복제본을 만들지 않습니다. 조사 제안, 1차 근거, 2차 자료 단서와 허구적 추가를 구분합니다. 후속 무공 완성상 조사는 이전 초월 질문을 보완하지만 이전 보고서를 지우지 않습니다.
+이전 Novel_0 연결은 철회되었습니다. 이 항목은 공유 저장소 설정, 설치 위치, 출처 루트나 현재 기기에서 원래 프로젝트를 찾을 의무를 만들지 않습니다. 출처 ID는 과거 식별 정보만 보존하며 현재 출처 설정은 실제 작업 프로젝트가 소유합니다.
 
-원고 집필 작업 전에 `SRC-NOVEL0-STYLE`을 해석하여 원래 문체 가이드를 다시 읽습니다. 항목·카탈로그의 번역본을 포함하여 `*.kr.md`는 읽지 않습니다. 현재 원본 해시를 사용하고 변경 시 갱신합니다. 출처 ID는 기기별 루트로 해석되며 등록만으로 접근과 동일성이 검증되지는 않습니다. 이번 전송에서 외부 URL을 재검증하지 않았습니다.
+허용된 범위에서 원래 조사가 별도로 제공되면 인용·검증 한계의 기준으로 삼습니다. 조사 제안, 1차 근거, 2차 단서와 허구 추가는 구분합니다. 후속 무공 완성상은 이전 초월 질문을 보완하지만 이력을 지우지 않습니다. 사용자 번역본을 읽지 않습니다. 연결 제거는 외부 URL이나 원문 재검증이 아닙니다.
 
 ## 점검
 
-- 대상 작품을 확인하고 기준 원본을 읽습니다. 다른 작품의 능력·정보 공개·작가 취향을 현재 작품 사실로 취급하지 않습니다.
-- 실제 장면 질문으로 검색하고 사용한 항목마다 적용 가능한 점검이나 집필 결정을 연결합니다. 근거를 지어내지 않고 공백을 명시합니다.
-- 중요한 행동 사이에서 이동, 손·소품, 부상, 지식과 남은 자원을 추적합니다.
-- 결과 장면을 목적, 문체 기준과 공개 정보에 대조합니다. 효과적인 직접 감정과 의도적 불확실성을 보존합니다.
-- 원본 수정 후 저장된 요약에 의존하기 전에 항목별 조사 원본 해시를 대조합니다. 필요한 항목·번역본·카탈로그를 갱신합니다.
-- AI 검증과 명시적 작가 수락을 구분합니다. 현재 가져오기·검색 점검은 미래 집필이나 독자 테스트 성공을 주장하지 않습니다.
+- 대상 작품과 기준 원본을 확인하며 다른 작품의 능력·정보 공개·작가 취향을 현재 작품 사실로 취급하지 않습니다.
+- 실제 장면 질문으로 검색하고 사용한 항목마다 점검·집필 결정을 연결합니다. 공백은 지어내지 않고 명시합니다.
+- 중요한 동작 사이 이동, 손·소품, 부상, 지식과 남은 자원을 추적합니다.
+- 장면을 목적·문체·공개 정보에 대조하고 효과적인 직접 감정과 의도적 불확실성을 보존합니다.
+- 원본 수정 후 저장 요약에 의존하려면 원래 해시와 대조하고 필요한 항목·번역본·카탈로그를 갱신합니다.
+- AI 확인과 명시적 작가 수락을 구분합니다. 가져오기·검색 확인은 미래 집필이나 독자 테스트 성공을 입증하지 않습니다.
 
 ## 근거
 
-- 사용자는 2026-11-05 기존 조사 전송과 이후 지식 기반 집필을 요청했습니다.
-- [조사 안내 원본](../sources.md#src-novel0-research-index), [프로젝트 지침](../sources.md#src-novel0-project-instructions), [작가 문체 원본](../sources.md#src-novel0-style).
-- OneStep 방법: [Scout](../../skills/vegabond-scout/SKILL.md), [Create](../../skills/vegabond-create/SKILL.md), [Revise](../../skills/vegabond-revise/SKILL.md), [Fiction](../../skills/vegabond-fiction/SKILL.md), [Knowledge](../../skills/vegabond-knowledge/SKILL.md). 이 경로는 대상 OneStep 저장소 안에서 적용됩니다.
-- 범위: 조사 보고서 16개와 기존 조사 안내 README. 다음 항목에 원본 경로, 출처 날짜, SHA-256, 절 위치와 검증 한계를 유지합니다.
+- 사용자는 2026-11-05 기존 조사 전송과 지식 기반 집필을 요청했습니다.
+- [과거 조사 안내](../sources.md#src-novel0-research-index), [과거 프로젝트 지침](../sources.md#src-novel0-project-instructions), [과거 문체 원본](../sources.md#src-novel0-style).
+- OneStep 방법: [Scout](../../skills/vegabond-scout/SKILL.md), [Create](../../skills/vegabond-create/SKILL.md), [Revise](../../skills/vegabond-revise/SKILL.md), [Fiction](../../skills/vegabond-fiction/SKILL.md), [Knowledge](../../skills/vegabond-knowledge/SKILL.md).
+- 범위는 조사 보고서 16개와 기존 안내 색인입니다. 아래 항목에 과거 출처 ID·날짜·해시·절 위치·검증 한계를 보존하며 원래 프로젝트 위치는 보관하지 않습니다.
 
-- [전투 참고 자료 선택](K-FIC-REF-COMBAT-MANUALS.md)
-- [신체 동작의 지지와 종료 상태](K-FIC-REF-BODY-MOTION.md)
-- [이동과 공간 전환의 명료성](K-FIC-REF-SPATIAL-BLOCKING.md)
-- [장면 목적과 주의 배분에 따른 연출](K-FIC-REF-SCENE-STAGING.md)
-- [문파 철학의 비교](K-FIC-REF-SECT-COMPARISON.md)
-- [기와 강의 효과·운용](K-FIC-REF-QI-GANG.md)
-- [경지 성취어 구분](K-FIC-REF-ATTAINMENT-LANGUAGE.md)
-- [무공의 질·숙련·등급·승리 구분](K-FIC-REF-MARTIAL-TAXONOMY.md)
-- [무공 초월의 목적](K-FIC-REF-TRANSCENDENCE.md)
-- [내공심법의 범위](K-FIC-REF-INNER-METHOD.md)
-- [근거 등급별 돌파 사례](K-FIC-REF-BREAKTHROUGH-CASES.md)
-- [역사·관습·허구의 구분](K-FIC-REF-WUXIA-FRAMEWORK.md)
-- [무공의 완성상 비교](K-FIC-REF-MARTIAL-ENDS.md)
-- [작품별 종남 전승](K-FIC-REF-ZHONGNAN-FICTION.md)
-- [종남 지리·종교·허구 구분](K-FIC-REF-ZHONGNAN-GEOGRAPHY.md)
-- [병기 부위 명칭](K-FIC-REF-WEAPON-PARTS.md)
+- [K-FIC-REF-COMBAT-MANUALS](K-FIC-REF-COMBAT-MANUALS.md)
+- [K-FIC-REF-BODY-MOTION](K-FIC-REF-BODY-MOTION.md)
+- [K-FIC-REF-SPATIAL-BLOCKING](K-FIC-REF-SPATIAL-BLOCKING.md)
+- [K-FIC-REF-SCENE-STAGING](K-FIC-REF-SCENE-STAGING.md)
+- [K-FIC-REF-SECT-COMPARISON](K-FIC-REF-SECT-COMPARISON.md)
+- [K-FIC-REF-QI-GANG](K-FIC-REF-QI-GANG.md)
+- [K-FIC-REF-ATTAINMENT-LANGUAGE](K-FIC-REF-ATTAINMENT-LANGUAGE.md)
+- [K-FIC-REF-MARTIAL-TAXONOMY](K-FIC-REF-MARTIAL-TAXONOMY.md)
+- [K-FIC-REF-TRANSCENDENCE](K-FIC-REF-TRANSCENDENCE.md)
+- [K-FIC-REF-INNER-METHOD](K-FIC-REF-INNER-METHOD.md)
+- [K-FIC-REF-BREAKTHROUGH-CASES](K-FIC-REF-BREAKTHROUGH-CASES.md)
+- [K-FIC-REF-WUXIA-FRAMEWORK](K-FIC-REF-WUXIA-FRAMEWORK.md)
+- [K-FIC-REF-MARTIAL-ENDS](K-FIC-REF-MARTIAL-ENDS.md)
+- [K-FIC-REF-ZHONGNAN-FICTION](K-FIC-REF-ZHONGNAN-FICTION.md)
+- [K-FIC-REF-ZHONGNAN-GEOGRAPHY](K-FIC-REF-ZHONGNAN-GEOGRAPHY.md)
+- [K-FIC-REF-WEAPON-PARTS](K-FIC-REF-WEAPON-PARTS.md)

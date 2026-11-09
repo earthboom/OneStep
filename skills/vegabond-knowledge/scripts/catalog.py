@@ -185,9 +185,13 @@ class Catalogs:
                 if self.source_registry is None:
                     self.source_registry = SourceRegistry(self.project)
                     self.translation(self.source_registry.path)
-                ident, _ = self.source_registry.require(unquote(href.split("#", 1)[1]))
-                self.issue("source_unverified", source,
-                           f"{ident}: registration checked; resolve separately to check source access and identity.", "warning")
+                ident, item = self.source_registry.require(unquote(href.split("#", 1)[1]))
+                if item["project"] is None:
+                    self.issue("source_unbound", source,
+                               f"{ident}: historical provenance only; no active project/location binding or current source verification.", "warning")
+                else:
+                    self.issue("source_unverified", source,
+                               f"{ident}: registration checked; resolve separately to check source access and identity.", "warning")
             except SourceError as exc:
                 self.issue("source_reference", source, str(exc))
         return target

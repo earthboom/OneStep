@@ -18,6 +18,8 @@ Scout owns classification, scale, the work brief, capability mapping, and overal
 
 ## Knowledge and problem records
 
+OneStep's shared guidance and stores must not contain another project's physical locations or active source connections. Keep that setup in the actual working project. Historical source identities, fingerprints, scoped knowledge and incident evidence may be retained here without location bindings; their presence does not authorize searching for or connecting the original project.
+
 Use [vegabond-knowledge](../skills/vegabond-knowledge/SKILL.md) for a focused information request once the task profile is known. Reuse the returned sources, applicability conditions, checks, and gaps in the work brief and execution. Operations and specialists can refine that request when new needs arise; reuse the existing information brief instead of repeating the same lookup. The specialist applies the knowledge and verifies the deliverable. Supply findings, corrections, and reusable lessons back to this skill for authorized storage and maintenance. It owns the common storage and retrieval procedure across domains.
 
 ## Completion evidence for any deliverable

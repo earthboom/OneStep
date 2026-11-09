@@ -8,12 +8,19 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import yaml
 
 SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "sources.py"
 CATALOG = SCRIPT.with_name("catalog.py")
 
 
 class SourceTests(unittest.TestCase):
+    def test_onestep_registry_contains_provenance_without_external_bindings(self):
+        registry = SCRIPT.parents[3] / "knowledge/sources.md"
+        data = yaml.safe_load(registry.read_text(encoding="utf-8-sig").split("---", 2)[1])
+        self.assertTrue(all(item["project"] is None and item["path"] is None for item in data["sources"].values()),
+                        "OneStep must not contain another project's locations or active source bindings.")
+
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory(prefix="onestep-sources-", dir=os.environ.get("ONESTEP_TEST_ROOT"))
         self.addCleanup(self.tmp.cleanup)
@@ -80,6 +87,30 @@ class SourceTests(unittest.TestCase):
         self.assertEqual([x["source_id"] for x in result["results"]], ids)
         self.assertEqual([x["status"] for x in result["results"]], ["matched", "invalid", "unversioned"])
         self.assertEqual(result["completed"], 3)
+
+    def test_batch_preserves_unbound_history_alongside_current_source_checks(self):
+        self.sources["SRC-HISTORY"] = {"project": None, "path": None, "sha256": self.digest}
+        self.registry()
+        root = self.base / "authorized originals"
+        self.put(root / "research/근거.md", self.content)
+        self.put(root / "before.md", "Current unversioned text")
+        settings = self.put(self.project / "knowledge/sources.local.json", "must not be read")
+        registry = (self.project / "knowledge/sources.md").read_bytes()
+        ids = ["SRC-RESEARCH", "SRC-HISTORY", "SRC-BEFORE"]
+        code, result = self.batch(ids, "--root", f"sample={root}")
+        self.assertEqual(code, 1, result)
+        self.assertEqual([r["source_id"] for r in result["results"]], ids)
+        self.assertEqual([r["status"] for r in result["results"]], ["matched", "unbound", "unversioned"])
+        self.assertEqual([r["access_status"] for r in result["results"]], ["available", "unbound", "available"])
+        self.assertEqual([r["identity_status"] for r in result["results"]], ["matched", "not_checked", "unversioned"])
+        history = result["results"][1]
+        self.assertEqual(history["expected_sha256"], self.digest)
+        self.assertNotIn("observed_sha256", history)
+        self.assertNotIn("root_source", history)
+        self.assertEqual(result["completed"], 3)
+        self.assertFalse(result["ok"])
+        self.assertEqual(settings.read_text(encoding="utf-8"), "must not be read")
+        self.assertEqual((self.project / "knowledge/sources.md").read_bytes(), registry)
 
     def test_single_id_keeps_shape_and_explicit_root_overrides_unused_settings(self):
         root = self.base / "authorized originals"
@@ -148,6 +179,27 @@ class SourceTests(unittest.TestCase):
     def test_unknown_source_is_invalid_even_without_a_local_config(self):
         code, result = self.cli("SRC-NO-SUCH-SOURCE")
         self.assertEqual((code, result["status"]), (2, "invalid"))
+
+    def test_provenance_only_source_never_reads_machine_settings(self):
+        self.sources["SRC-RESEARCH"]["project"] = None
+        self.sources["SRC-RESEARCH"]["path"] = None
+        self.registry()
+        self.put(self.project / "knowledge/sources.local.json", "must not be loaded")
+        code, result = self.cli()
+        self.assertEqual((code, result["status"], result["ok"]), (1, "unbound", False))
+        self.assertEqual(result["expected_sha256"], self.digest)
+        self.assertNotIn("observed_sha256", result)
+        self.assertEqual(result["access_status"], "unbound")
+        self.assertEqual(result["identity_status"], "not_checked")
+
+    def test_partial_binding_is_invalid(self):
+        for missing in ("project", "path"):
+            with self.subTest(missing=missing):
+                original = dict(self.sources["SRC-RESEARCH"])
+                self.sources["SRC-RESEARCH"][missing] = None
+                self.registry()
+                self.assertEqual(self.cli()[0], 2)
+                self.sources["SRC-RESEARCH"] = original
 
     def test_invalid_local_config_is_not_treated_as_absence(self):
         for text in ("not json", '{"sample": "relative/path"}', '{"sample": "a", "sample": "b"}'):

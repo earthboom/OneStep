@@ -1,10 +1,10 @@
 ---
 id: K-FIC-NOVEL0-RESEARCH-USE
-title: Retrieve Novel_0 research for scene-specific writing decisions
-summary: For Novel_0 writing, query the configured OneStep fiction catalog for the scene question, return evidence
-  and conditions, then apply only compatible guidance under the current canon and author voice.
+title: Historical Novel_0 research-use configuration
+summary: Historical record of scene-specific knowledge retrieval; its former external-project
+  connection is withdrawn and establishes no active setup.
 kind: convention
-scope: Novel_0 repository; explicitly configured use of the OneStep fiction knowledge store
+scope: Historical Novel_0 workflow; provenance only, no active external-project configuration
 keywords:
 - Novel_0
 - writing-strategy
@@ -13,17 +13,22 @@ keywords:
 - 집필
 - 지식조회
 - AI전략
-status: active
+status: superseded
 checked_at: '2026-11-05'
 context:
   source_project: Novel_0
   workflow: OneStep scout + create/revise + fiction + knowledge
-  acceptance: Requested configuration; AI checks do not imply author acceptance of future prose
+  acceptance: Requested configuration; AI checks do not imply author acceptance of
+    future prose
+  binding: Removed by user correction; source identities and evidence history retained
+    without locations
 ---
 
-# Retrieve Novel_0 research for scene-specific writing decisions
+# Historical Novel_0 research-use configuration
 
 ## Guidance
+
+Historical workflow only: the former setup below is retained as evidence of prior use, not as current instructions to locate, configure or connect an external project. Use the active skills and the working project's own instructions for new work.
 
 1. Scout identifies the target work, chapter/scene, intended change, preservation conditions, operation, scale, and checks. For a new draft use create; for an authorized edit use revise, with fiction methods inside that operation.
 2. Knowledge queries the current project's routing index and this explicitly configured shared OneStep fiction catalog. Search relevant English concepts and Korean aliases, selecting up to three matching details initially. Do not load the entire research library for every scene.
@@ -36,9 +41,9 @@ For a gate-defense scene, start with blocking, body motion, and scene staging; r
 
 ## Applicability and exceptions
 
-This is the user's requested Novel_0 configuration, not a global requirement for unrelated projects. Resolve OneStep methods from the configured store and the original research through the registered `novel0` project root. Original research remains authoritative for its citations and verification limits. The library stores bounded retrieval syntheses rather than competing canon or duplicated reports. Research suggestions, primary evidence, secondary leads, and fictional additions remain distinct. The later martial-ends research corrects the earlier transcendence question; it does not erase that earlier report.
+The former Novel_0 connection is withdrawn. This entry does not establish a shared-store configuration, installation location, source root, or obligation to locate the original project on this machine. Its source IDs retain historical identity only. The actual working project owns any current source setup.
 
-Resolve `SRC-NOVEL0-STYLE` and reread the original style guide before each manuscript-writing task. Do not read any `*.kr.md`, including translations of these entries and catalogs. Use current source hashes and refresh on changes; source IDs resolve through machine-local roots; registration alone does not verify source access or identity. External URLs were not revalidated in this transfer.
+Original research remains authoritative for its citations and verification limits if independently supplied within authorized scope. Research suggestions, primary evidence, secondary leads and fictional additions remain distinct. The later martial-ends research corrects the earlier transcendence question without erasing its history. Do not read human-only translations. No external URL or original content is revalidated by removing the binding.
 
 ## Checks
 
@@ -54,7 +59,7 @@ Resolve `SRC-NOVEL0-STYLE` and reread the original style guide before each manus
 - The user requested transfer of existing research and future knowledge-driven writing on 2026-11-05.
 - [Research routing source](../sources.md#src-novel0-research-index), [project instructions](../sources.md#src-novel0-project-instructions), [author style source](../sources.md#src-novel0-style).
 - OneStep methods: [Scout](../../skills/vegabond-scout/SKILL.md), [Create](../../skills/vegabond-create/SKILL.md), [Revise](../../skills/vegabond-revise/SKILL.md), [Fiction](../../skills/vegabond-fiction/SKILL.md), [Knowledge](../../skills/vegabond-knowledge/SKILL.md). These paths apply in the destination OneStep store.
-- Coverage: 16 research reports plus the existing research routing README. The following entries retain original paths, source dates, SHA-256 fingerprints, section locators, and limits of verification.
+- Coverage: 16 research reports plus the existing research routing README. The following entries retain historical source IDs, dates, SHA-256 fingerprints, section locators and verification limits; no original project locations are retained here.
 
 - [K-FIC-REF-COMBAT-MANUALS: Choose combat references by situation](K-FIC-REF-COMBAT-MANUALS.md)
 - [K-FIC-REF-BODY-MOTION: Track support and end state in physical action](K-FIC-REF-BODY-MOTION.md)

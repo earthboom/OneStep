@@ -1,4 +1,4 @@
-"""Resolve registered sources using persistent or explicitly supplied temporary roots."""
+"""Resolve authorized source bindings or describe location-free source provenance."""
 
 import argparse
 import hashlib
@@ -77,13 +77,15 @@ class SourceRegistry:
                 folded.add(ident.casefold())
                 if not isinstance(item, dict) or set(item) != {"project", "path", "sha256"}:
                     raise SourceError(f"{ident}: expected project, path and sha256.")
-                if not isinstance(item["project"], str) or not re.fullmatch(r"[a-z][a-z0-9-]*", item["project"]):
-                    raise SourceError(f"{ident}: invalid project ID.")
                 relative = item["path"]
-                if (not isinstance(relative, str) or not relative or "\\" in relative or ":" in relative
-                        or PurePosixPath(relative).is_absolute() or any(p in ("", ".", "..") for p in relative.split("/"))
-                        or relative.lower().endswith(".kr.md")):
-                    raise SourceError(f"{ident}: use a relative canonical path without traversal.")
+                unbound = item["project"] is None and relative is None
+                if not unbound:
+                    if not isinstance(item["project"], str) or not re.fullmatch(r"[a-z][a-z0-9-]*", item["project"]):
+                        raise SourceError(f"{ident}: invalid project ID; an unbound source requires both project and path null.")
+                    if (not isinstance(relative, str) or not relative or "\\" in relative or ":" in relative
+                            or PurePosixPath(relative).is_absolute() or any(p in ("", ".", "..") for p in relative.split("/"))
+                            or relative.lower().endswith(".kr.md")):
+                        raise SourceError(f"{ident}: use a relative canonical path without traversal.")
                 digest = item["sha256"]
                 if digest is not None and (not isinstance(digest, str) or not re.fullmatch(r"[a-f0-9]{64}", digest)):
                     raise SourceError(f"{ident}: sha256 must be a lowercase digest or null.")
@@ -106,13 +108,16 @@ class SourceRegistry:
 
     def describe(self, ident):
         key, item = self.require(ident)
+        status = "unbound" if item["project"] is None else "not_checked"
         return {"ok": False, "source_id": key, "project": item["project"], "relative_path": item["path"],
-                "expected_sha256": item["sha256"], "status": "not_checked",
-                "access_status": "not_checked", "identity_status": "not_checked"}
+                "expected_sha256": item["sha256"], "status": status,
+                "access_status": status, "identity_status": "not_checked"}
 
     def resolve(self, ident, roots=None):
         result = self.describe(ident)
         item = self.sources[result["source_id"]]
+        if item["project"] is None:
+            return result
         overrides = validate_roots(roots or {})
         try:
             if item["project"] in overrides:
