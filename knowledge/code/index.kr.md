@@ -34,3 +34,13 @@
 ## 전체 입력 소유형 비동기 저장
 
 [실제 검증](../../prototypes/UnrealTechniqueLab/ASYNC-SAVE-RESULTS.kr.md)은 동기/비동기3쌍, 원래 기록·경로·이동/서비스, 큐/오류/종료/전체 프레임·메모리와 실제 영상을 확인한다. 제출 정지는 줄고 총 완료는 늘었다. 종료 대기와 전체 입력 독립 소유가 필요하며 진행 중 자동 저장·복구/강제 종료·전체 메모리 상한을 보장하지 않는다. 지식6/검색115/적용6 조건을 참고한다.
+
+## 추가 지식
+
+아래 세 항목은 영문 기준 색인에 추가된 지식의 한국어 번역입니다.
+
+| ID / 제목 / 종류 | 요약 | 적용 범위 / 맥락 | 검색어 | 상태 / 확인일 | 상세 |
+| --- | --- | --- | --- | --- | --- |
+| K-CODE-UE-ASSET-EXPORT-LAYOUT / 엔진 밖에서 언리얼 패키지를 읽을 때 익스포트의 태그 프로퍼티가 시작되는 위치 [참조] | 버전이 있는 UE5 패키지의 오브젝트 버전이 1010 이상이면 익스포트의 스크립트 직렬화 시작점으로 이동합니다. 시작·끝 오프셋이 모두 0이면 태그 프로퍼티가 없습니다. 이전 버전이나 비버전 패키지는 태그 앞의 임포트 JSON 등 클래스별 규칙이 필요합니다. | 엔진 없이 비쿠킹 UE5 패키지(.uasset, .umap)를 읽는 독립 도구. UE 5.8 기본 직렬화, 버전 프로퍼티, 오브젝트 버전 1004~1018. | Unreal Engine, uasset, package format, export, tagged properties, ScriptSerializationStartOffset, ScriptSerializationEndOffset, SCRIPT_SERIALIZATION_OFFSET, UAssetImportData, URigVMLink, UInterchangeBaseNode, SerializeDefaultObject, class default object, CDO, sparse class data, 언리얼 에셋, 패키지 형식, 직렬화 | 활성 / 2026-11-10 | [K-CODE-UE-ASSET-EXPORT-LAYOUT](K-CODE-UE-ASSET-EXPORT-LAYOUT.kr.md) |
+| K-CODE-UE-NATIVE-STRUCT-DECODING / 네이티브 직렬화를 사용하거나 사용하지 않을 수 있는 언리얼 구조체 프로퍼티 해석 [수행 방법] | 네이티브 직렬화기가 있어도 Serialize가 false를 반환하면 태그 프로퍼티로 저장됩니다. 알려진 네이티브 형식은 Serialize 소스의 커스텀 버전 분기로 해석하고, 모르는 형식은 태그 스트림으로 시도하되 값 크기를 정확히 소비할 때만 수용합니다. | 엔진 없이 StructProperty와 1012 이전 Set·Map 구조체 원소를 해석하는 독립 비쿠킹 UE5 패키지 리더. UE 5.8 기본 직렬화, 버전 프로퍼티, 오브젝트 버전 1004~1018. | Unreal Engine, uasset, StructProperty, native serialization, STRUCT_SerializeNative, Serialize returns false, tagged fallback, exact size, custom version, MovieSceneFloatChannel, MovieSceneDoubleChannel, SmartName, PerQualityLevelInt, UniversalObjectLocatorFragment, FontData, FrameRate, FTimeline, Set, Map, 구조체 직렬화, 언리얼 에셋 | 활성 / 2026-11-10 | [K-CODE-UE-NATIVE-STRUCT-DECODING](K-CODE-UE-NATIVE-STRUCT-DECODING.kr.md) |
+| K-CODE-WPF-LARGE-TREE / 수천 행의 WPF 프로퍼티 트리를 빠르게 유지하는 방법 [교훈] | 자식 행은 처음 읽을 때 만들고, 행이 펼쳐진 동안만 자식 컬렉션을 연결하며, 섹션 헤더와 최상위 행을 하나의 평평한 가상화 목록으로 표시합니다. ScrollViewer 안에서 각 Expander가 일반 ItemsControl을 가지면 모든 행을 생성합니다. | ItemsControl 템플릿으로 대형 계층 데이터(프로퍼티 그리드, Details 패널, 트리형 목록)를 표시하는 WPF 화면. .NET 10 WPF, Windows 데스크톱. | WPF, virtualization, UI virtualization, VirtualizingStackPanel, CanContentScroll, ScrollUnit, VirtualizationMode, ItemsControl, Expander, ScrollViewer, lazy loading, property tree, tree view performance, 가상화, 지연 로딩 | 활성 / 2026-11-10 | [K-CODE-WPF-LARGE-TREE](K-CODE-WPF-LARGE-TREE.kr.md) |
