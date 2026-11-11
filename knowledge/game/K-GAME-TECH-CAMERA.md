@@ -1,15 +1,33 @@
 ---
 id: K-GAME-TECH-CAMERA
-title: "Combine dead zones, prediction and time-consistent damping"
-summary: "Choose a framing target before smoothing: player, look-ahead point, room anchor or multiple subjects. The formula is derived engineering synthesis; moving targets and collision still need explicit handling."
+title: Combine dead zones, prediction and time-consistent damping
+summary: 'Choose a framing target before smoothing: player, look-ahead point, room
+  anchor or multiple subjects. The formula is derived engineering synthesis; moving
+  targets and collision still need explicit handling.'
 kind: reference
-scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["camera","deadzone","lookahead","damping","spring","카메라","데드존","룩어헤드","카메라흔들림"]
+scope: Game development; engine-independent mechanisms with version-dependent engine
+  examples
+keywords:
+- camera
+- deadzone
+- lookahead
+- damping
+- spring
+- 카메라
+- 데드존
+- 룩어헤드
+- 카메라흔들림
+- Unreal
+- UE5.8.3
+- 언리얼
+- PIE
+- UnrealEditor
 status: active
-checked_at: '2026-11-07'
+checked_at: '2026-11-09'
 context:
-  evidence_check: "External source text checked; source-specific limits appear in Evidence"
-  application_status: "Stationary-target damping validated in Unity 6000.0.77f1 Windows Mono prototype; framing, moving-target behavior and collision remain untested"
+  evidence_check: External source text checked; source-specific limits appear in Evidence
+  application_status: Scoped Unity and UE5.8.3 Game/actual PIE/full-cook representative
+    evidence; original movement, collision, network and graph-model limits remain
 ---
 # Combine dead zones, prediction and time-consistent damping
 
@@ -24,6 +42,14 @@ Implementation selection and checks are engineering synthesis, not a promise of 
 [Technique Lab](../../prototypes/TechniqueLab/RESULTS.md) implemented the damping kernel and a rendered moving-target illustration. Final PlayMode and three Windows Mono player runs passed the synthetic stationary 30/60/144-step, hitch and zero-dt checks. Actual Update sequences integrated exactly two seconds (rate 4, start 0, target 10); maximum player error against `10*(1-exp(-8))` was 0.000001907, below the declared 0.0001 tolerance. Actual achieved rates were recorded rather than inferred from caps.
 
 In CPU batches of 100,000 scalar followers, per-item exponentials had per-process median costs of 2.429–2.813 ms; sharing alpha for identical rate/dt took 1.711–1.755 ms. This is repeated scalar math/checksum throughput on one host, not whole-frame or camera-system cost. Share alpha only for genuinely identical inputs; preserve separate values otherwise. Do not extrapolate this result to a single camera, GPU work or another backend.
+
+### Unreal native follow-up — 2026-11-09
+
+[Native results](../../prototypes/UnrealTechniqueLab/STAGE2-RESULTS.md) independently pass actual Tick response at requested30/60/144fps, clipping the last interval to exactly2 seconds; achieved update counts and errors are retained rather than inferred from the cap. A real UCameraComponent follows step-changing target positions, with fixed-alpha comparison tracks. This extends the stationary response evidence to UE5.8.3 Development/D3D11; moving-target invariance, camera collision, comfort and PIE remain unverified. Capture video is separate from native whole-frame observations. Unity throughput numbers do not transfer.
+
+### Editor/runtime gate follow-up — 2026-11-09
+
+[Actual PIE and full-package results](../../prototypes/UnrealTechniqueLab/EDITOR-GATE-RESULTS.md) now close the earlier manual-PIE/reused-cook gap. Camera, hitscan and path each run in WorldType3 through the official Editor automation API, pass73 checks and have native viewport videos. Final full cook and standalone consumers also pass. This does not validate camera collision, animated/network hits, NavMesh or crowd avoidance. Renderer/RHI/D3D11 presentation waits dominate the investigated tail; do not infer a path-kernel problem or adopt diagnostic occlusion/RHI toggles as production defaults. Trace and capture overhead are separate from no-capture frame observations.
 
 ## Applicability and exceptions
 

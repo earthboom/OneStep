@@ -33,3 +33,11 @@ CPU 스칼라 추종 100,000개 배치에서 개체별 지수 계산 중앙값�
 
 - 출발 영상 V23, V48: [대응표](K-GAME-TECH-GUIDE.kr.md). 발견 단서이며 독립 증거가 아니다.
 - [로컬 결과·재현](../../prototypes/TechniqueLab/RESULTS.kr.md), [독립 검사](../../prototypes/TechniqueLab/Assets/TechniqueLab/LabChecks.cs), [실행 원본](../../prototypes/TechniqueLab/Results/player-run-1.json). 알고리즘 코드·실패 후 통과·원본 표본은 결과 보고서에 연결했다. 실행 범위는 그 Unity/Windows/Mono 조건이다.
+
+## 언리얼 네이티브 후속 검증 — 2026-11-09
+
+실제 UCameraComponent 추종과 정확히2초인 Tick 응답을 UE5.8.3 Development에서 확인했다. 요청30/60/144에서 실제60/120/273회 갱신과 약1.78e-15 오차를 기록했다. 이동 대상 불변성·카메라 충돌·편안함·PIE는 미검증이다. [실제 결과·영상·성능 범위](../../prototypes/UnrealTechniqueLab/STAGE2-RESULTS.kr.md). 캡처는 성능 측정과 별도이며 초기 최대 약68ms 지연 원인은 아직 미확정이다. 기존 Unity 수치를 Unreal 성능 근거로 전이하지 않는다.
+
+## 에디터·전체 패키지 후속 검증 — 2026-11-09
+
+공식 에디터 자동화 API로 카메라·사격·경로장 각각의 실제 PIE(WorldType3)·73개 검사·네이티브 영상을 확인했다. 최종 전체 쿠킹과 독립 실행도 통과해 이전의 PIE/쿠킹 공백을 보완했다. 원래의 카메라 충돌·이동 대상·네트워크·NavMesh/군중 한계는 유지한다. 꼬리 지연은 이번 장면에서 렌더/RHI/D3D11 화면 제출 대기가 지배했으며, 진단용 오클루전·RHI 스위치를 제품 기본값으로 권장하지 않는다. [실제 근거·영상·적용 조건](../../prototypes/UnrealTechniqueLab/EDITOR-GATE-RESULTS.kr.md).

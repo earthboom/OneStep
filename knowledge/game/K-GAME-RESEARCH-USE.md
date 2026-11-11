@@ -1,16 +1,85 @@
 ---
 id: K-GAME-RESEARCH-USE
 title: Retrieve applicable evidence throughout game development
-summary: For game planning, architecture, implementation, debugging and optimization, turn the concrete decision or symptom into a focused knowledge query. Check source versions and conditions, decide adoption, and carry a measurable application check into the existing brief.
+summary: For game planning, architecture, implementation, debugging and optimization,
+  turn the concrete decision or symptom into a focused knowledge query. Check source
+  versions and conditions, decide adoption, and carry a measurable application check
+  into the existing brief.
 kind: convention
-scope: OneStep game development and explicitly configured reuse of this store in another project; current project intent and authoritative design and code contracts prevail
-keywords: [game-development, game-design, implementation, debugging, optimization, genre, research-retrieval, GDD, prototype, playtest, 게임개발, 게임기획, 기술선택, 구현, 디버깅, 최적화, 지식조회, 복합장르]
+scope: OneStep game development and explicitly configured reuse of this store in another
+  project; current project intent and authoritative design and code contracts prevail
+keywords:
+- game-development
+- game-design
+- implementation
+- debugging
+- optimization
+- genre
+- research-retrieval
+- GDD
+- prototype
+- playtest
+- 게임개발
+- 게임기획
+- 기술선택
+- 구현
+- 디버깅
+- 최적화
+- 지식조회
+- 복합장르
+- admission
+- queue-cap
+- token-bucket
+- rejection
+- goodput
+- 거부율
+- 입장
+- 제공량
+- Unreal Insights
+- occlusion query
+- horizon pruning
+- same-binary
+- frame alignment
+- 프레임 지연
+- packed priority
+- heap sift
+- PriorityKey
+- plannerPeak
+- per-request equivalence
+- 계획 처리
+- owned snapshot
+- record DOM
+- saveTail
+- private commit
+- PagefileUsage
+- snapshot lifetime
+- 스냅샷 저장
+- owned async save
+- publicationToAck
+- pending exit drain
+- writer backpressure
+- full input lifetime
+- 비동기 저장
 status: active
-checked_at: '2026-11-08'
+checked_at: '2026-11-11'
 context:
-  authority: Explicit user requests to collect game design and implementation knowledge and retrieve suitable techniques during future game development
-  evidence_check: Retrieval convention and corpus structure; individual source checks are in each reference
-  application_status: "Workflow routing plus scoped Unity experiments for CAMERA/HITSCAN/PATH/CROWD; no production-game, player or commercial validation"
+  authority: Explicit user requests to collect game design and implementation knowledge
+    and retrieve suitable techniques during future game development
+  evidence_check: Retrieval convention and corpus structure; individual source checks
+    are in each reference
+  application_status: Workflow routing plus scoped Unity and UE5.8.3 representative/dynamic
+    experiments; no production-game, player or commercial validation
+  admission_evidence: UE5.8.3 paired six-policy overload comparison; accepted latency/all-offered
+    goodput/rejection and full frames; finite static graph scope
+  hitch_evidence: UE5.8.3 same-binary3paired admission profiles; named frame traces;
+    scene-local query suppression and cardinal reservation proof limits
+  planner_evidence: UE5.8.3 equivalent packed-priority heap; scoped bit-domain/path/order/native/profile
+    and3paired frame evidence
+  snapshot_evidence: UE5.8.3 owned records/direct JSON; exact byte/value/order/lifetime/native
+    safety,3paired transition/save/process-memory observations
+  async_save_evidence: UE5.8.3 detached full input; same-binary owned-sync/async3pairs,
+    exact records, queue/failure/pending-exit controls; finished-fixture rendering
+    only
 ---
 
 # Retrieve applicable evidence throughout game development
@@ -70,3 +139,39 @@ The [opposing mixed-radius experiment](../../prototypes/TechniqueLab/TRAFFIC-RES
 ### Sustained service decision trace — 2026-11-08
 
 The [unlaned stream experiment](../../prototypes/TechniqueLab/STREAM-RESULTS.md) adds per-ID release/admission/completion and unresolved-age evidence. Search PATH for time-expanded routes and CROWD for geometric conflict plus throughput/service decisions. Reject global throughput as a starvation check: latest-first admission left an old request pending while hundreds completed. Separate overload latency failure from permanent bypass. Conditional FIFO/full-route use requires controlled births, static geometry and exact planned movement; reproduce actual queue/latency and planning-bearing whole-frame costs in the target game.
+
+### Unreal dynamic reuse decision — 2026-11-09
+
+For actual UE dynamic doors/shared exits, retrieve PATH for topology/field invalidation and CROWD for physical radius/reservation/drain; use the [native result](../../prototypes/UnrealTechniqueLab/DYNAMIC-RESULTS.md) rather than Unity timing. Conditional adoption requires the explicit cardinal equal-radius ownership contract. Reject unchanged synchronous rebuilding for strict no-miss60Hz, because18 passing p95 windows still contain54 measured misses. Native opposing/heterogeneous/stream evidence is absent at this milestone, so research/port those gates before dependent adoption. Save the actual final source, native poses, per-frame population and complete timing arithmetic, not only search hits or summary flags.
+
+### Native opposing selection — 2026-11-09
+
+For opposing unequal bodies, retrieve PATH for radius/goal-compatible routes and CROWD for full-body leases, pair guards and progress; [native traffic evidence](../../prototypes/UnrealTechniqueLab/TRAFFIC-RESULTS.md) now supports conditional authored-lane use. Reject a shared field/pair guard alone when head-on progress matters: the pair-safe control deadlocks. Require actual E/W drain, reverse/late ordering and independent terminal/radius checks, then representative complete frames. Native unlaned continuous arrivals still need their own request/admission/latency/overload stage; neither this finite completion nor older Unity proof closes that gap. Preserve unresolved topology-update budget constraints.
+
+### Native static unlaned stream follow-up — 2026-11-09
+
+[StreamLab](../../prototypes/UnrealTechniqueLab/STREAM-RESULTS.md) completes the scoped native static unlaned/FIFO stage:25model checks, ten actual PIE+ten packaged expectations and3sequential performance players. Query PATH+CROWD for graph/radius fit, complete-route reservations, external FIFO admission and request-to-completion age; PERFORMANCE for complete-frame and planning-current/following tails. Seven ordinary scenarios meet240s, while overloaded choke61IDs miss and LIFO leaves ID0waiting despite later throughput. Choose capacity/admission/queue policy, not a field alone, when sustained progress matters. Finite traces and conditional service reasoning do not establish arbitrary/infinite-time fairness. Native evidence remains limited to the same four technique sheets;39 other techniques lack local engine verification. See current results for preserved dynamic-update and timing limitations; older stream-pending notes are historical.
+
+### Choosing overload policy from requirements — 2026-11-09
+
+For sustained arrivals, retrieve PATH for graph/radius/horizon fit, CROWD for FIFO admission/queue/drop semantics, and PERFORMANCE for equal offered demand and complete-frame costs. [Native six-policy evidence](../../prototypes/UnrealTechniqueLab/ADMISSION-RESULTS.md) now compares accepted response, all-offered240s goodput, rejection ratio and throughput. When losses are allowed, assess the explicit latency/loss tradeoff; when every request must be served, reject cap/drop as a complete solution and investigate capacity or age-preserving upstream backpressure. No hidden input suppression, dropped ID or spawn-clock reset may turn overload into success. Pending storage bound does not establish bounded total retained history. Local engine evidence stays within the same four technique sheets;39other techniques remain without local runtime verification.
+
+
+### Retrieve trace evidence with its scope — 2026-11-10
+
+[Same-binary Insights comparison](../../prototypes/UnrealTechniqueLab/HITCH-RESULTS.md) adds conditional frame attribution, scene-only query suppression and bounded cardinal reservation checks. Retrieve PERFORMANCE for exact frame/overlap/observer costs; PIE for actual profile/native binding; PATH for sole-cut proof; CROWD for unchanged offered-ID/service/rejection outcomes. Whole-frame p95 improves while planner/Present tails remain. Query-off is not a global3D default, CPU speed is not extra choke capacity, and finite observations do not prove infinite fairness. Four technique sheets retain bounded local evidence;39others remain unverified locally.
+
+
+### Planner-cost evidence routing — 2026-11-10
+
+Use PERFORMANCE for internal cost attribution/coarse trace/equal-demand3pairs, PATH for exact priority-key domains/ties, CROWD for original-ID path/order/service preservation, PIE for actual profile/launcher hash binding. The [actual UE5.8.3 equivalent-heap experiment](../../prototypes/UnrealTechniqueLab/PLANNER-RESULTS.md) targets repeated heap comparisons while retaining old reservation/cut/query settings. Detail clocks and capture are diagnostic; final frame tests omit them. Scene-only query suppression, static scheduled movement and finite evidence limits remain. Same four technique sheets have scoped runtime evidence;39others remain unverified locally.
+
+
+### Route snapshot allocation questions to full evidence — 2026-11-11
+
+Use PERFORMANCE for capture/transition/save/memory and final-frame observer costs; PIE for original byte/value/order/lifetime and actual serializer identity; PATH for complete owned paths; CROWD for unchanged source/service/safety. The [native owned-snapshot comparison](../../prototypes/UnrealTechniqueLab/SNAPSHOT-RESULTS.md) conditionally supports compact owned records/direct standard JSON for this finite diagnostic pipeline. No zero-copy/zero-allocation/async/universal memory or frame deadline claim. Large synchronous final save remains explicit. Same four technique sheets have limited local runtime evidence;39others remain unverified locally.
+
+
+### Select complete ownership and bounded background saving conditionally — 2026-11-11
+
+Use PERFORMANCE for GT publication versus total completion, drain frames, queue and process memory; PIE for every-input ownership, exact encoding/order, overflow/error and pending-exit controls; PATH for complete path lifetime; CROWD for unchanged original requests/service. The [native owned-sync/async verification](../../prototypes/UnrealTechniqueLab/ASYNC-SAVE-RESULTS.md) conditionally supports this finite finished-fixture pipeline. Repeated live autosave, crash recovery/fsync durability, forced termination, cancellation, universal deadlines and globally bounded history are unverified. Do not infer those from low publication time or queue bounds. Same four technique sheets retain limited local evidence;39others remain locally unverified.
