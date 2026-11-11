@@ -76,6 +76,10 @@ Link acceptance conditions to checks and current evidence. A required check that
 
 After required checks pass, report **AI verification complete; awaiting vagabond testing or review**. Report **accepted by vagabond** only after explicit confirmation. Distinguish defects from new requests and preference changes. If two corrections based on the same premise fail the same check, reassess the premise before another attempt.
 
+### Feedback from other projects
+
+Projects using OneStep can report strategy problems, useful behavior, and improvement suggestions through the [feedback guide](feedback/README.md) and [submission template](feedback/template.md). Submission needs a known OneStep checkout and authorized access; it is not automatic installation or synchronization. Feedback stays in a temporary inbox until assessed. After an improvement is applied, verified, and any required user review is complete, delete its feedback and translation while retaining only necessary evidence in existing tests, guidance, or change reports. Ordinary project defects stay in that project's records.
+
 ## Knowledge and problem records
 
 - [knowledge/](knowledge/index.md): references, conventions, methods, and confirmed reusable lessons.
@@ -108,6 +112,7 @@ agents/                  Shared agent instructions
 skills/                  Entry, operation, specialist, and knowledge skills
 knowledge/               Domain references and reusable knowledge
 records/                 Actual findings and correction evidence
+feedback/                Temporary strategy feedback, guide, and template
 docs/designs/            Storage design documents
 docs/diagrams/           Workflow overview images
 README.md                English project overview
