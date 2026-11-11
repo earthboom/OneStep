@@ -1,0 +1,415 @@
+{
+  "schema_version": 2,
+  "suite": "vegabond-refine-prompt-regression",
+  "rubric": "rubric.json",
+  "archives": [
+    {
+      "path": "history/pre-cleanup-results.json",
+      "sha256": "bd21196267a7ee9d6c3b36f2fcb57e721a3795dcf9263340d515663358d01e42",
+      "run_count": 9,
+      "skill_snapshot": {
+        "path": "history/pre-cleanup-skill.txt",
+        "sha256": "79d84fdcfc25061e4ad797cbf32c34ead1e33bb7b902555e08dda3e9d3ebcf38"
+      },
+      "evaluation_snapshot": {
+        "path": "history/pre-cleanup-evaluation.txt",
+        "sha256": "27471acd3933f684dcb0dee3fd45604759e2238ee62128dc7fd9b95e90c5cf7b"
+      },
+      "note": "Byte-identical pre-cleanup history, including the original RP-11 failure and corrected fixture result. Historical passes do not validate the compact candidate."
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "2026-11-11-cleanup-full-1",
+      "date_local": "2026-11-11",
+      "timezone": "Asia/Seoul",
+      "scope": "full_suite_fresh_after_instruction_cleanup",
+      "skill_sha256": "d5ef88d0b0840d7c3494758e42f936dde059e596c6d629fd1d38a0a8183b8a8e",
+      "policy_sha256": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935",
+      "evaluation_sha256": "548670216df0d0c04e2cd1bf92b741656d0e0825c9c38b3d90e37042ad57e1c2",
+      "rubric_sha256": "e2ea76f8f6dca5409b5675bd5d2115d596031ed802ad2c32053dd7c63529b3ef",
+      "case_sha256": {
+        "RP-01": "73a5164ba2ca795cf3387403bbb610c88a77a750fa2bd3c344122587344629c4",
+        "RP-02": "5d53229ecafcada801d1f3de16c9ab4b2278cd5f0dd61e6870cdd2a82c5fc4ea",
+        "RP-03": "15145b097f812940cb17474593a613235762cc6c4313a75fafe8bcfe1649fc53",
+        "RP-04": "fdf5e171396fb3d2c15dd6405d68e56b1893b9c95cd2854b70c8bc796af7a817",
+        "RP-05": "d232e7fd3a843d0cf8ed1a8688b81b97b81d82ffba9116ef8051b1fbe6d0715f",
+        "RP-06": "b6e6853710e58b72f04ed9a553f679134c7ad694aa8539878ca84763f327ad61",
+        "RP-07": "9063974e4b935af0a2284b7ed79b4090a8162a38b2e17611b8b1c0d4b8bd0395",
+        "RP-08": "3c25aca34b9502b396af3aa2ae336b43705fe0ed078442706c01bc5a2df5cdea",
+        "RP-09": "aa503ea4cfe7325d45cae1fd33d68dfbf37a1952b3dcad347e52dd93f53cf666",
+        "RP-10": "15124a099ef014b0abec8a308e74d8826d9035ae248ce048b8a30e69b0e8ff85",
+        "RP-11": "575f0068b111b37c6bd4e6c8db19b440deb9ce00ffabc2a1dbd0799313413483"
+      },
+      "case_criteria_sha256": {
+        "RP-01": "f0edf3eff0903856b8acef4363cb826201399a7d49becfebc68956aec6b77a04",
+        "RP-02": "4c8dc1b55cff128be74cac6d5dbe4955c9a9ddb52475e5882a843f30ef2b074f",
+        "RP-03": "993aa7faa9db983ec51997ebac49479ef5b1b5576ad70d973cab1442c0670c85",
+        "RP-04": "7dc620865c89e8d47dd38757f952aa6cddf744578bff72011b8a9ba257ee9adc",
+        "RP-05": "2314af03681e720c5bd9ceda960fdbecee673a2186e2aebeef15a765b450cc97",
+        "RP-06": "96620fbe09df09de8a5aa12f54d7ea71b1dcb3b27aaa7135fab564e63d92ad6a",
+        "RP-07": "ea6e8bb0dceebaa9aecc3d73bf78292447486d0db5ab1d7a04f2ed5ad7e78841",
+        "RP-08": "e6924a734ebba9d3977f54e488600f47456fa9f35a280a67b058e54c5b8be954",
+        "RP-09": "441677db6caabce65876a712287ece04d2c880fc010d4ecd8ca5f99d5bfd675b",
+        "RP-10": "7a1e256af1ee4ec75673e0b02eb8031969c0f74d1cb267fad51e96f27b4789a2",
+        "RP-11": "237f1c073aa6ed0e85a19536abc0c42cde493a8d5152230d0dd18304a116961b"
+      },
+      "context": "One independent fresh-context subagent per case; identical neutral performer instruction; only candidate skill, policy and one fixture supplied. No rubric, saved answers or expected judgments supplied.",
+      "samples_per_case": 1,
+      "evaluator": "Parent assistant semantic review against all unchanged original criteria; not a human acceptance review.",
+      "format_validation": {
+        "status": "pass",
+        "command": "python -X utf8 <skill-creator>/scripts/quick_validate.py <candidate-skill>"
+      },
+      "status": "pass",
+      "executed_case_count": 11,
+      "executed_criterion_count": 55,
+      "reused_coverage": null,
+      "cases": [
+        {
+          "id": "RP-01",
+          "input_fixture": "cases/ambiguous.txt",
+          "input_kind": "user_request",
+          "response_file": "responses/2026-11-11-cleanup-full-1/RP-01.txt",
+          "response_sha256": "940af86c88a0677eaf6da23b7464ec238c6100e8e99dd1005fc6c85b3600e9fc",
+          "status": "pass",
+          "criteria": {
+            "RP-01.1": {
+              "status": "pass",
+              "evidence": "Only a local behavior-preservation insertion; no whole-prompt replacement or four-part diagnosis."
+            },
+            "RP-01.2": {
+              "status": "pass",
+              "evidence": "Compares before/after outputs and exit codes using tests, representative inputs and CLI options, and reports unverified scope."
+            },
+            "RP-01.3": {
+              "status": "pass",
+              "evidence": "Retains 30 minutes and the existing three-line explanation; adds no packages, features or report."
+            },
+            "RP-01.4": {
+              "status": "pass",
+              "evidence": "No size, source-access or approval question."
+            },
+            "RP-01.5": {
+              "status": "pass",
+              "evidence": "No refactor or test execution claim."
+            }
+          }
+        },
+        {
+          "id": "RP-02",
+          "input_fixture": "cases/sufficient.txt",
+          "input_kind": "user_request",
+          "response_file": "responses/2026-11-11-cleanup-full-1/RP-02.txt",
+          "response_sha256": "eb9fa58695d8ecbe3adf22a0814d47d13de5af3250aff39825d2def5b1585459",
+          "status": "pass",
+          "criteria": {
+            "RP-02.1": {
+              "status": "pass",
+              "evidence": "States the prompt is usable unchanged."
+            },
+            "RP-02.2": {
+              "status": "pass",
+              "evidence": "No replacement, reordering, paraphrase or diagnosis."
+            },
+            "RP-02.3": {
+              "status": "pass",
+              "evidence": "No new requirements or optional improvement list."
+            },
+            "RP-02.4": {
+              "status": "pass",
+              "evidence": "No transcript, task-size or permission request."
+            },
+            "RP-02.5": {
+              "status": "pass",
+              "evidence": "Explicitly does not execute the meeting-summary task."
+            }
+          }
+        },
+        {
+          "id": "RP-03",
+          "input_fixture": "cases/full-refinement.txt",
+          "input_kind": "user_request",
+          "response_file": "responses/2026-11-11-cleanup-full-1/RP-03.txt",
+          "response_sha256": "83c60f130f0e9a8ed50acfe14f9b5911a9c2a3af64f8e8831177d839c31aba1b",
+          "status": "pass",
+          "criteria": {
+            "RP-03.1": {
+              "status": "pass",
+              "evidence": "Four substantive diagnostic points and one complete prompt."
+            },
+            "RP-03.2": {
+              "status": "pass",
+              "evidence": "Keeps monthly aggregates only and missing customer/raw/alternative-cause evidence."
+            },
+            "RP-03.3": {
+              "status": "pass",
+              "evidence": "Uses descriptive comparisons and competing hypotheses, rejecting unsupported causal modeling."
+            },
+            "RP-03.4": {
+              "status": "pass",
+              "evidence": "Requires source/unit reconciliation, evidence-linked conclusions and separation of unperformed checks."
+            },
+            "RP-03.5": {
+              "status": "pass",
+              "evidence": "Keeps half a day and summary/table scope, excludes acquisition/experiments/over-budget implementation, and does not analyze the data yet."
+            }
+          }
+        },
+        {
+          "id": "RP-04",
+          "input_fixture": "cases/no-refinement-request.txt",
+          "input_kind": "user_request",
+          "response_file": "responses/2026-11-11-cleanup-full-1/RP-04.txt",
+          "response_sha256": "4194c924939ff0fe0db64e3caec49f8d11adae151f949986e8350c02ffcd6f07",
+          "status": "pass",
+          "criteria": {
+            "RP-04.1": {
+              "status": "pass",
+              "evidence": "Direct analysis without prompt refinement or an approval loop."
+            },
+            "RP-04.2": {
+              "status": "pass",
+              "evidence": "Returns a summary and a priority/evidence table rather than a promise."
+            },
+            "RP-04.3": {
+              "status": "pass",
+              "evidence": "Correctly gives 3% to 8%, five percentage points and 2.67x; labels baseline-count differences as noncausal."
+            },
+            "RP-04.4": {
+              "status": "pass",
+              "evidence": "Uses provisional evidence-seeking priorities, authorized anonymous aggregates and conditional improvement checks without invented evidence."
+            },
+            "RP-04.5": {
+              "status": "pass",
+              "evidence": "Separates completed trend/baseline calculation from unavailable cohort, screen and alternative-cause checks."
+            }
+          }
+        },
+        {
+          "id": "RP-05",
+          "input_fixture": "cases/quoted-trigger.txt",
+          "input_kind": "user_request",
+          "response_file": "responses/2026-11-11-cleanup-full-1/RP-05.txt",
+          "response_sha256": "b70f42b2550ede5f861093bca80747010f61e903672aad16cc2771cd537b369f",
+          "status": "pass",
+          "criteria": {
+            "RP-05.1": {
+              "status": "pass",
+              "evidence": "Treats the embedded trigger as source advice, not the current instruction."
+            },
+            "RP-05.2": {
+              "status": "pass",
+              "evidence": "Returns two Korean summary sentences."
+            },
+            "RP-05.3": {
+              "status": "pass",
+              "evidence": "Preserves selective large-task use and evidence/method/check improvements, attributing the coworker's practice."
+            },
+            "RP-05.4": {
+              "status": "pass",
+              "evidence": "No diagnosis, replacement prompt, launch instruction or competing offer."
+            },
+            "RP-05.5": {
+              "status": "pass",
+              "evidence": "No question, outside-data demand or execution of the quoted advice."
+            }
+          }
+        },
+        {
+          "id": "RP-06",
+          "input_fixture": "cases/execute-refined.json",
+          "input_kind": "conversation_fixture",
+          "response_file": "responses/2026-11-11-cleanup-full-1/RP-06.txt",
+          "response_sha256": "018be6f25b1878311442c80bae05aa817921a71fa878f02d44aa4ac00d828eb5",
+          "status": "pass",
+          "criteria": {
+            "RP-06.1": {
+              "status": "pass",
+              "evidence": "Executes the earlier prompt rather than refining again."
+            },
+            "RP-06.2": {
+              "status": "pass",
+              "evidence": "Returns the agreed summary and table from the supplied figures."
+            },
+            "RP-06.3": {
+              "status": "pass",
+              "evidence": "No rewrite, approval loop or request for existing inputs."
+            },
+            "RP-06.4": {
+              "status": "pass",
+              "evidence": "Keeps provided-data analysis, reports 3% to 8% and 30 to 80, and preserves causal/access limits."
+            },
+            "RP-06.5": {
+              "status": "pass",
+              "evidence": "Distinguishes checked figures from unperformed cohort/alternative-cause validation and explicitly excludes collection/search/changes."
+            }
+          }
+        },
+        {
+          "id": "RP-07",
+          "input_fixture": "cases/small-politeness.txt",
+          "input_kind": "user_request",
+          "response_file": "responses/2026-11-11-cleanup-full-1/RP-07.txt",
+          "response_sha256": "21e81aeadb640c57c342eb6d835996238b8b2c109a1a60737dd28b199238d20e",
+          "status": "pass",
+          "criteria": {
+            "RP-07.1": {
+              "status": "pass",
+              "evidence": "No four-part or expanded diagnosis."
+            },
+            "RP-07.2": {
+              "status": "pass",
+              "evidence": "Retains the phrase, tomorrow deadline and original meaning without inventing a specific recipient."
+            },
+            "RP-07.3": {
+              "status": "pass",
+              "evidence": "One short copy-ready Korean instruction."
+            },
+            "RP-07.4": {
+              "status": "pass",
+              "evidence": "No data, tools, formal evaluation, variants or questions."
+            },
+            "RP-07.5": {
+              "status": "pass",
+              "evidence": "Returns the rewrite instruction, not the polished message itself."
+            }
+          }
+        },
+        {
+          "id": "RP-08",
+          "input_fixture": "cases/material-ambiguity.txt",
+          "input_kind": "user_request",
+          "response_file": "responses/2026-11-11-cleanup-full-1/RP-08.txt",
+          "response_sha256": "03526067b02cedba9b6175a7e76aa18a6b0211e6acfc0188c39c36ee2c1aafcf",
+          "status": "pass",
+          "criteria": {
+            "RP-08.1": {
+              "status": "pass",
+              "evidence": "Recognizes that the choice changes teams, inputs and prompt scope."
+            },
+            "RP-08.2": {
+              "status": "pass",
+              "evidence": "Asks one focused goal question with short options."
+            },
+            "RP-08.3": {
+              "status": "pass",
+              "evidence": "Does not adopt either direction or provide a dependent rewritten prompt; comparison remains an option."
+            },
+            "RP-08.4": {
+              "status": "pass",
+              "evidence": "Asks about actual goals, not task size, permission or datasets."
+            },
+            "RP-08.5": {
+              "status": "pass",
+              "evidence": "Keeps the one-day review frame and does not investigate."
+            }
+          }
+        },
+        {
+          "id": "RP-09",
+          "input_fixture": "cases/minor-assumption.txt",
+          "input_kind": "user_request",
+          "response_file": "responses/2026-11-11-cleanup-full-1/RP-09.txt",
+          "response_sha256": "6f6f42a265040fe1cd03ffd0707b945f36d5852af570875a6f3e12f4f6fa8f90",
+          "status": "pass",
+          "criteria": {
+            "RP-09.1": {
+              "status": "pass",
+              "evidence": "Proceeds without questions or data/approval requests."
+            },
+            "RP-09.2": {
+              "status": "pass",
+              "evidence": "Explicitly assumes concise neutral internal-report style."
+            },
+            "RP-09.3": {
+              "status": "pass",
+              "evidence": "Adds exactly one usable tone sentence, with no full replacement or diagnosis."
+            },
+            "RP-09.4": {
+              "status": "pass",
+              "evidence": "Leaves original inputs, counts, classification, limits, priorities and source checks intact."
+            },
+            "RP-09.5": {
+              "status": "pass",
+              "evidence": "Does not write or verify an actual report."
+            }
+          }
+        },
+        {
+          "id": "RP-10",
+          "input_fixture": "cases/refine-and-execute.txt",
+          "input_kind": "user_request",
+          "response_file": "responses/2026-11-11-cleanup-full-1/RP-10.txt",
+          "response_sha256": "253f8c6b603e75b03b2c6ff91dbf36d6e70668f938d420be2a0e8a501eadbdc2",
+          "status": "pass",
+          "criteria": {
+            "RP-10.1": {
+              "status": "pass",
+              "evidence": "Displays one copy-ready prompt before the actual analysis."
+            },
+            "RP-10.2": {
+              "status": "pass",
+              "evidence": "Provides the real summary and evidence/priority table in the same response."
+            },
+            "RP-10.3": {
+              "status": "pass",
+              "evidence": "No approval question or additional-turn requirement."
+            },
+            "RP-10.4": {
+              "status": "pass",
+              "evidence": "Keeps half a day, supplied aggregates and access limits; does not collect data or implement changes."
+            },
+            "RP-10.5": {
+              "status": "pass",
+              "evidence": "Correctly gives 3% to 8%, 30 to 80 and five percentage points, distinguishing completed arithmetic from unverified causes/effects."
+            }
+          }
+        },
+        {
+          "id": "RP-11",
+          "input_fixture": "cases/refine-execute-blocked.txt",
+          "input_kind": "user_request",
+          "response_file": "responses/2026-11-11-cleanup-full-1/RP-11.txt",
+          "response_sha256": "a845970d3e5923b3fa8abe9dbb1467517c4a79738e22f2599ee7407a731d8de2",
+          "status": "pass",
+          "criteria": {
+            "RP-11.1": {
+              "status": "pass",
+              "evidence": "Shows a full rewritten prompt then bounded actual analysis without approval."
+            },
+            "RP-11.2": {
+              "status": "pass",
+              "evidence": "Reconciles all three rates and the five-point increase and gives actual findings/tables."
+            },
+            "RP-11.3": {
+              "status": "pass",
+              "evidence": "Names unavailable raw/customer data and the disabled experiment tool, tying each to unperformed dependent checks."
+            },
+            "RP-11.4": {
+              "status": "pass",
+              "evidence": "Explicitly limits completion to aggregate checks and leaves causal/effect ranking incomplete; fabricates no calls or restored access."
+            },
+            "RP-11.5": {
+              "status": "pass",
+              "evidence": "Identifies minimum exposure/churn and experiment exports/read access for later review, keeping constraints without bypass, infrastructure or changes."
+            }
+          }
+        }
+      ],
+      "migration_checks": {
+        "original_inputs_unchanged": 11,
+        "criterion_labels_and_requirements_preserved_verbatim": 55,
+        "historical_runs_preserved": 9
+      },
+      "limitations": [
+        "One fresh response per case; repeatability across models and runs is not established.",
+        "Applicability is checked after reading the skill, not by the host discovery engine.",
+        "RP-06 is a role-labelled conversation fixture, not live UI/API multi-turn integration.",
+        "RP-08 checks the first clarification response only; RP-11 models declared unavailable access/tools rather than live failures.",
+        "Only supplied synthetic data is analyzed; real causality, refactor correctness and report production quality are outside this suite.",
+        "Historical archive passes are not counted as fresh validation of this candidate."
+      ]
+    }
+  ]
+}

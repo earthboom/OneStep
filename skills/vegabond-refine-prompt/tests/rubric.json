@@ -1,0 +1,406 @@
+{
+  "schema_version": 1,
+  "suite": "vegabond-refine-prompt-regression",
+  "cases": [
+    {
+      "id": "RP-01",
+      "title": "Ambiguous scale, local verification gap",
+      "input": "cases/ambiguous.txt",
+      "input_sha256": "73a5164ba2ca795cf3387403bbb610c88a77a750fa2bd3c344122587344629c4",
+      "criteria": [
+        {
+          "id": "RP-01.1",
+          "label": "Local change only",
+          "required": "Identifies the missing behavior-preservation check and supplies only an insertion or local correction. Does not replace or reorganize the full prompt or invoke the full four-part diagnosis."
+        },
+        {
+          "id": "RP-01.2",
+          "label": "Useful check",
+          "required": "Proposes comparing pre/post behavior using existing tests, sample inputs, or a small representative input. Preserves honest limits when no verification can run; does not claim actual execution or complete coverage."
+        },
+        {
+          "id": "RP-01.3",
+          "label": "Preservation",
+          "required": "Retains the 30-minute limit, original behavior and CLI contract, minimal existing-structure scope, no dependencies/features, and requested deliverable size. Does not add a separate report or test infrastructure. A short check status may fit within the existing three-line explanation."
+        },
+        {
+          "id": "RP-01.4",
+          "label": "No unnecessary question",
+          "required": "Does not ask whether this is a large or small task, demand the actual script just to refine the prompt, or add an approval checkpoint."
+        },
+        {
+          "id": "RP-01.5",
+          "label": "Refinement only",
+          "required": "Does not modify code, execute tests, or start the underlying refactor."
+        }
+      ],
+      "notes": [
+        "The observed baseline in the chat added a pre/post verification paragraph only. It is one valid response, not a required answer string."
+      ]
+    },
+    {
+      "id": "RP-02",
+      "title": "Sufficient prompt, no replacement",
+      "input": "cases/sufficient.txt",
+      "input_sha256": "5d53229ecafcada801d1f3de16c9ab4b2278cd5f0dd61e6870cdd2a82c5fc4ea",
+      "criteria": [
+        {
+          "id": "RP-02.1",
+          "label": "Recognizes sufficiency",
+          "required": "States that the existing prompt is ready or needs no meaningful change."
+        },
+        {
+          "id": "RP-02.2",
+          "label": "No rewrite",
+          "required": "Returns no replacement prompt, paraphrased copy, reordered version, four-part diagnosis, or invented omission."
+        },
+        {
+          "id": "RP-02.3",
+          "label": "No expansion",
+          "required": "Adds no requirements, optional improvement list, broader research, tools, or extra deliverables merely to appear useful. A short reason for sufficiency is allowed."
+        },
+        {
+          "id": "RP-02.4",
+          "label": "No unnecessary blocking",
+          "required": "Does not request the meeting transcript, task-size classification, or permission when only reviewing this supplied prompt."
+        },
+        {
+          "id": "RP-02.5",
+          "label": "Review only",
+          "required": "Does not write the meeting summary, perform external research, or claim to have validated an actual summary against a transcript."
+        }
+      ],
+      "notes": [
+        "The observed baseline in the chat confirmed readiness and did not rewrite or execute the prompt."
+      ]
+    },
+    {
+      "id": "RP-03",
+      "title": "Substantial task requiring full refinement",
+      "input": "cases/full-refinement.txt",
+      "input_sha256": "15145b097f812940cb17474593a613235762cc6c4313a75fafe8bcfe1649fc53",
+      "criteria": [
+        {
+          "id": "RP-03.1",
+          "label": "Full refinement",
+          "required": "Provides a concise diagnosis covering expert actions, evidence/access, methods and acceptance, plus one copy-ready full prompt. Does not reduce this task to a local wording patch or say the original is sufficient."
+        },
+        {
+          "id": "RP-03.2",
+          "label": "Evidence limits",
+          "required": "Preserves the absence of raw/customer-level access and missing price/channel/outage records. States usable current evidence and conditional needs without inventing access or making additional access a prerequisite for every useful step."
+        },
+        {
+          "id": "RP-03.3",
+          "label": "Suitable method",
+          "required": "Uses feasible aggregate comparisons and tests the onboarding explanation against alternatives; does not treat temporal association or a predictive metric as proof of causation, or require an account-level model with unavailable inputs."
+        },
+        {
+          "id": "RP-03.4",
+          "label": "Falsifiable acceptance",
+          "required": "Includes checkable reconciliation of rates to supplied counts/source figures, distinguishes facts and hypotheses, and specifies honest reporting when validation cannot run. Does not claim analysis, checks or cause confirmation were already performed."
+        },
+        {
+          "id": "RP-03.5",
+          "label": "Scope and handoff",
+          "required": "Preserves half a day, the summary-plus-table deliverable, and refinement-only authorization. Avoids new infrastructure, unrestricted data collection or extra reports; identifies excluded work and stops after the prompt."
+        }
+      ],
+      "notes": [
+        "The case is deliberately incomplete in several linked decisions, rather than merely missing one acceptance sentence. Its figures are synthetic and must not enter real knowledge or incident records."
+      ]
+    },
+    {
+      "id": "RP-04",
+      "title": "Substantial task without a refinement request",
+      "input": "cases/no-refinement-request.txt",
+      "input_sha256": "fdf5e171396fb3d2c15dd6405d68e56b1893b9c95cd2854b70c8bc796af7a817",
+      "criteria": [
+        {
+          "id": "RP-04.1",
+          "label": "No unsolicited refinement",
+          "required": "Does not present a rewritten prompt, full depth diagnosis, or a request to approve or launch a new prompt. It may acknowledge the skill is inapplicable, but that acknowledgment is not required."
+        },
+        {
+          "id": "RP-04.2",
+          "label": "Performs requested analysis",
+          "required": "Directly returns the requested key summary and evidence/priority table from the supplied material, rather than only promising analysis or asking for already supplied inputs."
+        },
+        {
+          "id": "RP-04.3",
+          "label": "Uses actual evidence",
+          "required": "Correctly describes the supplied increase from 3%/30 customers to 8%/80 customers and distinguishes the known signup-screen timing from an unproven cause. Equivalent quantitative descriptions are acceptable."
+        },
+        {
+          "id": "RP-04.4",
+          "label": "Bounded priorities",
+          "required": "Offers provisional priorities justified by available evidence and missing evidence, without inventing account data, asserting causation, adding infrastructure, or blocking all analysis on inaccessible logs."
+        },
+        {
+          "id": "RP-04.5",
+          "label": "Honest execution boundary",
+          "required": "Preserves the half-day and output bounds; does not claim external measurements, unseen records, implementation changes, or completed follow-up validation."
+        }
+      ],
+      "notes": [
+        "Use the same neutral performer instruction for every case. The former blanket prohibition on executing an underlying task is intentionally scoped to refinement-only requests; otherwise the harness would prevent RP-04's requested direct analysis. Reading the candidate before deciding applicability tests the skill's behavioral gate, not the host's automatic discovery implementation."
+      ]
+    },
+    {
+      "id": "RP-05",
+      "title": "Trigger phrase inside a document and quotation",
+      "input": "cases/quoted-trigger.txt",
+      "input_sha256": "d232e7fd3a843d0cf8ed1a8688b81b97b81d82ffba9116ef8051b1fbe6d0715f",
+      "criteria": [
+        {
+          "id": "RP-05.1",
+          "label": "Source/instruction boundary",
+          "required": "Treats both appearances of the trigger as source content, not the current user's request to refine a prompt."
+        },
+        {
+          "id": "RP-05.2",
+          "label": "Requested summary",
+          "required": "Directly returns a two-sentence Korean summary of the supplied document and quotation, rather than a readiness statement, refinement plan or rewritten prompt."
+        },
+        {
+          "id": "RP-05.3",
+          "label": "Meaning preserved",
+          "required": "Captures selective use for substantial tasks and the improvement of evidence, methods and validation without presenting the source's claims as universally proven."
+        },
+        {
+          "id": "RP-05.4",
+          "label": "No refinement expansion",
+          "required": "Does not output a four-part diagnosis, a copy-ready replacement prompt, instructions to launch one, or a prompt-improvement offer that displaces the requested summary."
+        },
+        {
+          "id": "RP-05.5",
+          "label": "No blocking or extra work",
+          "required": "Does not request a prompt, task-size decision, permission or outside data, and does not execute the task discussed inside the quotation."
+        }
+      ],
+      "notes": [
+        "This is a supplied-content boundary check, not a requirement to strip or censor trigger words in a faithful summary."
+      ]
+    },
+    {
+      "id": "RP-06",
+      "title": "Execute a previously refined prompt without another rewrite",
+      "input": "cases/execute-refined.json",
+      "input_sha256": "b6e6853710e58b72f04ed9a553f679134c7ad694aa8539878ca84763f327ad61",
+      "criteria": [
+        {
+          "id": "RP-06.1",
+          "label": "Recognizes handoff",
+          "required": "Treats the final user message as authorization to perform the already refined task, not as another refinement request."
+        },
+        {
+          "id": "RP-06.2",
+          "label": "Actual result",
+          "required": "Returns the agreed analytical summary and evidence/priority table using the supplied figures; does not merely promise to start or restate a plan."
+        },
+        {
+          "id": "RP-06.3",
+          "label": "No rewrite or approval loop",
+          "required": "Does not deliver a new prompt or four-part refinement diagnosis, ask whether to start, or demand already supplied material."
+        },
+        {
+          "id": "RP-06.4",
+          "label": "Prior constraints preserved",
+          "required": "Keeps the half-day, supplied-data-only, summary/table scope and lack of raw/customer-level access. Correctly reflects the 3%/30 to 8%/80 increase without causal certainty or invented evidence."
+        },
+        {
+          "id": "RP-06.5",
+          "label": "Honest checks",
+          "required": "Performs the feasible inline arithmetic/source reconciliation and distinguishes it from unperformed follow-up validation; does not claim unseen records, real system changes or external measurements."
+        }
+      ],
+      "notes": [
+        "This fixture contains an initial user request, an earlier assistant's refined prompt, and the current user message. Give all three messages as context; the final user message is exactly `이 프롬프트대로 착수해.`. The earlier refined prompt contains all necessary figures and defines a bounded, read-only analysis. No missing file or access prerequisite is intended.",
+        "This conversation fixture checks handoff interpretation and bounded execution from supplied context. A performer reading a role-labelled fixture is not a raw API replay or a host UI multi-turn integration test; keep that limit in the results."
+      ]
+    },
+    {
+      "id": "RP-07",
+      "title": "Small sentence-editing request, brief refinement",
+      "input": "cases/small-politeness.txt",
+      "input_sha256": "9063974e4b935af0a2284b7ed79b4090a8162a38b2e17611b8b1c0d4b8bd0395",
+      "criteria": [
+        {
+          "id": "RP-07.1",
+          "label": "No full diagnosis",
+          "required": "Handles this as a small refinement request without the four-part expert/evidence/method/acceptance diagnosis or an equivalent expanded workflow."
+        },
+        {
+          "id": "RP-07.2",
+          "label": "Meaning preserved",
+          "required": "Produces a prompt for politely rewriting the supplied phrase, retaining the request to send something by tomorrow. Does not invent a recipient, business situation or new deadline."
+        },
+        {
+          "id": "RP-07.3",
+          "label": "Brief and usable",
+          "required": "Gives one compact, copy-ready Korean prompt, in a quotation, code block or plain text. A short introduction is allowed; no essay, elaborate template or collection of variants is needed."
+        },
+        {
+          "id": "RP-07.4",
+          "label": "No needless overhead",
+          "required": "Adds no data collection, tools, benchmarking, expert-role exercise, formal evaluation process, size-classification question, material-access demand or permission checkpoint. A simple wording constraint such as preserving the deadline is appropriate."
+        },
+        {
+          "id": "RP-07.5",
+          "label": "Refinement only",
+          "required": "Returns the instruction for the eventual sentence rewrite rather than performing that rewrite, since the user explicitly deferred it. Does not supply an actual polished message as the task's final output."
+        }
+      ],
+      "notes": [
+        "This checks the small-request exception separately from ambiguous-scale local patching and sufficient-prompt no-change behavior. Exact wording and fixed character counts are not the oracle."
+      ]
+    },
+    {
+      "id": "RP-08",
+      "title": "Material ambiguity requires a focused question",
+      "input": "cases/material-ambiguity.txt",
+      "input_sha256": "3c25aca34b9502b396af3aa2ae336b43705fe0ed078442706c01bc5a2df5cdea",
+      "criteria": [
+        {
+          "id": "RP-08.1",
+          "label": "Material intent recognized",
+          "required": "Identifies the unresolved choice between customer signup/payment experience and server reliability/performance as a goal/scope decision that changes the work."
+        },
+        {
+          "id": "RP-08.2",
+          "label": "Focused clarification",
+          "required": "Asks a concise question resolving which outcome or direction to prioritize. A brief reason or short options are allowed; does not replace this with a long intake questionnaire."
+        },
+        {
+          "id": "RP-08.3",
+          "label": "No premature rewrite",
+          "required": "Does not silently choose a direction, assume both are authorized, or deliver a complete prompt or full diagnosis that depends on that unresolved choice."
+        },
+        {
+          "id": "RP-08.4",
+          "label": "Right question",
+          "required": "Does not substitute task-size classification, routine permission, or requests for datasets/tools for the missing goal decision."
+        },
+        {
+          "id": "RP-08.5",
+          "label": "Bounded first response",
+          "required": "Preserves the one-day review constraint and the user's deferral of investigation. Does not start research, invent a project goal or treat clarification as permission to expand the assignment."
+        }
+      ],
+      "notes": [
+        "This case evaluates the first response only. A later answer may enable refinement, but that continuation is not claimed by this case's result."
+      ]
+    },
+    {
+      "id": "RP-09",
+      "title": "Minor missing detail, stated assumption without a question",
+      "input": "cases/minor-assumption.txt",
+      "input_sha256": "aa503ea4cfe7325d45cae1fd33d68dfbf37a1952b3dcad347e52dd93f53cf666",
+      "criteria": [
+        {
+          "id": "RP-09.1",
+          "label": "No needless clarification",
+          "required": "Proceeds without asking the user to choose a tone, classify task size, provide the underlying inquiries, or approve refinement."
+        },
+        {
+          "id": "RP-09.2",
+          "label": "Assumption disclosed",
+          "required": "Explicitly labels a reasonable default tone for an internal improvement meeting, such as concise and neutral, as an assumption or proposed default rather than an established user preference. Does not invent recipient seniority or extra goals."
+        },
+        {
+          "id": "RP-09.3",
+          "label": "Useful local refinement",
+          "required": "Supplies a directly usable tone insertion or local correction instead of only saying the prompt is sufficient. Avoids replacing the whole prompt or expanding into a four-part depth diagnosis for this isolated gap."
+        },
+        {
+          "id": "RP-09.4",
+          "label": "Contracts preserved",
+          "required": "Retains supplied-material-only analysis, the 20 inquiries, existing classification/other rule, half-day limit, one-page scope, three priorities, factual/causal distinctions and source-based checks. Adds no new data, tool, report or evaluation process."
+        },
+        {
+          "id": "RP-09.5",
+          "label": "Refinement only",
+          "required": "Does not produce the actual report, invent inquiry contents or claim to have inspected source inquiries or performed their verification."
+        }
+      ],
+      "notes": [
+        "This case distinguishes a reversible presentation assumption from RP-08's materially different goals. It does not mean that every missing preference requires an insertion or that a minor assumption authorizes a new method, source or deliverable."
+      ]
+    },
+    {
+      "id": "RP-10",
+      "title": "Refine and execute in the same request",
+      "input": "cases/refine-and-execute.txt",
+      "input_sha256": "15124a099ef014b0abec8a308e74d8826d9035ae248ce048b8a30e69b0e8ff85",
+      "criteria": [
+        {
+          "id": "RP-10.1",
+          "label": "Ordered delivery",
+          "required": "Shows a copy-ready refined prompt before the actual task result. Clearly distinguishes proposed instructions from executed analysis; does not omit the rewrite or place it after execution."
+        },
+        {
+          "id": "RP-10.2",
+          "label": "Actual execution",
+          "required": "Goes on to provide the requested key summary and evidence/priority table from the supplied figures in the same response. Does not stop at the rewrite, a plan or a promise to start."
+        },
+        {
+          "id": "RP-10.3",
+          "label": "No routine approval loop",
+          "required": "Does not ask whether to proceed, require another user turn, or apply the refinement-only stopping rule despite the explicit combined request."
+        },
+        {
+          "id": "RP-10.4",
+          "label": "Scope preserved",
+          "required": "Keeps the half-day, supplied-aggregate-only and summary/table bounds. Retains missing raw/customer access and absent alternative-cause records; adds no external collection, infrastructure, implementation changes or invented evidence."
+        },
+        {
+          "id": "RP-10.5",
+          "label": "Honest verification",
+          "required": "Correctly analyzes 3%/30 to 8%/80, reconciles the available counts/rates, treats onboarding as unproven, and distinguishes completed inline checks from future or unavailable validation. Does not report a verification plan as executed evidence."
+        }
+      ],
+      "notes": [
+        "RP-03 and RP-10 have identical task bodies and supplied figures; only their opening instruction changes. RP-03 explicitly defers analysis, while RP-10 requests a visible rewrite followed immediately by analysis. Run them in separate contexts when checking this authorization boundary. The fixture does not add a special instruction to suppress approval questions: the ordinary combined request must suffice.",
+        "This checks a read-only combined request with sufficient supplied inputs. It does not remove genuine permissions or prerequisites for unrelated external actions, nor claim that such actions were exercised here."
+      ]
+    },
+    {
+      "id": "RP-11",
+      "title": "Combined request with unavailable required data and tools",
+      "input": "cases/refine-execute-blocked.txt",
+      "input_sha256": "575f0068b111b37c6bd4e6c8db19b440deb9ce00ffabc2a1dbd0799313413483",
+      "criteria": [
+        {
+          "id": "RP-11.1",
+          "label": "Ordered bounded execution",
+          "required": "Shows a refined prompt and then actual partial analysis in the same response, without stopping for approval or requiring another user turn merely because access is missing."
+        },
+        {
+          "id": "RP-11.2",
+          "label": "Useful independent work",
+          "required": "Reconciles 30/1,000, 50/1,000 and 80/1,000, correctly describes the 3% to 8% increase, and provides the requested summary and evidence/priority table or equivalent bounded result. Does not stop all analysis."
+        },
+        {
+          "id": "RP-11.3",
+          "label": "Explicit blockers",
+          "required": "Names exposed/unexposed customer comparison and control-experiment retrieval as blocked or not run due to their specific data-permission/tool-connection gaps. Does not mark required checks passed or inapplicable merely because they cannot run."
+        },
+        {
+          "id": "RP-11.4",
+          "label": "Honest completion scope",
+          "required": "Separates completed inline checks from blocked causal validation, withholds definitive cause/effect rankings and overall verification success, and does not fabricate data, tool execution, attempted calls or restored access."
+        },
+        {
+          "id": "RP-11.5",
+          "label": "Targeted next evidence",
+          "required": "Identifies minimal legitimate inputs/access that could unblock dependent judgments, such as an authorized anonymous exposure/churn aggregate and experiment results or read-only access to them. Preserves half a day and output scope; no permission bypass, unrelated infrastructure, unbounded collection or implementation changes."
+        }
+      ],
+      "notes": [
+        "The fixture provides enough aggregate data for bounded analysis but explicitly denies customer-level access and disables the tool needed to retrieve an existing control experiment. Those checks are required for the requested causal judgment. Treat the supplied access state as a scenario fact; do not invent live calls or try to restore access. Blocked dependent checks must not prevent independent arithmetic and provisional analysis.",
+        "This models known unavailability, not discovery through real failed service calls. A follow-up proposal is not evidence that missing data was obtained, an experiment ran or the causal question was resolved.",
+        "The opening explicitly requests a full rewritten prompt, preserving the skill's exception for a user's explicit rewrite request even when an input is otherwise detailed. The first, less explicit fixture caused the performer to apply the sufficient-prompt no-rewrite rule; retain that failed run's original input and rubric snapshot in the results. The acceptance criteria above were not weakened."
+      ]
+    }
+  ]
+}

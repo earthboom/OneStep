@@ -1,0 +1,1201 @@
+{
+  "schema_version": 1,
+  "suite": "vegabond-refine-prompt-regression",
+  "rubric": "evaluation.md",
+  "runs": [
+    {
+      "run_id": "2026-11-11-before-persisted-suite",
+      "date_local": "2026-11-11",
+      "timezone": "Asia/Seoul",
+      "skill_sha256": "afd1956c1bb194f092ce3d5eed437dfb9ae124ed4980b16c4588134882304631",
+      "policy_sha256": null,
+      "context": "Two independent fresh-context subagents in the originating chat; requests supplied inline before this suite was saved.",
+      "samples_per_case": 1,
+      "evaluator": "Parent assistant semantic review; not a human acceptance review.",
+      "cases": [
+        {
+          "id": "RP-01",
+          "input_fixture": "cases/ambiguous.txt",
+          "response": "범위와 제약은 충분히 명확합니다. 동작 보존을 확인하는 방법만 아래처럼 덧붙이면 됩니다.\n\n```text\n30분 한도 안에서 기존 테스트나 제공된 입력 예제로 수정 전후의 출력과 집계 결과를 비교하고, CLI 옵션이 유지되는지 확인해줘. 기존 검증 자료가 없으면 작은 대표 입력으로 비교하되, 확인한 범위 밖의 동작까지 보장한다고 쓰지 마. 검증 통과·실패·미실행 여부와 그 근거는 요청한 변경 이유 세 줄 안에 포함해줘.\n```",
+          "status": "pass",
+          "criteria": {
+            "RP-01.1": {
+              "status": "pass",
+              "evidence": "Only an added verification paragraph; no full replacement or four-part diagnosis."
+            },
+            "RP-01.2": {
+              "status": "pass",
+              "evidence": "Before/after checks use existing tests, examples or representative input, with explicit coverage limits."
+            },
+            "RP-01.3": {
+              "status": "pass",
+              "evidence": "Keeps 30 minutes and fits status into the existing three-line explanation; no changed contract or extra infrastructure."
+            },
+            "RP-01.4": {
+              "status": "pass",
+              "evidence": "No questions or permission checkpoints."
+            },
+            "RP-01.5": {
+              "status": "pass",
+              "evidence": "Returns prompt text only; no underlying execution."
+            }
+          }
+        },
+        {
+          "id": "RP-02",
+          "input_fixture": "cases/sufficient.txt",
+          "response": "이미 그대로 사용해도 되는 프롬프트입니다. 사용할 자료, 포함·제외 기준, 누락·충돌 처리, 출력 형식과 분량, 제출 전 검증까지 명확하므로 추가 수정은 필요하지 않습니다.\n\n원래 작업은 실행하지 않았습니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-02.1": {
+              "status": "pass",
+              "evidence": "Explicitly confirms readiness without changes."
+            },
+            "RP-02.2": {
+              "status": "pass",
+              "evidence": "No replacement or paraphrased prompt and no four-part diagnosis."
+            },
+            "RP-02.3": {
+              "status": "pass",
+              "evidence": "Only explains existing sufficiency; adds no requirements."
+            },
+            "RP-02.4": {
+              "status": "pass",
+              "evidence": "No request for transcript, task classification or approval."
+            },
+            "RP-02.5": {
+              "status": "pass",
+              "evidence": "No actual summary or external research; expressly states non-execution."
+            }
+          }
+        }
+      ],
+      "limitations": [
+        "Historical behavior, not validation of a later skill revision.",
+        "Original inline runs did not record policy or input-file hashes.",
+        "One response per case; underlying tasks were not executed."
+      ]
+    },
+    {
+      "run_id": "2026-11-11-persisted-suite-1",
+      "date_local": "2026-11-11",
+      "timezone": "Asia/Seoul",
+      "skill_sha256": "0d8f285b657f75cdd0a06d95480694927f6b4dd81a669cfda749421a8d0a2780",
+      "policy_sha256": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935",
+      "case_sha256": {
+        "RP-01": "73a5164ba2ca795cf3387403bbb610c88a77a750fa2bd3c344122587344629c4",
+        "RP-02": "5d53229ecafcada801d1f3de16c9ab4b2278cd5f0dd61e6870cdd2a82c5fc4ea"
+      },
+      "context": "One independent fresh-context subagent per case, reading only candidate SKILL.md, invocation policy, and the saved request file. Evaluation guide and saved answers withheld.",
+      "samples_per_case": 1,
+      "evaluator": "Parent assistant semantic review; not a human acceptance review.",
+      "format_validation": {
+        "status": "pass",
+        "command": "python -X utf8 <skill-creator>/scripts/quick_validate.py <candidate-skill>"
+      },
+      "status": "pass",
+      "cases": [
+        {
+          "id": "RP-01",
+          "input_fixture": "cases/ambiguous.txt",
+          "response": "범위와 제약은 명확하므로, **동작 보존 확인 기준만 추가하면 됩니다.** 스크립트 본문은 제공되지 않아 코드 자체는 검토하지 않았습니다.\n\n아래 문구를 원문의 결과 지시 앞에 넣으세요.\n\n```text\n30분 한도 안에서 사용 가능한 기존 테스트를 우선 실행하고, 제공된 예제 입력과 주요 CLI 옵션에 대해 수정 전후의 출력·집계 결과·종료 코드가 동일한지 비교해줘. 검증 자료가 없거나 실행할 수 없으면 동작 보존을 확인했다고 단정하지 마. 변경 이유 세 줄 중 한 줄에 검증 범위와 통과·실패·미실행 여부를 근거와 함께 적어줘.\n```",
+          "status": "pass",
+          "criteria": {
+            "RP-01.1": {
+              "status": "pass",
+              "evidence": "Provides only an insertion before the result instruction; no full rewritten prompt or four-part diagnosis."
+            },
+            "RP-01.2": {
+              "status": "pass",
+              "evidence": "Compares before/after outputs, aggregates and exit codes with existing tests, examples and CLI options; does not assert verification without evidence."
+            },
+            "RP-01.3": {
+              "status": "pass",
+              "evidence": "Retains 30 minutes, existing behavior and options, and three-line explanation; adds no features, dependencies, report or infrastructure."
+            },
+            "RP-01.4": {
+              "status": "pass",
+              "evidence": "Notes the script was not inspected but does not demand it, ask task size, or request permission."
+            },
+            "RP-01.5": {
+              "status": "pass",
+              "evidence": "Only prompt insertion returned; no refactor artifact, execution result or claim of running tests."
+            }
+          }
+        },
+        {
+          "id": "RP-02",
+          "input_fixture": "cases/sufficient.txt",
+          "response": "현재 프롬프트는 그대로 사용해도 됩니다. 자료 범위, 결정 사항의 포함 기준, 누락·충돌 처리, 출력 형식과 분량, 검증 절차가 명확하고 서로 일관되어 수정이 필요하지 않습니다.\n\n원래 작업은 실행하지 않았습니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-02.1": {
+              "status": "pass",
+              "evidence": "Says the current prompt can be used as-is and needs no changes."
+            },
+            "RP-02.2": {
+              "status": "pass",
+              "evidence": "No replacement, paraphrase, reordering, four-part diagnosis or invented omission."
+            },
+            "RP-02.3": {
+              "status": "pass",
+              "evidence": "Brief sufficiency explanation only; no added requirements or optional improvements."
+            },
+            "RP-02.4": {
+              "status": "pass",
+              "evidence": "No request for transcript, size classification or permission."
+            },
+            "RP-02.5": {
+              "status": "pass",
+              "evidence": "No summary, external research or transcript-validation claim; states the original task was not executed."
+            }
+          }
+        }
+      ],
+      "limitations": [
+        "One sample per case; results do not establish repeatability across models or runs.",
+        "This evaluates prompt-refinement behavior, not correctness of an actual refactor or meeting summary.",
+        "Fresh subagent contexts receive harness instructions; these are not raw API experiments."
+      ]
+    },
+    {
+      "run_id": "2026-11-11-four-case-suite-1",
+      "date_local": "2026-11-11",
+      "timezone": "Asia/Seoul",
+      "skill_sha256": "f3145249550bcc9e8599a2252bbb65d750ce50f5a2cc19c3bcdb6228bb7f25c4",
+      "policy_sha256": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935",
+      "evaluation_sha256": "0c505702929a3863bba35499d541ee9908b8978bd073a6735d5c3f28b808e876",
+      "case_sha256": {
+        "RP-01": "73a5164ba2ca795cf3387403bbb610c88a77a750fa2bd3c344122587344629c4",
+        "RP-02": "5d53229ecafcada801d1f3de16c9ab4b2278cd5f0dd61e6870cdd2a82c5fc4ea",
+        "RP-03": "15145b097f812940cb17474593a613235762cc6c4313a75fafe8bcfe1649fc53",
+        "RP-04": "fdf5e171396fb3d2c15dd6405d68e56b1893b9c95cd2854b70c8bc796af7a817"
+      },
+      "context": "One independent fresh-context subagent per case; identical neutral instruction permits answering the actual request and prohibits underlying execution only for refinement-only requests. Only candidate SKILL.md, invocation policy and that case file supplied; rubric and prior responses withheld.",
+      "samples_per_case": 1,
+      "evaluator": "Parent assistant semantic review; not a human acceptance review.",
+      "format_validation": {
+        "status": "pass",
+        "command": "python -X utf8 <skill-creator>/scripts/quick_validate.py <candidate-skill>"
+      },
+      "status": "pass",
+      "cases": [
+        {
+          "id": "RP-01",
+          "input_fixture": "cases/ambiguous.txt",
+          "response": "범위·제약·결과물은 이미 명확합니다. 동작 보존을 확인하는 기준만 아래처럼 추가하면 됩니다.\n\n```text\n30분 한도 안에서 기존 테스트와 제공된 예제 입력을 활용해 수정 전후의 집계 결과, 출력 형식, CLI 동작이 일치하는지 확인해줘. 검증의 통과·실패·미실행 여부와 근거를 변경 이유 세 줄 안에 포함하고, 테스트나 예제가 없으면 검증 한계를 명시해줘.\n```",
+          "status": "pass",
+          "criteria": {
+            "RP-01.1": {
+              "status": "pass",
+              "evidence": "Returns only a behavior-preservation insertion, without replacing or reorganizing the supplied prompt."
+            },
+            "RP-01.2": {
+              "status": "pass",
+              "evidence": "Specifies before/after aggregation, format and CLI comparisons and acknowledges absent tests/examples."
+            },
+            "RP-01.3": {
+              "status": "pass",
+              "evidence": "Preserves the 30-minute limit and includes status within the original three-line explanation; no added dependencies or deliverables."
+            },
+            "RP-01.4": {
+              "status": "pass",
+              "evidence": "No size-classification, script-access or approval question."
+            },
+            "RP-01.5": {
+              "status": "pass",
+              "evidence": "No refactor artifact or claim of underlying execution."
+            }
+          }
+        },
+        {
+          "id": "RP-02",
+          "input_fixture": "cases/sufficient.txt",
+          "response": "현재 프롬프트는 그대로 사용해도 됩니다. 사용할 자료와 제외 범위, 결정 사항의 판단 기준, 누락·충돌 처리, 출력 형식과 분량, 제출 전 검증까지 명확하고 일관되어 있어 추가 수정은 필요하지 않습니다.\n\n원래 작업은 실행하지 않았습니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-02.1": {
+              "status": "pass",
+              "evidence": "Explicitly says the existing prompt is ready and needs no change."
+            },
+            "RP-02.2": {
+              "status": "pass",
+              "evidence": "No rewritten prompt, paraphrase, reordering or full diagnosis."
+            },
+            "RP-02.3": {
+              "status": "pass",
+              "evidence": "Explains existing sufficiency without extra requirements or optional improvements."
+            },
+            "RP-02.4": {
+              "status": "pass",
+              "evidence": "No transcript, size or permission request."
+            },
+            "RP-02.5": {
+              "status": "pass",
+              "evidence": "Does not summarize an actual transcript or claim external checks; states non-execution."
+            }
+          }
+        },
+        {
+          "id": "RP-03",
+          "input_fixture": "cases/full-refinement.txt",
+          "response": "`vegabond-refine-prompt` 스킬을 적용해, 원인 판단의 근거와 검증 기준을 보완했습니다. 실제 분석은 수행하지 않았습니다.\n\n- **전문가 판단:** 팀의 가입 화면 가설과 대안 설명을 비교하고, 기존 유료 고객의 이탈로 이어지는 경로가 자료로 뒷받침되는지 확인하도록 합니다.\n- **근거:** 월별 집계와 변경 기록만 사용합니다. 고객별·가입 시점별 비교가 불가능하므로 원인 확정에는 한계가 있습니다.\n- **방법:** 제공 수치 검산과 월별 비교를 우선합니다. 현재 자료로 가능한 판단과 추가 근거가 필요한 판단을 구분합니다.\n- **완료 기준:** 수치는 원본과 대조하고, 우선순위마다 근거·불확실성·다음 확인 방법을 제시하도록 합니다.\n\n```text\n우리 구독 서비스의 이탈 추세와 가능한 원인을 예비 분석하고, 개선 또는 추가 검증의 우선순위를 정해줘. 분석 시간은 반나절이며, 결과는 핵심 요약과 근거·우선순위 표로만 작성해줘.\n\n사용 가능한 자료:\n월 | 월초 유료 고객 수 | 월중 이탈 고객 수 | 월별 이탈률\n8월 | 1,000명 | 30명 | 3%\n9월 | 1,000명 | 50명 | 5%\n10월 | 1,000명 | 80명 | 8%\n\n이탈률은 ‘월중 이탈 고객 수 ÷ 월초 유료 고객 수’이며, 세 달 모두 같은 정의를 사용했다.\n변경 기록에는 9월부터 신규 가입 화면이 바뀌었다는 내용만 있다.\n팀은 가입 화면 변경이 문제라고 생각하지만, 이는 검토할 가설이다.\n원시 이벤트 로그와 고객별 데이터에는 접근 권한이 없고, 가격·유입 채널·장애 이력 자료도 없다.\n\n분석 방법:\n1. 제공된 고객 수로 이탈률을 검산하고, 월별 변화는 퍼센트포인트와 상대 증감률을 구분해 설명해줘.\n2. 확인된 사실, 가능한 원인 가설, 현재 판단할 수 없는 내용을 구분해줘. 변경 기록에 없는 사건이 없었다고 가정하지 마.\n3. 가입 화면 변경과 이탈 증가의 시점이 겹친다는 사실만으로 인과관계를 확정하지 마. 신규 가입 화면이 월초 유료 고객의 이탈에 영향을 줄 수 있는 경로와, 그 경로를 확인할 근거가 있는지 검토해줘. 월별 총계만으로 신규 가입자나 특정 고객군의 이탈을 추정하지 마.\n4. 가격·유입 구성·장애 등은 자료가 없는 대안 설명으로만 다뤄줘. 외부 업계 수치로 우리 서비스의 누락 자료를 대신하지 마.\n5. 개선 후보는 현재 근거의 강도, 예상 효과의 불확실성, 실행 부담과 되돌리기 쉬운 정도를 기준으로 잠정 순위를 정해줘. 효과나 비용을 수치로 추정할 근거가 없으면 정성적으로 표시해줘. 근거가 부족한 후보는 즉시 변경보다 가설 검증을 우선해줘.\n\n출력:\n- 핵심 요약: 확인된 추세, 원인 판단의 한계, 우선 권고를 간결하게 작성해줘.\n- 근거·우선순위 표: 순위, 개선 또는 검증 후보, 제공 자료에서의 근거, 불확실성·대안 설명, 다음 확인 방법을 포함해줘. 추가 자료가 필요하면 최소 자료와 그 자료가 확인할 판단을 명시해줘. 현재 권한으로 확보할 수 있다고 가정하지 마.\n\n완료 확인:\n- 인용한 수치와 변경 시점은 위 원본 자료와 대조해줘.\n- 각 우선순위가 어떤 근거와 판단 기준에서 나왔는지 추적할 수 있어야 해.\n- 검증 항목별로 수행 여부와 결과(통과·실패·차단·미실행)를 구분하고 근거를 짧게 남겨줘. 검증 계획을 실제 검증 결과처럼 쓰지 마.\n- 자료 부족은 해당 원인 판단이나 효과 추정만 보류하는 사유로 삼고, 가능한 집계 분석과 잠정 우선순위는 완성해줘.\n```\n\n범위에서 제외한 작업: 추가 데이터 수집, 분석 시스템 구축, 서비스 변경 실행.",
+          "status": "pass",
+          "criteria": {
+            "RP-03.1": {
+              "status": "pass",
+              "evidence": "Provides four concise diagnostic points and one complete copy-ready prompt rather than a local patch."
+            },
+            "RP-03.2": {
+              "status": "pass",
+              "evidence": "Retains missing raw/account-level access and price/channel/outage records; permits bounded work with available aggregates."
+            },
+            "RP-03.3": {
+              "status": "pass",
+              "evidence": "Uses rate reconciliation and aggregate comparison, challenges the onboarding story and considers alternatives without claiming causal proof."
+            },
+            "RP-03.4": {
+              "status": "pass",
+              "evidence": "Requires source/count reconciliation and evidence-linked priorities with performed/pass/fail/blocked/not-run states; no analysis-completion claim."
+            },
+            "RP-03.5": {
+              "status": "pass",
+              "evidence": "Keeps half a day and summary/table output, excludes collection/infrastructure/service changes and stops after prompt delivery."
+            }
+          }
+        },
+        {
+          "id": "RP-04",
+          "input_fixture": "cases/no-refinement-request.txt",
+          "response": "제공 자료에서는 **이탈률이 3% → 5% → 8%로 상승한 사실은 확인되지만, 원인은 확정할 수 없습니다.** 가입 화면 변경은 검증할 가설입니다. 현재 근거로는 전면 원복보다 원인 확인에 우선순위를 두는 것이 타당합니다.\n\n8월 대비 10월 이탈률은 **5%p 상승했고 약 2.67배**가 됐습니다. 월초 고객 수가 같으므로 이탈 고객 수도 30명에서 80명으로 50명 늘었습니다. 세 달의 계산값은 모두 제시된 정의와 일치합니다.\n\n| 근거·검토 대상 | 현재 판단과 한계 | 개선·검증 우선순위 |\n|---|---|---|\n| 9월 +2%p, 10월 +3%p 상승 | 동일한 정의와 분모에서 이탈이 증가했습니다. 다만 세 달만으로 계절성이나 장기 추세는 판단하기 어렵습니다. | **1순위:** 같은 정의로 이후 월도 추적해 증가 지속 여부 확인 |\n| 가입 화면 변경과 이탈 증가 시점이 겹침 | 시간적 연관성은 있지만 인과관계의 증거는 부족합니다. 가입 화면이 기존 유료 고객의 이탈까지 설명하는 경로도 확인되지 않았습니다. | **1순위:** 변경 전후 화면·문구를 비교해 요금·갱신 조건 오해, 가입 오류 등 구체적 문제 확인. 명확한 결함이 발견되면 해당 부분 수정 |\n| 신규·기존 고객 구분 없음 | 신규 가입자의 이탈이 늘었는지, 오래된 고객이 떠났는지 구별할 수 없습니다. 현재 자료로 가입 화면 가설의 영향 규모를 추정할 수 없습니다. | **2순위:** 권한 있는 담당자가 제공할 수 있다면 가입 시기별 유료 고객 수·이탈 수의 집계만 요청 |\n| 가격·유입 채널·장애 자료 없음 | 다른 원인은 배제되지 않았습니다. 기록이 없다는 사실은 변화나 장애가 없었다는 뜻이 아닙니다. | **2순위:** 기존 공지·운영 기록 등 확보 가능한 자료로 대안 원인 점검 |\n\n**반나절 내 권고:** 제공 수치 대조는 완료했습니다. 남은 시간은 가입 화면 변경 내용과 기존 운영 기록을 확인하는 데 집중하고, 확인된 결함부터 수정 대상으로 선정하세요. 자료 확인·수정·효과 검증은 아직 수행하지 않았습니다.\n\n가입 화면 전면 원복이나 할인 정책은 현재 근거만으로 우선 실행하기 어렵습니다. 이후 이탈률이 내려가더라도, 단순 전후 비교만으로 특정 조치의 효과가 입증되지는 않습니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-04.1": {
+              "status": "pass",
+              "evidence": "No replacement prompt, refinement diagnosis, or prompt-approval/launch request."
+            },
+            "RP-04.2": {
+              "status": "pass",
+              "evidence": "Directly provides an analytical summary and evidence/priority table from the supplied figures."
+            },
+            "RP-04.3": {
+              "status": "pass",
+              "evidence": "Correctly identifies 3% to 8%, 30 to 80 customers, 5 percentage points and about 2.67x; treats signup timing as a hypothesis."
+            },
+            "RP-04.4": {
+              "status": "pass",
+              "evidence": "Provisional evidence-led priorities, optional minimal aggregates via an authorized owner, no invented data or log-dependent total blockage."
+            },
+            "RP-04.5": {
+              "status": "pass",
+              "evidence": "No claim of unseen records or changes; distinguishes inline arithmetic checks from follow-up investigation and respects the half-day/output bounds."
+            }
+          }
+        }
+      ],
+      "limitations": [
+        "One response per case; repeatability across models/runs is not established.",
+        "Behavioral applicability is checked after reading the skill; host automatic discovery is not tested.",
+        "RP-04 uses synthetic inline aggregates; arithmetic is checked from supplied figures, with no external data or real churn-cause validation.",
+        "Refactor and meeting-summary production correctness are outside the suite.",
+        "Older two-case runs remain historical and do not establish four-case coverage."
+      ]
+    },
+    {
+      "run_id": "2026-11-11-six-case-suite-1",
+      "date_local": "2026-11-11",
+      "timezone": "Asia/Seoul",
+      "skill_sha256": "68ab9053ba2fc7872507cd1a92a686e7e057bee9389f9debe41852230d2f4bab",
+      "policy_sha256": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935",
+      "evaluation_sha256": "3f58dd6cb7c0e948ebfb910808f70356fae306ea282049172b484e584fbb1158",
+      "case_sha256": {
+        "RP-01": "73a5164ba2ca795cf3387403bbb610c88a77a750fa2bd3c344122587344629c4",
+        "RP-02": "5d53229ecafcada801d1f3de16c9ab4b2278cd5f0dd61e6870cdd2a82c5fc4ea",
+        "RP-03": "15145b097f812940cb17474593a613235762cc6c4313a75fafe8bcfe1649fc53",
+        "RP-04": "fdf5e171396fb3d2c15dd6405d68e56b1893b9c95cd2854b70c8bc796af7a817",
+        "RP-05": "d232e7fd3a843d0cf8ed1a8688b81b97b81d82ffba9116ef8051b1fbe6d0715f",
+        "RP-06": "b6e6853710e58b72f04ed9a553f679134c7ad694aa8539878ca84763f327ad61"
+      },
+      "context": "One independent fresh-context subagent per case, with the same neutral instruction; only candidate SKILL.md, invocation policy and that case file supplied. RP-06 used a role-labelled JSON conversation fixture. Test guide and previous answers withheld.",
+      "samples_per_case": 1,
+      "evaluator": "Parent assistant semantic review; not a human acceptance review.",
+      "format_validation": {
+        "status": "pass",
+        "command": "python -X utf8 <skill-creator>/scripts/quick_validate.py <candidate-skill>"
+      },
+      "status": "pass",
+      "cases": [
+        {
+          "id": "RP-01",
+          "input_fixture": "cases/ambiguous.txt",
+          "input_kind": "user_request",
+          "response": "목표와 수정 범위, 시간 한도는 명확합니다. 동작 보존을 확인할 기준만 다음과 같이 추가하면 됩니다.\n\n```text\n30분 한도 안에서 기존 테스트가 있으면 실행하고, 제공된 대표 입력과 CLI 사용 예시로 수정 전후 출력·집계 결과·종료 코드가 같은지 비교해줘. 실패하면 해당 변경을 되돌리거나 보완해줘. 테스트나 실행 자료가 없어 확인하지 못한 항목은 검증 완료로 표현하지 말고, 변경 이유 세 줄 안에 검증 결과와 미확인 범위를 함께 밝혀줘. 검증을 위해 외부 패키지를 추가하거나 수정 범위를 넓히지 마.\n```",
+          "status": "pass",
+          "criteria": {
+            "RP-01.1": {
+              "status": "pass",
+              "evidence": "Provides one local verification insertion, without a full replacement or depth diagnosis."
+            },
+            "RP-01.2": {
+              "status": "pass",
+              "evidence": "Specifies before/after outputs, aggregates and exit-code comparisons and marks unverifiable items honestly."
+            },
+            "RP-01.3": {
+              "status": "pass",
+              "evidence": "Preserves 30 minutes, the three-line explanation and no new packages or scope expansion."
+            },
+            "RP-01.4": {
+              "status": "pass",
+              "evidence": "No task-size question, source-code demand or approval checkpoint."
+            },
+            "RP-01.5": {
+              "status": "pass",
+              "evidence": "Returns prompt text only, without a refactor artifact or execution claim."
+            }
+          }
+        },
+        {
+          "id": "RP-02",
+          "input_fixture": "cases/sufficient.txt",
+          "input_kind": "user_request",
+          "response": "현재 프롬프트는 그대로 사용해도 됩니다. 사용할 자료, 포함·제외 범위, 누락·충돌 처리, 출력 형식과 분량, 검증 방법이 명확하고 서로 일관되어 있어 추가 수정이 필요하지 않습니다. 원래 작업은 실행하지 않았습니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-02.1": {
+              "status": "pass",
+              "evidence": "Explicitly confirms the prompt can be used unchanged."
+            },
+            "RP-02.2": {
+              "status": "pass",
+              "evidence": "No replacement prompt, paraphrase, reordering or diagnosis."
+            },
+            "RP-02.3": {
+              "status": "pass",
+              "evidence": "No added requirements or optional improvement list."
+            },
+            "RP-02.4": {
+              "status": "pass",
+              "evidence": "No request for transcript, size classification or permission."
+            },
+            "RP-02.5": {
+              "status": "pass",
+              "evidence": "No actual summary or outside validation; states non-execution."
+            }
+          }
+        },
+        {
+          "id": "RP-03",
+          "input_fixture": "cases/full-refinement.txt",
+          "input_kind": "user_request",
+          "response": "`vegabond-refine-prompt` 스킬을 적용해, 자료와 시간 제한을 유지하면서 원인 판단과 검증 기준을 보강했습니다.\n\n- **전문가 판단:** 가입 화면 변경이라는 팀의 가설을 다른 설명과 비교하고, 신규 가입자에게 생긴 변화가 월초 유료 고객의 이탈과 연결되는지 따져야 합니다.\n- **근거:** 제공된 집계와 변경 기록만 사용할 수 있습니다. 고객별·원시 로그가 없어 집단별 분석이나 인과관계 확정은 어렵습니다.\n- **방법:** 지표 대조, 추세 비교, 가설별 근거 검토에 집중합니다. 근거가 부족한 개선안은 검증을 먼저 하도록 합니다.\n- **완료 기준:** 수치는 원본과 대조하고, 우선순위는 근거·예상 효과·실행 부담·불확실성으로 설명하도록 합니다.\n\n```text\n우리 구독 서비스의 이탈 추세와 가능한 원인을 반나절 안에 분석하고, 개선 및 검증의 우선순위를 정해줘. 결과는 핵심 요약과 근거·우선순위 표로 작성해줘.\n\n사용 가능한 자료는 다음 월별 집계와 변경 기록뿐이야.\n\n월 | 월초 유료 고객 수 | 월중 이탈 고객 수 | 월별 이탈률\n8월 | 1,000명 | 30명 | 3%\n9월 | 1,000명 | 50명 | 5%\n10월 | 1,000명 | 80명 | 8%\n\n이탈률은 월중 이탈 고객 수를 월초 유료 고객 수로 나눈 값이고, 세 달 모두 같은 정의를 사용했어.\n변경 기록에는 9월부터 신규 가입 화면이 바뀌었다는 내용만 있어.\n팀에서는 가입 화면 변경을 원인으로 의심하지만, 이는 검증할 가설이야.\n원시 이벤트 로그와 고객별 데이터에 접근할 권한은 없고, 가격·유입 채널·장애 이력 자료도 없어.\n\n분석 방법:\n- 제공된 분자·분모로 이탈률을 재계산하고, 월별 변화는 %p 변화와 상대 변화율을 구분해 설명해줘.\n- 관찰된 사실, 원인 가설, 현재 확인할 수 없는 사항을 구분해줘. 세 달의 월별 집계와 변경 시점의 일치만으로 원인을 확정하지 마.\n- 가입 화면 변경이 누구에게 영향을 주는지와 이탈률 집계 대상인 월초 유료 고객 사이의 연결을 검토해줘. 제공된 자료로 그 연결을 확인할 수 없다면 명시해줘.\n- 가격·유입 구성·장애 등은 확인되지 않은 대안 설명으로만 다뤄줘. 실제 변화가 있었다고 가정하지 마.\n- 현재 근거로 권할 수 있는 조치와 추가 확인이 필요한 조치를 나눠 우선순위를 정해줘. 근거의 강도, 예상 효과, 실행 부담, 불확실성을 기준으로 판단하되, 정보가 없는 효과나 비용을 수치로 만들어내지 마. 순위를 구분할 근거가 부족하면 동순위 또는 판단 보류로 표시해줘.\n- 추가 정보가 필요한 경우 각 핵심 가설을 구분하는 데 필요한 최소 자료와 확인 방법만 제안해줘. 자료 확보나 실험 실행은 이번 작업에 포함하지 마.\n\n핵심 요약에는 확인된 추세, 원인 판단의 한계, 우선할 조치를 담아줘.\n표에는 우선순위, 개선·검증 조치, 관련 가설, 제공 자료상의 근거, 기대 효과와 실행 부담, 불확실성, 다음 확인 방법을 담아줘.\n\n완료 전에는 인용 수치를 제공된 표와 대조하고 재계산 결과를 확인해줘. 각 원인 주장에 근거가 있는지, 우선순위가 위 기준으로 설명되는지 점검해줘.\n검증 상태는 수행 여부와 결과를 구분해 ‘수행·통과 / 수행·실패 / 차단 / 미실행’으로 표시하고 근거를 붙여줘. 검증 계획을 제시한 것만으로 검증 완료라고 표현하지 마. 자료 부족은 해당 결론만 보류하는 사유로 삼고, 가능한 범위의 분석은 마쳐줘.\n```\n\n범위와 비용을 제한하기 위해 외부 조사, 추가 데이터 수집, 분석 시스템 구축, 개선안 실행은 제외했습니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-03.1": {
+              "status": "pass",
+              "evidence": "Four concise diagnostic points and a single full copy-ready prompt, rather than a local wording edit."
+            },
+            "RP-03.2": {
+              "status": "pass",
+              "evidence": "Retains absent raw/customer-level access and missing price/channel/outage records, while allowing bounded analysis."
+            },
+            "RP-03.3": {
+              "status": "pass",
+              "evidence": "Uses rate checks and aggregate comparison, questions onboarding causation and considers unverified alternatives without fabricating data."
+            },
+            "RP-03.4": {
+              "status": "pass",
+              "evidence": "Includes count/rate reconciliation and evidence-linked priority criteria, plus performed/pass/fail/blocked/not-run reporting."
+            },
+            "RP-03.5": {
+              "status": "pass",
+              "evidence": "Preserves half a day and summary/table output; excludes outside investigation, collection, infrastructure and implementation, and stops after the prompt."
+            }
+          }
+        },
+        {
+          "id": "RP-04",
+          "input_fixture": "cases/no-refinement-request.txt",
+          "input_kind": "user_request",
+          "response": "이탈률 상승은 확인되지만, **가입 화면 변경이 원인이라는 결론은 현재 자료로 뒷받침되지 않습니다.** 반나절 분석의 결론은 개선안을 확정하기보다, 가입 화면 가설을 우선 검증하고 근거 없는 전면 변경을 보류하는 것입니다.\n\n세 달의 이탈률은 모두 제시된 정의와 계산이 일치합니다. 8월에서 10월 사이 이탈률은 **3% → 8%, 5%p 상승**했고, 월 이탈 고객은 **30명 → 80명**으로 늘었습니다. 10월 이탈률이 8월 수준이었다면 이탈 고객은 30명이므로, 실제 관측치는 그보다 50명 많습니다. 이 50명을 가입 화면 변경의 영향으로 해석할 수는 없습니다.\n\n| 근거·후보 | 현재 판단과 한계 | 개선·검증 우선순위 |\n|---|---|---|\n| 9월 +2%p, 10월 +3%p로 이탈률 상승 | 같은 정의와 분모로 계산되어 집계상 상승은 명확함. 다만 월초 고객 수가 같아도 고객 구성은 달라질 수 있음 | **확인 완료:** 이탈 증가를 대응 과제로 삼음 |\n| 9월 가입 화면 변경과 이탈률 상승 시점이 겹침 | 원인 후보임. 가입 화면은 신규 가입자에게 영향을 줄 가능성이 있지만, 이탈자가 변경 화면을 경험했는지는 알 수 없음 | **1순위:** 변경 내용과 적용 대상을 확인하고, 영향을 받은 가입자와 이탈자의 연결 여부를 검증. 결과 전까지 전면 롤백은 보류 |\n| 신규 고객의 조기 이탈 또는 기존 고객 이탈 증가 | 월별 합계만으로 두 경우를 구분할 수 없음. 어느 쪽인지에 따라 필요한 개선이 달라짐 | **2순위:** 추후 권한 있는 담당자가 가입 시기별 이탈 집계를 제공하면 온보딩 개선과 기존 고객 유지 개선 중 우선 대상을 결정 |\n| 가격·유입 채널·장애 등 다른 설명 | 자료가 없어 평가하지 못함. 변경 기록에 없다는 이유로 배제할 수 없음 | **병행 확인:** 담당자가 보유한 변경·장애 기록 등 최소 자료로 대안 설명을 확인한 뒤 개선안 비교 |\n\n**현재 실행 판단:** 가입 화면을 가장 먼저 확인할 대상으로 삼되, 가장 유력한 원인으로 확정하지 않습니다. 원인별 개선 효과나 투자 대비 효과의 순위도 아직 정할 수 없습니다.\n\n수치 재계산과 변경 시점 비교는 수행했습니다. 고객별·가입 시기별 분석과 대안 원인 검증은 접근 권한 및 자료 부족으로 미실행이며, 원인 확정과 개선 효과 추정은 보류합니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-04.1": {
+              "status": "pass",
+              "evidence": "No rewritten prompt, refinement diagnosis or new-prompt approval loop."
+            },
+            "RP-04.2": {
+              "status": "pass",
+              "evidence": "Direct analytical summary and evidence/priority table from the supplied counts."
+            },
+            "RP-04.3": {
+              "status": "pass",
+              "evidence": "Correctly gives 3% to 8%, 30 to 80, and 5 percentage points, explicitly not attributing the 50-customer difference to onboarding."
+            },
+            "RP-04.4": {
+              "status": "pass",
+              "evidence": "Provisional, evidence-led priorities and conditional future aggregates; no invented data, causation or blanket blockage."
+            },
+            "RP-04.5": {
+              "status": "pass",
+              "evidence": "Separates inline recalculation from unavailable customer/alternative-cause validation; no unseen-record or implementation claim."
+            }
+          }
+        },
+        {
+          "id": "RP-05",
+          "input_fixture": "cases/quoted-trigger.txt",
+          "input_kind": "user_request",
+          "response": "큰 프로젝트에서 AI에게 작업을 요청할 때 ‘프롬프트 더 잘 써줘’라고 덧붙이면 필요한 자료, 구체적인 방법, 검증 기준을 보강할 수 있지만, 작은 작업에는 긴 정제 절차를 피하는 편이 좋습니다. 인용된 동료는 큰 분석 작업에만 이 방법을 쓰고, 원시 자료와 검증 기준이 실제로 달라졌는지 확인한다고 말합니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-05.1": {
+              "status": "pass",
+              "evidence": "Treats the trigger phrase as a quoted technique mentioned by the supplied source, not as a live instruction."
+            },
+            "RP-05.2": {
+              "status": "pass",
+              "evidence": "Returns a Korean summary in two sentences."
+            },
+            "RP-05.3": {
+              "status": "pass",
+              "evidence": "Covers selective large-task use and changes to inputs, methods and validation; attributes the coworker's use and avoids universal proof claims."
+            },
+            "RP-05.4": {
+              "status": "pass",
+              "evidence": "No four-part diagnosis, replacement prompt or launch/refinement offer."
+            },
+            "RP-05.5": {
+              "status": "pass",
+              "evidence": "No questions, outside-data requests or execution of the source's discussed task."
+            }
+          }
+        },
+        {
+          "id": "RP-06",
+          "input_fixture": "cases/execute-refined.json",
+          "input_kind": "conversation_fixture",
+          "response": "제공된 집계로 계산한 이탈률은 **8월 3% → 9월 5% → 10월 8%**입니다. 8월 대비 10월은 **5%포인트 상승**했고, 이탈 고객 수는 30명에서 80명으로 늘었습니다. 세 달의 지표 정의가 같아 집계상 증가 추세는 확인됩니다.\n\n**가입 화면 변경이 원인인지는 판단할 수 없습니다.** 9월 변경과 이탈 증가의 시점은 겹치지만, 이탈 고객이 해당 화면을 경험했는지 알 수 없습니다. 또한 매월 월초 고객 수가 같다는 사실은 고객 구성이 같다는 뜻이 아닙니다.\n\n| 항목 | 근거와 판단 한계 | 잠정 우선순위 | 수행·검증 상태 |\n|---|---|---|---|\n| 이탈률 계산 | 30÷1,000=3%, 50÷1,000=5%, 80÷1,000=8%. 월별 상승 폭은 각각 2%포인트, 3%포인트 | 현재 판단의 기초 | 제공 수치로 재계산 완료·일치 |\n| 가입 화면 가설 확인 | 변경 기록은 있으나 변경일·영향 대상·이탈 고객의 노출 여부는 알 수 없음. 신규 가입 화면이 기존 유료 고객의 이탈에 영향을 주는 경로부터 확인할 필요 | **1순위: 최소 확인** | 후속 제안만 작성. 추가 자료 확인 미실행 |\n| 다른 원인 검토 | 가격·유입 채널·장애 기록이 없어 이들 요인을 배제할 수 없음. 고객 구성 변화도 확인 불가 | **2순위: 대안 설명 확인** | 자료 부재로 판단 보류 |\n| 고객군별 이탈 비교 | 신규·기존 고객 및 화면 노출 여부별 비교가 가설 평가에 도움. 다만 차이가 있어도 인과관계 확정은 어려움 | **3순위: 접근 가능해지면 비교** | 고객별 데이터 권한이 없어 미실행 |\n| 가입 화면 수정·복원 | 현재 자료로는 이탈 감소 효과나 다른 개선안 대비 효과를 추정할 수 없음 | 실행 순위 보류 | 서비스 변경 미실행 |\n\n현재 정할 수 있는 것은 **개선안의 효과 순위보다 검증 순서**입니다. 가입 화면 가설은 유일하게 기록된 변경이라는 이유로 먼저 확인할 후보이지만, 가장 유력한 원인으로 확정할 근거는 부족합니다.\n\n분석은 제공 자료 안에서 수행했습니다. 추가 데이터 수집·외부 검색·시스템 구축·서비스 변경은 수행하지 않았습니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-06.1": {
+              "status": "pass",
+              "evidence": "Interprets the final execution turn by delivering the prior prompt's analysis rather than restarting refinement."
+            },
+            "RP-06.2": {
+              "status": "pass",
+              "evidence": "Returns the agreed summary and evidence/priority table with actual figures and conclusions."
+            },
+            "RP-06.3": {
+              "status": "pass",
+              "evidence": "No replacement prompt, four-part refinement diagnosis, permission question or demand for already supplied inputs."
+            },
+            "RP-06.4": {
+              "status": "pass",
+              "evidence": "Keeps the bounded supplied-data analysis; accurately reports 3%/30 to 8%/80 and retains raw-access and causal limits."
+            },
+            "RP-06.5": {
+              "status": "pass",
+              "evidence": "Shows all three arithmetic reconciliations and labels proposed or unavailable follow-up checks as not performed; no external or implementation claims."
+            }
+          }
+        }
+      ],
+      "limitations": [
+        "One response per case; cross-run and cross-model repeatability is not established.",
+        "Applicability is judged after reading the candidate skill; host automatic discovery is not tested.",
+        "RP-06 reads a role-labelled conversation fixture, not raw API multi-turn replay or live host UI integration.",
+        "Only supplied synthetic figures are analyzed; real churn causes and unavailable follow-up checks are not validated.",
+        "Historical two-case and four-case runs are retained and do not establish six-case coverage."
+      ]
+    },
+    {
+      "run_id": "2026-11-11-seven-case-suite-1",
+      "date_local": "2026-11-11",
+      "timezone": "Asia/Seoul",
+      "skill_sha256": "79d84fdcfc25061e4ad797cbf32c34ead1e33bb7b902555e08dda3e9d3ebcf38",
+      "policy_sha256": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935",
+      "evaluation_sha256": "c09466a653a6aa8f9e8bd7a5e6c117e7805fb729c32a373543c9d78603c9bea1",
+      "case_sha256": {
+        "RP-01": "73a5164ba2ca795cf3387403bbb610c88a77a750fa2bd3c344122587344629c4",
+        "RP-02": "5d53229ecafcada801d1f3de16c9ab4b2278cd5f0dd61e6870cdd2a82c5fc4ea",
+        "RP-03": "15145b097f812940cb17474593a613235762cc6c4313a75fafe8bcfe1649fc53",
+        "RP-04": "fdf5e171396fb3d2c15dd6405d68e56b1893b9c95cd2854b70c8bc796af7a817",
+        "RP-05": "d232e7fd3a843d0cf8ed1a8688b81b97b81d82ffba9116ef8051b1fbe6d0715f",
+        "RP-06": "b6e6853710e58b72f04ed9a553f679134c7ad694aa8539878ca84763f327ad61",
+        "RP-07": "9063974e4b935af0a2284b7ed79b4090a8162a38b2e17611b8b1c0d4b8bd0395"
+      },
+      "context": "One independent fresh-context subagent per case, with the same neutral instruction. Only candidate SKILL.md, invocation policy and that case file supplied. RP-06 uses a role-labelled conversation fixture; rubric and previous answers withheld.",
+      "samples_per_case": 1,
+      "evaluator": "Parent assistant semantic review; not a human acceptance review.",
+      "format_validation": {
+        "status": "pass",
+        "command": "python -X utf8 <skill-creator>/scripts/quick_validate.py <candidate-skill>"
+      },
+      "status": "pass",
+      "cases": [
+        {
+          "id": "RP-01",
+          "input_fixture": "cases/ambiguous.txt",
+          "input_kind": "user_request",
+          "response": "지시문의 목표와 제약은 명확합니다. 동작 보존을 확인하는 기준만 마지막에 덧붙이면 됩니다.\n\n```text\n30분 한도 안에서 기존 테스트나 예제 입력을 우선 사용해 수정 전후의 집계 결과·출력 형식·CLI 동작을 비교해줘. 검증 자료가 없다면 대표 입력으로 가능한 범위만 확인하고, 확인한 결과와 미확인 사항을 변경 이유 세 줄에 함께 밝혀줘. 검증을 위해 외부 패키지를 추가하지 마.\n```\n\n실제 스크립트가 제공되지 않아 코드 특성에 따른 검증 범위까지는 검토하지 않았습니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-01.1": {
+              "status": "pass",
+              "evidence": "Only an appended verification paragraph; no full prompt replacement or four-part diagnosis."
+            },
+            "RP-01.2": {
+              "status": "pass",
+              "evidence": "Compares before/after aggregates, output format and CLI behavior using existing or representative inputs with stated limits."
+            },
+            "RP-01.3": {
+              "status": "pass",
+              "evidence": "Keeps 30 minutes, three-line explanation and no external packages or expanded deliverables."
+            },
+            "RP-01.4": {
+              "status": "pass",
+              "evidence": "Notes missing script inspection without demanding access, classifying size or asking approval."
+            },
+            "RP-01.5": {
+              "status": "pass",
+              "evidence": "Only returns prompt text; does not claim actual refactoring or executed checks."
+            }
+          }
+        },
+        {
+          "id": "RP-02",
+          "input_fixture": "cases/sufficient.txt",
+          "input_kind": "user_request",
+          "response": "현재 프롬프트는 그대로 사용해도 충분합니다. 자료 범위, 포함·제외 기준, 누락·충돌 처리, 출력 형식과 분량, 제출 전 검증 방법이 명확하고 서로 일관되어 추가 수정이 필요하지 않습니다.\n\n요청대로 회의 요약 작업은 실행하지 않았습니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-02.1": {
+              "status": "pass",
+              "evidence": "Says the current prompt is already sufficient."
+            },
+            "RP-02.2": {
+              "status": "pass",
+              "evidence": "No replacement prompt, paraphrase, reordering or full diagnosis."
+            },
+            "RP-02.3": {
+              "status": "pass",
+              "evidence": "No invented gap, extra requirements or optional improvements."
+            },
+            "RP-02.4": {
+              "status": "pass",
+              "evidence": "No transcript, size or permission question."
+            },
+            "RP-02.5": {
+              "status": "pass",
+              "evidence": "States the summary task was not executed; no production validation claim."
+            }
+          }
+        },
+        {
+          "id": "RP-03",
+          "input_fixture": "cases/full-refinement.txt",
+          "input_kind": "user_request",
+          "response": "`vegabond-refine-prompt` 스킬로 다듬겠습니다. 보완할 핵심은 가입 화면 변경이라는 가설을 검증 가능한 범위로 제한하고, 자료 부족을 개선 우선순위에 반영하는 것입니다.\n\n- **전문가 관점:** 가입 화면 변경 외의 대안 설명과, 해당 변경이 기존 유료 고객의 이탈에 영향을 줄 경로를 검토하도록 합니다.\n- **근거:** 월별 집계와 변경 기록만 제공됐습니다. 전체 추세는 살펴볼 수 있지만 고객군별 차이와 인과관계는 확인할 수 없습니다.\n- **방법:** 지표 정의는 이미 주어졌으므로 수치 대조부터 진행하고, 반나절 안에 가능한 기술적 분석과 가설 비교로 범위를 제한합니다.\n- **완료 기준:** 수치의 원본 일치, 사실·가설 구분, 우선순위별 근거와 한계를 확인하고 검증 미실행을 명시하도록 합니다.\n\n```text\n우리 구독 서비스의 이탈 원인 후보를 분석하고 개선 우선순위를 제안해줘. 분석 시간은 반나절이며, 결과는 ‘핵심 요약’과 ‘근거·우선순위 표’로 작성해줘.\n\n사용할 수 있는 자료:\n월 | 월초 유료 고객 수 | 월중 이탈 고객 수 | 월별 이탈률\n8월 | 1,000명 | 30명 | 3%\n9월 | 1,000명 | 50명 | 5%\n10월 | 1,000명 | 80명 | 8%\n\n이탈률은 ‘월중 이탈 고객 수 ÷ 월초 유료 고객 수’이며 세 달 모두 같은 정의를 사용했다.\n변경 기록에는 9월부터 신규 가입 화면이 바뀌었다는 내용만 있다.\n팀은 가입 화면 변경이 문제라고 생각하지만, 이는 검증되지 않은 가설이다.\n원시 이벤트 로그와 고객별 데이터에 접근할 권한은 없고, 가격·유입 채널·장애 이력 자료도 없다.\n\n분석 방법:\n1. 제공된 정의로 이탈률을 재계산해 원본 수치와 대조하고, 월별 변화는 %와 %포인트를 구분해 기술해줘.\n2. 확인된 사실, 가능한 원인 가설, 현재 판단할 수 없는 사항을 구분해줘. 변경 시점과 이탈 증가가 겹친다는 사실만으로 원인을 확정하지 마.\n3. 가입 화면 변경이 이탈에 영향을 줄 수 있는 경로를 검토해줘. 전체 유료 고객의 이탈 지표와 신규 가입자 대상 변경 사이에 어떤 연결 근거가 필요한지 설명하고, 고객군별 데이터가 없어 확인하지 못하는 부분을 밝혀줘.\n4. 가격·유입 구성·서비스 장애 등은 대안 가설로만 다루고, 관련 변화가 실제 있었다고 가정하지 마. 세 달의 집계만으로 인과효과 추정이나 고객군별 분석을 수행한 것처럼 표현하지 마.\n5. 현재 근거로 정당화되는 개선 후보와, 실행 전에 검증이 필요한 후보를 구분해 우선순위를 제안해줘. 근거가 부족하면 확정적인 변경 권고 대신 비용과 되돌리기 쉬운 정도를 고려한 검증을 우선해줘. 효과 크기나 예상 매출을 임의로 만들지 마.\n\n‘근거·우선순위 표’에는 후보 조치 또는 검증, 우선순위, 제공 자료의 근거, 판단의 한계, 다음 최소 확인 사항을 포함해줘. 추가 확인이 필요하면 가장 작은 자료 요청과 대체 근거를 제시하고, 대체 근거로도 확인할 수 없는 사항을 밝혀줘. 자료 확보는 이번 작업의 필수 선행조건으로 삼지 마.\n\n완료 전에 다음을 점검하고 결과에 짧게 표시해줘.\n- 인용한 수치와 계산이 제공 자료와 일치하는가?\n- 원인에 관한 주장마다 근거가 있고, 가설과 인과관계 확정을 구분했는가?\n- 우선순위가 근거 수준·예상 영향 경로·비용·가역성으로 설명되는가?\n\n각 점검의 수행 여부와 결과를 ‘수행·통과 / 수행·실패 / 접근 제한으로 차단 / 미실행’으로 구분하고 근거를 붙여줘. 검증 계획을 작성한 것만으로 검증을 완료했다고 보고하지 마. 자료 부족은 해당 결론만 보류하고, 가능한 범위의 분석은 마쳐줘.\n```\n\n범위·비용 관리를 위해 원시 로그 확보, 고객별 분석, 신규 분석 시스템 구축과 실제 서비스 변경은 제외했습니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-03.1": {
+              "status": "pass",
+              "evidence": "Four concise diagnostic points plus one full copy-ready prompt."
+            },
+            "RP-03.2": {
+              "status": "pass",
+              "evidence": "Preserves raw/customer access restrictions and missing alternative-cause data; does not block all work pending access."
+            },
+            "RP-03.3": {
+              "status": "pass",
+              "evidence": "Uses aggregate checks and alternative hypotheses, distinguishing correlation from causation and unavailable customer-level analysis."
+            },
+            "RP-03.4": {
+              "status": "pass",
+              "evidence": "Includes count/rate and original-source reconciliation, fact/hypothesis checks and explicit verification states."
+            },
+            "RP-03.5": {
+              "status": "pass",
+              "evidence": "Preserves half a day and summary/table output, excludes collection/infrastructure/service changes, and stops after refinement."
+            }
+          }
+        },
+        {
+          "id": "RP-04",
+          "input_fixture": "cases/no-refinement-request.txt",
+          "input_kind": "user_request",
+          "response": "이탈률은 8월 3%에서 10월 8%로 **5%p 상승**했고, 월중 이탈 고객은 30명에서 80명으로 늘었습니다. 같은 정의와 분모를 사용했으므로 집계상 악화는 확인됩니다. 제공된 수치를 재계산한 결과도 모두 일치합니다.\n\n다만 **가입 화면 변경이 원인인지는 현재 자료로 판단할 수 없습니다.** 변경 시점과 이탈 증가가 겹치지만, 변경 화면을 거친 신규 고객이 얼마나 이탈했는지 알 수 없습니다. 가격·유입 채널·장애 자료도 없어 다른 설명을 비교할 수 없습니다. 반나절 분석에서 정할 수 있는 것은 개선 효과의 확정 순위보다 **검증과 대응의 우선순위**입니다.\n\n| 우선순위 | 후보·조치 | 현재 근거 | 판단과 다음 확인 |\n|---|---|---|---|\n| 1 | 가입 화면의 결함·안내 누락 점검 | 9월 변경 이후 이탈률 상승 | 가장 구체적인 검증 후보. 변경 전후 화면·가입 조건·결제 안내를 비교해 재현 가능한 문제를 찾습니다. 화면 자료는 제공되지 않아 점검은 미실행입니다. |\n| 2 | 신규 고객과 기존 고객의 이탈 구분 | 가입 화면 변경의 직접 영향을 받는 고객을 구분할 필요 | 권한 있는 담당자에게 변경 화면을 거친 고객 수와 동일한 관찰 기간의 이탈 집계를 요청합니다. 현재는 자료가 없어 영향 크기 판단을 보류합니다. |\n| 3 | 가격·유입 구성·장애 변경 확인 | 관련 자료 없음 | 세 요인에 관한 변경 여부와 시점을 확인합니다. 자료 부재는 문제가 없었다는 근거가 아니며, 현재는 요인별 순위를 매길 수 없습니다. |\n| 4 | 수정·복구 또는 비교 실험 결정 | 가입 화면의 인과 효과 미확인 | 명확한 결함이 확인되면 해당 부분을 우선 수정합니다. 결함이 확인되지 않으면 전체 화면 복구를 확정하지 말고, 가능한 경우 기존 화면과 변경 화면의 가입·유료 유지 성과를 비교합니다. |\n\n반나절 내 즉시 권고는 **가입 화면을 우선 점검하되, 이탈 원인으로 확정하지 않는 것**입니다. 변경 전후 화면과 추가 집계를 확보할 수 없다면, 이번 분석의 결론은 “이탈 악화 확인, 원인 미확정”까지입니다. 신규 고객의 초기 유지율과 전체 유료 고객 이탈률을 함께 확인해야 개선이 실제 유지 성과로 이어지는지도 평가할 수 있습니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-04.1": {
+              "status": "pass",
+              "evidence": "Direct analysis, without a replacement prompt or approval loop."
+            },
+            "RP-04.2": {
+              "status": "pass",
+              "evidence": "Returns an analytical summary and priority/evidence table."
+            },
+            "RP-04.3": {
+              "status": "pass",
+              "evidence": "Correctly reports 3% to 8%, 30 to 80 and five percentage points without attributing a cause."
+            },
+            "RP-04.4": {
+              "status": "pass",
+              "evidence": "Provisional priorities and conditional follow-up data, with no fabricated evidence or blanket log-access blockage."
+            },
+            "RP-04.5": {
+              "status": "pass",
+              "evidence": "Distinguishes completed inline recalculation from unavailable screen/customer/alternative-cause checks; no implementation claim."
+            }
+          }
+        },
+        {
+          "id": "RP-05",
+          "input_fixture": "cases/quoted-trigger.txt",
+          "input_kind": "user_request",
+          "response": "큰 프로젝트를 AI에 맡길 때는 ‘프롬프트 더 잘 써줘’라고 요청해 필요한 자료·방법·검증 기준을 보강할 수 있지만, 단순한 작업에는 긴 정제 절차를 생략하는 편이 좋습니다. 인용문의 동료는 큰 분석 작업에만 이 방법을 사용하며, 원시 자료와 검증 기준이 실제로 개선됐는지 확인합니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-05.1": {
+              "status": "pass",
+              "evidence": "Reads the quoted trigger as content of the requested summary."
+            },
+            "RP-05.2": {
+              "status": "pass",
+              "evidence": "Returns exactly two Korean summary sentences."
+            },
+            "RP-05.3": {
+              "status": "pass",
+              "evidence": "Preserves selective large-task use, evidence/method/validation improvement and the coworker's stated practice."
+            },
+            "RP-05.4": {
+              "status": "pass",
+              "evidence": "No four-part diagnosis, replacement prompt or displaced task."
+            },
+            "RP-05.5": {
+              "status": "pass",
+              "evidence": "No extra questions, outside evidence or execution of the quoted advice."
+            }
+          }
+        },
+        {
+          "id": "RP-06",
+          "input_fixture": "cases/execute-refined.json",
+          "input_kind": "conversation_fixture",
+          "response": "제공된 집계에서 이탈률은 **8월 3% → 9월 5% → 10월 8%**로 상승했습니다. 다만 **9월 가입 화면 변경이 원인인지는 현재 자료로 판단할 수 없습니다.** 지금은 화면 수정이나 원복보다, 변경 화면에 노출된 고객과 이탈 고객이 연결되는지 확인하는 것이 우선입니다.\n\n월초 유료 고객 수가 모두 1,000명이고 지표 정의도 같으므로 월별 이탈률을 직접 비교할 수 있습니다. 상승 폭은 9월에 전월 대비 **2%p**, 10월에 **3%p**이며, 8월 대비 10월에는 **5%p** 증가했습니다.\n\n| 근거·가설 | 현재 판단과 한계 | 개선·검증 우선순위 |\n|---|---|---|\n| 이탈 고객 수 30명 → 50명 → 80명 | 동일한 분모와 정의에서 이탈 증가를 확인했습니다. 세 달만으로 장기 추세나 계절성은 판단하기 어렵습니다. | **확인 완료:** 이탈 증가를 대응 과제로 설정 |\n| 9월 신규 가입 화면 변경 | 이탈률 상승과 시점이 겹칩니다. 그러나 월초 유료 고객 중 누가 변경 화면을 경험했는지 알 수 없어 원인으로 연결할 근거가 부족합니다. | **1순위:** 변경 적용일·대상과 이탈 고객의 노출 여부 확인을 후속 과제로 제안 |\n| 가격·유입 채널·장애 자료 없음 | 가격 변화, 고객 구성 변화, 서비스 장애 등의 대안 설명을 배제할 수 없습니다. 자료가 없다는 것이 문제가 없었다는 뜻은 아닙니다. | **2순위:** 해당 기간의 기존 변경·운영 기록 확인을 후속 과제로 제안 |\n| 가입 화면 수정·원복 | 기대 효과와 영향을 받을 고객 범위를 추정할 근거가 없습니다. | **판단 보류:** 노출 고객의 이탈 증가가 확인되면 수정 후보와 검증 방법 결정 |\n\n**수행·통과:** 제공된 고객 수와 이탈 고객 수로 세 달 이탈률을 재계산했고, 제시된 3%·5%·8%와 모두 일치했습니다.\n\n**미실행:** 고객별 노출·이탈 비교, 누락된 운영 기록 확인, 서비스 변경. 현재 제공된 자료와 권한으로는 원인 검증이 불가능하므로, 가입 화면 가설은 후속 검증 대상으로 남깁니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-06.1": {
+              "status": "pass",
+              "evidence": "Executes the previously refined task rather than asking to refine again."
+            },
+            "RP-06.2": {
+              "status": "pass",
+              "evidence": "Provides the agreed summary and evidence/priority table."
+            },
+            "RP-06.3": {
+              "status": "pass",
+              "evidence": "No new prompt, full refinement diagnosis, approval question or demand for supplied inputs."
+            },
+            "RP-06.4": {
+              "status": "pass",
+              "evidence": "Keeps bounded supplied-data scope and reports the given figures correctly with causal and access limitations."
+            },
+            "RP-06.5": {
+              "status": "pass",
+              "evidence": "Marks inline recalculation as performed/passed and customer/record/service follow-up as unperformed; no external-work claim."
+            }
+          }
+        },
+        {
+          "id": "RP-07",
+          "input_fixture": "cases/small-politeness.txt",
+          "input_kind": "user_request",
+          "response": "```text\n‘내일까지 보내줘’를 기한과 의미는 유지하면서 자연스럽고 공손한 요청으로 바꿔줘. 수정한 문장만 제시해줘.\n```",
+          "status": "pass",
+          "criteria": {
+            "RP-07.1": {
+              "status": "pass",
+              "evidence": "No expert/evidence/method/acceptance diagnosis; only a short prompt block."
+            },
+            "RP-07.2": {
+              "status": "pass",
+              "evidence": "Preserves the original phrase, tomorrow deadline and polite rewriting goal without inventing a recipient."
+            },
+            "RP-07.3": {
+              "status": "pass",
+              "evidence": "One compact Korean prompt, directly copyable, without multiple variants or elaborate structure."
+            },
+            "RP-07.4": {
+              "status": "pass",
+              "evidence": "Only adds useful meaning/deadline/output constraints; no tools, formal evaluations, data demands or questions."
+            },
+            "RP-07.5": {
+              "status": "pass",
+              "evidence": "Returns instructions for a future rewrite, not the actual polished sentence deferred by the user."
+            }
+          }
+        }
+      ],
+      "limitations": [
+        "One response per case; repeatability across models and runs is not established.",
+        "The skill is read before judging applicability; host automatic discovery is not tested.",
+        "RP-06 reads a role-labelled fixture rather than a raw API replay or host UI multi-turn integration.",
+        "Only supplied synthetic figures are checked; real churn causes, underlying refactor correctness and meeting-summary production are not validated.",
+        "Earlier two-, four- and six-case runs remain historical and do not establish seven-case coverage."
+      ]
+    },
+    {
+      "run_id": "2026-11-11-nine-case-suite-additions-1",
+      "date_local": "2026-11-11",
+      "timezone": "Asia/Seoul",
+      "scope": "new_cases_only_runtime_unchanged",
+      "skill_sha256": "79d84fdcfc25061e4ad797cbf32c34ead1e33bb7b902555e08dda3e9d3ebcf38",
+      "policy_sha256": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935",
+      "evaluation_sha256": "604cbb607ab1e65a3a3d6f934520a63cff85d141e7ecdffc3346ab18bd428a7a",
+      "suite_case_sha256": {
+        "RP-01": "73a5164ba2ca795cf3387403bbb610c88a77a750fa2bd3c344122587344629c4",
+        "RP-02": "5d53229ecafcada801d1f3de16c9ab4b2278cd5f0dd61e6870cdd2a82c5fc4ea",
+        "RP-03": "15145b097f812940cb17474593a613235762cc6c4313a75fafe8bcfe1649fc53",
+        "RP-04": "fdf5e171396fb3d2c15dd6405d68e56b1893b9c95cd2854b70c8bc796af7a817",
+        "RP-05": "d232e7fd3a843d0cf8ed1a8688b81b97b81d82ffba9116ef8051b1fbe6d0715f",
+        "RP-06": "b6e6853710e58b72f04ed9a553f679134c7ad694aa8539878ca84763f327ad61",
+        "RP-07": "9063974e4b935af0a2284b7ed79b4090a8162a38b2e17611b8b1c0d4b8bd0395",
+        "RP-08": "3c25aca34b9502b396af3aa2ae336b43705fe0ed078442706c01bc5a2df5cdea",
+        "RP-09": "aa503ea4cfe7325d45cae1fd33d68dfbf37a1952b3dcad347e52dd93f53cf666"
+      },
+      "case_sha256": {
+        "RP-08": "3c25aca34b9502b396af3aa2ae336b43705fe0ed078442706c01bc5a2df5cdea",
+        "RP-09": "aa503ea4cfe7325d45cae1fd33d68dfbf37a1952b3dcad347e52dd93f53cf666"
+      },
+      "context": "One independent fresh-context subagent for each of RP-08/RP-09 with the same neutral instruction; candidate SKILL.md, invocation policy and that request file only. Rubric, previous conclusions and saved responses withheld.",
+      "samples_per_case": 1,
+      "evaluator": "Parent assistant semantic review; not a human acceptance review.",
+      "format_validation": {
+        "status": "pass",
+        "command": "python -X utf8 <skill-creator>/scripts/quick_validate.py <candidate-skill>"
+      },
+      "status": "pass",
+      "executed_case_count": 2,
+      "executed_criterion_count": 10,
+      "cases": [
+        {
+          "id": "RP-08",
+          "input_fixture": "cases/material-ambiguity.txt",
+          "input_kind": "user_request",
+          "response": "담당 팀과 사용할 자료가 달라지는 핵심 선택이라, 프롬프트를 다듬기 전에 검토 범위를 확인해야 해요. 하루 동안 AI에게 맡길 일은 어느 쪽인가요?\n\n1. 고객의 **가입·결제 흐름 개선** 검토\n2. 서버의 **장애·응답 속도 개선** 검토\n3. **두 방향을 비교해 우선 검토할 영역을 정하는 일**\n\n아직 방향을 결정하기 어려우면 3번으로 프롬프트를 구성할 수 있어요. 실제 조사는 시작하지 않겠습니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-08.1": {
+              "status": "pass",
+              "evidence": "Recognizes that the direction changes responsible teams, inputs and review scope."
+            },
+            "RP-08.2": {
+              "status": "pass",
+              "evidence": "Asks one focused question about which outcome to assign, with short scope options rather than an intake questionnaire."
+            },
+            "RP-08.3": {
+              "status": "pass",
+              "evidence": "Does not silently choose a direction or issue a dependent full prompt; comparison is only offered as an option for the user's decision."
+            },
+            "RP-08.4": {
+              "status": "pass",
+              "evidence": "Clarifies the actual goal instead of asking task size, routine permission or datasets/tools."
+            },
+            "RP-08.5": {
+              "status": "pass",
+              "evidence": "Keeps the one-day review frame and explicitly does not start investigation; optional third direction is not adopted without a user decision."
+            }
+          }
+        },
+        {
+          "id": "RP-09",
+          "input_fixture": "cases/minor-assumption.txt",
+          "input_kind": "user_request",
+          "response": "목적·분량·자료 범위·검증 기준은 충분히 명확합니다. 문체는 팀 내부 회의에 맞춰 **간결하고 중립적인 업무 보고체**로 가정하고, 아래 문장만 추가하면 됩니다.\n\n```text\n문체는 간결하고 중립적인 업무 보고체로 작성해줘. 핵심을 먼저 제시하고, 근거의 확실성에 맞는 표현을 사용해 원인 가설이 확인된 사실처럼 읽히지 않게 해줘.\n```",
+          "status": "pass",
+          "criteria": {
+            "RP-09.1": {
+              "status": "pass",
+              "evidence": "Proceeds without asking about tone, size, source inquiries or permission."
+            },
+            "RP-09.2": {
+              "status": "pass",
+              "evidence": "Explicitly labels concise, neutral internal-report style as an assumption, without inventing hierarchy or a user preference."
+            },
+            "RP-09.3": {
+              "status": "pass",
+              "evidence": "Provides only a directly usable tone insertion rather than a complete replacement, generic readiness-only answer or four-part diagnosis."
+            },
+            "RP-09.4": {
+              "status": "pass",
+              "evidence": "The insertion leaves all source, count, classification, time, length, priority and verification contracts intact and adds no data/tool/process requirements."
+            },
+            "RP-09.5": {
+              "status": "pass",
+              "evidence": "Does not draft the report, invent inquiries or claim source inspection or verification."
+            }
+          }
+        }
+      ],
+      "reused_coverage": {
+        "source_run_id": "2026-11-11-seven-case-suite-1",
+        "case_ids": [
+          "RP-01",
+          "RP-02",
+          "RP-03",
+          "RP-04",
+          "RP-05",
+          "RP-06",
+          "RP-07"
+        ],
+        "not_rerun": true,
+        "criterion_count": 35,
+        "identity_checks": {
+          "skill_sha256_unchanged": true,
+          "policy_sha256_unchanged": true,
+          "case_inputs_unchanged": true,
+          "case_rubric_sections_unchanged": true,
+          "source_evaluation_sha256": "c09466a653a6aa8f9e8bd7a5e6c117e7805fb729c32a373543c9d78603c9bea1",
+          "case_rubric_section_sha256": {
+            "RP-01": "b0ca354aa6fae255694d67e89883cfde67623d7de17f6368ca08b3ff6aa5ffd7",
+            "RP-02": "dde79cd2d92ac0414d9999eb229b8b7ec3f1c48803e161f7d76c3dda613f0bc0",
+            "RP-03": "a96c0f733bbe2f5acb26072b2e1d4c8d14f4f2f198816a5f9fbaecf8132fe63e",
+            "RP-04": "eb1ae77f6e79e7b7f389c322e629b009a9066bfcf1b917af57685688c63b830d",
+            "RP-05": "5b07ecb06d03ec0fd6df6586e3ce516e4e52f78675a944e634c40e0ffd324717",
+            "RP-06": "252bf8c7608614691455e5d447f49573adfc2ec8e04d06f5e99b4edaec241b6a",
+            "RP-07": "0a53618baf87e703ce38fd6e79ca03030a836d9dd0dc5e6b582f3b7f75cf3a92"
+          }
+        },
+        "basis": "Test resources only were added; runtime instructions/policy are byte-identical to the prior seven-case candidate. Each earlier input and case-specific rubric section was checked against the installed prior copy before reuse."
+      },
+      "limitations": [
+        "This is a new two-case run, not a new nine-case full-suite execution.",
+        "Existing seven-case coverage is referenced after identity checks, not counted as freshly executed tests.",
+        "One response per new case; clarification continuation and cross-run/model repeatability are untested.",
+        "Applicability is checked after reading the skill; automatic discovery and underlying report/project execution are not tested."
+      ]
+    },
+    {
+      "run_id": "2026-11-11-ten-case-suite-authorization-pair-1",
+      "date_local": "2026-11-11",
+      "timezone": "Asia/Seoul",
+      "scope": "new_combined_case_and_refinement_only_control_runtime_unchanged",
+      "skill_sha256": "79d84fdcfc25061e4ad797cbf32c34ead1e33bb7b902555e08dda3e9d3ebcf38",
+      "policy_sha256": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935",
+      "evaluation_sha256": "2509eafd21b0bb739d3f86a587840c33057f62f2cd0b61fc1987f0c1e73f5ba0",
+      "suite_case_sha256": {
+        "RP-01": "73a5164ba2ca795cf3387403bbb610c88a77a750fa2bd3c344122587344629c4",
+        "RP-02": "5d53229ecafcada801d1f3de16c9ab4b2278cd5f0dd61e6870cdd2a82c5fc4ea",
+        "RP-03": "15145b097f812940cb17474593a613235762cc6c4313a75fafe8bcfe1649fc53",
+        "RP-04": "fdf5e171396fb3d2c15dd6405d68e56b1893b9c95cd2854b70c8bc796af7a817",
+        "RP-05": "d232e7fd3a843d0cf8ed1a8688b81b97b81d82ffba9116ef8051b1fbe6d0715f",
+        "RP-06": "b6e6853710e58b72f04ed9a553f679134c7ad694aa8539878ca84763f327ad61",
+        "RP-07": "9063974e4b935af0a2284b7ed79b4090a8162a38b2e17611b8b1c0d4b8bd0395",
+        "RP-08": "3c25aca34b9502b396af3aa2ae336b43705fe0ed078442706c01bc5a2df5cdea",
+        "RP-09": "aa503ea4cfe7325d45cae1fd33d68dfbf37a1952b3dcad347e52dd93f53cf666",
+        "RP-10": "15124a099ef014b0abec8a308e74d8826d9035ae248ce048b8a30e69b0e8ff85"
+      },
+      "case_sha256": {
+        "RP-03": "15145b097f812940cb17474593a613235762cc6c4313a75fafe8bcfe1649fc53",
+        "RP-10": "15124a099ef014b0abec8a308e74d8826d9035ae248ce048b8a30e69b0e8ff85"
+      },
+      "matched_authorization_pair": {
+        "case_ids": [
+          "RP-03",
+          "RP-10"
+        ],
+        "identical_task_body_sha256": "fdf5e171396fb3d2c15dd6405d68e56b1893b9c95cd2854b70c8bc796af7a817",
+        "only_opening_instruction_differs": true
+      },
+      "context": "One independent fresh-context subagent for each of RP-03/RP-10, with identical neutral instructions. Only candidate skill, invocation policy and that case supplied; no rubric, comparison hints or saved responses supplied.",
+      "samples_per_case": 1,
+      "evaluator": "Parent assistant semantic review; not a human acceptance review.",
+      "format_validation": {
+        "status": "pass",
+        "command": "python -X utf8 <skill-creator>/scripts/quick_validate.py <candidate-skill>"
+      },
+      "status": "pass",
+      "executed_case_count": 2,
+      "executed_criterion_count": 10,
+      "cases": [
+        {
+          "id": "RP-03",
+          "input_fixture": "cases/full-refinement.txt",
+          "input_kind": "user_request",
+          "response": "현재 요청은 **가입 화면 변경이라는 가설을 검토하는 방법**과 **제한된 자료로 어디까지 결론 낼 수 있는지**를 명확히 하면 더 좋아집니다.\n\n- **전문가 판단:** 가입 화면 변경을 여러 가설 중 하나로 다루고, 기존 유료 고객의 이탈과 연결되는 경로가 있는지 검토합니다.\n- **근거:** 제공된 집계와 변경 기록만 사용합니다. 고객별 자료가 없어 가입 시점·화면 노출 여부별 비교는 불가능합니다.\n- **방법:** 수치와 추세를 확인한 뒤 가설별 근거·반대 설명·판단 한계를 비교합니다.\n- **완료 기준:** 수치는 원자료와 대조하고, 인과관계가 확인되지 않은 개선안은 검증 필요성을 반영해 잠정 순위를 매깁니다.\n\n```text\n우리 구독 서비스의 이탈 추세와 가능한 원인을 반나절 안에 예비 분석하고, 개선 우선순위를 제안해줘. 결과는 핵심 요약과 근거·우선순위 표로 작성해줘.\n\n사용 가능한 자료:\n월 | 월초 유료 고객 수 | 월중 이탈 고객 수 | 월별 이탈률\n8월 | 1,000명 | 30명 | 3%\n9월 | 1,000명 | 50명 | 5%\n10월 | 1,000명 | 80명 | 8%\n\n이탈률은 ‘월중 이탈 고객 수 ÷ 월초 유료 고객 수’이며 세 달 모두 같은 정의를 사용했다.\n변경 기록에는 9월부터 신규 가입 화면이 바뀌었다는 내용만 있다.\n팀은 가입 화면 변경을 원인으로 의심하고 있다.\n원시 이벤트 로그와 고객별 데이터에는 접근 권한이 없고, 가격·유입 채널·장애 이력 자료도 없다.\n\n분석 방법:\n1. 제공된 고객 수로 이탈률을 재계산해 표와 대조하고, 월별 변화는 퍼센트포인트와 상대 변화율을 구분해 설명해줘.\n2. 확인된 사실, 가능한 설명, 현재 자료로 판단할 수 없는 내용을 구분해줘. 자료가 없다는 이유로 가격·채널·장애가 변하지 않았다고 가정하지 마.\n3. 가입 화면 변경은 하나의 가설로 검토해줘. 변경 시점과 이탈 증가가 겹친다는 사실만으로 원인이라고 결론 내리지 마. 신규 가입 화면이 월초 유료 고객의 이탈에 영향을 주려면 어떤 연결 경로가 필요한지 살펴보고, 그 경로를 뒷받침하는 자료가 있는지 구분해줘.\n4. 세 달의 전체 집계로는 가입 시점별·화면 노출 여부별 이탈 비교나 고객 구성 변화의 영향을 분리할 수 없다는 한계를 반영해줘. 복잡한 통계모형이나 유의성 검정으로 인과관계를 확정하려 하지 마.\n5. 개선 후보는 현재 근거의 강도, 기대 효과의 불확실성, 실행 비용·위험·되돌리기 용이성을 기준으로 잠정 순위를 매겨줘. 근거가 부족한 후보는 변경 실행보다 가설 검증을 먼저 제안해줘. 확인된 원인이 없으면 그 사실을 분명히 밝혀줘.\n\n출력:\n- 핵심 요약: 관찰된 변화, 원인 판단의 한계, 우선 권고.\n- 근거·우선순위 표: 후보 가설 또는 조치, 제공 자료의 근거, 대안 설명·누락 근거, 권고와 순위의 이유, 다음 판단에 필요한 최소 자료 또는 확인 방법.\n\n검증:\n- 인용한 수치와 시점은 제공된 표·변경 기록과 대조해줘.\n- 수행한 확인과 결과를 표시하고, 통과·실패·자료 부족으로 미실행을 구분해줘. 검증 계획을 실제 수행한 검증처럼 쓰지 마.\n- 최소 추가 자료를 제안할 때는 그것으로 확인 가능한 것과 여전히 확정할 수 없는 것을 함께 적어줘.\n- 접근할 수 없는 자료가 필요한 결론만 보류하고, 제공 자료로 가능한 분석은 완료해줘.\n\n분석은 제공 자료 안에서 수행해줘. 추가 데이터 수집, 외부 조사, 분석 시스템 구축, 실제 서비스 변경은 이번 범위에서 제외해줘.\n```\n\n반나절 제한은 유지하며, 실제 분석은 수행하지 않았습니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-03.1": {
+              "status": "pass",
+              "evidence": "Provides four concise diagnostic points and one complete prompt rather than a local patch."
+            },
+            "RP-03.2": {
+              "status": "pass",
+              "evidence": "Retains unavailable raw/customer-level access and missing alternative-cause records, allowing analysis only within available evidence."
+            },
+            "RP-03.3": {
+              "status": "pass",
+              "evidence": "Uses aggregate comparisons, questions the onboarding path and rejects unjustified causal modeling."
+            },
+            "RP-03.4": {
+              "status": "pass",
+              "evidence": "Requires source/count reconciliation, explicit performed/pass/fail/not-run reporting and evidence-limited conclusions without claiming checks ran."
+            },
+            "RP-03.5": {
+              "status": "pass",
+              "evidence": "Keeps half a day and summary/table scope, excludes collection/outside research/infrastructure/service changes and explicitly does not execute analysis."
+            }
+          }
+        },
+        {
+          "id": "RP-10",
+          "input_fixture": "cases/refine-and-execute.txt",
+          "input_kind": "user_request",
+          "response": "`vegabond-refine-prompt` 스킬을 적용해 프롬프트를 정제한 뒤, 제공된 자료로 바로 분석하겠습니다. 핵심 보완점은 가입 화면 변경과 이탈 증가 사이의 **시간적 일치와 인과관계를 구분하는 것**입니다.\n\n- **전문가 관점:** 이탈 증가를 정량화하고, 가입 화면 변경이 실제 이탈 고객에게 영향을 줄 경로가 있는지 검토합니다.\n- **근거:** 월별 집계와 변경 기록만 사용합니다. 고객별 노출·가입 시점·이탈 이유는 확인할 수 없습니다.\n- **방법:** 이탈률 재계산과 월별 비교를 수행하고, 경쟁 가설은 확인된 사실과 분리합니다.\n- **완료 기준:** 수치를 원자료와 대조하고, 각 결론의 근거와 검증 상태를 표시합니다. 개선 효과나 원인은 확정하지 않습니다.\n\n```text\n제공된 8~10월 구독 서비스 집계와 변경 기록만으로, 반나절 이내에 이탈 추세와 개선 우선순위를 예비 분석해줘. 결과는 핵심 요약과 근거·우선순위 표로 작성해줘.\n\n이탈률은 월중 이탈 고객 수 ÷ 월초 유료 고객 수이며 세 달의 정의는 같다.\n8월: 1,000명 / 30명 / 3%\n9월: 1,000명 / 50명 / 5%\n10월: 1,000명 / 80명 / 8%\n확인된 변경은 9월 신규 가입 화면 변경뿐이다. 팀은 이를 원인으로 의심하지만, 원시 이벤트 로그와 고객별 데이터 접근 권한은 없고 가격·유입 채널·장애 이력 자료도 없다.\n\n먼저 이탈률을 재계산하고 월별 증가를 퍼센트포인트와 고객 수로 제시해줘. 관측 사실, 원인 가설, 판단 불가 사항을 구분하고, 가입 화면 변경이 이탈에 영향을 줄 수 있는 경로와 현재 근거의 한계를 검토해줘. 기록이 없다는 이유로 다른 변화가 없었다고 가정하지 마.\n\n현재 근거로 가능한 조치와 추가 근거가 필요한 조치를 구분해 우선순위를 제시해줘. 근거가 부족한 개선안은 효과 순위 대신 검증 우선순위로 표시해줘. 검증은 수행·통과·실패·미실행 상태와 근거를 적고, 불가능한 검증에 의존하는 결론만 보류해줘.\n```\n\n이번 범위에서는 추가 데이터 수집, 분석 시스템 구축, 제품 변경 실행을 제외합니다.\n\n**분석 결과**\n\n이탈률은 8월 **3% → 9월 5% → 10월 8%**로 상승했습니다. 8월 대비 10월은 **5퍼센트포인트 증가**, 월중 이탈 고객은 **30명에서 80명으로 50명 증가**했습니다. 같은 분모에서 이탈률은 약 **2.67배**가 됐습니다.\n\n제공된 세 달 모두 이탈률 정의가 같고 재계산도 일치하므로, 집계상 증가 추세는 확인됩니다. 다만 매월 고객 수가 1,000명이라는 사실만으로 같은 고객 집단이라고 볼 수는 없습니다.\n\n가입 화면 변경 시점과 이탈 증가 시점은 겹칩니다. 그러나 **가입 화면 변경이 원인이라는 결론은 현재 자료로 뒷받침되지 않습니다.** 변경 화면에 노출된 고객이 이후 유료 고객이 되어 이탈했을 가능성은 있지만, 해당 고객 수와 이탈 여부를 확인할 수 없습니다. 월초 유료 고객이 월중 신규 가입 화면에 얼마나 노출됐는지도 알 수 없습니다.\n\n| 구분 | 근거·판단 | 우선순위와 조치 | 검증 상태·한계 |\n|---|---|---|---|\n| 이탈 증가 | 9월은 전월 대비 +2퍼센트포인트·20명, 10월은 +3퍼센트포인트·30명 | 대응 필요성을 뒷받침하는 관측 사실로 사용 | **수행·통과:** 30÷1,000, 50÷1,000, 80÷1,000이 각각 3%, 5%, 8%와 일치 |\n| 가입 화면 가설 | 9월 변경과 이탈 상승이 시간적으로 일치 | **검증 1순위:** 향후 접근 가능한 근거가 생기면 변경 화면 노출 고객과 이탈 고객의 연결부터 확인 | **미실행:** 고객별 자료 부재. 원인·기여도 판단 보류 |\n| 대안 설명 | 가격·유입 채널·장애 이력 자료가 없음 | **검증 2순위:** 관련 기록 확보가 가능해질 때 같은 기간의 변화를 확인 | **미실행:** 자료 부재. 각 요인의 발생 여부조차 판단 불가 |\n| 제품 개선·되돌리기 | 특정 조치의 효과를 비교할 근거가 없음 | **실행 순위 보류:** 가입 화면 원복이나 다른 개선안을 효과 순으로 정하지 않음 | **미실행:** 효과 검증 자료 없음 |\n\n현재 정할 수 있는 우선순위는 **개선 효과 순위가 아니라 원인 검증 순위**입니다. 가입 화면은 유일하게 기록된 변경이므로 먼저 검토할 후보지만, 그것이 가장 유력한 원인이라는 뜻은 아닙니다. 이번 자료로는 이탈 증가를 확인하고 가설을 좁힐 수 있으며, 특정 개선안의 효과까지 평가할 수는 없습니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-10.1": {
+              "status": "pass",
+              "evidence": "Shows a copy-ready refined prompt first and then a separately identifiable actual analysis result."
+            },
+            "RP-10.2": {
+              "status": "pass",
+              "evidence": "Returns the requested summary and priority/evidence table in the same response, rather than stopping at a plan or rewrite."
+            },
+            "RP-10.3": {
+              "status": "pass",
+              "evidence": "No approval question, additional user-turn requirement or refinement-only stopping rule."
+            },
+            "RP-10.4": {
+              "status": "pass",
+              "evidence": "Keeps half a day and supplied aggregate scope, missing access/records and summary/table output; no external collection or implementation changes."
+            },
+            "RP-10.5": {
+              "status": "pass",
+              "evidence": "Correctly reports 3% to 8%, 30 to 80, five percentage points and all three count/rate checks, while leaving onboarding causality and alternatives unverified."
+            }
+          }
+        }
+      ],
+      "reused_coverage": {
+        "source_run_by_case": {
+          "RP-01": "2026-11-11-seven-case-suite-1",
+          "RP-02": "2026-11-11-seven-case-suite-1",
+          "RP-04": "2026-11-11-seven-case-suite-1",
+          "RP-05": "2026-11-11-seven-case-suite-1",
+          "RP-06": "2026-11-11-seven-case-suite-1",
+          "RP-07": "2026-11-11-seven-case-suite-1",
+          "RP-08": "2026-11-11-nine-case-suite-additions-1",
+          "RP-09": "2026-11-11-nine-case-suite-additions-1"
+        },
+        "not_rerun": true,
+        "case_count": 8,
+        "criterion_count": 40,
+        "identity_checks": {
+          "skill_sha256_unchanged": true,
+          "policy_sha256_unchanged": true,
+          "case_inputs_unchanged": true,
+          "case_rubric_sections_unchanged": true,
+          "source_evaluation_sha256": "604cbb607ab1e65a3a3d6f934520a63cff85d141e7ecdffc3346ab18bd428a7a",
+          "case_rubric_section_sha256": {
+            "RP-01": "b0ca354aa6fae255694d67e89883cfde67623d7de17f6368ca08b3ff6aa5ffd7",
+            "RP-02": "dde79cd2d92ac0414d9999eb229b8b7ec3f1c48803e161f7d76c3dda613f0bc0",
+            "RP-04": "eb1ae77f6e79e7b7f389c322e629b009a9066bfcf1b917af57685688c63b830d",
+            "RP-05": "5b07ecb06d03ec0fd6df6586e3ce516e4e52f78675a944e634c40e0ffd324717",
+            "RP-06": "252bf8c7608614691455e5d447f49573adfc2ec8e04d06f5e99b4edaec241b6a",
+            "RP-07": "0a53618baf87e703ce38fd6e79ca03030a836d9dd0dc5e6b582f3b7f75cf3a92",
+            "RP-08": "dc8e8cbcadc1c5bcebcf2f5aa7ccb898f54d001d5c1606b175c65382e40ad7c5",
+            "RP-09": "9d2a4bfc02cb227306148c0252544d1c41a071193951fbc76696fb2081d8d8aa"
+          }
+        }
+      },
+      "limitations": [
+        "This is a fresh matched two-case execution, not a fresh full ten-case run.",
+        "The other eight cases reference earlier passing runs after exact candidate/policy/input/rubric identity checks.",
+        "One sample per executed case; repeatability across models and runs is untested.",
+        "Only synthetic supplied-data analysis is executed; external-action permissions and real causal effects are outside this fixture.",
+        "The skill is read before applicability is judged; host automatic discovery is not tested."
+      ]
+    },
+    {
+      "run_id": "2026-11-11-eleven-case-fixture-initial-1",
+      "date_local": "2026-11-11",
+      "timezone": "Asia/Seoul",
+      "scope": "new_case_only_initial_fixture",
+      "skill_sha256": "79d84fdcfc25061e4ad797cbf32c34ead1e33bb7b902555e08dda3e9d3ebcf38",
+      "policy_sha256": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935",
+      "evaluation_sha256": "b8d79d38a11e71557d80632a56bfb96db6a1179c391813d66737eca94a9cd068",
+      "case_sha256": {
+        "RP-11": "b492caa051d94aaa57c708a4c1212490a5b222b00e1859d47ef73d710effe3ae"
+      },
+      "samples_per_case": 1,
+      "context": "Fresh-context subagent; candidate skill, invocation policy and RP-11 request only; rubric and prior answers withheld.",
+      "evaluator": "Parent assistant semantic review; not a human acceptance review.",
+      "status": "fail",
+      "executed_case_count": 1,
+      "executed_criterion_count": 5,
+      "cases": [
+        {
+          "id": "RP-11",
+          "input_fixture": "cases/refine-execute-blocked.txt",
+          "input_kind": "user_request",
+          "response": "프롬프트는 목표, 지표 정의, 검증 방법, 접근 제한, 결과 형식이 충분히 명확합니다. 추가 정제 없이 그대로 사용해 분석하겠습니다.\n\n**핵심 요약**\n\n이탈률은 8월 3%에서 10월 8%로 **5%p 상승**했고, 이탈 고객은 30명에서 80명으로 늘었습니다. 제공된 세 달의 이탈률은 모두 계산과 일치합니다.\n\n다만 **가입 화면 변경이 이탈 증가의 원인인지는 판정할 수 없습니다.** 변경과 상승이 같은 시기에 나타났지만, 월별 집계에는 고객별 화면 노출 여부와 고객 구성 정보가 없습니다. 신규 가입 화면 변경이 월초 유료 고객에게 어떤 경로로 영향을 줬는지도 확인되지 않습니다.\n\n필수 검증인 노출군·비노출군 비교와 기존 대조 실험 확인은 모두 차단되어 있습니다. 따라서 현재의 개선 우선순위는 특정 화면 수정의 효과 순위가 아니라, 원인 판단에 필요한 검증의 우선순위입니다.\n\n| 항목 | 근거·확인 결과 | 검증 상태 | 우선순위·조치 |\n|---|---|---|---|\n| 이탈률 계산 | 8월 30÷1,000=3%, 9월 50÷1,000=5%, 10월 80÷1,000=8% | **수행·통과:** 제공 수치와 일치 | 완료 |\n| 이탈 증가 | 8→9월 +2%p, 9→10월 +3%p. 동일한 지표 정의를 사용 | **수행:** 집계 추세 확인 | 증가 사실은 확인되지만 원인은 보류 |\n| 기존 대조 실험 결과 | 분석 도구 연결 비활성화로 결과 조회 불가 | **차단·미실행** | **1순위 검증:** 향후 결과 확보 시 실험 대상·배정 방식·기간·이탈 지표를 확인 |\n| 화면 노출군·비노출군 비교 | 고객별 데이터와 원시 로그 권한 및 추출본 없음 | **차단·미실행** | **1순위 검증:** 향후 데이터 확보 시 노출 시점과 이탈 관찰 기간을 맞춰 비교. 관찰 비교만으로 인과관계를 확정하지 않음 |\n| 가격·유입 채널·장애 등 대안 설명 | 관련 자료가 제공되지 않음 | **자료 부족·미실행** | **2순위 검증:** 자료 확보 시 함께 검토. 변경 기록에 없다는 이유로 영향이 없다고 판단하지 않음 |\n| 가입 화면 수정·롤백 | 원인과 예상 개선 효과를 뒷받침하는 검증 결과 없음 | **효과 판정 보류** | 현재 근거로 최우선 개선안으로 확정할 수 없음 |\n\n현재 자료로는 계산과 추세 분석을 완료했습니다. 원인 검증은 실패한 것이 아니라 **접근 제한으로 실행하지 못한 상태**입니다. 이 세션에서는 권한·연결 복구가 불가능하므로, 반나절 분석의 결론은 **“이탈 증가 확인, 가입 화면 원인 가설 미검증, 개선 효과 순위 판정 보류”**입니다.",
+          "status": "fail",
+          "criteria": {
+            "RP-11.1": {
+              "status": "fail",
+              "evidence": "Omits the rewritten prompt, judging the supplied request already sufficient, then performs partial analysis."
+            },
+            "RP-11.2": {
+              "status": "pass",
+              "evidence": "Calculates all three rates and the five-percentage-point increase and returns a summary and table."
+            },
+            "RP-11.3": {
+              "status": "pass",
+              "evidence": "Separately marks customer-level comparison and experiment retrieval blocked/not run with data-permission and tool-connection reasons."
+            },
+            "RP-11.4": {
+              "status": "pass",
+              "evidence": "Separates completed arithmetic from blocked causal validation and explicitly withholds cause/effect conclusions; no fabricated calls or restored access."
+            },
+            "RP-11.5": {
+              "status": "pass",
+              "evidence": "Identifies experiment target/allocation/period/metric and exposure/observation-period evidence needed later; preserves constraints without bypass or new infrastructure."
+            }
+          },
+          "input_snapshot": "아래 작업의 프롬프트를 더 잘 써주고, 정제본을 보여준 뒤 바로 그 내용대로 분석까지 진행해줘.\n\n우리 구독 서비스의 이탈 원인을 검증하고 개선 우선순위를 정해줘. 분석 시간은 반나절이고, 결과는 핵심 요약과 근거·우선순위 표로 줘. 팀에서는 가입 화면 변경이 문제라고 생각해.\n\n현재 제공할 수 있는 자료:\n월 | 월초 유료 고객 수 | 월중 이탈 고객 수 | 월별 이탈률\n8월 | 1,000명 | 30명 | 3%\n9월 | 1,000명 | 50명 | 5%\n10월 | 1,000명 | 80명 | 8%\n\n이탈률은 월중 이탈 고객 수를 월초 유료 고객 수로 나눈 값이고, 세 달 모두 같은 정의를 썼어. 변경 기록에는 9월 신규 가입 화면 변경만 있어. 가격·유입 채널·장애 이력 자료는 없어.\n\n원인 판정에는 고객별 데이터로 변경 화면 노출군과 비노출군의 이탈을 비교하고, 기존 대조 실험의 결과를 확인하는 검증이 필요해. 하지만 지금은 원시 이벤트 로그와 고객별 데이터의 읽기 권한이 없고 별도 추출본도 없어. 실험 결과를 조회하는 분석 도구 연결도 비활성화되어 있어. 이 세션 안에서는 그 권한이나 도구 연결을 복구할 수 없어.\n",
+          "rubric_snapshot": "## RP-11: Combined request with unavailable required data and tools\n\nInput: [cases/refine-execute-blocked.txt](cases/refine-execute-blocked.txt).\n\nThe fixture provides enough aggregate data for bounded analysis but explicitly denies customer-level access and disables the tool needed to retrieve an existing control experiment. Those checks are required for the requested causal judgment. Treat the supplied access state as a scenario fact; do not invent live calls or try to restore access. Blocked dependent checks must not prevent independent arithmetic and provisional analysis.\n\n| Criterion | Required observation |\n| --- | --- |\n| RP-11.1 Ordered bounded execution | Shows a refined prompt and then actual partial analysis in the same response, without stopping for approval or requiring another user turn merely because access is missing. |\n| RP-11.2 Useful independent work | Reconciles 30/1,000, 50/1,000 and 80/1,000, correctly describes the 3% to 8% increase, and provides the requested summary and evidence/priority table or equivalent bounded result. Does not stop all analysis. |\n| RP-11.3 Explicit blockers | Names exposed/unexposed customer comparison and control-experiment retrieval as blocked or not run due to their specific data-permission/tool-connection gaps. Does not mark required checks passed or inapplicable merely because they cannot run. |\n| RP-11.4 Honest completion scope | Separates completed inline checks from blocked causal validation, withholds definitive cause/effect rankings and overall verification success, and does not fabricate data, tool execution, attempted calls or restored access. |\n| RP-11.5 Targeted next evidence | Identifies minimal legitimate inputs/access that could unblock dependent judgments, such as an authorized anonymous exposure/churn aggregate and experiment results or read-only access to them. Preserves half a day and output scope; no permission bypass, unrelated infrastructure, unbounded collection or implementation changes. |\n\nThis models known unavailability, not discovery through real failed service calls. A follow-up proposal is not evidence that missing data was obtained, an experiment ran or the causal question was resolved."
+        }
+      ],
+      "findings": [
+        {
+          "category": "fixture_ambiguity",
+          "description": "The fixture was detailed enough to trigger the existing no-rewrite-for-sufficient-prompts rule, while its rubric required a visible rewritten prompt. Preserve this observed mismatch; clarify explicit full-rewrite intent in the input and rerun the unchanged acceptance criteria. Do not change runtime behavior or erase this result."
+        }
+      ],
+      "limitations": [
+        "One sample of a scenario with declared unavailable access; no live service calls.",
+        "This failed result is not approval of the candidate against RP-11 and not a full-suite execution."
+      ]
+    },
+    {
+      "run_id": "2026-11-11-eleven-case-blocked-corrected-1",
+      "date_local": "2026-11-11",
+      "timezone": "Asia/Seoul",
+      "scope": "new_case_only_explicit_rewrite_fixture_runtime_unchanged",
+      "skill_sha256": "79d84fdcfc25061e4ad797cbf32c34ead1e33bb7b902555e08dda3e9d3ebcf38",
+      "policy_sha256": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935",
+      "evaluation_sha256": "27471acd3933f684dcb0dee3fd45604759e2238ee62128dc7fd9b95e90c5cf7b",
+      "suite_case_sha256": {
+        "RP-01": "73a5164ba2ca795cf3387403bbb610c88a77a750fa2bd3c344122587344629c4",
+        "RP-02": "5d53229ecafcada801d1f3de16c9ab4b2278cd5f0dd61e6870cdd2a82c5fc4ea",
+        "RP-03": "15145b097f812940cb17474593a613235762cc6c4313a75fafe8bcfe1649fc53",
+        "RP-04": "fdf5e171396fb3d2c15dd6405d68e56b1893b9c95cd2854b70c8bc796af7a817",
+        "RP-05": "d232e7fd3a843d0cf8ed1a8688b81b97b81d82ffba9116ef8051b1fbe6d0715f",
+        "RP-06": "b6e6853710e58b72f04ed9a553f679134c7ad694aa8539878ca84763f327ad61",
+        "RP-07": "9063974e4b935af0a2284b7ed79b4090a8162a38b2e17611b8b1c0d4b8bd0395",
+        "RP-08": "3c25aca34b9502b396af3aa2ae336b43705fe0ed078442706c01bc5a2df5cdea",
+        "RP-09": "aa503ea4cfe7325d45cae1fd33d68dfbf37a1952b3dcad347e52dd93f53cf666",
+        "RP-10": "15124a099ef014b0abec8a308e74d8826d9035ae248ce048b8a30e69b0e8ff85",
+        "RP-11": "575f0068b111b37c6bd4e6c8db19b440deb9ce00ffabc2a1dbd0799313413483"
+      },
+      "case_sha256": {
+        "RP-11": "575f0068b111b37c6bd4e6c8db19b440deb9ce00ffabc2a1dbd0799313413483"
+      },
+      "context": "Fresh-context subagent, identical neutral instruction, candidate skill/policy and corrected RP-11 input only. No rubric, initial response or correction rationale supplied to the performer.",
+      "samples_per_case": 1,
+      "evaluator": "Parent assistant semantic review; not a human acceptance review.",
+      "format_validation": {
+        "status": "pass",
+        "command": "python -X utf8 <skill-creator>/scripts/quick_validate.py <candidate-skill>"
+      },
+      "status": "pass",
+      "executed_case_count": 1,
+      "executed_criterion_count": 5,
+      "cases": [
+        {
+          "id": "RP-11",
+          "input_fixture": "cases/refine-execute-blocked.txt",
+          "input_kind": "user_request",
+          "response": "원인 판정에 필요한 검증은 현재 접근 제한으로 막혀 있습니다. 프롬프트에 이 한계를 명시하고, 제공된 집계자료로 가능한 분석까지 이어서 진행하겠습니다.\n\n- **전문 판단:** 이탈 증가 확인과 가입 화면 변경의 원인 검증을 구분해야 합니다.\n- **근거:** 지표 정의와 월별 수치는 제공됐지만, 고객별 노출·이탈 데이터와 실험 결과는 접근할 수 없습니다.\n- **방법:** 집계 추세와 산식을 확인하고, 노출군 비교·실험 검증은 차단 상태로 기록합니다.\n- **완료 기준:** 수치를 원본과 대조하고, 확인된 사실·가설·검증 불가 사항을 구분합니다. 개선 효과의 우선순위는 근거가 부족하면 보류합니다.\n\n```text\n제공된 자료를 바탕으로 반나절 안에 구독 서비스의 이탈 추세를 분석하고, 원인 검증 상태와 개선 우선순위를 정리해줘. 결과는 핵심 요약과 근거·우선순위 표로 작성해줘.\n\n자료:\n- 8월: 월초 유료 고객 1,000명, 월중 이탈 30명, 이탈률 3%\n- 9월: 월초 유료 고객 1,000명, 월중 이탈 50명, 이탈률 5%\n- 10월: 월초 유료 고객 1,000명, 월중 이탈 80명, 이탈률 8%\n- 이탈률은 월중 이탈 고객 수 ÷ 월초 유료 고객 수이며 세 달 모두 정의가 같다.\n- 제공된 변경 기록에는 9월 신규 가입 화면 변경만 있다.\n- 가격·유입 채널·장애 이력 자료는 없다.\n\n팀의 가설은 가입 화면 변경이 이탈 증가의 원인이라는 것이다. 원인 판정에는 고객별 변경 화면 노출군·비노출군 비교와 기존 대조 실험 결과 확인이 필요하다. 그러나 원시 이벤트 로그와 고객별 데이터의 읽기 권한 및 추출본이 없고, 실험 결과 조회 도구도 비활성화되어 있다. 이 세션에서는 접근을 복구할 수 없다.\n\n먼저 제공된 수치의 산식과 월별 증감을 확인해줘. 변경 시점과 이탈 증가의 시간적 일치만으로 원인을 확정하지 말고, 기록에 없는 요인이 없었다고 가정하지 마. 신규 가입 화면에 노출된 고객과 월초 유료 고객 집단의 관계도 현재 자료로는 알 수 없음을 반영해줘.\n\n필수 원인 검증은 차단으로 표시하되, 가능한 집계 분석은 수행해줘. 원인별 개선 효과를 순위화할 수 없다면 그 판단을 보류하고, 다음 검증의 우선순위와 필요한 최소 자료를 제시해줘. 가입 화면 원복 등 특정 조치를 검증된 해결책으로 제시하지 마.\n\n수치는 제공 자료와 대조하고, 각 분석·검증을 수행/통과/실패/차단·미실행으로 구분해 근거를 남겨줘. 집계자료의 한계로 원인 검증을 대체하거나 완료했다고 주장하지 마.\n```\n\n이번 범위에서 권한 복구, 추가 데이터 수집, 개선안 실행은 제외합니다.\n\n**핵심 요약**\n\n이탈률은 8월 3%에서 10월 8%로 **5%포인트 상승**했습니다. 같은 분모에서 월중 이탈 고객도 30명에서 80명으로 늘었습니다. 제공된 세 달의 이탈률 산식은 모두 일치합니다.\n\n9월 가입 화면 변경과 이탈 증가의 시점은 겹칩니다. 그러나 **가입 화면 변경이 원인인지는 판정할 수 없습니다.** 화면에 노출된 고객이 월초 유료 고객 집단에 얼마나 포함되는지 알 수 없고, 필수 비교와 실험 결과 확인도 차단되어 있습니다.\n\n| 분석·검증 | 근거와 결과 | 상태 |\n|---|---|---|\n| 이탈률 산식 확인 | 30÷1,000=3%, 50÷1,000=5%, 80÷1,000=8% | 수행·통과 |\n| 월별 추세 확인 | 9월은 전월 대비 +2%포인트·20명, 10월은 +3%포인트·30명 | 수행 |\n| 변경 시점 대조 | 9월 변경과 증가 시점이 겹침. 시간적 일치만 확인 가능 | 수행·인과 판정 불가 |\n| 노출군·비노출군 비교 | 고객별 노출·이탈 데이터와 추출본 없음 | 차단·미실행 |\n| 기존 대조 실험 확인 | 결과 조회 도구 비활성화 | 차단·미실행 |\n| 대안 설명 평가 | 가격·유입 채널·장애 이력 자료 없음 | 근거 부족·미실행 |\n\n**개선 효과에 따른 실행 순위는 현재 보류**합니다. 다음은 개선안을 선택하기 위한 검증 우선순위입니다.\n\n| 우선순위 | 다음 검증 | 필요한 최소 자료 | 판단에 주는 도움 |\n|---|---|---|---|\n| 1 | 기존 대조 실험 결과 확인 | 대상 집단, 배정 방식, 실험 기간, 이탈 지표, 효과 추정치와 불확실성 | 가입 화면 변경의 효과를 평가할 직접 근거 확인 |\n| 1 | 고객별 노출군·비노출군 비교 | 익명 고객 식별자, 화면 노출 시점, 유료 상태, 이탈 시점, 동일한 관찰기간 | 분석 대상과 실제 노출의 관계 확인. 단순 집단 차이만으로는 인과 확정 불가 |\n| 2 | 다른 변화와 집단 구성 확인 | 가격 변경, 유입 채널 구성, 장애 이력 | 가입 화면 외 설명 및 비교 집단의 차이 점검 |\n\n두 필수 검증이 막혀 있으므로, 이번 분석의 결론은 **“이탈 증가는 확인됐으며, 가입 화면 원인 가설과 개선 효과 순위는 미검증”**입니다.",
+          "status": "pass",
+          "criteria": {
+            "RP-11.1": {
+              "status": "pass",
+              "evidence": "Shows a complete rewritten prompt before actual partial analysis in the same response, without asking for approval."
+            },
+            "RP-11.2": {
+              "status": "pass",
+              "evidence": "Reconciles all three counts/rates, describes the five-percentage-point increase, and provides actual summary, status and priority tables."
+            },
+            "RP-11.3": {
+              "status": "pass",
+              "evidence": "Explicitly labels exposed/unexposed customer comparison and control-experiment retrieval blocked/not run, naming unavailable customer data/export and disabled results tool."
+            },
+            "RP-11.4": {
+              "status": "pass",
+              "evidence": "Separates performed arithmetic/trend checks from blocked causal validation, withholds causal and effect-ordering conclusions and invents no calls, data or restored access."
+            },
+            "RP-11.5": {
+              "status": "pass",
+              "evidence": "Identifies anonymous exposure/churn timing and experiment design/effect/uncertainty evidence for future checks, without attempting acquisition, bypassing access, adding infrastructure or changing the service."
+            }
+          }
+        }
+      ],
+      "fixture_revision": {
+        "initial_run_id": "2026-11-11-eleven-case-fixture-initial-1",
+        "initial_input_sha256": "b492caa051d94aaa57c708a4c1212490a5b222b00e1859d47ef73d710effe3ae",
+        "current_input_sha256": "575f0068b111b37c6bd4e6c8db19b440deb9ce00ffabc2a1dbd0799313413483",
+        "change": "Opening now explicitly asks for one full rewritten execution prompt before analysis, avoiding ambiguity with the sufficient-prompt no-rewrite rule.",
+        "task_body_unchanged": true,
+        "acceptance_criteria_unchanged": true,
+        "runtime_changed": false
+      },
+      "reused_coverage": {
+        "source_run_by_case": {
+          "RP-01": "2026-11-11-seven-case-suite-1",
+          "RP-02": "2026-11-11-seven-case-suite-1",
+          "RP-03": "2026-11-11-ten-case-suite-authorization-pair-1",
+          "RP-04": "2026-11-11-seven-case-suite-1",
+          "RP-05": "2026-11-11-seven-case-suite-1",
+          "RP-06": "2026-11-11-seven-case-suite-1",
+          "RP-07": "2026-11-11-seven-case-suite-1",
+          "RP-08": "2026-11-11-nine-case-suite-additions-1",
+          "RP-09": "2026-11-11-nine-case-suite-additions-1",
+          "RP-10": "2026-11-11-ten-case-suite-authorization-pair-1"
+        },
+        "not_rerun": true,
+        "case_count": 10,
+        "criterion_count": 50,
+        "identity_checks": {
+          "skill_sha256_unchanged": true,
+          "policy_sha256_unchanged": true,
+          "case_inputs_unchanged": true,
+          "case_rubric_sections_unchanged": true,
+          "source_evaluation_sha256": "2509eafd21b0bb739d3f86a587840c33057f62f2cd0b61fc1987f0c1e73f5ba0",
+          "case_rubric_section_sha256": {
+            "RP-01": "b0ca354aa6fae255694d67e89883cfde67623d7de17f6368ca08b3ff6aa5ffd7",
+            "RP-02": "dde79cd2d92ac0414d9999eb229b8b7ec3f1c48803e161f7d76c3dda613f0bc0",
+            "RP-03": "a96c0f733bbe2f5acb26072b2e1d4c8d14f4f2f198816a5f9fbaecf8132fe63e",
+            "RP-04": "eb1ae77f6e79e7b7f389c322e629b009a9066bfcf1b917af57685688c63b830d",
+            "RP-05": "5b07ecb06d03ec0fd6df6586e3ce516e4e52f78675a944e634c40e0ffd324717",
+            "RP-06": "252bf8c7608614691455e5d447f49573adfc2ec8e04d06f5e99b4edaec241b6a",
+            "RP-07": "0a53618baf87e703ce38fd6e79ca03030a836d9dd0dc5e6b582f3b7f75cf3a92",
+            "RP-08": "dc8e8cbcadc1c5bcebcf2f5aa7ccb898f54d001d5c1606b175c65382e40ad7c5",
+            "RP-09": "9d2a4bfc02cb227306148c0252544d1c41a071193951fbc76696fb2081d8d8aa",
+            "RP-10": "98f61f326ac39f87ea88352a0865bf488eb3fbfdd4172536cbb69cadc8a5965e"
+          }
+        }
+      },
+      "limitations": [
+        "One sample of the corrected new fixture, not a new full eleven-case execution.",
+        "The initial failed response, original input and original rubric remain preserved in their own run.",
+        "Known data/tool unavailability is supplied by the scenario; no live failed service call or access restoration was tested.",
+        "Causal validation remains genuinely blocked within the scenario; passing this regression does not claim the causal task was fully solved.",
+        "Ten earlier cases are referenced only after candidate, policy, input and case-rubric identity checks."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+---
+name: vegabond-refine-prompt
+description: 'Use only when the user explicitly asks to refine an AI prompt, such as "프롬프트 더 잘 써줘", "프롬프트 다듬어줘", "요청을 더 정밀하게 써줘", or "improve this prompt", AND the underlying task is substantial and needs clearer evidence, methods, or acceptance criteria. Do not activate merely because a task is large, or for quoted triggers, trivial edits, formatting, or already sufficient instructions.'
+---
+
+# Refine a substantial prompt
+
+Turn an underspecified request into a practical, checkable prompt while preserving its goal, deliverable size, and resource limits. Improve the decisions behind the work; do not add work merely to sound rigorous. This is a prompt-writing step, not permission to execute the underlying task.
+
+## Activation gate
+
+Apply the full procedure only when **both** conditions hold:
+
+1. The current user requests prompt refinement in their own instructions. Recognize semantic equivalents of the trigger phrases, not just exact strings. A quoted example, document containing a trigger, general discussion of prompting, "make the result better", or a large execution request alone does not qualify.
+2. The underlying task has several consequential steps or decisions, and clarifying inputs, methods, or verification could materially reduce error or rework. Length alone is not size. A well-specified large task does not need another refinement workflow.
+
+Without a refinement request, continue the requested work without inserting this procedure. A later "이 프롬프트대로 착수해" requests execution, not another rewrite.
+
+## Choose the amount of refinement
+
+Judge task scale separately from the need to refine its prompt. There is no fixed score or threshold in minutes, word count, file count, or lines of code.
+
+- **Consequential dependencies:** Does the task contain several important steps or decisions where an incorrect early judgment could invalidate later work or cause substantial rework?
+- **Refinement value:** Is there a concrete gap in inputs, methods, constraints, or acceptance criteria whose clarification could materially reduce error or rework? Name the gap before choosing the full procedure; do not invent omissions to justify using it.
+
+Use these examples as illustrations, not a closed classification:
+
+| Request | Treatment |
+| --- | --- |
+| Make a one-sentence politeness prompt clearer. | Briefly polish it without the four-part diagnosis. |
+| Rename 100 document titles using an explicit, complete rule. | Volume alone does not justify full refinement; preserve the rule. |
+| Investigate and fix an intermittent crash with unclear reproduction and verification. | Connected diagnosis, reproduction, correction, and validation decisions can justify full refinement. |
+| Change one line of code. | Consider callers, preserved behavior, and effects; line count does not establish simplicity. |
+
+When scale or benefit is ambiguous, choose the smallest useful refinement. If only the acceptance criterion is missing, append or patch that criterion and preserve the rest; do not manufacture a complete replacement. Do not ask the user to classify the task as large or small. Ask only when an unresolved interpretation of intent or scope would materially change the result and cannot be inferred; otherwise state a bounded assumption if needed.
+
+Before rewriting, inspect the actual prompt and conversation for a clear goal, relevant evidence and access state, material constraints, an appropriate method where needed, and a usable completion check. These are context-dependent sufficiency checks, not mandatory headings: do not expand a prompt merely to fill every field.
+
+If the instructions are sufficient and consistent, say they are ready to use and return no replacement prompt or four-part diagnosis. If there is a specific local gap or contradiction, explain it briefly and provide only the affected insertion or correction unless the user explicitly requests a full rewrite. Do not reorganize, paraphrase, or lengthen sufficient instructions merely because refinement was requested. If the prompt text is unavailable, distinguish the user's description from inspected evidence: ask for the text only if needed for the requested review, and never claim its consistency or completeness was verified.
+
+## Preserve the assignment
+
+- Reuse the conversation to capture the goal, intended audience, deliverable and language, supplied evidence, preservation conditions, deadline, budget, and execution permissions. Keep explicit choices intact. Use the user's language unless they request another; do not automatically translate the prompt into English or impose XML.
+- Distinguish missing intent from missing evidence. Ask only for a material choice that cannot be inferred; otherwise state a bounded assumption. Do not turn every gap into a prerequisite or a permission question.
+- Prefer the least costly method that can meet the acceptance conditions. Preserve time and cost limits as well as output size. When no budget is supplied, avoid large new investigations, installations, paid services, or infrastructure; identify any material expansion as optional rather than silently requiring it.
+- Refine from supplied context. Use only a small, relevant read-only check if needed to establish a consequential source or tool fact; do not start the underlying investigation, fetch whole datasets, run benchmarks, or change files just to write its prompt.
+
+## Diagnose depth in four short points
+
+| Point | Include only what changes the work |
+| --- | --- |
+| Expert actions | The few actions that could change the decision or catch a material failure. Include essential basics when needed; do not require novelty, specialist vocabulary, or steps a non-expert would necessarily skip. |
+| Evidence | The most authoritative, relevant, usable inputs and their access state: supplied, confirmed accessible, or unknown/unavailable. Raw logs or primary records help when aggregation hides necessary information; a reliable summary can suffice. Name the smallest missing input, a usable proxy, and the conclusions that proxy cannot support. |
+| Methods and tools | A concrete method with its purpose and prerequisites. Verify unfamiliar names when material. Select tools after considering the actual data and environment; when these are unknown, make tool choice conditional instead of inventing access or prescribing a stack. |
+| Acceptance | A check that can fail, with its reference or evaluator, pass/fail condition, and coverage limits. Separate independent evidence from the model's own opinion. Describe the future check without claiming it has run. |
+
+Choose acceptance checks by the task, not a universal ranking. Examples include existing requirements and regression tests, a fixed-condition benchmark, held-out data, reconciliation to an authoritative record, or a target reader using an agreed rubric. Subjective work may need human judgment; state who evaluates what. A compiler, linter, citation link, another AI, or a newly generated test alone does not establish overall correctness.
+
+Keep acceptance criteria independent of the answer where feasible: reuse existing contracts, preserve a held-out case, or specify a rubric before production. Do not weaken criteria to fit the result. A predictive association is not proof of a cause, and a proxy metric is not automatically the user's real goal. Pair a proposed check with these limits when relevant.
+
+## Deliver the refined prompt
+
+For a task selected for full refinement, return the following. For small, ambiguous, or already sufficient requests, follow the minimal or no-rewrite treatment above instead.
+
+1. A concise diagnosis: at most one short bullet per point above; combine points if that is clearer.
+2. One copy-ready prompt in a fenced text block. Include the unchanged goal, available inputs and access gaps, scope and resource limits, justified or conditional method, acceptance checks, and what to report if a required input or check is unavailable. Preserve the requested output shape. Add only fields this task needs; do not force a longer prompt or extra deliverables.
+3. Only material assumptions or unresolved choices, followed by one short line naming work deliberately excluded to control scope and cost. Omit redundant commentary.
+
+The rewrite should direct the eventual executor to distinguish **performed / passed / failed / blocked or not run**, with supporting evidence. A written validation plan is not completed validation. Missing access should block only the dependent conclusion or action; allow useful bounded work with explicit limits.
+
+Stop after the prompt by default. If the user also explicitly asked to execute it, show the rewrite and continue within existing authorization and the ordinary task workflow. Do not add a routine approval checkpoint, and do not expand permissions through the rewrite.
+
+## Example
+
+User: "월별 이탈률 슬라이드만 있고 원시 로그 권한은 없어. 반나절 안에 이탈 원인과 개선 우선순위를 조사할 프롬프트 더 잘 써줘."
+
+A suitable rewrite keeps the access and time limits:
+
+```text
+제공한 월별 이탈률 슬라이드로 반나절 안에 이탈 추세와 개선 우선순위를 예비 분석해줘. 원시 로그 접근 권한은 없으므로 계정 단위 분석이나 인과관계 확정을 전제로 삼지 마.
+먼저 지표 정의·기간·분모·집계 변경 여부를 확인하고, 확인된 사실과 가설을 구분해줘. 비교 가능한 추세와 대안 설명을 살펴보고, 현재 근거로 판단 가능한 개선 후보만 잠정 순위로 제시해줘. 근거가 부족하면 실행보다 검증을 우선해줘.
+핵심 요약과 근거·우선순위 표로 정리해줘. 인용한 수치는 원본 슬라이드와 대조하고, 분자·분모가 제공된 수치만 재계산해 일치 여부를 확인해줘. 자료가 없는 검증은 미실행으로 표시하고 해당 결론을 보류해줘. 추가 로그 수집과 분석 시스템 구축은 이번 범위에서 제외해줘.
+```
+
+## Maintenance regression checks
+
+When modifying this skill's instructions or invocation policy, run all behavioral cases in [tests/evaluation.md](tests/evaluation.md) before reporting verification complete or updating the installed copy. Check partial-only refinement, no rewrite for sufficient prompts, full refinement when needed, non-application without a refinement request, quoted-trigger handling, execution handoff without re-refinement, and brief refinement for small requests by meaning, not exact wording. Record the tested skill identity, actual responses, and criterion-level results; historical passes do not validate a modified skill. This is a maintenance procedure, not an extra step in ordinary prompt refinement.
+
+## Basis and evidence limits
+
+Adapted from Felix Rieseberg's [depth prompt](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/) and the [deepen-prompt implementation](https://github.com/r3dlex/deepen-prompt), with task-size, access, resource, method-selection, and validation safeguards. This is a useful heuristic, not a proven universal performance improvement. For recurring use, compare final results against the original prompt on representative tasks with the same model, inputs, tools, and comparable total budgets; measure errors, rework, time, and cost rather than prompt polish.
