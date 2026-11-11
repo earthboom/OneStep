@@ -52,13 +52,12 @@ keywords:
 - full input lifetime
 - 비동기 저장
 status: active
-checked_at: '2026-11-11'
+checked_at: '2026-11-12'
 context:
   evidence_check: Primary source research, direct creator accounts and explicitly
     labelled source limits
-  application_status: CAMERA/HITSCAN/PATH/CROWD/CONTROLLER/TRACE/LOCKON have limited
-    local runtime evidence;36others lack direct technique prototypes; dated prior
-    counts retained
+  application_status: CAMERA/HITSCAN/PATH/CROWD/CONTROLLER/TRACE/LOCKON/IK/HITBOX/DUNGEON/TIMESTEP/BILLBOARD/EASING
+    have limited local evidence;30others lack direct prototypes;actualFPS limits retained
   admission_evidence: UE5.8.3 paired six-policy overload comparison; accepted latency/all-offered
     goodput/rejection and full frames; finite static graph scope
   hitch_evidence: UE5.8.3 same-binary3paired admission profiles; named frame traces;
@@ -76,6 +75,22 @@ context:
     at actual30/60/144,3paired package query/frame observations and normal-speed media
   lockon_evidence: UE5.8.3 known5actors/fixedcamera selection-retention-switching
     only;37policy,198actual PIE30/60/144,3matched package costs and native1x media
+  foot_ik_evidence: UE5.8.3 V37 static support/actual68bone skin only:47policy,108actual
+    PIE30/60/144,3matched package costs,native1x media; explicit reach/pelvis fallback
+    limits
+  hitbox_evidence: UE5.8.3 V42 static sphere attack/hurt/physical separation only:40policy,174actual
+    PIE30/60/144,3matched package costs,native1x media; no hitstop/full combat
+  dungeon_evidence: UE5.8.3 V40/V56 BSP:1024policy,1000actual PIE+1000packaged seeds,3matched1000seed
+    costs,native1x media; static flat capsule only
+  timestep_evidence: UE5.8.3 V02/V49 independent simulation/display:78policy,36actual
+    PIE method-cases30/60/144,9cost players,normal1x; finite hitch recovery,one-tick
+    interpolation only
+  billboard_evidence: 'UE5.8.3 V43:39policy,4assets,207pose observations,9cost players,normal1x;cap30→22.49FPS,
+    cap60→45.31FPS, cap144→114.02FPS;Requested-FPS coverage is incomplete: each missed
+    cap band remains unverified under the existing actual-FPS±10% criterion;pose checks
+    pass only at observed rates.'
+  easing_evidence: UE5.8.3 V47/V59:104policy,96PIE method-cases,12cost players,normal1x;scriptedHz
+    separate from actual cap30→23.21FPS, cap60→45.66FPS, cap144→110.32FPS
 ---
 # Game implementation technique guide
 
@@ -366,3 +381,27 @@ Use PERFORMANCE for GT publication versus total completion, drain frames, queue 
 ## Lock-on follow-up — 2026-11-11
 
 [Native LOCKON selection/retention/switching](../../prototypes/UnrealTechniqueLab/LOCKON-RESULTS.md) adds scoped V53 evidence:37policy checks,198actual PIE cases at observed30/60/144,3matched packaged query/selection/full-frame observations and native1x media. Retrieve LOCKON for stable selected identity/score/entry-exit bands/explicit input/loss/replacement; TRACE for binary center-point visibility. Do not expand a visibility task into combat/movement AI or camera choreography. Latest coverage7partially implemented sheets/36without direct local technique prototypes; earlier dated counts are history. Physical input feel and broader targeting/AI remain untested.
+
+## Static foot IK follow-up — 2026-11-11
+
+[Native V37 foot placement](../../prototypes/UnrealTechniqueLab/FOOTIK-RESULTS.md) adds47policy checks,108actual PIE cases at observed30/60/144,3off/on package cost pairs and real skinned1x media. Retrieve IK for support-plane/sole calibration/stance anchor/compatible pelvis+blend/stable knee, CONTROLLER for gameplay capsule behavior, TIMESTEP for clock issues. Reach rejection is a valid fallback, not complete contact: the20cm budget rejects the recorded lower-flat right foot and35deg pose. One final visible pose publication prevents the reproduced false static bone history. Latest coverage8partially implemented sheets/35without direct local technique prototypes; earlier counts remain history. V08footwear and broader IK remain untested. No moving supports/fullbody/retarget/new locomotion or validation-tool optimization.
+
+## Attack collision follow-up — 2026-11-11
+
+[Native V42 hitbox separation](../../prototypes/UnrealTechniqueLab/HITBOX-RESULTS.md) adds40policy checks,174actual PIE cases at observed30/60/144,3matched package pairs and native1x media. Retrieve HITBOX for attack/hurt/physical channels, high-speed passage, active-window clipping, same-attack duplicate damage and owner filtering; HITSCAN for instantaneous aim/muzzle traces, TRACE for sight/occlusion, LAGCOMP for network rewind. This experiment validates neither hitstop nor complete combat. Static upright targets/linear sphere path only, with declared wallFraction1e-7 guard. Latest coverage9partially implemented sheets/34without direct local technique prototypes; earlier counts remain history. No combat AI/combo/network or validation-tool optimization.
+
+## BSP dungeon follow-up — 2026-11-11
+
+[Native V40/V56 BSP](../../prototypes/UnrealTechniqueLab/DUNGEON-RESULTS.md) adds1024policy,1000actual PIE+1000package seeds,3matched1000seed generation/geometry/full-frame runs and native1x media. Retrieve DUNGEON for seeded room/corridor topology, independent reachability and movement clearance; NOISE for coherent terrain fields and PATH for route queries. Flat upright capsule/known grid only; no gravity/CharacterMovement,keys,enemies,NavMesh,commercial algorithm replication or playtest quality claim. Cadence/memory/tail/GPU limits remain explicit. Latest coverage10partially implemented sheets/33without direct local technique prototypes; earlier counts remain history. No streaming/combat or validation-tool optimization.
+
+## Timestep follow-up — 2026-11-11
+
+[Native V02/V49](../../prototypes/UnrealTechniqueLab/TIMESTEP-RESULTS.md) adds78policy,36actual PIE method-cases30/60/144with real50/100/250ms hitches,3matched repeats per method and normal1x media. Retrieve TIMESTEP for accumulator/debt/fixed simulation/presentation interpolation; CONTROLLER for coyote/buffer, ROLLBACK for restore/re-simulate. Keep these mechanisms distinct. Exact local fixed state traces do not establish global engine/Chaos/network determinism. One-tick visual delay,finite-horizon/numeric tolerances and recovery-update-start timing remain explicit. Latest11partially implemented sheets/32without direct local technique prototypes; earlier counts are history. No crowd/framework/network/rollback optimization.
+
+## Billboard follow-up — 2026-11-11
+
+[V43 native](../../prototypes/UnrealTechniqueLab/BILLBOARD-RESULTS.md) adds39policy,4owned assets,207pose observations,3cost repeats per orientation and1x media. cap30→22.49FPS, cap60→45.31FPS, cap144→114.02FPS. Requested-FPS coverage is incomplete: each missed cap band remains unverified under the existing actual-FPS±10% criterion;pose checks pass only at observed rates. Retrieve BILLBOARD for camera-facing image orientation/roll/poles/alpha/cutout shadows;FOLIAGE for vegetation workload/representation planning. Billboard does not certify vegetation/LOD/streaming/GPU overdraw. Latest12partially implemented sheets/31without direct technique prototypes;historical counts retained. Source concepts,scripted geometry,actual renderer pixels and cost remain separate evidence.
+
+## Easing follow-up — 2026-11-12
+
+[V47/V59 native](../../prototypes/UnrealTechniqueLab/EASING-RESULTS.md) adds104policy,96actualPIE observations,3cost repeats per curve and1x media. Scripted30/60/144Hz time inputs are separate from rendering:cap30→23.21FPS, cap60→45.66FPS, cap144→110.32FPS;missed bands remain unverified. Retrieve EASING for finite normalized-time transitions/pause/current-value restart/asymmetric reverse, CAMERA for follow damping,TIMESTEP for simulation accumulation/presentation. Position continuity is not velocity continuity;native component1e-4cm tolerance differs from policy values. Latest13limited sheets/30without direct prototypes. PriorBILLBOARD FPS misses remain unchanged;no renderer/framework improvement.
