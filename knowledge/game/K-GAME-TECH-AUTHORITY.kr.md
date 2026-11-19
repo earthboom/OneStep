@@ -26,3 +26,8 @@
 ### client-side prediction
 
 **클라이언트 측 예측(client-side prediction)**은 권위 서버의 확인에 앞서 로컬 입력을 시뮬레이션해 표시한다. **서버 조정(server reconciliation)**은 확인된 입력 시점의 상태를 바로잡고 아직 확인되지 않은 이후 입력을 다시 적용한다. 재실행 가능한 이동 시스템에서는 새 입력이 대기 중일 때 보정을 강제로 일으켜 각 입력이 최종 상태에 한 번씩만 반영되는지 확인한다. [Riot — Peeking into VALORANT's Netcode](https://www.riotgames.com/en/news/peeking-valorants-netcode)
+
+
+## 언리얼 서버 권한 이동과 예측·보정 — 2026-11-20
+
+이 실험에서는 리슨 서버와 별도 클라이언트에서 동일 입력으로 확정 대기와 예측을 비교했다. 보정 48·64cm 뒤 미확인 입력만 순서대로 한 번씩 재적용했고, 최종 오차는 0cm였다. 각각 3회 입력 반응과 프레임을 기록했다.

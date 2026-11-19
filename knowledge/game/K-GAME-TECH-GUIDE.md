@@ -1,10 +1,11 @@
 ---
 id: K-GAME-TECH-GUIDE
 title: Retrieve game implementation techniques from concrete development problems
-summary: Start from the observed symptom or required behavior, compare relevant mechanisms and verify
-  their assumptions on the target game before choosing one.
+summary: Start from the observed symptom or required behavior, compare relevant mechanisms
+  and verify their assumptions on the target game before choosing one.
 kind: reference
-scope: Game development. For game design, engineering and debugging, a public short identifies a question.
+scope: Game development. For game design, engineering and debugging, a public short
+  identifies a question.
 keywords:
 - game-development
 - rendering
@@ -21,12 +22,12 @@ keywords:
 - debugging
 - evidence selection
 status: active
-checked_at: '2026-11-18'
+checked_at: '2026-11-20'
 context:
   evidence_check: Primary source research, direct creator accounts and explicitly
     labelled source limits
-  application_status: CAMERA/HITSCAN/PATH/CROWD/CONTROLLER/TRACE/LOCKON/IK/HITBOX/DUNGEON/TIMESTEP/BILLBOARD/EASING/NOISE/NORMAL/BLEND/SYSTEMIC/INTERIOR/REFLECTION/FOLIAGE/RNG/SOUND/RANDOM-DESIGN/WATER/SAVE/MUSIC/SPEED/SHADOW/DESTRUCTION/VOLUME/RETRO/PIXEL
-    have limited local evidence;11others lack direct prototypes;actualFPS and technique
+  application_status: CAMERA/HITSCAN/PATH/CROWD/CONTROLLER/TRACE/LOCKON/IK/HITBOX/DUNGEON/TIMESTEP/BILLBOARD/EASING/NOISE/NORMAL/BLEND/SYSTEMIC/INTERIOR/REFLECTION/FOLIAGE/RNG/SOUND/RANDOM-DESIGN/WATER/SAVE/MUSIC/SPEED/SHADOW/DESTRUCTION/VOLUME/RETRO/PIXEL/VOXEL/DDA/LEVEL/HAIR/AUTHORITY/ROLLBACK/LAGCOMP
+    have limited local evidence;4others lack direct prototypes;actualFPS and technique
     limits retained
   admission_evidence: UE5.8.3 paired six-policy overload comparison; accepted latency/all-offered
     goodput/rejection and full frames; finite static graph scope
@@ -425,3 +426,31 @@ The historical Unreal run adds47policy checks,108actual PIE cases at observed30/
 ## Native pixel sampling and palette follow-up — 2026-11-18
 
 [V35/V58 findings](K-GAME-TECH-PIXEL.md) verify 3×/2.5× sampling, nearest/bilinear, palette swaps and transparent edges. PNG, CPU decode and packaged RHI texture resource sizes are explicitly distinguished. Two approaches, three matched cost runs each and 24 seconds of normal-speed capture. Latest coverage is 32 limited sheets and 11 without a dedicated prototype.
+
+## Editable block voxels — 2026-11-20
+
+[V21 findings](K-GAME-TECH-VOXEL.md) cover exact face ownership across two chunks, same-material greedy meshing, edits/restoration, query collision, native pixels, six matched performance runs and a 24-second capture. Coverage now includes 33 limited sheets and 10 without a dedicated prototype.
+
+## Adaptive spawn cadence — 2026-11-20
+
+[V41 findings](K-GAME-TECH-DDA.md) cover fixed and adaptive spawn pacing with identical scripted input, two thresholds, minimum recovery, resumption and equal actor caps and stats. The two policies have three matched performance runs and 24 seconds of normal-speed evidence. Coverage now includes 34 limited sheets and nine without a dedicated prototype.
+
+## Doorway and third-person camera clearance — 2026-11-20
+
+[V12 findings](K-GAME-TECH-LEVEL.md) cover standing movement, three input paths, five fixed door sizes, Spring Arm return and waypoint occlusion. Fifteen frame-cost runs and 54 seconds of normal-speed capture were recorded. Coverage now includes 35 limited sheets and eight without a dedicated prototype.
+
+## Fixed hair card and strand comparison — 2026-11-20
+
+[V13 findings](K-GAME-TECH-HAIR.md) cover masked hair cards and DX11 Groom with rigid scalp attachment, fixed LOD, near/far silhouettes and backdrop samples. Six cost runs and 24 seconds of normal-speed capture were recorded. Coverage now includes 36 limited sheets and seven without a dedicated prototype.
+
+## Listen-server movement authority — 2026-11-20
+
+[V04 findings](K-GAME-TECH-AUTHORITY.md) cover a separate listen server and client, 60 ms outgoing lag and 10% loss per peer, exact ordered pending replay and final convergence. Six measured runs and 24 seconds of normal-speed evidence were recorded. Coverage now includes 37 limited sheets and six without a dedicated prototype.
+
+## Shared two-character contact rollback — 2026-11-20
+
+[V31 findings](K-GAME-TECH-ROLLBACK.md) cover the waiting baseline, delayed/reordered input replay, exact confirmed state, contact event deduplication, six timings and 20 seconds of normal-speed capture. Coverage now includes 38 limited sheets and five without a dedicated prototype.
+
+## V28 bounded server rewind — 2026-11-20
+
+[V28 findings](K-GAME-TECH-LAGCOMP.md) cover current and historical hit queries, cover entry/exit, exact maximum age, missing samples, deduplication, and preserved live collision. Six paired-condition timings and 20 seconds of normal-speed native media were recorded. Coverage now includes 39 limited sheets and four without a dedicated prototype.

@@ -38,3 +38,8 @@ Groom Asset에는 가이드 곡선과 렌더 스트랜드가 들어갈 수 있�
 검색어 · Groom Asset, simulation guides, strand interpolation
 
 [Epic, Groom Scalability and Performance](https://dev.epicgames.com/documentation/unreal-engine/groom-scalability-and-performance-with-unreal-engine)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.
+
+
+## 헤어 카드와 Groom 스트랜드 검증 — 2026-11-20
+
+이 실험에서는 같은 헤어스타일 마스크 카드 722삼각형과 Groom 3,192가닥의 두피 부착과 거리별 실루엣·배경 비침을 검사했다. 고정 LOD와 물리 끔 조건에서 각각 3회 재었으며 전체 GPU p95는 카드 13.708–14.826ms, 스트랜드 9.808–13.885ms였다.

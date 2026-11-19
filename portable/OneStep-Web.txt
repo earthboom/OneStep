@@ -1533,26 +1533,26 @@ Maintainer fills during processing: assessment; change or defer reason; original
 | K-GAME-STRATEGY-RTS / Design RTS pressure through economy, information, and counterplay [reference] | For competitive RTS planning, connect economic pacing and unit roles to readable opportunities for response, then evaluate outcomes across maps and skill levels. | Asymmetric competitive 1v1 RTS; StarCraft II beta and Legacy of the Void developer accounts; {"application_status": "Planning synthesis only; no RTS prototype, replay dataset, or balance test executed", "evidence_check": "Two original Blizzard developer articles opened and relevant text read"} | RTS, real-time strategy, economy, micro, macro, counterplay, scouting, balance, 실시간전략, 정찰, 견제, 자원, 대응, 밸런스 | active / 2026-11-07 | [K-GAME-STRATEGY-RTS](K-GAME-STRATEGY-RTS.md) |
 | K-GAME-STRATEGY-TURN-4X / Connect turn budgets, empire growth, and campaign endings [reference] | In empire-scale turn strategy, inspect which actions compete for resources and how victory resolves a campaign after strategic uncertainty disappears. | Turn-based empire and 4X design; Old World designer accounts of Orders and victory conditions; {"application_status": "Proposed campaign planning method; no simulation, AI evaluation, or full campaign played", "evidence_check": "Soren Johnson original designer notes opened; body and relevant author comment read"} | 4X, turn-based strategy, action economy, opportunity cost, victory, snowball, empire, 턴제전략, 행동경제, 기회비용, 승리조건, 문명, 제국 | active / 2026-11-07 | [K-GAME-STRATEGY-TURN-4X](K-GAME-STRATEGY-TURN-4X.md) |
 | K-GAME-SURVIVAL-CRAFTING / Tie survival pressure and crafting to self-directed exploration [reference] | In exploration-led survival crafting, connect needs, tools, and shelter to player-made goals while making danger responses understandable and effective. | Exploration-led survival crafting; early Don't Starve, Subnautica seabases, and a 2026 Subnautica 2 design response; {"application_status": "Proposed planning and observation checks; no survival prototype or gameplay test executed", "evidence_check": "Klei original-authored reprint and two Unknown Worlds original posts opened and read"} | survival, crafting, exploration, shelter, resource loop, onboarding, danger, 생존, 제작, 탐험, 거점, 자원순환, 온보딩, 위험 | active / 2026-11-07 | [K-GAME-SURVIVAL-CRAFTING](K-GAME-SURVIVAL-CRAFTING.md) |
-| K-GAME-TECH-AUTHORITY / Combine server authority with bounded client prediction [reference] | Send player intent to an authoritative simulation; validate it rather than trusting claimed outcomes. Authority reduces some cheats; it does not prevent all cheating. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "Reference research and proposed checks only; no engine implementation or performance validation", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | server, authority, prediction, reconciliation, netcode, 서버권한, client-side prediction, server reconciliation, authoritative server | active / 2026-11-19 | [K-GAME-TECH-AUTHORITY](K-GAME-TECH-AUTHORITY.md) |
+| K-GAME-TECH-AUTHORITY / Combine server authority with bounded client prediction [reference] | Keep input intent, server acknowledgement and visual prediction distinct. Local Unreal RPC tests verify ordered pending replay and final convergence under emulated delay and loss. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "V04 UE 5.8.3 listen server plus separate local client. Wait/predict over Unreal UDP and a bounded 20 Hz motion model. Native outgoing 60 ms and 10% loss, six frame-cost runs with exact suffix and final-state evidence.", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | server, authority, prediction, reconciliation, netcode, 서버권한, client-side prediction, server reconciliation, authoritative server, acknowledged input, unacknowledged input replay, movement correction, packet simulation, 서버 보정, 서버 확정 대기, 미확인 입력 재적용, 네트워크 에뮬레이션 | active / 2026-11-20 | [K-GAME-TECH-AUTHORITY](K-GAME-TECH-AUTHORITY.md) |
 | K-GAME-TECH-BILLBOARD / Orient image impostors for their intended viewing conditions [reference] | Choose how an image plane faces the viewer, then test the silhouette, texture orientation, transparency and shadow under the intended camera. | Game development. For image impostors and vegetation, a masked material clips texels at a threshold. | billboard, impostor, 빌보드, screen aligned, camera facing, world Z, axis constrained, camera roll, UV mirroring, vertical pole, cutout shadow, alpha sorting, 화면 정렬, 카메라 바라보기, 축 고정, 극점, 반투명 정렬, 마스크 그림자, masked, translucent, overdraw | active / 2026-11-11 | [K-GAME-TECH-BILLBOARD](K-GAME-TECH-BILLBOARD.md) |
 | K-GAME-TECH-BLEND / Choose blend operations in the correct colour space [reference] | Pair linear source representation with straight/premult/additive/modulate contracts;scoped UE5.8.3 native pixels validate HDR,alpha,edges,ordering and authored modulate fading,with whole-frame cost limits. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "Scoped UE5.8.3 V45:34model/120methodcases/630RGBprobes/12costplayers/1xmedia;unlit BeforeDOF only,no particles/general sorting/renderer optimization", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | alpha, additive, modulate, blending, 블렌딩, AlphaComposite, premultiplied alpha, Opacity Mask Clip Value, straight alpha, linear colour, sRGB, HDR, double alpha, transparent edge, fade white, blend order, 사전 곱셈, 이중 알파, 알파0, 곱셈 페이드 | active / 2026-11-12 | [K-GAME-TECH-BLEND](K-GAME-TECH-BLEND.md) |
 | K-GAME-TECH-CAMERA / Combine dead zones, prediction and time-consistent damping [reference] | Choose a framing target and use elapsed-time damping when a stationary target should converge at the same rate across display cadences. | Game development. For a gameplay camera following a subject, moving targets introduce sampling error. | camera, deadzone, lookahead, damping, spring, 카메라, 데드존, 룩어헤드, 카메라흔들림, Unreal, 언리얼, UCameraComponent, exponential damping | active / 2026-11-19 | [K-GAME-TECH-CAMERA](K-GAME-TECH-CAMERA.md) |
 | K-GAME-TECH-CONTROLLER / Implement forgiving platformer input as explicit state windows [reference] | Track ground eligibility and a pending jump press separately so one press can survive a ledge or landing transition and cause at most one jump. | Game development. For Unreal Engine 5.8 characters, `ACharacter::CanJumpWhileFalling` permits a subclass to authorize a falling jump under its rules. | coyote, jump, buffering, corner, correction, acceleration, 조작감, 코요테타임, 점프버퍼링, 착지, 입력씹힘, 코너보정, ground credit, released tap, landing latch, CanJumpWhileFalling, 중복 점프, 착지 입력, ACharacter::CanJumpWhileFalling, ACharacter::Landed, OnMovementModeChanged, ACharacter::OnJumped | active / 2026-11-19 | [K-GAME-TECH-CONTROLLER](K-GAME-TECH-CONTROLLER.md) |
 | K-GAME-TECH-CROWD / Scale crowd decisions separately from crowd rendering [reference] | Use shared routes for direction, local avoidance for nearby motion and admission control when safe motion can still leave requests waiting indefinitely. | Game development. For sustained requests, first-in, first-out (FIFO) preserves admission order but a blocked head can stall the queue. | crowd, Mass, avoidance, AI, LOD, spatial, hash, 군중, reservation, dynamic-obstacle, 국소회피, 동적장애물, bidirectional, corridor, radius, clearance, deadlock, 교행, 양방향, 반경, 통로, 교착, 경로장, 개체, lifelong, sustained, inflow, queue, FIFO, starvation, overload, throughput, unlaned, time-expanded, 지속, 유입, 개별, 무한, 대기, 차선, 없는, 지형, 시간, 확장, 예약, 과부하, ORCA, Optimal Reciprocal Collision Avoidance, Mass Avoidance, spatial hash, flow field, token bucket, backpressure, head-of-line blocking, goodput, level of detail, NPC, admission control, lossless admission, 모든 요청 처리, 거부 불가, 대기열, 역압력 | active / 2026-11-11 | [K-GAME-TECH-CROWD](K-GAME-TECH-CROWD.md) |
-| K-GAME-TECH-DDA / Distinguish adaptive pacing from hidden outcome control [reference] | Use observable performance proxies to choose bounded adjustments: spawn cadence, resources, recovery windows or opponent pace. Left 4 Dead's Director changes pacing and does not justify arbitrary enemy stat changes. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "Reference research and proposed checks only; no engine implementation or performance validation", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | DDA, rubber, banding, director, pacing, 난이도, dynamic difficulty adjustment, adaptive dramatic pacing, hysteresis | active / 2026-11-19 | [K-GAME-TECH-DDA](K-GAME-TECH-DDA.md) |
+| K-GAME-TECH-DDA / Distinguish adaptive pacing from hidden outcome control [reference] | Choose bounded adjustments from observable pressure signals. A native two-threshold fixture verifies timed spawn recovery and resumption while preserving the active cap and unit stats. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "V41 UE 5.8.3 fixed/adaptive spawn cadence in a single scripted arena. Native threshold/recovery/resume checks and three uncaptured runs per policy. Human experience and other adjustment parameters remain untested.", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | DDA, rubber, banding, director, pacing, 난이도, dynamic difficulty adjustment, adaptive dramatic pacing, hysteresis, enemy spawn cadence, recovery window, spawn resumption, 적 출현 간격, 회복 구간, 히스테리시스, 출현 재개 | active / 2026-11-20 | [K-GAME-TECH-DDA](K-GAME-TECH-DDA.md) |
 | K-GAME-TECH-DESTRUCTION / Choose authored fracture or runtime topology from gameplay needs [reference] | Choose pre-authored pieces and explicit damage/lifetime/reset rules for bounded prop destruction. UE5.8.3 mesh replacement+Chaos rigidbody12/96-piece evidence exists;CCD alone did not satisfy contact bounds. Not GeometryCollection clustering or runtime cutting. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "V14 UE5.8.3:27policy/6PIE+packageworlds/9costs/60snormal1x;precreated12/96pieces,CCD32/8/4,maxstep1/240;notGeometryCollectionclustering/runtimefracture", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | fracture, chaos, destruction, decal, 파괴, Geometry Collection, Chaos Destruction, clustering, prefractured, debris, damage threshold, duplicate break, TTL, reset, substep, collision bounds, 사전 분할, 임계값, 중복 파괴, 잔해 제거, 리셋, 서브스텝 | active / 2026-11-17 | [K-GAME-TECH-DESTRUCTION](K-GAME-TECH-DESTRUCTION.md) |
 | K-GAME-TECH-DUNGEON / Generate levels from a traversability contract [reference] | Use binary space partitioning to lay out rooms, then test both graph connectivity and clearance for the intended moving body. | Game development. For seeded grid generation, Unreal Engine's `FRandomStream` produces a repeatable sequence from an explicit seed. | procedural, dungeon, BSP, random, walk, grammar, 절차적생성, seed, room corridor, capsule clearance, connectivity, farthest exit, 던전, 시드, 방 통로, 연결성, binary space partitioning, breadth-first search, flood fill, FRandomStream | active / 2026-11-19 | [K-GAME-TECH-DUNGEON](K-GAME-TECH-DUNGEON.md) |
 | K-GAME-TECH-EASING / Choose curves by endpoint and timing constraints [reference] | Evaluate a finite transition from normalized elapsed time. Define what happens to position, velocity and completion when the transition is interrupted. | Game development. For a finite tween, pause can freeze the cursor, restart can take the current displayed value as its new start, and reversal can traverse the same cursor backwards. | easing, Bézier, smoothstep, smootherstep, interpolation, 베지에, 보간 전환 시간, 전환 시간, normalized time, transition duration, camera transition, tween, pause resume, restart, reverse, asymmetric curve, current value, position continuity, velocity discontinuity, 역재생, 전환 중단, 현재값 재시작, 끝점, SetWorldLocation, cubic Bézier | active / 2026-11-19 | [K-GAME-TECH-EASING](K-GAME-TECH-EASING.md) |
 | K-GAME-TECH-FOLIAGE / Budget dense vegetation across geometry and pixel cost [reference] | Use shared crossed masked cards and instancing for repeated grass, while measuring pixel coverage separately. Scoped UE5.8.3 tests compare individual/ISM with matched effective centre-distance culling; native bounds reference differs, and instancing does not remove all shading work. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "UE5.8.3 V19:37policy/47evidence/4actualPIE+4packaged8cases/12costplayers/normal1xmedia;small static Unlit masked patch,noLOD/wind/Nanite/forest", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | foliage, grass, LOD, culling, instancing, 잔디, 인스턴싱, 컬링, 오버드로, 최적화, Static Mesh Foliage, hardware instancing, overdraw, masked grass, alpha holes, two sided, instance placement, sphere edge, centre cutoff, reentry, ISM, 잔디 배치, 거리 컬링, 재진입, 알파 구멍, 양면 | active / 2026-11-13 | [K-GAME-TECH-FOLIAGE](K-GAME-TECH-FOLIAGE.md) |
-| K-GAME-TECH-GUIDE / Retrieve game implementation techniques from concrete development problems [reference] | Start from the observed symptom or required behavior, compare relevant mechanisms and verify their assumptions on the target game before choosing one. | Game development. For game design, engineering and debugging, a public short identifies a question.; {"admission_evidence": "UE5.8.3 paired six-policy overload comparison; accepted latency/all-offered goodput/rejection and full frames; finite static graph scope", "application_status": "CAMERA/HITSCAN/PATH/CROWD/CONTROLLER/TRACE/LOCKON/IK/HITBOX/DUNGEON/TIMESTEP/BILLBOARD/EASING/NOISE/NORMAL/BLEND/SYSTEMIC/INTERIOR/REFLECTION/FOLIAGE/RNG/SOUND/RANDOM-DESIGN/WATER/SAVE/MUSIC/SPEED/SHADOW/DESTRUCTION/VOLUME/RETRO/PIXEL have limited local evidence;11others lack direct prototypes;actualFPS and technique limits retained", "async_save_evidence": "UE5.8.3 detached full input; same-binary owned-sync/async3pairs, exact records, queue/failure/pending-exit controls; finished-fixture rendering only", "billboard_evidence": "UE5.8.3 V43:39policy,4assets,207pose observations,9cost players,normal1x;cap30→22.49FPS, cap60→45.31FPS, cap144→114.02FPS;Requested-FPS coverage is incomplete: each missed cap band remains unverified under the existing actual-FPS±10% criterion;pose checks pass only at observed rates.", "blend_evidence": "UE5.8.3 V45:34model/120methodcases/630RGBprobes/12costplayers/1xmedia;linearHDR/unlitBeforeDOF;authored modulate fade,not general sorting", "controller_evidence": "UE5.8.3 coyote/buffer only; policy68, actual PIE30/60/144,3paired package cost and normal-speed media; no V30corner/platform/player study", "dungeon_evidence": "UE5.8.3 V40/V56 BSP:1024policy,1000actual PIE+1000packaged seeds,3matched1000seed costs,native1x media; static flat capsule only", "easing_evidence": "UE5.8.3 V47/V59:104policy,96PIE method-cases,12cost players,normal1x;scriptedHz separate from actual cap30→23.21FPS, cap60→45.66FPS, cap144→110.32FPS", "evidence_check": "Primary source research, direct creator accounts and explicitly labelled source limits", "foliage_evidence": "UE5.8.3 V19:37policy/47evidence/4PIE+4package8cases/12matchedcostplayers/normal1x;shared static Unlit cards,effectivecentre cull,noLOD/wind/Nanite", "foot_ik_evidence": "UE5.8.3 V37 static support/actual68bone skin only:47policy,108actual PIE30/60/144,3matched package costs,native1x media; explicit reach/pelvis fallback limits", "hitbox_evidence": "UE5.8.3 V42 static sphere attack/hurt/physical separation only:40policy,174actual PIE30/60/144,3matched package costs,native1x media; no hitstop/full combat", "hitch_evidence": "UE5.8.3 same-binary3paired admission profiles; named frame traces; scene-local query suppression and cardinal reservation proof limits", "interior_evidence": "Partial UE5.8.3 V15: 48 policy / 50 evidence tests, 576 windows / 14400 pixel pairs, nine cost players / 1x media. Actual 30/60/144 FPS bands unverified; unlit point atlas / non-enterable.", "lockon_evidence": "UE5.8.3 known5actors/fixedcamera selection-retention-switching only;37policy,198actual PIE30/60/144,3matched package costs and native1x media", "noise_evidence": "UE5.8.3 V07/V50:57model,12native scenes,6cost players,1xmedia;native seams0;wholeframe39–40ms under synchronous4mesh replacement workload", "normal_evidence": "UE5.8.3 V26:33model/20native scenes/320GPUprobes/8seampairs/6cost players/1xmedia;no displacement;fixedboxcollision only", "planner_evidence": "UE5.8.3 equivalent packed-priority heap; scoped bit-domain/path/order/native/profile and3paired frame evidence", "reflection_evidence": "UE5.8.3 V16:31policy/50evidence/actualPIE+package14cases/6costplayers/1xmedia;one rigid Unlit SceneCapture2D mirror,notbuiltinactor/recursive/water", "rng_evidence": "UE5.8.3 V55:57policy/38evidence/8actualPIE+8packaged/6fixed-callcosts/normal1x;explicit seeds and whole-memory snapshots,single-thread,no file saves", "snapshot_evidence": "UE5.8.3 owned records/direct JSON; exact byte/value/order/lifetime/native safety,3paired transition/save/process-memory observations", "sound_evidence": "UE5.8.3 V22:83policy/47evidence/4worlds17cases/6realtimecosts/native1xvideoWITHaudio;explicitstereo/nativeattenuation+occlusion,noreverb/HRTF", "systemic_evidence": "UE5.8.3 V51:31policy/960native steps/5760body observations/37evidence/3costplayers/1xmedia;authored100ms boundedwoodmetalrules,nofluid/network/largeworld", "timestep_evidence": "UE5.8.3 V02/V49 independent simulation/display:78policy,36actual PIE method-cases30/60/144,9cost players,normal1x; finite hitch recovery,one-tick interpolation only", "vision_evidence": "UE5.8.3 known-target center-point range/cone/occlusion only; model24,PIE132cases at actual30/60/144,3paired package query/frame observations and normal-speed media"} | game-development, rendering, controller, netcode, procedural-generation, research, 게임개발, 기술, 지식, 구현, technique guide, game development, debugging, evidence selection | active / 2026-11-18 | [K-GAME-TECH-GUIDE](K-GAME-TECH-GUIDE.md) |
-| K-GAME-TECH-HAIR / Choose hair representation and simulation independently [reference] | Use cards for authored silhouette and lower representation budgets; consider strands for close detailed characters. Not every rendered strand needs independent simulation. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "Reference research and proposed checks only; no engine implementation or performance validation", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | groom, strands, hair, cards, 머리카락, Groom Asset, simulation guides, strand interpolation | active / 2026-11-07 | [K-GAME-TECH-HAIR](K-GAME-TECH-HAIR.md) |
+| K-GAME-TECH-GUIDE / Retrieve game implementation techniques from concrete development problems [reference] | Start from the observed symptom or required behavior, compare relevant mechanisms and verify their assumptions on the target game before choosing one. | Game development. For game design, engineering and debugging, a public short identifies a question.; {"admission_evidence": "UE5.8.3 paired six-policy overload comparison; accepted latency/all-offered goodput/rejection and full frames; finite static graph scope", "application_status": "CAMERA/HITSCAN/PATH/CROWD/CONTROLLER/TRACE/LOCKON/IK/HITBOX/DUNGEON/TIMESTEP/BILLBOARD/EASING/NOISE/NORMAL/BLEND/SYSTEMIC/INTERIOR/REFLECTION/FOLIAGE/RNG/SOUND/RANDOM-DESIGN/WATER/SAVE/MUSIC/SPEED/SHADOW/DESTRUCTION/VOLUME/RETRO/PIXEL/VOXEL/DDA/LEVEL/HAIR/AUTHORITY/ROLLBACK/LAGCOMP have limited local evidence;4others lack direct prototypes;actualFPS and technique limits retained", "async_save_evidence": "UE5.8.3 detached full input; same-binary owned-sync/async3pairs, exact records, queue/failure/pending-exit controls; finished-fixture rendering only", "billboard_evidence": "UE5.8.3 V43:39policy,4assets,207pose observations,9cost players,normal1x;cap30→22.49FPS, cap60→45.31FPS, cap144→114.02FPS;Requested-FPS coverage is incomplete: each missed cap band remains unverified under the existing actual-FPS±10% criterion;pose checks pass only at observed rates.", "blend_evidence": "UE5.8.3 V45:34model/120methodcases/630RGBprobes/12costplayers/1xmedia;linearHDR/unlitBeforeDOF;authored modulate fade,not general sorting", "controller_evidence": "UE5.8.3 coyote/buffer only; policy68, actual PIE30/60/144,3paired package cost and normal-speed media; no V30corner/platform/player study", "dungeon_evidence": "UE5.8.3 V40/V56 BSP:1024policy,1000actual PIE+1000packaged seeds,3matched1000seed costs,native1x media; static flat capsule only", "easing_evidence": "UE5.8.3 V47/V59:104policy,96PIE method-cases,12cost players,normal1x;scriptedHz separate from actual cap30→23.21FPS, cap60→45.66FPS, cap144→110.32FPS", "evidence_check": "Primary source research, direct creator accounts and explicitly labelled source limits", "foliage_evidence": "UE5.8.3 V19:37policy/47evidence/4PIE+4package8cases/12matchedcostplayers/normal1x;shared static Unlit cards,effectivecentre cull,noLOD/wind/Nanite", "foot_ik_evidence": "UE5.8.3 V37 static support/actual68bone skin only:47policy,108actual PIE30/60/144,3matched package costs,native1x media; explicit reach/pelvis fallback limits", "hitbox_evidence": "UE5.8.3 V42 static sphere attack/hurt/physical separation only:40policy,174actual PIE30/60/144,3matched package costs,native1x media; no hitstop/full combat", "hitch_evidence": "UE5.8.3 same-binary3paired admission profiles; named frame traces; scene-local query suppression and cardinal reservation proof limits", "interior_evidence": "Partial UE5.8.3 V15: 48 policy / 50 evidence tests, 576 windows / 14400 pixel pairs, nine cost players / 1x media. Actual 30/60/144 FPS bands unverified; unlit point atlas / non-enterable.", "lockon_evidence": "UE5.8.3 known5actors/fixedcamera selection-retention-switching only;37policy,198actual PIE30/60/144,3matched package costs and native1x media", "noise_evidence": "UE5.8.3 V07/V50:57model,12native scenes,6cost players,1xmedia;native seams0;wholeframe39–40ms under synchronous4mesh replacement workload", "normal_evidence": "UE5.8.3 V26:33model/20native scenes/320GPUprobes/8seampairs/6cost players/1xmedia;no displacement;fixedboxcollision only", "planner_evidence": "UE5.8.3 equivalent packed-priority heap; scoped bit-domain/path/order/native/profile and3paired frame evidence", "reflection_evidence": "UE5.8.3 V16:31policy/50evidence/actualPIE+package14cases/6costplayers/1xmedia;one rigid Unlit SceneCapture2D mirror,notbuiltinactor/recursive/water", "rng_evidence": "UE5.8.3 V55:57policy/38evidence/8actualPIE+8packaged/6fixed-callcosts/normal1x;explicit seeds and whole-memory snapshots,single-thread,no file saves", "snapshot_evidence": "UE5.8.3 owned records/direct JSON; exact byte/value/order/lifetime/native safety,3paired transition/save/process-memory observations", "sound_evidence": "UE5.8.3 V22:83policy/47evidence/4worlds17cases/6realtimecosts/native1xvideoWITHaudio;explicitstereo/nativeattenuation+occlusion,noreverb/HRTF", "systemic_evidence": "UE5.8.3 V51:31policy/960native steps/5760body observations/37evidence/3costplayers/1xmedia;authored100ms boundedwoodmetalrules,nofluid/network/largeworld", "timestep_evidence": "UE5.8.3 V02/V49 independent simulation/display:78policy,36actual PIE method-cases30/60/144,9cost players,normal1x; finite hitch recovery,one-tick interpolation only", "vision_evidence": "UE5.8.3 known-target center-point range/cone/occlusion only; model24,PIE132cases at actual30/60/144,3paired package query/frame observations and normal-speed media"} | game-development, rendering, controller, netcode, procedural-generation, research, 게임개발, 기술, 지식, 구현, technique guide, game development, debugging, evidence selection | active / 2026-11-20 | [K-GAME-TECH-GUIDE](K-GAME-TECH-GUIDE.md) |
+| K-GAME-TECH-HAIR / Choose hair representation and simulation independently [reference] | Choose hair cards or Groom strands against silhouette, backdrop coverage and GPU budget. A native fixed-LOD rig verifies rigid root attachment and near/far performance. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "V13 UE 5.8.3 Win64 DX11 original masked hair cards and native Groom strands. Rigid attach, fixed LOD, physics off. Head turn and near/far pixels, three whole-frame and GPU measurements per arm.", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | groom, strands, hair, cards, 머리카락, Groom Asset, simulation guides, strand interpolation, hair cards, hair silhouette, background see-through, rigid root attachment, 헤어 카드, 헤어 스트랜드, 두피 부착, 배경 비침, 헤어 GPU 비용 | active / 2026-11-20 | [K-GAME-TECH-HAIR](K-GAME-TECH-HAIR.md) |
 | K-GAME-TECH-HITBOX / Keep attack, hurt and physical collision contracts distinct [reference] | Clip collision queries to the attack's active time and process eligible touches once per attack and target, even if the sweep encounters no blocking hit. | Game development. In Unreal Engine, `UWorld::SweepMultiByChannel` collects touches up to the nearest blocker on the selected channel. | hitbox, hurtbox, hitstop, collision, 피격, attack window, sphere sweep, active clipping, duplicate damage, attack identity, hurt capsule, blocking status, 히트박스, 허트박스, 중복 피격, 고속 통과, 공격 활성 구간, UWorld::SweepMultiByChannel, FHitResult | active / 2026-11-19 | [K-GAME-TECH-HITBOX](K-GAME-TECH-HITBOX.md) |
 | K-GAME-TECH-HITSCAN / Resolve hitscan from aiming intent and muzzle constraints [reference] | Resolve an instantaneous game hit against the selected aiming point and the actual origin's unobstructed path. Define starting overlaps and ownership filtering. | Game development. For Unreal object-type queries, `UWorld::LineTraceSingleByObjectType` casts a segment against selected object types. | hitscan, muzzle, crosshair, head, glitch, 히트스캔, Unreal, 언리얼, UWorld::LineTraceSingleByObjectType, UWorld::OverlapAnyTestByObjectType, Physics.Raycast | active / 2026-11-19 | [K-GAME-TECH-HITSCAN](K-GAME-TECH-HITSCAN.md) |
 | K-GAME-TECH-IK / Fit animation contacts with constrained inverse kinematics [reference] | Solve a visual leg toward a calibrated sole contact, respecting reach, joint direction, coordinate spaces and gait phase before applying pelvis compensation. | Game development. For static supports, latch a stance contact and release it during swing. | IK, FABRIK, foot, placement, heel, retargeting, 역운동학, static support, sole anchor, pelvis budget, half blend, previous bone buffer, PoseableMesh, three point support, swing release, 발 고정, 골반 보정, 계단, 접지, Two Bone IK, Joint Target Location, UPoseableMeshComponent, effector | active / 2026-11-19 | [K-GAME-TECH-IK](K-GAME-TECH-IK.md) |
 | K-GAME-TECH-INCENTIVES / Evaluate rewards by the behavior they make worthwhile [reference] | Proposed design synthesis: define the intended repeated choice, its time/resource cost, failure consequence and alternative. Rewards do not prove fun; optional work can still be dominant or effectively mandatory. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "Reference research and proposed checks only; no engine implementation or performance validation", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | risk, reward, grind, automation, aggression, incentives, 보상, Regain System, recoverable health, push-forward combat | active / 2026-11-19 | [K-GAME-TECH-INCENTIVES](K-GAME-TECH-INCENTIVES.md) |
 | K-GAME-TECH-INTERIOR / Fake inaccessible interiors with ray-box mapping [reference] | Use local-space ray-box intersections for decorative, inaccessible planar window rooms. Scoped UE5.8.3 GPU/geometry checks cover parallax, edges, UV mirrors and positive affine transforms; actual 30/60/144 FPS bands remain unverified. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "Partial UE5.8.3 V15 verification: 48 policy / 50 evidence tests, 576 window observations / 14400 pixel pairs, nine cost players and 1x media. Actual 30/60/144 FPS bands UNVERIFIED; unlit point atlas, non-enterable.", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | interior, mapping, window, 인테리어매핑, 장식창문, 비진입창문, interior mapping, ray-box intersection, ray box, aperture, facade occlusion, grazing view, UV mirror, nonuniform scale, window parallax, 가짜방, 창문 시차, 비진입 창문, 광선 상자 | active / 2026-11-12 | [K-GAME-TECH-INTERIOR](K-GAME-TECH-INTERIOR.md) |
-| K-GAME-TECH-LAGCOMP / Bound historical hit resolution for latency compensation [reference] | Retain timestamped collision history and resolve eligible shots against a bounded reconstructed past view. Rewinding benefits a shooter's historical view but can hurt a player who has reached cover. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "Reference research and proposed checks only; no engine implementation or performance validation", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | lag, compensation, rewind, hit, registration, 렉보상, 판정불일치, 서버되감기, 지연보상, lag compensation, server rewind, interpolation delay | active / 2026-11-19 | [K-GAME-TECH-LAGCOMP](K-GAME-TECH-LAGCOMP.md) |
-| K-GAME-TECH-LEVEL / Validate perceived scale against traversal and camera constraints [reference] | Start with character dimensions, camera envelope, turning radius and encounter sightlines. This is transferable synthesis, not proof that every game's doors are a fixed multiple of reality. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "Reference research and proposed checks only; no engine implementation or performance validation", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | level, design, scale, landmark, door, routes, 레벨, blockout, graybox, level design metrics | active / 2026-11-19 | [K-GAME-TECH-LEVEL](K-GAME-TECH-LEVEL.md) |
+| K-GAME-TECH-LAGCOMP / Bound historical hit resolution for latency compensation [reference] | Resolve eligible shots against a bounded, timestamped history. Compare client-view agreement, cover exposure and the live collision query before and after a historical lookup. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "V28 UE5.8.3 listen server plus remote local client. Current/rewind timing with fixed UDP emulation and matched processing ticks. Static cover, one historical box and an 8-tick cap.", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | lag, compensation, rewind, hit, registration, 렉보상, 판정불일치, 서버되감기, 지연보상, lag compensation, server rewind, interpolation delay, cover entry, history gap, historical collision, rewind cap, 엄폐 진입, 기록 누락, 되감기 상한 | active / 2026-11-20 | [K-GAME-TECH-LAGCOMP](K-GAME-TECH-LAGCOMP.md) |
+| K-GAME-TECH-LEVEL / Validate perceived scale against traversal and camera constraints [reference] | Set playable openings from character dimensions, movement and camera clearance separately. Unreal V12 measures traversal, shoulder-camera pull-in and waypoint occlusion across five door sizes. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "V12 UE 5.8.3 rectangular doorway on flat ground, standing CharacterMovement and Spring Arm. Three input paths at five sizes, native camera/marker and three frame-cost runs per size. Perceived scale and route choice remain reference research.", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | level, design, scale, landmark, door, routes, 레벨, blockout, graybox, level design metrics, doorway clearance, door width, door height, camera pull-in, Spring Arm, waypoint occlusion, 문틀 폭, 문틀 높이, 3인칭 카메라, 카메라 당김, 표식 가림 | active / 2026-11-20 | [K-GAME-TECH-LEVEL](K-GAME-TECH-LEVEL.md) |
 | K-GAME-TECH-LOCKON / Select stable lock-on targets before changing movement framing [reference] | Acquire a target under explicit visibility and scoring rules. Keep a valid selection until its release condition occurs or the player requests a switch. | Game development. For Unreal object lifetimes, `TWeakObjectPtr` holds a non-owning object reference. | lock-on, target, scoring, Z, targeting, 락온, hysteresis, sticky target, retention band, weak actor identity, same ID replacement, opposite held keys, target switching, 대상 전환, 타깃 유지, TWeakObjectPtr, Z-targeting, line of sight | active / 2026-11-19 | [K-GAME-TECH-LOCKON](K-GAME-TECH-LOCKON.md) |
 | K-GAME-TECH-LOCKSTEP / Use lockstep only with an exact determinism contract [reference] | Exchange tick-indexed inputs instead of every object's state. Sharing a random seed alone does not guarantee determinism; floating-point and threading differences can diverge. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "Reference research and proposed checks only; no engine implementation or performance validation", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | deterministic, lockstep, RTS, hash, 결정론, deterministic lockstep, playout delay buffer, state hash | active / 2026-11-19 | [K-GAME-TECH-LOCKSTEP](K-GAME-TECH-LOCKSTEP.md) |
 | K-GAME-TECH-MATCH / Separate skill estimation from matchmaking policy [reference] | Estimate skill separately from selecting a match. Do not generalize 'the highest party member sets the match' to every game. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "Reference research and proposed checks only; no engine implementation or performance validation", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | Elo, TrueSkill, MMR, uncertainty, matchmaking, 매칭, Bayesian skill rating, skill uncertainty, matchmaking rating | active / 2026-11-19 | [K-GAME-TECH-MATCH](K-GAME-TECH-MATCH.md) |
@@ -1566,7 +1566,7 @@ Maintainer fills during processing: assessment; change or defer reason; original
 | K-GAME-TECH-REFLECTION / Select reflections by visibility and update requirements [reference] | For accurate flat mirrors with off-screen content, render a reflected camera and clip to the correct half-space while excluding the mirror. Scoped UE5.8.3 native ray/pixel checks and three matched OFF/ON costs verify one projected SceneCapture2D mirror; no recursive or production reflection certification. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "UE5.8.3 V16:31policy/50evidence/actualPIE+packaged14cases/6costplayers/normal1xmedia;one rigid Unlit projected SceneCapture2D mirror only", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | reflection, SSR, cubemap, mirror, 거울, Screen Space Reflections, Planar Reflections, planar reflection, reflected camera, clip plane, half space, self exclusion, offscreen objects, 평면 반사, 거울 클리핑, 화면 밖, 자기 자신 제외 | active / 2026-11-13 | [K-GAME-TECH-REFLECTION](K-GAME-TECH-REFLECTION.md) |
 | K-GAME-TECH-RETRO / Distinguish affine texture transforms from perspective projection [reference] | Use affine UV mapping for flat texture motion and row-dependent depth for a stylized horizontal floor. Unreal 5.8.3 evidence covers pixel alignment, signed UV addressing, scale zero and the horizon guard. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "V57 native basic/affine/scanline floor with actual sampled pixels, nine packaged costs and normal 1x capture. Flat-plane effect and explicit point-sampling limits.", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | affine, perspective, Mode7, scanline, 아핀, Mode 7, affine transformation, fixed-point arithmetic, affine UV, horizon guard, negative UV, wrap clamp, 주사선, 지평선, 반복 클램프 | active / 2026-11-18 | [K-GAME-TECH-RETRO](K-GAME-TECH-RETRO.md) |
 | K-GAME-TECH-RNG / Separate reproducible randomness from security-sensitive randomness [reference] | Own explicit seeded gameplay and cosmetic streams to isolate ordered outcomes; restore complete stream and consumer state for in-memory replay. UE5.8.3 bounded Actor/PIE/package checks and equal-call shared/split costs are measured; no statistical-independence or cross-version guarantee. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "UE5.8.3 Win64/DX11:57policy/38evidence/8actualPIE+8packagedcases/6equal-callcosts/normal1xmedia;single-thread/in-memory only", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | PRNG, PCG, seed, stream, deterministic, 난수, linear congruential generator, LCG, Permuted Congruential Generator, independent streams, FRandomStream, cosmetic, gameplay, reset, memory checkpoint, state restore, 장식, 복원, 독립 스트림 | active / 2026-11-19 | [K-GAME-TECH-RNG](K-GAME-TECH-RNG.md) |
-| K-GAME-TECH-ROLLBACK / Restore and re-simulate state for rollback networking [reference] | Predict missing inputs, restore snapshots and replay corrected ticks. Grant irreversible rewards only after trusted confirmation, using a stable key for retries. | Game development. For a rollback simulation, restored state and input order must reproduce the agreed result within the replay budget. | rollback, GGPO, delay, input, prediction, achievement, reward, confirmation, 롤백, 롤백넷코드, 재시뮬레이션, 업적, 보상, 확정, idempotency key, verified frames, CallbackEventCanceled | active / 2026-11-08 | [K-GAME-TECH-ROLLBACK](K-GAME-TECH-ROLLBACK.md) |
+| K-GAME-TECH-ROLLBACK / Restore and re-simulate state for rollback networking [reference] | Restore a bounded snapshot and re-simulate with corrected inputs. Publish confirmed contact events once. Native Unreal evidence covers both waiting and rollback on one reproducible delay trace. | Game development. For a rollback simulation, restored state and input order must reproduce the agreed result within the replay budget.; {"application_status": "V31 Unreal 5.8.3 30 Hz two-character integer contact scene. Native wait/rollback comparison with authored input arrivals, exact confirmed state and contact proof, three frame-cost runs per method."} | rollback, GGPO, delay, input, prediction, achievement, reward, confirmation, 롤백, 롤백넷코드, 재시뮬레이션, 업적, 보상, 확정, idempotency key, verified frames, CallbackEventCanceled, rollback contact, snapshot restore, contact event deduplication, 접촉 이벤트, 스냅샷 복원, 입력 대기, 롤백 재실행 틱 | active / 2026-11-20 | [K-GAME-TECH-ROLLBACK](K-GAME-TECH-ROLLBACK.md) |
 | K-GAME-TECH-SAVE / Design versioned durable saves and compact password states [reference] | Persist stable-ID game state in a versioned validated container. UE5.8.3 synchronous basic/A-B generation recovery has actual restart,corruption,atomic world restoration and matched-cost evidence;CRC is not authentication and power-loss safety is unverified. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "V20 UE5.8.3:89policy+23store/48PIE+packagecases/6restartconsumers/6matchedcosts/14s1xnativevideo;V54password remains unimplemented;no power-loss guarantee", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | save, serialization, checksum, password, bitflags, 저장, 세이브, 백업, 저장손상, USaveGame, UGameplayStatics::AsyncSaveGameToSlot, save generation, game state, stable ID, SaveGame, CRC32, previous generation, file truncation, both invalid, 게임 상태, 상태 복원, 이전 세대, 파일 잘림, 양쪽 무효 | active / 2026-11-19 | [K-GAME-TECH-SAVE](K-GAME-TECH-SAVE.md) |
 | K-GAME-TECH-SHADOW / Choose shadow-map resolution and filtering [reference] | Choose shadow-map coverage,resolution/filtering and bias from actual contact,self-shadow and camera-motion evidence. UE5.8.3 conventional CSM off/low/high bounded pixel/cost observations exist;high quality does not guarantee zero acne or shimmer. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "V03 UE5.8.3:46policy/6PIE+packageworlds/9costs/native1x60s;conventional CSM/AAoff/one light,not VSM/Nanite/generalquality", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | shadow, map, PCF, CSM, 그림자, cascaded shadow maps, percentage-closer filtering, bias, contact gap, self shadow, cascade boundary, camera registered, shimmer, 바이어스, 자기 그림자, 캐스케이드, 떨림 | active / 2026-11-14 | [K-GAME-TECH-SHADOW](K-GAME-TECH-SHADOW.md) |
 | K-GAME-TECH-SOUND / Model distance, occlusion and room response separately [reference] | Separate level attenuation,stereo direction and obstruction filtering. UE5.8.3 native attenuation/occlusion plus explicit source-stereo panning are checked against real master PCM,including axes/reentry/rotation/doors;single-ray coverage is not full propagation. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "UE5.8.3:83policy/47evidence/4actualworlds17cases/6realtimecosts/native1xvideoWITHaudio;nativegain/occlusion,explicitstereopanner,noreverb/Doppler/HRTF", "evidence_check": "External source text checked; source-specific limits appear in Evidence", "panning_limit": "Native5.8exactleftaxis failed;explicit source-stereo equal-power implemented,no enginepatch or cross-version guarantee"} | spatial, audio, Doppler, reverb, occlusion, attenuation, 음향, sound attenuation, air absorption, spatialization, occlusion low-pass filter, stereo, equal-power, listener, GetAzimuth, source owner, master PCM, submix, recording, door, WASAPI, NonRealtime, 좌우, 청취자, 문, 가림, 녹음 | active / 2026-11-19 | [K-GAME-TECH-SOUND](K-GAME-TECH-SOUND.md) |
@@ -1575,7 +1575,7 @@ Maintainer fills during processing: assessment; change or defer reason; original
 | K-GAME-TECH-TIMESTEP / Separate simulation steps from rendering and tune jump integration [reference] | Accumulate elapsed time and advance the simulation in fixed increments. Budget catch-up and interpolate presentation separately from authoritative state. | Game development. For a bounded fixed-step model with residual time below h, interpolate the previous and current transforms with alpha=residual/h. | fixed, timestep, Euler, subpixel, interpolation, delta, time, 프레임, accumulator, backlog, catchup, render interpolation, one tick delay, jump apex, per flight, 고정 시간, 누적 시간, 렌더 보간, 지연 복구, fixed timestep, semi-implicit Euler, explicit Euler | active / 2026-11-11 | [K-GAME-TECH-TIMESTEP](K-GAME-TECH-TIMESTEP.md) |
 | K-GAME-TECH-TRACE / Combine distance, angle and collision queries for perception [reference] | Reject distant or out-of-cone targets before querying occlusion. Define which target point, collision channel and hit identity constitute visibility. | Game development. For collision-based Unreal perception, `UWorld::LineTraceSingleByChannel` reports the first blocking hit on a channel. | dot, product, raycast, FOV, Lambert, perception, 내적, 시야, occlusion, owner ignored, center point, thin wall, corner tangent, 시야각, 가림 판정, 자기 자신 제외, UWorld::LineTraceSingleByChannel, FCollisionQueryParams::AddIgnoredActor, EQS | active / 2026-11-19 | [K-GAME-TECH-TRACE](K-GAME-TECH-TRACE.md) |
 | K-GAME-TECH-VOLUME / Separate volumetric appearance from simulated smoke gameplay [reference] | Separate environmental volumetric fog appearance from smoke occupancy/gameplay. UE5.8.3 native fog/one spot has bounded density,scattering,occlusion,motion/cut,light-trail and interruption evidence;whole-frame/GPU costs vary and history trails remain adoption conditions. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "V10/V27 limited fog appearance only:UE5.8.3/54policy/6worlds/9costs/72snormal1x+24sno-historycontrol;clouds,fluid andgameplay smoke remain unimplemented", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | volumetric, smoke, clouds, Worley, 연막, 구름, 경계누출, 잔상, Volumetric Fog, temporal reprojection, Volumetric Scattering Intensity, volumetric fog, density, anisotropy, volumetric shadow, camera cut, light trail, reactivation, 볼류메트릭 안개, 광원 잔상, 밀도, 광산란 | active / 2026-11-17 | [K-GAME-TECH-VOLUME](K-GAME-TECH-VOLUME.md) |
-| K-GAME-TECH-VOXEL / Extract and stream editable voxel surfaces [reference] | Use voxel fields when editable volume matters. Block-face meshing and smooth contour extraction solve different art needs. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "Reference research and proposed checks only; no engine implementation or performance validation", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | voxel, dual, contouring, Hermite, QEF, chunk, 복셀, dual contouring, Hermite data, quadratic error function | active / 2026-11-07 | [K-GAME-TECH-VOXEL](K-GAME-TECH-VOXEL.md) |
+| K-GAME-TECH-VOXEL / Extract and stream editable voxel surfaces [reference] | For editable block terrain, mesh exposed faces using both chunks' occupancy, merge compatible faces, and rebuild dirty borders with collision. The native fixture measures both approaches. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "V21 UE 5.8.3 block-face and same-material greedy meshing on two adjacent editable chunks. Exact coverage, native collision and raster pixels; 3 matched runs each. Smooth extraction and streaming remain reference research.", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | voxel, dual, contouring, Hermite, QEF, chunk, 복셀, dual contouring, Hermite data, quadratic error function, greedy meshing, exposed face, chunk seam, dirty neighbor, collision cooking, 노출면, 재질별 면 병합, 청크 이음새, 경계 블록 편집, 동기 충돌 갱신 | active / 2026-11-20 | [K-GAME-TECH-VOXEL](K-GAME-TECH-VOXEL.md) |
 | K-GAME-TECH-WATER / Use summed waves for water surfaces with explicit limits [reference] | Use summed sine or full parametric Gerstner displacement with analytic normals and a conservative steepness budget. UE5.8.3 CPU procedural geometry has native/time/boundary and matched-cost evidence;not fluid simulation or GPU WPO performance. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "UE5.8.3 CPU:222policy/20PIE+20packagecases/9matchedcosts/native20s1xmedia;65x65vertices/4waves;public CPU section,not GPU WPO/readback", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | Gerstner, sine, waves, water, 물, 파도, Gerstner waves, horizontal displacement, buoyancy, procedural mesh, parametric, Lagrangian, analytic normal, steepness budget, UE_DOUBLE_PI, time partition, 물 표면, 가파름, 시간 입력 | active / 2026-11-14 | [K-GAME-TECH-WATER](K-GAME-TECH-WATER.md) |
 
 ===== knowledge/code/index.md =====
@@ -2787,16 +2787,38 @@ Applies when exploration and player ownership are central. Combat-dominant survi
 
 ---
 id: K-GAME-TECH-AUTHORITY
-title: "Combine server authority with bounded client prediction"
-summary: "Send player intent to an authoritative simulation; validate it rather than trusting claimed outcomes. Authority reduces some cheats; it does not prevent all cheating."
+title: Combine server authority with bounded client prediction
+summary: Keep input intent, server acknowledgement and visual prediction distinct.
+  Local Unreal RPC tests verify ordered pending replay and final convergence under
+  emulated delay and loss.
 kind: reference
-scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["server", "authority", "prediction", "reconciliation", "netcode", "서버권한", "client-side prediction", "server reconciliation", "authoritative server"]
+scope: Game development; engine-independent mechanisms with version-dependent engine
+  examples
+keywords:
+- server
+- authority
+- prediction
+- reconciliation
+- netcode
+- 서버권한
+- client-side prediction
+- server reconciliation
+- authoritative server
+- acknowledged input
+- unacknowledged input replay
+- movement correction
+- packet simulation
+- 서버 보정
+- 서버 확정 대기
+- 미확인 입력 재적용
+- 네트워크 에뮬레이션
 status: active
-checked_at: '2026-11-19'
+checked_at: '2026-11-20'
 context:
-  evidence_check: "External source text checked; source-specific limits appear in Evidence"
-  application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
+  evidence_check: External source text checked; source-specific limits appear in Evidence
+  application_status: V04 UE 5.8.3 listen server plus separate local client. Wait/predict
+    over Unreal UDP and a bounded 20 Hz motion model. Native outgoing 60 ms and 10%
+    loss, six frame-cost runs with exact suffix and final-state evidence.
 ---
 # Combine server authority with bounded client prediction
 
@@ -2820,6 +2842,12 @@ Proposed: inject loss, jitter and invalid inputs; log input sequence, acknowledg
 
 - [Riot — Peeking into VALORANT's Netcode](https://www.riotgames.com/en/news/peeking-valorants-netcode) — 2020 developer account; server authority, prediction and server combat resolution; historical implementation. Checked 2026-11-07, except items explicitly marked further reading.
 - Originating channel shorts: V04 in [the coverage guide](K-GAME-TECH-GUIDE.md). Originating shorts are discovery leads, not independent proof.
+
+## Unreal listen-server prediction and reconciliation — 2026-11-20
+
+The local V04 experiment compared waiting and prediction with a separate client and listen server on loopback, sending a shared 20 Hz input sequence via Unreal UDP. Each peer uses 60 ms outgoing lag and 10% loss. The server commits each of the 180 steps once. Both server changes produce the prescribed 48 cm and 64 cm corrections. The replay list is exactly the pending suffix after the acknowledgement. Each run drains to 0 cm final position error.
+
+Input-response median ranges were 145.236–153.142 ms for waiting and 0.498–0.644 ms for prediction across three runs. Client whole-frame p95 was 10.362–11.322 and 10.556–10.673 ms. Use the engine-visible response definition, watch queue depth and measure final convergence independently of transient pose error. This fixture establishes the owned movement contract for one local link with bounded loss and a simple planar motion model.
 
 ===== knowledge/game/K-GAME-TECH-BILLBOARD.md =====
 
@@ -3120,16 +3148,37 @@ Fauerby's slides document the historical game architecture. The ORCA authors sta
 
 ---
 id: K-GAME-TECH-DDA
-title: "Distinguish adaptive pacing from hidden outcome control"
-summary: "Use observable performance proxies to choose bounded adjustments: spawn cadence, resources, recovery windows or opponent pace. Left 4 Dead's Director changes pacing and does not justify arbitrary enemy stat changes."
+title: Distinguish adaptive pacing from hidden outcome control
+summary: Choose bounded adjustments from observable pressure signals. A native two-threshold
+  fixture verifies timed spawn recovery and resumption while preserving the active
+  cap and unit stats.
 kind: reference
-scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["DDA", "rubber", "banding", "director", "pacing", "난이도", "dynamic difficulty adjustment", "adaptive dramatic pacing", "hysteresis"]
+scope: Game development; engine-independent mechanisms with version-dependent engine
+  examples
+keywords:
+- DDA
+- rubber
+- banding
+- director
+- pacing
+- 난이도
+- dynamic difficulty adjustment
+- adaptive dramatic pacing
+- hysteresis
+- enemy spawn cadence
+- recovery window
+- spawn resumption
+- 적 출현 간격
+- 회복 구간
+- 히스테리시스
+- 출현 재개
 status: active
-checked_at: '2026-11-19'
+checked_at: '2026-11-20'
 context:
-  evidence_check: "External source text checked; source-specific limits appear in Evidence"
-  application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
+  evidence_check: External source text checked; source-specific limits appear in Evidence
+  application_status: V41 UE 5.8.3 fixed/adaptive spawn cadence in a single scripted
+    arena. Native threshold/recovery/resume checks and three uncaptured runs per policy.
+    Human experience and other adjustment parameters remain untested.
 ---
 # Distinguish adaptive pacing from hidden outcome control
 
@@ -3153,6 +3202,12 @@ Proposed: log proxy, state, adjustment and reason; compare fixed/adaptive schedu
 
 - [Mike Booth — The AI Systems of Left 4 Dead](https://cdn.fastly.steamstatic.com/apps/valve/2009/ai_systems_of_l4d_mike_booth.pdf) — 2009 developer slides; adaptive pacing, especially pp.79–92. Pacing is not equivalent to arbitrary difficulty scaling. Checked 2026-11-07, except items explicitly marked further reading.
 - Originating channel shorts: V41 in [the coverage guide](K-GAME-TECH-GUIDE.md). Originating shorts are discovery leads, not independent proof.
+
+## Unreal fixed and adaptive spawn cadence — 2026-11-20
+
+The local V41 experiment compared fixed eligibility and two-threshold recovery using the same 12-second pressure trace. Cap and stats are held at three concurrent actors, health 100 and attack 10. Recovery enters at pressure 70 and exits at 45 after a minimum of 2.0 seconds. The two windows lasted 2.0 and 2.6 seconds. Both resumed spawning on the release step with a slot available. Fixed spawns totaled 15 and adaptive spawns 12, reproducibly. Whole-frame p95 ranges across three runs were 10.783–12.219 and 10.924–12.222 ms. The actor workloads differ with the policies.
+
+Expire old actors before admitting the next spawn. Keep separate entry and exit thresholds if noisy pressure causes chatter. Quote the measured recovery and cap separately. If queued opportunities would create a resume burst, drop them and restart from a successful spawn. Use an authored trace to verify the policy and playtest the pressure proxy independently of the scheduling logic.
 
 ===== knowledge/game/K-GAME-TECH-DESTRUCTION.md =====
 
@@ -3409,10 +3464,11 @@ Measured adoption judgment: whole-RHI draw medians fell from865 individual/OFF a
 ---
 id: K-GAME-TECH-GUIDE
 title: Retrieve game implementation techniques from concrete development problems
-summary: Start from the observed symptom or required behavior, compare relevant mechanisms and verify
-  their assumptions on the target game before choosing one.
+summary: Start from the observed symptom or required behavior, compare relevant mechanisms
+  and verify their assumptions on the target game before choosing one.
 kind: reference
-scope: Game development. For game design, engineering and debugging, a public short identifies a question.
+scope: Game development. For game design, engineering and debugging, a public short
+  identifies a question.
 keywords:
 - game-development
 - rendering
@@ -3429,12 +3485,12 @@ keywords:
 - debugging
 - evidence selection
 status: active
-checked_at: '2026-11-18'
+checked_at: '2026-11-20'
 context:
   evidence_check: Primary source research, direct creator accounts and explicitly
     labelled source limits
-  application_status: CAMERA/HITSCAN/PATH/CROWD/CONTROLLER/TRACE/LOCKON/IK/HITBOX/DUNGEON/TIMESTEP/BILLBOARD/EASING/NOISE/NORMAL/BLEND/SYSTEMIC/INTERIOR/REFLECTION/FOLIAGE/RNG/SOUND/RANDOM-DESIGN/WATER/SAVE/MUSIC/SPEED/SHADOW/DESTRUCTION/VOLUME/RETRO/PIXEL
-    have limited local evidence;11others lack direct prototypes;actualFPS and technique
+  application_status: CAMERA/HITSCAN/PATH/CROWD/CONTROLLER/TRACE/LOCKON/IK/HITBOX/DUNGEON/TIMESTEP/BILLBOARD/EASING/NOISE/NORMAL/BLEND/SYSTEMIC/INTERIOR/REFLECTION/FOLIAGE/RNG/SOUND/RANDOM-DESIGN/WATER/SAVE/MUSIC/SPEED/SHADOW/DESTRUCTION/VOLUME/RETRO/PIXEL/VOXEL/DDA/LEVEL/HAIR/AUTHORITY/ROLLBACK/LAGCOMP
+    have limited local evidence;4others lack direct prototypes;actualFPS and technique
     limits retained
   admission_evidence: UE5.8.3 paired six-policy overload comparison; accepted latency/all-offered
     goodput/rejection and full frames; finite static graph scope
@@ -3834,20 +3890,70 @@ The historical Unreal run adds47policy checks,108actual PIE cases at observed30/
 
 [V35/V58 findings](K-GAME-TECH-PIXEL.md) verify 3×/2.5× sampling, nearest/bilinear, palette swaps and transparent edges. PNG, CPU decode and packaged RHI texture resource sizes are explicitly distinguished. Two approaches, three matched cost runs each and 24 seconds of normal-speed capture. Latest coverage is 32 limited sheets and 11 without a dedicated prototype.
 
+## Editable block voxels — 2026-11-20
+
+[V21 findings](K-GAME-TECH-VOXEL.md) cover exact face ownership across two chunks, same-material greedy meshing, edits/restoration, query collision, native pixels, six matched performance runs and a 24-second capture. Coverage now includes 33 limited sheets and 10 without a dedicated prototype.
+
+## Adaptive spawn cadence — 2026-11-20
+
+[V41 findings](K-GAME-TECH-DDA.md) cover fixed and adaptive spawn pacing with identical scripted input, two thresholds, minimum recovery, resumption and equal actor caps and stats. The two policies have three matched performance runs and 24 seconds of normal-speed evidence. Coverage now includes 34 limited sheets and nine without a dedicated prototype.
+
+## Doorway and third-person camera clearance — 2026-11-20
+
+[V12 findings](K-GAME-TECH-LEVEL.md) cover standing movement, three input paths, five fixed door sizes, Spring Arm return and waypoint occlusion. Fifteen frame-cost runs and 54 seconds of normal-speed capture were recorded. Coverage now includes 35 limited sheets and eight without a dedicated prototype.
+
+## Fixed hair card and strand comparison — 2026-11-20
+
+[V13 findings](K-GAME-TECH-HAIR.md) cover masked hair cards and DX11 Groom with rigid scalp attachment, fixed LOD, near/far silhouettes and backdrop samples. Six cost runs and 24 seconds of normal-speed capture were recorded. Coverage now includes 36 limited sheets and seven without a dedicated prototype.
+
+## Listen-server movement authority — 2026-11-20
+
+[V04 findings](K-GAME-TECH-AUTHORITY.md) cover a separate listen server and client, 60 ms outgoing lag and 10% loss per peer, exact ordered pending replay and final convergence. Six measured runs and 24 seconds of normal-speed evidence were recorded. Coverage now includes 37 limited sheets and six without a dedicated prototype.
+
+## Shared two-character contact rollback — 2026-11-20
+
+[V31 findings](K-GAME-TECH-ROLLBACK.md) cover the waiting baseline, delayed/reordered input replay, exact confirmed state, contact event deduplication, six timings and 20 seconds of normal-speed capture. Coverage now includes 38 limited sheets and five without a dedicated prototype.
+
+## V28 bounded server rewind — 2026-11-20
+
+[V28 findings](K-GAME-TECH-LAGCOMP.md) cover current and historical hit queries, cover entry/exit, exact maximum age, missing samples, deduplication, and preserved live collision. Six paired-condition timings and 20 seconds of normal-speed native media were recorded. Coverage now includes 39 limited sheets and four without a dedicated prototype.
+
 ===== knowledge/game/K-GAME-TECH-HAIR.md =====
 
 ---
 id: K-GAME-TECH-HAIR
-title: "Choose hair representation and simulation independently"
-summary: "Use cards for authored silhouette and lower representation budgets; consider strands for close detailed characters. Not every rendered strand needs independent simulation."
+title: Choose hair representation and simulation independently
+summary: Choose hair cards or Groom strands against silhouette, backdrop coverage
+  and GPU budget. A native fixed-LOD rig verifies rigid root attachment and near/far
+  performance.
 kind: reference
-scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["groom", "strands", "hair", "cards", "머리카락", "Groom Asset", "simulation guides", "strand interpolation"]
+scope: Game development; engine-independent mechanisms with version-dependent engine
+  examples
+keywords:
+- groom
+- strands
+- hair
+- cards
+- 머리카락
+- Groom Asset
+- simulation guides
+- strand interpolation
+- hair cards
+- hair silhouette
+- background see-through
+- rigid root attachment
+- 헤어 카드
+- 헤어 스트랜드
+- 두피 부착
+- 배경 비침
+- 헤어 GPU 비용
 status: active
-checked_at: '2026-11-07'
+checked_at: '2026-11-20'
 context:
-  evidence_check: "External source text checked; source-specific limits appear in Evidence"
-  application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
+  evidence_check: External source text checked; source-specific limits appear in Evidence
+  application_status: V13 UE 5.8.3 Win64 DX11 original masked hair cards and native
+    Groom strands. Rigid attach, fixed LOD, physics off. Head turn and near/far pixels,
+    three whole-frame and GPU measurements per arm.
 ---
 # Choose hair representation and simulation independently
 
@@ -3883,6 +3989,12 @@ Proposed: test shoulders, fast turns, headgear and LOD changes; profile several 
 
 - [Epic — Groom Scalability and Performance](https://dev.epicgames.com/documentation/unreal-engine/groom-scalability-and-performance-with-unreal-engine) — Geometry scalability and pipeline stages text inspected; no project performance measured. Checked 2026-11-07.
 - [Capcom speakers — PRAGMATA hair and facial development](https://cedec.cesa.or.jp/2026/timetable/detail/s69f305ca68328/) — Official CEDEC 2026 description and speaker affiliations; detailed presentation assets/counts not accessed. Checked 2026-11-07.
+
+## Unreal masked cards and Groom strands — 2026-11-20
+
+The local V13 experiment used one 19-lock style with 722 card triangles and 3,192 Groom curves. Rigid scalp attachment, fixed LOD and simulation off isolate the two representations under common lights and camera poses. A matched no-hair render provides silhouette and background gap evidence. Both have visible gaps in the tested checker backdrop. Near-side strand coverage was 3.68 times card coverage for these assets. Read the pose-level overlap and backdrop samples for this hairstyle.
+
+Three runs yielded whole-frame p95 of 12.456–14.736 ms (cards) and 9.925–12.799 ms (strands), and whole-GPU p95 of 13.708–14.826 and 9.808–13.885 ms respectively. Use the screen footprint at actual camera distances and keep the light and material setup comparable. GPU totals cover the complete selected representation. Add separate skinning, collision and LOD evidence when those systems are active.
 
 ===== knowledge/game/K-GAME-TECH-HITBOX.md =====
 
@@ -4163,16 +4275,40 @@ Source: [Joost van Dongen's 2018 author article](https://joostdevblog.blogspot.c
 
 ---
 id: K-GAME-TECH-LAGCOMP
-title: "Bound historical hit resolution for latency compensation"
-summary: "Retain timestamped collision history and resolve eligible shots against a bounded reconstructed past view. Rewinding benefits a shooter's historical view but can hurt a player who has reached cover."
+title: Bound historical hit resolution for latency compensation
+summary: Resolve eligible shots against a bounded, timestamped history. Compare client-view
+  agreement, cover exposure and the live collision query before and after a historical
+  lookup.
 kind: reference
-scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["lag", "compensation", "rewind", "hit", "registration", "렉보상", "판정불일치", "서버되감기", "지연보상", "lag compensation", "server rewind", "interpolation delay"]
+scope: Game development; engine-independent mechanisms with version-dependent engine
+  examples
+keywords:
+- lag
+- compensation
+- rewind
+- hit
+- registration
+- 렉보상
+- 판정불일치
+- 서버되감기
+- 지연보상
+- lag compensation
+- server rewind
+- interpolation delay
+- cover entry
+- history gap
+- historical collision
+- rewind cap
+- 엄폐 진입
+- 기록 누락
+- 되감기 상한
 status: active
-checked_at: '2026-11-19'
+checked_at: '2026-11-20'
 context:
-  evidence_check: "External source text checked; source-specific limits appear in Evidence"
-  application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
+  evidence_check: External source text checked; source-specific limits appear in Evidence
+  application_status: V28 UE5.8.3 listen server plus remote local client. Current/rewind
+    timing with fixed UDP emulation and matched processing ticks. Static cover, one
+    historical box and an 8-tick cap.
 ---
 # Bound historical hit resolution for latency compensation
 
@@ -4197,20 +4333,54 @@ Proposed: record both client views and server history for cover transitions, fas
 - [Riot — Peeking into VALORANT's Netcode](https://www.riotgames.com/en/news/peeking-valorants-netcode) — 2020 developer account; server authority, prediction and server combat resolution; historical implementation. Checked 2026-11-07, except items explicitly marked further reading.
 - Originating channel shorts: V28 in [the coverage guide](K-GAME-TECH-GUIDE.md). Originating shorts are discovery leads, not independent proof.
 
+## Unreal listen-server rewind — 2026-11-20
+
+The local V28 experiment used one moving box, fixed cover, a separate client, 60 ms outbound emulation in both directions and matched server decision ticks. Across three repetitions per profile, all-offered client-view agreement was 12/36 current and 28/36 rewind. Rewind agreed on all 28 evaluated shots, rejected the four out-of-range and four missing-sample requests, and accepted eight hits at 50 or 200 ms after entering cover. Both profiles suppressed four duplicates and preserved current collision in 40 before/after checks per session.
+
+Active decision p95 ranged from 2.200–2.500 µs for current and 3.500–14.600 µs for rewind. Host whole-frame p95 was 29.605–29.934 ms and 29.570–29.656 ms respectively. Client whole-frame p95 was 8.551–9.017 ms and 8.602–9.134 ms.
+
+Map requests to the exact displayed pose time, then apply an explicit age limit and missing-history disposition. For fixed occluders, cap the historical geometry query at the first static hit. Use distinct collision representations so a historical query cannot change current collisions. Count explicit refusals in the all-offered rate and record time behind cover as a separate outcome. Measure decision work along with server and client frames. The 400 ms limit, exact sample matching and one-box result belong to this workload. A game with moving occluders or skeletal collision needs its own history representation and policy.
+
 ===== knowledge/game/K-GAME-TECH-LEVEL.md =====
 
 ---
 id: K-GAME-TECH-LEVEL
-title: "Validate perceived scale against traversal and camera constraints"
-summary: "Start with character dimensions, camera envelope, turning radius and encounter sightlines. This is transferable synthesis, not proof that every game's doors are a fixed multiple of reality."
+title: Validate perceived scale against traversal and camera constraints
+summary: Set playable openings from character dimensions, movement and camera clearance
+  separately. Unreal V12 measures traversal, shoulder-camera pull-in and waypoint
+  occlusion across five door sizes.
 kind: reference
-scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["level", "design", "scale", "landmark", "door", "routes", "레벨", "blockout", "graybox", "level design metrics"]
+scope: Game development; engine-independent mechanisms with version-dependent engine
+  examples
+keywords:
+- level
+- design
+- scale
+- landmark
+- door
+- routes
+- 레벨
+- blockout
+- graybox
+- level design metrics
+- doorway clearance
+- door width
+- door height
+- camera pull-in
+- Spring Arm
+- waypoint occlusion
+- 문틀 폭
+- 문틀 높이
+- 3인칭 카메라
+- 카메라 당김
+- 표식 가림
 status: active
-checked_at: '2026-11-19'
+checked_at: '2026-11-20'
 context:
-  evidence_check: "External source text checked; source-specific limits appear in Evidence"
-  application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
+  evidence_check: External source text checked; source-specific limits appear in Evidence
+  application_status: V12 UE 5.8.3 rectangular doorway on flat ground, standing CharacterMovement
+    and Spring Arm. Three input paths at five sizes, native camera/marker and three
+    frame-cost runs per size. Perceived scale and route choice remain reference research.
 ---
 # Validate perceived scale against traversal and camera constraints
 
@@ -4237,6 +4407,12 @@ Proposed: test traversal with production camera and all supported bodies; ask un
 - [Itay Keren — Scroll Back](https://www.gamedeveloper.com/design/scroll-back-the-theory-and-practice-of-cameras-in-side-scrollers) — 2015 creator-authored article; camera-window, framing and smoothing. Checked 2026-11-07, except items explicitly marked further reading.
 - [Shaker et al. — Constructive Generation Methods for Dungeons and Levels](https://www.pcgbook.com/chapter03.pdf) — 2016 author chapter; representation, BSP, agents and platform levels. Checked 2026-11-07, except items explicitly marked further reading.
 - Originating channel shorts: V11, V12, V24 in [the coverage guide](K-GAME-TECH-GUIDE.md). Originating shorts are discovery leads, not independent proof.
+
+## Unreal doorway and shoulder-camera clearance — 2026-11-20
+
+The local V12 experiment varied width at a fixed height and height at a fixed width. Use the same controller, capsule, camera, wall depth and input when determining the cause of a doorway failure. A 68×176 cm capsule tried five openings on a flat floor. It clears the 136×260 cm control without touch on all three paths. The Spring Arm still withdrew by up to 158.5 cm on the oblique approach and 112.3 cm on the turn. At 136×260 cm, body clearance preceded final camera restoration by 0.92 s in the oblique case.
+
+Measure body clearance, camera recovery, marker occlusion and off-screen time as separate results. Check rendered visibility at unmasking as well as the geometric ray. Two low-door samples differed from the ray and the marker appeared one rendered frame later. Whole-frame p95 across the fifteen runs ranged from 10.424–11.256 ms. Test angled movement and turn inputs as well as straight entry. Preserve width and height controls and vary wall depth and shoulder offset when applying the result to another game. The fixture measures geometry and camera behavior. Perceived scale and wayfinding require a separate player check.
 
 ===== knowledge/game/K-GAME-TECH-LOCKON.md =====
 
@@ -4983,11 +5159,12 @@ Retrieve RNG for cosmetic activity changing loot/generation/replay outcomes;NOIS
 ---
 id: K-GAME-TECH-ROLLBACK
 title: Restore and re-simulate state for rollback networking
-summary: Predict missing inputs, restore snapshots and replay corrected ticks. Grant irreversible rewards
-  only after trusted confirmation, using a stable key for retries.
+summary: Restore a bounded snapshot and re-simulate with corrected inputs. Publish
+  confirmed contact events once. Native Unreal evidence covers both waiting and rollback
+  on one reproducible delay trace.
 kind: reference
-scope: Game development. For a rollback simulation, restored state and input order must reproduce the
-  agreed result within the replay budget.
+scope: Game development. For a rollback simulation, restored state and input order
+  must reproduce the agreed result within the replay budget.
 keywords:
 - rollback
 - GGPO
@@ -5006,8 +5183,19 @@ keywords:
 - idempotency key
 - verified frames
 - CallbackEventCanceled
+- rollback contact
+- snapshot restore
+- contact event deduplication
+- 접촉 이벤트
+- 스냅샷 복원
+- 입력 대기
+- 롤백 재실행 틱
 status: active
-checked_at: '2026-11-08'
+checked_at: '2026-11-20'
+context:
+  application_status: V31 Unreal 5.8.3 30 Hz two-character integer contact scene.
+    Native wait/rollback comparison with authored input arrivals, exact confirmed
+    state and contact proof, three frame-cost runs per method.
 ---
 # Restore and re-simulate state for rollback networking
 
@@ -5031,6 +5219,12 @@ GGPO describes prediction and replay. Photon Quantum distinguishes predicted and
 - [Glenn Fiedler — Deterministic Lockstep](https://gafferongames.com/post/deterministic_lockstep/)
 - [Photon Quantum 3 — Frames, “Which Frame To Read In The View”](https://doc.photonengine.com/quantum/v3/manual/frames)
 - [Photon Quantum 2.1.9 — CallbackEventCanceled](https://doc-api.photonengine.com/en/quantum/v2/class_quantum_1_1_callback_event_canceled.html)
+
+## Unreal contact rollback — 2026-11-20
+
+The local V31 experiment used the same 30 Hz two-character input sequence and the same delayed, reordered and duplicate arrivals for waiting and rollback. Every 240-tick confirmed trajectory matches the independent oracle. The two real contact starts publish once. Two predicted contacts are cancelled when the late avoidance inputs arrive. Snapshot restore and replay regenerate genuine contact calculations, so the confirmation frontier matters for stable event delivery.
+
+Prediction replayed 181 ticks over 34 batches with a depth of at most 8; waiting replayed none. Response medians were 167.209–167.926 and 0.515–0.558 ms respectively across three repeats. The full rollback-frame p95 band was 10.529–11.572 ms. Size history for the accepted delivery delay and measure both the inner replay work and the affected whole frames. This evidence covers a local scripted delivery schedule and one deterministic contact model.
 
 ===== knowledge/game/K-GAME-TECH-SAVE.md =====
 
@@ -5561,16 +5755,41 @@ Use for bounded environmental fog/mist and lighting appearance. A shadowing wall
 
 ---
 id: K-GAME-TECH-VOXEL
-title: "Extract and stream editable voxel surfaces"
-summary: "Use voxel fields when editable volume matters. Block-face meshing and smooth contour extraction solve different art needs."
+title: Extract and stream editable voxel surfaces
+summary: For editable block terrain, mesh exposed faces using both chunks' occupancy,
+  merge compatible faces, and rebuild dirty borders with collision. The native fixture
+  measures both approaches.
 kind: reference
-scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["voxel", "dual", "contouring", "Hermite", "QEF", "chunk", "복셀", "dual contouring", "Hermite data", "quadratic error function"]
+scope: Game development; engine-independent mechanisms with version-dependent engine
+  examples
+keywords:
+- voxel
+- dual
+- contouring
+- Hermite
+- QEF
+- chunk
+- 복셀
+- dual contouring
+- Hermite data
+- quadratic error function
+- greedy meshing
+- exposed face
+- chunk seam
+- dirty neighbor
+- collision cooking
+- 노출면
+- 재질별 면 병합
+- 청크 이음새
+- 경계 블록 편집
+- 동기 충돌 갱신
 status: active
-checked_at: '2026-11-07'
+checked_at: '2026-11-20'
 context:
-  evidence_check: "External source text checked; source-specific limits appear in Evidence"
-  application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
+  evidence_check: External source text checked; source-specific limits appear in Evidence
+  application_status: V21 UE 5.8.3 block-face and same-material greedy meshing on
+    two adjacent editable chunks. Exact coverage, native collision and raster pixels;
+    3 matched runs each. Smooth extraction and streaming remain reference research.
 ---
 # Extract and stream editable voxel surfaces
 
@@ -5596,6 +5815,12 @@ Proposed: edit exactly on chunk borders, remove thin features and stream while m
 
 - [Ju et al. — Dual Contouring of Hermite Data](https://www.cs.rice.edu/~jwarren/papers/dualcontour.pdf) — 2002 paper; abstract, Hermite input and QEF method. Checked 2026-11-07, except items explicitly marked further reading.
 - Originating channel shorts: V21 in [the coverage guide](K-GAME-TECH-GUIDE.md). Originating shorts are discovery leads, not independent proof.
+
+## Editable block-face meshing in Unreal — 2026-11-20
+
+The local V21 experiment compared one quad per exposed face with greedy coplanar, same-material meshing. Both methods read a shared occupancy field. Dirty the owner for an interior edit and rebuild both chunks after committing a shared-edge edit. Do not emit an interior face between two occupied blocks, even when their materials differ. Use the full material and shading attributes as the merge key when face appearance depends on those properties.
+
+The two-chunk fixture checks subdivisions, exact exposed area and restoration against an independent occupancy model, plus native line-trace and pixel samples. The initial mesh falls from 2,940 to 124 triangles (95.8% fewer). Synchronous collision medians across the runs were 4.417–5.541 ms for individual faces and 0.307–0.380 ms for merged faces. Whole-frame p95 bands overlap at 11.381–12.598 and 11.923–12.931 ms. Track generation, game-thread mesh submission, synchronous collision and edit-frame tails separately. The report has the six measurements and implementation scope. Complex triangle collision is verified for the fixture's queries. Smooth extraction and streaming remain research references.
 
 ===== knowledge/game/K-GAME-TECH-WATER.md =====
 

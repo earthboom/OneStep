@@ -30,3 +30,8 @@
 검색어 · dual contouring, Hermite data, quadratic error function
 
 [Ju et al., Dual Contouring of Hermite Data](https://www.cs.rice.edu/~jwarren/papers/dualcontour.pdf)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.
+
+
+## 언리얼 블록 복셀 청크 편집 — 2026-11-20
+
+이 실험에서는 같은 평면·법선·재질의 노출 이웃 면을 합쳐 초기 삼각형을 2,940개에서 124개로 줄였다. 경계 편집을 복셀 데이터에 먼저 확정하고 두 청크를 재생성한다. 누락·중복, 복원 상태, 네이티브 충돌과 실제 화면을 확인했다. 생성·반영·동기 충돌을 나눠 측정하고 편집 프레임과 전체 프레임을 함께 읽는다.

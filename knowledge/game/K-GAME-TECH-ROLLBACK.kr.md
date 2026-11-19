@@ -22,3 +22,8 @@ GGPO는 예측과 재시뮬레이션을, Photon Quantum은 예측·검증 프레
 - [Glenn Fiedler — Deterministic Lockstep](https://gafferongames.com/post/deterministic_lockstep/)
 - [Photon Quantum 3 — Frames, “Which Frame To Read In The View”](https://doc.photonengine.com/quantum/v3/manual/frames)
 - [Photon Quantum 2.1.9 — CallbackEventCanceled](https://doc-api.photonengine.com/en/quantum/v2/class_quantum_1_1_callback_event_canceled.html)
+
+
+## 언리얼 접촉 롤백 검증 — 2026-11-20
+
+이 실험에서는 입력 대기와 예측·롤백이 240틱 전체 상태와 접촉 두 건을 동일하게 확정했다. 예측 접촉 두 건을 취소했고, 34회 복원·181틱 재실행과 회차별 반응·프레임 비용을 기록했다.

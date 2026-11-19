@@ -1,15 +1,37 @@
 ---
 id: K-GAME-TECH-HAIR
-title: "Choose hair representation and simulation independently"
-summary: "Use cards for authored silhouette and lower representation budgets; consider strands for close detailed characters. Not every rendered strand needs independent simulation."
+title: Choose hair representation and simulation independently
+summary: Choose hair cards or Groom strands against silhouette, backdrop coverage
+  and GPU budget. A native fixed-LOD rig verifies rigid root attachment and near/far
+  performance.
 kind: reference
-scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["groom", "strands", "hair", "cards", "머리카락", "Groom Asset", "simulation guides", "strand interpolation"]
+scope: Game development; engine-independent mechanisms with version-dependent engine
+  examples
+keywords:
+- groom
+- strands
+- hair
+- cards
+- 머리카락
+- Groom Asset
+- simulation guides
+- strand interpolation
+- hair cards
+- hair silhouette
+- background see-through
+- rigid root attachment
+- 헤어 카드
+- 헤어 스트랜드
+- 두피 부착
+- 배경 비침
+- 헤어 GPU 비용
 status: active
-checked_at: '2026-11-07'
+checked_at: '2026-11-20'
 context:
-  evidence_check: "External source text checked; source-specific limits appear in Evidence"
-  application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
+  evidence_check: External source text checked; source-specific limits appear in Evidence
+  application_status: V13 UE 5.8.3 Win64 DX11 original masked hair cards and native
+    Groom strands. Rigid attach, fixed LOD, physics off. Head turn and near/far pixels,
+    three whole-frame and GPU measurements per arm.
 ---
 # Choose hair representation and simulation independently
 
@@ -45,3 +67,9 @@ Proposed: test shoulders, fast turns, headgear and LOD changes; profile several 
 
 - [Epic — Groom Scalability and Performance](https://dev.epicgames.com/documentation/unreal-engine/groom-scalability-and-performance-with-unreal-engine) — Geometry scalability and pipeline stages text inspected; no project performance measured. Checked 2026-11-07.
 - [Capcom speakers — PRAGMATA hair and facial development](https://cedec.cesa.or.jp/2026/timetable/detail/s69f305ca68328/) — Official CEDEC 2026 description and speaker affiliations; detailed presentation assets/counts not accessed. Checked 2026-11-07.
+
+## Unreal masked cards and Groom strands — 2026-11-20
+
+The local V13 experiment used one 19-lock style with 722 card triangles and 3,192 Groom curves. Rigid scalp attachment, fixed LOD and simulation off isolate the two representations under common lights and camera poses. A matched no-hair render provides silhouette and background gap evidence. Both have visible gaps in the tested checker backdrop. Near-side strand coverage was 3.68 times card coverage for these assets. Read the pose-level overlap and backdrop samples for this hairstyle.
+
+Three runs yielded whole-frame p95 of 12.456–14.736 ms (cards) and 9.925–12.799 ms (strands), and whole-GPU p95 of 13.708–14.826 and 9.808–13.885 ms respectively. Use the screen footprint at actual camera distances and keep the light and material setup comparable. GPU totals cover the complete selected representation. Add separate skinning, collision and LOD evidence when those systems are active.
