@@ -1,5 +1,7 @@
 # OneStep
 
+다른 프로젝트의 로컬 AI 세션에서 **“이 프로젝트를 OneStep에 연결해줘”**라고 요청할 수 있습니다. 새 PC에서는 체크아웃에서 `py -3 link_project.py --register`를 한 번 실행하세요(macOS·Linux는 `python3`). **“이번 작업에만 OneStep 써줘”**라고 하면 그 작업에만 적용합니다. [세션 연결 안내](docs/linked-projects.kr.md)
+
 다른 프로젝트에서는 PC마다 OneStep을 한 번 Git으로 받아 두고, 작업 프로젝트를 그 폴더에 연결합니다. Claude Code·Codex·Gemini CLI가 프로젝트 지침을 통해 같은 전략과 지식을 참조합니다. [Git 체크아웃 연결과 검증](docs/linked-projects.kr.md) · [웹용 파일과 ZIP 사용법](portable/README.kr.md)
 
 **OneStep은 요청을 적합한 수행 방법, 검증 근거, 재사용할 지식으로 연결하는 AI 작업 전략입니다.** 소프트웨어, 소설, 발표자료, 기획, 조사 등 다양한 산출물을 지원합니다. 사용자가 원하는 결과와 반드시 유지해야 할 조건을 기준으로 작업을 정의합니다.

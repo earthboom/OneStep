@@ -85,6 +85,8 @@ After an improvement addresses the whole concern, required checks and any requir
 
 ## Start a task
 
+To request OneStep from an unlinked project's local AI session, run `python link_project.py --register` once from this checkout. Then open a new session in the target project and say “connect this project to OneStep” or “use OneStep just for this task.” [Session setup](docs/linked-projects.md)
+
 For other projects, clone OneStep once per PC and link each working project to that checkout. From their parent folder:
 
 ```sh

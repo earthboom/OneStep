@@ -1,6 +1,7 @@
 """Exercise live checkout links through Git and the public setup command."""
 
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -104,6 +105,48 @@ class LinkedProjectTests(unittest.TestCase):
         self.link(self.project, ok=False)
         self.assertFalse((self.project / "AGENTS.md").exists())
         self.assertFalse((self.project / POINTER).exists())
+
+    def test_discovery_from_an_unlinked_project(self):
+        home = self.base / "사용자 설정"
+        codex, claude = home / "codex", home / "claude"
+        codex.mkdir(parents=True)
+        claude.mkdir()
+        override = codex / "AGENTS.override.md"
+        original = b"\xef\xbb\xbf# Personal rules\r\nKeep this line.\r\n"
+        override.write_bytes(original)
+        global_claude = claude / "CLAUDE.md"
+        gemini = home / ".gemini/GEMINI.md"
+        env = dict(os.environ, CODEX_HOME=str(codex), CLAUDE_CONFIG_DIR=str(claude),
+                   GEMINI_CLI_HOME=str(home))
+
+        def register(*args, success=True):
+            run = subprocess.run([sys.executable, str(self.checkout / "link_project.py"), "--register", *args],
+                                 env=env, cwd=self.project, capture_output=True)
+            self.assertEqual(run.returncode == 0, success, run.stdout + run.stderr)
+            return run.stdout
+
+        register("--check", success=False)
+        global_claude.write_bytes(b"<!-- onestep:discovery:end -->")
+        register(success=False)
+        self.assertEqual(override.read_bytes(), original)
+        self.assertFalse(gemini.exists())
+        global_claude.write_text("# Claude preferences\n", encoding="utf-8")
+        register()
+        self.assertTrue(override.read_bytes().startswith(original))
+        self.assertFalse((codex / "AGENTS.md").exists())
+        self.assertIn(b"0 files updated", register())
+        register("--check")
+        for path in (override, global_claude, gemini):
+            text = path.read_text(encoding="utf-8-sig")
+            checkout = Path(text.split("Local checkout: `", 1)[1].split("`", 1)[0])
+            self.assertEqual(checkout, self.checkout)
+            self.assertIn("OneStep 연결해줘", text)
+            self.assertIn("이번 작업에 OneStep 써줘", text)
+            self.assertTrue((checkout / ENTRY).is_file())
+            self.assertTrue((checkout / "skills/vegabond-scout/SKILL.md").is_file())
+        self.assertEqual(list(self.project.iterdir()), [])
+        self.link(self.project)
+        self.link(self.project, "--check")
 
 
 if __name__ == "__main__":

@@ -55,32 +55,91 @@ def read_file(path):
     return path.read_bytes()
 
 
-def merge_rule(data):
+def merge_rule(data, block=RULE, start=START, end=END):
     text = data.decode("utf-8-sig")
     if "\x00" in text:
         raise ValueError("Project instructions must use UTF-8 for automatic merging.")
     newline = "\r\n" if "\r\n" in text else "\n"
-    rule = RULE.replace("\n", newline)
-    if START in text or END in text:
-        if text.count(START) != 1 or text.count(END) != 1 or text.index(START) > text.index(END):
+    rule = block.replace("\n", newline)
+    if start in text or end in text:
+        if text.count(start) != 1 or text.count(end) != 1 or text.index(start) > text.index(end):
             raise ValueError("OneStep markers are incomplete or duplicated. Check the project instructions.")
-        first, last = text.index(START), text.index(END) + len(END)
+        first, last = text.index(start), text.index(end) + len(end)
         text = text[:first] + rule + text[last:]
-    elif ZIP_RULE.replace("\n", newline) in text:
+    elif start == START and ZIP_RULE.replace("\n", newline) in text:
         text = text.replace(ZIP_RULE.replace("\n", newline), rule, 1)
     else:
         text += (newline * 2 if text else "") + rule + newline
     return (b"\xef\xbb\xbf" if data.startswith(b"\xef\xbb\xbf") else b"") + text.encode("utf-8")
 
 
-def connect(project, check):
-    project = project.resolve(strict=True)
-    if not project.is_dir() or project == CHECKOUT or CHECKOUT in project.parents:
-        raise ValueError("Choose a working project separate from the OneStep checkout.")
+def verify_checkout():
     for relative in ("agents/vegabond-agent.md", "skills/vegabond-scout/SKILL.md",
                      "knowledge/game/index.md", "knowledge/code/index.md", "records/code/index.md"):
         if not (CHECKOUT / relative).is_file():
             raise ValueError(f"Incomplete OneStep checkout: {CHECKOUT / relative}")
+
+
+def register(check):
+    verify_checkout()
+    home = Path.home()
+    codex = Path(os.environ.get("CODEX_HOME") or home / ".codex").expanduser().resolve()
+    claude = Path(os.environ.get("CLAUDE_CONFIG_DIR") or home / ".claude").expanduser().resolve()
+    gemini = Path(os.environ.get("GEMINI_CLI_HOME") or home).expanduser().resolve() / ".gemini"
+    override = codex / "AGENTS.override.md"
+    paths = [override if read_file(override).strip() else codex / "AGENTS.md",
+             claude / "CLAUDE.md", gemini / "GEMINI.md"]
+    start, end = "<!-- onestep:discovery:start -->", "<!-- onestep:discovery:end -->"
+    block = f"""{start}
+## OneStep requests
+
+Local checkout: `{CHECKOUT.as_posix()}`. When the user explicitly asks:
+
+- **Connect this project** ("OneStep 연결해줘", "link this project to OneStep"):
+  run this checkout's `link_project.py` with Python 3.8+ and the current working
+  project's root as its argument. Run it again with that root and `--check`.
+  On success, read the shared `agents/vegabond-agent.md` and
+  `skills/vegabond-scout/SKILL.md` now and apply them to the requested work.
+- **Use OneStep for this task** ("이번 작업에 OneStep 써줘"): read those two
+  files from the project's configured checkout if present, otherwise from the
+  checkout above. Apply them in this session without changing project setup.
+
+Keep the target project as the working directory. A question about OneStep
+alone does not request setup. If checkout access or project writes are denied,
+report the specific path and permission needed.
+{end}"""
+    changes = []
+    for path in paths:
+        before = read_file(path)
+        after = merge_rule(before, block, start, end)
+        if before != after:
+            changes.append((path, before, after))
+    if check and changes:
+        raise ValueError("Discovery instructions need registration: " + ", ".join(str(p) for p, _, _ in changes))
+    for path, before, after in changes:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as stream:
+            staged = Path(stream.name)
+        try:
+            staged.write_bytes(after)
+            if read_file(path) != before:
+                raise ValueError(f"Instructions changed during registration: {path}. Retry.")
+            if path.exists():
+                shutil.copymode(path, staged)
+            os.replace(staged, path)
+        finally:
+            if staged.exists():
+                staged.unlink()
+    print(f"OneStep discovery: {CHECKOUT} ({len(changes)} files updated)")
+    for path in paths:
+        print(path)
+
+
+def connect(project, check):
+    project = project.resolve(strict=True)
+    if not project.is_dir() or project == CHECKOUT or CHECKOUT in project.parents:
+        raise ValueError("Choose a working project separate from the OneStep checkout.")
+    verify_checkout()
 
     override = project / "AGENTS.override.md"
     entry_files = ["AGENTS.md", "CLAUDE.md", "GEMINI.md"]
@@ -137,10 +196,16 @@ def connect(project, check):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("project", type=Path, help="Existing game, writing or other working project")
+    target = parser.add_mutually_exclusive_group(required=True)
+    target.add_argument("project", nargs="?", type=Path, help="Existing game, writing or other working project")
+    target.add_argument("--register", action="store_true",
+                        help="Make this checkout discoverable on request in local Codex, Claude Code and Gemini CLI sessions")
     parser.add_argument("--check", action="store_true", help="Verify the connection without writing")
     args = parser.parse_args()
     try:
-        connect(args.project, args.check)
+        if args.register:
+            register(args.check)
+        else:
+            connect(args.project, args.check)
     except (OSError, ValueError) as error:
         parser.exit(1, f"OneStep: {error}\n")

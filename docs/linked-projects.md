@@ -1,5 +1,14 @@
 # Use one Git checkout across projects
 
+## Request OneStep from another session
+
+After cloning OneStep, run `python3 link_project.py --register` from its checkout once per PC (Windows: `py -3 link_project.py --register`). This adds a short discovery rule with this checkout's path to your user instructions for Codex, Claude Code and Gemini CLI. Open a new local session in any project. You can then ask in your own words:
+
+- “Connect this project to OneStep and use it to review the combat system.” The agent runs the linker against the current project, checks the binding and starts the requested work in the same session. Future sessions in that project also use OneStep.
+- “Use OneStep just for this review.” The agent reads the shared agent and Scout for this task. The project's configuration stays as it was.
+
+Use `--register --check` to verify the user instructions. After moving the checkout, rerun registration from its new location. A session that was already open can start immediately if given the full checkout path and the desired action. Web chats use the source connection described below.
+
 Clone OneStep once in a convenient folder. For each existing game, novel or document project, run the linker from the checkout. These examples start in the parent folder:
 
 ```sh
