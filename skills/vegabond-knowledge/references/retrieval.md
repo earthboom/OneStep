@@ -14,13 +14,30 @@ python skills/vegabond-knowledge/scripts/search.py search --project . --query "o
 
 The default searches both stores, including resolved incidents, while excluding superseded primary hits. Repeat `--domain` or `--status` for alternatives. Explicit `--status superseded` includes that state. `--scope` selects a scope substring. A `--context key=value` filter uses exact case-insensitive text equality on an existing key; it is not a compatibility solver. An absent key remains with an unknown-applicability caveat. Select actual metadata values: unequal descriptions alone do not establish semantic incompatibility.
 
-The helper expands maintained Korean/English aliases from [search_terms.json](../scripts/search_terms.json), then searches metadata and full English bodies. Identifiers, titles/keywords, triggers/symptoms and query coverage contribute to ranking. Repetition and recent dates do not create authority. Scores are lexical heuristics, not truth or applicability. Known Korean alias substrings tolerate particles; general translation and semantic retrieval are not provided. Add aliases after observed misses, rather than collecting an exhaustive vocabulary.
+The helper expands maintained Korean/English aliases from [search_terms.json](../scripts/search_terms.json), then searches metadata and full canonical bodies. Identifiers, titles/keywords, triggers/symptoms and query coverage contribute to ranking. Repetition and recent dates do not create authority. Scores are lexical heuristics, not truth or applicability. Korean matches start at a word boundary and tolerate following particles/endings; a suffix inside another compound is not a match (`어미` does not match `종결어미`). Add useful unspaced compounds as explicit aliases rather than matching arbitrary internal substrings. General translation and semantic retrieval are not provided. Add aliases after observed misses, rather than collecting an exhaustive vocabulary.
 
 Compact hits show ID, summary, scope/state, path/hash, matched fields/terms, coverage and a bounded snippet with a one-based line locator. Metadata-only matches identify the header. Read useful sections and original evidence before applying consequential advice. `total_matches` and `truncated` expose omitted candidates; vary the query, filters or limit when needed. Empty results mean no lexical match under the filters, not proof of absence.
 
 Use `--offset N` to page primary search or `related` results beyond a result limit; limits range from 1 to 100. Continue until the relevant candidates are examined. Search's automatically attached relationship page starts at zero independently of the primary offset; page a specific ID with `related` for further edges.
 
 Relationship pages retain traversed edges touching a returned candidate, even when the other endpoint ID is on another page. This preserves conflict and prerequisite types across page boundaries; retrieve an off-page endpoint by ID when necessary.
+
+## Recover a natural-language lookup
+
+Keep the user's request as the acceptance question. For a request with several consequential decisions, derive short queries for each decision instead of relying on one long query's top three hits to cover everything. The raw request can be tried first; compare the returned summaries, matched terms and useful sections with what the writer actually needs.
+
+For fiction, use the craft guide (`knowledge/fiction/K-FIC-CRAFT-GUIDE.md`) to route general methods, the Korean expression guide (`knowledge/fiction/K-FIC-KO-EXPRESSION-GUIDE.md`) for language choices and evaluation (`knowledge/fiction/K-FIC-EVALUATION.md`) for passage-grounded critique, within the enabled reference scope. Example translations from intent to query:
+
+| Actual decision | Focused query and route |
+| --- | --- |
+| Keep polite speech while changing intimacy or distance | `종결어미 높임법 말투 거리감` → Korean voice |
+| Restrain grief through imagery and sentence movement | `한국어 비유 은유 환유` and `한국어 생략 문장호흡` → figuration and rhythm |
+| Let an early object affect the final choice | `빌드업 복선 회수 진전` → buildup; compare setup and consequence |
+| Judge enjoyment and meaning without inventing reader data | `원고평가 평가기준 독자반응` → evaluation |
+
+If the needed topic is absent, or matches concern only a generic word, reformulate with the relevant guide's terms or open its named detail. Inspect scope and source limits before adoption; a returned work-specific record is not shared canon. Page or refine truncated results when an unresolved question or conflict requires it. If focused lookup and the guide still leave a gap, report that gap and continue only independent work. A missing match is not evidence that no material exists, and `retrieval_ok` measures command/source-check outcome, not answer quality.
+
+In the existing task brief, retain the material query, consulted IDs/sections, applicability or rejection, and any recovery that changed the answer. The consuming specialist connects adopted principles to concrete artifact passages and checks them. Do not attach every reference to every scene, require a separate lookup report, or infer emotional success from retrieval counts.
 
 ## Original-source state
 
@@ -99,7 +116,7 @@ Unit/CLI checks cover body-only matches, resolved/superseded states, known/unkno
 
 ## Korean question expansion and candidate diversity
 
-The maintained `concepts` in [search_terms.json](../scripts/search_terms.json) require a combination of observed fragments: embedded values in code plus an embedding action; implementation details plus concealment; or a mystery, reader, evidence and disclosure action. Fragments start at a word boundary and allow Korean suffixes. A generic word such as number, source or reader alone does not imply the concept. For example, source text must not be inferred from the substring inside resource. `inferred_concepts` reports the matched conditions; it is a query aid, not a confirmed interpretation of intent. Preserve the original question and check the returned evidence. This is bounded lexical expansion, not general Korean understanding. Extend positive variants and nearby negative cases together after an observed miss or misleading expansion.
+The maintained `concepts` in [search_terms.json](../scripts/search_terms.json) require combinations of observed fragments, including earlier material plus a final decision, or a speaker, addressee and sentence-ending action. Fragments start at a word boundary and allow Korean suffixes. Generic words such as number, reader, `어미`, `호흡`, `회수` or `거리` alone do not imply a specialized concept. For example, source text must not be inferred from the substring inside resource, nor literary payoff from collecting a stored item. Explicit aliases such as `높임말`/`존댓말`/`honorific` are retrieval alternatives, not a claim that their linguistic meanings are identical. `inferred_concepts` reports matched conditions; it is a query aid, not a confirmed interpretation of intent. Preserve the original question and check the returned evidence. This is bounded lexical expansion, not general Korean understanding. Extend positive variants and nearby negative cases together after an observed miss or misleading expansion.
 
 Default search gives different exact bodies a turn before repeated copies, including distinct answers matching fewer query terms. It retains each candidate, its lexical score and coverage; scores and coverage need not decrease monotonically after this ordering. This trades some raw ranking priority for answer diversity, not semantic certainty. Only identical canonical bodies qualify after the parser's existing line-ending normalization, without additional case/whitespace/code normalization. Store, domain, kind, state, evidence date, cause/prevention dimensions, declared relations and context-caveat classes separate groups. Both endpoints of declared conflicts and replacements remain separate, including incoming edges outside the query filter.
 

@@ -9,7 +9,7 @@ Review story-level problems before polishing expression; a short text can combin
 | Area | Check |
 | --- | --- |
 | Causality and motivation | What desires, information, pressures, or triggers support a choice and its consequences? Do not supply missing motivation yourself or confuse an irrational character choice with a narrative logic error. |
-| Verisimilitude | Do actions, reactions, emotions, and details support belief within this genre, world, and situation? Judge against established conditions rather than personal taste or everyday realism alone. |
+| Verisimilitude | Do actions, reactions, emotions, and details support belief within this genre, world, and situation? Use the scoped plausibility method (`knowledge/fiction/K-FIC-PLAUSIBILITY-REVIEW.md`) for a consequential concern: locate conditions and the disputed passage, distinguish world facts from belief, test the supported alternative, and retain uncertainty. Everyday realism, an unwise choice or an omitted action alone does not establish a contradiction. |
 | Continuity | Do established facts, character knowledge, chronology, location, world rules, and setups/payoffs agree under the same conditions? Check viewpoint and narrator reliability before treating conflicting statements as conflicting facts. |
 | Reader understanding | Using only information revealed by this point, can the intended reader follow the necessary connections? Distinguish a deliberately unanswered question from a missing connection that prevents understanding the scene; later revelations must not be treated as already known. |
 | Style | Compare viewpoint, tense, tone, narrator/character voices, and pacing with the work's baseline. Check interchangeable character speech, uniform paragraph patterns, and habitual explanatory scene endings against scene purpose. Preserve deliberate ambiguity, dialect, repetition, and unconventional expression. |
@@ -21,6 +21,25 @@ Read the complete final text within scope, not just edited lines, and inspect af
 Compare the final scene's factual claims and state changes with the retrieved context and governing sources, including character knowledge, relationship direction, and disclosure timing. Flag newly introduced setting facts separately so that a plausible draft does not silently redefine established canon.
 
 After story-level repairs, use these style checks in the same review cycle and reread the final text for flow against the baseline. Treat "AI-like" as a request to diagnose concrete prose effects, not evidence of authorship or a sufficient finding by itself. Judge repetitions by their function and context rather than a universal word blacklist. Do not manufacture naturalness through typos, arbitrary fragments, slang, mechanical sentence-length variation, or forced novelty. Direct emotion and concise exposition remain valid when they serve the scene; do not convert every feeling into an action.
+
+### Applied craft methods
+
+For each consequential craft need in a multi-part request, check the query-to-passage chain: what was asked, which relevant entry/section was actually read, how its conditions fit, which concrete choice changed, and what in the final passage demonstrates or limits the application. Recover a missing topic through focused lookup or its guide before claiming coverage. Merely finding an ID or recording an intention does not demonstrate application; preserve rejected methods and genuine gaps in the existing brief when material.
+
+When a collected craft reference informed the work, connect its ID and the chosen adaptation to the actual passage or outline. Check that the method fits this genre, atmosphere, character knowledge/voice, relationships and scene purpose without overriding established facts or author choices. Evaluate the concrete change in causality, information, emotional preparation, pacing or expression that the method was meant to support; merely naming the method or satisfying its steps is insufficient.
+
+Distinguish research-backed concepts, practitioner advice, editorial application and intended reader effects. Preserve the source's exceptions and the work's deliberate departures. If the passage does not achieve its purpose, diagnose the result, adjust or drop the method, and return changed structural choices to fiction-design before dependent revisions. Reuse the existing brief's source/decision/check notes; do not require a new audit artifact or treat non-adoption as a defect. Actual audience effects still require appropriate reader evidence.
+
+### Adapted dialogue
+
+When selected quotation references informed a passage, check the actual adapted scene and compare the relevant source; the stored interpretation alone is not evidence that the adaptation works.
+
+- **Scene function:** the speaker has a reason and enough information to say this now. The listener's response, action, or changed options support its dramatic purpose; a striking standalone line does not establish scene fit.
+- **Work and voice:** diction, imagery, rhythm, directness, and emotional intensity fit the work's atmosphere and this character's experience and relationship. Check against existing prose rather than a genre stereotype. Dialogue should not make different characters interchangeable philosophical speakers.
+- **Transformation:** identify the retained mechanism and the new scene-specific expression. Compare distinctive wording, image combinations and order, rhetorical turns, and cadence with the source. Rewrite a lightly disguised quotation or noun substitution. Shared ordinary words and common devices alone do not establish imitation.
+- **Meaning and restraint:** preserve only the tensions useful here; do not force every stored interpretation into the passage. Keep speaker judgment separate from narrative truth, and check whether an explanation repeats an effect already carried by the image or response. Plain speech, direct emotion, silence, and rejecting a reference remain valid choices.
+
+Recheck the affected exchange after changes. Keep any material source/adoption notes in the existing brief; return reusable author feedback through the normal knowledge procedure. Do not claim that these checks establish originality or reader response beyond the passage and references actually examined.
 
 ## Judge uncertain findings
 

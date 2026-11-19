@@ -6,17 +6,29 @@ Apply this before handing off a narrative design or writing dependent scenes. Us
 
 For each consequential choice, connect **choice/intended effect -> source passage and applicable conditions -> supporting interpretation -> proposed placement or change -> manuscript check or unresolved question**. Group linked elements when they share a cause; a row saying only "plausibility checked" is not a judgment. Quote briefly or give a precise source/section/scene location, retaining the relevant work revision and story time. Do not reread all lore for every choice; expand only for an actual dependency, conflict or material gap.
 
+For a choice informed by collected craft research, inspect the selected reference's application conditions and exceptions. Trace the method and any work-specific adjustment to a concrete character decision, relationship shift, event sequence, disclosure or expression choice. Check genre, atmosphere, established voices and scene purpose before endorsing the method; document conditional use or rejection in the same brief when material. Source-supported concepts, editorial recipes and proposed reader effects have different evidence status. Name what later manuscript review must test rather than treating a cited method as proof that its effect has occurred.
+
 Separate explicit canon/author instructions, what the manuscript actually shows, editorial inference, and new invention. Check source authority, viewpoint and narrator reliability before treating a statement as fact. A plausible summary, a later chapter, or an interpretation repeated by several AI passes cannot supply missing earlier evidence. If no manuscript exists, ground the proposal in supplied constraints and label what must be established in future prose; do not fabricate passages or treat absence as a contradiction.
 
 When authorized creation needs a new motive, event or rule, present it as a provisional design choice with its setup and consequences. Do not pretend the original text already established it, use hidden backstory to dismiss a demonstrated gap, or overwrite canon to rescue a favored plot. Expose conflicting constraints and identify which dependent choice needs source investigation or author intent. Missing unrelated material does not block independent work; no routine approval of every invention is required.
 
 ## Challenge causality, disclosure and interacting elements
 
+For a consequential plausibility or rationality concern, use the scoped evidence method (`knowledge/fiction/K-FIC-PLAUSIBILITY-REVIEW.md`). Check the relevant world/time/assertion frame and character information; distinguish a demonstrated contradiction from missing support or an optional clarity preference. A design may propose necessary cues, but cannot prove that unwritten prose has already supplied them.
+
 Trace important decisions and emotional turns through the person's goals, available information, means, pressures and consequences. Ask what in this work supports the turn at this time and what a text-supported alternative reading would imply. Distinguish irrational or steadfast characterization from a logic defect. If motivation or reaction is only proposed, identify the scene/cue that must establish it rather than declaring it already persuasive.
 
 Check consequential event sequences from the world and each relevant character's position, then from the reader's information at that point. Track when knowledge is acquired, relationship/state changes take effect, capabilities or costs permit an action, and clues receive meaning. Challenge a convenient resolution, unsupported emotional reversal, premature revelation, or payoff relying on an unavailable clue. Give a concrete sequence or passage that exposes the issue, not a generic warning. Preserve intentional uncertainty; a mystery can withhold an answer while still supplying the connections needed to follow the present action.
 
 Examine real interactions among the selected elements: explanation may improve clarity but spoil suspense; a faster transition may lose emotional preparation; a new twist may break established rules; a polished thematic ending may erase intended openness. Explain the chosen reader effect and the supported tradeoff. Do not add conflict, transformation, exposition, novelty or closure merely to fill twenty boxes. Not every detail must advance plot; rhythm, atmosphere and ambiguity can serve the stated form.
+
+## Review a whole-work outline
+
+Read the ending backward for prerequisites and the chapter sequence forward for their introduction and use. At each disputed turn, identify the actor, goal, information acquired by that chapter, feasible means, choice and consequence. Compare event chronology with disclosure order, including any differences between character access and reader access.
+
+For every significant subplot, locate its first question, an intersection that changes another plot thread or deepens the intended meaning, and its disposition. For an important setup, identify the first reader-visible cue, any bridge needed to interpret it, and what the payoff actually enables. A deliberate open question can be retained with a clear intended endpoint for the current work.
+
+Preserve the earlier version or the relevant excerpts when documenting an application. Record findings with chapter or event IDs, the evidence from the draft, the smallest useful repair, and the result of checking affected chapters and records. Assess the planned structure against the available evidence now, and reserve prose and reader judgments for their respective artifacts.
 
 ## Review revisions and the handoff
 

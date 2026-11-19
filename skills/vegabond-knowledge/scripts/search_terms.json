@@ -1,7 +1,7 @@
 {
   "groups": [
     ["메모리", "memory"],
-    ["풀링", "메모리 풀링", "pooling", "pool", "객체 풀", "memory pool"],
+    ["풀링", "메모리 풀링", "메모리풀링", "pooling", "pool", "객체 풀", "memory pool"],
     ["가독성", "readability", "읽기 쉬운"],
     ["유지보수", "maintainability", "maintenance", "관리하기 쉬운"],
     ["모듈화", "modularity", "modularization", "module"],
@@ -42,6 +42,19 @@
     ["공정한 단서", "fair play", "fair-play"],
     ["녹스", "knox"],
     ["대사", "dialogue"],
+    ["한국어", "한글", "korean"],
+    ["비유", "은유", "metaphor", "figuration", "figurative"],
+    ["높임말", "높임법", "존댓말", "경어법", "상대높임", "honorific", "honorifics", "speech level"],
+    ["말투", "인물의 목소리", "인물 목소리", "character voice"],
+    ["종결어미", "문장 끝", "sentence ending"],
+    ["문장 호흡", "문장호흡", "문장 리듬", "prose rhythm"],
+    ["복선", "떡밥", "빌드업", "foreshadowing", "buildup"],
+    ["개연성", "plausibility"],
+    ["핍진성", "verisimilitude", "believability"],
+    ["모순", "contradiction"],
+    ["논리", "logic", "logical"],
+    ["합리성", "합리적", "비합리적", "rationality", "rational"],
+    ["논문", "paper", "papers"],
     ["동일 화자", "same-speaker"],
     ["현지화", "localization"],
     ["카탈로그", "지식 목록", "지식목록", "catalog", "catalogs"],
@@ -58,7 +71,9 @@
     {"id": "game-save-item-compatibility", "all": [["업데이트", "패치"], ["불러오", "불러왔", "로드"], ["장비", "아이템"], ["다른", "달라", "바뀌", "바뀐", "엉뚱", "변했"]], "expand": ["save"]},
     {"id": "embedded-values", "all": [["숫자", "값", "리터럴"], ["코드", "소스"], ["곳곳", "박아", "고정", "흩어", "적어"]], "expand": ["hardcoding"]},
     {"id": "hidden-implementation", "all": [["내부 구현", "내부구현", "구현 세부", "내부 결정"], ["몰라도", "모르게", "감추", "숨기", "숨겨", "드러내지", "노출하지"]], "expand": ["information hiding"]},
-    {"id": "reader-evidence", "all": [["범인", "추리", "해결", "진상"], ["독자"], ["근거", "단서", "실마리"], ["미리", "전에", "먼저", "공개", "보여", "제시"]], "expand": ["fair-play"]}
+    {"id": "reader-evidence", "all": [["범인", "추리", "해결", "진상"], ["독자"], ["근거", "단서", "실마리"], ["미리", "전에", "먼저", "공개", "보여", "제시"]], "expand": ["fair-play"]},
+    {"id": "relational-sentence-ending", "all": [["인물", "화자", "대화"], ["상대", "관계", "사이"], ["문장 끝", "종결어미", "어미"], ["말", "대화", "발화"]], "expand": ["honorific", "character voice"]},
+    {"id": "earlier-material-final-choice", "all": [["초반", "앞부분", "처음", "초반부"], ["결말", "마지막", "후반"], ["물건", "단서", "약속", "사건"], ["선택", "결심", "회수", "의미", "보상"]], "expand": ["foreshadowing"]}
   ],
-  "stopwords": ["a", "an", "the", "and", "or", "to", "of", "for", "in", "is", "how", "what", "should", "can", "with", "대한", "대해", "어떻게", "정보", "찾아", "찾아줘", "알려줘", "할까", "하는", "할", "때", "것", "있나", "해줘", "위한"]
+  "stopwords": ["a", "an", "the", "and", "or", "to", "of", "for", "in", "is", "how", "what", "should", "can", "with", "대한", "대해", "어떻게", "정보", "찾아", "찾아줘", "알려줘", "할까", "하는", "할", "때", "것", "있나", "해줘", "위한", "같은"]
 }

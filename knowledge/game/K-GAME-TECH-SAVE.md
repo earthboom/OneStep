@@ -1,15 +1,19 @@
 ---
 id: K-GAME-TECH-SAVE
-title: "Design versioned durable saves and compact password states"
-summary: "Serialize persistent state, stable object identifiers and schema version rather than raw runtime pointers. A checksum detects some corruption; it is not tamper-proof authentication."
+title: Design versioned durable saves and compact password states
+summary: Persist stable-ID game state in a versioned validated container. UE5.8.3
+  synchronous basic/A-B generation recovery has actual restart,corruption,atomic world
+  restoration and matched-cost evidence;CRC is not authentication and power-loss safety
+  is unverified.
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["save", "serialization", "checksum", "password", "bitflags", "저장", "세이브", "백업", "저장손상", "USaveGame", "UGameplayStatics::AsyncSaveGameToSlot", "save generation"]
+keywords: ["save", "serialization", "checksum", "password", "bitflags", "저장", "세이브", "백업", "저장손상", "USaveGame", "UGameplayStatics::AsyncSaveGameToSlot", "save generation", "game state", "stable ID", "SaveGame", "CRC32", "previous generation", "file truncation", "both invalid", "게임 상태", "상태 복원", "이전 세대", "파일 잘림", "양쪽 무효"]
 status: active
-checked_at: '2026-11-19'
+checked_at: "2026-11-19"
 context:
-  evidence_check: "External source text checked; source-specific limits appear in Evidence"
-  application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
+  evidence_check: External source text checked; source-specific limits appear in Evidence
+  application_status: V20 UE5.8.3:89policy+23store/48PIE+packagecases/6restartconsumers/6matchedcosts/14s1xnativevideo;V54password
+    remains unimplemented;no power-loss guarantee
 ---
 # Design versioned durable saves and compact password states
 
@@ -31,16 +35,37 @@ For Unreal saves, `USaveGame` represents game-defined persistent data. `UGamepla
 
 ## Checks
 
-Proposed: interrupt each write stage, corrupt payloads, load older schemas, and verify backups and object references; test on the target platform.
+Native subset below verifies controlled truncation/corruption and generation fallback with stable-ID world restoration. Forced interruption at each physical write stage and old-schema migration remain unverified;test separately on the target platform.
 
 ## Evidence
+
+The original measurements and recordings are held with the historical experiment records.
 
 - [Epic — Saving and Loading Your Game](https://dev.epicgames.com/documentation/en-us/unreal-engine/saving-and-loading-your-game-in-unreal-engine) — Official documentation; custom SaveGame and asynchronous saving. Checked 2026-11-07, except items explicitly marked further reading.
 - [pret/pokered — save.asm](https://github.com/pret/pokered/blob/master/engine/menus/save.asm) — Community disassembly artifact, not Nintendo-authored source; inspected as historical implementation evidence, no ROM built. Checked 2026-11-07, except items explicitly marked further reading.
 - Originating channel shorts: V20, V54 in [the coverage guide](K-GAME-TECH-GUIDE.md). Originating shorts are discovery leads, not independent proof.
 
-
 ### Follow-up evidence
 
 - [pret/pokeemerald — save.c](https://raw.githubusercontent.com/pret/pokeemerald/refs/heads/master/src/save.c) — HandleWriteSector, save generation selection and validation text inspected; community reconstruction; no ROM build or fault injection. Checked 2026-11-07.
 - [kingshriek — Simon's Quest Password System FAQ](https://gamefaqs.gamespot.com/nes/587179-castlevania-ii-simons-quest/faqs/38582) — Original reverse-engineering account, generation/decoding sections; exact ROM behavior not independently executed; do not copy apparent transcription errors as a tested decoder. Checked 2026-11-07.
+
+## Native Unreal validation — 2026-11-14
+
+The the historical Unreal run and its archived measurements.
+
+One synchronous game-thread owner captures health/checkpoint,32 item flags and8 switch flags with stable sorted IDs. Canonical state is348bytes,stored in one UPROPERTY(SaveGame) byte array inside a USaveGame object. Packaged serialized payload is2393bytes;the40byte envelope makes each file2433bytes in all six cost runs. Basic uses slotA;recovery uses A/B with the same validation and per-file bytes. Recovery retains two files,so total disk footprint differs. This is a gameplay-state restoration prototype;the earlier asynchronous diagnostic-log pipeline is a different technique/use case.
+
+Check magic,version,schema,exact bounded length,headerCRC32 and payloadCRC32 before engine deserialization. Then validate canonical counts,IDs,values and schema. Load selects the highest valid generation;one valid plus one invalid reports Recovered. All missing is Missing;no valid regular file is Invalid;equal valid generations are Conflict. Failed load preserves live state. Load never rewrites/repairs files. Save chooses the invalid/older slot,advances generation and reads back/validates bytes before success. Both-invalid,conflict and uint64 generation exhaustion refuse overwrite. A complete valid newer container can be selected even if its producer never acknowledged success. This defines valid-container selection,not transactional acknowledgment or physical durability.
+
+Restoration validates the complete stable-ID binding before any mutation. Forty actual props display item collection by mesh visibility and switch state by yaw;avatar transform and game fields reflect health/checkpoint. Newly restarted processes spawn props in reversed order. Independent Python checks actual IDs,visibility,rotation,avatar transforms and canonical bytes. It finds/validates the single canonical byte-array inside the opaque UE payload;it is not a complete independent UE serializer. No raw runtime pointers are persisted.
+
+89native policy checks and23real USaveGame/store checks pass. Actual PIE and packaged players each run12cases per mode:missing,A roundtrip,newestB,truncation,byte corruption,unsupported envelope schema,both invalid,save refusal preserving both invalid files,blocked-destination write failure,checksummed but semantically invalid state,missing world binding with atomic refusal,and duplicate saved ID. Total48native behavior cases. Six separate packaged restart consumers verify normalB,basic truncation failure,recovery truncation/corruption fallbackA,and both-invalid preserving mutated liveD. Producer files are copied only into owned consumer sessions;pre-copy hashes,unchanged producer files,distinct PIDs and execution chronology are independently checked. The blocked destination is a controlled directory/write failure,not an injected partial-write failure;truncation is tested separately. CRC golden vector,ties and max-generation refusal have actual native unit-store files.
+
+Six sequential packaged players in basic/recovery,recovery/basic,basic/recovery order. Same alternating state sequence,40props,camera,1280x720,DX11,Development,cap0,noVsync,no audio/capture. Each run has32warmup and256measured save+mutate+load+restore cycles,one per frame. GT blocking is capture+save+load+world restore;contiguous operation also includes scripted live mutation and surrounding overhead. Save includes prior-generation scan,UE serialization,file write and validation readback. Load includes file reads,validation and UE deserialization. Whole OnBeginFrame-to-OnEndFrame wall and cadence include engine/HUD/constant observations/result-row creation. Startup,result JSON,exit and media capture are outside the measured window. Detailed capture/restore/median/GPU timings remain in summary.json. These are OS-buffered local-file measurements,not isolated physical device latency. Retain the slower first basic run;host load and caches are uncontrolled,so do not claim recovery is faster.
+
+Two real native processes produce6seconds of A/B state and8seconds of freshD/loadB/truncated-newest recoveryA/both-invalid preservingD.420actual PNG frames,14seconds,30simulation/30playback,normal1x;startup/tail trimmed only,chronological clips concatenated without retiming. All native and decoded serial/phase markers and16800state cells each are checked against independently validated world/state. Six final native screenshots were directly inspected. This establishes visible native state transitions and real restart provenance;it is not a recording of real-time save stalls or proof of actual30FPS throughput.
+
+Use A/B recovery when reverting to a previous valid generation is preferable to losing all progress. Keep stable IDs,validate completely before applying,and present explicit failure when both generations are invalid. Retain evidence rather than silently replacing invalid saves with defaults. CRC detects accidental corruption and is not authentication;only trusted locally produced UE class/format was tested. Fixed schema1 and fixed32/8IDs have no migration or cross-engine-version guarantee. Graceful process restart and controlled truncation/corruption do not establish forced-crash,power-loss,fsync,full-disk or device-failure safety. Synchronous stalls remain;no asynchronous optimization,password,V54 decoder,autosave tool,cloud,renderer or verification-framework expansion. Previous unrelated actual-FPS gaps remain unverified.
+
+Latest25limited sheets/18without dedicated prototypes;V54password remains unimplemented.

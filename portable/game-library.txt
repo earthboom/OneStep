@@ -95,6 +95,10 @@ knowledge/code/K-CODE-UE-RENDERDOC-ATTACH.md
 knowledge/code/K-CODE-UE-SKELETAL-LOD.md
 knowledge/code/K-CODE-WPF-LARGE-TREE.md
 records/code/R-CODE-GIT-INDEX-LOCK-RENAME.md
+records/code/R-CODE-UE-DESTRUCTION-CONTACT.md
 records/code/R-CODE-UE-EVIDENCE-PROXY.md
+records/code/R-CODE-UE-FOG-PROBES.md
+records/code/R-CODE-UE-MUSIC-STOP.md
 records/code/R-CODE-UE-PARSER-NAME-INDEX.md
+records/code/R-CODE-UE-SPEED-REVERSE.md
 records/code/R-CODE-UE-TRANSFORM-TOLERANCE.md

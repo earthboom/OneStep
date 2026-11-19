@@ -1,15 +1,20 @@
 ---
 id: K-GAME-TECH-SOUND
-title: "Model distance, occlusion and room response separately"
-summary: "Use attenuation curves for level, air-absorption filtering for timbre, spatialization for direction, and occlusion/reverb for obstruction and room response. One ray is only an occlusion approximation; full propagation/diffraction is another system."
+title: Model distance, occlusion and room response separately
+summary: Separate level attenuation,stereo direction and obstruction filtering. UE5.8.3
+  native attenuation/occlusion plus explicit source-stereo panning are checked against
+  real master PCM,including axes/reentry/rotation/doors;single-ray coverage is not
+  full propagation.
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["spatial", "audio", "Doppler", "reverb", "occlusion", "attenuation", "음향", "sound attenuation", "air absorption", "spatialization", "occlusion low-pass filter"]
+keywords: ["spatial", "audio", "Doppler", "reverb", "occlusion", "attenuation", "음향", "sound attenuation", "air absorption", "spatialization", "occlusion low-pass filter", "stereo", "equal-power", "listener", "GetAzimuth", "source owner", "master PCM", "submix", "recording", "door", "WASAPI", "NonRealtime", "좌우", "청취자", "문", "가림", "녹음"]
 status: active
-checked_at: '2026-11-19'
+checked_at: "2026-11-19"
 context:
-  evidence_check: "External source text checked; source-specific limits appear in Evidence"
-  application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
+  evidence_check: External source text checked; source-specific limits appear in Evidence
+  application_status: UE5.8.3:83policy/47evidence/4actualworlds17cases/6realtimecosts/native1xvideoWITHaudio;nativegain/occlusion,explicitstereopanner,noreverb/Doppler/HRTF
+  panning_limit: Native5.8exactleftaxis failed;explicit source-stereo equal-power
+    implemented,no enginepatch or cross-version guarantee
 ---
 # Model distance, occlusion and room response separately
 
@@ -27,10 +32,27 @@ One ray is only an occlusion approximation; full propagation/diffraction is anot
 
 ## Checks
 
-Proposed: compare headphones/speakers, open/closed doors, listener/source motion, room transitions and many simultaneous voices.
+Native subset below verifies scripted poses/listener rotations,wall/door output,reentry and16voice costs. Subjective headphone/speaker quality,continuous movement and room/reverb transitions remain proposed.
 
 ## Evidence
+
+The original measurements and recordings are held with the historical experiment records.
 
 - [Epic — Sound Attenuation](https://dev.epicgames.com/documentation/en-us/unreal-engine/sound-attenuation-in-unreal-engine) — Official documentation; attenuation, air absorption, occlusion and reverb sends. Checked 2026-11-07, except items explicitly marked further reading.
 - Originating channel shorts: V22 in [the coverage guide](K-GAME-TECH-GUIDE.md). Originating shorts are discovery leads, not independent proof.
 
+## Native Unreal validation — 2026-11-13
+
+The historical Unreal run and archived measurements:83policy/47evidence,PIE OFF/ON+packaged OFF/ON each17cases,6matched realtime costs,and native normal1xvideoWITHactualsound. Inner100cm/falloff900cm/outer1000cm,coincident/boundary/reentry,same live source/door,listener rotation and physical obstruction are checked using actual master float PCM,not parameters alone. 440/4400Hz magnitude and channel-energy projections independently bind output to native source/listener/box observations.
+
+Use explicit equal-power source-stereo gains in this prototype;native attenuation and gain0.25/LPF1000Hz occlusion remain active,native spatializer/airfilter/focus/reverb disabled. The installed5.8.3 default panner actually mapped exactX0,Ynegative to right;GetAzimuth zero-forward quadrant handling matches. No coordinate nudging/enginepatch. Explicit panning uses listener-right dot normalized source direction,zero distance centered,and squared gains sum1. This validates left/right,not front/back/elevation localization or stock-panner correctness on everyversion.
+
+Native occlusion ignores the source's owning Actor:own the physical walls/door appropriately,not under that ignored owner. Same door component physically moves open/closes/reopens. For background PIE,temporarily enable and then restore background audio in process;observe actual application volume/device muting,not merely component IsPlaying. v1 final PCM failed and v2 was fully rerun. PlayWhenSilent keeps the source active beyond audible range,so zero PCM is not a culling-cost result. Start master recording after real active/generated audio;the dormant initial submix can omit startup silence. Preserve sample-clock checks rather than fitting away missing data. Settled one-pole LPF expectations use b=exp(-2pi cutoff/rate);at1000Hz/48k,440/4400magnitudes=0.91544145/0.22471156. Check0.25gain×transfer,actual stereo coefficients (.003raw/.015decodedAAC tolerance) and finite/nonclipped output;do not infer filter response from a cutoff setting alone.
+
+Six actual realtime players use16voices,same input/layout/closeddoor/device/1280x720/cap0,2swarmup+8smeasure;OFF/ON three each,UTCordered/nonoverlapping. Pre/post actual PCM calibration is outside measured interval;no capture/recording/readback during measurement. Whole wall/cadence and delayedGPU are not isolated audioCPU. See all repeats in archived measurements. Media-only builtin NonRealtime audio at30sim/30play is separate;encoded audio is decoded and checked,not a substituted input tone.
+
+Scope excludes reverb,Doppler,HRTF,full propagation/diffraction,externalplugins,engine/renderer/framework improvements andpublication. No microphone/SPL,subjective hardware quality,hotplug,maxvoice or cross-version guarantee. Previous unrelated actualFPSgaps remain unverified. Latest22limited sheets/21without dedicated prototypes.
+
+### Measured costs and retained limits
+
+Measured whole-wall p95(ms),OFF:[8.743,8.803,8.698],ON:[8.716,8.612,8.677],on the fixed16voice workload above. These small whole-frame differences do not isolate occlusion CPU cost or establish a benefit from enabling it. Cadence-derived loopFPS is not physical monitor refresh. Use recorded conditions and all repeats,not a universal voice-capacity or frame-budget guarantee. The prototype uses PlayWhenSilent for input continuity;outside-range silence does not mean voice/DSP work was culled. Actual background PIE playback was enabled only in the testprocess and restored;v1silent/intermittent runs were rejected and the whole v2matrix remeasured.

@@ -9,6 +9,8 @@ Choose narrative structure and intended effects for the calling operation or [ve
 
 Keep canon, author decisions, provisional inventions, character beliefs and unknowns distinct. Existing sources and [knowledge](../vegabond-knowledge/SKILL.md) own context/storage; link them rather than duplicating profiles or a story bible. A design-only request produces a design, not unsolicited manuscript revisions. A requested exploratory sample may test a direction, but its inventions and observed effects do not become canon or audience evidence automatically.
 
+Before settling consequential design choices, use the craft research guide (`knowledge/fiction/K-FIC-CRAFT-GUIDE.md`) and [fiction's craft-selection procedure](../vegabond-fiction/SKILL.md#apply-stored-craft-research) to retrieve decision-relevant references through knowledge. Apply this on direct invocation as well as a handoff; reuse valid retrieved material. Split multi-part natural requests by their consequential decisions and recover missing topics through the guide or focused queries before claiming coverage. The guide also routes scholarly research, Korean expression and passage-grounded evaluation; choose these when the decision needs them. Select or adjust methods for this work's genre, atmosphere, characters, relationships and scene purpose. Carry the reference IDs, applicability judgments and proposed manuscript checks in the existing brief/design; decline incompatible methods rather than changing author constraints to fit them. The craft topics and twenty design elements are complementary prompts, not two mandatory checklists.
+
 ## Shape the narrative
 
 Apply the shared [information-needs judgment](../vegabond-scout/references/information-needs.md) to consequential narrative choices, their supporting passages and affected reveals. Recheck omitted conditions without forcing whole-work context onto a local design or promoting a craft guideline to canon.
@@ -17,6 +19,14 @@ Apply the shared [information-needs judgment](../vegabond-scout/references/infor
 2. Consider the twenty elements below at whole-work scope. For an arc/scene/local revision, select those that affect its function and actual dependencies; identify a material deferred element or unavailable context without inventing an answer. Treat them as connected questions, not twenty required devices, scores or separate skills. A static character, quiet scene, coincidence, ambiguity or open ending can be intentional; justify it against the work rather than forcing change, conflict or closure everywhere.
 3. Connect relevant choices: purpose -> character desire/information/pressure -> choice/event -> consequence or change -> information available to viewpoint character and reader. Arrange scenes, revelations and setups/payoffs accordingly; identify meaningful tradeoffs such as clarity versus suspense or pace versus emotional preparation. Compare alternatives only when they affect the decision; respect discovery writing instead of imposing a fixed plot formula.
 4. Before returning a design or advancing dependent writing, read and apply [evidence-based design review](references/review.md). It owns the trace from consequential choices to setting/manuscript passages, causal and disclosure challenges, element tradeoffs, and affected revisions. The twenty element names are prompts, not proof that the design works. Use the review to repair supported contradictions and expose material gaps without inventing evidence, changing author constraints, or resolving an intended mystery prematurely.
+
+## Design a whole novel
+
+For a work-scale scenario, retrieve the international whole-novel design research (`knowledge/fiction/K-FIC-RESEARCH-AI-NOVEL-OUTLINE.md`). Choose methods for the decisions at hand, such as planning backward from a decisive choice, weaving plot threads, or tracking changed character and world states. Carry the relevant source IDs, why the method fits this work, and what still needs a prose or reader check.
+
+Produce a synopsis through the ending or deliberate open question, then a chapter outline with stable IDs, viewpoint, consequential choices, and changes in state or reader knowledge. Track the prerequisites for major turns, where each significant subplot changes another thread and how its question is resolved or deferred, and where setups become visible and pay off. Use the relationship-map method (`knowledge/fiction/K-FIC-CRAFT-RELATION-MAP.md`) when character information or relationships drive the outcome.
+
+Use the [whole-work review](references/review.md#review-a-whole-work-outline) before handing off.
 
 ## Twenty design elements
 

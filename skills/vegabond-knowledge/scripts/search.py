@@ -42,7 +42,9 @@ def normalized(value):
 
 def term_match(text, term):
     if re.search(r"[가-힣]", term):
-        return re.search(re.escape(term), text)
+        # Korean particles/endings may follow a term, but a suffix inside an
+        # unrelated compound is not a match (어미 must not match 종결어미).
+        return re.search(r"(?<!\w)" + re.escape(term), text)
     return re.search(r"(?<!\w)" + re.escape(term) + r"(?!\w)", text)
 
 

@@ -26,6 +26,8 @@ If every request must be served, queue rejection violates the service requiremen
 
 At equal offered demand, retain each request's original arrival time. Measure arrivals, admissions, rejections, oldest age, completions and fraction of all offered work completed on time. Audit swept separation with actual radii, terminal moves and a deliberately conflicting control. Profile whole-frame tails including topology changes, synchronization, animation and rendering on target hardware.
 
+To assess the frame budget, record CPU and GPU timings separately and mark missing GPU samples explicitly.
+
 ## Evidence
 
 Fauerby's slides document the historical game architecture. The ORCA authors state their method's assumptions, and Epic documents Mass Avoidance's own spatial and steering model. Earlier grid examples observed both collision-free deadlock and finite queue drain. Finite drains do not prove unlimited progress or native Mass behavior.

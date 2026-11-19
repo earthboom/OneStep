@@ -20,6 +20,8 @@ bsnes의 아핀 샘플링 코드를 확인했다. 하드웨어 버스 타이밍�
 
 ## 근거
 
+로컬 시험의 원시 측정과 매체는 해당 실험 기록에 보관돼 있다.
+
 - [Godot — Matrices and transforms](https://docs.godotengine.org/en/latest/tutorials/math/matrices_and_transforms.html)
 - [DerKoun — bsnes-hd README](https://github.com/DerKoun/bsnes-hd/blob/master/README.md)
 
@@ -38,3 +40,7 @@ Mode 7은 배경에 아핀 변환을 적용하고 주사선마다 값을 바꿔 
 검색어 · Mode 7, affine transformation, fixed-point arithmetic
 
 [bsnes, renderMode7](https://github.com/bsnes-emu/bsnes/blob/master/bsnes/sfc/ppu-fast/mode7.cpp)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.
+
+## 언리얼 V57 검증 — 2026-11-18
+
+과거 Unreal 실험 결과. 단일 아핀은 중심 회전·배율 뒤 오프셋을 쓰고, 바닥은 각 행의 지평선 거리로 깊이를 계산한다. 음수 반복/클램프·배율 0·지평선 경계는 독립 계산과 실제 픽셀로 확인했다. 지평선 부근의 점 샘플링 줄무늬를 고려하고 패널 높이가 바뀌면 경계 값을 다시 계산한다. 비용은 1280×720 전체 프레임·GPU 각 3회 결과를 참조한다.

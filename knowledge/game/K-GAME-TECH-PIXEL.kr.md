@@ -18,10 +18,11 @@
 
 ## 근거
 
+로컬 시험의 원시 측정과 매체는 해당 실험 기록에 보관돼 있다.
+
 - [Derek Yu — Pixel Art Tutorial: Basics](https://www.derekyu.com/makegames/pixelart.html) — 확인 범위는 영문 정본의 Evidence에 기록. 추가 읽기로 표시된 자료는 본문 전체를 확인하지 않았다.
 - [W3C — PNG Specification, Third Edition](https://www.w3.org/TR/png/) — 확인 범위는 영문 정본의 Evidence에 기록. 추가 읽기로 표시된 자료는 본문 전체를 확인하지 않았다.
 - 출발 영상: V35, V58. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
-
 
 ## PLTE의 적용과 확인
 
@@ -30,3 +31,7 @@
 검색어 · PLTE, indexed-colour PNG
 
 [W3C, PNG Specification (PLTE)](https://www.w3.org/TR/png-3/#11PLTE)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.
+
+## 언리얼 픽셀·팔레트 검증 — 2026-11-18
+
+과거 Unreal 실험 결과. 3배·2.5배와 최근접·선형, 팔레트 교체와 투명 경계를 실제 픽셀로 확인했다. 인덱스 PNG 613바이트와 RGBA PNG 1,053바이트는 언리얼에서 각각 BGRA8 36,864바이트로 디코딩됐다. 별도 G8 인덱스·두 팔레트의 런타임 텍스처 합계는 9,472바이트였다. 선형 처리 시 인덱스의 색과 알파를 먼저 조회한다. 적용 조건과 방식별 3회 비용은 상세 결과를 참고한다.
