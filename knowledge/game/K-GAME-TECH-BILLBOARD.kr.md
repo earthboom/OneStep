@@ -1,36 +1,24 @@
-# 빌보드·이미지 대체물의 방향 설정
+# 시야에 맞는 빌보드 방향과 알파 처리 선택하기
 
-기준 항목: K-GAME-TECH-BILLBOARD · 확인일: 2026-11-07 · 상태: 참고 지식. 실제 엔진 구현·성능·플레이테스트는 수행하지 않았다.
+**K-GAME-TECH-BILLBOARD** · 이미지 평면이 카메라를 향하는 방식을 고른 뒤 사용할 시점에서 실루엣, 텍스처 방향, 투명도와 그림자를 확인한다.
 
-## 원리와 구현 요점
+## 지침
 
-파티클·원거리 식생·스타일화된 물체에 이미지 평면을 쓴다. 화면 정렬, 시점 지향, 축 고정 방식을 구분한다. 지면 물체는 위쪽 축을 유지하고 단일 이미지로 부족하면 방향별 아틀라스를 사용한다.
+화면 정렬 빌보드는 카메라의 오른쪽·위쪽 축을 따른다. 시점 지향 빌보드는 개별 눈 또는 카메라 위치를 바라보고 위쪽 벡터를 평면에 투영한다. 축 고정 빌보드는 정해진 축을 중심으로 회전한다. 식생에서는 흔히 월드 위쪽 축을 쓴다. 시선이 축과 일치하면 방위각을 정할 수 없으므로 마지막 유효 방향 또는 초기 대체 방향을 사용한다.
 
-구현 선택과 점검은 출처를 바탕으로 한 실무적 종합이며 특정 게임의 정확한 구현을 보증하지 않는다.
+## 적용 조건과 예외
 
-## 적용 조건과 한계
+이미지 임포스터와 식생에서 마스크 머티리얼은 임계값을 기준으로 텍셀을 버린다. 반투명 블렌딩은 부분 투과를 보존하지만 평면이 겹치면 정렬 문제가 드러난다. 오버드로는 화면상 픽셀 점유율에, 그림자는 머티리얼과 렌더 패스에 좌우된다.
 
-평면 교차·스테레오·그림자·투명도 정렬·수직 시점에서 한계가 보인다. 화면을 크게 덮으면 빌보드도 비싸다.
+## 확인 방법
 
-## 적용 전 점검
-
-적용 전 점검: 위아래로 시점을 회전하고 실제 카메라·알파 오버드로를 확인한다.
+평면 위아래로 카메라를 돌리고 롤을 바꾼다. UV의 서로 다른 모서리에 표식을 넣어 뒤집힘을 찾는다. 겹친 층, 그림자의 불투명 부분과 구멍, 스테레오 시점, 비슷한 픽셀 점유율에서의 GPU 시간을 비교한다.
 
 ## 근거
 
-- [Godot — Standard Material 3D](https://docs.godotengine.org/en/stable/tutorials/3d/standard_material_3d.html) — 확인 범위는 영문 정본의 Evidence에 기록. 추가 읽기로 표시된 자료는 본문 전체를 확인하지 않았다.
-- [Kurt Pelzer — Rendering Countless Blades of Waving Grass](https://developer.nvidia.com/gpugems/gpugems/part-i-natural-effects/chapter-7-rendering-countless-blades-waving-grass) — 확인 범위는 영문 정본의 Evidence에 기록. 추가 읽기로 표시된 자료는 본문 전체를 확인하지 않았다.
-- 출발 영상: V43. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
+Godot 문서는 방향 옵션을, GPU Gems는 교차 식생 카드 사용을, Epic 문서는 블렌드 모드를 설명한다. 기존 언리얼 관찰은 실제 달성한 프레임률에서 일부 방향·컷아웃·겹침을 확인했다. 목표 프레임률 일부에 도달하지 못했고 스테레오, 일반 정렬, GPU 오버드로는 측정하지 않았다.
 
-
-## 실제 언리얼 빌보드 — 2026-11-11
-
-[실제 결과](../../prototypes/UnrealTechniqueLab/BILLBOARD-RESULTS.kr.md)는 화면 정렬·카메라 위치 지향·월드Z 고정의39정책·4저장자산·207자세관찰·방법별 패키지3회와 정상1배속 영상이다. 관측FPS: cap30→22.49FPS, cap60→45.31FPS, cap144→114.02FPS. 요청cap과 실제FPS를 구분한다. 표에서 미도달한 요청FPS 대역은 동작 미검증이다.
-
-화면 정렬은 카메라 roll까지 따라갈 표식,위치 지향은 각 위치에서 카메라를 바라볼 이미지,Z고정은 똑바로 선 이미지를 선택할 때 사용한다. Z고정은 위에서 얇게 사라지고 극점의 방위각이 유일하지 않다. 길이1e-6cm 이하에서 이전 자세·초기 화면 자세·수평 카메라·+X 등의 명시적 fallback을 쓰며 임의의 극점 통과 연속성을 보장하지 않는다. 실제Plane UV에 맞춘X180도 보정과 빨강/초록/파랑 표식으로 뒤집힘을 검사한다.
-
-Opaque알파 무시·Masked.5경계·Translucent반투명 노랑을 확인했다. 톤매핑 결과를 선형50%혼합으로 해석하지 않는다. 벽 가림과 실제 중첩 영역/빨강 표식을 확인했지만 모든 정렬 오류 해결은 미검증이다. 마스크 그림자는 고체/구멍 수신점 켜기·끄기를 비교한다. 현재 설정의 일반 반투명 그림자가 없다는 결과를 모든 엔진 기능으로 일반화하지 않는다.
-
-성능은1280×720·512독립 컴포넌트·동일격자/카메라/마스크/그림자끔·2초 준비+10초 측정·방법별3회다. 회전 결과의 화면 면적/겹침은 달라질 수 있어 순수 연산/GPU오버드로/보편적인 속도 향상 주장은 하지 않는다. 캡처/픽셀 읽기는 성능 입력 밖이다. 식생·LOD·스트리밍·파티클·렌더러 최적화로 확대하지 않았다.
-
-독립 검토의 검은 중첩 표식·잘못된 반투명 색·사각형 그림자 허용을 실패로 재현한 뒤 보완했다.26결과 변형 검사와4검토 검사가 있다. 엔진 경고가 표식을 가린 문제는 주광 우선순위로 해결했고,잘못된 종료시점 backbuffer 읽기는 화면 그리기 직후로 옮겼다.17기존 보관본·32기존 자산을 보존했다. 스테레오·부모 음수 스케일·WPO·생산용 정렬/실루엣·GPU비용은 별도다.
+- [Godot — Standard Material 3D](https://docs.godotengine.org/en/stable/tutorials/3d/standard_material_3d.html)
+- [Kurt Pelzer — Rendering Countless Blades of Waving Grass](https://developer.nvidia.com/gpugems/gpugems/part-i-natural-effects/chapter-7-rendering-countless-blades-waving-grass)
+- [Epic blend modes](https://dev.epicgames.com/documentation/unreal-engine/material-blend-modes-in-unreal-engine?lang=en-US)
+- [material properties](https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-material-properties)

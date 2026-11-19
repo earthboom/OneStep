@@ -4,7 +4,7 @@ title: "Control randomness by decision timing and streak distribution"
 summary: "Classify when uncertainty becomes known and how strongly it changes outcomes. Input randomness is not automatically good and output randomness not automatically bad; the cited designers disagree."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["randomness","pity","shuffle","bag","probability","agency","확률","천장"]
+keywords: ["randomness", "pity", "shuffle", "bag", "probability", "agency", "확률", "천장", "input randomness", "output randomness", "shuffle bag", "conditional probability"]
 status: active
 checked_at: '2026-11-07'
 context:
@@ -22,6 +22,8 @@ Implementation selection and checks are engineering synthesis, not a promise of 
 ## Applicability and exceptions
 
 Input randomness is not automatically good and output randomness not automatically bad; the cited designers disagree. Changing odds changes the process and must not be described as independent fixed-probability trials.
+
+**Input randomness** reveals uncertain information before a player chooses an action. **Output randomness** resolves uncertainty after commitment. A new draw may therefore offer an adaptation opportunity in one decision and resolve risk in another. For a pity system, compute the chance of success conditional on all preceding misses and compare its wait-time distribution with the independent-draw baseline. Equal averages can conceal markedly different long waits. [Keith Burgun — Randomness and Game Design](https://www.gamedeveloper.com/design/randomness-and-game-design)
 
 ## Checks
 

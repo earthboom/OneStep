@@ -4,7 +4,7 @@ title: Review asynchronous lifetime, synchronization, and shutdown as separate c
 summary: Keeping an object alive does not synchronize its mutable state or prove that background work finishes. Review ownership across suspension, publication ordering, cancellation, completion, and cleanup independently using the actual language and runtime contracts.
 kind: reference
 scope: Concurrent and asynchronous API review informed by C++ shared_ptr, Rust Send/Sync and destructors, and the Go memory model
-keywords: [concurrency, lifetime, cancellation, synchronization, safe publication, shared_ptr, Send, Sync, Drop, Go memory model, 동시성, 비동기 수명, 취소, 동기화, 안전한 공개]
+keywords: [concurrency, lifetime, cancellation, synchronization, safe publication, shared_ptr, Send, Sync, Drop, Go memory model, 동시성, 비동기 수명, 취소, 동기화, 안전한 공개, "std::shared_ptr", "std::shared_ptr::use_count", "aliasing constructor", "RAII"]
 status: active
 checked_at: '2026-11-07'
 relations:
@@ -20,7 +20,7 @@ context:
 
 Review three obligations independently: valid data access, coordination of conflicting access, and shutdown with unfinished work. A local RAII wrapper does not prove that a callback or worker has stopped using its resource. Treat task ownership and cleanup order as part of the interface.
 
-The C++ draft separates `shared_ptr` bookkeeping from pointed-to state for data races. Reference counting does not protect mutable fields; review the pointer variable separately from distinct owners. With aliasing constructors, shared ownership does not extend an unrelated stored target's lifetime; dereferencing it requires a valid target. A reference count is not a synchronization protocol.
+The C++ draft separates `std::shared_ptr` bookkeeping from pointed-to state for data races. Reference counting does not protect mutable fields; review the pointer variable separately from distinct owners. With aliasing constructors, shared ownership does not extend an unrelated stored target's lifetime; dereferencing it requires a valid target. `std::shared_ptr::use_count` observes the number of shared owners. A sampled count does not order accesses to the object or wait for a worker to finish.
 
 Rust's `Send` permits ownership transfer between threads and `Sync` permits shared reference access under their trait contracts. `Rc` does not supply these concurrency guarantees; manually implementing the traits requires unsafe reasoning. The Reference also permits intentionally suppressed destruction and process termination without unwinding. Compile-time safety does not establish leak freedom, deadlock freedom, or eventual task completion.
 

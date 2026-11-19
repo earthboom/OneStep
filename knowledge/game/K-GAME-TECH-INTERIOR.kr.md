@@ -18,3 +18,11 @@
 
 - [Joost van Dongen — Interior Mapping](https://www.proun-game.com/Oogst3D/CODING/InteriorMapping/InteriorMapping.pdf): 2008년 저자 원고의 초록·광선 교차 설명. 확인일 2026-11-07.
 - 출발 쇼츠 V15는 [영상 대응표](K-GAME-TECH-GUIDE.kr.md)에 있다. 출발 영상은 탐색 계기이며 독립된 검증이 아니다.
+
+## interior mapping의 적용과 확인
+
+인테리어 매핑에서는 방 로컬 좌표계의 시선과 상자의 교차점으로 외벽 뒤에 보일 면을 정한다. 시선이 창에 비스듬하거나 카메라가 가까울 때 시차 오차와 실제 형상 부재가 드러나는지 확인한다.
+
+검색어 · interior mapping, ray-box intersection
+
+[Joost van Dongen, Interior Mapping](https://www.proun-game.com/Oogst3D/CODING/InteriorMapping/InteriorMapping.pdf)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.

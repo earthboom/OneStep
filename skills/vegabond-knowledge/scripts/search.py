@@ -143,9 +143,11 @@ def usable_cache(saved, project, signature):
     return docs
 
 
-def load_index(project, *, no_cache=False, refresh=False):
+def load_index(project, *, no_cache=False, refresh=False, portable_library=False):
     """Stat unchanged files; parse/hash changed files. --refresh bypasses stamps."""
     started = time.perf_counter()
+    if portable_library:
+        no_cache = True
     project = project.resolve()
     cache_path = project / CACHE
     signature = hashlib.sha256(b"".join((HERE / n).read_bytes() for n in (
@@ -163,7 +165,7 @@ def load_index(project, *, no_cache=False, refresh=False):
         except OSError as exc:
             cache_warning = f"Cache unavailable; results use canonical content: {exc}"
     docs, read_files = {}, 0
-    checker = Catalogs(project, "check")
+    checker = Catalogs(project, "check", require_translations=not portable_library)
     for path, store, domain in canonical_files(project):
         relative = path.relative_to(project).as_posix()
         stat = path.stat()
@@ -506,6 +508,8 @@ def main():
     parser.add_argument("--limit", type=int, default=5)
     parser.add_argument("--offset", type=int, default=0)
     parser.add_argument("--no-cache", action="store_true")
+    parser.add_argument("--portable-library", action="store_true",
+                        help="Search a distributed English reference library without translation files or a search cache.")
     parser.add_argument("--refresh", action="store_true")
     parser.add_argument("--cases", type=Path)
     parser.add_argument("--verify-sources", action="store_true", help="Check linked registered originals for returned hits")
@@ -536,7 +540,8 @@ def main():
         roots = parse_roots(args.source_root)
         filters = context_filters(args.context)
         started = time.perf_counter()
-        documents, stats = load_index(args.project, no_cache=args.no_cache, refresh=args.refresh)
+        documents, stats = load_index(args.project, no_cache=args.no_cache, refresh=args.refresh,
+                                      portable_library=args.portable_library)
         if args.command == "search":
             result = search(documents, args.query, domains=args.domain, store=args.store, statuses=args.status,
                             scope=args.scope, context=filters, include_superseded=args.include_superseded,

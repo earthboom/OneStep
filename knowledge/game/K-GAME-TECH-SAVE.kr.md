@@ -31,3 +31,7 @@
 추가 조사 출처의 영문 주석은 정확한 절·함수·접근 범위를 보존한다. 원본 슬라이드·문서·공개 코드의 확인과 실제 엔진·하드웨어 실행은 구분한다. 영상 설명·세션 개요만 확인한 자료를 전체 발표 확인으로 간주하지 않는다.
 
 출발 영상: V20, V54. [영상별 대응표](K-GAME-TECH-GUIDE.kr.md).
+
+### USaveGame
+
+언리얼의 `USaveGame`은 게임이 정의한 영속 데이터를 나타낸다. `UGameplayStatics::AsyncSaveGameToSlot`은 게임 스레드에서 객체를 직렬화하고 작업 스레드에서 플랫폼 데이터를 쓴 뒤 게임 스레드의 완료 델리게이트로 성공·실패를 알린다. 작업을 요청한 뒤 완료 결과도 확인해야 한다. 대상 플랫폼에서 쓰기 실패를 주입해 이전 정상 세대를 계속 읽을 수 있는지 확인한다. [Epic — UGameplayStatics::AsyncSaveGameToSlot](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UGameplayStatics/AsyncSaveGameToSlot?application_version=5.8)

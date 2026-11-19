@@ -30,3 +30,11 @@ bsnes의 아핀 샘플링 코드를 확인했다. 하드웨어 버스 타이밍�
 추가 조사 출처의 영문 주석은 정확한 절·함수·접근 범위를 보존한다. 원본 슬라이드·문서·공개 코드의 확인과 실제 엔진·하드웨어 실행은 구분한다. 영상 설명·세션 개요만 확인한 자료를 전체 발표 확인으로 간주하지 않는다.
 
 출발 영상: V57. [영상별 대응표](K-GAME-TECH-GUIDE.kr.md).
+
+## Mode 7의 적용과 확인
+
+Mode 7은 배경에 아핀 변환을 적용하고 주사선마다 값을 바꿔 지평선처럼 보이게 할 수 있다. 고정소수점 연산은 좌표를 양자화하므로 에뮬레이터와 결과를 맞출 때 중요하다. 투영 모델의 문제로 판단하기 전에 주사선 경계의 정수 샘플 위치를 비교한다.
+
+검색어 · Mode 7, affine transformation, fixed-point arithmetic
+
+[bsnes, renderMode7](https://github.com/bsnes-emu/bsnes/blob/master/bsnes/sfc/ppu-fast/mode7.cpp)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.

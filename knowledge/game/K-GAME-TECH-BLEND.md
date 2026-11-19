@@ -4,7 +4,7 @@ title: "Choose blend operations in the correct colour space"
 summary: "Straight alpha: C=alpha*S+(1-alpha)*D. Blend mode affects sorting, depth writes and supported lighting."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["alpha","additive","modulate","blending","블렌딩"]
+keywords: ["alpha", "additive", "modulate", "blending", "블렌딩", "AlphaComposite", "premultiplied alpha", "Opacity Mask Clip Value"]
 status: active
 checked_at: '2026-11-07'
 context:
@@ -18,6 +18,10 @@ context:
 Straight alpha: C=alpha*S+(1-alpha)*D. Additive commonly accumulates S over D; modulate multiplies them. Use linear-light calculations and distinguish premultiplied from straight-alpha assets. Masked materials discard pixels rather than continuously blending them.
 
 Implementation selection and checks below are engineering synthesis, not a promise of a source game's exact implementation.
+
+### AlphaComposite
+
+In Unreal's `AlphaComposite` mode the source RGB contribution is already weighted by alpha. Multiplying it again darkens translucent edges. For cutouts, `Opacity Mask Clip Value` sets the threshold for discarding fragments in Masked mode. Compare a partially transparent edge over both light and dark backgrounds, and test the threshold separately.
 
 ## Applicability and exceptions
 

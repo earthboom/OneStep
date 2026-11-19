@@ -36,3 +36,13 @@
 - [검사 코드](../../prototypes/SunoRestricted/guard.test.mjs), [실행 결과](../../prototypes/SunoRestricted/verification-tests.txt), [실서비스 확인과 소스 해시](../../prototypes/SunoRestricted/verification.json)
 - [기존 인증 문제](R-CODE-SUNO-MCP-AUTH.kr.md)
 - [공식 앱 문맥 공유 안내](https://help.openai.com/en/articles/11487775-connected-apps-in-chatgpt), [훅 한계](https://learn.chatgpt.com/docs/hooks), [공식 MCP SDK](https://github.com/modelcontextprotocol/typescript-sdk)
+
+
+## 제외된 로컬 자료 참조 정정 — 2026-11-13
+
+아래 목록은 이 문서의 기존 번역에 남아 있는 로컬 자료 링크를 대체합니다. 해당 자료는 저장소에 포함된 파일이 아니라 과거 실험의 출처이며, 원본 접근이나 현재 검증 완료를 뜻하지 않습니다. 본문의 기존 수치·검증 날짜·적용 한계는 유지됩니다. 저장소에 실제로 있어야 하는 파일은 계속 일반 상대 링크로 참조하고 누락 여부를 검사합니다.
+
+- `prototypes/SunoRestricted/README.md` → [등록된 과거 출처: SRC-SUNO-RESTRICTED-README-MD](../../knowledge/sources.md#src-suno-restricted-readme-md)
+- `prototypes/SunoRestricted/guard.test.mjs` → [등록된 과거 출처: SRC-SUNO-RESTRICTED-GUARD-TEST-MJS](../../knowledge/sources.md#src-suno-restricted-guard-test-mjs)
+- `prototypes/SunoRestricted/verification-tests.txt` → [등록된 과거 출처: SRC-SUNO-RESTRICTED-VERIFICATION-TESTS-TXT](../../knowledge/sources.md#src-suno-restricted-verification-tests-txt)
+- `prototypes/SunoRestricted/verification.json` → [등록된 과거 출처: SRC-SUNO-RESTRICTED-VERIFICATION-JSON](../../knowledge/sources.md#src-suno-restricted-verification-json)

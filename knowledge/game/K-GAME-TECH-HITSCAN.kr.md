@@ -1,44 +1,23 @@
-# 히트스캔·총구 차폐 판정
+# 게임의 히트스캔 조준점과 발사 위치 충돌 확인하기
 
-기준 항목: K-GAME-TECH-HITSCAN · 활성 참고 지식 · 확인일 2026-11-07. 일반 원리와 엔진별 조건을 구분한다. 아래에 명시한 로컬 실행만 검증했으며 전체 항목·상용 게임의 검증은 아니다.
+**K-GAME-TECH-HITSCAN** · 즉시 판정 공격은 조준점을 구한 뒤 실제 시작점에서의 가림을 확인한다. 시작점 중첩과 소유자 제외 규칙을 명시한다.
 
 ## 지침
 
-탄도 이동을 사실상 즉시 처리할 무기에 사용한다. 카메라 조준점을 구한 뒤 총구→조준점 추적으로 차폐를 검사하고 권한 있는 판정 규칙을 적용한다. 실제 투사체가 아니면 보이는 탄흔은 연출로 분리한다. 비행 시간·낙차가 중요하면 투사체 시뮬레이션을 검토한다.
-
-구현 선택·검사는 실무 종합안이며 특정 원작 게임의 정확한 코드를 재현했다는 보증이 아니다.
-
-### 로컬 엔진 근거 — 2026-11-07
-
-[실제 엔진 결과](../../prototypes/TechniqueLab/RESULTS.kr.md)에서 Unity 6000.0.77f1 최종 PlayMode와 Windows Mono 3회로 카메라 단독 판정의 총구 엄폐 우회를 재현·차단했다. 개방·총구 내부·뿌리→총구 벽·레이어·트리거 검사도 통과했다. Unity 3D 광선은 원점이 들어 있는 콜라이더를 검출하지 않으므로 명시적으로 처리한다. 실험은 총구·무기 뿌리의 작은 월드 레이어 구 겹침, 뿌리→총구 광선, 조준 의도 방향 총구의 첫 충돌을 사용했다. 반경 0.025는 실험값이며 단위·충돌 소유권·권한 포즈에 맞게 조정한다.
-
-정적 포즈 사격 1,024회에서 안전 엄폐/개방 중앙값은 0.932–1.104ms, 카메라만은 0.274–0.349ms였다. 안전 엄폐·개방은 질의 5회(카메라, 겹침 2회, 뿌리 경로, 총구), 내부 조기 차단은 2회다. 카메라 단독 방식은 이 엄폐에서 틀린 피해 규칙이다. 추가 비용을 예산에 포함한다. CPU 반복 배치 처리량이며 개별 사격 지연·프레임·복잡한 이동 장면·서버 비용이 아니다.
-
-실행 범위는 정적 상자 원점·필터·장면 제어다. 근거리 조준 정책·애니메이션 메시·자기 충돌 제외·이동 콜라이더 동기화·비대칭 지연·서버/클라이언트 로그는 실제 프로젝트에서 검사한다.
+카메라가 옆에 있는 3인칭 게임에서는 카메라 광선으로 조준 의도를 구한 뒤 게임 내 발사점부터 목표점까지의 경로를 판정한다. 카메라에는 표적이 보여도 발사점 앞은 가려질 수 있다. 시작점이 막혔거나 물체 안에 있는 경우의 처리도 정한다. 시각 효과용 궤적은 확정 결과에 맞춰 표시한다.
 
 ## 적용 조건과 예외
 
-카메라 추적만 쓰면 머리만 내민 사격이, 총구 추적만 쓰면 근거리 조준 오차가 생길 수 있다. 출처는 일반 메커니즘을 뒷받침하며 모든 슈터의 현재 구현을 입증하지 않는다.
+언리얼의 `UWorld::LineTraceSingleByObjectType`은 지정한 오브젝트 유형에 선분 질의를 한다. `UWorld::OverlapAnyTestByObjectType`은 지정한 자세에서 형상이 선택한 유형과 이미 겹치는지 검사한다. 두 질의의 소유자 제외, 유형 필터, 권위 자세를 일치시킨다. Unity 3D의 `Physics.Raycast`는 시작점을 포함한 콜라이더를 맞히지 않으므로 별도의 중첩 검사가 필요할 수 있다.
 
-## 검사
+## 확인 방법
 
-적용 전 점검: 벽에 붙은 총구·근거리 표적·자세 변경·비대칭 지연에서 서버와 클라이언트 명중 기록을 비교한다.
-
-실행한 부분과 남은 조건은 위 로컬 근거를 따른다. 실제 프로젝트에서는 그 엔진·버전·기기·데이터·권한으로 다시 검사한다.
+가림이 없는 자세와 가려진 자세, 형상 안의 시작점, 몸체에서 발사점까지 엄폐물을 가로지르는 경우, 소유자 제외, 목표점 뒤의 장애물을 비교한다. 대상 게임에서 실제 충돌 응답과 권위 애니메이션 시점도 확인한다.
 
 ## 근거
 
-- [Epic — EQS Node Reference: Tests](https://dev.epicgames.com/documentation/unreal-engine/eqs-node-reference-tests-in-unreal-engine?lang=en-US) — 원저/공식 자료의 실제 범위는 영문 기준 항목의 주석을 따른다. 2026-11-07 확인.
-- [Riot — Peeking into VALORANT's Netcode](https://www.riotgames.com/en/news/peeking-valorants-netcode) — 원저/공식 자료의 실제 범위는 영문 기준 항목의 주석을 따른다. 2026-11-07 확인.
-- [Unity 6000.0 Raycast](https://docs.unity.com/en-us/engine/6000.0/script-reference/unityengine/physics/raycast), Remarks: 내부 원점·레이어/트리거 필터. 2026-11-07 확인. 다른 엔진·Physics2D 전체로 일반화하지 않는다.
+Epic과 Unity는 각 엔진의 질의 API를, Riot은 VALORANT의 서버 판정을 설명한다. 기존 Unity와 Unreal의 단순 정적 충돌 검사에서 카메라 광선만 쓸 때의 오탐을 확인했다. 애니메이션 표적, 지연, 서버 상태 조정은 그 검사 범위 밖이다.
 
-- 출발 영상 V39: [대응표](K-GAME-TECH-GUIDE.kr.md). 발견 단서이며 독립 증거가 아니다.
-- [로컬 결과·재현](../../prototypes/TechniqueLab/RESULTS.kr.md), [독립 검사](../../prototypes/TechniqueLab/Assets/TechniqueLab/LabChecks.cs), [실행 원본](../../prototypes/TechniqueLab/Results/player-run-1.json). 알고리즘 코드·실패 후 통과·원본 표본은 결과 보고서에 연결했다. 실행 범위는 그 Unity/Windows/Mono 조건이다.
-
-## 언리얼 네이티브 후속 검증 — 2026-11-09
-
-UE5.8.3의 실제 LineTraceSingleByObjectType·OverlapAnyTestByObjectType으로 단순 박스 엄폐물·루트/총구 원점·자기 개체 제외를 확인했다. WorldStatic+WorldDynamic·2.5cm 보호 반경은 실험 조건이다. Unity 내부 원점 레이 제약을 Unreal에 전이하지 않는다. 채널 전체 응답·애니메이션·네트워크 권한은 미검증이다. [실제 결과·영상·성능 범위](../../prototypes/UnrealTechniqueLab/STAGE2-RESULTS.kr.md). 캡처는 성능 측정과 별도이며 초기 최대 약68ms 지연 원인은 아직 미확정이다. 기존 Unity 수치를 Unreal 성능 근거로 전이하지 않는다.
-
-## 에디터·전체 패키지 후속 검증 — 2026-11-09
-
-공식 에디터 자동화 API로 카메라·사격·경로장 각각의 실제 PIE(WorldType3)·73개 검사·네이티브 영상을 확인했다. 최종 전체 쿠킹과 독립 실행도 통과해 이전의 PIE/쿠킹 공백을 보완했다. 원래의 카메라 충돌·이동 대상·네트워크·NavMesh/군중 한계는 유지한다. 꼬리 지연은 이번 장면에서 렌더/RHI/D3D11 화면 제출 대기가 지배했으며, 진단용 오클루전·RHI 스위치를 제품 기본값으로 권장하지 않는다. [실제 근거·영상·적용 조건](../../prototypes/UnrealTechniqueLab/EDITOR-GATE-RESULTS.kr.md).
+- [Unity 6000.0 — Physics.Raycast](https://docs.unity.com/en-us/engine/6000.0/script-reference/unityengine/physics/raycast)
+- [Riot — Peeking into VALORANT's Netcode](https://www.riotgames.com/en/news/peeking-valorants-netcode)
+- [Epic — UWorld object-type queries](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UWorld?application_version=5.8)

@@ -22,3 +22,11 @@
 - 공식 문서·논문·저자 글은 확인한 본문 범위에 한정한다. 초록·영상 설명만 확인한 경우와 미열람 자료는 영문 정본 Evidence에 명시했다. 예제 코드·영상·제품 성능은 실행 검증하지 않았다.
 - 출발 영상: V21. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+## dual contouring의 적용과 확인
+
+듀얼 컨투어링은 표면 교차 위치와 법선으로 구성된 에르미트 데이터를 사용한다. 이차 오차 함수(QEF)는 후보 정점이 해당 국소 평면들에 얼마나 잘 맞는지 평가한다. 날카로운 모서리 보존이나 청크 이음새를 검사할 때는 경계 양쪽의 법선과 공통 샘플을 비교한다.
+
+검색어 · dual contouring, Hermite data, quadratic error function
+
+[Ju et al., Dual Contouring of Hermite Data](https://www.cs.rice.edu/~jwarren/papers/dualcontour.pdf)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.

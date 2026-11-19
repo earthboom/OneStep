@@ -22,3 +22,7 @@
 - 공식 문서·논문·저자 글은 확인한 본문 범위에 한정한다. 초록·영상 설명만 확인한 경우와 미열람 자료는 영문 정본 Evidence에 명시했다. 예제 코드·영상·제품 성능은 실행 검증하지 않았다.
 - 출발 영상: V28. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+### lag compensation
+
+**서버 되감기(server rewind)**는 권위 서버가 보관한 과거 충돌 자세에서 입력을 판정한다. 조회 시각은 클라이언트와 서버 시계의 대응, 상대 표시 상태의 보간 지연에 좌우된다. 사용 가능한 이력으로 제한하고 누락 시 처리 규칙을 정한다. 조회 뒤 현재 충돌 상태도 확인한다. Riot의 설명은 특정 게임에서 지연과 공정성의 절충을 보여준다. [Riot — Peeking into VALORANT's Netcode](https://www.riotgames.com/en/news/peeking-valorants-netcode)

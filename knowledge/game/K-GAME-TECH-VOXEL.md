@@ -4,7 +4,7 @@ title: "Extract and stream editable voxel surfaces"
 summary: "Use voxel fields when editable volume matters. Block-face meshing and smooth contour extraction solve different art needs."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["voxel","dual","contouring","Hermite","QEF","chunk","복셀"]
+keywords: ["voxel", "dual", "contouring", "Hermite", "QEF", "chunk", "복셀", "dual contouring", "Hermite data", "quadratic error function"]
 status: active
 checked_at: '2026-11-07'
 context:
@@ -18,6 +18,10 @@ context:
 Use voxel fields when editable volume matters. Separate storage, surface extraction, collision and streaming. Dual contouring uses signed samples plus edge crossings/normals (Hermite data) and a quadratic-error fit; density values alone are not its complete input. Rebuild only affected regions and synchronize border samples.
 
 Implementation selection and checks are engineering synthesis, not a promise of a source game's exact implementation.
+
+### dual contouring
+
+Dual contouring uses Hermite data at surface crossings: intersection positions and normals. A quadratic error function (QEF) scores candidate vertices by their fit to those local planes. Check normals and shared boundary samples across chunks when evaluating sharp-feature preservation or seam cracks.
 
 ## Applicability and exceptions
 

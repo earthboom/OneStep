@@ -31,3 +31,7 @@
 추가 조사 출처의 영문 주석은 정확한 절·함수·접근 범위를 보존한다. 원본 슬라이드·문서·공개 코드의 확인과 실제 엔진·하드웨어 실행은 구분한다. 영상 설명·세션 개요만 확인한 자료를 전체 발표 확인으로 간주하지 않는다.
 
 출발 영상: V07, V50. [영상별 대응표](K-GAME-TECH-GUIDE.kr.md).
+
+### fractional Brownian motion
+
+절차 지형의 **옥타브(octave)**는 특정 주파수·진폭의 노이즈 층이다. 흔히 fBm(fractional Brownian motion)이라 부르는 프랙털 노이즈 합성은 여러 층을 더한다. **Lacunarity**는 옥타브 사이의 주파수 배율, **persistence**는 진폭 배율이다. 청크 경계에서 샘플링하는 월드 좌표를 일치시킨다. 인접 청크를 각각 생성해 경계를 비교하고 먼 LOD에서 고주파 앨리어싱도 검사한다. [libnoise — Perlin module parameters](https://libnoise.sourceforge.net/docs/classnoise_1_1module_1_1Perlin.html)

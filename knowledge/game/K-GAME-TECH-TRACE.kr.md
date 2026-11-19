@@ -1,33 +1,24 @@
-# 내적·시야각·레이캐스팅
+# 거리·시야각·충돌 질의로 가시성 판정하기
 
-기준 항목: K-GAME-TECH-TRACE · 확인일: 2026-11-07 · 참고 지식. 실제 엔진 구현·성능·플레이테스트는 수행하지 않았다.
+**K-GAME-TECH-TRACE** · 거리와 시야각으로 후보를 먼저 거르고 가림을 검사한다. 대상의 어느 점, 어떤 충돌 채널과 히트 결과를 가시성으로 인정할지 정한다.
 
-## 원리와 구현 요점
+## 지침
 
-단위 전방 f와 방향 d의 시야 원뿔 판정은 dot(f,d)>=cos(반시야각)이다. 거리→각도→차폐 추적 순으로 거른다. 길이 0인 방향을 처리하고 지면 투영 여부를 정한다. 트레이스 채널·무시 대상·단순/복합 충돌·여러 표적점이 실제 가시성 정의를 결정한다.
+단위 전방 벡터 f와 표적을 향한 단위 벡터 d에서 `dot(f,d) >= cos(halfFOV)`이면 경계를 포함한 원뿔 안이다. 거리 제곱을 먼저 비교하고 같은 위치인 경우를 정규화 전에 처리한다. 수평 시야는 두 벡터를 지면에 투영하고 3D 시야는 고도 차이도 제한한다. 확산 조명의 Lambert 코사인 항은 표면 법선과 광원 방향으로 입사광을 계산한다.
 
-구현 선택과 점검은 출처를 바탕으로 한 실무적 종합이며 특정 게임의 정확한 구현을 보증하지 않는다.
+## 적용 조건과 예외
 
-## 적용 조건과 한계
+언리얼 충돌 기반 인식에서 `UWorld::LineTraceSingleByChannel`은 해당 채널의 첫 차단 히트를 반환한다. `FCollisionQueryParams::AddIgnoredActor`로 관찰자를 제외한다. 대상을 맞혀야 보이는 규칙이면 대상 컴포넌트가 그 채널을 차단해야 한다. 목표점까지 가림만 보는 규칙은 끝점에 콜라이더가 없어도 막히지 않은 선분을 허용한다.
 
-내적의 [-1,1] 범위는 정규화 벡터를 전제한다. 각도 안에 있어도 보인다는 뜻은 아니다. 람베르트 확산반사의 max(0,n dot l)는 같은 연산의 별도 셰이딩 용도다.
+## 확인 방법
 
-## 적용 전 점검
-
-적용 전 점검: 얇은 엄폐물 뒤·시야각 경계·동일 위치 대상을 확인하고 선과 노멀을 시각화한다.
+원뿔 경계, 바로 위, 얇은 벽 뒤, 일부만 노출된 위치를 검사한다. 관찰자 자신의 콜라이더, 히트 없음, 대상 교체, 복수 샘플점을 확인한다. 알려진 방향으로 각도 경계값을 검산한다.
 
 ## 근거
 
-- [Epic — EQS Node Reference: Tests](https://dev.epicgames.com/documentation/unreal-engine/eqs-node-reference-tests-in-unreal-engine?lang=en-US) — 출처의 확인 범위는 아래 원칙을 따른다.
-- [Epic — Mover Grappling Hook Movement Mode](https://dev.epicgames.com/documentation/unreal-engine/mover-03-grappling-hook-movement-mode?lang=en-US) — 출처의 확인 범위는 아래 원칙을 따른다.
-- 공식 문서·논문·저자 글은 확인한 본문 범위에 한정한다. 초록·영상 설명만 확인한 경우와 미열람 자료는 영문 정본 Evidence에 명시했다. 예제 코드·영상·제품 성능은 실행 검증하지 않았다.
-- 출발 영상: V18, V38. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
+Epic의 EQS 문서는 Distance, Dot, Trace 검사를 설명한다. 기존 언리얼 검사는 알려진 한 점과 단순 충돌의 첫 히트 가시성에 한정된다. 복수 샘플을 쓰는 대상, 애니메이션 메시, 게임 인식 행동은 별도 문제다.
 
-
-## 실제 언리얼 시야 판정 — 2026-11-11
-
-[실제 결과](../../prototypes/UnrealTechniqueLab/VISION-RESULTS.kr.md)는 관찰자1·대상1·벽1의 중심점 판정이다. 3D 거리1000cm·전체90도 안이고 Visibility 단순 충돌의 첫 차단 Actor가 대상이면 보인다. 자기 Actor 전체를 제외하며 일치점/0전방/비유한 값은 거부한다. 내적 미계산0은 실제 측정값이 아니다. 수치 오차 가드는 게임 허용 범위가 아니다.
-
-정책24·실제PIE 두 프로필×관측30/60/144의132상황에서 경계·벽/모서리·얇은벽·대상 뒤 벽·채널·자기 제외와 제외하지 않는 대조군을 확인했다. 정확한 모서리 접촉은 이 백엔드·수치 범위의 관찰이다. 같은 패키지 성능3쌍은 판정을 유지하며 이 실험의 약25% 유효 후보만 쿼리한다. 쿼리/평가/단계 수와 전체 프레임을 함께 보고 FPS향상이나 다수NPC 확장성을 주장하지 않는다. 정상 속도 실제 영상은 측정과 분리한다.
-
-중심점 가림과 전신 노출은 다르며 단순/복잡 충돌·채널·원점·동기화·권한·후보 스케줄링은 실제 프로젝트에서 다시 확인한다. 순찰·추적·전투·기억·EQS·Lambert조명은 구현하지 않았다. 저장·렌더·Present·공용 도구로 확대하지 않았다. 외부 공식 문서는 현재5.9로 표시되어 개념 참고로 사용하고 로컬 API는 설치된5.8.3과 실제 실행으로 검증했다.
+- [Epic — EQS Node Reference: Tests](https://dev.epicgames.com/documentation/unreal-engine/eqs-node-reference-tests-in-unreal-engine?lang=en-US)
+- [Epic — Mover Grappling Hook Movement Mode](https://dev.epicgames.com/documentation/unreal-engine/mover-03-grappling-hook-movement-mode?lang=en-US)
+- [Epic — UWorld](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UWorld?application_version=5.8)
+- [Epic — AddIgnoredActor](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/FCollisionQueryParams/AddIgnoredActor?lang=en-US)

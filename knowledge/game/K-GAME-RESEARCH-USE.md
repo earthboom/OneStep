@@ -1,88 +1,20 @@
 ---
 id: K-GAME-RESEARCH-USE
 title: Retrieve applicable evidence throughout game development
-summary: For game planning, architecture, implementation, debugging and optimization,
-  turn the concrete decision or symptom into a focused knowledge query. Check source
-  versions and conditions, decide adoption, and carry a measurable application check
-  into the existing brief.
+summary: Start from a design decision, feature or measured symptom. Compare candidate sources with the target game's conditions and carry an adoption decision and an observable check into the work brief.
 kind: convention
-scope: OneStep game development and explicitly configured reuse of this store in another
-  project; current project intent and authoritative design and code contracts prevail
-keywords:
-- game-development
-- game-design
-- implementation
-- debugging
-- optimization
-- genre
-- research-retrieval
-- GDD
-- prototype
-- playtest
-- 게임개발
-- 게임기획
-- 기술선택
-- 구현
-- 디버깅
-- 최적화
-- 지식조회
-- 복합장르
-- admission
-- queue-cap
-- token-bucket
-- rejection
-- goodput
-- 거부율
-- 입장
-- 제공량
-- Unreal Insights
-- occlusion query
-- horizon pruning
-- same-binary
-- frame alignment
-- 프레임 지연
-- packed priority
-- heap sift
-- PriorityKey
-- plannerPeak
-- per-request equivalence
-- 계획 처리
-- owned snapshot
-- record DOM
-- saveTail
-- private commit
-- PagefileUsage
-- snapshot lifetime
-- 스냅샷 저장
-- owned async save
-- publicationToAck
-- pending exit drain
-- writer backpressure
-- full input lifetime
-- 비동기 저장
+scope: Game planning, architecture, implementation, debugging and optimization where this knowledge store is authorized for use.
+keywords: [game-development, game-design, implementation, debugging, optimization, genre, research-retrieval, GDD, prototype, playtest, evidence, adoption, 게임개발, 게임기획, 기술선택, 구현, 디버깅, 최적화, 지식조회, 복합장르]
 status: active
 checked_at: '2026-11-11'
 context:
-  authority: Explicit user requests to collect game design and implementation knowledge
-    and retrieve suitable techniques during future game development
-  evidence_check: Retrieval convention and corpus structure; individual source checks
-    are in each reference
-  application_status: Workflow routing plus scoped Unity and UE5.8.3 representative/dynamic
-    experiments; no production-game, player or commercial validation
-  admission_evidence: UE5.8.3 paired six-policy overload comparison; accepted latency/all-offered
-    goodput/rejection and full frames; finite static graph scope
-  hitch_evidence: UE5.8.3 same-binary3paired admission profiles; named frame traces;
-    scene-local query suppression and cardinal reservation proof limits
-  planner_evidence: UE5.8.3 equivalent packed-priority heap; scoped bit-domain/path/order/native/profile
-    and3paired frame evidence
-  snapshot_evidence: UE5.8.3 owned records/direct JSON; exact byte/value/order/lifetime/native
-    safety,3paired transition/save/process-memory observations
-  async_save_evidence: UE5.8.3 detached full input; same-binary owned-sync/async3pairs,
-    exact records, queue/failure/pending-exit controls; finished-fixture rendering
-    only
+  authority: The working game's current design, code and acceptance conditions govern adoption.
+  evidence_check: Historical retrieval and runtime examples with limited engine and workload scope. Each linked entry identifies its own evidence.
 ---
 
 # Retrieve applicable evidence throughout game development
+
+Registered source references identify historical evidence. Their presence does not establish current access or a new execution check.
 
 ## Guidance
 
@@ -100,7 +32,7 @@ Read candidates' Guidance, applicability, checks and Evidence. Compare the actua
 
 Keep a compact application trace in the existing work brief or design: **problem/constraints → entry ID and useful section/source locator → decision and reason → intended change → check and observed result/gap**. A source citation alone is insufficient. For example, a late-jump complaint can use CONTROLLER's buffered-input window while retaining TIMESTEP's simulation contract; an expensive forest needs measured geometry/pixel/shadow costs before choosing FOLIAGE's instancing or LOD. Tie the chosen method to a small representative prototype or regression/performance check; do not report a proposed check as passed.
 
-After implementation or investigation, return the actual outcome, rejected analogy, failed condition and useful correction to [knowledge](../../skills/vegabond-knowledge/SKILL.md). Update an existing entry when evidence improves it; keep project-specific incidents in records. Only demonstrated local results become local lessons or verified safeguards. Revisit retrieval when reproduction, platform, authority or design intent changes; preserve still-valid answers.
+After implementation or investigation, return the actual outcome, rejected analogy, failed condition and useful correction to [knowledge](../../skills/vegabond-knowledge/SKILL.md). Update an existing shared entry when the evidence changes its applicability. Keep project-specific incidents, data, code, logs and tuning values with the originating project. Only demonstrated local results become local lessons or verified safeguards. Revisit retrieval when reproduction, platform, authority or design intent changes; preserve still-valid answers.
 
 For large plans, connect retrieved methods to the existing hierarchy, dependent systems and acceptance checks using [large-plan coordination](../../skills/vegabond-planning/references/large-plans.md). Keep the project's own design and playtest evidence authoritative. Refresh affected retrieval after a change; preserve still-valid information rather than rereading the complete collection.
 
@@ -124,54 +56,6 @@ Catalog/schema validation establishes storage and discoverability, not gameplay 
 
 ## Evidence
 
-- User instructions in the current chat on 2026-11-07: collect game planning and shorts-derived technical knowledge, supplement unconfirmed implementation details, and retrieve suitable knowledge during future game development. This authorizes the scoped retrieval convention; it does not approve a particular game's design or implementation.
-- The [knowledge procedure](../../skills/vegabond-knowledge/SKILL.md) governs scoped index-to-detail retrieval and evidence limits. [Scout](../../skills/vegabond-scout/SKILL.md), [planning](../../skills/vegabond-planning/SKILL.md), [code](../../skills/vegabond-code/SKILL.md) and [code design](../../skills/vegabond-code-design/SKILL.md) route game work here; the caller owns execution and verification. Entry-specific Evidence sections retain actual URLs, locators, source type and access limitations.
-- Initial research produced reusable references and hypothetical application evaluations. Subsequent [Technique Lab experiments](../../prototypes/TechniqueLab/RESULTS.md) exercised CAMERA/HITSCAN/PATH in Unity 6000.0.77f1 PlayMode and three Windows Mono players, with raw measurements, failed-then-passed corrections and scoped adoption conditions. This is not a production game or player study; the remaining count was 40 at that stage; the dynamic follow-up below adds CROWD evidence. Use the actual mechanism, host and workload limits rather than transferring a benchmark number to a new game.
-
-- Dynamic follow-up on 2026-11-08: [PATH/CROWD implementation and full-frame evidence](../../prototypes/TechniqueLab/DYNAMIC-RESULTS.md) connect deferred obstacles, local reservations, safe/unsafe comparisons and complete-frame costs to conditional adoption. Cumulative scoped engine evidence now covers four sheets, with 39 still unvalidated locally. A small controller cost did not establish the whole-frame target; missing GPU values were retained as a gap, not treated as zero.
-
-
-### Latest runtime decision trace — 2026-11-08
-
-The [opposing mixed-radius experiment](../../prototypes/TechniqueLab/TRAFFIC-RESULTS.md) combined PATH-compatible radius/goal fields with CROWD neighbour guards and explicit corridor scheduling. A collision-safe deadlock control rejected pure reactive yielding as a progress solution. The tested lane/lease method is conditional on authored holding areas, fixed circular footprints and one authority. Actual safety/completion, full-frame cost, GPU gaps and retrieval misses were returned to the same entries. Reuse the decision conditions, then validate the new game; do not copy a universal deadlock-free claim.
-
-
-### Sustained service decision trace — 2026-11-08
-
-The [unlaned stream experiment](../../prototypes/TechniqueLab/STREAM-RESULTS.md) adds per-ID release/admission/completion and unresolved-age evidence. Search PATH for time-expanded routes and CROWD for geometric conflict plus throughput/service decisions. Reject global throughput as a starvation check: latest-first admission left an old request pending while hundreds completed. Separate overload latency failure from permanent bypass. Conditional FIFO/full-route use requires controlled births, static geometry and exact planned movement; reproduce actual queue/latency and planning-bearing whole-frame costs in the target game.
-
-### Unreal dynamic reuse decision — 2026-11-09
-
-For actual UE dynamic doors/shared exits, retrieve PATH for topology/field invalidation and CROWD for physical radius/reservation/drain; use the [native result](../../prototypes/UnrealTechniqueLab/DYNAMIC-RESULTS.md) rather than Unity timing. Conditional adoption requires the explicit cardinal equal-radius ownership contract. Reject unchanged synchronous rebuilding for strict no-miss60Hz, because18 passing p95 windows still contain54 measured misses. Native opposing/heterogeneous/stream evidence is absent at this milestone, so research/port those gates before dependent adoption. Save the actual final source, native poses, per-frame population and complete timing arithmetic, not only search hits or summary flags.
-
-### Native opposing selection — 2026-11-09
-
-For opposing unequal bodies, retrieve PATH for radius/goal-compatible routes and CROWD for full-body leases, pair guards and progress; [native traffic evidence](../../prototypes/UnrealTechniqueLab/TRAFFIC-RESULTS.md) now supports conditional authored-lane use. Reject a shared field/pair guard alone when head-on progress matters: the pair-safe control deadlocks. Require actual E/W drain, reverse/late ordering and independent terminal/radius checks, then representative complete frames. Native unlaned continuous arrivals still need their own request/admission/latency/overload stage; neither this finite completion nor older Unity proof closes that gap. Preserve unresolved topology-update budget constraints.
-
-### Native static unlaned stream follow-up — 2026-11-09
-
-[StreamLab](../../prototypes/UnrealTechniqueLab/STREAM-RESULTS.md) completes the scoped native static unlaned/FIFO stage:25model checks, ten actual PIE+ten packaged expectations and3sequential performance players. Query PATH+CROWD for graph/radius fit, complete-route reservations, external FIFO admission and request-to-completion age; PERFORMANCE for complete-frame and planning-current/following tails. Seven ordinary scenarios meet240s, while overloaded choke61IDs miss and LIFO leaves ID0waiting despite later throughput. Choose capacity/admission/queue policy, not a field alone, when sustained progress matters. Finite traces and conditional service reasoning do not establish arbitrary/infinite-time fairness. Native evidence remains limited to the same four technique sheets;39 other techniques lack local engine verification. See current results for preserved dynamic-update and timing limitations; older stream-pending notes are historical.
-
-### Choosing overload policy from requirements — 2026-11-09
-
-For sustained arrivals, retrieve PATH for graph/radius/horizon fit, CROWD for FIFO admission/queue/drop semantics, and PERFORMANCE for equal offered demand and complete-frame costs. [Native six-policy evidence](../../prototypes/UnrealTechniqueLab/ADMISSION-RESULTS.md) now compares accepted response, all-offered240s goodput, rejection ratio and throughput. When losses are allowed, assess the explicit latency/loss tradeoff; when every request must be served, reject cap/drop as a complete solution and investigate capacity or age-preserving upstream backpressure. No hidden input suppression, dropped ID or spawn-clock reset may turn overload into success. Pending storage bound does not establish bounded total retained history. Local engine evidence stays within the same four technique sheets;39other techniques remain without local runtime verification.
-
-
-### Retrieve trace evidence with its scope — 2026-11-10
-
-[Same-binary Insights comparison](../../prototypes/UnrealTechniqueLab/HITCH-RESULTS.md) adds conditional frame attribution, scene-only query suppression and bounded cardinal reservation checks. Retrieve PERFORMANCE for exact frame/overlap/observer costs; PIE for actual profile/native binding; PATH for sole-cut proof; CROWD for unchanged offered-ID/service/rejection outcomes. Whole-frame p95 improves while planner/Present tails remain. Query-off is not a global3D default, CPU speed is not extra choke capacity, and finite observations do not prove infinite fairness. Four technique sheets retain bounded local evidence;39others remain unverified locally.
-
-
-### Planner-cost evidence routing — 2026-11-10
-
-Use PERFORMANCE for internal cost attribution/coarse trace/equal-demand3pairs, PATH for exact priority-key domains/ties, CROWD for original-ID path/order/service preservation, PIE for actual profile/launcher hash binding. The [actual UE5.8.3 equivalent-heap experiment](../../prototypes/UnrealTechniqueLab/PLANNER-RESULTS.md) targets repeated heap comparisons while retaining old reservation/cut/query settings. Detail clocks and capture are diagnostic; final frame tests omit them. Scene-only query suppression, static scheduled movement and finite evidence limits remain. Same four technique sheets have scoped runtime evidence;39others remain unverified locally.
-
-
-### Route snapshot allocation questions to full evidence — 2026-11-11
-
-Use PERFORMANCE for capture/transition/save/memory and final-frame observer costs; PIE for original byte/value/order/lifetime and actual serializer identity; PATH for complete owned paths; CROWD for unchanged source/service/safety. The [native owned-snapshot comparison](../../prototypes/UnrealTechniqueLab/SNAPSHOT-RESULTS.md) conditionally supports compact owned records/direct standard JSON for this finite diagnostic pipeline. No zero-copy/zero-allocation/async/universal memory or frame deadline claim. Large synchronous final save remains explicit. Same four technique sheets have limited local runtime evidence;39others remain unverified locally.
-
-
-### Select complete ownership and bounded background saving conditionally — 2026-11-11
-
-Use PERFORMANCE for GT publication versus total completion, drain frames, queue and process memory; PIE for every-input ownership, exact encoding/order, overflow/error and pending-exit controls; PATH for complete path lifetime; CROWD for unchanged original requests/service. The [native owned-sync/async verification](../../prototypes/UnrealTechniqueLab/ASYNC-SAVE-RESULTS.md) conditionally supports this finite finished-fixture pipeline. Repeated live autosave, crash recovery/fsync durability, forced termination, cancellation, universal deadlines and globally bounded history are unverified. Do not infer those from low publication time or queue bounds. Same four technique sheets retain limited local evidence;39others remain locally unverified.
+- The 2026-11-07 request to collect and reuse game planning and implementation references established this convention. The [knowledge procedure](../../skills/vegabond-knowledge/SKILL.md), [scout](../../skills/vegabond-scout/SKILL.md), [planning](../../skills/vegabond-planning/SKILL.md), [code](../../skills/vegabond-code/SKILL.md) and [code design](../../skills/vegabond-code-design/SKILL.md) provide the corresponding retrieval and execution workflow.
+- Historical Unity 6000.0.77f1 and Unreal Engine 5.8.3 experiments illustrate why the question determines the evidence. A route may fit the agent and still leave agents blocking one another. Look up [pathfinding](K-GAME-TECH-PATH.md) for route validity and [crowd movement](K-GAME-TECH-CROWD.md) for collision, completion and waiting. Where arrivals continue, compare every offered request, including rejections and unfinished work. The observations cover particular geometries, arrival patterns and movement rules. [Dynamic routes](../sources.md#src-ue-lab-dynamic-results-md) · [Opposing traffic](../sources.md#src-ue-lab-traffic-results-md) · [Sustained arrivals](../sources.md#src-ue-lab-stream-results-md) · [Admission policies](../sources.md#src-ue-lab-admission-results-md)
+- [Performance measurement](../code/K-CODE-PERFORMANCE-MEASUREMENT.md) and [play-in-editor verification](../code/K-CODE-UE-PIE-VERIFICATION.md) answer different questions. A faster planner needs both complete-frame measurements and evidence that route ordering and service outcomes survive. A faster handoff to a background writer requires checking input ownership, queue pressure, completion and shutdown. Historical comparisons cover finite workloads. Gameplay quality, other hardware and crash durability need separate evidence. [Frame attribution](../sources.md#src-ue-lab-hitch-results-md) · [Planner equivalence](../sources.md#src-ue-lab-planner-results-md) · [Owned snapshots](../sources.md#src-ue-lab-snapshot-results-md) · [Asynchronous saving](../sources.md#src-ue-lab-async-save-results-md)

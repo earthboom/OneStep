@@ -4,9 +4,9 @@ title: "Separate skill estimation from matchmaking policy"
 summary: "Estimate skill separately from selecting a match. Do not generalize 'the highest party member sets the match' to every game."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["Elo","TrueSkill","MMR","uncertainty","matchmaking","매칭"]
+keywords: ["Elo", "TrueSkill", "MMR", "uncertainty", "matchmaking", "매칭", "Bayesian skill rating", "skill uncertainty", "matchmaking rating"]
 status: active
-checked_at: '2026-11-07'
+checked_at: '2026-11-19'
 context:
   evidence_check: "External source text checked; source-specific limits appear in Evidence"
   application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
@@ -22,6 +22,8 @@ Implementation selection and checks are engineering synthesis, not a promise of 
 ## Applicability and exceptions
 
 Do not generalize 'the highest party member sets the match' to every game. Ratings are estimates, not a promise of 50% win probability in every individual match.
+
+In **TrueSkill**, a Bayesian skill rating represents a player's estimated skill by a mean and uncertainty. A new player's estimate can move more after an informative result than a well-established one. When testing matchmaking rating (MMR), evaluate prediction calibration separately from queue time and region constraints. Microsoft documents how its model updates individual beliefs from team outcomes. [Microsoft Research — TrueSkill Ranking System](https://www.microsoft.com/en-us/research/project/trueskill-ranking-system/)
 
 ## Checks
 

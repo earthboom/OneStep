@@ -1,7 +1,9 @@
-# 실제 기술 지식 검색 회귀 검사
+# 네이티브 기법의 지식 검색 회귀 검사
 
-150문항은 이징까지의 게임 지식148문항과 네이티브 끝점 정밀도·검증 자료 누락에 관한 문제 검색2문항이다. 공개된 지식/문제 기록의 검색 검사이며 Unreal구현·게임 실행검사·자산·실행파일·영상은 포함하지 않는다.
+게임 참조 경로 148개와 컴포넌트 끝점 정밀도 및 잘못된 전환 검사의 문제 기록 경로 2개를 포함한 150개 사례로 공유 지식의 검색을 확인합니다. 각 사례는 기대한 ID가 지정한 순위 안에 드는지를 평가합니다.
 
-기존Python/PyYAML 환경에서 search.py evaluate와 native-retrieval-cases.json을 사용한다. 선언된 상위3개 안의 필수ID 검색은 제한된 회귀 근거이며 자동 적용 판단이나 실제게임 동작 검증을 뜻하지 않는다.
+```text
+python skills/vegabond-knowledge/scripts/search.py evaluate --project . --cases skills/vegabond-knowledge/tests/game-application/native-retrieval-cases.json --refresh
+```
 
-[과거 측정 요약](../../../../records/code/evidence/unreal-validation-2026-11-12.json)은 결과·제약·원본 지문을 보존한다. 구현과 전체 재현 자료는 제외된 로컬 실험 폴더에 남아 있다. 새 복제본에 해당 자료가 있다고 가정하거나 요약만으로 원본 검증을 재생성했다고 주장하지 않는다.
+기법 채택 여부와 런타임 동작은 따로 검증합니다. [전환 검증 기록](../../../../records/code/R-CODE-UE-EVIDENCE-PROXY.kr.md)과 [컴포넌트 정밀도 기록](../../../../records/code/R-CODE-UE-TRANSFORM-TOLERANCE.kr.md)은 재사용할 관찰과 그 근거 범위를 설명합니다. 실행별 상세 측정치는 원본 프로젝트에서 관리합니다.

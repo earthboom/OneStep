@@ -21,3 +21,11 @@
 - [Mark Finch — Effective Water Simulation from Physical Models](https://developer.nvidia.com/gpugems/gpugems/part-i-natural-effects/chapter-1-effective-water-simulation-physical-models) — 확인 범위는 영문 정본의 Evidence에 기록. 추가 읽기로 표시된 자료는 본문 전체를 확인하지 않았다.
 - 출발 영상: V32. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+## Gerstner waves의 적용과 확인
+
+게르스트너파는 수평 변위를 포함하므로 정점의 원래 수평 좌표와 렌더 위치가 다를 수 있다. 부력 검사에서는 같은 월드 좌표와 같은 시각에서 게임이 조회한 높이와 렌더된 수면을 비교한다. 경사가 큰 마루에서 차이를 확인하기 쉽다.
+
+검색어 · Gerstner waves, horizontal displacement, buoyancy
+
+[Mark Finch, Effective Water Simulation from Physical Models](https://developer.nvidia.com/gpugems/gpugems/part-i-natural-effects/chapter-1-effective-water-simulation-physical-models)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.

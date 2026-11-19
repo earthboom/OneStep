@@ -1,11 +1,11 @@
 ---
 id: K-GAME-TECH-TRACE
 title: Combine distance, angle and collision queries for perception
-summary: For unit forward f and direction d, the cone test is dot(f,d)>=cos(halfFOV).
-  The [-1,1] dot-product range requires normalized vectors.
+summary: Reject distant or out-of-cone targets before querying occlusion. Define which target point,
+  collision channel and hit identity constitute visibility.
 kind: reference
-scope: Game development; engine-independent mechanisms with version-dependent engine
-  examples
+scope: Game development. For collision-based Unreal perception, `UWorld::LineTraceSingleByChannel` reports
+  the first blocking hit on a channel.
 keywords:
 - dot
 - product
@@ -23,43 +23,31 @@ keywords:
 - 시야각
 - 가림 판정
 - 자기 자신 제외
+- UWorld::LineTraceSingleByChannel
+- FCollisionQueryParams::AddIgnoredActor
+- EQS
 status: active
-checked_at: '2026-11-11'
-context:
-  evidence_check: External source text checked; source-specific limits appear in Evidence
-  application_status: Scoped UE5.8.3 center-point vision:24model,132actual PIE cases30/60/144,3paired
-    package query/frame observations and normal-speed native media; no broader AI/Lambert
-    validation
+checked_at: '2026-11-19'
 ---
 # Combine distance, angle and collision queries for perception
 
 ## Guidance
 
-For unit forward f and direction d, the cone test is dot(f,d)>=cos(halfFOV). Reject by distance first, then angle, then trace for occlusion. Handle zero-length directions and decide whether to project onto the ground plane. Trace channels, ignored actors, simple/complex collision and multi-point targets determine what visible means.
-
-Implementation selection and checks are engineering synthesis, not a promise of a source game's exact implementation.
+For unit forward f and unit direction d to the sample, `dot(f,d) >= cos(halfFOV)` includes the cone boundary. Test squared range first and handle a coincident point before normalizing. A horizontal cone projects both vectors onto the ground plane, whereas a 3D cone also limits elevation. The Lambert cosine term in diffuse lighting uses a surface normal and light direction and answers a different question.
 
 ## Applicability and exceptions
 
-The [-1,1] dot-product range requires normalized vectors. Angle inclusion alone does not prove visibility. Lambert diffuse max(0,n dot l) is a separate shading use of the same operation.
+For collision-based Unreal perception, `UWorld::LineTraceSingleByChannel` reports the first blocking hit on a channel. Configure `FCollisionQueryParams::AddIgnoredActor` to skip the observer. A trace that expects to hit the target requires its component to block that channel. A clear-to-point test instead allows a clear segment even if the endpoint has no collider.
 
 ## Checks
 
-Proposed: targets behind thin cover, at cone edges and at identical positions; draw traces and normals.
+Place a target on the cone edge, directly above, behind a thin wall and partly exposed. Test the observer's own collider, no-hit results, target replacement and multiple sample points. Cross-check angular boundary values against known directions.
 
 ## Evidence
 
-- [Epic — EQS Node Reference: Tests](https://dev.epicgames.com/documentation/unreal-engine/eqs-node-reference-tests-in-unreal-engine?lang=en-US) — Official documentation; Distance, Dot and Trace. Checked 2026-11-07, except items explicitly marked further reading.
-- [Epic — Mover Grappling Hook Movement Mode](https://dev.epicgames.com/documentation/unreal-engine/mover-03-grappling-hook-movement-mode?lang=en-US) — Official worked example; dot, distance and line-of-sight target filtering. Checked 2026-11-07, except items explicitly marked further reading.
-- Originating channel shorts: V18, V38 in [the coverage guide](K-GAME-TECH-GUIDE.md). Originating shorts are discovery leads, not independent proof.
+Epic's EQS documentation describes Distance, Dot and Trace tests. Earlier Unreal checks covered one known target point and simple first-hit visibility. Multi-point actors, animated meshes and gameplay perception remain separate questions.
 
-
-### Local Unreal center-point perception — 2026-11-11
-
-[Native vision results](../../prototypes/UnrealTechniqueLab/VISION-RESULTS.md) implement a known-candidate3D cone/range plus simple Visibility first-hit target rule. One observer/target/wall, range1000cm/full90° are experiment settings. Normalize vectors; reject coincidence/zero/nonfinite input; numerical guards1e-8cm and dot1e-12 are not gameplay forgiveness. Skip distance failures before computing angle (dotComputed=false is unavailable). Ignore the observer actor including its forward test component. A no-hit query is not target detection. This is center-point line of sight, not whole-body exposure, brightness, target selection or memory.
-
-Model24 and six actual UE5.8.3 PIE worlds (reference/gated × observed30/60/144,132cases) verify exact range/cone policy boundaries, rear/elevation, wall/near-corner blocked/tangent/clear, configured.1cm thin wall, wall beyond target, channel filters, self-ignore and an owner-block sensitivity control. The exact tangent's first-hit coordinates are retained; contact results near edges remain backend/precision-sensitive. Pilot and final-source evidence are distinct. Observed rate and actual PIE viewport are checked; standalone1280x720 performance is a separate consumer.
-
-Three same-source package pairs use one target and identical scripted candidate poses,2s warmup+10s measured. Reference issues one ray per valid candidate; early gating issues rays only for eligible candidates (about25%in this workload), with identical detection rules. Report phase/evaluation/query counts and denominators. This supports early rejection, not a general frame-rate speedup, multi-NPC budget or production scalability. Geometry/query microtimers exclude earlier scripted transform changes and later rendering; whole-frame/cadence records retain those costs. Normal-speed native video and screenshots are separate from measurement. No patrol,pursuit,combat,EQS,renderer,Present,save or framework optimization.
-
-EQS documentation is a conceptual source; its rolling page returned5.9 on this check. Installed5.8.3 World.h/CollisionQueryParams and actual5.8.3 execution establish this local API contract. Lambert lighting, skeletal/complex collision, other origin-overlap policies, multiplayer authority and multi-point visibility remain untested.
+- [Epic — EQS Node Reference: Tests](https://dev.epicgames.com/documentation/unreal-engine/eqs-node-reference-tests-in-unreal-engine?lang=en-US)
+- [Epic — Mover Grappling Hook Movement Mode](https://dev.epicgames.com/documentation/unreal-engine/mover-03-grappling-hook-movement-mode?lang=en-US)
+- [Epic — UWorld](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UWorld?application_version=5.8)
+- [Epic — AddIgnoredActor](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/FCollisionQueryParams/AddIgnoredActor?lang=en-US)

@@ -4,7 +4,7 @@ title: "Choose hair representation and simulation independently"
 summary: "Use cards for authored silhouette and lower representation budgets; consider strands for close detailed characters. Not every rendered strand needs independent simulation."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["groom","strands","hair","cards","머리카락"]
+keywords: ["groom", "strands", "hair", "cards", "머리카락", "Groom Asset", "simulation guides", "strand interpolation"]
 status: active
 checked_at: '2026-11-07'
 context:
@@ -22,6 +22,10 @@ Implementation selection and checks below are engineering synthesis, not a promi
 ### Implementation follow-up — 2026-11-07
 
 Epic documents separate guide simulation, interpolation onto render strands, hair-density voxelization, visibility, lighting and composition passes. Lower render-curve count and lower guide count target different costs; even invisible hair can require updates for shadows. Use per-pass profiling before choosing cards/strands or decimation. Capcom's CEDEC 2026 session confirms a PRAGMATA long-hair/strand workflow in Maya and RE ENGINE, but its accessible description does not verify exact strand/point counts.
+
+### Groom Asset
+
+A Groom Asset can carry guide curves and render strands. With strand interpolation, simulated guides drive the motion of render strands. A guide-count change and a render-curve change affect different work. Profile the relevant passes at the intended LOD before selecting a reduction.
 
 ## Applicability and exceptions
 

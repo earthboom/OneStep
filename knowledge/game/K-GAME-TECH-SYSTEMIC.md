@@ -4,7 +4,7 @@ title: "Model elemental interactions as explicit state rules"
 summary: "Nintendo original slides support the element/material state-change model. Use explicit directed transition rules while treating engine implementation details as project-specific synthesis."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["systemic","chemistry","engine","elements","material","emergent","화학엔진"]
+keywords: ["systemic", "chemistry", "engine", "elements", "material", "emergent", "화학엔진", "chemistry engine", "material state transition", "interaction matrix"]
 status: active
 checked_at: '2026-11-07'
 context:
@@ -26,6 +26,8 @@ The original Nintendo/GDC slides distinguish movement simulation from state tran
 ## Applicability and exceptions
 
 The three conceptual rules are verified from original slides; data structures, scheduling and propagation algorithms below are proposed engineering synthesis. Exact Nintendo source code, update order and simulation coefficients are not public evidence here.
+
+In Nintendo's **chemistry engine** presentation, an element can change a material state or affect another element. Material contact alone has no chemical transition in that model. An **interaction matrix** is a transferable representation: list influencing effect, receiving state, preconditions and resulting state for each directed interaction. Check simultaneous exposures in more than one processing order before choosing a precedence policy. [Nintendo/GDC — original technical presentation](https://www.youtube.com/watch?v=QyMsF31NdNc&t=2423s)
 
 ## Checks
 

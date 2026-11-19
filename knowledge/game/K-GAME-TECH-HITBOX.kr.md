@@ -1,35 +1,24 @@
-# 공격·피격 판정과 히트스톱
+# 공격 판정·피격 판정·이동 충돌 분리하기
 
-기준 항목: K-GAME-TECH-HITBOX · 확인일: 2026-11-07 · 참고 지식. 실제 엔진 구현·성능·플레이테스트는 수행하지 않았다.
+**K-GAME-TECH-HITBOX** · 공격 활성 시간에 맞춰 충돌 질의를 자르고 차단 히트가 없어도 유효한 접촉을 공격·대상별로 한 번만 처리한다.
 
-## 원리와 구현 요점
+## 지침
 
-공격 영역·피격 영역·이동 충돌을 분리한다. 시뮬레이션 상태·프레임에 따라 공격을 활성화하고 공격 ID로 의도치 않은 중복 피해를 막는다. 무적·유예는 설계가 요구하는 곳에 적용한다. 히트스톱 동안 멈추는 시계와 유지되는 입력 버퍼를 정한다.
+히트박스는 공격 활성 영역, 허트박스는 피해를 받는 영역, 이동 충돌은 몸체가 이동할 수 있는 공간을 나타낸다. 공격 활성화마다 식별자와 이미 영향을 받은 대상 집합을 둔다. 선형 고속 이동에서는 직전·현재 사이에서 공격이 활성화된 시간 구간만 스윕한다. 규칙이 허용하면 시작 시 중첩도 검사한다.
 
-구현 선택과 점검은 출처를 바탕으로 한 실무적 종합이며 특정 게임의 정확한 구현을 보증하지 않는다.
+## 적용 조건과 예외
 
-## 적용 조건과 한계
+언리얼의 `UWorld::SweepMultiByChannel`은 선택한 채널에서 가장 가까운 차단물까지의 접촉을 모은다. 반환 불리언은 차단 히트 여부다. 접촉만 있어도 게임에 유효할 수 있으므로 false일 때도 `FHitResult` 배열을 확인한다. 구체의 직선 스윕은 선형 궤적을 가정한다. 회전하는 사지와 움직이는 대상에는 추가 샘플이 필요할 수 있다.
 
-충돌·관대한 판정 원리에서 도출한 실무 설계안이며 모든 게임의 공통 구현은 아니다. 작은 피격 영역은 선택 사항이고 빠른 이동에는 스윕 검사가 필요할 수 있다.
+## 확인 방법
 
-## 적용 전 점검
-
-적용 전 점검: 프레임별 영역·동시 타격·얇은 표적 고속 통과를 확인하고 히트스톱을 꺼 비교한다.
+프레임 사이에 완전히 통과하는 경우, 활성 시작·종료 경계, 피격부 앞의 벽, 소유자 접촉, 한 공격의 반복 적중을 검사한다. 접촉만 있는 경우도 독립적으로 확인한다. 히트스톱은 어떤 시계가 멈추고 입력 버퍼가 계속되는지 별도로 정한다.
 
 ## 근거
 
-- [Maddy Thorson — Celeste & Forgiveness](https://maddymakesgames.com/articles/celeste_and_forgiveness/index.html) — 출처의 확인 범위는 아래 원칙을 따른다.
-- [Maddy Thorson — Celeste & TowerFall Physics](https://www.mattmakesgames.com/articles/celeste_and_towerfall_physics/index.html) — 출처의 확인 범위는 아래 원칙을 따른다.
-- 공식 문서·논문·저자 글은 확인한 본문 범위에 한정한다. 초록·영상 설명만 확인한 경우와 미열람 자료는 영문 정본 Evidence에 명시했다. 예제 코드·영상·제품 성능은 실행 검증하지 않았다.
-- 출발 영상: V42. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
+Epic은 질의 계약과 충돌 응답을, Thorson은 해당 게임의 충돌과 보정 설계를 설명한다. 기존 언리얼 관찰은 직선 구체 궤적과 고정 수직 표적에 한정된다. 애니메이션 접촉, 히트스톱, 네트워크, 전투 체감은 별도 평가 대상이다.
 
-
-## 실제 언리얼 공격·피격·물리 충돌 분리 — 2026-11-11
-
-[V42 결과](../../prototypes/UnrealTechniqueLab/HITBOX-RESULTS.kr.md): 공격 구8cm, 허트 캡슐20/60cm, 물리 캡슐50/90cm를 분리했다. 물리는 공격 채널을 무시하고Pawn을 막으며 허트는QueryOnly/Overlap이다. 소유자·미등록 대상을 제외하고 공격ID/대상 집합으로 같은 공격의 중복 피해와 오래된 콜백을 막는다. 새 공격은 재피격을 허용한다.
-
-프레임 끝점만 검사하면 빠른 통과나 프레임 사이 짧은 활성 구간을 놓칠 수 있다. 이전/현재 위치를 활성 시간[열림,닫힘)으로 자른 선분에 구 스윕을 적용하고 시작 겹침도 검사한다. MultiByChannel의false는 겹침 없음이 아니라 블로킹 없음이므로 결과 배열을 확인한다.1마이크로초 경계는 주입한 논리 입력이며 실제 입력 장치 정밀도 보장이 아니다.
-
-정책40·29상황×실제PIE6=174·관측30/60/144FPS와 동일 패키지3쌍을 확인했다. 자기 자신 제외 대조군, 중복 컴포넌트, 새 공격, 활성 구간, 접선±.001cm, 다중 대상, 벽 앞/뒤/시작 겹침을 포함한다. 끝점 방식의 고속/짧은 구간 누락 및 벽 너머 판정은 의도한 민감도 대조군이다. 물리 캡슐 전후 불변은 실제 이동 컨트롤러 전체 안전성 검증은 아니다.
-
-벽 판정에는 정규화 접촉비율1e-7의 우선 여유가 남아 아주 가까운 선행 피격도 제외될 수 있다. 이보다 작은 벽 경계는 검증하지 않았다. 정적 수직 캡슐·직선 구 경로만 대상이며 회전 칼날·이동 대상·곡선·ID재사용·히트스톱·전체 전투는 미검증이다. 각 성능 실행은같은30피해/대상 순서이며 전체 프레임과 쿼리/정책 비용을 구분한다. 캐릭터 렌더링 없는 충돌 장면이므로 실제 게임/GPU 예산을 보장하지 않는다. 정상 속도 캡처는 성능 측정과 분리했다.
+- [Epic SweepMultiByChannel](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/Engine/UWorld/SweepMultiByChannel?application_version=5.5)
+- [collision response reference](https://dev.epicgames.com/documentation/en-us/unreal-engine/collision-response-reference-in-unreal-engine)
+- [Maddy Thorson — Celeste & Forgiveness](https://maddymakesgames.com/articles/celeste_and_forgiveness/index.html)
+- [Maddy Thorson — Celeste & TowerFall Physics](https://www.mattmakesgames.com/articles/celeste_and_towerfall_physics/index.html)

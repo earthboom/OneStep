@@ -25,3 +25,7 @@
 - 공식 문서·논문·저자 글은 확인한 본문 범위에 한정한다. 초록·영상 설명만 확인한 경우와 미열람 자료는 영문 정본 Evidence에 명시했다. 예제 코드·영상·제품 성능은 실행 검증하지 않았다.
 - 출발 영상: V11, V12, V24. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+### blockout
+
+**블록아웃(blockout, graybox)**은 세부 아트를 만들기 전에 지형 배치를 검증하는 단순한 플레이 가능 형상이다. 레벨 설계 메트릭은 캐릭터 통과 여유, 계단 높이, 점프 도달 거리 같은 반복 사용 치수를 뜻한다. 실제 컨트롤러와 카메라로 회전·착지·통로를 확인하고 전투나 탐색에 다른 난도가 필요하면 치수를 조정한다. [The Level Design Book — Metrics](https://book.leveldesignbook.com/process/blockout/metrics)

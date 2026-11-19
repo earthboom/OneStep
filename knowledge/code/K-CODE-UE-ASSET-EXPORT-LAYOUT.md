@@ -4,7 +4,7 @@ title: Where an Unreal package export's tagged properties start when reading it 
 summary: In versioned UE 5 packages at object version 1010 or later, seek to the export's script serialization start, and treat a start and end of 0 as "no tagged properties". Older or unversioned packages need per-class rules, such as the import data JSON written before the tags.
 kind: reference
 scope: Standalone readers of uncooked Unreal Engine 5 packages (.uasset, .umap) that parse export data without the engine
-keywords: [Unreal Engine, uasset, package format, export, tagged properties, ScriptSerializationStartOffset, ScriptSerializationEndOffset, SCRIPT_SERIALIZATION_OFFSET, UAssetImportData, URigVMLink, UInterchangeBaseNode, SerializeDefaultObject, class default object, CDO, sparse class data, 언리얼 에셋, 패키지 형식, 직렬화]
+keywords: [Unreal Engine, uasset, package format, export, tagged properties, ScriptSerializationStartOffset, ScriptSerializationEndOffset, SCRIPT_SERIALIZATION_OFFSET, UAssetImportData, URigVMLink, UInterchangeBaseNode, SerializeDefaultObject, class default object, CDO, sparse class data, 언리얼 에셋, 패키지 형식, 직렬화, "FObjectExport", "FObjectExport::ScriptSerializationStartOffset", "FObjectExport::ScriptSerializationEndOffset", "EUnrealEngineObjectUE5Version::SCRIPT_SERIALIZATION_OFFSET", "UAssetImportData::Serialize", "UClass::SerializeDefaultObject", "SerialOffset", "SerialSize"]
 status: active
 checked_at: "2026-11-10"
 context:
@@ -14,9 +14,9 @@ context:
 
 ## Guidance
 
-Find the start of an export's UObject part in this order.
+An `FObjectExport` describes one exported object. Locate its tagged property range in the archive before interpreting object-specific bytes.
 
-1. **Versioned package, object version 1010 or later** (`EUnrealEngineObjectUE5Version::SCRIPT_SERIALIZATION_OFFSET`): the export table entry holds `ScriptSerializationStartOffset` and `ScriptSerializationEndOffset`, relative to the export's serial offset. Seek to the start. If both are 0, the class wrote no tagged properties, because the saver records the range only when it writes tags (`Class.cpp`, `LinkerSave`). Do not read tags in that case.
+1. **Versioned package, object version 1010 or later** (`EUnrealEngineObjectUE5Version::SCRIPT_SERIALIZATION_OFFSET`): the export table entry holds `FObjectExport::ScriptSerializationStartOffset` and `FObjectExport::ScriptSerializationEndOffset`, relative to its `SerialOffset`. Seek to the start. If both are 0, the class wrote no tagged properties, because the saver records the range only when it writes tags (`Class.cpp`, `LinkerSave`). Do not read tags in that case.
 2. **Older or unversioned package:** apply class rules.
    - `UAssetImportData` and its subclasses (`Fbx*ImportData`, `InterchangeAssetImportData`, `SpeedTreeImportData`, `AbcAssetImportData`, every `Datasmith*ImportData`) write an FString of source-file JSON before `Super::Serialize`, unless the package is `FilterEditorOnly` (`UAssetImportData::Serialize` in `AssetImportData.cpp`). The class default object does not.
    - `URigVMLink` (two FStrings) and `UInterchangeBaseNode` subclasses (attribute storage) do not call `UObject::Serialize`, so they have no tags.
@@ -29,10 +29,8 @@ Checked against stock UE 5.8 source and one project's editor content with object
 ## Checks
 
 - Sweep every export of a large content folder and count the exports read exactly to their end, grouped by class. A class that fails consistently is the signal of another custom `Serialize`.
-- Check that each import data JSON string starts with `[` or `{`.
+- Check that the offsets are ordered and fit within the export's `SerialSize` before seeking. Check that each import data JSON string starts with `[` or `{`.
 
 ## Evidence
 
-Provenance: a standalone read-only .uasset viewer project, 2026-11-10. Engine source read in a UE 5.8 checkout: `AssetImportData.cpp` (`UAssetImportData::Serialize`), `RigVMLink.cpp`, `InterchangeBaseNode.cpp`, `Class.cpp` (script range recording), `BlueprintGeneratedClass.cpp` (sparse class data). A sweep of about 131,000 packages and 4.6 million exports read every export without an exception after these rules, except pre-1012 `RigHierarchy` and `RigVM` objects with their own serialization.
-
-Not verified: cooked packages, Zen/IoStore containers, engine versions other than 5.8.
+Historical UE 5.8 source reading on 2026-11-10 covered `AssetImportData.cpp`, `RigVMLink.cpp`, `InterchangeBaseNode.cpp`, `Class.cpp` and `BlueprintGeneratedClass.cpp`. A read-only sweep of uncooked editor content supported the range and class rules. Pre-1012 RigHierarchy and RigVM exports retained unsupported custom layouts. Cooked, Zen/IoStore and other engine versions were not tested. Epic documents the offset origin in the FObjectExport fields. [Epic, FObjectExport](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/CoreUObject/FObjectExport?application_version=5.8)

@@ -4,7 +4,7 @@ title: "Fake inaccessible interiors with ray-box mapping"
 summary: "Use on windows whose rooms cannot be entered. The room is a shading illusion: it does not automatically provide real collision, navigation, shadows or interactive furniture."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["interior","mapping","window","인테리어매핑","장식창문","비진입창문"]
+keywords: ["interior", "mapping", "window", "인테리어매핑", "장식창문", "비진입창문", "interior mapping", "ray-box intersection"]
 status: active
 checked_at: '2026-11-07'
 context:
@@ -18,6 +18,10 @@ context:
 Use on windows whose rooms cannot be entered. Transform the view ray into room-local coordinates, intersect an implicit room box, and sample the corresponding wall/floor/ceiling texture. Introduce room variation without authoring full interior meshes.
 
 Implementation selection and checks below are engineering synthesis, not a promise of a source game's exact implementation.
+
+### interior mapping
+
+Interior mapping uses a ray-box intersection in room-local coordinates to determine which interior surface appears behind a facade. Check grazing views and nearby cameras where parallax errors or the lack of real geometry become visible.
 
 ## Applicability and exceptions
 

@@ -4,7 +4,7 @@ title: "Distinguish affine texture transforms from perspective projection"
 summary: "Mathematical derivation: an affine 2D transform is p'=A*p+b and preserves parallelism. An affine transform alone is not perspective projection."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["affine","perspective","Mode7","scanline","아핀"]
+keywords: ["affine", "perspective", "Mode7", "scanline", "아핀", "Mode 7", "affine transformation", "fixed-point arithmetic"]
 status: active
 checked_at: '2026-11-07'
 context:
@@ -22,6 +22,10 @@ Implementation selection and checks are engineering synthesis, not a promise of 
 ### Implementation follow-up — 2026-11-07
 
 The bsnes renderer's renderMode7 loads signed matrix coefficients and centers/offsets, computes a scanline origin with fixed-point clipping/truncation, advances source coordinates by matrix increments, then resolves tile and palette samples plus out-of-range rules. This confirms a concrete raster implementation beyond the earlier README. Perspective-like ground requires the game to vary parameters across scanlines; a single affine mapping is insufficient. For faithful emulation, retain signed widths, intermediate truncation, wrap/clamp behavior and register-latch timing instead of substituting unrestricted floats.
+
+### Mode 7
+
+Mode 7 applies an affine transformation to a background. Per-scanline changes can suggest a horizon. Fixed-point arithmetic quantizes the coordinates, which matters when matching an emulator reference. Compare integer sampling at scanline boundaries before attributing a discrepancy to the projection model.
 
 ## Applicability and exceptions
 

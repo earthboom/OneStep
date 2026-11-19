@@ -4,7 +4,7 @@ title: "Separate invariant constants, tunable policy, deployment config and secr
 summary: "Classify embedded values by meaning, owner and change lifecycle before externalizing them. Use named constants for invariants, validated data/configuration for genuine variation, and appropriate secret handling for credentials."
 kind: "reference"
 scope: "Configuration and data design across applications and games; Twelve-Factor deployment advice and Unreal data workflows retain their own context"
-keywords: ["hardcoding", "magic-number", "configuration", "constant", "data-driven", "secrets", "validation", "하드코딩", "매직넘버", "설정", "상수", "데이터주도", "비밀정보"]
+keywords: ["hardcoding", "magic-number", "configuration", "constant", "data-driven", "secrets", "validation", "하드코딩", "매직넘버", "설정", "상수", "데이터주도", "비밀정보", "UDataTable", "FTableRowBase", "UCurveTable", "curve interpolation"]
 status: "active"
 checked_at: "2026-11-07"
 context: {"evidence_check": "Named original author papers or official text sections inspected; specific limits in Evidence", "application_status": "Source-based reference and proposed synthesis; no local implementation or runtime validation"}
@@ -14,7 +14,7 @@ context: {"evidence_check": "Named original author papers or official text secti
 
 ## Guidance
 
-Source observations: C++ Core Guidelines ES.45 favors meaningful symbolic constants over unexplained literals [S1]. Twelve-Factor distinguishes deploy-varying configuration from internal application structure [S2]. Epic documents externally authored tables/curves for gameplay tuning [S3]. OWASP treats secrets as an access and lifecycle concern, not merely a file-location choice [S4].
+Source observations: C++ Core Guidelines ES.45 favors meaningful symbolic constants over unexplained literals [S1]. Twelve-Factor distinguishes deploy-varying configuration from internal application structure [S2]. In Unreal, `UDataTable` stores named rows with a reflected schema derived from `FTableRowBase`. `UCurveTable` stores named numeric curves evaluated at an input value. Compare a row's units, valid range and missing-row policy with the caller; for a curve also check interpolation and the input domain [S3]. OWASP treats secrets as an access and lifecycle concern, not merely a file-location choice [S4].
 
 Proposed method: classify each value as a domain/protocol invariant, a product policy or tuning value, environment-specific configuration, a secret, or example/test data. Identify who changes it, how often, and whether changing it requires a build, content release, deployment or runtime reload. Use the simplest representation supporting that lifecycle.
 

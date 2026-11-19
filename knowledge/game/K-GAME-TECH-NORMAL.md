@@ -4,7 +4,7 @@ title: "Add lighting detail without changing surface topology"
 summary: "Use normal textures when the lighting needs finer surface detail than the mesh. Ordinary normal mapping does not change silhouette, collision or actual surface height."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["normal","map","tangent","노멀맵"]
+keywords: ["normal", "map", "tangent", "노멀맵", "tangent-space normal map", "normal map convention"]
 status: active
 checked_at: '2026-11-07'
 context:
@@ -18,6 +18,10 @@ context:
 Use normal textures when the lighting needs finer surface detail than the mesh. Decode stored vectors in the expected space, transform through a compatible tangent basis, and normalize before lighting. Keep the normal-map convention consistent across baking, import and rendering.
 
 Implementation selection and checks below are engineering synthesis, not a promise of a source game's exact implementation.
+
+### tangent-space normal map
+
+In a tangent-space normal map, the texture encodes directions relative to the mesh surface. A normal map convention includes the sign of the tangent-space Y direction. Godot expects OpenGL-style normals. Check a known raised feature under a moving light before changing mesh geometry or lighting.
 
 ## Applicability and exceptions
 

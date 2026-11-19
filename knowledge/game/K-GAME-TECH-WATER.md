@@ -4,7 +4,7 @@ title: "Use summed waves for water surfaces with explicit limits"
 summary: "Represent height as a sum of waves with amplitude, wavelength, direction and phase. Steepness must be bounded to avoid folding."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["Gerstner","sine","waves","water","물","파도"]
+keywords: ["Gerstner", "sine", "waves", "water", "물", "파도", "Gerstner waves", "horizontal displacement", "buoyancy"]
 status: active
 checked_at: '2026-11-07'
 context:
@@ -18,6 +18,10 @@ context:
 Represent height as a sum of waves with amplitude, wavelength, direction and phase. Gerstner waves also move surface points horizontally, producing sharper crests. Compute normals from the same displacement field and share a compatible surface query with buoyancy gameplay.
 
 Implementation selection and checks below are engineering synthesis, not a promise of a source game's exact implementation.
+
+### Gerstner waves
+
+Gerstner waves include horizontal displacement, so a displaced vertex's original horizontal coordinates may differ from its rendered location. For buoyancy, compare the gameplay query and visible water height at the same world-space position and simulation time, especially near steep crests.
 
 ## Applicability and exceptions
 

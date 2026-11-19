@@ -172,6 +172,21 @@ Promote only confirmed, consequential lessons when recurrence, likely reuse, or 
 
 Prefer preventing recurrence through structure, types, validation, lint, or regression checks. Retain evidence that the safeguard detects the original failure or a controlled equivalent. For judgment-dependent work, record a specific conditional review check and its rationale. Saving an entry alone does not establish prevention.
 
+### Game development terms
+
+Evaluate each relevant term independently of the game feature that exposed it. A term is relevant when its meaning is needed to explain a decision, mechanism, failure or check in the task. This applies to research, design, implementation and debugging, including work whose entire gameplay outcome stays in its original project.
+
+1. **Establish the term's origin.** Check Unreal Engine APIs, reflection specifiers and settings against Epic's documentation or the matching engine declaration. Check C++ keywords, specifiers and standard library symbols against the applicable language or library specification. For techniques such as object pooling, use an established name and a primary technical reference. An Unreal-style prefix on a game class does not establish engine ownership. If origin or meaning is uncertain, check the source and keep any unresolved question in the task findings.
+2. **Extract the public knowledge.** Preserve the exact spelling and qualification in `keywords`. In Guidance, explain what each term means for the reusable question. Give the applicable version or operating conditions where material, a useful check, and an Evidence locator for the claim. Separate documented behavior from what was tested in the game. Keep private classes, asset paths, game rules, tuning values, source code and logs in the originating project. Apply this boundary to metadata, body, examples and evidence alike.
+3. **Choose the destination.** Look up each term and the reusable question in the authorized store. Extend the matching entry when an explanation, search term or condition is missing. If a complete entry exists, reuse it. If none covers the question, create a bounded `reference` entry, even on the first encounter and even if there was no incident or runtime test. Group terms that explain one question. A passing mention alone needs no entry. In read-only work, return the same selection and proposed content.
+4. **Check the saved result.** Search by each retained canonical term and inspect the detail. The review passes when the relevant entry is findable, its body explains the term and its conditions with evidence, and it is usable without the originating project's vocabulary or data. A tag without an explanation leaves the review incomplete.
+
+| Review case | Expected decision |
+| --- | --- |
+| A game-specific actor has a mismatched `Tick` declaration. The question is how to catch that signature error. | Keep `AActor::Tick` (the engine virtual function) and `override` (the C++ specifier that requires an override). Record the signature check and its sources. Omit the game's class name and behavior. [Epic API, UE 5.5](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/GameFramework/AActor/Tick?application_version=5.5) · [C++ draft, class.virtual](https://eel.is/c++draft/class.virtual) |
+| A project uses a fixed number of objects in a pool. The question is what state a reused object must reset. | Keep `object pooling`, the reuse and reset conditions, and the check on reacquisition. Leave the asset names and chosen pool size in the game. [Game Programming Patterns, Object Pool](https://gameprogrammingpatterns.com/object-pool.html) |
+| Only a boss's reward changes. An unchanged C++ file containing `virtual` appears in the diff context. | Keep the reward decision local. The language keyword does not explain the decision or its check. |
+
 ## Retire without losing provenance
 
 During normal use, merge duplicates and correct stale applicability. To supersede an entry, set its canonical status and record the reason/replacement; rebuilding routes its row to the domain's `archive.md`, creating that catalog only when needed. Reactivation routes it back. Keep detail paths and evidence stable; do not hand-edit generated rows. Existing native systems use their own archive mechanism. Age alone does not invalidate useful knowledge.

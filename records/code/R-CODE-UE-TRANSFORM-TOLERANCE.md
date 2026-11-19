@@ -1,36 +1,31 @@
 ---
 id: R-CODE-UE-TRANSFORM-TOLERANCE
-title: Exact easing endpoint was mistaken for an exact native component update
-summary: Policy reached400cm while SetWorldLocation retained399.9999445cm because the installed engine skips sub-tolerance movement; separate strict policy-value checks from the one-axis native transform tolerance.
+title: "An exact easing endpoint can yield a tolerance-limited component position"
+summary: "A scalar easing calculation finished at its target while a scene component retained a slightly different position. Compare mathematical convergence and the published transform independently."
 kind: error
-scope: UE5.8.3 SceneComponent SetWorldLocation; collisionless one-axis scalar easing fixture
-keywords: [Unreal, SetWorldLocation, endpoint, precision, tolerance, UE_KINDA_SMALL_NUMBER, policy-value, tiny-movement, 끝점, 정밀도]
+scope: "UE 5.8.3, collisionless single-axis translation with a scene component"
+keywords: ["USceneComponent::SetWorldLocation","SetWorldLocation","USceneComponent::InternalSetWorldLocationAndRotation","TVector::Equals","UE_KINDA_SMALL_NUMBER","easing","floating-point tolerance","endpoint","정밀도"]
 status: resolved
 checked_at: '2026-11-12'
-trigger: Requiring near-bit-exact native mesh endpoints after small eased movement
-symptom: Policy value and cursor completed at400cm and2s but actual component remained399.9999445cm and failed a1e-8cm publication assertion
+trigger: "Asserting the same endpoint tolerance for the scalar curve and the observed scene transform"
+symptom: "The curve reached its endpoint while the remaining native displacement fell below the setter's comparison threshold"
 cause_status: confirmed
-prevention: Check installed setter tolerance and retain independent policy-value, time and actual-transform assertions with separately documented bounds
+prevention: "Check the engine version and compare policy value, time and published component position separately"
 prevention_status: verified
 ---
 
 ## Expected and observed
 
-The easing pilot expected SetWorldLocation to publish an arbitrarily small final displacement. Case4 failed with maximum native publication error0.000055478756cm while the scalar policy finished exactly at400cm. Repeating the final update did not establish bit-exact native placement.
+A strict comparison of the scalar curve confirmed completion, yet the world-space position read back from the component still differed from the target. Repeating the identical setter call did not guarantee a bit-exact endpoint.
 
 ## Cause and resolution
 
-Installed UE5.8.3 SceneComponent.cpp InternalSetWorldLocationAndRotation compares NewLocation.Equals(GetRelativeLocation()); Vector.h supplies UE_KINDA_SMALL_NUMBER as the default vector tolerance. A sub-tolerance update can be skipped. The original1e-8cm native assertion was incompatible with this chosen public API;the engine was not modified.
-
-The fixture now records scalar policy value separately and checks it against an independent curve within1e-7cm. Actual native x uses1e-4cm for this one-axis fixture. Time/cursor checks retain their separate bounds. No temporary offset, direct setter bypass or renderer change was used. This bound does not transfer unchanged to arbitrary parent scales, multiple moving axes, collision resolution or other engine versions.
+`USceneComponent::SetWorldLocation` requests world-space translation. In the historically inspected UE 5.8.3 path, `USceneComponent::InternalSetWorldLocationAndRotation` compared relative location using `TVector::Equals`, a per-component tolerance comparison. The default vector tolerance there was `UE_KINDA_SMALL_NUMBER`. A sufficiently small change could therefore leave the stored transform alone even after the scalar reached its target.
 
 ## Recheck and prevention
 
-The original failing pilot remains in the local evidence. The corrected pilot and all final96method-case observations passed the declared distinct checks. test_policy_endpoint_value_wrong rejects a1e-5cm scalar endpoint error even though it fits the looser native tolerance;test_native_publication_wrong rejects a changed actual component position. Final30easing evidence tests passed. This demonstrates the specific separation, not globally enforced engine precision.
+Historical negative controls rejected a wrong scalar value inside the native tolerance and independently rejected an incorrect published position. Retain a strict curve check, a time check and a native position check with a bound justified for the selected axes and parent transform. Reassess swept movement, scaled parents and other engine versions separately.
 
 ## Evidence
 
-- [Committed measured summary and source fingerprints](evidence/unreal-validation-2026-11-12.json), Easing precision finding and sensitivity checks.
-- [Reusable easing conditions](../../knowledge/game/K-GAME-TECH-EASING.md).
-- Historical installed source symbols: `USceneComponent::InternalSetWorldLocationAndRotation`, `TVector::Equals`; observed version5.8.3. No engine source or physical installation binding is published.
-- Original local locator `Results/Easing/pilot-v2-60/native.json`; corrected `pilot-v3-60` and final runs. Source implementation, runtime artifacts and media remain excluded.
+The API references identify the public types. The setter's internal comparison and the two rejected substitutions are historical UE 5.8.3 observations. The source experiment was not rerun in this review. [Epic, USceneComponent](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/Components/USceneComponent?application_version=5.5) · [Epic, TVector](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Core/TVector) · [Easing evidence history](../../knowledge/sources.md#src-ue-lab-easing-results-md)

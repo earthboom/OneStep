@@ -4,7 +4,7 @@ title: "Design pixel clusters and palette storage deliberately"
 summary: "For readable low-resolution sprites, tune clusters, edge rhythm, palette and selective anti-aliasing at the actual display scale. Art conventions are stylistic choices, not universal bans."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["pixel","art","dithering","palette","indexed","colour","픽셀"]
+keywords: ["pixel", "art", "dithering", "palette", "indexed", "colour", "픽셀", "PLTE", "indexed-colour PNG"]
 status: active
 checked_at: '2026-11-07'
 context:
@@ -19,6 +19,10 @@ For readable low-resolution sprites, tune clusters, edge rhythm, palette and sel
 
 Implementation selection and checks below are engineering synthesis, not a promise of a source game's exact implementation.
 
+### PLTE
+
+An indexed-colour PNG stores palette indices in its image data. The required `PLTE` chunk holds the corresponding RGB entries. Inspect the importer’s chosen texture format to determine GPU memory use, since a small palette in the file does not require indexed GPU storage.
+
 ## Applicability and exceptions
 
 Art conventions are stylistic choices, not universal bans. File size, decoded CPU memory and GPU texture format are different budgets. This reference does not certify a particular SNES sprite's storage layout.
@@ -28,6 +32,8 @@ Art conventions are stylistic choices, not universal bans. File size, decoded CP
 Proposed: preview integer and noninteger scaling, filtering and palette swaps; inspect runtime texture memory rather than PNG size.
 
 ## Evidence
+
+- [W3C, PNG Specification (PLTE)](https://www.w3.org/TR/png-3/#11PLTE) — terminology and applicability of PLTE, indexed-colour PNG. This is source evidence. The suggested target checks remain to be run.
 
 - [Derek Yu — Pixel Art Tutorial: Basics](https://www.derekyu.com/makegames/pixelart.html) — Creator tutorial; outlines, anti-aliasing and shading. Checked 2026-11-07, except items explicitly marked further reading.
 - [W3C — PNG Specification, Third Edition](https://www.w3.org/TR/png/) — 2025 recommendation; indexed colour and PLTE; storage format, not GPU residency. Checked 2026-11-07, except items explicitly marked further reading.

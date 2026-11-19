@@ -22,3 +22,11 @@
 - [Tiago Sousa — Vegetation Procedural Animation and Shading in Crysis](https://developer.nvidia.com/gpugems/gpugems3/part-iii-rendering/chapter-16-vegetation-procedural-animation-and-shading-crysis) — 확인 범위는 영문 정본의 Evidence에 기록. 추가 읽기로 표시된 자료는 본문 전체를 확인하지 않았다.
 - 출발 영상: V19. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+## Static Mesh Foliage의 적용과 확인
+
+언리얼 Static Mesh Foliage는 하드웨어 인스턴싱으로 반복 메시를 묶어 제출한다. 오버드로는 겹친 잎 카드가 같은 화면 영역을 여러 번 셰이딩할 때 드는 별도 비용이다. 인스턴스 수를 고정하고 카드의 화면 점유율을 바꿔 GPU 시간과 드로 제출 수를 따로 본다.
+
+검색어 · Static Mesh Foliage, hardware instancing, overdraw
+
+[Epic, Foliage Mode](https://dev.epicgames.com/documentation/unreal-engine/foliage-mode-in-unreal-engine?lang=en-US)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.

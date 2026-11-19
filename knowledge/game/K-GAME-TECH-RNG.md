@@ -4,9 +4,9 @@ title: "Separate reproducible randomness from security-sensitive randomness"
 summary: "A deterministic PRNG advances internal state into a reproducible sequence. Predictability is implementation-dependent; not every modern game prevents RNG manipulation."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["PRNG","PCG","seed","stream","deterministic","난수"]
+keywords: ["PRNG", "PCG", "seed", "stream", "deterministic", "난수", "linear congruential generator", "LCG", "Permuted Congruential Generator", "independent streams"]
 status: active
-checked_at: '2026-11-07'
+checked_at: '2026-11-19'
 context:
   evidence_check: "External source text checked; source-specific limits appear in Evidence"
   application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
@@ -26,6 +26,8 @@ In pret's Emerald reconstruction, Random advances a 32-bit state by multiplicati
 ## Applicability and exceptions
 
 Predictability is implementation-dependent; not every modern game prevents RNG manipulation. General-purpose PCG is not a substitute for a cryptographically secure generator where secrecy matters.
+
+A **linear congruential generator** (LCG) updates state by a multiply, add and reduction modulo the state range. The PCG family (Permuted Congruential Generator) applies an output transformation to a congruential state generator. For repeatable game simulation compare complete draw sequences under the same algorithm and stream parameters. If visual effects use their own streams, adding a cosmetic draw should leave gameplay draws unchanged. [O'Neill — The PCG Paper](https://www.pcg-random.org/paper.html)
 
 ## Checks
 

@@ -30,3 +30,7 @@
 추가 조사 출처의 영문 주석은 정확한 절·함수·접근 범위를 보존한다. 원본 슬라이드·문서·공개 코드의 확인과 실제 엔진·하드웨어 실행은 구분한다. 영상 설명·세션 개요만 확인한 자료를 전체 발표 확인으로 간주하지 않는다.
 
 출발 영상: V05, V17, V34. [영상별 대응표](K-GAME-TECH-GUIDE.kr.md).
+
+### Regain System
+
+Bloodborne의 **Regain System**은 방금 잃은 체력 일부를 제한 시간 동안 적절한 반격으로 되찾게 한다. 이 위험·보상 구조를 적용할 때는 회복 가능한 양이 플레이어에게 보이는지, 반복 적중으로 실제 손실보다 더 많이 회복되는지 검사한다. 만료 시간과 회복 상한은 게임마다 정한다. [Masaaki Yamagiwa — Bloodborne combat details](https://blog.playstation.com/2014/08/13/bloodborne-on-ps4-new-combat-details/)

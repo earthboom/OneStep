@@ -31,3 +31,11 @@
 추가 조사 출처의 영문 주석은 정확한 절·함수·접근 범위를 보존한다. 원본 슬라이드·문서·공개 코드의 확인과 실제 엔진·하드웨어 실행은 구분한다. 영상 설명·세션 개요만 확인한 자료를 전체 발표 확인으로 간주하지 않는다.
 
 출발 영상: V10, V27. [영상별 대응표](K-GAME-TECH-GUIDE.kr.md).
+
+## Volumetric Fog의 적용과 확인
+
+언리얼 Volumetric Fog는 시간 재투영으로 여러 프레임의 안개 샘플을 재사용한다. 빠르게 움직이거나 켜지는 광원은 잔상을 남길 수 있다. 정지·이동 광원을 비교하고 광원의 `Volumetric Scattering Intensity`를 바꿔 안개 기여도와 불투명 표면 조명을 구분한다.
+
+검색어 · Volumetric Fog, temporal reprojection, Volumetric Scattering Intensity
+
+[Epic, Volumetric Fog](https://dev.epicgames.com/documentation/en-us/unreal-engine/volumetric-fog-in-unreal-engine)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.

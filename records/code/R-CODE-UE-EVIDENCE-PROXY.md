@@ -1,37 +1,31 @@
 ---
 id: R-CODE-UE-EVIDENCE-PROXY
-title: Independent native-result checks accepted self-consistent wrong evidence
-summary: Easing checks accepted a halved wall-time span and fabricated equal event values; independent clock and event-time expectations rejected them after three failing sensitivity tests.
+title: "Self-consistent event values can hide an incorrect transition"
+summary: "A transition validator accepted compressed wall time and mutually consistent fabricated event values. Bind elapsed time and the values on both sides of an event to independent expectations."
 kind: error
-scope: OneStep Unreal technique experiments; UE5.8.3 Win64/DX11; bounded result validation
-keywords: [Unreal, evidence, transition, wall-age, elapsedSeconds, fabricated-event, mutation-test, per-flight, endpoint, 검증누락, 실제시간]
+scope: "Native real-time or fixed-step transition validation, historically UE 5.8.3 on Win64"
+keywords: ["test oracle","monotonic clock","std::chrono::steady_clock","simulation time","negative control","easing","transition","wall age","event continuity","검증"]
 status: resolved
 checked_at: '2026-11-12'
-trigger: Validating native transition or rendering results from reported state, counters and passed flags
-symptom: Halving wall-time spans, setting elapsedSeconds to zero or replacing both event values with 999999 still passed the original easing validator
+trigger: "Accepting transition output from its own reported time, counters or neighboring event samples"
+symptom: "Shortening wall time, zeroing elapsed duration or substituting equal but incorrect before/after values left the original check green"
 cause_status: confirmed
-prevention: Derive state and event values independently from authored times and bind runtime age to wall time; demonstrate rejection of missing and substituted evidence
+prevention: "Compute expected event values independently and check elapsed time against the clock governing the contract"
 prevention_status: verified
 ---
 
 ## Expected and observed
 
-The native easing fixture had eight scenarios and four curves. Correct-looking states alone did not establish real transition duration or event continuity. A fresh read-only review reproduced three accepted substitutions: each case's wall-time span halved, total elapsedSeconds set to zero, and before/after event values both changed to 999999. Equality and ordering checks still passed.
+The samples agreed with each other even when the transition ran at the wrong speed or both sides of an event were changed to the same wrong value.
 
 ## Cause and resolution
 
-The checker compared cursor/value with reported age without connecting age to the actual monotonic clock. It compared event values only with each other. Native policy semantics were not found defective. The repaired checker independently derives each event value from the original case schedule and curve; both before and after must match it. Real-time ages match monotonic wall time within an explicit 5ms Tick-entry-to-log uncertainty. A clamped terminal sample allows one recorded frame interval. Total duration is separately bounded. Fixed30 simulation capture is validated against its own clock, not real recording time.
-
-The same verification class appeared in earlier experiments: missing per-method frame data and a global jump peak concealed a per-flight failure; billboard overlap/alpha/shadow checks accepted absent or wrong pixels. These are related prevention examples, not proof that one generic validator covers every technology.
+A test oracle supplies the expected outcome independently of the output it evaluates. Derive event values from the schedule and curve. For a real-time contract, compare the elapsed interval with a monotonic clock and account for sampling uncertainty. For a fixed-step simulation, compare with simulation time. In portable C++, `std::chrono::steady_clock` supplies monotonic intervals. It is an implementation option, not an assertion about the historical timer.
 
 ## Recheck and prevention
 
-The three easing sensitivity tests failed before the repair and passed afterward: test_twice_speed_wall_clock, test_elapsed_duration_zero and test_event_both_values_fabricated. The final easing suite passed30tests. The earlier timestep suite passed19tests after two reproduced gaps; billboard passed26feature checks and4review checks after three reproduced gaps. Preserve independent expectations and negative controls when modifying these bounded checks.
-
-This is historical local verification, not global CI enforcement or protection against rewriting every evidence file. Passing evidence integrity does not imply a requested FPS was reached: easing observed23.21/45.66/110.32frame-updateFPS under30/60/144caps;the missed rendering bands remain unverified. Scope excludes production physics, arbitrary animation blending and universal clock guarantees.
+The historical negative controls shortened the observed interval, discarded duration and fabricated both event values. Each change exposed the original blind spot and was rejected after repair. Keep those failure classes separate. Measurement correctness alone does not establish a frame-rate budget or perceptual quality.
 
 ## Evidence
 
-- [Committed measured summaries and source fingerprints](evidence/unreal-validation-2026-11-12.json): Easing, Timestep and Billboard; includes review failure/success counts and historical input digests, not implementation code.
-- [Easing conditions](../../knowledge/game/K-GAME-TECH-EASING.md), [timestep conditions](../../knowledge/game/K-GAME-TECH-TIMESTEP.md), [billboard conditions](../../knowledge/game/K-GAME-TECH-BILLBOARD.md).
-- Original local evidence locators: `Results/Easing/review-red.txt`, `review-green.txt`, `feature-tests.txt`; `Results/Timestep/review-red.txt`; `Results/Billboard/review-red-all.txt`. These refer to the excluded local Unreal lab and are not published artifact links.
+Transition-validator behavior was historically checked under UE 5.8.3. The clock reference establishes the C++ contract only. [C++ working draft, time.clock.steady](https://eel.is/c++draft/time.clock.steady) · [Historical transition evidence](../../knowledge/sources.md#src-ue-lab-easing-results-md) · [Fixed-step checks](../../knowledge/game/K-GAME-TECH-TIMESTEP.md)

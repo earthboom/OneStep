@@ -21,3 +21,11 @@
 - [Epic — Geometry Collections User Guide](https://dev.epicgames.com/documentation/en-us/unreal-engine/geometry-collections-user-guide) — 확인 범위는 영문 정본의 Evidence에 기록. 추가 읽기로 표시된 자료는 본문 전체를 확인하지 않았다.
 - 출발 영상: V14. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+## Geometry Collection의 적용과 확인
+
+Chaos Destruction의 Geometry Collection은 파편과 그 계층을 표현한다. 클러스터링은 여러 파편을 묶어 파괴되기 전까지 함께 움직이게 한다. 파괴가 이동 가능 경로를 바꾸는 게임에서는 분리 시점과 분리 후 충돌을 모두 검사한다.
+
+검색어 · Geometry Collection, Chaos Destruction, clustering
+
+[Epic, Destruction Overview](https://dev.epicgames.com/documentation/unreal-engine/destruction-overview)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.

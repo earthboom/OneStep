@@ -4,9 +4,9 @@ title: "Use lockstep only with an exact determinism contract"
 summary: "Exchange tick-indexed inputs instead of every object's state. Sharing a random seed alone does not guarantee determinism; floating-point and threading differences can diverge."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["deterministic","lockstep","RTS","hash","결정론"]
+keywords: ["deterministic", "lockstep", "RTS", "hash", "결정론", "deterministic lockstep", "playout delay buffer", "state hash"]
 status: active
-checked_at: '2026-11-07'
+checked_at: '2026-11-19'
 context:
   evidence_check: "External source text checked; source-specific limits appear in Evidence"
   application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
@@ -22,6 +22,8 @@ Implementation selection and checks are engineering synthesis, not a promise of 
 ## Applicability and exceptions
 
 Sharing a random seed alone does not guarantee determinism; floating-point and threading differences can diverge. Shared simulation can expose information clients should not know.
+
+In **deterministic lockstep**, peers advance tick n only when the required inputs for n are available. A **playout delay buffer** holds inputs briefly to absorb jitter. It costs latency and cannot fill an indefinitely missing tick. Compare hashes of equivalent simulation state after each tick and locate the first divergence, checking seed, update order and arithmetic on each supported build. [Glenn Fiedler — Deterministic Lockstep](https://gafferongames.com/post/deterministic_lockstep/)
 
 ## Checks
 

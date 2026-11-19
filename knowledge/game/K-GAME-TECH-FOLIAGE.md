@@ -4,7 +4,7 @@ title: "Budget dense vegetation across geometry and pixel cost"
 summary: "Use crossed alpha-tested cards or meshes according to silhouette importance. Instancing reduces submission overhead, not all shading work."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["foliage","grass","LOD","culling","instancing","잔디","인스턴싱","컬링","오버드로","최적화"]
+keywords: ["foliage", "grass", "LOD", "culling", "instancing", "잔디", "인스턴싱", "컬링", "오버드로", "최적화", "Static Mesh Foliage", "hardware instancing", "overdraw"]
 status: active
 checked_at: '2026-11-07'
 context:
@@ -19,6 +19,10 @@ Use crossed alpha-tested cards or meshes according to silhouette importance. Cul
 
 Implementation selection and checks below are engineering synthesis, not a promise of a source game's exact implementation.
 
+### Static Mesh Foliage
+
+Unreal's Static Mesh Foliage uses hardware instancing to submit repeated meshes in batches. Overdraw is a different cost: overlapping foliage cards can shade the same screen region repeatedly. Vary card coverage at fixed instance count and inspect GPU time separately from draw submissions.
+
 ## Applicability and exceptions
 
 Instancing reduces submission overhead, not all shading work. Cards can cost more pixels than denser opaque geometry. These historical sources do not certify Nanite foliage behavior.
@@ -28,6 +32,8 @@ Instancing reduces submission overhead, not all shading work. Cards can cost mor
 Proposed: capture dense low-angle and overhead views; disable wind, shadows and alpha layers separately to identify the limiting pass.
 
 ## Evidence
+
+- [Epic, Foliage Mode](https://dev.epicgames.com/documentation/unreal-engine/foliage-mode-in-unreal-engine?lang=en-US) — terminology and applicability of Static Mesh Foliage, hardware instancing, overdraw. This is source evidence. The suggested target checks remain to be run.
 
 - [Kurt Pelzer — Rendering Countless Blades of Waving Grass](https://developer.nvidia.com/gpugems/gpugems/part-i-natural-effects/chapter-7-rendering-countless-blades-waving-grass) — GPU Gems ch.7; crossed quads and animation. Checked 2026-11-07, except items explicitly marked further reading.
 - [Tiago Sousa — Vegetation Procedural Animation and Shading in Crysis](https://developer.nvidia.com/gpugems/gpugems3/part-iii-rendering/chapter-16-vegetation-procedural-animation-and-shading-crysis) — GPU Gems 3 ch.16; wind animation. Checked 2026-11-07, except items explicitly marked further reading.

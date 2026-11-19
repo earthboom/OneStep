@@ -110,7 +110,8 @@ def headings(body):
 
 
 class Catalogs:
-    def __init__(self, project, command, strict=False):
+    def __init__(self, project, command, strict=False, *, require_translations=True):
+        self.require_translations = require_translations
         self.project = project.resolve()
         self.command = command
         self.strict = strict
@@ -152,7 +153,7 @@ class Catalogs:
             return None
 
     def translation(self, path):
-        if not path.with_name(path.stem + ".kr.md").is_file():
+        if self.require_translations and not path.with_name(path.stem + ".kr.md").is_file():
             self.issue("missing_translation", path, "Generate the human translation from English; do not open it.",
                        "warning" if self.command == "build" else "error")
 

@@ -116,6 +116,122 @@ sources:
     project: null
     path: null
     sha256: null
+  SRC-UE-LAB-ADMISSION-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-ASYNC-SAVE-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-BILLBOARD-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-DUNGEON-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-DYNAMIC-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-EASING-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-EDITOR-GATE-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-FOOTIK-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-HITBOX-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-HITCH-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-JUMP-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-LOCKON-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-PLANNER-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-SNAPSHOT-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-STAGE2-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-STREAM-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-TIMESTEP-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-TRAFFIC-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-LAB-VISION-RESULTS-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-CROWD-CONTRACT-CHECK:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-AUTOMATION-PIE-RUNNER:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-AUTOMATION-EDITOR-TEST:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-AUTOMATION-REPORT-CHECK:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-AUTOMATION-ENGINE-SOURCES:
+    project: null
+    path: null
+    sha256: null
+  SRC-UE-AUTOMATION-PIE-REGRESSION:
+    project: null
+    path: null
+    sha256: null
+  SRC-SUNO-RESTRICTED-README-MD:
+    project: null
+    path: null
+    sha256: null
+  SRC-SUNO-RESTRICTED-GUARD-TEST-MJS:
+    project: null
+    path: null
+    sha256: null
+  SRC-SUNO-RESTRICTED-VERIFICATION-TESTS-TXT:
+    project: null
+    path: null
+    sha256: null
+  SRC-SUNO-RESTRICTED-VERIFICATION-JSON:
+    project: null
+    path: null
+    sha256: null
 ---
 
 # Registered source history
@@ -237,3 +353,125 @@ Novel_0 project instructions, author style, or canon; apply only within the owni
 ## SRC-NOVEL0-N2-POSSESSED-CHARACTER
 
 Novel_0 project instructions, author style, or canon; apply only within the owning work and current authorization. The exact content fingerprint is unrecorded.
+
+## Excluded local artifacts
+
+These IDs refer to historical evidence outside the published store. Game evidence retains its source identity and verification limits. Detailed runs, internal file locations and reproduction data belong in the source project.
+
+Use a normal relative Markdown link for a file that must ship in this repository. Use a link to a registered source heading for intentionally excluded evidence, retaining passage locators and limits in the citing entry. Missing required files, unknown source IDs and missing source headings remain validation errors. A directory name such as `prototypes/` is never a missing-file exemption.
+
+## SRC-UE-LAB-ADMISSION-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-ASYNC-SAVE-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-BILLBOARD-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-DUNGEON-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-DYNAMIC-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-EASING-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-EDITOR-GATE-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-FOOTIK-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-HITBOX-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-HITCH-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-JUMP-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-LOCKON-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-PLANNER-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-SNAPSHOT-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-STAGE2-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-STREAM-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-TIMESTEP-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-TRAFFIC-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-LAB-VISION-RESULTS-MD
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-CROWD-CONTRACT-CHECK
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-AUTOMATION-PIE-RUNNER
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-AUTOMATION-EDITOR-TEST
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-AUTOMATION-REPORT-CHECK
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-AUTOMATION-ENGINE-SOURCES
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-UE-AUTOMATION-PIE-REGRESSION
+
+Historical Unreal verification evidence. The original is unbound and its contents were not rechecked during this review.
+
+## SRC-SUNO-RESTRICTED-README-MD
+
+Historical locator: `prototypes/SunoRestricted/README.md`. This artifact is excluded from the published repository; its exact historical content is not independently verified here.
+
+## SRC-SUNO-RESTRICTED-GUARD-TEST-MJS
+
+Historical locator: `prototypes/SunoRestricted/guard.test.mjs`. This artifact is excluded from the published repository; its exact historical content is not independently verified here.
+
+## SRC-SUNO-RESTRICTED-VERIFICATION-TESTS-TXT
+
+Historical locator: `prototypes/SunoRestricted/verification-tests.txt`. This artifact is excluded from the published repository; its exact historical content is not independently verified here.
+
+## SRC-SUNO-RESTRICTED-VERIFICATION-JSON
+
+Historical locator: `prototypes/SunoRestricted/verification.json`. This artifact is excluded from the published repository; its exact historical content is not independently verified here.

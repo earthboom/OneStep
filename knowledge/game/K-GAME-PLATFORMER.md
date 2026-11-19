@@ -4,9 +4,9 @@ title: Establish platformer movement contracts before composing challenges
 summary: Make collision, moving-platform interactions, and state communication predictable before combining movement challenges. Treat authored stage progression as a separate design layer.
 kind: reference
 scope: Platformer movement and level prototyping; tile-based 2D examples with limited 3D transfer
-keywords: [platformer, movement, collision, moving platform, level design, animation, prototype, 플랫포머, 이동, 충돌, 발판, 레벨 설계, 기획, 프로토타입]
+keywords: [platformer, movement, collision, moving platform, axis-aligned bounding box, AABB, level design, animation, prototype, 플랫포머, 이동, 충돌, 축 정렬 경계 상자, 발판, 레벨 설계, 기획, 프로토타입]
 status: active
-checked_at: '2026-11-07'
+checked_at: '2026-11-19'
 context:
   evidence_check: Author physics article and Nintendo interview read; Celeste GDC abstract only
   application_status: Proposed movement and level checks; no controller or level tested
@@ -18,6 +18,8 @@ context:
 **Source claims.** Maddy Thorson's physics article distinguishes actors, solids, carrying, pushing, and context-dependent crushing behavior; pushing has priority over carrying. Nintendo's Wonder developers describe animation as state communication and explain balancing facial expressiveness with readable travel direction. The Celeste GDC abstract identifies stage creation, area arrangement, and story integration as its topics; it does not substantiate particular teaching sequences.
 
 **Transferable synthesis.** Define the movement contract before content production: what counts as grounded, what moving surfaces carry, what pushes, and what happens when space runs out. Write player intent → input → movement → contact → feedback → retry as the local loop. A geometry change can alter contact timing, camera visibility, hazard readability, and checkpoint cost together.
+
+An **axis-aligned bounding box (AABB)** represents a 2D collider by a rectangle whose sides stay parallel to the world axes. Thorson's implementation uses integer collider coordinates, accumulates fractional motion and tests each whole-pixel step along one axis. In that model, check a moving platform that both supports and pushes the same rider. The push clears the overlap and the rider receives only that displacement on the axis. Test angled or rotating surfaces separately when the target movement model includes them.
 
 Prototype representative interactions rather than only a pleasant jump on flat ground. Include side contacts, reversals, ceilings, moving surfaces, and competing contacts. Once these outcomes are predictable, compose rooms around one readable decision, then add combinations that test the same movement vocabulary. This room progression is a proposed synthesis, not a claim about the unviewed Celeste presentation.
 
@@ -33,6 +35,6 @@ Most directly applicable to precise 2D movement. The cited integer/AABB implemen
 
 ## Evidence
 
-- [Thorson, Celeste & TowerFall Physics](https://www.mattmakesgames.com/articles/celeste_and_towerfall_physics/index.html), “Moving Solids Prep” and “The Heavy Lifting”; author text opened 2026-11-07. Code explained, not executed.
+- [Thorson, Celeste & TowerFall Physics](https://www.mattmakesgames.com/articles/celeste_and_towerfall_physics/index.html), opening constraints, “Actor Basics,” “Moving Solids Prep” and “The Heavy Lifting.” Author text first checked 2026-11-07. Collider assumptions, axis stepping and push/carry priority rechecked 2026-11-19. No code executed.
 - [Nintendo, Wonder Chapter 2](https://www.nintendo.com/au/news-and-articles/ask-the-developer-vol-11-super-mario-bros-wonder-chapter-2/), state-animation and travel-direction discussion; official interview text opened 2026-11-07. Embedded footage not analyzed.
 - [GDC, Designing Celeste](https://gdcvault.com/play/1024307/Level-Design-Workshop-Designing-Celeste), “Overview”; opened 2026-11-07. Abstract only; full talk not viewed.

@@ -4,9 +4,9 @@ title: "Evaluate rewards by the behavior they make worthwhile"
 summary: "Proposed design synthesis: define the intended repeated choice, its time/resource cost, failure consequence and alternative. Rewards do not prove fun; optional work can still be dominant or effectively mandatory."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["risk","reward","grind","automation","aggression","incentives","보상"]
+keywords: ["risk", "reward", "grind", "automation", "aggression", "incentives", "보상", "Regain System", "recoverable health", "push-forward combat"]
 status: active
-checked_at: '2026-11-07'
+checked_at: '2026-11-19'
 context:
   evidence_check: "External source text checked; source-specific limits appear in Evidence"
   application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
@@ -26,6 +26,8 @@ Bloodborne producer Masaaki Yamagiwa explicitly describes a short post-hit windo
 ## Applicability and exceptions
 
 Bloodborne's short recovery window is supported by a producer account; exact damage percentages/timing and DOOM drop algorithms remain separate questions. Rewards are not proof of enjoyment or a reason to ban cautious play.
+
+Bloodborne's **Regain System** makes a portion of newly lost health recoverable for a limited time through eligible counterattacks. When adapting this as a risk/reward mechanic, check whether players can read the recoverable portion and whether repeated hits can restore more than the recorded loss. Retain the expiry and recovery cap as game-specific choices. [Masaaki Yamagiwa — Bloodborne combat details](https://blog.playstation.com/2014/08/13/bloodborne-on-ps4-new-combat-details/)
 
 ## Checks
 

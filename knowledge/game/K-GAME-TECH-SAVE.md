@@ -4,9 +4,9 @@ title: "Design versioned durable saves and compact password states"
 summary: "Serialize persistent state, stable object identifiers and schema version rather than raw runtime pointers. A checksum detects some corruption; it is not tamper-proof authentication."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["save","serialization","checksum","password","bitflags","저장","세이브","백업","저장손상"]
+keywords: ["save", "serialization", "checksum", "password", "bitflags", "저장", "세이브", "백업", "저장손상", "USaveGame", "UGameplayStatics::AsyncSaveGameToSlot", "save generation"]
 status: active
-checked_at: '2026-11-07'
+checked_at: '2026-11-19'
 context:
   evidence_check: "External source text checked; source-specific limits appear in Evidence"
   application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
@@ -26,6 +26,8 @@ Emerald's public reconstruction writes sector groups using a save counter to sel
 ## Applicability and exceptions
 
 A checksum detects some corruption; it is not tamper-proof authentication. Eight bits store eight independent yes/no flags, not hundreds of millions of independent events. Two slots alone do not prove atomic filesystem behavior.
+
+For Unreal saves, `USaveGame` represents game-defined persistent data. `UGameplayStatics::AsyncSaveGameToSlot` serializes the object on the game thread, writes the platform data on a worker thread and reports success or failure via a completion delegate on the game thread. A scheduled operation still needs a completion check. Inject a failed write and verify the previous valid generation remains readable on the target platform. [Epic — UGameplayStatics::AsyncSaveGameToSlot](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UGameplayStatics/AsyncSaveGameToSlot?application_version=5.8)
 
 ## Checks
 

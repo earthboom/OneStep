@@ -1,35 +1,23 @@
-# 불변 상수·조정 정책·배포 설정·비밀정보 구분
+# 불변 상수, 조정 가능한 정책, 배포 설정과 비밀 구분하기
 
-사람 전용 번역. AI는 영문 K-CODE-CONFIGURATION-POLICY.md를 사용한다.
+항목 `K-CODE-CONFIGURATION-POLICY` · 상태 활성 · 확인일 2026-11-07
 
-ID: K-CODE-CONFIGURATION-POLICY. 유형: 참고 자료. 상태: 사용 가능. 근거 확인일: 2026-11-07.
+검색어 hardcoding, magic-number, configuration, constant, data-driven, secrets, validation, 하드코딩, 매직넘버, 설정, 상수, 데이터주도, 비밀정보, UDataTable, FTableRowBase, UCurveTable, curve interpolation
 
-요약: 값을 외부로 옮기기 전에 의미·관리 주체·변경 주기를 분류한다. 불변에는 이름 있는 상수, 실제 변화에는 검증한 데이터·설정, 자격증명에는 적절한 비밀정보 관리를 사용한다.
+## 지침
 
-범위: 애플리케이션·게임의 설정·데이터 설계. Twelve-Factor 배포 지침과 Unreal 데이터 작업은 각 맥락을 유지한다.
+의미를 알 수 없는 리터럴에는 의도를 나타내는 상수를 고려한다(C++ ES.45). 배포에 따라 변하는 환경 설정과 애플리케이션 구조를 가른다. UE의 UDataTable은 FTableRowBase에서 파생된 반영 스키마에 맞는 이름 있는 행을 보관한다. UCurveTable은 입력값으로 평가하는 이름 있는 수치 곡선을 보관한다. 행의 단위·범위·누락 정책을, 곡선에서는 보간과 입력 범위를 확인한다. 비밀은 위치뿐 아니라 접근과 교체 수명주기를 관리한다.
 
-검색어: hardcoding, magic-number, configuration, constant, data-driven, secrets, validation, 하드코딩, 매직넘버, 설정, 상수, 데이터주도, 비밀정보
+값이 규격의 불변식인지, 튜닝 정책인지, 환경 설정·비밀 또는 예제 데이터인지 분류한다. 변경자·빈도와 빌드, 콘텐츠 릴리스, 배포, 런타임 재로드의 필요성을 보고 표현을 고른다. 타입·단위·범위·기본값·우선순위·호환성을 검증하고 비밀을 제외한 유효값은 확인 가능하게 한다. 재로드의 일관성과 실패 동작도 설계한다.
 
-## 활용 지침
+## 적용 범위와 예외
 
-출처 관찰: C++ 지침 ES.45는 의미가 불명확한 리터럴 대신 이름 있는 상수를 권한다 [S1]. Twelve-Factor는 배포별 설정과 내부 애플리케이션 구조를 구별한다 [S2]. Epic은 게임 조정을 위한 외부 작성 테이블·커브를 설명한다 [S3]. OWASP는 비밀정보를 파일 위치뿐 아니라 접근·수명주기 문제로 다룬다 [S4].
+명백한 값과 테스트 벡터는 코드에서 더 명료할 수 있다. 모든 수치의 외부화에는 스키마·배포 비용이 따른다. 환경 변수는 만능 게임 콘텐츠 포맷이나 충분한 비밀 보호가 아니다. 표는 데이터를 바꾸므로 동작 변경의 권한과 검증을 분명히 한다.
 
-응용 방법: 값을 도메인·프로토콜 불변, 제품 정책·조정값, 환경별 설정, 비밀정보, 예제·시험 데이터로 분류한다. 누가 얼마나 자주 바꾸며 빌드·콘텐츠 배포·배포 환경 변경·실시간 다시 읽기 중 무엇이 필요한지 정한다. 그 주기를 지원하는 가장 단순한 표현을 선택한다.
+## 점검
 
-설정에는 형·단위·유효 범위·필수 여부·기본값·우선순위·호환성을 정의한다. 입력 경계에서 검증하고 적용된 비밀 아닌 값을 확인할 수 있게 한다. 다시 읽기는 일관성·실패 동작이 있는 상태 전이로 다루며 변경 가능한 전역 설정 읽기를 업무 로직 전체에 흩뿌리지 않는다.
-
-## 적용 조건과 예외
-
-리터럴 자체가 결함은 아니다. 명확한 작은 값·규격 상수·시험 벡터는 코드에 있는 편이 명료할 수 있다. 모든 숫자를 외부화하면 스키마·전달·호환 비용이 늘어난다. 환경변수가 보편 게임 콘텐츠 형식이나 충분한 비밀 보호는 아니다. 테이블의 값 변경과 실행 정책 변경을 구별하고 기준과 검증을 명시한다.
-
-## 확인 항목
-
-제안 점검: 의도한 담당자가 무관한 로직 수정 없이 정책을 바꿀 수 있는가? 누락·오류·충돌 값을 의도대로 처리하는가? 자격증명 노출 없이 배포의 적용 설정을 재현할 수 있는가? 실제 경계의 버전·검증을 확인하며 상수를 파일로 옮긴 것만으로 유지보수성을 입증하지 않는다.
+의도한 담당자가 관련 없는 로직 수정 없이 정책을 바꿀 수 있는가? 잘못된·누락된·충돌한 값과 예전 데이터를 처리하는가? 자격 증명을 노출하지 않고 릴리스별 유효 설정을 재현할 수 있는가?
 
 ## 근거
 
-- [S1] [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Res-magic)의 ES.45 Reason·Example·Enforcement. 이 항목에서는 해당 규칙만 사용했다.
-- [S2] [Twelve-Factor: Config](https://www.12factor.net/config)의 배포별 변화와 내부 설정 제외 설명.
-- [S3] Epic [데이터 기반 게임플레이](https://dev.epicgames.com/documentation/en-us/unreal-engine/data-driven-gameplay-elements-in-unreal-engine)의 테이블·커브·작성 작업 흐름. 확인 당시 UE5.8 문서.
-- [S4] OWASP [Secrets Management](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html)의 도입·일반 관리·수명주기.
-- 공식 원문 구획 확인일 2026-11-07. 이번 작업에서 실제 코드·비밀정보에 분류·점검을 적용하지 않았다.
+C++ Core Guidelines ES.45, Twelve-Factor의 Config, UE 5.8 데이터 주도 게임플레이 표·곡선, OWASP 비밀 관리 수명주기를 기준으로 한 문헌 종합이다. 2026-11-07 원래 조사는 로컬 구현이나 실제 비밀을 시험하지 않았다. [C++ ES.45](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Res-magic) · [Twelve-Factor Config](https://www.12factor.net/config) · [Epic data-driven gameplay](https://dev.epicgames.com/documentation/en-us/unreal-engine/data-driven-gameplay-elements-in-unreal-engine?application_version=5.8) · [OWASP secrets management](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html)

@@ -22,3 +22,7 @@
 - 공식 문서·논문·저자 글은 확인한 본문 범위에 한정한다. 초록·영상 설명만 확인한 경우와 미열람 자료는 영문 정본 Evidence에 명시했다. 예제 코드·영상·제품 성능은 실행 검증하지 않았다.
 - 출발 영상: V33. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+### Bayesian skill rating
+
+**TrueSkill**은 베이지안 실력 추정치로 플레이어의 평균 실력과 불확실성을 함께 나타낸다. 정보량이 있는 한 경기 결과로 신규 플레이어의 추정치가 기록이 충분한 플레이어보다 크게 변할 수 있다. 매치메이킹 평점(MMR)은 결과 예측 보정과 대기 시간·지역 조건을 분리해 평가한다. Microsoft는 팀 결과에서 개인 추정치를 갱신하는 모델을 설명한다. [Microsoft Research — TrueSkill Ranking System](https://www.microsoft.com/en-us/research/project/trueskill-ranking-system/)

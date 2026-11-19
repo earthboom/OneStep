@@ -22,3 +22,7 @@
 - 공식 문서·논문·저자 글은 확인한 본문 범위에 한정한다. 초록·영상 설명만 확인한 경우와 미열람 자료는 영문 정본 Evidence에 명시했다. 예제 코드·영상·제품 성능은 실행 검증하지 않았다.
 - 출발 영상: V41. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+### dynamic difficulty adjustment
+
+동적 난이도 조정(DDA)은 플레이 성과를 보고 도전 난도를 바꾸는 방법이다. **적응형 긴장도 조절(adaptive dramatic pacing)**은 위협의 등장 시점이나 수를 바꿔 긴장과 회복을 교대시킨다. Booth가 설명한 Left 4 Dead 사례는 후자다. 새 설계에서는 관찰 지표와 실제 변경 변수를 별도로 기록한다. 히스테리시스는 진입·이탈 임계값을 다르게 두어 경계 근처의 잦은 전환을 줄인다. [Mike Booth — The AI Systems of Left 4 Dead](https://cdn.fastly.steamstatic.com/apps/valve/2009/ai_systems_of_l4d_mike_booth.pdf)

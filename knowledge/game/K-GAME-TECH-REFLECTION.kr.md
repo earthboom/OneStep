@@ -21,3 +21,11 @@
 - [Epic — Planar Reflections](https://dev.epicgames.com/documentation/en-us/unreal-engine/planar-reflections-in-unreal-engine) — 확인 범위는 영문 정본의 Evidence에 기록. 추가 읽기로 표시된 자료는 본문 전체를 확인하지 않았다.
 - 출발 영상: V16. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+## Screen Space Reflections의 적용과 확인
+
+Screen Space Reflections는 현재 화면에 있는 정보로 반사를 계산하므로 화면 가장자리에서 결과가 사라질 수 있다. Planar Reflections는 평면에 대해 반사된 시점에서 장면을 렌더링한다. 반사 대상이 본 화면 밖으로 나갈 때의 완전성과 선택한 품질에서의 GPU 시간을 비교한다.
+
+검색어 · Screen Space Reflections, Planar Reflections
+
+[Epic, Planar Reflections](https://dev.epicgames.com/documentation/unreal-engine/planar-reflections-in-unreal-engine?lang=en-US)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.

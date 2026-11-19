@@ -85,6 +85,15 @@ After an improvement addresses the whole concern, required checks and any requir
 
 ## Start a task
 
+For other projects, clone OneStep once per PC and link each working project to that checkout. From their parent folder:
+
+```sh
+git clone https://github.com/earthboom/OneStep.git OneStep
+python OneStep/link_project.py "My Game"
+```
+
+Use `py -3` on Windows or `python3` on macOS/Linux as appropriate. The linker uses Python 3.8+ and its standard library. In a fresh Claude Code, Codex or Gemini CLI session the project's instructions direct the AI to the shared agent, Scout, knowledge and records. Run `git -C OneStep pull --ff-only` when you want updates. See the [linked checkout guide](docs/linked-projects.md) for other folder layouts, team setup and verification. The [portable kit and web upload](portable/README.md) are available for snapshot-based use.
+
 In this repository, ask the AI agent:
 
 ```text

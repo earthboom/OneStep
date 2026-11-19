@@ -38,3 +38,11 @@ Codex에 공식 서버를 등록했습니다. 최초 인증 요청은 invalid_sc
 - [OpenAI 공식 MCP 문서](https://learn.chatgpt.com/docs/extend/mcp)
 - 이 채팅의 등록·조회·시간 만료·재인증, 사용자 권한 승인, 오류 화면, 플러그인 추가와 후속 인증 결과
 - [전용 클라이언트](../../prototypes/SunoRestricted/README.kr.md), [실제 검증 근거](../../prototypes/SunoRestricted/verification.json)
+
+
+## 제외된 로컬 자료 참조 정정 — 2026-11-13
+
+아래 목록은 이 문서의 기존 번역에 남아 있는 로컬 자료 링크를 대체합니다. 해당 자료는 저장소에 포함된 파일이 아니라 과거 실험의 출처이며, 원본 접근이나 현재 검증 완료를 뜻하지 않습니다. 본문의 기존 수치·검증 날짜·적용 한계는 유지됩니다. 저장소에 실제로 있어야 하는 파일은 계속 일반 상대 링크로 참조하고 누락 여부를 검사합니다.
+
+- `prototypes/SunoRestricted/README.md` → [등록된 과거 출처: SRC-SUNO-RESTRICTED-README-MD](../../knowledge/sources.md#src-suno-restricted-readme-md)
+- `prototypes/SunoRestricted/verification.json` → [등록된 과거 출처: SRC-SUNO-RESTRICTED-VERIFICATION-JSON](../../knowledge/sources.md#src-suno-restricted-verification-json)

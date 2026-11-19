@@ -29,3 +29,7 @@
 추가 조사 출처의 영문 주석은 정확한 절·함수·접근 범위를 보존한다. 원본 슬라이드·문서·공개 코드의 확인과 실제 엔진·하드웨어 실행은 구분한다. 영상 설명·세션 개요만 확인한 자료를 전체 발표 확인으로 간주하지 않는다.
 
 출발 영상: V51. [영상별 대응표](K-GAME-TECH-GUIDE.kr.md).
+
+### chemistry engine
+
+Nintendo 발표의 **화학 엔진(chemistry engine)**에서는 원소 효과가 재질 상태나 다른 원소 효과를 바꿀 수 있다. 해당 모델에서 재질끼리 접촉하는 것만으로 화학 변화는 일어나지 않는다. 이를 옮기는 한 방법인 **상호작용 행렬(interaction matrix)**에는 작용 효과·대상 상태·전제·결과를 방향별로 적는다. 동시에 노출되는 경우를 여러 처리 순서에서 확인한 뒤 우선순위를 정한다. [Nintendo/GDC — original technical presentation](https://www.youtube.com/watch?v=QyMsF31NdNc&t=2423s)

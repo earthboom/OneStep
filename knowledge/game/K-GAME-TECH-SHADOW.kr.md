@@ -22,3 +22,11 @@
 - [Bunnell & Pellacini — Shadow Map Antialiasing](https://developer.nvidia.com/gpugems/gpugems/part-ii-lighting-and-shadows/chapter-11-shadow-map-antialiasing) — 확인 범위는 영문 정본의 Evidence에 기록. 추가 읽기로 표시된 자료는 본문 전체를 확인하지 않았다.
 - 출발 영상: V03. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+## cascaded shadow maps의 적용과 확인
+
+캐스케이드 섀도 맵은 카메라 절두체를 나누어 거리에 따라 방향광 그림자의 텍셀 밀도를 달리한다. PCF는 여러 깊이 비교의 결과를 평균한다. 카메라를 움직이며 캐스케이드 경계를 확인한 다음 분할 위치를 고정하고 필터의 부드러움을 검사한다.
+
+검색어 · cascaded shadow maps, percentage-closer filtering
+
+[Microsoft, Cascaded Shadow Maps](https://learn.microsoft.com/windows/win32/dxtecharts/cascaded-shadow-maps)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.

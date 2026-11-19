@@ -23,3 +23,7 @@
 - 공식 문서·논문·저자 글은 확인한 본문 범위에 한정한다. 초록·영상 설명만 확인한 경우와 미열람 자료는 영문 정본 Evidence에 명시했다. 예제 코드·영상·제품 성능은 실행 검증하지 않았다.
 - 출발 영상: V06. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+### field of view
+
+카메라의 **시야각(field of view, FOV)**은 카메라가 담는 각도다. 시야각을 바꾸면 속도감과 구도가 변한다. 카메라 모션 블러에서는 화면 깊이와 현재 뷰·투영 행렬의 역행렬로 월드 위치를 복원하고 이전 행렬로 투영해 화면 이동량을 구한다. 독립적으로 움직이는 객체에는 자체 모션 벡터나 속도 버퍼가 필요하다. 정적 장면에서 카메라만 이동한 경우와 카메라가 고정된 채 캐릭터만 이동한 경우를 비교한다. [Gilberto Rosado — Motion Blur as a Post-Processing Effect](https://developer.nvidia.com/gpugems/gpugems3/part-iv-image-effects/chapter-27-motion-blur-post-processing-effect)

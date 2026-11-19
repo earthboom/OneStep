@@ -21,3 +21,11 @@
 - [Godot — Standard Material 3D](https://docs.godotengine.org/en/stable/tutorials/3d/standard_material_3d.html) — 확인 범위는 영문 정본의 Evidence에 기록. 추가 읽기로 표시된 자료는 본문 전체를 확인하지 않았다.
 - 출발 영상: V26. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+## tangent-space normal map의 적용과 확인
+
+탄젠트 공간 노멀 맵은 메시 표면을 기준으로 한 방향을 저장한다. 노멀 맵 규약에는 탄젠트 공간 Y축의 부호도 포함된다. Godot는 OpenGL 방식의 노멀을 기대한다. 조명이나 형상을 수정하기 전에 돌출 방향을 아는 표면에서 광원을 움직여 확인한다.
+
+검색어 · tangent-space normal map, normal map convention
+
+[Godot, Standard Material 3D](https://docs.godotengine.org/en/stable/tutorials/3d/standard_material_3d.html)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.

@@ -4,9 +4,9 @@ title: "Generate coherent terrain with gradients and multi-scale noise"
 summary: "Use coherent noise for spatially continuous variation. A heightfield cannot represent overhangs; density fields can."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["Perlin","noise","fractal","fBm","terrain","바이옴"]
+keywords: ["Perlin", "noise", "fractal", "fBm", "terrain", "바이옴", "fractional Brownian motion", "lacunarity", "persistence", "octave"]
 status: active
-checked_at: '2026-11-07'
+checked_at: '2026-11-19'
 context:
   evidence_check: "External source text checked; source-specific limits appear in Evidence"
   application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
@@ -26,6 +26,8 @@ Mojang's 1.18 development notes explicitly separate terrain shaping, biome distr
 ## Applicability and exceptions
 
 A heightfield cannot represent overhangs; density fields can. Exact Minecraft algorithms change by edition/version and are not established from this general reference.
+
+In procedural terrain, an **octave** is one noise layer at a chosen frequency and amplitude. Fractal-noise sums often called fractional Brownian motion (fBm) combine several such layers. **Lacunarity** scales frequency between octaves and **persistence** scales amplitude. Keep the sampled world coordinates consistent across chunk edges. Test neighboring chunks independently, including distant levels of detail where high frequencies can alias. [libnoise — Perlin module parameters](https://libnoise.sourceforge.net/docs/classnoise_1_1module_1_1Perlin.html)
 
 ## Checks
 

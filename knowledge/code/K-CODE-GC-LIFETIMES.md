@@ -4,7 +4,7 @@ title: Separate garbage collection, resource cleanup, and memory diagnosis
 summary: Garbage collection reclaims eligible unreachable managed objects, while useful lifetime and prompt resource cleanup still need explicit design. Diagnose growing memory with reachability, allocation, and fragmentation evidence before choosing a fix.
 kind: reference
 scope: .NET managed-memory diagnosis and Unreal UObject references; source-specific mechanisms rather than guarantees for every garbage collector
-keywords: [garbage collection, GC, reachability, retention, memory leak, fragmentation, allocation churn, IDisposable, UObject, TObjectPtr, 메모리 관리, 가비지 컬렉션, 메모리 누수, 객체 보존]
+keywords: [garbage collection, GC, reachability, retention, memory leak, fragmentation, allocation churn, IDisposable, UObject, TObjectPtr, 메모리 관리, 가비지 컬렉션, 메모리 누수, 객체 보존, "UPROPERTY", "TStrongObjectPtr", "TWeakObjectPtr", "TSoftObjectPtr"]
 status: active
 checked_at: '2026-11-07'
 context:
@@ -20,7 +20,7 @@ Distinguish three questions: whether an object remains reachable, whether the ap
 
 Use the documented disposal contract for owned disposable resources. Microsoft distinguishes `Dispose` cleanup from reclaiming the managed object's storage. An object can be disposed yet remain reachable; ownership determines whether a containing object should cascade disposal. Prompt file or socket closure needs an explicit resource protocol rather than reliance on collection timing.
 
-For Unreal, examine the actual `UObject` reference kind. Epic's current table distinguishes strong, weak, and soft references; `TObjectPtr` is GC-safe only when marked `UPROPERTY`. `TStrongObjectPtr` also affects GC outside reflected fields. A pointer-shaped value alone does not establish engine-tracked reachability.
+For Unreal, examine the actual `UObject` reference kind. Epic's current table distinguishes strong, weak, and soft references; `TObjectPtr` is GC-safe only when marked `UPROPERTY`. `UPROPERTY` marks a reflected member so a reachable owner can expose that strong reference to GC. `TStrongObjectPtr` holds a strong GC reference even outside reflected fields. `TWeakObjectPtr` observes a loaded object without keeping it alive and must be checked before use. `TSoftObjectPtr` can identify an asset by path without loading it or retaining the loaded object. A pointer-shaped value alone does not establish engine-tracked reachability.
 
 ## Applicability and exceptions
 

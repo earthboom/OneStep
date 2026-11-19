@@ -22,3 +22,7 @@
 - 공식 문서·논문·저자 글은 확인한 본문 범위에 한정한다. 초록·영상 설명만 확인한 경우와 미열람 자료는 영문 정본 Evidence에 명시했다. 예제 코드·영상·제품 성능은 실행 검증하지 않았다.
 - 출발 영상: V04. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+### client-side prediction
+
+**클라이언트 측 예측(client-side prediction)**은 권위 서버의 확인에 앞서 로컬 입력을 시뮬레이션해 표시한다. **서버 조정(server reconciliation)**은 확인된 입력 시점의 상태를 바로잡고 아직 확인되지 않은 이후 입력을 다시 적용한다. 재실행 가능한 이동 시스템에서는 새 입력이 대기 중일 때 보정을 강제로 일으켜 각 입력이 최종 상태에 한 번씩만 반영되는지 확인한다. [Riot — Peeking into VALORANT's Netcode](https://www.riotgames.com/en/news/peeking-valorants-netcode)

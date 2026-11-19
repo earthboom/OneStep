@@ -22,3 +22,7 @@
 - 공식 문서·논문·저자 글은 확인한 본문 범위에 한정한다. 초록·영상 설명만 확인한 경우와 미열람 자료는 영문 정본 Evidence에 명시했다. 예제 코드·영상·제품 성능은 실행 검증하지 않았다.
 - 출발 영상: V04. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+### deterministic lockstep
+
+**결정론적 록스텝(deterministic lockstep)**에서는 n번째 틱에 필요한 입력이 모두 도착해야 해당 틱을 진행한다. **재생 지연 버퍼(playout delay buffer)**는 입력을 잠시 보관해 도착 주기 변동을 흡수한다. 지연 비용이 있고 끝내 오지 않은 틱은 채울 수 없다. 지원 빌드에서 같은 시뮬레이션 상태의 틱별 해시를 비교해 처음 어긋난 틱과 시드·갱신 순서·산술 차이를 찾는다. [Glenn Fiedler — Deterministic Lockstep](https://gafferongames.com/post/deterministic_lockstep/)

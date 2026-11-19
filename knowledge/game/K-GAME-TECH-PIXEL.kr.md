@@ -22,3 +22,11 @@
 - [W3C — PNG Specification, Third Edition](https://www.w3.org/TR/png/) — 확인 범위는 영문 정본의 Evidence에 기록. 추가 읽기로 표시된 자료는 본문 전체를 확인하지 않았다.
 - 출발 영상: V35, V58. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+## PLTE의 적용과 확인
+
+인덱스 컬러 PNG는 이미지 데이터에 팔레트 인덱스를 저장하고 필수 `PLTE` 청크에 각 인덱스의 RGB 값을 둔다. 작은 팔레트를 쓴 파일도 GPU에서는 다른 형식으로 펼쳐질 수 있으므로 임포터가 선택한 텍스처 형식으로 메모리를 확인한다.
+
+검색어 · PLTE, indexed-colour PNG
+
+[W3C, PNG Specification (PLTE)](https://www.w3.org/TR/png-3/#11PLTE)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.

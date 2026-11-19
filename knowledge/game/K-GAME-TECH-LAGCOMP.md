@@ -4,9 +4,9 @@ title: "Bound historical hit resolution for latency compensation"
 summary: "Retain timestamped collision history and resolve eligible shots against a bounded reconstructed past view. Rewinding benefits a shooter's historical view but can hurt a player who has reached cover."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["lag","compensation","rewind","hit","registration","렉보상","판정불일치","서버되감기","지연보상"]
+keywords: ["lag", "compensation", "rewind", "hit", "registration", "렉보상", "판정불일치", "서버되감기", "지연보상", "lag compensation", "server rewind", "interpolation delay"]
 status: active
-checked_at: '2026-11-07'
+checked_at: '2026-11-19'
 context:
   evidence_check: "External source text checked; source-specific limits appear in Evidence"
   application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
@@ -22,6 +22,8 @@ Implementation selection and checks are engineering synthesis, not a promise of 
 ## Applicability and exceptions
 
 Rewinding benefits a shooter's historical view but can hurt a player who has reached cover. 'People always prefer this' is not established; choose fairness rules and maximum rewind explicitly.
+
+With **server rewind**, an authoritative game evaluates an eligible input against stored historical collision poses. The target time depends on how client time maps to server time and how far the displayed remote state lagged behind. Clamp it to available history, choose a missing-history policy, and verify the live collision world is unchanged after a historical query. Riot's account supplies a game-specific example of the latency tradeoff. [Riot — Peeking into VALORANT's Netcode](https://www.riotgames.com/en/news/peeking-valorants-netcode)
 
 ## Checks
 

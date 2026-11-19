@@ -1,31 +1,24 @@
-# 코요테 타임·버퍼·코너 보정
+# 점프 유예 시간과 입력 버퍼를 한 번만 소비하기
 
-기준 항목: K-GAME-TECH-CONTROLLER · 확인일: 2026-11-07 · 참고 지식. 실제 엔진 구현·성능·플레이테스트는 수행하지 않았다.
+**K-GAME-TECH-CONTROLLER** · 접지 자격과 대기 입력을 따로 추적해 발판을 벗어나거나 착지할 때 한 번의 입력이 최대 한 번의 점프로 이어지게 한다.
 
-## 원리와 구현 요점
+## 지침
 
-점프 요청 시각과 마지막 접지 시각을 기록한다. 입력 버퍼와 접지 유예 조건이 겹치면 점프하고 요청을 한 번만 소비한다. 충돌 검사 뒤 제한된 코너 보정을 적용하고 이동 발판 운동량의 소유권을 정한다. 가속·버튼 해제 감속·공중 제어는 목표 도달 범위에 맞춰 조절한다.
+코요테 타임은 발판을 걸어 벗어난 직후에도 잠시 점프 자격을 유지한다. 점프 버퍼는 착지 직전의 입력을 보관한다. 같은 시뮬레이션 시계로 두 시각을 기록하고, 새 누름을 구분해 실제 도약에 성공했을 때 소비한다. 접지 자격은 실제 접지 전환 때 복구한다. 착지 전에 버튼을 놓으면 취소할지도 정한다. 코너 보정은 모서리에 걸친 몸체를 옆으로 옮기므로 별도의 충돌 검사가 필요하다.
 
-구현 선택과 점검은 출처를 바탕으로 한 실무적 종합이며 특정 게임의 정확한 구현을 보증하지 않는다.
+## 적용 조건과 예외
 
-## 적용 조건과 한계
+언리얼 엔진 5.8의 `ACharacter::CanJumpWhileFalling`을 재정의하면 조건에 맞는 낙하 중 점프를 허용할 수 있다. `ACharacter::Landed`에서 접촉을 알릴 때 이동 모드는 여전히 Falling이다. 새 접지 모드가 필요하면 `OnMovementModeChanged`에서 확인한다. 실제 도약 시작은 `ACharacter::OnJumped`로 관찰한다.
 
-셀레스트 수치와 정수 AABB는 특정 게임의 해법이다. 무한 버퍼 점프·벽 통과 보정·운동량 중복 적용을 막는다.
+## 확인 방법
 
-## 적용 전 점검
-
-적용 전 점검: 절벽·착지 직전과 직후 입력, 모서리 접근, 방향 전환, 발판 정지를 여러 프레임레이트에서 확인한다.
+각 만료 시각 직전·경계·직후의 누름, 계속 누르기와 떼기, 걸어서 이탈한 경우와 점프 이탈, 만료 후 착지를 검사한다. 측정한 갱신률별로 입력당 실제 도약 횟수를 비교한다.
 
 ## 근거
 
-- [Maddy Thorson — Celeste & Forgiveness](https://maddymakesgames.com/articles/celeste_and_forgiveness/index.html) — 출처의 확인 범위는 아래 원칙을 따른다.
-- [Maddy Thorson — Celeste & TowerFall Physics](https://www.mattmakesgames.com/articles/celeste_and_towerfall_physics/index.html) — 출처의 확인 범위는 아래 원칙을 따른다.
-- 공식 문서·논문·저자 글은 확인한 본문 범위에 한정한다. 초록·영상 설명만 확인한 경우와 미열람 자료는 영문 정본 Evidence에 명시했다. 예제 코드·영상·제품 성능은 실행 검증하지 않았다.
-- 출발 영상: V29, V30, V46. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
+Celeste 개발자가 설계 기법을 설명하고 Epic 문서는 캐릭터 콜백의 동작을 명시한다. 기존 언리얼 검사는 정적 발판에서의 유예 시간과 버퍼를 다뤘다. 적절한 시간 길이, 이동 발판, 조작감은 대상 게임에서 검증한다.
 
-
-## 실제 언리얼 코요테·버퍼 검증 — 2026-11-11
-
-[결과](../../prototypes/UnrealTechniqueLab/JUMP-RESULTS.kr.md)는 캐릭터1명·발판2개로 코요테100ms·버퍼120ms를 구현했다. 실험값이며 Celeste의 정확한 값은 아니다. 입력 요청·지면 권한을 성공 시 소비하고 실제 착지에서 재무장한다. 짧게 눌렀다 떼어도 유효 요청은 남고 길게 눌러 재요청하지 않는다. 착지 때 유효하면 다음 이동 업데이트로 한 번 연결한다. Landed가 아직 낙하 모드인 점을 구분한다.
-
-정책68·실제PIE 네 프로필×관측30/60/144FPS의108상황·같은 패키지의 성능3쌍·정상 속도 실제 영상을 기록했다. 첫 패키지30요청은23.42FPS여서 탈락으로 보존하고 실제PIE에서 목표별 동작을 검사했다. 렌더/Present를 개선하지 않았다. 요청ID·실제 점프/착지·속도·프레임과 만료/중복/재착지를 대조했다. 작은 타이머 비용은 전체 이동 물리 비용이 아니며 FPS향상이나 사람의 조작감 검증을 주장하지 않는다. 코너보정V30·이동발판·벽점프·애니메이션·네트워크·가변 점프 적분은 범위 밖이다.
+- [Maddy Thorson — Celeste & Forgiveness](https://maddymakesgames.com/articles/celeste_and_forgiveness/index.html)
+- [Maddy Thorson — Celeste & TowerFall Physics](https://www.mattmakesgames.com/articles/celeste_and_towerfall_physics/index.html)
+- [Epic — ACharacter](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/ACharacter?application_version=5.8)
+- [Epic — OnLanded and movement mode](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/ACharacter/OnLanded)

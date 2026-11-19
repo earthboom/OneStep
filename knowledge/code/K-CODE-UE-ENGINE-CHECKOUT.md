@@ -18,7 +18,7 @@ Before reading engine source, engine history or engine modification markers, con
 
 1. Run `git worktree list` in the path the environment variable names. Another worktree may hold the release branch.
 2. Check that `Engine/Build/Build.version` exists and that its major and minor version match the version the project documents.
-3. Check `git status` and the branch. A default branch with a very short history or a mass of staged deletions is not the engine source.
+3. Check `git status` and the branch. An unexpected branch or mass of staged deletions is a reason to verify the path against the build inputs.
 4. When the project names the engine by a registry GUID (`EngineAssociation` in the `.uproject`), resolve the GUID to a path before assuming the environment variable is the build input.
 
 Only then search the engine for modification markers or renderer changes.
@@ -32,17 +32,11 @@ Applies to any project that resolves a custom engine by path or by registry asso
 - `git worktree list` lists more than one path: decide which one is the release branch before reading.
 - `Engine/Build/Build.version` is missing: the checkout is not a usable engine tree.
 - The editor executable that the project's run scripts build from the environment variable does not exist: fix the variable before the first run.
-- The `.uproject` `EngineAssociation` GUID is missing from `HKCU\Software\Epic Games\Unreal Engine\Builds`: the engine registration step was skipped for the current checkout.
+- The `.uproject` `EngineAssociation` GUID is missing from `HKCU\Software\Epic Games\Unreal Engine\Builds`: the current user's association cannot be confirmed there.
 - Before running a registration script that removes other GUIDs pointing at the same engine path, list the `EngineAssociation` of every local `.uproject`. A checkout whose `.uproject` was locally rewritten to an auto-generated GUID loses its engine association when that GUID is removed. A lower-impact alternative is to add the project GUID without removing others and to set the engine variable at user scope; both are reversible without administrator rights.
-- The commit count of the current branch is implausibly small for an engine (tens rather than hundreds of thousands): the wrong branch.
-- Restrict marker searches (for example a `*_ENGINE_MODIFIED` macro) to specific module directories or use `git log -- <paths>`; a recursive grep over all of `Engine/Source` took longer than five minutes on Windows.
+- History depth alone is inconclusive in a shallow clone. Compare the commit, branch and executable selected by the actual build or launch command.
+- Restrict engine modification searches to the relevant modules or use `git log -- <paths>`, especially on large Windows checkouts.
 
 ## Evidence
 
-Observed once in a UE 5.8 game project on Windows (2026-11-05, rechecked 2026-11-06). The engine environment variable pointed at a checkout on its default branch: 22 commits, about 148,000 staged deletions, no `Build.version`. `git worktree list` showed the release branch in a sibling worktree with `Build.version` 5.8 and the studio's engine modifications. The first reading of engine history came from the stale checkout and was corrected after the worktree check.
-
-A follow-up check on 2026-11-06 found that the project's run scripts launch `%<engine env var>%\Engine\Binaries\Win64\UnrealEditor.exe`, and the stale checkout had no `Engine` directory at all. The scripts therefore could not start from that path, while the worktree held a built `UnrealEditor.exe`. Check that the executable the scripts name exists before the first run.
-
-The registry check on the same day found the project's `EngineAssociation` GUID unregistered; the only registered build was an auto-generated GUID pointing at the worktree. The new engine worktree shipped a registration script that writes the project GUID, the engine environment variable and the shared DDC variable together, and it had not been run. When a new engine checkout or worktree replaces an old one, run its registration script (or equivalent) so the GUID and the environment variable move together.
-
-Not verified: that running the registration script alone makes the run scripts and the `.uproject` association work end to end.
+A Windows UE 5.8 source-build investigation on 2026-11-05–06 found an environment variable selecting an incomplete checkout while a linked worktree contained the engine version and editor executable. The project association and per-user registration also disagreed. Inspecting those inputs corrected a source-history conclusion. Registration and launch were not retested end to end. [Git worktree manual](https://git-scm.com/docs/git-worktree)

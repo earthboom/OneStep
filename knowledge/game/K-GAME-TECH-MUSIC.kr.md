@@ -22,3 +22,7 @@
 - 공식 문서·논문·저자 글은 확인한 본문 범위에 한정한다. 초록·영상 설명만 확인한 경우와 미열람 자료는 영문 정본 Evidence에 명시했다. 예제 코드·영상·제품 성능은 실행 검증하지 않았다.
 - 출발 영상: V25. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+### vertical layering
+
+**수직 레이어링(vertical layering)**은 같은 음악 시간축에 맞춘 스템을 더하거나 빼서 믹스를 바꾼다. **수평 재배열(horizontal resequencing)**은 음악적 경계에서 호환되는 다른 구간으로 이동한다. 템포 맵은 템포가 변해도 박이나 마디 위치를 재생 시각에 대응시킨다. 템포 변경 전후에 전환을 요청하고 못갖춘마디나 잔향까지 실제 연결을 들어 확인한다. [Kent Carter / Guy Jones — Composer interview on adaptive music](https://www.gamedeveloper.com/audio/composer-guy-jones-talks-adaptive-music-for-games)

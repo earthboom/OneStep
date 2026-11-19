@@ -6,7 +6,7 @@ kind: "reference"
 scope: "Game concept, core-loop and hybrid-genre planning; experience goals and cross-system hypotheses, not a universal formula for fun"
 keywords: ["MDA", "mechanics", "dynamics", "aesthetics", "core-loop", "hybrid", "genre-selection", "design-pillars", "게임기획", "장르", "핵심루프", "재미", "경험", "혼합장르"]
 status: "active"
-checked_at: "2026-11-07"
+checked_at: "2026-11-19"
 context: {"evidence_check": "Named primary source text or slides inspected; source-specific access limits in Evidence", "application_status": "Source-based reference and proposed synthesis; no project gameplay trial"}
 ---
 
@@ -14,7 +14,7 @@ context: {"evidence_check": "Named primary source text or slides inspected; sour
 
 ## Guidance
 
-Source observation: Hunicke, LeBlanc and Zubek distinguish rules, behavior arising during play, and desired player responses. Their framework connects these perspectives and explicitly offers no formula guaranteeing fun [S1].
+In the MDA framework, **Mechanics** are the rules, data and algorithms available to the designer. **Dynamics** are the patterns that emerge as those rules interact with player input over time. **Aesthetics** are the feelings or experiences the designer hopes play will evoke [S1]. In a proposed cooperative puzzle, giving each player different clues is a mechanic. Exchanging clues aloud would be an observable dynamic. Whether players feel fellowship is a separate playtest question.
 
 Proposed use: describe the intended experience in concrete terms, then map a playable sequence: available information -> action -> system response -> changed options. Identify what players should be able to learn, express, coordinate, or overcome. Name an observable behavior that would support or undermine that intention. Choose genre references matching the bottleneck: readable response windows for combat, competing allocations for strategy, inference for puzzles, or information pacing for horror.
 
@@ -30,5 +30,5 @@ Proposed checks: can a representative sequence demonstrate the intended experien
 
 ## Evidence
 
-- [S1] Hunicke, LeBlanc and Zubek, [MDA: A Formal Approach to Game Design and Game Research](https://www.cs.northwestern.edu/~hunicke/MDA.pdf). Opened original author-hosted five-page paper; relevant locators: MDA / MDA as Lens / Aesthetics, PDF pp. 1-3. Checked 2026-11-07.
+- [S1] Hunicke, LeBlanc and Zubek, [MDA: A Formal Approach to Game Design and Game Research](https://www.cs.northwestern.edu/~hunicke/MDA.pdf). The original 2026-11-07 review covered “MDA,” “MDA as Lens” and “Aesthetics,” pp. 1–3. The three definitions and the perspectives of designer and player were rechecked on p. 2 on 2026-11-19.
 - The workflow and review questions here are a transferable synthesis, not a reported trial. No project game, player response, or commercial effect was tested.

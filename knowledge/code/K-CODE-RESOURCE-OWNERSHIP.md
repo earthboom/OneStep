@@ -4,7 +4,7 @@ title: Make resource ownership and borrowing explicit at module boundaries
 summary: Give each resource an identifiable cleanup owner, express transfers and borrowing in interfaces, and introduce shared ownership only when independent lifetimes require it. C++ RAII, Rust ownership, and Unreal UObject management impose different contracts.
 kind: reference
 scope: Resource and interface design in C++, Rust, and Unreal Engine; source-based comparison rather than a universal language guarantee
-keywords: [ownership, borrowing, RAII, unique_ptr, shared_ptr, weak_ptr, Rust, Drop, Unreal Engine, UObject, 소유권, 빌림, 자원 수명, 순환 참조]
+keywords: [ownership, borrowing, RAII, unique_ptr, shared_ptr, weak_ptr, Rust, Drop, Unreal Engine, UObject, 소유권, 빌림, 자원 수명, 순환 참조, "std::unique_ptr", "std::shared_ptr", "std::weak_ptr", "std::weak_ptr::lock", "TSharedPtr", "TUniquePtr"]
 status: active
 checked_at: '2026-11-07'
 context:
@@ -18,11 +18,11 @@ context:
 
 Start an interface review by asking who releases each resource, who may temporarily use it, and what event ends that permission. Include files, sockets, locks, and native handles alongside heap memory. Prefer a lifetime contract that a maintainer can understand without tracing every caller.
 
-In C++, the Core Guidelines recommend RAII wrappers for paired acquisition/release and unique ownership unless sharing is needed. Ordinary scope exit and exception unwinding release correctly constructed automatic wrappers; this does not establish asynchronous completion. Strong `shared_ptr` cycles can prevent reclamation. Choose a weak back-reference only when it matches the ownership model.
+In C++, the Core Guidelines recommend RAII wrappers for paired acquisition/release and unique ownership unless sharing is needed. Ordinary scope exit and exception unwinding release correctly constructed automatic wrappers; this does not establish asynchronous completion. `std::unique_ptr` transfers exclusive ownership by moving. `std::shared_ptr` shares ownership, so cycles of strong owners can prevent reclamation. A `std::weak_ptr` observes a shared object without keeping it alive; `lock()` obtains temporary shared ownership if it is still available.
 
 Rust makes ownership moves and borrowing visible in types. The Book's `String` example releases its allocation through `drop` at the owner's scope boundary. References borrow rather than own; safe reference rules constrain validity and simultaneous mutable access. These mechanisms help local reasoning, but do not make every resource protocol automatic.
 
-Unreal's `TSharedPtr`/`TUniquePtr` family manages ordinary C++ objects. Epic explicitly separates this library from `UObject` management. Select the engine's object-reference mechanism for `UObject` lifetimes instead of transferring deletion to an ordinary smart pointer.
+Unreal's `TSharedPtr`/`TUniquePtr` family manages ordinary C++ objects: `TSharedPtr` shares ownership and `TUniquePtr` assigns it to a single owner. Epic explicitly separates this library from `UObject` management. Select the engine's object-reference mechanism for `UObject` lifetimes instead of transferring deletion to an ordinary smart pointer.
 
 ## Applicability and exceptions
 
@@ -41,6 +41,7 @@ Proposed review checks:
 Source observations checked on 2026-11-07:
 
 - [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines): R.1, R.21, R.24; recommendations, not a compiler-enforced ownership system.
+- [C++ working draft, smart pointers](https://eel.is/c++draft/smartptr), unique, shared and weak ownership semantics.
 - [Rust Book: ownership](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html): Ownership Rules and Memory and Allocation; live Book edition.
 - [Rust Book: references](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html): Mutable References and Dangling References; safe-reference examples.
 - [Epic: smart pointers](https://dev.epicgames.com/documentation/en-us/unreal-engine/smart-pointers-in-unreal-engine): introduction and Tips and Limitations; served as UE 5.8.

@@ -1,42 +1,46 @@
 ---
 id: K-GAME-TECH-MEMORY
-title: "Treat arbitrary code execution as a memory-correctness failure"
-summary: "Code and data are bit patterns interpreted by the execution environment. Exact controller-driven retro exploits require game/version-specific evidence and were not reproduced."
+title: Check buffer bounds and object lifetimes in game data handling
+summary: Validate destination bounds and object lifetimes before copying or decoding data. Use instrumented
+  builds to diagnose executed invalid accesses.
 kind: reference
-scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["memory","safety","ACE","bounds","lifetime","임의코드실행"]
+scope: Game development. For native C++ builds with supported instrumentation, Clang AddressSanitizer
+  (ASan) detects many executed out-of-bounds accesses and use-after-free errors.
+keywords:
+- memory
+- safety
+- ACE
+- bounds
+- lifetime
+- 임의코드실행
+- CWE-787
+- out-of-bounds write
+- AddressSanitizer
+- ASan
+- use-after-free
+- dangling pointer
+- C++
+- 버퍼 경계
 status: active
-checked_at: '2026-11-07'
-context:
-  evidence_check: "External source text checked; source-specific limits appear in Evidence"
-  application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
+checked_at: '2026-11-19'
 ---
-# Treat arbitrary code execution as a memory-correctness failure
+# Check buffer bounds and object lifetimes in game data handling
 
 ## Guidance
 
-Code and data are bit patterns interpreted by the execution environment. Corrupted memory or control flow may cause unintended execution; an out-of-bounds write is one possible primitive, not a complete explanation of every exploit. For development, prioritize valid lifetimes, bounds, typed interfaces and validation of serialized/untrusted data.
-
-Implementation selection and checks are engineering synthesis, not a promise of a source game's exact implementation.
-
-### Implementation follow-up — 2026-11-07
-
-The TAStm32 hardware project's own test-suite documentation lists Masterjun's SMW Total Control replay and eight emulated controller channels. This verifies a concrete input-playback artifact, not the exact exploit trigger. For reusable development guidance distinguish a bug that redirects execution from the input stream that transports a payload; neither implies that ordinary controller data is executable on every game. Keep ROM revision, initial state and controller protocol in any future reproduction.
+MITRE classifies a write before or after the allocated buffer as `CWE-787` (Out-of-bounds Write). It can corrupt neighboring data or crash a program. When loading save files, assets or network messages in C++, verify each length and offset before forming a pointer or writing. After checking offset ≤ capacity, compare count against capacity minus offset, taking element size and signed-to-unsigned conversions into account.
 
 ## Applicability and exceptions
 
-Exact controller-driven retro exploits require game/version-specific evidence and were not reproduced. Modern code/data permissions and memory protections differ from old consoles.
+For native C++ builds with supported instrumentation, Clang AddressSanitizer (ASan) detects many executed out-of-bounds accesses and use-after-free errors. A dangling pointer refers to an object whose lifetime has ended. Even an in-range index is unsafe if the owner has released or reallocated storage. A clean run covers only executed paths. Arbitrary code execution (ACE) is a possible consequence of some failures and does not identify their underlying weakness.
 
 ## Checks
 
-Proposed: run memory sanitizers where supported, fuzz parsers and verify bounds/lifetimes around scene transitions and save loading.
+Exercise empty, truncated, exact-fit and oversized records in a supported instrumented build. Verify that rejection leaves the destination state valid. Check callback and view lifetimes across scene unload and buffer reallocation. Attribute a diagnostic to the first invalid access and its allocation lifetime.
 
 ## Evidence
 
-- [MITRE — CWE-787: Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html) — Official weakness reference; consequences and mitigations; not a particular game's exploit analysis. Checked 2026-11-07, except items explicitly marked further reading.
-- Originating channel shorts: V52 in [the coverage guide](K-GAME-TECH-GUIDE.md). Originating shorts are discovery leads, not independent proof.
+MITRE defines the weakness and Clang documents ASan coverage and instrumentation. A public historical game replay demonstrates an observed outcome, without establishing a particular buffer bug. No sanitizer run or particular game defect was verified in this review.
 
-
-### Follow-up evidence
-
-- [TAStm32 authors — Test suite instructions](https://github.com/Ownasaurus/TAStm32/wiki/Test-suite-instructions) — SMW-Total-Control(2) entry inspected; no hardware replay or exploit reproduction. Checked 2026-11-07.
+- [MITRE — CWE-787: Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html)
+- [Clang — AddressSanitizer](https://clang.llvm.org/docs/AddressSanitizer.html)

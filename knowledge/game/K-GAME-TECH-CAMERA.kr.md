@@ -1,43 +1,23 @@
-# 데드존·룩어헤드·카메라 감쇠
+# 데드존과 시간에 따른 감쇠로 추적 카메라 구성하기
 
-기준 항목: K-GAME-TECH-CAMERA · 활성 참고 지식 · 확인일 2026-11-07. 일반 원리와 엔진별 조건을 구분한다. 아래에 명시한 로컬 실행만 검증했으며 전체 항목·상용 게임의 검증은 아니다.
+**K-GAME-TECH-CAMERA** · 화면 구도에 맞는 추적점을 정하고, 고정 표적에 대한 수렴 속도를 유지하려면 경과 시간으로 감쇠를 계산한다.
 
 ## 지침
 
-플레이어·전방 예측점·방 앵커·여러 대상 중 구도 목표를 먼저 정하고 감쇠한다. 데드존으로 불필요한 추적을 줄인다. 정지 목표의 지수 감쇠는 x+=(target-x)*(1-exp(-lambda*dt))로 시간 일관성을 확보할 수 있다. 속도·오버슈트가 중요하면 감쇠 스프링을 검토한다.
-
-구현 선택·검사는 실무 종합안이며 특정 원작 게임의 정확한 코드를 재현했다는 보증이 아니다.
-
-### 로컬 엔진 근거 — 2026-11-07
-
-[실제 엔진 결과](../../prototypes/TechniqueLab/RESULTS.kr.md)에서 Unity 6000.0.77f1 최종 PlayMode와 Windows Mono 3회 검사를 통과했다. 합성 30/60/144 간격·긴 프레임·dt=0을 검사했고, 실제 Update로 정확히 2초 적분했다(rate 4, 시작 0, 정지 목표 10). 기대식 `10*(1-exp(-8))` 대비 최대 절대 오차 0.000001907로 허용값 0.0001보다 작았다. FPS 요청값 대신 실제 도달률·간격도 기록했다.
-
-CPU 스칼라 추종 100,000개 배치에서 개체별 지수 계산 중앙값은 2.429–2.813ms, 동일 rate/dt에서 alpha 공유는 1.711–1.755ms였다. 반복 수학·체크섬 처리량이며 프레임·전체 카메라 비용이 아니다. 입력이 실제로 같을 때만 alpha를 공유하고 다르면 따로 계산한다. 단일 카메라·GPU·다른 백엔드로 확대 해석하지 않는다.
-
-실행한 부분은 정지 목표·긴 프레임·dt=0의 응답이다. 빠른 반전·경계·텔레포트·화면 비율·데드존·예측·카메라 충돌·편안함은 남아 있다. 프레임마다 샘플링하는 이동 목표에는 정지 목표의 정확한 불변성을 주장하지 않는다. 시각 데모의 이동 목표는 불변성 검증이 아니다.
+데드존은 피사체가 화면의 정해진 영역을 벗어날 때 추적을 시작한다. 룩어헤드는 예상 이동 방향으로 목표점을 옮긴다. 한 구간 동안 목표가 고정되면 현재 위치에 `(target - position) * (1 - exp(-lambda * dt))`를 더한다. `lambda`는 초당 감쇠율이다. 같은 구간을 나누어도 반올림 오차를 제외하면 같은 위치에 도달한다. 속도나 오버슈트를 표현하려면 감쇠 스프링을 고려한다.
 
 ## 적용 조건과 예외
 
-수식은 실무적 유도이며 움직이는 목표·카메라 충돌은 별도 처리한다. 렌더 프레임마다 고정 10% 이동하면 FPS별 감각이 달라진다. 감쇠 때문에 위험물이 늦게 보이지 않게 한다.
+피사체가 움직이면 목표점 샘플링 오차가 생긴다. 언리얼 엔진의 `UCameraComponent`는 시점과 투영 설정을 제공한다. 카메라 트랜스폼을 부드럽게 이동할 때도 충돌, 순간 이동, 구도 전환 규칙이 필요하다.
 
-## 검사
+## 확인 방법
 
-적용 전 점검: 30·60·144 FPS, 급반전·방 경계·순간이동·화면비에서 비교한다.
-
-실행한 부분과 남은 조건은 위 로컬 근거를 따른다. 실제 프로젝트에서는 그 엔진·버전·기기·데이터·권한으로 다시 검사한다.
+고정 목표에 불규칙한 시간 간격과 0초 간격을 적용하고 같은 경과 시간에서 변위를 비교한다. 움직이는 피사체의 급반전, 가림, 순간 이동, 화면비 변화는 실제 표시 주기와 함께 확인한다.
 
 ## 근거
 
-- [Itay Keren — Scroll Back](https://www.gamedeveloper.com/design/scroll-back-the-theory-and-practice-of-cameras-in-side-scrollers) — 원저/공식 자료의 실제 범위는 영문 기준 항목의 주석을 따른다. 2026-11-07 확인.
-- [Ryan Juckett — Damped Springs](https://www.ryanjuckett.com/damped-springs/) — 원저/공식 자료의 실제 범위는 영문 기준 항목의 주석을 따른다. 2026-11-07 확인.
+Keren은 화면 구도를, Juckett은 감쇠 스프링 응답을 설명한다. 과거 Unity와 Unreal 검사는 고정 목표에 대한 수렴을 확인했다. 이동 중의 체감과 카메라 충돌은 별도 확인이 필요하다.
 
-- 출발 영상 V23, V48: [대응표](K-GAME-TECH-GUIDE.kr.md). 발견 단서이며 독립 증거가 아니다.
-- [로컬 결과·재현](../../prototypes/TechniqueLab/RESULTS.kr.md), [독립 검사](../../prototypes/TechniqueLab/Assets/TechniqueLab/LabChecks.cs), [실행 원본](../../prototypes/TechniqueLab/Results/player-run-1.json). 알고리즘 코드·실패 후 통과·원본 표본은 결과 보고서에 연결했다. 실행 범위는 그 Unity/Windows/Mono 조건이다.
-
-## 언리얼 네이티브 후속 검증 — 2026-11-09
-
-실제 UCameraComponent 추종과 정확히2초인 Tick 응답을 UE5.8.3 Development에서 확인했다. 요청30/60/144에서 실제60/120/273회 갱신과 약1.78e-15 오차를 기록했다. 이동 대상 불변성·카메라 충돌·편안함·PIE는 미검증이다. [실제 결과·영상·성능 범위](../../prototypes/UnrealTechniqueLab/STAGE2-RESULTS.kr.md). 캡처는 성능 측정과 별도이며 초기 최대 약68ms 지연 원인은 아직 미확정이다. 기존 Unity 수치를 Unreal 성능 근거로 전이하지 않는다.
-
-## 에디터·전체 패키지 후속 검증 — 2026-11-09
-
-공식 에디터 자동화 API로 카메라·사격·경로장 각각의 실제 PIE(WorldType3)·73개 검사·네이티브 영상을 확인했다. 최종 전체 쿠킹과 독립 실행도 통과해 이전의 PIE/쿠킹 공백을 보완했다. 원래의 카메라 충돌·이동 대상·네트워크·NavMesh/군중 한계는 유지한다. 꼬리 지연은 이번 장면에서 렌더/RHI/D3D11 화면 제출 대기가 지배했으며, 진단용 오클루전·RHI 스위치를 제품 기본값으로 권장하지 않는다. [실제 근거·영상·적용 조건](../../prototypes/UnrealTechniqueLab/EDITOR-GATE-RESULTS.kr.md).
+- [Itay Keren — Scroll Back](https://www.gamedeveloper.com/design/scroll-back-the-theory-and-practice-of-cameras-in-side-scrollers)
+- [Ryan Juckett — Damped Springs](https://www.ryanjuckett.com/damped-springs/)
+- [Epic — UCameraComponent](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/Camera/UCameraComponent?application_version=5.5)

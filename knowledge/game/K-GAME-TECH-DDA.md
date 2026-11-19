@@ -4,9 +4,9 @@ title: "Distinguish adaptive pacing from hidden outcome control"
 summary: "Use observable performance proxies to choose bounded adjustments: spawn cadence, resources, recovery windows or opponent pace. Left 4 Dead's Director changes pacing and does not justify arbitrary enemy stat changes."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["DDA","rubber","banding","director","pacing","난이도"]
+keywords: ["DDA", "rubber", "banding", "director", "pacing", "난이도", "dynamic difficulty adjustment", "adaptive dramatic pacing", "hysteresis"]
 status: active
-checked_at: '2026-11-07'
+checked_at: '2026-11-19'
 context:
   evidence_check: "External source text checked; source-specific limits appear in Evidence"
   application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
@@ -22,6 +22,8 @@ Implementation selection and checks are engineering synthesis, not a promise of 
 ## Applicability and exceptions
 
 Left 4 Dead's Director changes pacing and does not justify arbitrary enemy stat changes. Secretly changing competitive outcomes can undermine trust; no universal tuning coefficients are established.
+
+Dynamic difficulty adjustment (DDA) changes a challenge parameter in response to player performance. **Adaptive dramatic pacing** changes the timing or population of threats to alternate pressure and recovery. Booth describes the latter for Left 4 Dead. For a new design, log the input signal and changed parameter separately. A hysteresis band uses different entry and exit thresholds to prevent rapid reversals near one threshold. [Mike Booth — The AI Systems of Left 4 Dead](https://cdn.fastly.steamstatic.com/apps/valve/2009/ai_systems_of_l4d_mike_booth.pdf)
 
 ## Checks
 

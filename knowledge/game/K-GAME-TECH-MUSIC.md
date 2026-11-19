@@ -4,9 +4,9 @@ title: "Schedule adaptive music at musical boundaries"
 summary: "Use synchronized stems for vertical layering and compatible sections for horizontal resequencing. Randomly concatenating clips does not guarantee musical continuity."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["adaptive","music","stems","transition","vertical","horizontal","음악"]
+keywords: ["adaptive", "music", "stems", "transition", "vertical", "horizontal", "음악", "vertical layering", "horizontal resequencing", "tempo map", "beat-synchronous transition"]
 status: active
-checked_at: '2026-11-07'
+checked_at: '2026-11-19'
 context:
   evidence_check: "External source text checked; source-specific limits appear in Evidence"
   application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
@@ -22,6 +22,8 @@ Implementation selection and checks are engineering synthesis, not a promise of 
 ## Applicability and exceptions
 
 Randomly concatenating clips does not guarantee musical continuity. Composer terminology varies; describe the actual scheduling operation. A brief combat toggle should not cause constant musical restarting.
+
+In **vertical layering**, synchronized stems share a musical timeline and the mix changes by adding or removing layers. In **horizontal resequencing**, the score moves to another compatible section at a musical boundary. A tempo map converts beat or bar positions into playback time as tempo changes. Request a transition immediately before and after a tempo change and verify the audible handoff, including any pickup or decay tail. [Kent Carter / Guy Jones — Composer interview on adaptive music](https://www.gamedeveloper.com/audio/composer-guy-jones-talks-adaptive-music-for-games)
 
 ## Checks
 

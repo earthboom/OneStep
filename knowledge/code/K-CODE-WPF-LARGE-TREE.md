@@ -4,7 +4,7 @@ title: How to keep a WPF property tree with thousands of rows responsive
 summary: Build child rows on first read, bind a row's children only while it is expanded, and show the section headers and top-level rows as one flat virtualized list. Expanders that each hold a plain ItemsControl inside a ScrollViewer create every row.
 kind: lesson
 scope: WPF views that show large hierarchical data (property grids, Details panels, tree-like lists) with ItemsControl templates
-keywords: [WPF, virtualization, UI virtualization, VirtualizingStackPanel, CanContentScroll, ScrollUnit, VirtualizationMode, ItemsControl, Expander, ScrollViewer, lazy loading, property tree, tree view performance, 가상화, 지연 로딩]
+keywords: [WPF, virtualization, UI virtualization, VirtualizingStackPanel, CanContentScroll, ScrollUnit, VirtualizationMode, ItemsControl, Expander, ScrollViewer, lazy loading, property tree, tree view performance, 가상화, 지연 로딩, "VirtualizationMode.Recycling", "IReadOnlyList<T>", "ItemsSource", "DataTemplate", "data virtualization", "container recycling"]
 status: active
 checked_at: "2026-11-10"
 context:
@@ -13,6 +13,8 @@ context:
 ---
 
 ## Guidance
+
+UI virtualization creates visual containers only as items enter the visible range. Data virtualization and lazy construction determine when backing objects exist. Container recycling (`VirtualizationMode.Recycling`) can reuse a visual while scrolling; keep per-item state in the bound item.
 
 1. **Lazy children:** give each row a child list that reports `Count` without building its children (an `IReadOnlyList<T>` that builds on first index or enumeration). An expand arrow needs only the count.
 2. **Bind children on expand:** in the row's `DataTemplate`, leave the child `ItemsControl` collapsed with no `ItemsSource`; a trigger on the toggle's `IsChecked` sets `ItemsSource` and `Visibility`. A collapsed row then creates no child containers.
@@ -30,6 +32,4 @@ An outer `ScrollViewer` around `ItemsControl`s, or an `ItemsControl` without a v
 
 ## Evidence
 
-Provenance: a standalone asset viewer's Details panel, 2026-11-10, Debug build. The largest object had 1,263 top-level rows (75,937 if fully expanded). Building rows fell from 492–864 ms to 26–58 ms. Tab-ready time fell from 7,969 ms to under the 1,000 ms budget. One full test run under heavy machine load had another view at 1,034 ms, so the Debug margin was small.
-
-Not verified: Release timings, scrolling smoothness, memory use.
+A Windows .NET 10 WPF asset-inspection view (Debug, 2026-11-10) built rows faster and became usable sooner after deferred row construction and a single virtualized host. A heavily loaded run showed little margin in another view. Release latency, scrolling and memory were not measured. Microsoft describes conditions that disable virtualization and the difference between container recycling and data virtualization. [Microsoft, Optimizing performance for WPF controls](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/advanced/optimizing-performance-controls)

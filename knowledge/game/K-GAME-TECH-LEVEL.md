@@ -4,9 +4,9 @@ title: "Validate perceived scale against traversal and camera constraints"
 summary: "Start with character dimensions, camera envelope, turning radius and encounter sightlines. This is transferable synthesis, not proof that every game's doors are a fixed multiple of reality."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["level","design","scale","landmark","door","routes","레벨"]
+keywords: ["level", "design", "scale", "landmark", "door", "routes", "레벨", "blockout", "graybox", "level design metrics"]
 status: active
-checked_at: '2026-11-07'
+checked_at: '2026-11-19'
 context:
   evidence_check: "External source text checked; source-specific limits appear in Evidence"
   application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
@@ -22,6 +22,8 @@ Implementation selection and checks are engineering synthesis, not a promise of 
 ## Applicability and exceptions
 
 This is transferable synthesis, not proof that every game's doors are a fixed multiple of reality. Physical area, travel time, content density and perceived scale differ. See existing exploration and platformer references.
+
+A **blockout** or **graybox** is playable geometry built from simple shapes to test layout before detailed art. Level design metrics express repeatable dimensions such as character clearance, step height and jump reach. Test turns, landings and passages with the actual controller and camera, then vary the metric where the encounter needs a different challenge. [The Level Design Book — Metrics](https://book.leveldesignbook.com/process/blockout/metrics)
 
 ## Checks
 

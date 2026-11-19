@@ -30,3 +30,11 @@
 추가 조사 출처의 영문 주석은 정확한 절·함수·접근 범위를 보존한다. 원본 슬라이드·문서·공개 코드의 확인과 실제 엔진·하드웨어 실행은 구분한다. 영상 설명·세션 개요만 확인한 자료를 전체 발표 확인으로 간주하지 않는다.
 
 출발 영상: V13. [영상별 대응표](K-GAME-TECH-GUIDE.kr.md).
+
+## Groom Asset의 적용과 확인
+
+Groom Asset에는 가이드 곡선과 렌더 스트랜드가 들어갈 수 있다. 스트랜드 보간은 시뮬레이션한 가이드의 움직임을 렌더 스트랜드에 전달한다. 가이드 수와 렌더 곡선 수는 서로 다른 작업 비용에 영향을 주므로 대상 LOD에서 해당 패스를 각각 측정한다.
+
+검색어 · Groom Asset, simulation guides, strand interpolation
+
+[Epic, Groom Scalability and Performance](https://dev.epicgames.com/documentation/unreal-engine/groom-scalability-and-performance-with-unreal-engine)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.

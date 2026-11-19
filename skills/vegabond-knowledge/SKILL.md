@@ -46,6 +46,8 @@ On the next relevant task, retrieve by question and conditions, confirm applicab
 
 ## Save and maintain
 
+For game-development tasks, apply the [game development term review](references/storage.md#game-development-terms) before deciding there is nothing to save. A project-specific outcome can still teach a public engine API, C++ construct or established technique. Include each relevant term and its source-backed meaning in the authorized reusable store, even on the first encounter.
+
 Read [storage and lifecycle](references/storage.md) when writing or reorganizing entries. Apply its [capture and consolidation decision](references/storage.md#capture-consolidate-and-promote) before creating a new entry: decide what merits reuse, what belongs in an existing entry, and what should remain in source material or task history. It defines the entry header/body and the [catalog helper](scripts/catalog.py) build/check workflow and is the single authority for format, evidence, deduplication, promotion, and retirement. Do not run full-store rebuilds or checks as part of ordinary lookup.
 
 Write only within the task's authorized scope. In read-only or findings-only work, return proposed entries rather than changing stores. When saving is authorized, update the detail and its human translation, build affected catalogs, regenerate translations for changed English catalogs, and check them before handoff. Update root routing for a new domain. Do not edit generated rows or infer missing legacy metadata. Create no empty store merely for lookup, and never fabricate starter knowledge.

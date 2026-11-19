@@ -4,7 +4,7 @@ title: "Separate volumetric appearance from simulated smoke gameplay"
 summary: "Render participating media using a density field with scattering/extinction; use noise to shape clouds or smoke, then sample light and transmittance. Volumetric rendering is not fluid dynamics."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["volumetric","smoke","clouds","Worley","연막","구름","연막","구름","경계누출","잔상"]
+keywords: ["volumetric", "smoke", "clouds", "Worley", "연막", "구름", "경계누출", "잔상", "Volumetric Fog", "temporal reprojection", "Volumetric Scattering Intensity"]
 status: active
 checked_at: '2026-11-07'
 context:
@@ -22,6 +22,10 @@ Implementation selection and checks below are engineering synthesis, not a promi
 ### Implementation follow-up — 2026-11-07
 
 Valve's 2023 CS2 patch notes explicitly mention smoke-volume expansion near walls, changes to the stepping function on AMD hardware, and shotgun-created holes. These support an evolving spatial smoke volume, not a published complete solver. Implementation synthesis: separate authoritative smoke occupancy and temporary bullet/grenade perturbations from per-view lighting, then render the shared state with platform-appropriate sampling. Geometry intersection and reconstruction must preserve gameplay visibility across quality levels.
+
+### Volumetric Fog
+
+Unreal's Volumetric Fog uses temporal reprojection to reuse fog samples across frames. Rapidly changing lights can leave trails. Compare moving and static lights, then vary the light's `Volumetric Scattering Intensity` to isolate its contribution to fog from its lighting of opaque surfaces.
 
 ## Applicability and exceptions
 

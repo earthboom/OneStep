@@ -22,3 +22,7 @@
 - 공식 문서·논문·저자 글은 확인한 본문 범위에 한정한다. 초록·영상 설명만 확인한 경우와 미열람 자료는 영문 정본 Evidence에 명시했다. 예제 코드·영상·제품 성능은 실행 검증하지 않았다.
 - 출발 영상: V22. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+### sound attenuation
+
+**소리 감쇠(sound attenuation)**는 음원·청취자 거리에 따라 음량을 정한다. **공기 흡수(air absorption)**는 거리에 따른 주파수 필터링을, 공간화(spatialization)는 방향 단서를 다룬다. 언리얼의 가림 설정은 충돌 트레이스 결과에 따라 음량과 저역 통과 필터를 바꿀 수 있다. 가시선을 유지한 채 거리만 바꿔 보고, 같은 거리에서 벽을 추가해 효과를 나누어 확인한다. [Epic — Sound Attenuation](https://dev.epicgames.com/documentation/en-us/unreal-engine/sound-attenuation-in-unreal-engine)

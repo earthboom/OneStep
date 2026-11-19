@@ -21,3 +21,11 @@
 - [Epic — Material Blend Modes](https://dev.epicgames.com/documentation/en-us/unreal-engine/material-blend-modes-in-unreal-engine) — 확인 범위는 영문 정본의 Evidence에 기록. 추가 읽기로 표시된 자료는 본문 전체를 확인하지 않았다.
 - 출발 영상: V45. [전체 대응표](K-GAME-TECH-GUIDE.kr.md).
 
+
+## AlphaComposite의 적용과 확인
+
+언리얼의 `AlphaComposite`에서는 원본 RGB에 알파 가중치가 이미 들어 있다. 알파를 다시 곱하면 반투명 경계가 어두워진다. Masked 모드의 `Opacity Mask Clip Value`는 픽셀을 버리는 임계값이다. 밝은 배경과 어두운 배경에서 반투명 경계를 비교하고 마스크 임계값은 따로 검사한다.
+
+검색어 · AlphaComposite, premultiplied alpha, Opacity Mask Clip Value
+
+[Epic, Material Blend Modes](https://dev.epicgames.com/documentation/unreal-engine/material-blend-modes-in-unreal-engine?lang=en-US)은 용어와 적용 조건의 근거다. 제안한 검사는 대상 환경에서 수행한다.

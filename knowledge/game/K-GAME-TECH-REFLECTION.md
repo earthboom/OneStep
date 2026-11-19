@@ -4,7 +4,7 @@ title: "Select reflections by visibility and update requirements"
 summary: "For flat accurate mirrors, render a reflected camera view with clipping. A mirrored duplicate scene is one historical trick, not the definition of planar reflection."
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["reflection","SSR","cubemap","mirror","거울"]
+keywords: ["reflection", "SSR", "cubemap", "mirror", "거울", "Screen Space Reflections", "Planar Reflections"]
 status: active
 checked_at: '2026-11-07'
 context:
@@ -18,6 +18,10 @@ context:
 For flat accurate mirrors, render a reflected camera view with clipping. For approximate surrounding light, use reflection probes/cubemaps; choose static capture or explicit update policy. SSR traces against available screen depth, so use fallback data for rays leaving the image. Combine methods by roughness, distance and importance.
 
 Implementation selection and checks below are engineering synthesis, not a promise of a source game's exact implementation.
+
+### Screen Space Reflections
+
+Screen Space Reflections use data visible in the current view, which can cause reflections to disappear at the edge of the screen. Planar Reflections render the scene from a reflected viewpoint for a plane. Move a reflected object out of the main view and compare completeness and GPU time at the chosen quality settings.
 
 ## Applicability and exceptions
 
