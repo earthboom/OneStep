@@ -28,7 +28,7 @@ Suspected cause: the harness and its own instructions favor sending a tool call 
 
 ## Recheck and prevention
 
-Recheck: in the retest under the stricter gate, the report-top brief, the required report lines and the verbatim handoff phrase were all present (transcript inspection, 2026-11-20). The relocated rule itself has not been retested. Proposed prevention: put order-sensitive outputs where the final artifact can carry them, or block investigation tools until the text exists with a PreToolUse hook; neither is verified. Audit with [K-CODE-AGENT-INSTRUCTION-AUDIT](../../knowledge/code/K-CODE-AGENT-INSTRUCTION-AUDIT.md) rather than task status.
+Recheck: in the retest under the stricter gate, the report-top brief, the required report lines and the verbatim handoff phrase were all present (transcript inspection, 2026-11-20). A fresh session under the relocated rule (a read-only engine API research request, same day) opened its final report with the four-field brief and a status for each done condition; as expected under the relocation, no brief preceded the first tool call. The statuses said "done" without per-condition evidence, so the evidence part of the rule held only partly. Proposed prevention: put order-sensitive outputs where the final artifact can carry them, or block investigation tools until the text exists with a PreToolUse hook; neither is verified. Audit with [K-CODE-AGENT-INSTRUCTION-AUDIT](../../knowledge/code/K-CODE-AGENT-INSTRUCTION-AUDIT.md) rather than task status.
 
 ## Evidence
 
