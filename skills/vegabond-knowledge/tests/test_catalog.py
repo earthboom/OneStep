@@ -86,6 +86,45 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(code, 0, result)
         self.assertTrue(any(d["code"] == "source_unbound" for d in result["diagnostics"]))
 
+    def test_historical_source_does_not_exempt_required_local_files(self):
+        entry = self.detail()
+        registry = self.put("knowledge/sources.md", '---\nsources:\n  SRC-LOCAL-HISTORY:\n    project: null\n    path: null\n    sha256: null\n---\n\n## SRC-LOCAL-HISTORY\n\nExcluded historical evidence.\n')
+        self.pair(registry)
+        proof = self.put("prototypes/UnrealTechniqueLab/required-proof.json", '{"ok": true}\n')
+        entry.write_text(entry.read_text(encoding="utf-8") +
+                         '\n[historical report](../sources.md#src-local-history)\n'
+                         '[required proof](../../prototypes/UnrealTechniqueLab/required-proof.json)\n',
+                         encoding="utf-8")
+        self.assertEqual(self.run_cli("build")[0], 0)
+        code, result = self.run_cli("check", "--strict")
+        self.assertEqual(code, 0, result)
+        self.assertIn("source_unbound", [d["code"] for d in result["diagnostics"]])
+        proof.unlink()
+        code, result = self.run_cli("check", "--strict")
+        self.assertEqual(code, 1, result)
+        self.assertTrue(any(d["code"] == "broken_reference" and
+                            "required-proof.json" in d["message"] for d in result["diagnostics"]), result)
+        code, result = self.run_cli("build")
+        self.assertEqual(code, 1, result)
+        self.assertEqual(result["catalogs_written"], [])
+
+    def test_historical_source_requires_registered_id_and_heading(self):
+        entry = self.detail()
+        registry = self.put("knowledge/sources.md", '---\nsources:\n  SRC-LOCAL-HISTORY:\n    project: null\n    path: null\n    sha256: null\n---\n\n## SRC-LOCAL-HISTORY\n')
+        self.pair(registry)
+        original = entry.read_text(encoding="utf-8")
+        entry.write_text(original + '\n[history](../sources.md#src-local-history)\n', encoding="utf-8")
+        self.assertEqual(self.run_cli("build")[0], 0)
+        entry.write_text(original + '\n[history](../sources.md#src-misspelled)\n', encoding="utf-8")
+        code, result = self.run_cli("check", "--strict")
+        self.assertEqual(code, 1, result)
+        self.assertIn("source_reference", [d["code"] for d in result["diagnostics"]])
+        entry.write_text(original + '\n[history](../sources.md#src-local-history)\n', encoding="utf-8")
+        registry.write_text(registry.read_text(encoding="utf-8").replace("## SRC-LOCAL-HISTORY", "## Wrong heading"), encoding="utf-8")
+        code, result = self.run_cli("check", "--strict")
+        self.assertEqual(code, 1, result)
+        self.assertIn("source_reference", [d["code"] for d in result["diagnostics"]])
+
     def test_bootstrap_builds_multiple_stores_without_index_stubs(self):
         self.domain("knowledge", "code")
         self.domain("records", "code")
