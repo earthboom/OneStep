@@ -1,0 +1,50 @@
+Configuration a physical files: ['harrier.enc']
+Crossing Tactics
+Commands: list, start ID, status, move left, move right, strike, guard, help, quit
+Move one cell, strike an adjacent enemy, or guard to absorb up to 2 damage and counter an adjacent attack if you survive.
+Encounter core | Crossing
+Encounter harrier | Harrier Yard
+Started Crossing.
+State turn=0 board=P...E player_hp=6 enemy_hp=3
+Rejected player cannot strike at this distance.
+State turn=0 board=P...E player_hp=6 enemy_hp=3
+Rejected player cannot move there.
+State turn=0 board=P...E player_hp=6 enemy_hp=3
+Player moves right.
+Enemy closes in.
+State turn=1 board=.P.E. player_hp=6 enemy_hp=3
+Player moves right.
+Enemy deals 2 damage.
+State turn=2 board=..PE. player_hp=4 enemy_hp=3
+Player deals 2 damage.
+Enemy deals 2 damage.
+State turn=3 board=..PE. player_hp=2 enemy_hp=1
+Player deals 2 damage.
+Enemy is defeated and cannot act.
+Result victory.
+State turn=4 board=..P.. player_hp=2 enemy_hp=0
+Rejected encounter is over. Use start to play again.
+State turn=4 board=..P.. player_hp=2 enemy_hp=0
+
+Crossing Tactics
+Commands: list, start ID, status, move left, move right, strike, guard, help, quit
+Move one cell, strike an adjacent enemy, or guard to absorb up to 2 damage and counter an adjacent attack if you survive.
+Encounter core | Crossing
+Encounter harrier | Harrier Yard
+Started Harrier Yard.
+State turn=0 board=.P.E.. player_hp=7 enemy_hp=4
+Player moves right.
+Enemy deals 2 damage.
+State turn=1 board=..PE.. player_hp=5 enemy_hp=4
+Player guards.
+Enemy deals 0 damage. Guard counters for 1.
+State turn=2 board=..PE.. player_hp=5 enemy_hp=3
+Player deals 2 damage.
+Enemy deals 2 damage.
+State turn=3 board=..PE.. player_hp=3 enemy_hp=1
+Player deals 2 damage.
+Enemy is defeated and cannot act.
+Result victory.
+State turn=4 board=..P... player_hp=3 enemy_hp=0
+
+PASS a

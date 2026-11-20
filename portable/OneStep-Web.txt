@@ -230,7 +230,7 @@ Use repository guidance, source and relevant callers, project/dependency configu
 
 Classify the actual component, not its extension or the repository's main technology. Unreal C++ and independent C++ need their own toolchains; Unity uses its project/package contracts. A Python tool inside an Unreal repository follows its own runtime, adding engine checks when its effects reach assets or engine behavior. For mixed work, identify affected components and boundary checks. Keep source locations and the result in the existing brief, not a separate environment report.
 
-For C++ components, follow the working project's conventions first. When introducing a language feature or ownership model, designing a public API, choosing a design pattern, or tuning performance, consult only the relevant section of the [C++ implementation guide](../../templates/cpp/CPP_IMPLEMENTATION.md). Reuse guidance already loaded for the task.
+For C++ components, read the [C++ project guidelines](references/cpp-project-guidelines.md) before implementation. Apply the common rules to C++ and the additional rules to Unreal C++. The working project's instructions and conventions take precedence. When introducing a language feature or ownership model, designing a public API, choosing a design pattern, or tuning performance, consult only the relevant section of the [C++ implementation guide](references/cpp-implementation.md). Reuse guidance already loaded for the task.
 
 Request relevant contracts, version-specific sources, and prior failure/prevention checks through [vegabond-knowledge](../vegabond-knowledge/SKILL.md), reusing the existing information brief. Select available environment skills or direct tools through scout's mapping.
 
@@ -242,11 +242,15 @@ For game implementation, debugging or optimization, apply the [game evidence reu
 
 Use [vegabond-code-design](../vegabond-code-design/SKILL.md) when a meaningful choice about state ownership, lifecycle, interfaces used by other callers, concurrency, persistence, external integration, or migration must be settled before implementation. A local edit following an established pattern can state its relevant contract and preservation conditions inline and proceed. File count alone does not decide; reuse a valid existing design and revisit only decisions changed by evidence.
 
+For a game, route changes to the gameplay framework, shared content contracts, or dependencies between features through code design. When adding content through an existing extension point, use the existing contract and check the new content alongside the supported baseline. An independently optional feature also requires the applicable [dependency and independence checks](../vegabond-code-design/references/gameplay-framework.md#make-feature-dependencies-explicit), even when it uses an existing extension point. Use code design if these checks reveal a new dependency or a needed contract change.
+
 Pass the current brief, environment, affected source/contracts, constraints, and unanswered decisions. Design returns a bounded implementation direction and checks within this workflow; it does not restart scout or create another execution loop. A design-only request ends with that result rather than an unsolicited implementation.
 
 ## Implement or investigate
 
 Read [verification and handoff](references/verification.md) before changing code or judging the result. It owns the detailed preparation, build/test/runtime/real-use checks, review-and-repair loop, verification-change scrutiny, long-work state, and demonstrated safeguards. Apply it to each coherent change and the final integrated artifact; do not defer reading it until completion.
+
+For a gameplay framework or content boundary change, carry the representative extension, affected dependency checks, and supported content configurations from the design into software verification. Apply the relevant dependency and configuration checks to an independently optional feature added through an existing extension point as well. Exercise the production registration and play path. Record the actual changes needed to add the variant and the behavior of the applicable configurations in the verification evidence.
 
 - **Create:** Follow the selected design or existing local pattern and implement a complete usable path. Resolve a load-bearing assumption with a small integration slice before dependent implementation, using scout's existing scale decision.
 - **Revise:** Reproduce a defect and trace its cause before repair. For intentional restructuring, preserve the established behavior and public contracts while changing coherent units. Keep unrelated cleanup outside scope.
@@ -262,7 +266,7 @@ Return the patch or investigation, acceptance evidence for the actual final code
 
 ---
 name: vegabond-code-design
-description: Use when software work needs decisions about architecture, data ownership, lifecycle, interfaces, concurrency, persistence, or migration before implementation, or when a software design is the requested deliverable.
+description: Use when software work needs architecture, ownership, lifecycle, interface, concurrency, persistence, or migration decisions, including gameplay framework design and independently extensible game content, or when a software design is the requested deliverable.
 ---
 
 # Vegabond Code Design
@@ -272,6 +276,8 @@ Settle software design decisions for the calling operation or [vegabond-code](..
 If invoked directly, fill only missing context through [scout's shared setup](../vegabond-scout/SKILL.md#frame-and-classify) and [code's environment assessment](../vegabond-code/SKILL.md#identify-the-working-environment). For a design-only request, deliver the design and its supporting evidence without changing production code. Use isolated experiments only when authorized and needed to settle a decision.
 
 For game architecture and technical choices, use the [game evidence reuse convention](../../knowledge/game/K-GAME-RESEARCH-USE.md), including on direct invocation. Reuse valid retrieved evidence, inspect prerequisites such as restorable state for rollback, and record adoption, conditional use or rejection against actual engine, platform and gameplay constraints. Return the selected entry IDs, implementation boundaries and proposed validation with the design.
+
+When choosing a game's framework or changing how content is authored, registered, or composed across features, apply [gameplay framework and content design](references/gameplay-framework.md). Use its applicable parts for both new designs and revisions, and pass its checks to the implementation workflow.
 
 ## Resolve the design
 
@@ -700,6 +706,102 @@ Distinguish analysis-only feedback from an authorized edit. If only findings are
 
 Hand back the revised artifact or authorized findings, the meaningful changes, comparison evidence, and unresolved issues. A changed result is not by itself evidence of improvement.
 
+===== skills/vegabond-code/references/cpp-implementation.md =====
+
+# C++ Implementation Guide
+
+Use the relevant section when a change calls for an implementation decision. Follow the working project's instructions and conventions first.
+
+## Language features, types, and ownership
+
+- Choose features and library types supported by the target's toolchain. Follow the surrounding code's conventions for type deduction and error handling. Use `auto` when it makes the declaration easier to read, and make intended copies, references, and pointers explicit.
+- Pass inexpensive values by value and expensive read-only inputs by `const&` where appropriate. Use RAII for resource ownership. Confirm that the underlying object outlives any stored view or reference.
+- **Plain C++ example** — Use `const auto& item` to inspect item objects in a loop when the project permits type deduction. Copy a `std::string_view` into an owning string when the text must outlive its source.
+- **Unreal C++ example** — Follow the module's approach to `auto`. Use a `UPROPERTY()`-marked `TObjectPtr<UInventoryComponent>` for a persistent reference that must keep the component reachable. Use `TWeakObjectPtr` for a non-owning cache and check validity when using it.
+
+References — [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) · [Abseil parameter passing](https://abseil.io/tips/234) · [Epic C++ coding standard](https://dev.epicgames.com/documentation/en-us/unreal-engine/epic-cplusplus-coding-standard-for-unreal-engine) · [Unreal object pointers](https://dev.epicgames.com/documentation/en-us/unreal-engine/object-pointers-in-unreal-engine)
+
+## Names and call-site readability
+
+- Use the project's domain terms and naming conventions. Give a name enough context to read correctly at its use site. Include units when the type leaves them implicit. Name booleans as predicates.
+- When a literal flag or a sequence of flags obscures a choice at the call site, use a named mode or options type that expresses the choice.
+- **Plain C++ example** — Use `remainingSlots` or `retryDelayMs`. A call such as `Save(path, SaveMode::Overwrite)` makes the save mode visible.
+- **Unreal C++ example** — Use `MaxStackCount` for a limit, `bHasPendingReward` for a boolean field, and `IsInventoryFull()` for a query.
+
+References — [Identifier comprehension study](https://www.se.cs.uni-saarland.de/publications/docs/HoSeHo17.pdf) · [Abseil call-site readability](https://abseil.io/tips/94) · [Epic naming conventions](https://dev.epicgames.com/documentation/en-us/unreal-engine/epic-cplusplus-coding-standard-for-unreal-engine#naming-conventions)
+
+## Design patterns
+
+Name the behavior that varies or the boundary that needs adapting, then use the smallest implementation that meets the requirement. Reuse the project's existing mechanisms when they fit.
+
+| Need | Plain C++ example | Unreal C++ example |
+| --- | --- | --- |
+| **Strategy** for interchangeable behavior | Pass an event-specific reward formula as a function or lambda. | Pass a reward policy to a component that applies the result. |
+| **Adapter** for an incompatible API | Translate an SDK result into the project's existing value and error types. | Translate the online service's result into the gameplay-facing result type. |
+| **Observer** for independent consumers | Subscribe UI and telemetry callbacks to an inventory change and define when they unsubscribe. | Bind the HUD to the inventory component's change delegate and unbind it when the HUD is torn down. |
+| **State machine** for constrained transitions | Model `Idle`, `Charging`, and `Released` with an `enum class` and explicit transitions. | Keep ability-state transitions in the component that owns the state. |
+
+References — [Design pattern maintenance experiment](https://ps.ipd.kit.edu/downloads/zeitschriftenartikel_PatmainTSE2001.pdf) · [C++ Software Design](https://www.oreilly.com/library/view/c-software-design/9781098113155/ch05.html) · [Unreal delegates](https://dev.epicgames.com/documentation/en-us/unreal-engine/delegates-and-lambda-functions-in-unreal-engine)
+
+## Performance work
+
+- Define the metric and a representative workload. Profile the relevant path, then target the measured cost, such as repeated work, copies, allocations, or poor locality.
+- Verify the affected behavior and measure before and after with the same inputs and execution conditions. Report the result and relevant costs, such as added memory or setup time. If measurement is unavailable, describe the expected effect as a hypothesis.
+- **Plain C++ example** — Before replacing repeated linear searches with an index, compare lookup time, index construction time, and memory use at representative sizes.
+- **Unreal C++ example** — When profiling shows `TArray` reallocation overhead and the expected element count is known, try `Reserve()`. Compare allocation activity and frame time in Unreal Insights using the same gameplay scenario.
+
+References — [Google performance tuning notes](https://abseil.io/fast/hints) · [Study of performance validation in coding-agent PRs](https://arxiv.org/abs/2610.03969) · [Unreal array containers](https://dev.epicgames.com/documentation/en-us/unreal-engine/array-containers-in-unreal-engine) · [Unreal Insights](https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-insights-in-unreal-engine)
+
+===== skills/vegabond-code/references/cpp-project-guidelines.md =====
+
+# C++ Project Guidelines
+
+Apply the common rules to all C++ code and the additional rules to Unreal C++ code. Follow the working project's instructions and conventions first.
+
+When introducing a new language feature or ownership model, designing a public API, choosing a design pattern, or tuning performance, consult the relevant section of the [C++ Implementation Guide](cpp-implementation.md).
+
+## Common C++ Rules
+
+1. **Start from the existing call path and justify wider boundaries.**
+   - **When to apply** — Before editing, read the implementation and its callers, identify the state owner, and reuse an API that meets the requirement. If you add or widen a public API, extension point, base class, or module dependency, name the caller or requirement in the change summary.
+   - **Plain C++ example** — Check how `Inventory::TryAdd()` handles insufficient space before reusing it for quest rewards.
+   - **Unreal C++ example** — Trace quest rewards to `UInventoryComponent` and reuse its grant operation.
+
+2. **Keep responsibilities and dependencies within their intended boundaries.**
+   - **When to apply** — Put a rule in the module that owns the decision and coordinate multiple modules in the caller. Use public APIs, follow the existing dependency direction, and avoid cycles. When an optional feature changes, check that core behavior still works in affected supported configurations with the feature disabled.
+   - **Plain C++ example** — A parser returns the same result with optional telemetry disabled.
+   - **Unreal C++ example** — A supported dedicated server grants quest rewards without a HUD.
+
+3. **Use the simplest structure that meets the current requirement.**
+   - **When to apply** — Start with a function or concrete type. Pass only the needed values and make required collaborators explicit. Compose behaviors that vary independently. Add an interface when you need to swap implementations or reverse a dependency. Use `public` inheritance when callers need to substitute derived types that honor the base contract.
+   - **Plain C++ example** — Pass the player level and reward settings to `CalculateReward()` and supply an event-specific formula as a function when needed.
+   - **Unreal C++ example** — Attach a `UInteractionComponent` to Actors that need interaction.
+
+4. **Hide internal state and define the contract callers rely on.**
+   - **When to apply** — Keep state and implementation `private` by default. Expose needed operations as `public` and intentional subclass hooks as `protected`. Change state through operations on its owner. Where relevant, specify thread, lifetime, execution order, and authority requirements. Define what can change, what remains valid, and whether retry is safe after failure or cancellation.
+   - **Plain C++ example** — A failed `ReloadConfig()` leaves the last valid configuration active.
+   - **Unreal C++ example** — The server grants a reward once and returns the recorded result for a duplicate request within the supported retry window.
+
+5. **Verify behavior through the real call path.**
+   - **When to apply** — For bug fixes, reproduce the issue first when possible and rerun after the fix with the same input and initial state. For new behavior, check the expected outcome through the public API or feature entry point. Report any verification step you could not run and why.
+   - **Plain C++ example** — With a full inventory, verify that the reward operation reports failure and leaves item counts intact.
+   - **Unreal C++ example** — In Play In Editor (PIE), repeat the same item pickup before and after the fix and check the displayed count.
+
+6. **Compare viable designs when quality goals conflict.**
+   - **When to apply** — If at least two options meet the requirements and trade off important goals, compare them using the same representative scenario and acceptance criteria. Measure an uncertain outcome when it could change the choice.
+   - **Plain C++ example** — Compare in-place reload and snapshot replacement on peak memory and failed-reload behavior.
+   - **Unreal C++ example** — Compare preloaded and on-demand inventory icons on the same device for first-open frame time and peak memory.
+
+## Additional Unreal C++ Rules
+
+1. **Follow existing engine entry points and lifecycles.**
+   - **When to apply** — Before changing an Actor, Component, or Subsystem, identify how it is created, initialized, and shut down. Use the existing lifecycle hooks.
+   - **Unreal C++ example** — Use the existing initialization and cleanup hooks in `UInteractionComponent`.
+
+2. **Expose only the operations Blueprint callers need.**
+   - **When to apply** — Base Blueprint exposure on actual Blueprint callers. Route state changes from C++ and Blueprint through the same validation and explain any wider exposure in the change summary.
+   - **Unreal C++ example** — Expose the validated reward grant function to Blueprint and keep the stack array `private`.
+
 ===== skills/vegabond-code/references/verification.md =====
 
 # Software verification and handoff
@@ -744,6 +846,38 @@ At phase boundaries and before a handoff or context reset, update the existing b
 ## Retain useful safeguards
 
 For repeated consequential mistakes, use the existing knowledge/record flow to identify the pattern, then prefer a scoped structural fix, type constraint, lint/CI check, or behavior test over another prose warning. Reuse the project's enforcement path and demonstrate detection of the actual mistake or a controlled equivalent. Report what is automatically enforced versus merely documented, and any remaining limits. Do not claim a rule is enforced just because it appears in this skill, or impose new infrastructure on every small task.
+
+===== skills/vegabond-code-design/references/gameplay-framework.md =====
+
+# Gameplay framework and content design
+
+Apply this when choosing or changing the game's runtime structure, the contracts through which content extends gameplay, or dependencies between features. Keep the decisions and checks in the existing brief or design. Use only the parts relevant to the change. For a local correction that preserves the contract, use the existing path and check the affected behavior.
+
+## Derive the framework from representative play
+
+Start with an existing design or describe a short sequence of player input, rule execution, feedback, and the next meaningful choice. Include a second sequence if a different mode or hybrid activity changes the guarantees. Identify the technical consequences relevant to the chosen sequence, such as turn or real-time scheduling, response deadlines, simulation authority, replication, deterministic replay, persistence, authoring, and expected workload. Tie each consequential choice to a gameplay requirement and observable result. Keep unknown requirements attached to the decisions they affect. [Genre and observable play](../../../knowledge/game/K-GAME-DESIGN-FRAMEWORK.md)
+
+For example, a turn-based tactics game may need a place to validate commands, resolve actions in rule order, and expose the turn's result. A real-time co-op action game may need responsive local feedback, authoritative outcomes, and recovery when replicated state arrives late. Derive these requirements from the actual game. Share a rule across these modes only if its inputs, guarantees, and intended changes really coincide. Place engine-independent rules in ordinary C++ when this serves an actual testing or reuse need. Preserve existing engine ownership and hooks for behavior tied to worlds, actors, assets, or networking.
+
+## Give content an extension path
+
+Choose one current content item and one credible variation, such as a second encounter, weapon, quest, or ruleset. Walk through how an author creates, validates, registers, plays, and updates each. Identify the stable rules and their owners, the authored data that can vary, and behavior changes that need their own implementation. Treat a common rule as shared only where its callers need the same guarantees and the rule should evolve together. Keep feature-specific state and internals with the owning feature. Define the small interface a caller needs, including authority, valid state, failure, and lifetime when relevant. [Information hiding](../../../knowledge/code/K-CODE-INFORMATION-HIDING.md)
+
+Use validated data or assets for values and combinations with an existing meaning. Use a concrete function, type, or component to compose behavior that varies independently. Add an extension point or base type for an identified variation or framework contract, and check substitutability for public inheritance. Identify the place where content is registered and related features are assembled. For data consumed by existing content, saves, or network peers, preserve the relevant IDs, schemas, and contracts or specify a migration. Account for missing or invalid content at the point the project can detect it.
+
+## Make feature dependencies explicit
+
+Give independently optional features no direct sibling dependency. Shared rules or stable contracts may have a common owner, and the code or content that assembles a mode can depend on the features it selects. Put an intentional interaction between optional features in that assembly or in an integration that is enabled when its prerequisites are available. If the product requires one feature for another, document the dependency direction, the required contract, and the unavailable case. Avoid cycles and preserve the target project's legitimate dependency directions. [Dependency direction](../../../knowledge/code/K-CODE-DEPENDENCY-DIRECTION.md)
+
+Trace the affected edges in source and build configuration, authored content, and runtime. Look at public types, includes, modules and plugins; hard or soft asset references and registration data; and object lookup, events, initialization, and cleanup. An event, tag, or soft reference still carries a dependency if a particular feature must provide it for the flow to work. For Unreal, inspect relevant `Build.cs` or plugin declarations, check affected Blueprint and data-asset references with the available asset tools, and verify registration and teardown in the intended world and network role. [Unreal build dependencies](https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-modules) · [Unreal Reference Viewer](https://dev.epicgames.com/documentation/en-us/unreal-engine/reference-viewer-in-unreal-engine)
+
+## Review the change through content and play
+
+- **Genre fit.** Exercise the sequence that motivated the design through the real gameplay entry point. Define what the player and authoritative state should observe, including one failure or ordering case when it affects the choice.
+- **Extension and maintenance.** Add or trace the second representative variant through the actual authoring and registration path. Record which shared modules, files, public interfaces, and assets need edits and why. Inspect whether the changes stay with the new content and its registration unless an explicit shared contract changes. Recheck existing content affected by that contract.
+- **Independence.** For each affected configuration the project supports, exercise core play and the eligible features alone or together as relevant. Check feature absence in the build or package when absence is supported, and disabled behavior when only runtime disabling is supported. If the product supports both, check both. For a supported runtime lifecycle, verify cleanup of registered behavior, subscriptions, or pending work and repeat activation when applicable. Check a likely accidental dependency with an actual build, load, or gameplay observation that could fail if the dependency exists.
+
+A design returns expected observations and how to obtain them. Verify the implementation with the target project's existing build, test, editor, and packaging paths as applicable. Keep evidence from a proposed check or isolated rule test distinct from the integrated play result. [Design review](review.md) · [Software verification](../../vegabond-code/references/verification.md)
 
 ===== skills/vegabond-code-design/references/review.md =====
 
@@ -1503,52 +1637,6 @@ Optionally propose a change or behavior to preserve, applicability, and a check 
 ## Review and verification
 
 Maintainer fills during processing: assessment; change or defer reason; original-concern and related-case checks with results and limits; any required user review; remaining issue. Link retained evidence in existing tests, guidance, change report, or commit before deleting this pair under the guide. Status may become reviewing or verifying; do not accumulate completed reports.
-
-===== templates/cpp/CPP_IMPLEMENTATION.md =====
-
-# C++ Implementation Guide
-
-Use the relevant section when a change calls for an implementation decision. Follow the working project's instructions and conventions first.
-
-## Language features, types, and ownership
-
-- Choose features and library types supported by the target's toolchain. Follow the surrounding code's conventions for type deduction and error handling. Use `auto` when it makes the declaration easier to read, and make intended copies, references, and pointers explicit.
-- Pass inexpensive values by value and expensive read-only inputs by `const&` where appropriate. Use RAII for resource ownership. Confirm that the underlying object outlives any stored view or reference.
-- **Plain C++ example** — Use `const auto& item` to inspect item objects in a loop when the project permits type deduction. Copy a `std::string_view` into an owning string when the text must outlive its source.
-- **Unreal C++ example** — Follow the module's approach to `auto`. Use a `UPROPERTY()`-marked `TObjectPtr<UInventoryComponent>` for a persistent reference that must keep the component reachable. Use `TWeakObjectPtr` for a non-owning cache and check validity when using it.
-
-References — [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) · [Abseil parameter passing](https://abseil.io/tips/234) · [Epic C++ coding standard](https://dev.epicgames.com/documentation/en-us/unreal-engine/epic-cplusplus-coding-standard-for-unreal-engine) · [Unreal object pointers](https://dev.epicgames.com/documentation/en-us/unreal-engine/object-pointers-in-unreal-engine)
-
-## Names and call-site readability
-
-- Use the project's domain terms and naming conventions. Give a name enough context to read correctly at its use site. Include units when the type leaves them implicit. Name booleans as predicates.
-- When a literal flag or a sequence of flags obscures a choice at the call site, use a named mode or options type that expresses the choice.
-- **Plain C++ example** — Use `remainingSlots` or `retryDelayMs`. A call such as `Save(path, SaveMode::Overwrite)` makes the save mode visible.
-- **Unreal C++ example** — Use `MaxStackCount` for a limit, `bHasPendingReward` for a boolean field, and `IsInventoryFull()` for a query.
-
-References — [Identifier comprehension study](https://www.se.cs.uni-saarland.de/publications/docs/HoSeHo17.pdf) · [Abseil call-site readability](https://abseil.io/tips/94) · [Epic naming conventions](https://dev.epicgames.com/documentation/en-us/unreal-engine/epic-cplusplus-coding-standard-for-unreal-engine#naming-conventions)
-
-## Design patterns
-
-Name the behavior that varies or the boundary that needs adapting, then use the smallest implementation that meets the requirement. Reuse the project's existing mechanisms when they fit.
-
-| Need | Plain C++ example | Unreal C++ example |
-| --- | --- | --- |
-| **Strategy** for interchangeable behavior | Pass an event-specific reward formula as a function or lambda. | Pass a reward policy to a component that applies the result. |
-| **Adapter** for an incompatible API | Translate an SDK result into the project's existing value and error types. | Translate the online service's result into the gameplay-facing result type. |
-| **Observer** for independent consumers | Subscribe UI and telemetry callbacks to an inventory change and define when they unsubscribe. | Bind the HUD to the inventory component's change delegate and unbind it when the HUD is torn down. |
-| **State machine** for constrained transitions | Model `Idle`, `Charging`, and `Released` with an `enum class` and explicit transitions. | Keep ability-state transitions in the component that owns the state. |
-
-References — [Design pattern maintenance experiment](https://ps.ipd.kit.edu/downloads/zeitschriftenartikel_PatmainTSE2001.pdf) · [C++ Software Design](https://www.oreilly.com/library/view/c-software-design/9781098113155/ch05.html) · [Unreal delegates](https://dev.epicgames.com/documentation/en-us/unreal-engine/delegates-and-lambda-functions-in-unreal-engine)
-
-## Performance work
-
-- Define the metric and a representative workload. Profile the relevant path, then target the measured cost, such as repeated work, copies, allocations, or poor locality.
-- Verify the affected behavior and measure before and after with the same inputs and execution conditions. Report the result and relevant costs, such as added memory or setup time. If measurement is unavailable, describe the expected effect as a hypothesis.
-- **Plain C++ example** — Before replacing repeated linear searches with an index, compare lookup time, index construction time, and memory use at representative sizes.
-- **Unreal C++ example** — When profiling shows `TArray` reallocation overhead and the expected element count is known, try `Reserve()`. Compare allocation activity and frame time in Unreal Insights using the same gameplay scenario.
-
-References — [Google performance tuning notes](https://abseil.io/fast/hints) · [Study of performance validation in coding-agent PRs](https://arxiv.org/abs/2610.03969) · [Unreal array containers](https://dev.epicgames.com/documentation/en-us/unreal-engine/array-containers-in-unreal-engine) · [Unreal Insights](https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-insights-in-unreal-engine)
 
 ===== knowledge/game/index.md =====
 

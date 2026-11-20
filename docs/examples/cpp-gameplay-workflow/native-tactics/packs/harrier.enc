@@ -1,0 +1,7 @@
+# Harrier starts within one move of the player.
+name=Harrier Yard
+board=.P.E..
+player_hp=7
+enemy_hp=4
+player_damage=2
+enemy_damage=2

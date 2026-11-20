@@ -2,6 +2,8 @@
 
 Run this evaluation after changing the linked C++ workflow or implementation guide. It checks what a fresh agent reads during a real edit in a synthetic linked project. Use the [existing blind evaluation method](../../../vegabond-knowledge/tests/information-needs/evaluation.md) when reviewing decisions and evidence.
 
+The rubric checks that both native and Unreal C++ work load the project guidelines, that the implementation guide is consulted only for the relevant decision, and that Python work inside an Unreal project follows its own component's guidance.
+
 ## Prepare and run
 
 1. From the OneStep checkout, run `python skills/vegabond-code/tests/cpp-routing/run.py prepare`. Use `--parent` to select an existing writable directory outside the checkout if needed. The command creates four isolated projects with local instructions and connects each through `link_project.py`.

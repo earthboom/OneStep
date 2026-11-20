@@ -1,0 +1,22 @@
+[
+  {
+    "path": "build.cmd",
+    "sha256": "0415deee5de17413f181ac065b01e6d7bf96bbd46caff5a9a8bab85287ae0400"
+  },
+  {
+    "path": "main.cpp",
+    "sha256": "3feb1d2e2b43f3d2a18164fdd01bf0d0438926c48193ee0e0046907c582f03bb"
+  },
+  {
+    "path": "packs/harrier.enc",
+    "sha256": "eb9b3202e5f5aec588bf071bc422c9246df8a9a6ad939ae95538d9ac2e07c544"
+  },
+  {
+    "path": "verify.py",
+    "sha256": "be3561458542dfd337701835d766bcbc0ef624c87793f056d574b0a56a3d4b73"
+  },
+  {
+    "path": "out/tactics.exe",
+    "sha256": "504beb008511116656525d7102a426706e967075edfeb4a91192cb6a78739f15"
+  }
+]

@@ -1,0 +1,7 @@
+* text eol=lf
+
+# Preserve the original MSVC example inputs used in the SHA-256 comparisons.
+native-tactics/build.cmd -text !eol whitespace=cr-at-eol
+native-tactics/main.cpp -text !eol whitespace=cr-at-eol
+native-tactics/packs/** -text !eol whitespace=cr-at-eol
+native-tactics/verify.py -text !eol whitespace=cr-at-eol

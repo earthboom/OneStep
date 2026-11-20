@@ -1,0 +1,287 @@
+Configuration neither physical files: []
+Crossing Tactics
+Commands: list, start ID, status, move left, move right, strike, guard, help, quit
+Move one cell, strike an adjacent enemy, or guard to absorb up to 2 damage and counter an adjacent attack if you survive.
+Encounter core | Crossing
+Started Crossing.
+State turn=0 board=P...E player_hp=6 enemy_hp=3
+Rejected player cannot strike at this distance.
+State turn=0 board=P...E player_hp=6 enemy_hp=3
+Rejected player cannot move there.
+State turn=0 board=P...E player_hp=6 enemy_hp=3
+Player moves right.
+Enemy closes in.
+State turn=1 board=.P.E. player_hp=6 enemy_hp=3
+Player moves right.
+Enemy deals 2 damage.
+State turn=2 board=..PE. player_hp=4 enemy_hp=3
+Player deals 2 damage.
+Enemy deals 2 damage.
+State turn=3 board=..PE. player_hp=2 enemy_hp=1
+Player deals 2 damage.
+Enemy is defeated and cannot act.
+Result victory.
+State turn=4 board=..P.. player_hp=2 enemy_hp=0
+Rejected encounter is over. Use start to play again.
+State turn=4 board=..P.. player_hp=2 enemy_hp=0
+
+PASS neither
+Configuration a physical files: ['harrier.enc']
+Crossing Tactics
+Commands: list, start ID, status, move left, move right, strike, guard, help, quit
+Move one cell, strike an adjacent enemy, or guard to absorb up to 2 damage and counter an adjacent attack if you survive.
+Encounter core | Crossing
+Encounter harrier | Harrier Yard
+Started Crossing.
+State turn=0 board=P...E player_hp=6 enemy_hp=3
+Rejected player cannot strike at this distance.
+State turn=0 board=P...E player_hp=6 enemy_hp=3
+Rejected player cannot move there.
+State turn=0 board=P...E player_hp=6 enemy_hp=3
+Player moves right.
+Enemy closes in.
+State turn=1 board=.P.E. player_hp=6 enemy_hp=3
+Player moves right.
+Enemy deals 2 damage.
+State turn=2 board=..PE. player_hp=4 enemy_hp=3
+Player deals 2 damage.
+Enemy deals 2 damage.
+State turn=3 board=..PE. player_hp=2 enemy_hp=1
+Player deals 2 damage.
+Enemy is defeated and cannot act.
+Result victory.
+State turn=4 board=..P.. player_hp=2 enemy_hp=0
+Rejected encounter is over. Use start to play again.
+State turn=4 board=..P.. player_hp=2 enemy_hp=0
+
+Crossing Tactics
+Commands: list, start ID, status, move left, move right, strike, guard, help, quit
+Move one cell, strike an adjacent enemy, or guard to absorb up to 2 damage and counter an adjacent attack if you survive.
+Encounter core | Crossing
+Encounter harrier | Harrier Yard
+Started Harrier Yard.
+State turn=0 board=.P.E.. player_hp=7 enemy_hp=4
+Player moves right.
+Enemy deals 2 damage.
+State turn=1 board=..PE.. player_hp=5 enemy_hp=4
+Player guards.
+Enemy deals 0 damage. Guard counters for 1.
+State turn=2 board=..PE.. player_hp=5 enemy_hp=3
+Player deals 2 damage.
+Enemy deals 2 damage.
+State turn=3 board=..PE.. player_hp=3 enemy_hp=1
+Player deals 2 damage.
+Enemy is defeated and cannot act.
+Result victory.
+State turn=4 board=..P... player_hp=3 enemy_hp=0
+
+PASS a
+Configuration b physical files: ['bulwark.enc']
+Crossing Tactics
+Commands: list, start ID, status, move left, move right, strike, guard, help, quit
+Move one cell, strike an adjacent enemy, or guard to absorb up to 2 damage and counter an adjacent attack if you survive.
+Encounter bulwark | Bulwark Gate
+Encounter core | Crossing
+Started Crossing.
+State turn=0 board=P...E player_hp=6 enemy_hp=3
+Rejected player cannot strike at this distance.
+State turn=0 board=P...E player_hp=6 enemy_hp=3
+Rejected player cannot move there.
+State turn=0 board=P...E player_hp=6 enemy_hp=3
+Player moves right.
+Enemy closes in.
+State turn=1 board=.P.E. player_hp=6 enemy_hp=3
+Player moves right.
+Enemy deals 2 damage.
+State turn=2 board=..PE. player_hp=4 enemy_hp=3
+Player deals 2 damage.
+Enemy deals 2 damage.
+State turn=3 board=..PE. player_hp=2 enemy_hp=1
+Player deals 2 damage.
+Enemy is defeated and cannot act.
+Result victory.
+State turn=4 board=..P.. player_hp=2 enemy_hp=0
+Rejected encounter is over. Use start to play again.
+State turn=4 board=..P.. player_hp=2 enemy_hp=0
+
+Crossing Tactics
+Commands: list, start ID, status, move left, move right, strike, guard, help, quit
+Move one cell, strike an adjacent enemy, or guard to absorb up to 2 damage and counter an adjacent attack if you survive.
+Encounter bulwark | Bulwark Gate
+Encounter core | Crossing
+Started Bulwark Gate.
+State turn=0 board=E...P. player_hp=5 enemy_hp=5
+Player moves left.
+Enemy closes in.
+State turn=1 board=.E.P.. player_hp=5 enemy_hp=5
+Player guards.
+Enemy closes in.
+State turn=2 board=..EP.. player_hp=5 enemy_hp=5
+Player guards.
+Enemy deals 1 damage. Guard counters for 1.
+State turn=3 board=..EP.. player_hp=4 enemy_hp=4
+Player deals 3 damage.
+Enemy deals 3 damage.
+State turn=4 board=..EP.. player_hp=1 enemy_hp=1
+Player deals 3 damage.
+Enemy is defeated and cannot act.
+Result victory.
+State turn=5 board=...P.. player_hp=1 enemy_hp=0
+
+Crossing Tactics
+Commands: list, start ID, status, move left, move right, strike, guard, help, quit
+Move one cell, strike an adjacent enemy, or guard to absorb up to 2 damage and counter an adjacent attack if you survive.
+Encounter bulwark | Bulwark Gate
+Encounter core | Crossing
+Started Bulwark Gate.
+State turn=0 board=E...P. player_hp=5 enemy_hp=5
+Player moves left.
+Enemy closes in.
+State turn=1 board=.E.P.. player_hp=5 enemy_hp=5
+Player moves left.
+Enemy deals 3 damage.
+State turn=2 board=.EP... player_hp=2 enemy_hp=5
+Rejected player cannot move there.
+State turn=2 board=.EP... player_hp=2 enemy_hp=5
+Player deals 3 damage.
+Enemy deals 3 damage.
+Result defeat.
+State turn=3 board=.E.... player_hp=0 enemy_hp=2
+Rejected encounter is over. Use start to play again.
+State turn=3 board=.E.... player_hp=0 enemy_hp=2
+Started Bulwark Gate.
+State turn=0 board=E...P. player_hp=5 enemy_hp=5
+
+PASS b
+Configuration both physical files: ['bulwark.enc', 'harrier.enc']
+Crossing Tactics
+Commands: list, start ID, status, move left, move right, strike, guard, help, quit
+Move one cell, strike an adjacent enemy, or guard to absorb up to 2 damage and counter an adjacent attack if you survive.
+Encounter bulwark | Bulwark Gate
+Encounter core | Crossing
+Encounter harrier | Harrier Yard
+Started Crossing.
+State turn=0 board=P...E player_hp=6 enemy_hp=3
+Rejected player cannot strike at this distance.
+State turn=0 board=P...E player_hp=6 enemy_hp=3
+Rejected player cannot move there.
+State turn=0 board=P...E player_hp=6 enemy_hp=3
+Player moves right.
+Enemy closes in.
+State turn=1 board=.P.E. player_hp=6 enemy_hp=3
+Player moves right.
+Enemy deals 2 damage.
+State turn=2 board=..PE. player_hp=4 enemy_hp=3
+Player deals 2 damage.
+Enemy deals 2 damage.
+State turn=3 board=..PE. player_hp=2 enemy_hp=1
+Player deals 2 damage.
+Enemy is defeated and cannot act.
+Result victory.
+State turn=4 board=..P.. player_hp=2 enemy_hp=0
+Rejected encounter is over. Use start to play again.
+State turn=4 board=..P.. player_hp=2 enemy_hp=0
+
+Crossing Tactics
+Commands: list, start ID, status, move left, move right, strike, guard, help, quit
+Move one cell, strike an adjacent enemy, or guard to absorb up to 2 damage and counter an adjacent attack if you survive.
+Encounter bulwark | Bulwark Gate
+Encounter core | Crossing
+Encounter harrier | Harrier Yard
+Started Harrier Yard.
+State turn=0 board=.P.E.. player_hp=7 enemy_hp=4
+Player moves right.
+Enemy deals 2 damage.
+State turn=1 board=..PE.. player_hp=5 enemy_hp=4
+Player guards.
+Enemy deals 0 damage. Guard counters for 1.
+State turn=2 board=..PE.. player_hp=5 enemy_hp=3
+Player deals 2 damage.
+Enemy deals 2 damage.
+State turn=3 board=..PE.. player_hp=3 enemy_hp=1
+Player deals 2 damage.
+Enemy is defeated and cannot act.
+Result victory.
+State turn=4 board=..P... player_hp=3 enemy_hp=0
+
+Crossing Tactics
+Commands: list, start ID, status, move left, move right, strike, guard, help, quit
+Move one cell, strike an adjacent enemy, or guard to absorb up to 2 damage and counter an adjacent attack if you survive.
+Encounter bulwark | Bulwark Gate
+Encounter core | Crossing
+Encounter harrier | Harrier Yard
+Started Bulwark Gate.
+State turn=0 board=E...P. player_hp=5 enemy_hp=5
+Player moves left.
+Enemy closes in.
+State turn=1 board=.E.P.. player_hp=5 enemy_hp=5
+Player guards.
+Enemy closes in.
+State turn=2 board=..EP.. player_hp=5 enemy_hp=5
+Player guards.
+Enemy deals 1 damage. Guard counters for 1.
+State turn=3 board=..EP.. player_hp=4 enemy_hp=4
+Player deals 3 damage.
+Enemy deals 3 damage.
+State turn=4 board=..EP.. player_hp=1 enemy_hp=1
+Player deals 3 damage.
+Enemy is defeated and cannot act.
+Result victory.
+State turn=5 board=...P.. player_hp=1 enemy_hp=0
+
+Crossing Tactics
+Commands: list, start ID, status, move left, move right, strike, guard, help, quit
+Move one cell, strike an adjacent enemy, or guard to absorb up to 2 damage and counter an adjacent attack if you survive.
+Encounter bulwark | Bulwark Gate
+Encounter core | Crossing
+Encounter harrier | Harrier Yard
+Started Bulwark Gate.
+State turn=0 board=E...P. player_hp=5 enemy_hp=5
+Player moves left.
+Enemy closes in.
+State turn=1 board=.E.P.. player_hp=5 enemy_hp=5
+Player moves left.
+Enemy deals 3 damage.
+State turn=2 board=.EP... player_hp=2 enemy_hp=5
+Rejected player cannot move there.
+State turn=2 board=.EP... player_hp=2 enemy_hp=5
+Player deals 3 damage.
+Enemy deals 3 damage.
+Result defeat.
+State turn=3 board=.E.... player_hp=0 enemy_hp=2
+Rejected encounter is over. Use start to play again.
+State turn=3 board=.E.... player_hp=0 enemy_hp=2
+Started Bulwark Gate.
+State turn=0 board=E...P. player_hp=5 enemy_hp=5
+
+PASS both
+PASS malformed row: Error loading encounters: invalid.enc: line 8 expected key=value
+PASS invalid integer: Error loading encounters: invalid.enc: enemy_hp must be an integer from 1 to 20
+PASS outside range: Error loading encounters: invalid.enc: enemy_hp must be an integer from 1 to 20
+PASS duplicate field: Error loading encounters: invalid.enc: line 8 duplicate field enemy_damage
+PASS missing field: Error loading encounters: invalid.enc: missing field enemy_damage
+PASS wrong board marker: Error loading encounters: invalid.enc: board must have 4 to 12 cells with one P and one E
+PASS sibling reference: Error loading encounters: invalid.enc: line 8 unknown field requires
+PASS reserved ID
+PASS default launch from project root
+Dependency fault precondition physical files: ['bulwark.enc']
+PASS precondition: unmodified executable plays B in a B-only directory
+**********************************************************************
+** Visual Studio 2026 Developer Command Prompt v18.5.1
+** Copyright (c) 2026 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+main.cpp
+PASS fault masked by A when both physical files are present
+Crossing Tactics
+Commands: list, start ID, status, move left, move right, strike, guard, help, quit
+Move one cell, strike an adjacent enemy, or guard to absorb up to 2 damage and counter an adjacent attack if you survive.
+Encounter core | Crossing
+Rejected unknown encounter bulwark.
+Rejected start an encounter first.
+Rejected start an encounter first.
+Rejected start an encounter first.
+Rejected start an encounter first.
+Rejected start an encounter first.
+
+PASS controlled fault rejected: B missing from catalog and selection with only B present

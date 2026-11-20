@@ -1,0 +1,8 @@
+{
+  "editor instead of game world": "Expected a standalone local game world in Engine Entry",
+  "wrong directory": "Game read a different encounter directory",
+  "B missing from registrations": "Unexpected registrations [('practice', '0.500', '2', 'builtin'), ('A', '0.750', '4', 'A.json')]",
+  "cooldown incorrectly accepts second press": "B pulse outcomes [{'accepted': True, 'worldTime': 3.347078, 'nextReady': 4.297078, 'score': 7}, {'accepted': True, 'worldTime': 3.480412, 'nextReady': 4.297078, 'score': 7}, {'accepted': True, 'worldTime': 4.480415, 'nextReady': 5.430415, 'score': 14}]",
+  "equal invented initial scores": "B score mutations",
+  "late accepted pulse forced inside cooldown with consistent new deadline": "B wrong time-window samples [{'accepted': True, 'worldTime': 3.347078, 'nextReady': 4.297078, 'score': 7}, {'accepted': False, 'worldTime': 3.480412, 'nextReady': 4.297078, 'score': 7}, {'accepted': True, 'worldTime': 4.147078, 'nextReady': 5.097078, 'score': 14}]"
+}

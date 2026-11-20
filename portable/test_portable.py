@@ -75,16 +75,18 @@ class PortableKitTests(unittest.TestCase):
             relative = f"skills/vegabond-{skill}/SKILL.md"
             source = (HERE.parent / relative).read_text(encoding="utf-8")
             self.assertEqual((self.project / strategy.name / relative).read_text(encoding="utf-8"), source)
-        cpp_guide = "templates/cpp/CPP_IMPLEMENTATION.md"
-        installed_guide = self.project / strategy.name / cpp_guide
-        self.assertTrue(installed_guide.is_file(), cpp_guide)
-        self.assertEqual(installed_guide.read_text(encoding="utf-8"),
-                         (HERE.parent / cpp_guide).read_text(encoding="utf-8"))
         code_skill = self.project / strategy.name / "skills/vegabond-code/SKILL.md"
-        cpp_link = re.search(r"\]\(([^)\s]*CPP_IMPLEMENTATION\.md)\)",
-                             code_skill.read_text(encoding="utf-8"))
-        self.assertIsNotNone(cpp_link)
-        self.assertEqual((code_skill.parent / cpp_link.group(1)).resolve(), installed_guide.resolve())
+        code_content = code_skill.read_text(encoding="utf-8")
+        code_references = {(code_skill.parent / target).resolve()
+                           for target in re.findall(r"\]\((references/[^)\s]+)\)", code_content)}
+        for name in ("cpp-project-guidelines.md", "cpp-implementation.md"):
+            relative = f"skills/vegabond-code/references/{name}"
+            installed = self.project / strategy.name / relative
+            self.assertTrue(installed.is_file(), relative)
+            source = (HERE.parent / relative).read_text(encoding="utf-8")
+            self.assertEqual(installed.read_text(encoding="utf-8"), source)
+            self.assertIn(f"===== {relative} =====\n\n" + source.rstrip(), web)
+            self.assertIn(installed.resolve(), code_references)
         self.assertNotIn(str(HERE.parent), web)
         approved = {name for name in (HERE / "game-library.txt").read_text(encoding="utf-8").splitlines()
                     if name and not name.startswith("#")}

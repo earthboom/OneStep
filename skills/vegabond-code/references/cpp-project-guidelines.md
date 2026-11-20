@@ -1,8 +1,8 @@
 # C++ Project Guidelines
 
-Use this English file as the source of these guidelines for coding agents. Localized copies are for human readers only. Apply the common rules to all C++ code and the additional rules to Unreal C++ code.
+Apply the common rules to all C++ code and the additional rules to Unreal C++ code. Follow the working project's instructions and conventions first.
 
-When introducing a new language feature or ownership model, designing a public API, choosing a design pattern, or tuning performance, consult the relevant section of the [C++ Implementation Guide](CPP_IMPLEMENTATION.md).
+When introducing a new language feature or ownership model, designing a public API, choosing a design pattern, or tuning performance, consult the relevant section of the [C++ Implementation Guide](cpp-implementation.md).
 
 ## Common C++ Rules
 

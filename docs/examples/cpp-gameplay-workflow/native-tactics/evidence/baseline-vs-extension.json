@@ -1,0 +1,32 @@
+[
+  {
+    "path": "build.cmd",
+    "baseline_sha256": "0415deee5de17413f181ac065b01e6d7bf96bbd46caff5a9a8bab85287ae0400",
+    "final_sha256": "0415deee5de17413f181ac065b01e6d7bf96bbd46caff5a9a8bab85287ae0400",
+    "change": "unchanged"
+  },
+  {
+    "path": "main.cpp",
+    "baseline_sha256": "3feb1d2e2b43f3d2a18164fdd01bf0d0438926c48193ee0e0046907c582f03bb",
+    "final_sha256": "3feb1d2e2b43f3d2a18164fdd01bf0d0438926c48193ee0e0046907c582f03bb",
+    "change": "unchanged"
+  },
+  {
+    "path": "packs/harrier.enc",
+    "baseline_sha256": "eb9b3202e5f5aec588bf071bc422c9246df8a9a6ad939ae95538d9ac2e07c544",
+    "final_sha256": "eb9b3202e5f5aec588bf071bc422c9246df8a9a6ad939ae95538d9ac2e07c544",
+    "change": "unchanged"
+  },
+  {
+    "path": "packs/bulwark.enc",
+    "baseline_sha256": null,
+    "final_sha256": "1fc7d4ce25a38a04771009bbfdd6b292679b8349a35957dad4809551868c558e",
+    "change": "added"
+  },
+  {
+    "path": "verify.py",
+    "baseline_sha256": "be3561458542dfd337701835d766bcbc0ef624c87793f056d574b0a56a3d4b73",
+    "final_sha256": "897c8647b264f6643141f8872f7ae03483555a00582818392eba6a29ee1f083a",
+    "change": "modified"
+  }
+]

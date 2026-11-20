@@ -1,0 +1,27 @@
+{
+  "inventory": {},
+  "gameModuleSha256": "f4370708b3f2e16924b040bcb9455640b491544a96a96b9410209c28635b7316",
+  "exitCode": 0,
+  "pulses": {
+    "practice": [
+      {
+        "accepted": true,
+        "worldTime": 0.281018,
+        "nextReady": 0.781018,
+        "score": 2
+      },
+      {
+        "accepted": false,
+        "worldTime": 0.414355,
+        "nextReady": 0.781018,
+        "score": 2
+      },
+      {
+        "accepted": true,
+        "worldTime": 1.414375,
+        "nextReady": 1.914375,
+        "score": 4
+      }
+    ]
+  }
+}

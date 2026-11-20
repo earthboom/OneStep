@@ -1,0 +1,24 @@
+Crossing Tactics
+Commands: list, start ID, status, move left, move right, strike, guard, help, quit
+Move one cell, strike an adjacent enemy, or guard to absorb up to 2 damage and counter an adjacent attack if you survive.
+Encounter bulwark | Bulwark Gate
+Encounter core | Crossing
+Encounter harrier | Harrier Yard
+Started Bulwark Gate.
+State turn=0 board=E...P. player_hp=5 enemy_hp=5
+Player moves left.
+Enemy closes in.
+State turn=1 board=.E.P.. player_hp=5 enemy_hp=5
+Player guards.
+Enemy closes in.
+State turn=2 board=..EP.. player_hp=5 enemy_hp=5
+Player guards.
+Enemy deals 1 damage. Guard counters for 1.
+State turn=3 board=..EP.. player_hp=4 enemy_hp=4
+Player deals 3 damage.
+Enemy deals 3 damage.
+State turn=4 board=..EP.. player_hp=1 enemy_hp=1
+Player deals 3 damage.
+Enemy is defeated and cannot act.
+Result victory.
+State turn=5 board=...P.. player_hp=1 enemy_hp=0

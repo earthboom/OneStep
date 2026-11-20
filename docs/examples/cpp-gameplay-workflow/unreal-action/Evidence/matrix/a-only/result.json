@@ -1,0 +1,49 @@
+{
+  "inventory": {
+    "A.json": "2d1039cb753467b61c54080110c1557270d8a3095f1acde460b39df2415a5029"
+  },
+  "gameModuleSha256": "f4370708b3f2e16924b040bcb9455640b491544a96a96b9410209c28635b7316",
+  "exitCode": 0,
+  "pulses": {
+    "practice": [
+      {
+        "accepted": true,
+        "worldTime": 0.267284,
+        "nextReady": 0.767284,
+        "score": 2
+      },
+      {
+        "accepted": false,
+        "worldTime": 0.400617,
+        "nextReady": 0.767284,
+        "score": 2
+      },
+      {
+        "accepted": true,
+        "worldTime": 1.400776,
+        "nextReady": 1.900776,
+        "score": 4
+      }
+    ],
+    "A": [
+      {
+        "accepted": true,
+        "worldTime": 1.800777,
+        "nextReady": 2.550777,
+        "score": 4
+      },
+      {
+        "accepted": false,
+        "worldTime": 1.934111,
+        "nextReady": 2.550777,
+        "score": 4
+      },
+      {
+        "accepted": true,
+        "worldTime": 2.93412,
+        "nextReady": 3.68412,
+        "score": 8
+      }
+    ]
+  }
+}

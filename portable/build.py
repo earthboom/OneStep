@@ -57,8 +57,7 @@ def sources():
     for pattern in ("agents/references/*.md", "skills/vegabond-*/SKILL.md",
                     "skills/vegabond-*/references/*.md"):
         paths.extend(sorted(ROOT.glob(pattern)))
-    paths.extend(ROOT / name for name in ("feedback/README.md", "feedback/template.md",
-                                         "templates/cpp/CPP_IMPLEMENTATION.md"))
+    paths.extend(ROOT / name for name in ("feedback/README.md", "feedback/template.md"))
     for path in dict.fromkeys(paths):
         if path.name.endswith(".kr.md"):
             continue

@@ -1,0 +1,8 @@
+/native-tactics/out/
+/unreal-action/Binaries/
+/unreal-action/DerivedDataCache/
+/unreal-action/Intermediate/
+/unreal-action/Saved/
+/unreal-action/Scratch/
+/unreal-action/Evidence/*-rerun*/
+/unreal-action/Evidence/rerun-*

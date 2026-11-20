@@ -6,6 +6,8 @@ OneStep의 C++ 작업 흐름이나 구현 가이드를 바꾼 뒤 실행한다. 
 
 ## 준비와 실행
 
+평가는 독립 C++과 언리얼 C++ 작업에서 C++ 프로젝트 작업 지침을 읽었는지, 구현 가이드는 해당 결정에 필요한 항목만 읽었는지, 언리얼 프로젝트 안의 Python 작업은 해당 구성 요소의 지침을 따랐는지 확인한다.
+
 1. OneStep 체크아웃에서 `python skills/vegabond-code/tests/cpp-routing/run.py prepare`를 실행한다. 필요하면 `--parent`로 체크아웃 밖의 쓰기 가능한 기존 디렉터리를 지정한다. 이 명령은 프로젝트 4개를 따로 만들고 각 프로젝트의 기존 지침에 `link_project.py`로 OneStep을 연결한다.
 2. 독립 에이전트에게 해당 프로젝트 경로와 `request.md`의 내용만 준다. 프로젝트의 `AGENTS.md`부터 시작하고, 해당 디렉터리에서 `python read_doc.py <path>`로 마크다운을 읽으며, 실제로 실행한 검사와 제한을 보고하도록 한다. `--outline`으로 목차를, `--section "heading"`으로 특정 섹션을 읽을 수 있다. 채점 기준, 다른 사례, 이전 결과는 실행 문맥 밖에 둔다.
 3. `python skills/vegabond-code/tests/cpp-routing/run.py check <run-directory>`를 실행한다. 기록된 문서 읽기를 고정된 채점 기준과 비교하고, 준비 이후 지침이나 평가 입력이 바뀌면 다시 준비하도록 한다. 출력된 검토 기준으로 패치와 실제 검증 결과를 따로 확인한다.

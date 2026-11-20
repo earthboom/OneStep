@@ -1,6 +1,6 @@
 ---
 name: vegabond-code-design
-description: Use when software work needs decisions about architecture, data ownership, lifecycle, interfaces, concurrency, persistence, or migration before implementation, or when a software design is the requested deliverable.
+description: Use when software work needs architecture, ownership, lifecycle, interface, concurrency, persistence, or migration decisions, including gameplay framework design and independently extensible game content, or when a software design is the requested deliverable.
 ---
 
 # Vegabond Code Design
@@ -10,6 +10,8 @@ Settle software design decisions for the calling operation or [vegabond-code](..
 If invoked directly, fill only missing context through [scout's shared setup](../vegabond-scout/SKILL.md#frame-and-classify) and [code's environment assessment](../vegabond-code/SKILL.md#identify-the-working-environment). For a design-only request, deliver the design and its supporting evidence without changing production code. Use isolated experiments only when authorized and needed to settle a decision.
 
 For game architecture and technical choices, use the [game evidence reuse convention](../../knowledge/game/K-GAME-RESEARCH-USE.md), including on direct invocation. Reuse valid retrieved evidence, inspect prerequisites such as restorable state for rollback, and record adoption, conditional use or rejection against actual engine, platform and gameplay constraints. Return the selected entry IDs, implementation boundaries and proposed validation with the design.
+
+When choosing a game's framework or changing how content is authored, registered, or composed across features, apply [gameplay framework and content design](references/gameplay-framework.md). Use its applicable parts for both new designs and revisions, and pass its checks to the implementation workflow.
 
 ## Resolve the design
 

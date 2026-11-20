@@ -1,0 +1,70 @@
+{
+  "inventory": {
+    "A.json": "2d1039cb753467b61c54080110c1557270d8a3095f1acde460b39df2415a5029",
+    "B.json": "24914fc93399cbe0f9402aeaac878cb3f7c56a990fe050e2ee0a3a8c7b61ba6f"
+  },
+  "gameModuleSha256": "f4370708b3f2e16924b040bcb9455640b491544a96a96b9410209c28635b7316",
+  "exitCode": 0,
+  "pulses": {
+    "practice": [
+      {
+        "accepted": true,
+        "worldTime": 0.280336,
+        "nextReady": 0.780336,
+        "score": 2
+      },
+      {
+        "accepted": false,
+        "worldTime": 0.413673,
+        "nextReady": 0.780336,
+        "score": 2
+      },
+      {
+        "accepted": true,
+        "worldTime": 1.413686,
+        "nextReady": 1.913686,
+        "score": 4
+      }
+    ],
+    "A": [
+      {
+        "accepted": true,
+        "worldTime": 1.813687,
+        "nextReady": 2.563687,
+        "score": 4
+      },
+      {
+        "accepted": false,
+        "worldTime": 1.94702,
+        "nextReady": 2.563687,
+        "score": 4
+      },
+      {
+        "accepted": true,
+        "worldTime": 2.947058,
+        "nextReady": 3.697058,
+        "score": 8
+      }
+    ],
+    "B": [
+      {
+        "accepted": true,
+        "worldTime": 3.347078,
+        "nextReady": 4.297078,
+        "score": 7
+      },
+      {
+        "accepted": false,
+        "worldTime": 3.480412,
+        "nextReady": 4.297078,
+        "score": 7
+      },
+      {
+        "accepted": true,
+        "worldTime": 4.480415,
+        "nextReady": 5.430415,
+        "score": 14
+      }
+    ]
+  }
+}

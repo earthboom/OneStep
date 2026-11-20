@@ -1,0 +1,11 @@
+[1/11] Compile Resource [x64] Default.rc2
+[2/11] Compile [x64] SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.cpp
+[3/11] Compile [x64] PulseArena.cpp
+[4/11] Compile [x64] PerModuleInline.gen.cpp
+[5/11] Compile [x64] PulseArenaGameMode.cpp
+[6/11] Compile [x64] Module.PulseArena.gen.cpp
+[7/11] Compile [x64] PulseArenaHUD.cpp
+[8/11] Compile [x64] PulseArenaController.cpp
+[9/11] Link [x64] UnrealEditor-PulseArena.lib
+[10/11] Link [x64] UnrealEditor-PulseArena.dll
+Result: Succeeded

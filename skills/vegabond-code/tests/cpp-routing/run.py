@@ -1,4 +1,4 @@
-"""Prepare blind, linked fixtures or check their recorded C++ guide reads."""
+"""Prepare blind, linked fixtures or check their recorded C++ guidance reads."""
 
 import argparse
 from hashlib import sha256
@@ -12,8 +12,8 @@ import tempfile
 SUITE = Path(__file__).resolve().parent
 CHECKOUT = SUITE.parents[3]
 CODE_SKILL = "skills/vegabond-code/SKILL.md"
-CPP_GUIDE = "templates/cpp/CPP_IMPLEMENTATION.md"
-CPP_TEMPLATE = "templates/cpp/AGENTS.md"
+CPP_GUIDE = "skills/vegabond-code/references/cpp-implementation.md"
+CPP_RULES = "skills/vegabond-code/references/cpp-project-guidelines.md"
 
 
 def read_json(path):
@@ -22,7 +22,7 @@ def read_json(path):
 
 def fingerprints():
     files = [SUITE / name for name in ("cases.json", "rubric.json", "read_doc.py")]
-    files.extend(CHECKOUT / name for name in (CODE_SKILL, CPP_GUIDE))
+    files.extend(CHECKOUT / name for name in (CODE_SKILL, CPP_RULES, CPP_GUIDE))
     return {path.relative_to(CHECKOUT).as_posix(): sha256(path.read_bytes()).hexdigest() for path in files}
 
 
@@ -70,14 +70,18 @@ def check(run):
                 failures.append(f"Missing instruction read: {entry.name}")
         if any(path.name.lower().endswith(".kr.md") for path, _ in rows):
             failures.append("Attempted to read a human-only translation.")
-        if any(path == CHECKOUT / CPP_TEMPLATE for path, _ in rows):
-            failures.append("Opened the standalone C++ template instead of using linked guidance.")
+        rules_reads = [mode for path, mode in rows if path == CHECKOUT / CPP_RULES]
+        if expected["read_cpp_rules"] and "full" not in rules_reads:
+            failures.append("Missing C++ project guidelines read.")
+        if not expected["read_cpp_rules"] and rules_reads:
+            failures.append("Opened the C++ project guidelines for a component outside C++.")
         guide_reads = [mode for path, mode in rows if path == guide_path]
         sections = set(expected["guide_sections"])
         delivered = set(guide_reads) - {"outline"}
         if delivered != sections or (not sections and guide_reads):
             failures.append("C++ guide reads do not match the selected sections.")
-        results[case_id] = {"guide_reads": guide_reads, "failures": failures, "review": expected["review"]}
+        results[case_id] = {"rules_reads": rules_reads, "guide_reads": guide_reads,
+                            "failures": failures, "review": expected["review"]}
     return {"routing_ok": all(not case["failures"] for case in results.values()), "cases": results}
 
 

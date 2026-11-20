@@ -1,0 +1,17 @@
+{
+  "Config/DefaultEngine.ini": "717ffc87ed22467ebd4e52e9a24258744e5d9ce09678995a8ec351b3741ca74a",
+  "Config/DefaultInput.ini": "08d9b7ad77a334a447bb756ee5cd00f6348b5aed7a21193a1197b5bbd317783d",
+  "Content/Encounters/A.json": "2d1039cb753467b61c54080110c1557270d8a3095f1acde460b39df2415a5029",
+  "PulseArena.uproject": "009eea397b0061ee045d8889788647522b564453fa02b7f1efe8eecc613814bb",
+  "Source/PulseArena/Private/PulseArena.cpp": "c1a735473f6a63ea08fbca61913e36d717822853262aa1be0a5bacff8e1f7e18",
+  "Source/PulseArena/Private/PulseArenaController.cpp": "aace3ca9fdeddaae9406096a9b471ba955c4d4b2fbdc129133710a0b529dc30d",
+  "Source/PulseArena/Private/PulseArenaController.h": "49562885a2df46676cc0746969936c8dc31a654c4fae25f91ca9e2a2d5de121f",
+  "Source/PulseArena/Private/PulseArenaGameMode.cpp": "bb033fea463d49fd883ff0b1673d54b71d021690c09891bca57df70bb00decec",
+  "Source/PulseArena/Private/PulseArenaGameMode.h": "3b4b936921f5200f7a94b20a7b207eea8be5c50ce25e4abc4e8a94d2f301ff82",
+  "Source/PulseArena/Private/PulseArenaHUD.cpp": "1e5232a9da73480c036edb64f02505dba9e7abd21f016fb9404436170d46f83a",
+  "Source/PulseArena/Private/PulseArenaHUD.h": "01e8778168cb02d75c44a274b67ceafdda74fb3c749bf2ced2d4a5286cb6205f",
+  "Source/PulseArena/PulseArena.Build.cs": "a9051fac2f677bd65862fe0276c199d3eccd97f692885bcc001ac3468394a68f",
+  "Source/PulseArena.Target.cs": "5630ecbe9236a9159128eec0cd37d2f80612253bd328e921e48f12213cca6d7e",
+  "Source/PulseArenaEditor.Target.cs": "b50b7c586301072f542841577c504503147ab613a0e7ef1a85a9b6a4acd503e0",
+  "verify_pulse.py": "e6cb283699d23d354e2a83092f597d489e306733c40d35bcb92791e0675b66f8"
+}

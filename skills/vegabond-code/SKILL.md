@@ -13,7 +13,7 @@ Use repository guidance, source and relevant callers, project/dependency configu
 
 Classify the actual component, not its extension or the repository's main technology. Unreal C++ and independent C++ need their own toolchains; Unity uses its project/package contracts. A Python tool inside an Unreal repository follows its own runtime, adding engine checks when its effects reach assets or engine behavior. For mixed work, identify affected components and boundary checks. Keep source locations and the result in the existing brief, not a separate environment report.
 
-For C++ components, follow the working project's conventions first. When introducing a language feature or ownership model, designing a public API, choosing a design pattern, or tuning performance, consult only the relevant section of the [C++ implementation guide](../../templates/cpp/CPP_IMPLEMENTATION.md). Reuse guidance already loaded for the task.
+For C++ components, read the [C++ project guidelines](references/cpp-project-guidelines.md) before implementation. Apply the common rules to C++ and the additional rules to Unreal C++. The working project's instructions and conventions take precedence. When introducing a language feature or ownership model, designing a public API, choosing a design pattern, or tuning performance, consult only the relevant section of the [C++ implementation guide](references/cpp-implementation.md). Reuse guidance already loaded for the task.
 
 Request relevant contracts, version-specific sources, and prior failure/prevention checks through [vegabond-knowledge](../vegabond-knowledge/SKILL.md), reusing the existing information brief. Select available environment skills or direct tools through scout's mapping.
 
@@ -25,11 +25,15 @@ For game implementation, debugging or optimization, apply the [game evidence reu
 
 Use [vegabond-code-design](../vegabond-code-design/SKILL.md) when a meaningful choice about state ownership, lifecycle, interfaces used by other callers, concurrency, persistence, external integration, or migration must be settled before implementation. A local edit following an established pattern can state its relevant contract and preservation conditions inline and proceed. File count alone does not decide; reuse a valid existing design and revisit only decisions changed by evidence.
 
+For a game, route changes to the gameplay framework, shared content contracts, or dependencies between features through code design. When adding content through an existing extension point, use the existing contract and check the new content alongside the supported baseline. An independently optional feature also requires the applicable [dependency and independence checks](../vegabond-code-design/references/gameplay-framework.md#make-feature-dependencies-explicit), even when it uses an existing extension point. Use code design if these checks reveal a new dependency or a needed contract change.
+
 Pass the current brief, environment, affected source/contracts, constraints, and unanswered decisions. Design returns a bounded implementation direction and checks within this workflow; it does not restart scout or create another execution loop. A design-only request ends with that result rather than an unsolicited implementation.
 
 ## Implement or investigate
 
 Read [verification and handoff](references/verification.md) before changing code or judging the result. It owns the detailed preparation, build/test/runtime/real-use checks, review-and-repair loop, verification-change scrutiny, long-work state, and demonstrated safeguards. Apply it to each coherent change and the final integrated artifact; do not defer reading it until completion.
+
+For a gameplay framework or content boundary change, carry the representative extension, affected dependency checks, and supported content configurations from the design into software verification. Apply the relevant dependency and configuration checks to an independently optional feature added through an existing extension point as well. Exercise the production registration and play path. Record the actual changes needed to add the variant and the behavior of the applicable configurations in the verification evidence.
 
 - **Create:** Follow the selected design or existing local pattern and implement a complete usable path. Resolve a load-bearing assumption with a small integration slice before dependent implementation, using scout's existing scale decision.
 - **Revise:** Reproduce a defect and trace its cause before repair. For intentional restructuring, preserve the established behavior and public contracts while changing coherent units. Keep unrelated cleanup outside scope.
