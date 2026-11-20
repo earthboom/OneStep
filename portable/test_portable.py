@@ -75,6 +75,16 @@ class PortableKitTests(unittest.TestCase):
             relative = f"skills/vegabond-{skill}/SKILL.md"
             source = (HERE.parent / relative).read_text(encoding="utf-8")
             self.assertEqual((self.project / strategy.name / relative).read_text(encoding="utf-8"), source)
+        cpp_guide = "templates/cpp/CPP_IMPLEMENTATION.md"
+        installed_guide = self.project / strategy.name / cpp_guide
+        self.assertTrue(installed_guide.is_file(), cpp_guide)
+        self.assertEqual(installed_guide.read_text(encoding="utf-8"),
+                         (HERE.parent / cpp_guide).read_text(encoding="utf-8"))
+        code_skill = self.project / strategy.name / "skills/vegabond-code/SKILL.md"
+        cpp_link = re.search(r"\]\(([^)\s]*CPP_IMPLEMENTATION\.md)\)",
+                             code_skill.read_text(encoding="utf-8"))
+        self.assertIsNotNone(cpp_link)
+        self.assertEqual((code_skill.parent / cpp_link.group(1)).resolve(), installed_guide.resolve())
         self.assertNotIn(str(HERE.parent), web)
         approved = {name for name in (HERE / "game-library.txt").read_text(encoding="utf-8").splitlines()
                     if name and not name.startswith("#")}

@@ -13,6 +13,8 @@ Use repository guidance, source and relevant callers, project/dependency configu
 
 Classify the actual component, not its extension or the repository's main technology. Unreal C++ and independent C++ need their own toolchains; Unity uses its project/package contracts. A Python tool inside an Unreal repository follows its own runtime, adding engine checks when its effects reach assets or engine behavior. For mixed work, identify affected components and boundary checks. Keep source locations and the result in the existing brief, not a separate environment report.
 
+For C++ components, follow the working project's conventions first. When introducing a language feature or ownership model, designing a public API, choosing a design pattern, or tuning performance, consult only the relevant section of the [C++ implementation guide](../../templates/cpp/CPP_IMPLEMENTATION.md). Reuse guidance already loaded for the task.
+
 Request relevant contracts, version-specific sources, and prior failure/prevention checks through [vegabond-knowledge](../vegabond-knowledge/SKILL.md), reusing the existing information brief. Select available environment skills or direct tools through scout's mapping.
 
 Apply the shared [information-needs judgment](../vegabond-scout/references/information-needs.md) after inspecting the component and callers: refine questions about affected state, ownership, lifecycle, failure and verification as relevant. Check actual version and mechanism before applying a retrieved API guarantee or incident fix.
