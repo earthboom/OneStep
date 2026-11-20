@@ -1,0 +1,8 @@
+Binaries/
+Intermediate/
+Saved/
+Content/
+DDC/
+DerivedDataCache/
+*.json
+*.log

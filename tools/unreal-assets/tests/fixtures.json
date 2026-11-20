@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/atenfyr/UAssetAPI",
+  "revision": "05910ba8f6d278201120e10d87adbb06dfb3a097",
+  "files": [
+    {"name": "TestActorBP.uasset", "path": "UAssetAPI.Tests/TestAssets/TestEditorAssets/TestActorBP.uasset", "engine": "4.27", "sha256": "99f52a2939bd7cc4117a9cbbc97e015a30cf097cc3624889932bb94ccc64ab34"},
+    {"name": "TestSoundClass.uasset", "path": "UAssetAPI.Tests/TestAssets/TestEditorAssets/TestSoundClass.uasset", "engine": "4.27", "sha256": "73f191714d42d52a509b2cc053182e79441fc3b19f84365522ed2e62eabe0dee"},
+    {"name": "BP_FirstPersonGameMode.uasset", "path": "UAssetAPI.Tests/TestAssets/TestEditorUE5_7/Blueprints/BP_FirstPersonGameMode.uasset", "engine": "5.7", "sha256": "6b6f3f70f00fe2b7ca1307e93041dc6c12dc73a2537783e1e36eccd0c259c051"},
+    {"name": "Items.uasset", "path": "UAssetAPI.Tests/TestAssets/TestJson/Items.uasset", "engine": "4.23", "sha256": "0dbf54eb0d9d1586c9e789d3606bedd9c4ce5279caa5652ca7813fae75d4fe3e"}
+  ]
+}

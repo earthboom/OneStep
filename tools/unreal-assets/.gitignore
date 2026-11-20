@@ -1,0 +1,5 @@
+src/bin/
+src/obj/
+tests/fixtures/
+tests/writer/bin/
+tests/writer/obj/
