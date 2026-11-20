@@ -22,13 +22,13 @@ keywords:
 - debugging
 - evidence selection
 status: active
-checked_at: '2026-11-20'
+checked_at: '2026-11-21'
 context:
   evidence_check: Primary source research, direct creator accounts and explicitly
     labelled source limits
-  application_status: CAMERA/HITSCAN/PATH/CROWD/CONTROLLER/TRACE/LOCKON/IK/HITBOX/DUNGEON/TIMESTEP/BILLBOARD/EASING/NOISE/NORMAL/BLEND/SYSTEMIC/INTERIOR/REFLECTION/FOLIAGE/RNG/SOUND/RANDOM-DESIGN/WATER/SAVE/MUSIC/SPEED/SHADOW/DESTRUCTION/VOLUME/RETRO/PIXEL/VOXEL/DDA/LEVEL/HAIR/AUTHORITY/ROLLBACK/LAGCOMP
-    have limited local evidence;4others lack direct prototypes;actualFPS and technique
-    limits retained
+  application_status: CAMERA/HITSCAN/PATH/CROWD/CONTROLLER/TRACE/LOCKON/IK/HITBOX/DUNGEON/TIMESTEP/BILLBOARD/EASING/NOISE/NORMAL/BLEND/SYSTEMIC/INTERIOR/REFLECTION/FOLIAGE/RNG/SOUND/RANDOM-DESIGN/WATER/SAVE/MUSIC/SPEED/SHADOW/DESTRUCTION/VOLUME/RETRO/PIXEL/VOXEL/DDA/LEVEL/HAIR/AUTHORITY/ROLLBACK/LAGCOMP/LOCKSTEP/MATCH/INCENTIVES
+    have limited local evidence. MEMORY remains reference research. Actual FPS and
+    technique limits remain scoped.
   admission_evidence: UE5.8.3 paired six-policy overload comparison; accepted latency/all-offered
     goodput/rejection and full frames; finite static graph scope
   hitch_evidence: UE5.8.3 same-binary3paired admission profiles; named frame traces;
@@ -454,3 +454,9 @@ The historical Unreal run adds47policy checks,108actual PIE cases at observed30/
 ## V28 bounded server rewind — 2026-11-20
 
 [V28 findings](K-GAME-TECH-LAGCOMP.md) cover current and historical hit queries, cover entry/exit, exact maximum age, missing samples, deduplication, and preserved live collision. Six paired-condition timings and 20 seconds of normal-speed native media were recorded. Coverage now includes 39 limited sheets and four without a dedicated prototype.
+
+## Additional Unreal technique guidance
+
+- [Deterministic lockstep](K-GAME-TECH-LOCKSTEP.md) covers input ordering, playout delay and comparing state at the same tick.
+- [1v1 matchmaking](K-GAME-TECH-MATCH.md) covers symmetric search windows, site latency and queue lifetime.
+- [Timed counterattack recovery](K-GAME-TECH-INCENTIVES.md) covers recovery expiry, capped healing and comparing the cost of exposure.

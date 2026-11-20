@@ -1,15 +1,32 @@
 ---
 id: K-GAME-TECH-LOCKSTEP
-title: "Use lockstep only with an exact determinism contract"
-summary: "Exchange tick-indexed inputs instead of every object's state. Sharing a random seed alone does not guarantee determinism; floating-point and threading differences can diverge."
+title: Use lockstep only with an exact determinism contract
+summary: Use the next complete tick as the simulation boundary and compare per-tick
+  hashes over the common prefix.
 kind: reference
-scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["deterministic", "lockstep", "RTS", "hash", "결정론", "deterministic lockstep", "playout delay buffer", "state hash"]
+scope: Game development; engine-independent mechanisms with version-dependent engine
+  examples
+keywords:
+- deterministic
+- lockstep
+- RTS
+- hash
+- 결정론
+- deterministic lockstep
+- playout delay buffer
+- state hash
+- 입력 버퍼
+- 상태 해시
+- 입력 누락
+- 최초 불일치
+- per-tick state hash
+- stall duration
 status: active
-checked_at: '2026-11-19'
+checked_at: '2026-11-21'
 context:
-  evidence_check: "External source text checked; source-specific limits appear in Evidence"
-  application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
+  evidence_check: External source text checked; source-specific limits appear in Evidence
+  application_status: Scoped local Unreal evidence for two Win64 processes and one
+    deterministic integer scene.
 ---
 # Use lockstep only with an exact determinism contract
 
@@ -34,3 +51,8 @@ Proposed: compare per-tick hashes across supported platforms/builds and long run
 - [Glenn Fiedler — Deterministic Lockstep](https://gafferongames.com/post/deterministic_lockstep/) — 2014 author article; exact determinism and input synchronization. Checked 2026-11-07, except items explicitly marked further reading.
 - Originating channel shorts: V04 in [the coverage guide](K-GAME-TECH-GUIDE.md). Originating shorts are discovery leads, not independent proof.
 
+## Applying input buffering
+
+Advance only through the next tick with all required inputs. Retain input sequence numbers across reordering, and handle repeated delivery without applying an input twice. Two peers can finish at different ticks while agreeing on their shared prefix. Compare hashes at corresponding ticks to identify the earliest divergence.
+
+Size playout delay from observed input arrival variation, the budget for input response and the tolerance for stalls. Measure deliberate buffering separately from missing-input stalls after scheduled playback starts. Define a session policy for inputs that fail to arrive. Use a determinism contract specific to the participating builds and arithmetic.

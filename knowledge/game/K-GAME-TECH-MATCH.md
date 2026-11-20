@@ -1,15 +1,35 @@
 ---
 id: K-GAME-TECH-MATCH
-title: "Separate skill estimation from matchmaking policy"
-summary: "Estimate skill separately from selecting a match. Do not generalize 'the highest party member sets the match' to every game."
+title: Separate skill estimation from matchmaking policy
+summary: Keep skill estimation separate from selecting opponents. Widening can trade
+  match coverage against tail skill gaps under a constant latency cap.
 kind: reference
-scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["Elo", "TrueSkill", "MMR", "uncertainty", "matchmaking", "매칭", "Bayesian skill rating", "skill uncertainty", "matchmaking rating"]
+scope: Game development; engine-independent mechanisms with version-dependent engine
+  examples
+keywords:
+- Elo
+- TrueSkill
+- MMR
+- uncertainty
+- matchmaking
+- 매칭
+- Bayesian skill rating
+- skill uncertainty
+- matchmaking rating
+- MMR window
+- widening range
+- queue timeout
+- low population
+- 실력 차이
+- 매칭 대기열
+- 대기 시간
+- 범위 확대
 status: active
-checked_at: '2026-11-19'
+checked_at: '2026-11-21'
 context:
-  evidence_check: "External source text checked; source-specific limits appear in Evidence"
-  application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
+  evidence_check: External source text checked; source-specific limits appear in Evidence
+  application_status: Scoped local Unreal evidence for a standalone synthetic 1v1
+    queue using supplied ratings and site latencies.
 ---
 # Separate skill estimation from matchmaking policy
 
@@ -34,3 +54,8 @@ Proposed: evaluate new-player convergence, mixed-skill parties, queue scarcity a
 - [Microsoft Research — TrueSkill Ranking System](https://www.microsoft.com/en-us/research/project/trueskill-ranking-system/) — Official project text; mean, uncertainty, team outcomes; distinct from complete match search. Checked 2026-11-07, except items explicitly marked further reading.
 - Originating channel shorts: V33 in [the coverage guide](K-GAME-TECH-GUIDE.md). Originating shorts are discovery leads, not independent proof.
 
+## Widening a 1v1 search window
+
+Apply each player's current skill window to the proposed pair. Using both windows preserves the younger request's tolerance. Keep a separate hard site-latency limit, choose a tie order and define whether expiration precedes matching at the deadline. Retain request identity so a repeated offer cannot create a second match.
+
+Compare match rate using all unique requests and report successful-player wait and timeouts separately. Split results by traffic level. Inspect the longest wait and largest skill gap alongside summary percentiles when tuning how quickly the window widens.

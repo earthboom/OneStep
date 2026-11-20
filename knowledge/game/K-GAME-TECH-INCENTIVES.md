@@ -1,15 +1,35 @@
 ---
 id: K-GAME-TECH-INCENTIVES
-title: "Evaluate rewards by the behavior they make worthwhile"
-summary: "Proposed design synthesis: define the intended repeated choice, its time/resource cost, failure consequence and alternative. Rewards do not prove fun; optional work can still be dominant or effectively mandatory."
+title: Evaluate rewards by the behavior they make worthwhile
+summary: Evaluate rewards by the repeated choices they make worthwhile. Timed counterattack
+  recovery trades temporary health recovery against exposure.
 kind: reference
-scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["risk", "reward", "grind", "automation", "aggression", "incentives", "보상", "Regain System", "recoverable health", "push-forward combat"]
+scope: Game development; engine-independent mechanisms with version-dependent engine
+  examples
+keywords:
+- risk
+- reward
+- grind
+- automation
+- aggression
+- incentives
+- 보상
+- Regain System
+- recoverable health
+- push-forward combat
+- recoverable health gauge
+- counterattack heal
+- expiry boundary
+- 회복 가능 체력
+- 반격 회복
+- 만료 경계
+- 연속 피격
 status: active
-checked_at: '2026-11-19'
+checked_at: '2026-11-21'
 context:
-  evidence_check: "External source text checked; source-specific limits appear in Evidence"
-  application_status: "Reference research and proposed checks only; no engine implementation or performance validation"
+  evidence_check: External source text checked; source-specific limits appear in Evidence
+  application_status: Scoped local Unreal evidence for timed counterattack recovery
+    with authored damage and hit inputs.
 ---
 # Evaluate rewards by the behavior they make worthwhile
 
@@ -45,3 +65,9 @@ Proposed: compare passive/aggressive/efficient policies, record time-to-upgrade 
 
 - [Masaaki Yamagiwa — Bloodborne combat details](https://blog.playstation.com/2014/08/13/bloodborne-on-ps4-new-combat-details/) — Producer-authored Regain System discussion; historical 2014 design account, not exact frame/percentage data. Checked 2026-11-07.
 - [id Software/GDC — Embracing Push Forward Combat](https://www.youtube.com/watch?v=2KQNpQD8Ayo) — 2018 official talk description only; detailed formulas not verified. Checked 2026-11-07.
+
+## Designing timed counterattack recovery
+
+Define recoverable health from actual applied damage. Use separate expiry times when later damage should leave the earlier deadline in place. If the deadline is exclusive, expire the affected amounts before resolving hits at that tick. Limit recovery by the live health deficit, remaining recoverable amount and a per-hit cap. Count a confirmed hit only once.
+
+Show current and recoverable health as distinct gauge segments. Compare immediate engagement, delayed engagement and retreat under representative exposure. The health advantage depends on how much the counterattack recovers and how much extra damage it exposes the player to.
