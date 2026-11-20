@@ -1,0 +1,42 @@
+{
+  "cases": [
+    {
+      "id": "native-ownership",
+      "request": "Fix the queued configuration so it remains a snapshot after the caller changes or destroys its input buffer. Preserve the public API. Use the existing check.cpp entry point.",
+      "files": {
+        "AGENTS.md": "# Native utility\n\nUse C++17 and explicit types in new declarations. Keep the public interface in `config.h`.\n",
+        "config.h": "#pragma once\n#include <string_view>\n\nclass DeferredConfig {\npublic:\n    void queue(std::string_view text) { pending_ = text; }\n    std::string_view pending() const { return pending_; }\n\nprivate:\n    std::string_view pending_;\n};\n",
+        "check.cpp": "#include \"config.h\"\n#include <iostream>\n#include <string>\n\nint main() {\n    DeferredConfig config;\n    std::string source = \"title=forest\";\n    config.queue(source);\n    source[6] = 'x';\n    if (config.pending() != \"title=forest\") {\n        std::cerr << \"queued text changed with the caller buffer\\n\";\n        return 1;\n    }\n}\n"
+      }
+    },
+    {
+      "id": "unreal-ownership",
+      "request": "Change selection so it observes the selected actor across frames without keeping it alive. GetSelectedActor() should return nullptr once that actor is invalid. Preserve the public methods and game-thread rules. The sample contains Unreal source without a configured engine build.",
+      "files": {
+        "AGENTS.md": "# Gameplay module\n\nUse explicit types in new declarations and existing Unreal naming conventions. Selection runs on the Game Thread.\n",
+        "Example.uproject": "{\"FileVersion\":3,\"EngineAssociation\":\"5.6\",\"Modules\":[{\"Name\":\"Example\",\"Type\":\"Runtime\",\"LoadingPhase\":\"Default\"}]}\n",
+        "Source/Example/InventorySelection.h": "#pragma once\n\n#include \"CoreMinimal.h\"\n#include \"Components/ActorComponent.h\"\n#include \"InventorySelection.generated.h\"\n\nUCLASS()\nclass UInventorySelection : public UActorComponent\n{\n    GENERATED_BODY()\n\npublic:\n    void SetSelectedActor(AActor* Actor);\n    AActor* GetSelectedActor() const;\n\nprivate:\n    AActor* SelectedActor = nullptr;\n};\n",
+        "Source/Example/InventorySelection.cpp": "#include \"InventorySelection.h\"\n#include \"GameFramework/Actor.h\"\n\nvoid UInventorySelection::SetSelectedActor(AActor* Actor)\n{\n    SelectedActor = Actor;\n}\n\nAActor* UInventorySelection::GetSelectedActor() const\n{\n    return SelectedActor;\n}\n"
+      }
+    },
+    {
+      "id": "native-local-fix",
+      "request": "Fix the off-by-one error in can_add_item() so a full inventory cannot accept one more item. Preserve the function's public signature. Use the existing check.cpp entry point.",
+      "files": {
+        "AGENTS.md": "# Native inventory utility\n\nUse C++17 and preserve the public API. The test entry point is `check.cpp`.\n",
+        "inventory.h": "#pragma once\n\nconstexpr bool can_add_item(int used, int capacity) {\n    return used <= capacity;\n}\n",
+        "check.cpp": "#include \"inventory.h\"\n#include <iostream>\n\nint main() {\n    if (!can_add_item(3, 4) || can_add_item(4, 4)) {\n        std::cerr << \"capacity boundary failed\\n\";\n        return 1;\n    }\n}\n"
+      }
+    },
+    {
+      "id": "python-in-unreal",
+      "request": "Fix the Python rewards utility so it skips rows with enabled set to False. Rows without the field remain enabled. Reproduce and verify with the supplied Python test.",
+      "files": {
+        "AGENTS.md": "# Gameplay workbench\n\nRun Python utility checks with `python -B -m unittest discover -s tools -v`.\n",
+        "Example.uproject": "{\"FileVersion\":3,\"EngineAssociation\":\"5.6\"}\n",
+        "tools/rewards.py": "def count_rewards(rows):\n    return sum(row[\"count\"] for row in rows)\n",
+        "tools/test_rewards.py": "import unittest\nfrom rewards import count_rewards\n\n\nclass RewardTests(unittest.TestCase):\n    def test_disabled_rows_are_skipped(self):\n        rows = [{\"count\": 2}, {\"count\": 9, \"enabled\": False}, {\"count\": 3, \"enabled\": True}]\n        self.assertEqual(count_rewards(rows), 5)\n"
+      }
+    }
+  ]
+}

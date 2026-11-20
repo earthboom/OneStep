@@ -1,0 +1,20 @@
+{
+  "cases": {
+    "native-ownership": {
+      "guide_sections": ["Language features, types, and ownership"],
+      "review": "Keep the C++17 public signatures and introduce owned storage for the pending text. Reproduce caller mutation and cover destruction after the fix where a compiler is available. Keep build and executable results distinct."
+    },
+    "unreal-ownership": {
+      "guide_sections": ["Language features, types, and ownership"],
+      "review": "Use a non-owning Unreal object reference such as TWeakObjectPtr, resolve it on access, and preserve the public signatures and game-thread boundary. Report source checks separately from an Unreal build or runtime test."
+    },
+    "native-local-fix": {
+      "guide_sections": [],
+      "review": "Fix the boundary comparison without changing the API or opening an implementation design decision. Run the same existing check before and after where a compiler is available."
+    },
+    "python-in-unreal": {
+      "guide_sections": [],
+      "review": "Route by the changed Python component. Preserve missing-field behavior, use the Python check before and after, and keep Unreal source and project settings outside the change."
+    }
+  }
+}
