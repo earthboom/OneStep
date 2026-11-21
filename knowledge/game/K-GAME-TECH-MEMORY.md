@@ -1,11 +1,12 @@
 ---
 id: K-GAME-TECH-MEMORY
 title: Check buffer bounds and object lifetimes in game data handling
-summary: Validate destination bounds and object lifetimes before copying or decoding data. Use instrumented
-  builds to diagnose executed invalid accesses.
+summary: Validate both byte ranges before copying and keep original weak object identity
+  across delayed work.
 kind: reference
-scope: Game development. For native C++ builds with supported instrumentation, Clang AddressSanitizer
-  (ASan) detects many executed out-of-bounds accesses and use-after-free errors.
+scope: Game development. For native C++ builds with supported instrumentation, Clang
+  AddressSanitizer (ASan) detects many executed out-of-bounds accesses and use-after-free
+  errors.
 keywords:
 - memory
 - safety
@@ -22,8 +23,18 @@ keywords:
 - dangling pointer
 - C++
 - 버퍼 경계
+- state preservation
+- weak object pointer
+- delayed callback
+- 상태 보존
+- 지연 콜백
+- 객체 교체
+- 객체 수명
 status: active
-checked_at: '2026-11-19'
+checked_at: '2026-11-21'
+context:
+  application_status: Scoped local Unreal Win64 evidence for synthetic record bounds
+    and weak target lifetime.
 ---
 # Check buffer bounds and object lifetimes in game data handling
 
@@ -45,3 +56,11 @@ MITRE defines the weakness and Clang documents ASan coverage and instrumentation
 
 - [MITRE — CWE-787: Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html)
 - [Clang — AddressSanitizer](https://clang.llvm.org/docs/AddressSanitizer.html)
+
+## Applying Unreal buffer and lifetime checks
+
+Validate the record header and the source and destination ranges before forming copy pointers or mutating state. Check each offset before comparing the requested length with the capacity remaining after that offset. Define whether a zero-length operation at a valid endpoint is allowed. Leave the destination unchanged when a record is rejected.
+
+Capture the original target as a `TWeakObjectPtr` when scheduling a game-thread callback. Resolve it when the callback runs and apply the update only if the original object is still valid. Looking up the target again in a mutable slot can deliver a stale update to a replacement object.
+
+Use AddressSanitizer diagnostics for the instrumented build and the code paths that actually ran. Record the build and paths alongside the diagnostic result.

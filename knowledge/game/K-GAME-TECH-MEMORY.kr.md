@@ -20,3 +20,12 @@ MITRE는 약점의 정의를, Clang은 ASan의 검사 범위와 계측 방법을
 
 - [MITRE — CWE-787: Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html)
 - [Clang — AddressSanitizer](https://clang.llvm.org/docs/AddressSanitizer.html)
+
+
+## 언리얼 버퍼 경계와 객체 수명 적용
+
+복사할 포인터를 만들거나 상태를 변경하기 전에 레코드 헤더와 원본·대상 범위를 검사한다. 각 오프셋이 범위 안에 있는지 먼저 확인하고, 요청 길이를 오프셋 이후 남은 용량과 비교한다. 유효 범위 끝에서 길이 0인 요청을 허용할지 정한다. 레코드를 거부하면 대상 데이터 전체를 그대로 유지한다.
+
+게임 스레드 콜백을 예약할 때 원래 대상의 `TWeakObjectPtr`을 보관한다. 실행 시 참조를 확인해 원래 객체가 유효한 경우에만 변경을 적용한다. 실행 시 가변 슬롯에서 대상을 다시 찾으면 이전 요청이 교체 객체에 전달될 수 있다.
+
+AddressSanitizer 진단은 계측한 빌드에서 실제 실행한 경로에 한정해 해석한다. 진단과 함께 빌드와 실행 경로를 기록한다.

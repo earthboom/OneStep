@@ -489,3 +489,5 @@ EASING은 유한시간 전환, CAMERA는 추종 감쇠, TIMESTEP은 시뮬레이
 - [결정적 락스텝](K-GAME-TECH-LOCKSTEP.kr.md)에서 입력 순서, 재생 지연, 같은 틱의 상태 비교를 확인한다.
 - [1대1 매치메이킹](K-GAME-TECH-MATCH.kr.md)에서 양쪽 검색 범위, 사이트 지연, 대기 만료를 확인한다.
 - [피격 후 반격 회복](K-GAME-TECH-INCENTIVES.kr.md)에서 회복 가능량의 만료, 회복 상한, 추가 피해와의 비교를 확인한다.
+
+- [게임 데이터 메모리 안전성](K-GAME-TECH-MEMORY.kr.md)에서 원본·대상 범위 검사, 거부 시 상태 보존, 지연 콜백의 원래 객체 식별을 확인한다.
