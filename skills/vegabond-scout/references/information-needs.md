@@ -28,12 +28,15 @@ Examples of selective refinement, not mandatory per-domain inventories:
 | Edit a testimony/reveal scene | What does each participant and reader know at this scene, from which observation, and what must remain undisclosed? |
 | Change combat duration/reward | What happens to reward rate, progression, sinks, session experience and content demand under the stated assumptions? |
 | Revise a comparison chart | Do source periods, populations, denominators and units permit the comparison? What final format was actually requested? |
+| Draft an operations handover | Which steps and exceptions have been approved? Who decides what happens when the normal process stops? |
 
 Before relying on a consequential choice, challenge the initial question set: **what omitted condition would make this action wrong, and what source or check could reveal it?** Follow a concrete dependency or counterexample, not every imaginable risk. Repeat affected parts when new evidence, a changed requirement or an invalidated assumption exposes another dependency; keep valid work intact.
 
 ## Request and retrieve evidence
 
-Pass the working project, actual decision/questions, relevance, applicable context, required evidence and known gaps to knowledge. Search knowledge and problem records, including planned actions/triggers before a symptom exists. A missing catalog match can require original-source inspection or focused research; repeated searching is not a substitute for identifying the missing question.
+Pass the working project, actual questions, relevant context, required evidence and known gaps to [knowledge](../../vegabond-knowledge/SKILL.md). For questions governed by the working project, first use [project source discovery](../../vegabond-knowledge/references/project-sources.md) to find ordinary project documents and read the applicable original sections before dependent work. Use this order when the task comes through Scout or directly to a specialist, including when the user supplies no paths or the project has no catalog. Reuse originals already checked for the current decision.
+
+Use relevant knowledge entries and problem records to supplement this reading, including planned-action triggers before a symptom exists. Carry the original section, its effect on the decision and any remaining gap into the existing brief. Route gaps that need additional evidence to [focused research](../../vegabond-research/SKILL.md) with the question and the evidence already established.
 
 Knowledge returns candidates with original locators, conditions, conflicts, evidence/prevention states and gaps. It may expose a missing premise or prerequisite. The consuming specialist decides applicability and verifies the result; neither the search score nor the knowledge summary certifies whole-task sufficiency. Missing context stays unknown, and related/derived entries do not become independent corroboration.
 
@@ -57,5 +60,7 @@ Separate known facts, supported inferences, assumptions, conflicts and missing e
 ## Close against the work, not the search
 
 Before handoff, connect the material decision to its supporting evidence, applied action and actual acceptance result. Check whether the artifact introduced another relevant state, dependency or factual claim. Close questions as answered, conditional, conflicting or missing; a valid deferral is not evidence that the deferred question was answered. Preserve unresolved limits and invalidated evidence with their consequences. Search coverage counts matched terms, not completeness of the task's information needs.
+
+Compare consequential statements in the draft with the cited original. Carry over the actor, scope, conditions, exceptions and degree of certainty that affect the action. Match the wording to the state the evidence establishes, such as proposed, approved, in progress or confirmed complete. For an operational exception, carry forward both the action that changes and any prior arrangement the source says to keep. When the source directs an action, keep its operative verb and state any outcome check separately. For example, if the source says to keep a reservation unless canceled, write “Keep the existing reservation unless separately canceled. Check whether it was fulfilled after the scheduled time.” Revise any prediction or completion claim to the supported state before delivery.
 
 For skill maintenance, use the [request-to-application evaluation cases](../../vegabond-knowledge/tests/information-needs/evaluation.md). Evaluate omitted questions, wrong transfers, unsupported certainty, and unnecessary retrieval separately from catalog integrity and query-to-ID tests. No finite case set proves the absence of all future omissions.

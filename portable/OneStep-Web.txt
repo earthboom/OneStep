@@ -118,7 +118,7 @@ Build one lightweight task profile by answering four questions:
 
 Use open descriptions; a task can involve several domains and methods. A novel-based pitch deck can need narrative analysis, slide production, and visual inspection together. Search can support any operation. Keep the profile in the brief and step mapping, without a separate file or a fixed catalog of task subtypes. Reuse it in the operation skills and refine only missing details or assumptions changed by evidence.
 
-Apply the shared [information-needs judgment](references/information-needs.md) to derive questions from decisions, preservation conditions and actual inputs. Request a focused brief from [knowledge](../vegabond-knowledge/SKILL.md); carry evidence, applicability, checks and gaps forward. The executing specialist then checks for missing questions after source inspection, reusing valid answers and adding only needs exposed by the work. Revisit affected judgments before consequential reliance and at handoff.
+Apply the shared [information-needs judgment](references/information-needs.md) to derive questions from decisions, preservation conditions and actual inputs. Before drafting or editing, use [knowledge](../vegabond-knowledge/SKILL.md) to locate and read the working project's governing sources for those questions, including ordinary documents whose paths the user did not give. Carry the consulted sections, their effect on the work, checks and gaps in the existing brief. The executing specialist checks for missing questions after inspecting the actual inputs and reuses valid answers. Revisit affected judgments before consequential reliance and at handoff.
 
 | Operation skill | Choose when |
 | --- | --- |
@@ -165,6 +165,7 @@ Use these local specialists when their methods are needed:
 | [vegabond-code](../vegabond-code/SKILL.md) | Software implementation, defects, system design, refactoring, and code investigation. |
 | [vegabond-fiction](../vegabond-fiction/SKILL.md) | Fiction development, drafting, critique, and continuity. |
 | [vegabond-presentation](../vegabond-presentation/SKILL.md) | Slide narrative, deck production, and content or visual revision. |
+| [vegabond-image](../vegabond-image/SKILL.md) | Raster image generation, editing, and visual fidelity checks. |
 | [vegabond-planning](../vegabond-planning/SKILL.md) | Planning/proposal content, feasibility, and success measures; not task scheduling alone. |
 
 The operation owns the workflow; a selected specialist supplies its domain execution, verification, and correction methods. Apply those methods within the operation's steps rather than running a second independent workflow. For research or feedback-only work, use checks that substantiate the findings and correct the analysis without changing investigated sources; production checks apply when producing or changing the corresponding artifact. Combine specialists only where needed, such as planning content and presentation production for a proposal deck. This is an initial set, not a closed list of supported work. Load only the relevant specialists; they can use available environment- or format-specific skills and tools through the same mapping.
@@ -217,7 +218,7 @@ When relevant human feedback is available, use whether the reader can restate th
 
 ---
 name: vegabond-code
-description: Use when implementing software, repairing defects, refactoring, or investigating code and runtime behavior in any language or engine, coordinating design when needed.
+description: Use when implementing software or gameplay content, repairing defects, refactoring, or investigating code and runtime behavior in any language or engine, coordinating design when needed.
 ---
 
 # Vegabond Code
@@ -250,9 +251,11 @@ Pass the current brief, environment, affected source/contracts, constraints, and
 
 ## Implement or investigate
 
-Read [verification and handoff](references/verification.md) before changing code or judging the result. It owns the detailed preparation, build/test/runtime/real-use checks, review-and-repair loop, verification-change scrutiny, long-work state, and demonstrated safeguards. Apply it to each coherent change and the final integrated artifact; do not defer reading it until completion.
+Read [verification and handoff](references/verification.md) before changing code or judging the result. It owns the detailed preparation, build/test/runtime/real-use checks, review-and-repair loop, verification-change scrutiny, long-work state, and demonstrated safeguards. Before editing shared gameplay code, changing a shared rule, or adding a stage, use its [gameplay regression checks](references/verification.md#gameplay-regression-checks) to record preserved behavior and the check scope in the existing brief. Apply verification to each coherent change and the final integrated artifact.
 
 For a gameplay framework or content boundary change, carry the representative extension, affected dependency checks, and supported content configurations from the design into software verification. Apply the relevant dependency and configuration checks to an independently optional feature added through an existing extension point as well. Exercise the production registration and play path. Record the actual changes needed to add the variant and the behavior of the applicable configurations in the verification evidence.
+
+When changing input response, impact feedback, or the presentation of a gameplay outcome, use the [gameplay feedback checks](references/verification.md#gameplay-feedback-checks), including for asset-only changes that affect those behaviors.
 
 For game data changes, streamed, cached or pooled content, rendering budgets, or NPC behavior across lifetime and visibility changes, apply the relevant [game runtime checks](references/world-lifecycle-verification.md) alongside the general verification procedure. Use the actual integration boundary for each claim, including existing data bytes, engine residency, and observable state where applicable.
 
@@ -282,6 +285,8 @@ If invoked directly, fill only missing context through [scout's shared setup](..
 For game architecture and technical choices, use the [game evidence reuse convention](../../knowledge/game/K-GAME-RESEARCH-USE.md), including on direct invocation. Reuse valid retrieved evidence, inspect prerequisites such as restorable state for rollback, and record adoption, conditional use or rejection against actual engine, platform and gameplay constraints. Return the selected entry IDs, implementation boundaries and proposed validation with the design.
 
 Start a new game with the [foundation decisions](references/gameplay-framework.md#plan-a-new-game-foundation). Derive the framework, state ownership and content path from representative play before choosing project scaffolding, packages or shared base classes. For an existing game, apply the relevant parts of [gameplay framework and content design](references/gameplay-framework.md) when changing those decisions or how features compose. Carry the design and proposed checks into implementation when the request includes it.
+
+When designing input response, impact feedback, or the camera, visual effects, audio, and haptics that communicate a gameplay outcome, use the [gameplay feedback guidance](references/gameplay-framework.md#design-gameplay-feedback).
 
 When deciding how game data evolves, what a world loads or retains, how a renderer meets its budget, or what NPCs do offscreen, use the applicable [world runtime design guidance](references/world-lifecycle.md). Tie each chosen policy to a gameplay requirement and pass the preservation, transition and measurement conditions to implementation.
 
@@ -466,6 +471,36 @@ Apply the [shared reader-facing design guidance](../../agents/references/design-
 
 Separate source-confirmed continuity constraints, reasoned editorial choices and intended reader effects. Design can support an effect without proving that an actual reader experiences it; proposed satisfaction, originality or resonance is not a measured outcome. Name what the writer must inspect in the manuscript and any audience evidence a required claim still lacks. A missing consequential canon fact blocks only writing dependent on it; independent design can continue. The caller drafts/revises and applies [manuscript review](../vegabond-fiction/references/review.md) to the actual text, returning here only for changed narrative choices. Do not overwrite established canon or weaken author constraints to make a design look finished.
 
+===== skills/vegabond-image/SKILL.md =====
+
+---
+name: vegabond-image
+description: Use when creating, editing, or producing a consistent series of raster images for a user request, including photorealistic, illustrated, comic, surreal, and mixed-style work with exact visual or delivery requirements.
+---
+
+# Vegabond Image
+
+Use this specialist within OneStep create or revise. In Codex, use the available built-in `imagegen` skill and its execution instructions for image generation and edits. Use the [style and review examples](references/style-and-review.md) when the medium, composition, series consistency, typography, or output constraints warrant more detail.
+
+## Define what the image must show
+
+- From the original request, identify hard requirements, preferences, and delegated choices. Write a short internal set of observable acceptance checks for hard requirements. Include only checks relevant to the request. Preserve exact wording, quantities, attributes, locations, omissions, and delivery specs. Resolve left and right relative to the frame when that is what the user means. For multiple objects, tie each material, color, count, and position to its named object.
+- Identify scene content and rendering medium independently. Describe a style with observable features such as light and texture, line and shape, brushwork, palette, or spatial rules. Keep the user's creative decisions and use their flexibility where they delegated it. A short clear request can go straight to generation. Ask one focused question when conflicting or missing information would materially change the result.
+- When a person's pose, touch, expression or skin is central to the image, use [drawing people](references/drawing-people.md) to stage the moment and inspect the figure in the requested medium.
+- When meaning, color treatment, or believability drives the brief, use the [visual direction questions](references/style-and-review.md#direct-and-test-the-reading). Choose the few cues that carry the request. Keep your chosen staging flexible unless the user specified it.
+- When a small accent must catch the eye against a larger material in colored light, [check both readings together](references/style-and-review.md#material-color-and-first-glance) before accepting a generation or color repair.
+- For each input, name its role and the features it contributes. Distinguish an edit source from references for identity, layout, pose, rendering, or color. When two references overlap, state which one controls the relevant feature. For a series, use an approved frame or a shared identity reference and describe each frame as a standalone scene. State that frame's subject count separately from the series length whenever count matters.
+- For an edit, write the change and the preservation conditions before calling the generator. Use the source or last accepted version as input. When exact composition is essential, use an available sketch or layout reference when it would resolve ambiguity.
+
+## Generate and inspect
+
+1. Translate checks into visual instructions. For a complex scene, use short labeled groups for the scene and composition, object-attribute relationships, visual treatment, and output constraints. Keep count-sensitive items distinct and visible. When an exact viewpoint matters, specify the camera relative to the subject or surface and the shapes or faces that should be visible. For a simple request, use a natural prompt. Give exact literal text with its location and line breaks. For open visual exploration, generate distinct directions only when the user would benefit from choosing between them.
+2. Inspect the actual image against the original checks. Mark each as met, failed, or unverified. Verify counts, binding, spatial relationships, and viewpoint cues individually. When a frame has a strict subject count, scan the background as well as the foreground before comparing identity across the series. Compare exact text at readable magnification. Compare the edit beside its source for both the requested change and preservation. Check series identity against the shared reference and neighboring frames. Treat aesthetics and hard requirements as separate judgments.
+3. Inspect the delivered file for requested format, pixel dimensions, aspect ratio, and real alpha transparency as applicable. When a necessary pixel size is unavailable directly, leave enough framing room and normalize canvas size or crop as appropriate. Reinspect placement, detail, and alpha after normalization. When exact text is essential and the output permits typographic layout, reserve space and render the supplied text as a separate layout layer. Export to the requested format and verify the final rendering.
+4. Use the smallest correction that addresses the observed failure. For an isolated defect, target the failed feature and recheck passing details. For a wrong layout, revise the composition instruction or reference. For drift, return to the last accepted source and restate what to preserve. If the same approach repeatedly misses an important condition, switch to a supported control or layout method when it fits the requested artifact. Report any remaining failed or unverified hard requirements and deliver the usable files with their locations.
+
+For an expressive brief, describe what the delivered image communicates before comparing it with the intended reading. Cite a visible cue and flag plausible competing readings when they change the meaning. Repair a contradiction or a missing requested effect. An equally legible artistic choice can stand.
+
 ===== skills/vegabond-knowledge/SKILL.md =====
 
 ---
@@ -493,7 +528,7 @@ Return a short information brief containing:
 ## Find and synthesize
 
 1. Reuse an existing information brief while its question, scope, consulted entry content, and governing sources remain valid. Search again when one changes or new evidence exposes a gap. Keep consulted IDs and revisions/hashes in task evidence when needed, without creating a global cache of project facts.
-2. Use the working project's known stores first. The default routes are [knowledge](../../knowledge/index.md) and [records](../../records/index.md) in this repository; in another project, resolve paths there rather than automatically using OneStep's project facts. Use an existing native store when suitable. Shared OneStep material is an additional source only when explicitly configured or requested. Do not search unrelated projects.
+2. Start with the working project's sources. Use [project source discovery](references/project-sources.md) to locate and read ordinary requirements, design decisions, canon or other governing originals before dependent work, including when no document path or catalog is supplied. Use a suitable native store alongside those originals. Resolve the default routes `knowledge/index.md` and `records/index.md` from the working project root, including when the skill is loaded from a different checkout. Shared OneStep material is an additional source only when explicitly configured or requested. Do not search unrelated projects.
 3. Choose domains from the profile; combine them for mixed work. Use the [retrieval helper and synthesis procedure](references/retrieval.md) to search both stores by question, identifiers, scope/context and state, with compact match reasons and body locators. It expands maintained Korean/English aliases and excludes `*.kr.md`. Use `--no-cache` for strictly read-only work. If the helper is unavailable or a native store fits better, use bounded canonical catalog/body searches with equivalent conditions and report the capability gap. Prioritize applicability over recency; consult `shared` only for a relevant cross-domain need.
    Before work, search problem records by the planned action and conditions against `trigger`, even when no symptom is known. After a failure, search `symptom` and exact identifiers, then compare conditions and cause evidence. Keep resolved incidents in the candidate set. Exclude known incompatible scopes; retain unknown compatibility as a caveat instead of silently treating it as incompatible. Matching symptoms do not establish a matching cause. An absent trigger is a lookup gap, not evidence that an incident is irrelevant. Lexical rank does not establish applicability or evidence quality.
 
@@ -820,6 +855,22 @@ Before implementation, map the acceptance conditions and preserved contracts to 
 
 Use the project's existing verification commands and harness first. Confirm that the command actually discovers the intended tests and reaches the changed behavior; an exit-zero run with no relevant assertions is not proof. Retain the command, target/configuration, code revision or relevant diff, and observed results in existing task evidence. When a missing repeatable path would otherwise leave required behavior unchecked, add the smallest reusable check within scope and demonstrate it end to end.
 
+### Gameplay regression checks
+
+Before editing shared gameplay code, changing a shared rule, or adding a stage, reuse or record the [gameplay regression scope](../../vegabond-code-design/references/gameplay-framework.md#set-gameplay-regression-scope) in the existing brief. For each selected path, establish the starting state, input, expected player-visible result and relevant authoritative state, and required engine, build, or network role. Base expectations on the existing contract or an accepted baseline. Mark intended changes to that behavior explicitly.
+
+- **Shared gameplay code or rules:** Check the affected rule or lifecycle in isolation where practical, then exercise representative existing content through real play. Choose callers, stages, and roles that differ in how they use the shared behavior. Cover a relevant invalid input, interruption, or retry where it can expose a regression.
+- **Stage addition:** Validate IDs, references, required markers, and progression as applicable. Use the normal list, unlock, or entry path and check play, retry or exit, and the intended outcome. Recheck representative existing content that shares the affected rules, assets, or progression. Apply both paths if the addition changes shared gameplay code or a shared rule defined in data.
+
+Use a supported prior save when saved progress or IDs are affected. Use the target Unity Player or Unreal package when scene or map inclusion, content delivery, or another build-specific behavior is at issue. Record which environment and paths were exercised. A rule check, editor play, and packaged play each support claims about their own scope.
+
+### Gameplay feedback checks
+
+Before editing, select a representative path through the normal controls and record the intended feedback change, the accepted baseline, and the input response, result cues, and visibility to preserve. Reuse the [gameplay feedback design](../../vegabond-code-design/references/gameplay-framework.md#design-gameplay-feedback) where available. Compare the same paths after the change, using the existing checks or the smallest practical reproduction.
+
+- **Outcome alignment.** Exercise the applicable hit, guard, and miss cases. Check that contact cues play at the resolved result and at the relevant location or direction. Include rapid repeats or network correction when they can produce stale or duplicate feedback. For a presentation-only change, confirm that the relevant hit timing, damage, stagger, aim, or action windows are preserved.
+- **Responsiveness and readability.** Play the same sequence with representative input and output devices. When settings or device support affect the cues, compare the default with representative supported configurations where feedback is reduced, disabled, or unavailable. Confirm that follow-up input is handled at the intended time, including during and after hitstop where applicable. Check that the cues identify the outcome and leave the next threat or action readable under representative overlap. When timing is changed or at risk, compare the relevant input-to-response, outcome-to-cue, or recovery interval under comparable conditions. Record the observed play and settings, including limits of any automated cue or timing check.
+
 ## Verify
 
 Retain these four stages where applicable:
@@ -902,11 +953,32 @@ Choose one current content item and one credible variation, such as a second enc
 
 Use validated data or assets for values and combinations with an existing meaning. Use a concrete function, type, or component to compose behavior that varies independently. Add an extension point or base type for an identified variation or framework contract, and check substitutability for public inheritance. Identify the place where content is registered and related features are assembled. For data consumed by existing content, saves, or network peers, preserve the relevant IDs, schemas, and contracts or specify a migration. Account for missing or invalid content at the point the project can detect it.
 
+For stage additions and changes to shared gameplay code or rules, [set the regression scope](#set-gameplay-regression-scope) before implementation.
+
 ## Make feature dependencies explicit
 
 Give independently optional features no direct sibling dependency. Shared rules or stable contracts may have a common owner, and the code or content that assembles a mode can depend on the features it selects. Put an intentional interaction between optional features in that assembly or in an integration that is enabled when its prerequisites are available. If the product requires one feature for another, document the dependency direction, the required contract, and the unavailable case. Avoid cycles and preserve the target project's legitimate dependency directions. [Dependency direction](../../../knowledge/code/K-CODE-DEPENDENCY-DIRECTION.md)
 
 Trace the affected edges in source and build configuration, authored content, and runtime. Look at public types, includes, modules and plugins; hard or soft asset references and registration data; and object lookup, events, initialization, and cleanup. An event, tag, or soft reference still carries a dependency if a particular feature must provide it for the flow to work. For Unreal, inspect relevant `Build.cs` or plugin declarations, check affected Blueprint and data-asset references with the available asset tools, and verify registration and teardown in the intended world and network role. [Unreal build dependencies](https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-modules) · [Unreal Reference Viewer](https://dev.epicgames.com/documentation/en-us/unreal-engine/reference-viewer-in-unreal-engine)
+
+## Set gameplay regression scope
+
+In the existing brief, state the intended change and what players should still see or be able to do. Include the authoritative or persisted result when the behavior depends on it. For each proposed check, identify the starting state, action, expected result, actual gameplay entry point, and required environment. Use the existing game contract or an accepted baseline to define the expectation.
+
+| Change | Select before implementation |
+| --- | --- |
+| Shared gameplay code or rules | Representative existing callers or stages with different uses of the rule or lifecycle. Include a relevant invalid or interrupted path when it can expose a regression. |
+| Stage addition | The new stage's normal registration and play path and representative existing content affected through shared rules, assets, or progression. Include existing saves and target builds when the change reaches those boundaries. |
+
+Use both rows when adding a stage changes shared gameplay code or a shared rule defined in data. Scale the check set to the affected contracts and supported configurations. For design-only work, hand off the proposed checks, expected observations, and any untested assumptions. [Gameplay regression verification](../../vegabond-code/references/verification.md#gameplay-regression-checks)
+
+## Design gameplay feedback
+
+In the existing brief, trace accepted input, action start, outcome, and recovery. State which feedback can begin with the action and which communicates a confirmed outcome. For each relevant outcome, such as hit, guard, or miss, name the resolving gameplay owner and the camera, visual, audio, or haptic cues that express its result. Match contact cues to the resolved location and direction when those details matter. For network anticipation, specify what can play early and how confirmation, rejection, or correction handles duplicate or misleading cues.
+
+Record when the next input can be captured and acted on. If feedback uses hitstop or other time changes, name which actors and clocks pause or continue, including input buffering and rule timers where affected. Treat hit timing, gameplay recoil, and changes to action windows as gameplay decisions. Presentation-only settings preserve those decisions.
+
+Decide what must remain readable after impact and when effects overlap, such as aim, an incoming warning, or the difference between a guard and a hit. Prioritize those cues and give essential information another supported sensory path when shake, effects, sound, or haptics are reduced or unavailable. Hand off representative outcomes, a rapid repeat or interruption if relevant, and the settings and observations needed for [gameplay feedback verification](../../vegabond-code/references/verification.md#gameplay-feedback-checks).
 
 ## Review the change through content and play
 
@@ -1090,6 +1162,108 @@ Repair the earliest supported structural cause before adding explanatory prose. 
 For a material intended effect, name what the writer should inspect in actual prose, using the reader-visible information and concrete scene choices rather than a self-assigned score. Compare with the work's voice/author direction, and state any alternative reading or missing chapter that limits the judgment. Apply the shared finding rules to changes; a preference is not a confirmed defect. Design review can support a rationale, not establish majority-reader plausibility, satisfaction, originality or resonance without relevant audience evidence.
 
 Before handoff, read the final design against its cited sources and preservation conditions. Distinguish supported design decisions, provisional additions, unresolved premises blocking named dependent writing, and effects still to assess in manuscript or audience feedback. A completed twenty-element table is not evidence that these checks happened. Return a useful bounded proposal when possible, with those limits visible; do not claim full-work or reader validation from a partial outline. This is a document review, not proof of literary quality or automatic enforcement.
+
+===== skills/vegabond-image/references/drawing-people.md =====
+
+# Drawing people
+
+Start with the action a viewer should recognize. Choose a single instant, a viewpoint and the parts that need to remain visible. Use only the cues that explain that instant. Keep a person's age, build, complexion, distinctive features and intended stylization throughout revisions. A supplied reference can establish pose, identity or lighting; specify which.
+
+## What holds the body up?
+
+Read the silhouette at delivery size. For weight-bearing poses, identify the support and follow it through ankle, knee and pelvis, or through the seat into the torso. In motion, show which foot is accepting weight and which is releasing it. A raised heel can be right for a departing foot. A carried load should pull on the grip and affect the arm or balance in a way that fits its weight. Let fabric compress at a bent joint or pull toward a support where it helps reveal the pose.
+
+Trace each visible limb back to its owner across overlaps. Account for foreshortening and body variation. Inspect the joint where a limb disappears and where it reappears. If an interaction matters, frame it large enough to read and preserve it when cropping.
+
+For a person climbing stairs, read the whole stride before editing a foot. Which leg receives the load, which leg pushes off or swings, and how does the pelvis travel between them? A lifted foot can pass over a tread. If the brief specifies an exact contact, check it separately and allow the pelvis and torso to move with the legs when restaging. Compare the original and edit at delivery size. Ask a reviewer to describe the action and weight transfer before revealing the intended fix. Keep the original if it conveys the action better, and record any unresolved contact requirement.
+
+## When a fast action reads as a held pose
+
+Pick the instant that distinguishes the action from a plausible still pose. At full extension a kick can also read as a dancer holding a balance. Look beyond the raised leg: what do the other foot, pelvis and shoulders tell the viewer about travel? Choose a viewpoint that makes these relationships legible. Fabric, hair or a separated floor shadow can support a reading already present in the figure.
+
+Read the whole figure once without the caption, then inspect the decisive contact. For a dunk, trace hand, ball, near rim and net in depth. Record what is visible even when the exact grip is hidden. Check action clarity and anatomical plausibility separately. If an alternative instant conveys more motion, compare it with the first at the same size and name any tradeoff, such as a clearer forward step but an exaggerated stride.
+
+For documentary realism, choose a moment that reads at an ordinary range of motion. Check whether a longer stride or wider sweep still suits the task. Inspect any prop that carries the action at native size: follow its outline and characteristic markings across the exposed surface, then check the overlaps. Look away from the figure and trace one conspicuous background structure through the frame, such as a lane marking or a hoop mounting. Keep the setting specific to the activity when simplifying or repairing it.
+
+## What makes contact?
+
+For a grasp or exchange, name the job of each hand and what carries the weight at this moment. Trace forearm, wrist, palm, and the fingers that are visible. Look at which side of the prop they meet, what passes in front, what passes behind, and whether the contact closes. A palm supporting the underside of a cup, for example, should meet the base while the other person's fingers wrap around the handle. Naturally hidden digits can stay hidden. For fine work, check where a lace, tool or handle enters and leaves the grasp.
+
+For a portrait, trace the turn from shoulders through neck and jaw. Give the person something specific to attend to. Check whether both eyes aim toward that target from the chosen viewpoint and whether eyelids, cheeks and mouth support the requested expression. Preserve individual asymmetry.
+
+## What is coloring the skin?
+
+Preserve the person's underlying complexion. Identify the main source and any visibly relevant fill or bounce. Track one light across a cheek, the turn under the jaw and the neck, then compare a nearby collar, hand or prop in the same light. Allow real differences between face, lips, palms and forearms. An unexplained color jump or identical painted-on blush across separate planes warrants a closer look. Under mixed light, locate each source in the space and let it fall off as the surface turns. Keep detail in the shadows of deep skin tones and retain the shape of a bright reflection.
+
+At actual viewing size, skin texture should follow scale, focus, medium and age. Check a lit plane beside a shadow plane for waxy smoothing, uniform stamped pores or equally sharp wrinkles everywhere. In watercolor a transparent wash turning around the jaw can do the work of fine photographic texture.
+
+## Inspect and repair
+
+First read the action in the whole frame. Then enlarge the contact or facial feature that could invalidate it and compare adjacent skin regions in the same light. Describe the visible problem and its location. For an isolated fault, edit the smallest useful region that includes both sides of an interaction, such as the hand and the cup rim; preserve expression, identity, light and framing. If the underlying pose cannot carry the action, restage from the last good source. Recheck contacts, skin and the original brief on the selected image.
+
+===== skills/vegabond-image/references/style-and-review.md =====
+
+# Visual Direction and Review Examples
+
+Use the rows that serve the request. Treat references as selective instructions rather than mandatory ingredients.
+
+| Requested treatment | Direction to specify | Verify in the image |
+| --- | --- | --- |
+| Photograph or photorealism | Viewpoint, framing, light direction and quality, materials, exposure cues, and degree of retouching. Use focal-length language when it helps convey angle of view or subject scale. | Subject geometry, material texture, credible lighting and contact shadows, and the requested framing. |
+| Comic or graphic illustration | Outline weight, silhouette, shape language, flat or modeled shading, palette, visual focus, and panel layout when requested. | Readability at delivery size and consistency of line, form, and shading. In a sequence, compare repeated costume, props, and distinctive shapes. |
+| Surreal or fantastical scene | Name the rendering medium and the impossible relationship. Specify what remains physically grounded and which visual cues make the exception legible. | The intended exception reads clearly and other cues establish the intended space. A fantastical scene can use photographic, painted, or graphic treatment. |
+
+## Direct and test the reading
+
+| When the request depends on… | Decide before generation | Inspect in the delivered image |
+| --- | --- | --- |
+| How color is applied | Bind color to its role (object, light, ink, or accent) and its location. For colored light, preserve the object's material through lit and shadowed planes. For a painting or print, specify a relevant mark, such as opaque gouache shapes, transparent washes, or broken ink on paper. | At viewing size, where does the eye land? Does the accent compete with the background? Inspect a lit area, a shadow, and a boundary when material identity matters. Sample flat interior pixels only for a requested numeric swatch, under the agreed color space and tolerance. |
+| Different readings or treatments of one theme | Keep the premise, mandatory motifs, and requested medium fixed. Choose what the viewer witnesses in each version. For example, show someone setting a second place, or show the place left ready by the door after they leave. Change the viewpoint, gesture, or decisive moment according to the brief. | Describe each version without its caption. Identify what implies the shared theme and how each conveys it. An empty chair alone can also suggest abandonment. In a single-image request, choose one direction. |
+| Why this moment makes sense | Identify who can do what, to whom or to what, and the visible consequence. Choose a cue that distinguishes the intended moment from the moments before and after it. For a tipped teapot, follow the grip, spout, stream and receiving cup. | Trace the action through the frame. A cup and a kettle can both be present while the stream misses the cup. For implied narrative, assess what the evidence supports and allow ambiguity the user invited. |
+| What feels true in this world | Identify any deliberate exception and the ordinary relationships the scene depends on. Choose the relevant support, scale, occlusion, lighting, material, or setting cues. Respect stylized spatial rules and the user's fictional world. | Inspect the region outside the main subject as well. On the Moon, a hovering dome can be intentional while a second Moon-like body in the sky suggests a different setting. In a graphic print, overlapping silhouettes may establish contact without modeled shadows. |
+
+## Material color and first glance
+
+Choose where the viewer can recognize the larger object's own color under the specified light. A small patch of low-chroma lit fabric beside a tinted fold can establish white cotton. On colored glaze or dark leather, a patch of the body color beside a restrained reflection can do the same job. Keep enough surrounding illumination and texture to explain the material. Brightening a whole cuff or sharpening every seam can turn it into the focal point.
+
+Place the requested small accent against an adjacent plane where it separates by value, hue, or edge clarity. Keep its specified scale. Subdue the strongest competing edge, reflection, or patch of detail if needed. For instance, a crisp orange paper edge against a quiet violet-gray fold can carry the focus while a softer pearl-gray seam elsewhere identifies the cloth.
+
+View the whole image at a small, consistent size before zooming in. Name the first distinct object you notice, including a tie if two compete. Then inspect the larger object's lit and shaded surfaces at delivery size and name its material and apparent color. After a repair, repeat both checks on the same candidate. If the smaller accent loses focus, adjust its immediate surroundings or the competing highlight and retain the cue that established material identity.
+
+When a broad silhouette keeps winning, look across its *outer* edge as well. If the background can change, try bringing the adjacent surface closer in value while preserving the material color and the accent's local contrast. Keep the setting legible. For a disputed first glance, a fresh viewer can name the first object before seeing the brief. Use that response to select a delivery and record a split reading when it persists.
+
+## Examples
+
+- **Count and binding.** Ask for two visibly separate red lights on the entry frame of a dome, one on each jamb, and a rover at frame right. If the request prohibits text, inspect the rover and background as well as the dome. Keep task-specific choices such as jamb placement flexible when they change the requested design.
+- **Direct overhead product view.** For a strict flat lay of lidded boxes, put the camera straight above the tabletop with its optical axis perpendicular to the surface. Ask for square and circular lid planes, with the thin lid rim and edge bevel allowed. Inspect every object for any broad front face or continuous sidewall band that signals an oblique view. If the view fails, change the camera angle while retaining the count, materials, arrangement, and background.
+- **One recurring character.** For two requested images of the same lone robot, send two standalone scene prompts using the same identity reference. Give each frame an explicit count of one robot and its own setting and action. Check the entire frame for additional figures, then compare the character's head, torso, antenna, and other identifying features across both images. If an extra figure appears, target that figure and its visible shadow during repair, then verify the intended robot, action, and framing again.
+- **Role separation.** Use image 1 for the positions of the fountain, arch and diagonal path. Use image 2 for its ink palette and rough print texture. Inspect both the spatial relationships and whether the style reference introduced unintended subjects.
+- **Edit preservation.** To recolor a jacket, identify the jacket by its current color and shape. Say which parts of the person, pose, framing, illumination and background must stay the same. Inspect beside the source at comparable scale. If visual preservation is insufficient for a pixel-exact request, use a supported region-limited workflow and check the protected pixels.
+- **Exact wording.** Preserve case, spacing and punctuation in the supplied string. When a poster permits separate typography, render that text over a prepared background and check line breaks, font coverage, legibility and clipping in the exported file. When lettering must be integrated with perspective or texture, inspect it in place at full size.
+- **Technical output.** Check the decoded file format and dimensions. For transparent assets, inspect alpha in the intended background and around subject edges. An alpha channel containing only opaque values does not make the background transparent.
+
+===== skills/vegabond-knowledge/references/project-sources.md =====
+
+# Find the working project's sources before production
+
+Start from the working project named in the task, or the current project when none is named. The checkout containing these skills and any installed `onestep-strategy/` library supply shared guidance. Resolve project document paths from the working project and follow its source and access rules. Exclude `*.kr.md` before searching or opening files. In `rg`, place `-g '!*.kr.md'` after any include globs so a later pattern cannot bring translations back into scope.
+
+1. **Name what the source must settle.** Use the actual request, target and preservation conditions to identify what could change the result. Check existing inputs and knowledge in the brief. If they already settle the consequential questions, go straight to the work.
+2. **Open the linked originals in the next read.** Use project instructions and the nearest relevant README or index. When the instructions name the entry point, open that entry point directly as the first project-content read. After reading it, match each requested case or decision to its relevant source links. Include likely owners whose link labels describe the broader operation. Read the linked originals for all mapped cases in the next tool round, batching independent reads. If batching is unavailable, read them consecutively. Use searches, directory listings and separate status lookups only after opening the relevant links. A case is ready for the search step once it has no relevant link, its link cannot be opened, or the original leaves a material question unanswered. Reuse relevant sections already in the brief.
+3. **Choose one lookup for each remaining question.** Start this step after reading the available linked originals. Identify the missing fact and where its owner is likely to record it. If the question is where to find a result report, start with a single file-name lookup. Scope it to an evidence directory when the project points to one, or to the working project when the directory is unknown. For example, use `rg --files -g '*validation*' -g '*verification*' -g '*report*' -g '!*.kr.md'` with terms appropriate to the project, or filter the file listing in the available reader. Open a plausible original from that result. Use heading or content search as a fallback when the filename lookup misses, or as the first lookup when the missing fact is inside a likely source. For example, `rg -l -i -g '!*.kr.md' -e 'receipt_id|receipt status' operations/` searches a likely source area. Use a second lookup only to address a specific miss or newly exposed gap. Keep generated output, vendored copies and unrelated areas out of the scan. Use the relevant reader for formats that need it.
+4. **Read and use the governing text.** Open the relevant original sections before drafting or editing the dependent work. When links or earlier reads give section locators, select the passages for the requested decisions, exceptions and checks in the first batch. Keep the combined output within the reader's limit. Check ownership, approval, version and scope where they matter, especially when a draft, example or old copy also matches. Use search output to locate the original. In the existing brief, record the path and section or line, the decision it governs, and how you will check the result. Reuse confirmed findings during execution. When a source turns out to be essential and access or focused discovery cannot resolve it, state the affected decision and the missing evidence while completing independent work.
+
+For a link to a mixed-topic Markdown file, select sections by heading in its first read, even when the link has no anchor or line range. Include selectors for the governing decision, input handling and exceptions, the full workflow to the requested outcome, constraints that change allowed actions, and needed verification status. Use heading words for the artifact and its lifecycle, since a procedure heading may name preparation, review or storage while approval and depletion rules appear in its body. For a production handover, include those input sections and the production-to-delivery sequence in the operating plan, even when a separate source covers delivery. If the brief restricts paid fallback, include budget and limits headings in the first read. Example Korean heading terms include `결정|권고|권장|추천` for a governing decision, `대본|준비|검수|보관` for input handling, `(제작|생성).*(예약|업로드|게시|공개)` for workflow, and `비용|예산|한도` for constraints.
+
+[The section reader](../scripts/read_sections.py) takes known file paths and heading patterns in one tool call and returns original text with file names and line numbers. A matching document title returns the introduction up to its first subsection. For example, from the working project run `python -X utf8 <installed-reader-path> --section handbooks/process.md 'final recommendation|approved inputs|production.*delivery|failure recovery|verification status'`. Repeat `--section FILE PATTERN` for independent documents. An available heading-aware reader can do the same. Narrow overly broad selectors or use an exact source range when necessary. A missing match remains an evidence gap.
+
+When a batch is clipped, keep the missing passage at the known path pending and identify any other required read. If a verification question already identifies what was to be tested, locate its result report next using the filename lookup above. Then open the report and the pending passage in one call. Use a separate reread first only if the missing passage supplies a fact needed to identify the report, such as an experiment ID or version. A plan's omitted procedure and the actual result for an already identified operation can normally be read together.
+
+Before opening another document, name the unresolved question that could change the deliverable and the title, index entry, heading or link that points to evidence for that exact question. Use the result report for the relevant operation when the task needs current verification status. When the governing documents cover the requested cases and a direct report states what was tested or is still unverified, start drafting from those sources. The stated unverified status completes that status check. For example, a report that records a successful sample render and untested publication supports both statements. A later review of the same sample's appearance addresses visual quality. Reopen the publication question only on a concrete pointer to a later publication test or a superseding operating decision. Apply the same rule to broad histories and keyword hits. Close discovery when material questions have evidence or a stated gap and no focused lookup is likely to resolve that gap.
+
+For the final wording check, use the original sections already consulted. Reopen a cited section when necessary to check the wording. Open a new document if the draft exposes a consequential evidence gap that the document could resolve.
+
+At handoff, connect the material source to what the result does and the check you ran. A short inline reference is enough for a small task.
 
 ===== skills/vegabond-knowledge/references/retrieval.md =====
 
@@ -1596,12 +1770,15 @@ Examples of selective refinement, not mandatory per-domain inventories:
 | Edit a testimony/reveal scene | What does each participant and reader know at this scene, from which observation, and what must remain undisclosed? |
 | Change combat duration/reward | What happens to reward rate, progression, sinks, session experience and content demand under the stated assumptions? |
 | Revise a comparison chart | Do source periods, populations, denominators and units permit the comparison? What final format was actually requested? |
+| Draft an operations handover | Which steps and exceptions have been approved? Who decides what happens when the normal process stops? |
 
 Before relying on a consequential choice, challenge the initial question set: **what omitted condition would make this action wrong, and what source or check could reveal it?** Follow a concrete dependency or counterexample, not every imaginable risk. Repeat affected parts when new evidence, a changed requirement or an invalidated assumption exposes another dependency; keep valid work intact.
 
 ## Request and retrieve evidence
 
-Pass the working project, actual decision/questions, relevance, applicable context, required evidence and known gaps to knowledge. Search knowledge and problem records, including planned actions/triggers before a symptom exists. A missing catalog match can require original-source inspection or focused research; repeated searching is not a substitute for identifying the missing question.
+Pass the working project, actual questions, relevant context, required evidence and known gaps to [knowledge](../../vegabond-knowledge/SKILL.md). For questions governed by the working project, first use [project source discovery](../../vegabond-knowledge/references/project-sources.md) to find ordinary project documents and read the applicable original sections before dependent work. Use this order when the task comes through Scout or directly to a specialist, including when the user supplies no paths or the project has no catalog. Reuse originals already checked for the current decision.
+
+Use relevant knowledge entries and problem records to supplement this reading, including planned-action triggers before a symptom exists. Carry the original section, its effect on the decision and any remaining gap into the existing brief. Route gaps that need additional evidence to [focused research](../../vegabond-research/SKILL.md) with the question and the evidence already established.
 
 Knowledge returns candidates with original locators, conditions, conflicts, evidence/prevention states and gaps. It may expose a missing premise or prerequisite. The consuming specialist decides applicability and verifies the result; neither the search score nor the knowledge summary certifies whole-task sufficiency. Missing context stays unknown, and related/derived entries do not become independent corroboration.
 
@@ -1625,6 +1802,8 @@ Separate known facts, supported inferences, assumptions, conflicts and missing e
 ## Close against the work, not the search
 
 Before handoff, connect the material decision to its supporting evidence, applied action and actual acceptance result. Check whether the artifact introduced another relevant state, dependency or factual claim. Close questions as answered, conditional, conflicting or missing; a valid deferral is not evidence that the deferred question was answered. Preserve unresolved limits and invalidated evidence with their consequences. Search coverage counts matched terms, not completeness of the task's information needs.
+
+Compare consequential statements in the draft with the cited original. Carry over the actor, scope, conditions, exceptions and degree of certainty that affect the action. Match the wording to the state the evidence establishes, such as proposed, approved, in progress or confirmed complete. For an operational exception, carry forward both the action that changes and any prior arrangement the source says to keep. When the source directs an action, keep its operative verb and state any outcome check separately. For example, if the source says to keep a reservation unless canceled, write “Keep the existing reservation unless separately canceled. Check whether it was fulfilled after the scheduled time.” Revise any prediction or completion claim to the supported state before delivery.
 
 For skill maintenance, use the [request-to-application evaluation cases](../../vegabond-knowledge/tests/information-needs/evaluation.md). Evaluate omitted questions, wrong transfers, unsupported certainty, and unnecessary retrieval separately from catalog integrity and query-to-ID tests. No finite case set proves the absence of all future omissions.
 

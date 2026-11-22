@@ -22,7 +22,7 @@ Build one lightweight task profile by answering four questions:
 
 Use open descriptions; a task can involve several domains and methods. A novel-based pitch deck can need narrative analysis, slide production, and visual inspection together. Search can support any operation. Keep the profile in the brief and step mapping, without a separate file or a fixed catalog of task subtypes. Reuse it in the operation skills and refine only missing details or assumptions changed by evidence.
 
-Apply the shared [information-needs judgment](references/information-needs.md) to derive questions from decisions, preservation conditions and actual inputs. Request a focused brief from [knowledge](../vegabond-knowledge/SKILL.md); carry evidence, applicability, checks and gaps forward. The executing specialist then checks for missing questions after source inspection, reusing valid answers and adding only needs exposed by the work. Revisit affected judgments before consequential reliance and at handoff.
+Apply the shared [information-needs judgment](references/information-needs.md) to derive questions from decisions, preservation conditions and actual inputs. Before drafting or editing, use [knowledge](../vegabond-knowledge/SKILL.md) to locate and read the working project's governing sources for those questions, including ordinary documents whose paths the user did not give. Carry the consulted sections, their effect on the work, checks and gaps in the existing brief. The executing specialist checks for missing questions after inspecting the actual inputs and reuses valid answers. Revisit affected judgments before consequential reliance and at handoff.
 
 | Operation skill | Choose when |
 | --- | --- |
