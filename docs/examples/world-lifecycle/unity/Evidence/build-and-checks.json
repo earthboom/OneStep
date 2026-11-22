@@ -1,0 +1,32 @@
+{
+  "localDate": "2026-11-22",
+  "engine": "6000.0.77f1",
+  "target": "StandaloneWindows64 (Mono)",
+  "build": {
+    "command": ".\\Run-Probe.ps1 -Build -Runs 1",
+    "exitCode": 0,
+    "successMarker": "WORLD_LIFECYCLE_BUILD_PASS bytes=86523516",
+    "playerExecutableSha256": "6b7c119f6c7aa482fd44b2fd70267a2fa31d7e9eed5164fe6b7f3b5681244692",
+    "builtForestLevelSha256": "b83042b81dc51ce6760c0fa6a3ff0f93f529f7383c20372d0d92a74d884b6a7e",
+    "generatedForestSceneBytes": 858560
+  },
+  "measurement": {
+    "command": ".\\Run-Probe.ps1 -Runs 3",
+    "exitCode": 0,
+    "source": [
+      "run-1.json",
+      "run-2.json",
+      "run-3.json"
+    ],
+    "pilotSource": "pilot.json",
+    "pilotReason": "Captured immediately after building as an integration pilot, before scheduling the three serial measurements.",
+    "fixtureSha256": "43f693c7d0ae41a00e0306863e4bfc55c712a422b17a2f32de793f7bb5d26a0f"
+  },
+  "codec": {
+    "command": "dotnet run --project Checks/SaveContract.csproj -- ../fixtures/legacy-v1.json",
+    "redExitCode": 1,
+    "redAssertion": "Known v1 data must save as schema 2.",
+    "greenExitCode": 0,
+    "greenMarker": "PASS: known legacy data migrates and round-trips; invalid candidates are rejected."
+  }
+}

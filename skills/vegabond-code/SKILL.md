@@ -35,6 +35,8 @@ Read [verification and handoff](references/verification.md) before changing code
 
 For a gameplay framework or content boundary change, carry the representative extension, affected dependency checks, and supported content configurations from the design into software verification. Apply the relevant dependency and configuration checks to an independently optional feature added through an existing extension point as well. Exercise the production registration and play path. Record the actual changes needed to add the variant and the behavior of the applicable configurations in the verification evidence.
 
+For game data changes, streamed, cached or pooled content, rendering budgets, or NPC behavior across lifetime and visibility changes, apply the relevant [game runtime checks](references/world-lifecycle-verification.md) alongside the general verification procedure. Use the actual integration boundary for each claim, including existing data bytes, engine residency, and observable state where applicable.
+
 - **Create:** Follow the selected design or existing local pattern and implement a complete usable path. Resolve a load-bearing assumption with a small integration slice before dependent implementation, using scout's existing scale decision.
 - **Revise:** Reproduce a defect and trace its cause before repair. For intentional restructuring, preserve the established behavior and public contracts while changing coherent units. Keep unrelated cleanup outside scope.
 - **Research:** Trace code, data flow, and runtime evidence; compare options against the question and cite files, symbols, logs, and applicable sources. Leave investigated code unchanged; use an isolated harness for experiments.

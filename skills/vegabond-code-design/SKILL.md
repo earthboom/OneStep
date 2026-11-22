@@ -13,6 +13,8 @@ For game architecture and technical choices, use the [game evidence reuse conven
 
 When choosing a game's framework or changing how content is authored, registered, or composed across features, apply [gameplay framework and content design](references/gameplay-framework.md). Use its applicable parts for both new designs and revisions, and pass its checks to the implementation workflow.
 
+When deciding how game data evolves, what a world loads or retains, how a renderer meets its budget, or what NPCs do offscreen, use the applicable [world runtime design guidance](references/world-lifecycle.md). Tie each chosen policy to a gameplay requirement and pass the preservation, transition and measurement conditions to implementation.
+
 ## Resolve the design
 
 Use the shared [information-needs judgment](../vegabond-scout/references/information-needs.md) to test whether required guarantees, boundaries and counterexamples expose missing questions. Keep adopted contracts, conditional assumptions and rejected analogies attached to the choices they affect.

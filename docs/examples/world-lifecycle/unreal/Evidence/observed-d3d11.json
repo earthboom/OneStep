@@ -1,0 +1,576 @@
+{
+  "rendererArgument": "d3d11",
+  "runs": [
+    {
+      "exitCode": 0,
+      "processId": 3128,
+      "engineVersion": "5.8.3-58210709+++UE5+Release-5.8",
+      "host": "Windows 11 (25H2) [10.0.26200.9974] (), CPU: 12th Gen Intel(R) Core(TM) i7-12700KF, GPU: NVIDIA GeForce RTX 3080",
+      "d3d11Adapter": "NVIDIA GeForce RTX 3080",
+      "command": [
+        "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+        "C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\WorldLifecycle.uproject",
+        "/Game/Maps/Town",
+        "-game",
+        "-windowed",
+        "-ResX=960",
+        "-ResY=540",
+        "-unattended",
+        "-nosplash",
+        "-nop4",
+        "-nosound",
+        "-NoAnalytics",
+        "-NoZenAutoLaunch",
+        "-DDC=(InstalledEnginePak,InstalledLocal)",
+        "-LocalDataCachePath=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\Scratch\\DDC",
+        "-abslog=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\Scratch\\observed-d3d11-matrix\\run-1\\game.log",
+        "-ExecCmds=t.MaxFPS 0",
+        "-WorldProbe=lifecycle",
+        "-WorldSave=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\Scratch\\observed-d3d11-matrix\\run-1-save-v2.json",
+        "-LegacyFixture=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\fixtures\\legacy-v1.json",
+        "-RejectedFixture=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\Scratch\\observed-d3d11-matrix\\unsupported.json",
+        "-d3d11"
+      ],
+      "events": [
+        {
+          "game": "1",
+          "standalone": "1",
+          "map": "/Game/Maps/Town",
+          "event": "session"
+        },
+        {
+          "schema": "1",
+          "npc": "forest-wolf-v2",
+          "hp": "100",
+          "quest": "0",
+          "patrol": "0",
+          "event": "restore"
+        },
+        {
+          "visit": "1",
+          "package": "/Game/Maps/Forest",
+          "blocking": "0",
+          "event": "request"
+        },
+        {
+          "visit": "1",
+          "instance": "/Game/Maps/Forest_LevelInstance_1",
+          "loaded": "1",
+          "visible": "1",
+          "presentation": "1",
+          "actors": "100",
+          "npc": "forest-wolf-v2",
+          "hp": "100",
+          "quest": "0",
+          "patrol": "0",
+          "viewHp": "100",
+          "viewQuest": "0",
+          "viewPatrol": "0",
+          "latencyMs": "56.170",
+          "maxTickGapMs": "17.335",
+          "tickGaps": "7",
+          "event": "visible"
+        },
+        {
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "0",
+          "event": "hit"
+        },
+        {
+          "visit": "1",
+          "event": "request-out"
+        },
+        {
+          "visit": "1",
+          "registered": "0",
+          "loaded": "0",
+          "presentation": "0",
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "0",
+          "worldSeconds": "0.597433",
+          "latencyMs": "18.603",
+          "maxTickGapMs": "10.366",
+          "tickGaps": "2",
+          "event": "unloaded"
+        },
+        {
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "1",
+          "worldSeconds": "0.849800",
+          "loaded": "0",
+          "presentation": "0",
+          "event": "patrol"
+        },
+        {
+          "visit": "2",
+          "package": "/Game/Maps/Forest",
+          "blocking": "0",
+          "event": "request"
+        },
+        {
+          "visit": "2",
+          "instance": "/Game/Maps/Forest_LevelInstance_2",
+          "loaded": "1",
+          "visible": "1",
+          "presentation": "1",
+          "actors": "100",
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "1",
+          "viewHp": "60",
+          "viewQuest": "1",
+          "viewPatrol": "1",
+          "latencyMs": "40.778",
+          "maxTickGapMs": "9.103",
+          "tickGaps": "6",
+          "event": "visible"
+        },
+        {
+          "schema": "2",
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "1",
+          "event": "save"
+        },
+        {
+          "reason": "unsupported-schema",
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "1",
+          "event": "rejected"
+        },
+        {
+          "event": "complete"
+        },
+        {
+          "event": "end"
+        }
+      ],
+      "savedV2": {
+        "schemaVersion": 2,
+        "npcId": "forest-wolf-v2",
+        "hp": 60,
+        "questStage": 1,
+        "patrolSteps": 1
+      }
+    },
+    {
+      "exitCode": 0,
+      "processId": 7692,
+      "engineVersion": "5.8.3-58210709+++UE5+Release-5.8",
+      "host": "Windows 11 (25H2) [10.0.26200.9974] (), CPU: 12th Gen Intel(R) Core(TM) i7-12700KF, GPU: NVIDIA GeForce RTX 3080",
+      "d3d11Adapter": "NVIDIA GeForce RTX 3080",
+      "command": [
+        "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+        "C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\WorldLifecycle.uproject",
+        "/Game/Maps/Town",
+        "-game",
+        "-windowed",
+        "-ResX=960",
+        "-ResY=540",
+        "-unattended",
+        "-nosplash",
+        "-nop4",
+        "-nosound",
+        "-NoAnalytics",
+        "-NoZenAutoLaunch",
+        "-DDC=(InstalledEnginePak,InstalledLocal)",
+        "-LocalDataCachePath=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\Scratch\\DDC",
+        "-abslog=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\Scratch\\observed-d3d11-matrix\\run-2\\game.log",
+        "-ExecCmds=t.MaxFPS 0",
+        "-WorldProbe=lifecycle",
+        "-WorldSave=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\Scratch\\observed-d3d11-matrix\\run-2-save-v2.json",
+        "-LegacyFixture=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\fixtures\\legacy-v1.json",
+        "-RejectedFixture=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\Scratch\\observed-d3d11-matrix\\unsupported.json",
+        "-d3d11"
+      ],
+      "events": [
+        {
+          "game": "1",
+          "standalone": "1",
+          "map": "/Game/Maps/Town",
+          "event": "session"
+        },
+        {
+          "schema": "1",
+          "npc": "forest-wolf-v2",
+          "hp": "100",
+          "quest": "0",
+          "patrol": "0",
+          "event": "restore"
+        },
+        {
+          "visit": "1",
+          "package": "/Game/Maps/Forest",
+          "blocking": "0",
+          "event": "request"
+        },
+        {
+          "visit": "1",
+          "instance": "/Game/Maps/Forest_LevelInstance_1",
+          "loaded": "1",
+          "visible": "1",
+          "presentation": "1",
+          "actors": "100",
+          "npc": "forest-wolf-v2",
+          "hp": "100",
+          "quest": "0",
+          "patrol": "0",
+          "viewHp": "100",
+          "viewQuest": "0",
+          "viewPatrol": "0",
+          "latencyMs": "52.852",
+          "maxTickGapMs": "15.482",
+          "tickGaps": "7",
+          "event": "visible"
+        },
+        {
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "0",
+          "event": "hit"
+        },
+        {
+          "visit": "1",
+          "event": "request-out"
+        },
+        {
+          "visit": "1",
+          "registered": "0",
+          "loaded": "0",
+          "presentation": "0",
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "0",
+          "worldSeconds": "0.589397",
+          "latencyMs": "12.439",
+          "maxTickGapMs": "7.633",
+          "tickGaps": "2",
+          "event": "unloaded"
+        },
+        {
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "1",
+          "worldSeconds": "0.842475",
+          "loaded": "0",
+          "presentation": "0",
+          "event": "patrol"
+        },
+        {
+          "visit": "2",
+          "package": "/Game/Maps/Forest",
+          "blocking": "0",
+          "event": "request"
+        },
+        {
+          "visit": "2",
+          "instance": "/Game/Maps/Forest_LevelInstance_2",
+          "loaded": "1",
+          "visible": "1",
+          "presentation": "1",
+          "actors": "100",
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "1",
+          "viewHp": "60",
+          "viewQuest": "1",
+          "viewPatrol": "1",
+          "latencyMs": "46.843",
+          "maxTickGapMs": "14.659",
+          "tickGaps": "5",
+          "event": "visible"
+        },
+        {
+          "schema": "2",
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "1",
+          "event": "save"
+        },
+        {
+          "reason": "unsupported-schema",
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "1",
+          "event": "rejected"
+        },
+        {
+          "event": "complete"
+        },
+        {
+          "event": "end"
+        }
+      ],
+      "savedV2": {
+        "schemaVersion": 2,
+        "npcId": "forest-wolf-v2",
+        "hp": 60,
+        "questStage": 1,
+        "patrolSteps": 1
+      }
+    },
+    {
+      "exitCode": 0,
+      "processId": 29252,
+      "engineVersion": "5.8.3-58210709+++UE5+Release-5.8",
+      "host": "Windows 11 (25H2) [10.0.26200.9974] (), CPU: 12th Gen Intel(R) Core(TM) i7-12700KF, GPU: NVIDIA GeForce RTX 3080",
+      "d3d11Adapter": "NVIDIA GeForce RTX 3080",
+      "command": [
+        "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+        "C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\WorldLifecycle.uproject",
+        "/Game/Maps/Town",
+        "-game",
+        "-windowed",
+        "-ResX=960",
+        "-ResY=540",
+        "-unattended",
+        "-nosplash",
+        "-nop4",
+        "-nosound",
+        "-NoAnalytics",
+        "-NoZenAutoLaunch",
+        "-DDC=(InstalledEnginePak,InstalledLocal)",
+        "-LocalDataCachePath=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\Scratch\\DDC",
+        "-abslog=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\Scratch\\observed-d3d11-matrix\\run-3\\game.log",
+        "-ExecCmds=t.MaxFPS 0",
+        "-WorldProbe=lifecycle",
+        "-WorldSave=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\Scratch\\observed-d3d11-matrix\\run-3-save-v2.json",
+        "-LegacyFixture=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\fixtures\\legacy-v1.json",
+        "-RejectedFixture=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\Scratch\\observed-d3d11-matrix\\unsupported.json",
+        "-d3d11"
+      ],
+      "events": [
+        {
+          "game": "1",
+          "standalone": "1",
+          "map": "/Game/Maps/Town",
+          "event": "session"
+        },
+        {
+          "schema": "1",
+          "npc": "forest-wolf-v2",
+          "hp": "100",
+          "quest": "0",
+          "patrol": "0",
+          "event": "restore"
+        },
+        {
+          "visit": "1",
+          "package": "/Game/Maps/Forest",
+          "blocking": "0",
+          "event": "request"
+        },
+        {
+          "visit": "1",
+          "instance": "/Game/Maps/Forest_LevelInstance_1",
+          "loaded": "1",
+          "visible": "1",
+          "presentation": "1",
+          "actors": "100",
+          "npc": "forest-wolf-v2",
+          "hp": "100",
+          "quest": "0",
+          "patrol": "0",
+          "viewHp": "100",
+          "viewQuest": "0",
+          "viewPatrol": "0",
+          "latencyMs": "55.900",
+          "maxTickGapMs": "12.980",
+          "tickGaps": "8",
+          "event": "visible"
+        },
+        {
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "0",
+          "event": "hit"
+        },
+        {
+          "visit": "1",
+          "event": "request-out"
+        },
+        {
+          "visit": "1",
+          "registered": "0",
+          "loaded": "0",
+          "presentation": "0",
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "0",
+          "worldSeconds": "0.611217",
+          "latencyMs": "24.146",
+          "maxTickGapMs": "9.774",
+          "tickGaps": "3",
+          "event": "unloaded"
+        },
+        {
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "1",
+          "worldSeconds": "0.864173",
+          "loaded": "0",
+          "presentation": "0",
+          "event": "patrol"
+        },
+        {
+          "visit": "2",
+          "package": "/Game/Maps/Forest",
+          "blocking": "0",
+          "event": "request"
+        },
+        {
+          "visit": "2",
+          "instance": "/Game/Maps/Forest_LevelInstance_2",
+          "loaded": "1",
+          "visible": "1",
+          "presentation": "1",
+          "actors": "100",
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "1",
+          "viewHp": "60",
+          "viewQuest": "1",
+          "viewPatrol": "1",
+          "latencyMs": "60.073",
+          "maxTickGapMs": "10.960",
+          "tickGaps": "8",
+          "event": "visible"
+        },
+        {
+          "schema": "2",
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "1",
+          "event": "save"
+        },
+        {
+          "reason": "unsupported-schema",
+          "npc": "forest-wolf-v2",
+          "hp": "60",
+          "quest": "1",
+          "patrol": "1",
+          "event": "rejected"
+        },
+        {
+          "event": "complete"
+        },
+        {
+          "event": "end"
+        }
+      ],
+      "savedV2": {
+        "schemaVersion": 2,
+        "npcId": "forest-wolf-v2",
+        "hp": 60,
+        "questStage": 1,
+        "patrolSteps": 1
+      }
+    }
+  ],
+  "inputsSha256": {
+    "legacy-v1.json": "43f693c7d0ae41a00e0306863e4bfc55c712a422b17a2f32de793f7bb5d26a0f",
+    "Town.umap": "f92602a19adff960cb057b8f2156ab5730d55ed52cac280be74825be346730ac",
+    "Forest.umap": "c76098da7285adf6ba946bd11e005260b726097543871330f238772dc8a2d587",
+    "module": "370abe937e96ce10a0c32a612bf7732a0fad35a4df741e703d4e61038b38dce1"
+  },
+  "restart": {
+    "exitCode": 0,
+    "processId": 13720,
+    "engineVersion": "5.8.3-58210709+++UE5+Release-5.8",
+    "host": "Windows 11 (25H2) [10.0.26200.9974] (), CPU: 12th Gen Intel(R) Core(TM) i7-12700KF, GPU: NVIDIA GeForce RTX 3080",
+    "d3d11Adapter": "NVIDIA GeForce RTX 3080",
+    "command": [
+      "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+      "C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\WorldLifecycle.uproject",
+      "/Game/Maps/Town",
+      "-game",
+      "-windowed",
+      "-ResX=960",
+      "-ResY=540",
+      "-unattended",
+      "-nosplash",
+      "-nop4",
+      "-nosound",
+      "-NoAnalytics",
+      "-NoZenAutoLaunch",
+      "-DDC=(InstalledEnginePak,InstalledLocal)",
+      "-LocalDataCachePath=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\Scratch\\DDC",
+      "-abslog=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\Scratch\\observed-d3d11-matrix\\restart\\game.log",
+      "-ExecCmds=t.MaxFPS 0",
+      "-WorldProbe=restore",
+      "-WorldSave=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\Scratch\\observed-d3d11-matrix\\run-3-save-v2.json",
+      "-LegacyFixture=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\fixtures\\legacy-v1.json",
+      "-RejectedFixture=C:\\Projects\\OneStep\\docs\\examples\\world-lifecycle\\unreal\\Scratch\\observed-d3d11-matrix\\unsupported.json",
+      "-d3d11"
+    ],
+    "events": [
+      {
+        "game": "1",
+        "standalone": "1",
+        "map": "/Game/Maps/Town",
+        "event": "session"
+      },
+      {
+        "schema": "2",
+        "npc": "forest-wolf-v2",
+        "hp": "60",
+        "quest": "1",
+        "patrol": "1",
+        "event": "restore"
+      },
+      {
+        "visit": "1",
+        "package": "/Game/Maps/Forest",
+        "blocking": "0",
+        "event": "request"
+      },
+      {
+        "visit": "1",
+        "instance": "/Game/Maps/Forest_LevelInstance_1",
+        "loaded": "1",
+        "visible": "1",
+        "presentation": "1",
+        "actors": "100",
+        "npc": "forest-wolf-v2",
+        "hp": "60",
+        "quest": "1",
+        "patrol": "1",
+        "viewHp": "60",
+        "viewQuest": "1",
+        "viewPatrol": "1",
+        "latencyMs": "49.713",
+        "maxTickGapMs": "9.693",
+        "tickGaps": "7",
+        "event": "visible"
+      },
+      {
+        "event": "complete"
+      },
+      {
+        "event": "end"
+      }
+    ]
+  },
+  "legacyV1Sha256After": "43f693c7d0ae41a00e0306863e4bfc55c712a422b17a2f32de793f7bb5d26a0f"
+}

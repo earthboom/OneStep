@@ -71,22 +71,31 @@ class PortableKitTests(unittest.TestCase):
             relative = item.relative_to(strategy).as_posix()
             self.assertFalse(relative.endswith(".kr.md"))
             self.assertIn(f"===== {relative} =====\n\n" + item.read_text(encoding="utf-8").rstrip(), web)
-        for skill in ("scout", "create", "revise", "research", "code", "fiction", "planning", "presentation"):
+        for skill in ("scout", "create", "revise", "research", "code", "code-design", "fiction", "planning", "presentation"):
             relative = f"skills/vegabond-{skill}/SKILL.md"
             source = (HERE.parent / relative).read_text(encoding="utf-8")
             self.assertEqual((self.project / strategy.name / relative).read_text(encoding="utf-8"), source)
-        code_skill = self.project / strategy.name / "skills/vegabond-code/SKILL.md"
-        code_content = code_skill.read_text(encoding="utf-8")
-        code_references = {(code_skill.parent / target).resolve()
-                           for target in re.findall(r"\]\((references/[^)\s]+)\)", code_content)}
-        for name in ("cpp-project-guidelines.md", "cpp-implementation.md"):
-            relative = f"skills/vegabond-code/references/{name}"
-            installed = self.project / strategy.name / relative
-            self.assertTrue(installed.is_file(), relative)
-            source = (HERE.parent / relative).read_text(encoding="utf-8")
-            self.assertEqual(installed.read_text(encoding="utf-8"), source)
-            self.assertIn(f"===== {relative} =====\n\n" + source.rstrip(), web)
-            self.assertIn(installed.resolve(), code_references)
+        routed_references = {
+            "code": ("cpp-project-guidelines.md", "cpp-implementation.md", "world-lifecycle-verification.md"),
+            "code-design": ("world-lifecycle.md",),
+        }
+        for skill, filenames in routed_references.items():
+            skill_root = self.project / strategy.name / f"skills/vegabond-{skill}"
+            entry = (skill_root / "SKILL.md").read_text(encoding="utf-8")
+            for filename in filenames:
+                relative = f"skills/vegabond-{skill}/references/{filename}"
+                installed = self.project / strategy.name / relative
+                self.assertTrue(installed.is_file(), relative)
+                source = (HERE.parent / relative).read_text(encoding="utf-8")
+                self.assertEqual(installed.read_text(encoding="utf-8"), source)
+                self.assertIn(f"===== {relative} =====\n\n" + source.rstrip(), web)
+                self.assertIn(f"](references/{filename})", entry)
+                if filename.startswith("world-lifecycle"):
+                    links = re.findall(r"\]\(([^)\s]+)\)", source)
+                    for link in links:
+                        if "://" in link:
+                            continue
+                        self.assertTrue((installed.parent / link.split("#", 1)[0]).is_file(), link)
         self.assertNotIn(str(HERE.parent), web)
         approved = {name for name in (HERE / "game-library.txt").read_text(encoding="utf-8").splitlines()
                     if name and not name.startswith("#")}

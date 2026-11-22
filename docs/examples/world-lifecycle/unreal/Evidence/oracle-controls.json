@@ -1,0 +1,9 @@
+{
+  "loading-was-blocking": "Expected a nonblocking forest package request",
+  "forest-still-registered": "Forest held a streaming registration, loaded level or present actor after return",
+  "hp-reset-while-absent": "Combat or offscreen authority failed to preserve HP and quest state",
+  "patrol-fired-twice": "Unexpected lifecycle ['session', 'restore', 'request', 'visible', 'hit', 'request-out', 'unloaded', 'patrol', 'patrol', 'request', 'visible', 'save', 'rejected', 'complete', 'end']",
+  "stream-instance-reused": "Revisit reused a level instance",
+  "stale-wolf-projection": "A real streamed level and rehydrated actor were expected",
+  "fresh-process-lost-quest": "Fresh process lost saved gameplay state"
+}

@@ -1,0 +1,15 @@
+Using Visual Studio 14.50.35729 toolchain (C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.50.35717) and Windows 10.0.26100.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+[1/12] Compile Resource [x64] Default.rc2 [NoUba]
+[2/12] Compile [x64] SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.cpp [NoUba]
+[3/12] Compile [x64] WolfPresentationComponent.cpp [NoUba]
+[4/12] Compile [x64] WorldLifecycle.cpp [NoUba]
+[5/12] Compile [x64] PerModuleInline.gen.cpp [NoUba]
+[6/12] Compile [x64] Module.WorldLifecycle.gen.cpp [NoUba]
+[7/12] Compile [x64] WorldLifecyclePlayer.cpp [NoUba]
+[8/12] Compile [x64] WorldNpcState.cpp [NoUba]
+[9/12] Compile [x64] WorldLifecycleMode.cpp [NoUba]
+[10/12] Link [x64] UnrealEditor-WorldLifecycle.lib [NoUba]
+[11/12] Link [x64] UnrealEditor-WorldLifecycle.dll [NoUba]
+[12/12] WriteMetadata WorldLifecycleEditor.target [NoUba]
+Result: Succeeded
+Total execution time: 76.09 seconds

@@ -1,0 +1,7 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "5.8",
+  "Description": "Town and forest streaming with persistent NPC state",
+  "Modules": [{ "Name": "WorldLifecycle", "Type": "Runtime", "LoadingPhase": "Default" }],
+  "Plugins": [{ "Name": "PythonScriptPlugin", "Enabled": true }]
+}
