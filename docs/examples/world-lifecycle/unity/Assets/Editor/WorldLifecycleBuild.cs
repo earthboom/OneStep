@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEditor.SceneManagement;
@@ -24,13 +25,15 @@ public static class WorldLifecycleBuild
         File.Copy("../fixtures/legacy-v1.json", Content + "/Resources/legacy-v1.json", true);
         AssetDatabase.Refresh();
         BuildForest();
+        LargeForestBuild.Build();
         BuildTown();
 
         EditorBuildSettings.scenes = new[]
         {
             new EditorBuildSettingsScene(Town, true),
             new EditorBuildSettingsScene(Forest, true)
-        };
+        }.Concat(Enumerable.Range(0, LargeForestChunk.Count)
+            .Select(i => new EditorBuildSettingsScene(LargeForestChunk.ScenePath(i), true))).ToArray();
         PlayerSettings.productName = "World Lifecycle Unity";
         PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
         PlayerSettings.defaultScreenWidth = 1024;
@@ -45,7 +48,7 @@ public static class WorldLifecycleBuild
         Directory.CreateDirectory("Build");
         var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions
         {
-            scenes = new[] { Town, Forest },
+            scenes = EditorBuildSettings.scenes.Select(scene => scene.path).ToArray(),
             locationPathName = "Build/WorldLifecycle.exe",
             target = BuildTarget.StandaloneWindows64,
             options = BuildOptions.None
@@ -134,7 +137,7 @@ public static class WorldLifecycleBuild
             throw new IOException("Cannot save Forest scene.");
     }
 
-    private static Material Material(string name, Color color)
+    internal static Material Material(string name, Color color)
     {
         var path = $"{Content}/{name}.mat";
         var material = AssetDatabase.LoadAssetAtPath<Material>(path);
@@ -153,7 +156,7 @@ public static class WorldLifecycleBuild
         return material;
     }
 
-    private static void Primitive(Transform parent, PrimitiveType type, string name, Vector3 position, Vector3 scale, Material material)
+    internal static Transform Primitive(Transform parent, PrimitiveType type, string name, Vector3 position, Vector3 scale, Material material)
     {
         var gameObject = GameObject.CreatePrimitive(type);
         gameObject.name = name;
@@ -162,5 +165,6 @@ public static class WorldLifecycleBuild
         gameObject.transform.localScale = scale;
         gameObject.GetComponent<MeshRenderer>().sharedMaterial = material;
         UnityEngine.Object.DestroyImmediate(gameObject.GetComponent<Collider>());
+        return gameObject.transform;
     }
 }

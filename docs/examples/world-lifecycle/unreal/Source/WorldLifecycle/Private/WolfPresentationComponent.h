@@ -11,6 +11,7 @@ class UWolfPresentationComponent : public UActorComponent
 
 public:
     void Project(const FWorldNpcState& State);
+    void ProjectAt(const FWorldNpcState& State, const FVector& Position);
     const FWorldNpcState& GetProjection() const { return Projection; }
 
 private:

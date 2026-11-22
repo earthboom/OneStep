@@ -5,12 +5,14 @@
 #include "Engine/World.h"
 #include "EngineUtils.h"
 #include "HAL/FileManager.h"
+#include "HAL/PlatformMisc.h"
 #include "HAL/PlatformTime.h"
 #include "Misc/CommandLine.h"
 #include "Misc/Parse.h"
 #include "Misc/Paths.h"
 #include "WolfPresentationComponent.h"
 #include "WorldLifecyclePlayer.h"
+#include "WorldScaleRun.h"
 
 DEFINE_LOG_CATEGORY(LogWorldLifecycle);
 
@@ -45,6 +47,20 @@ void AWorldLifecycleMode::BeginPlay()
     if (!FParse::Value(Command, TEXT("LegacyFixture="), LegacyPath))
     {
         LegacyPath = FPaths::Combine(FPaths::ProjectDir(), TEXT("../fixtures/legacy-v1.json"));
+    }
+    FString ScaleMode;
+    if (FParse::Value(Command, TEXT("WorldScale="), ScaleMode))
+    {
+        FString Output;
+        FString Save;
+        FParse::Value(Command, TEXT("ScaleOutput="), Output);
+        FParse::Value(Command, TEXT("ScaleSave="), Save);
+        AWorldScaleRun* Scale = GetWorld()->SpawnActor<AWorldScaleRun>();
+        if (!Scale || !Scale->Start(ScaleMode, LegacyPath, Output, Save))
+        {
+            FPlatformMisc::RequestExitWithStatus(false, 1, TEXT("World scale setup failed"));
+        }
+        return;
     }
     FString Error;
     const FString& Source = IFileManager::Get().FileExists(*SlotPath) ? SlotPath : LegacyPath;

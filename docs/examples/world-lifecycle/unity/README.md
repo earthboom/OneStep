@@ -39,3 +39,45 @@ Each load's request-to-ready interval uses a monotonic clock. It begins immediat
 These headless batch runs initialized Direct3D 11 on a GeForce RTX 3080 with a Core i7-12700KF. The reported gaps measure the game loop during this workload. Windowed frame presentation, GPU time, and a production-world frame budget require separate profiling. [Unity Player arguments](https://docs.unity.com/en-us/engine/6000.0/manual/unity-editor/command-line-arguments/player)
 
 Unity API references. [LoadSceneAsync](https://docs.unity.com/en-us/engine/6000.0/script-reference/unityengine/scenemanagement/scenemanager/loadsceneasync) · [SceneManager](https://docs.unity.com/en-us/engine/6000.0/script-reference/unityengine/scenemanagement/scenemanager)
+
+## Large forest experiment
+
+```powershell
+.\Run-Scale.ps1 -Build
+```
+
+This builds the same Windows Player for all four configurations and runs 16 fresh processes. Each configuration appears once per round and once in each launch position. Two rounds start with the [v1 fixture](../fixtures/legacy-v1.json) and two with the [v2 save produced by the earlier Player](../fixtures/legacy-v2.json). All timing and save output goes to `Work/scale-*/`. Use `-Smoke` for one streamed, scheduled-AI run and omit `-Build` to use the current Player.
+
+| Configuration | Forest residence | NPC updates |
+| --- | --- | --- |
+| `resident-full` | All eight scenes load before leaving town and stay resident | All 2,048 NPCs each tick |
+| `stream-full` | Load the destination additively, then unload the previous scene | All 2,048 NPCs each tick |
+| `resident-coarse` | All eight scenes stay resident | Nearby NPCs each tick, offscreen NPCs every 12 ticks |
+| `stream-coarse` | Load the destination additively, then unload the previous scene | Nearby NPCs each tick, offscreen NPCs every 12 ticks |
+
+The route is town → chunks 0, 2 and 5 → combat → town → chunk 5. The eight packaged Unity scenes each contain a textured 72×72 terrain mesh, 176 trees, 88 rocks, and 256 NPC views. The same camera and nearby NPC bindings apply at every settled stop. The persistent simulation owns 2,048 NPC records independently of the scene objects. Offscreen updates batch deterministic patrol steps. A new view can evaluate the precise state at the current tick even between those updates. Both residency modes run unused-asset cleanup on the return to town.
+
+Each run has 552 fixed logical ticks. The six steady stops receive 72 ticks each and the five transitions receive 24 ticks each. A slower transition can span extra rendered updates without advancing the route beyond its prescribed transition ticks. The recorded frame intervals are wall-clock gaps between Unity `Update` calls. They include rendering and sampling overhead between those calls. Startup preload, transition, and steady frames have separate labels. The camera renders one 1280×720 D3D11 target per sampled frame, with VSync disabled and no application frame cap. A pixel readback checks that the camera produced a varied forest image and runs after measurement. No window presentation or GPU execution time is reported. [Unity Camera.Render](https://docs.unity.com/en-us/engine/6000.0/script-reference/unityengine/camera/render)
+
+Windows process memory is sampled every 16 measured updates and at the named checkpoints. The recorded private bytes represent committed private memory and working set represents currently resident pages. The peak is the highest sampled value during the route and can miss short-lived allocations. The town value is the checkpoint after unload and 72 offscreen ticks. The results cover a warm-process context and do not control the operating system cache. [Windows process memory counters](https://learn.microsoft.com/en-us/windows/win32/api/psapi/ns-psapi-process_memory_counters_ex)
+
+### Measured results
+
+All 16 standalone Unity 6000.0.77f1 runs passed on a Core i7-12700KF and RTX 3080. The frame percentiles are nearest rank within each run and the table reports the median of four run-level values. Memory uses MiB. [Run summaries](Evidence/scale/summary.json) · [Compressed raw reports](Evidence/scale/raw.json.gz)
+
+| Mode | Steady p50 / p95 / p99, ms | Transition p95, ms | Town private / working set, MiB | Sampled peak private / working set, MiB |
+| --- | ---: | ---: | ---: | ---: |
+| Resident / full | 0.468 / 0.648 / 0.794 | 0.800 | 400.0 / 216.8 | 401.0 / 217.5 |
+| Streamed / full | 0.440 / 0.633 / 0.783 | 0.935 | 374.8 / 206.4 | 375.7 / 207.0 |
+| Resident / scheduled | 0.464 / 0.628 / 0.755 | 0.799 | 401.4 / 216.8 | 401.5 / 217.4 |
+| Streamed / scheduled | 0.456 / 0.628 / 0.839 | 0.970 | 371.9 / 204.2 | 373.1 / 204.7 |
+
+Streaming reduced process memory with either AI schedule. In the combined comparison, the initial preload phase fell from 41.11 ms to 1.62 ms, while the first destination's readiness moved from 1.01 ms to 7.37 ms and revisit readiness from 0.08 ms to 3.86 ms. The steady p95 moved slightly lower and the steady p99 moved higher. The largest observed steady update gap was 4.698 ms for the resident/full control and 2.733 ms for streamed/scheduled. The timing data shows a tradeoff across phases for this workload.
+
+Full-rate AI made 1,130,496 simulation evaluations, including 1,032,192 offscreen. Scheduled AI made 184,320 evaluations, including 86,016 offscreen. All configurations produced identical complete-population digests at the matched ticks. The combat target kept 65 HP, and its patrol counter went from 60 at combat to 76 after the town dwell and 92 on revisit. Streamed mode destroyed its old view and presented the current authoritative state on a new view. Each run loaded its original v1 or v2 fixture, rejected invalid candidates, verified its v2 output, and left the input bytes intact. The original small example also passed on this build. [Small-example regression](Evidence/scale/small-regression.json)
+
+To revalidate a full four-round run and regenerate the summary, use the standard-library verifier with the output directory reported by the PowerShell runner.
+
+```powershell
+python verify_scale.py "./Work/scale-<timestamp>" ./Work/verified-summary
+```

@@ -26,7 +26,23 @@ Reject(legacy.Replace("forest-wolf", "unknown-wolf"));
 Reject(legacy.Replace("100", "101"));
 var max = WorldSave.Read("{\"schemaVersion\":2,\"npcId\":\"forest-wolf-v2\",\"hp\":3,\"questStage\":1,\"patrolSteps\":2147483647}");
 Require(max.Patrol(3).PatrolSteps == int.MaxValue, "The patrol counter must saturate.");
-Console.WriteLine("PASS: known legacy data migrates and round-trips; invalid candidates are rejected.");
+var full = new NpcPopulation(false);
+var coarse = new NpcPopulation(true);
+for (var step = 1; step <= 28; step++)
+{
+    if (step == 10)
+    {
+        full.Strike(0);
+        coarse.Strike(0);
+    }
+    full.Tick(step <= 5 || step >= 26 ? 0 : -1);
+    coarse.Tick(step <= 5 || step >= 26 ? 0 : -1);
+}
+Require(coarse.Observe(0).patrolSteps == 5, "NPC 0 must advance on ticks 5,10,15,20,25 even while absent.");
+Require(coarse.Observe(0).hp == 65 && coarse.Observe(0).intent == 5, "Offscreen scheduling must preserve damage and the next view's exact intent.");
+Require(full.Digest() == coarse.Digest(), "All 2,048 authoritative NPC snapshots must match at an equal tick.");
+Require(coarse.NpcUpdates < full.NpcUpdates, "The scheduled path must perform fewer NPC updates.");
+Console.WriteLine("PASS: save migration, invalid inputs, and exact full/coarse NPC schedule equivalence.");
 
 static void Require(bool condition, string message)
 {

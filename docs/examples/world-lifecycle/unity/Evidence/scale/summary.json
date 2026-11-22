@@ -1,0 +1,2706 @@
+{
+  "metadata": {
+    "engine": "Unity 6000.0.77f1",
+    "binary": "StandaloneWindows64 Mono",
+    "rendering": "Direct3D11, 1280x720 offscreen RenderTexture from a manually rendered camera",
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12700KF",
+    "os": "Windows 11  (10.0.26200)",
+    "command": ".\\Run-Scale.ps1",
+    "percentile": "nearest rank per run; condition value is the median of four run statistics",
+    "workload": {
+      "logicalNpcs": 2048,
+      "forestChunks": 8,
+      "objectsPerChunk": 700,
+      "visibleBindings": 256,
+      "ticks": 552
+    },
+    "assemblySha256": "2e732f187a0fb451fa58d94e63efceae3f34d1f1e85339d4d4709e700ac05bf3",
+    "sourceFixtureV1Sha256": "43f693c7d0ae41a00e0306863e4bfc55c712a422b17a2f32de793f7bb5d26a0f",
+    "sourceFixtureV2Sha256": "44cb52114209ca4edd9154941b9e2824bdd1703b24e1c57036b6d75c0b055053",
+    "packagedSceneSha256": {
+      "level2": "4ee7afc2e3c9a249e4ed15cbd68fc8ad0a499a215f498649c3de33b2046eba3a",
+      "level3": "abdf5f59ee771d2dbc6aa9e3e2fa738642363fbcb15e590ae54f9704fe9179d1",
+      "level4": "fbd40f57a2d64aaefe0d91265d46a6b614410f1aafb0a69bc969d091b5740222",
+      "level5": "d231e615a7f7e8c445fd7c5a858c1019aff8831b06a04fd02d1d3f46b550e25a",
+      "level6": "a473a23d3eaee905f7c0fcaca84046c0d34b4df37e28f316fee726d8fe04aa06",
+      "level7": "761382b186b3ffea8f8ab4e41746eaf0195f774a13e23076203de034d6384e01",
+      "level8": "7a45aa6adabe2c143047775b666158ec851f9d0e3d043d4e660121fc15c860e3",
+      "level9": "2cec5169102f7495852e9c71203371f0da12423f6c045bd093194181994d5139"
+    },
+    "red": "NPC 0 must advance on ticks 5,10,15,20,25 even while absent.",
+    "green": "Independent save and NPC schedule check passed; large Player matrix passed."
+  },
+  "arms": {
+    "resident-full": {
+      "runCount": 4,
+      "medianRunFrameTimingsMs": {
+        "all": {
+          "p50": 0.43355,
+          "p95": 0.64605,
+          "p99": 0.9847,
+          "max": 3.78355,
+          "count": 707.0,
+          "over16_67Ms": 0.0
+        },
+        "preload": {
+          "p50": 0.1872,
+          "p95": 0.56935,
+          "p99": 1.2624,
+          "max": 2.70695,
+          "count": 155.0,
+          "over16_67Ms": 0.0
+        },
+        "transition": {
+          "p50": 0.4969,
+          "p95": 0.79995,
+          "p99": 2.7478,
+          "max": 3.73815,
+          "count": 120.0,
+          "over16_67Ms": 0.0
+        },
+        "steady": {
+          "p50": 0.4675,
+          "p95": 0.6476,
+          "p99": 0.7938000000000001,
+          "max": 1.24215,
+          "count": 432.0,
+          "over16_67Ms": 0.0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "p50": 0.15735,
+            "p95": 0.30290000000000006,
+            "p99": 1.2209500000000002,
+            "max": 1.2209500000000002,
+            "over16_67Ms": 0.0
+          },
+          "chunk0": {
+            "p50": 0.5171,
+            "p95": 0.7066,
+            "p99": 0.8639,
+            "max": 0.8639,
+            "over16_67Ms": 0.0
+          },
+          "chunk2": {
+            "p50": 0.49935,
+            "p95": 0.68405,
+            "p99": 0.8115000000000001,
+            "max": 0.8115000000000001,
+            "over16_67Ms": 0.0
+          },
+          "chunk5": {
+            "p50": 0.5268,
+            "p95": 0.6523000000000001,
+            "p99": 0.79165,
+            "max": 0.79165,
+            "over16_67Ms": 0.0
+          },
+          "townAfterUnload": {
+            "p50": 0.15175,
+            "p95": 0.21025,
+            "p99": 0.29475,
+            "max": 0.29475,
+            "over16_67Ms": 0.0
+          },
+          "revisited5": {
+            "p50": 0.4989,
+            "p95": 0.6193,
+            "p99": 0.7212500000000001,
+            "max": 0.7212500000000001,
+            "over16_67Ms": 0.0
+          }
+        }
+      },
+      "medianRunMemory": {
+        "beforePreloadPrivateBytes": 361881600.0,
+        "afterPreloadPrivateBytes": 401213440.0,
+        "preloadElapsedMs": 41.1078,
+        "townAfterUnloadPrivateBytes": 419479552.0,
+        "townAfterUnloadWorkingSetBytes": 227383296.0,
+        "sampledPeakPrivateBytes": 420433920.0,
+        "sampledPeakWorkingSetBytes": 228089856.0
+      },
+      "medianTransitionReadyMs": {
+        "toChunk0": 1.0111,
+        "toChunk2": 0.0785,
+        "toChunk5": 0.08430000000000001,
+        "returnTown": 1.12105,
+        "revisitChunk5": 0.07925
+      },
+      "npcUpdates": 1130496,
+      "offscreenNpcUpdates": 1032192
+    },
+    "stream-full": {
+      "runCount": 4,
+      "medianRunFrameTimingsMs": {
+        "all": {
+          "p50": 0.43725,
+          "p95": 0.6731500000000001,
+          "p99": 1.21055,
+          "max": 2.94975,
+          "count": 553.0,
+          "over16_67Ms": 0.0
+        },
+        "preload": {
+          "p50": 1.8089,
+          "p95": 1.8089,
+          "p99": 1.8089,
+          "max": 1.8089,
+          "count": 1.0,
+          "over16_67Ms": 0.0
+        },
+        "transition": {
+          "p50": 0.41270000000000007,
+          "p95": 0.93515,
+          "p99": 2.1292999999999997,
+          "max": 2.94975,
+          "count": 120.0,
+          "over16_67Ms": 0.0
+        },
+        "steady": {
+          "p50": 0.43985,
+          "p95": 0.6328500000000001,
+          "p99": 0.7831000000000001,
+          "max": 1.10355,
+          "count": 432.0,
+          "over16_67Ms": 0.0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "p50": 0.16905,
+            "p95": 0.30774999999999997,
+            "p99": 1.10355,
+            "max": 1.10355,
+            "over16_67Ms": 0.0
+          },
+          "chunk0": {
+            "p50": 0.48285,
+            "p95": 0.7640500000000001,
+            "p99": 0.9268500000000001,
+            "max": 0.9268500000000001,
+            "over16_67Ms": 0.0
+          },
+          "chunk2": {
+            "p50": 0.46230000000000004,
+            "p95": 0.6243000000000001,
+            "p99": 0.78205,
+            "max": 0.78205,
+            "over16_67Ms": 0.0
+          },
+          "chunk5": {
+            "p50": 0.5082500000000001,
+            "p95": 0.6414,
+            "p99": 0.7808,
+            "max": 0.7808,
+            "over16_67Ms": 0.0
+          },
+          "townAfterUnload": {
+            "p50": 0.1422,
+            "p95": 0.21200000000000002,
+            "p99": 0.28675,
+            "max": 0.28675,
+            "over16_67Ms": 0.0
+          },
+          "revisited5": {
+            "p50": 0.48760000000000003,
+            "p95": 0.6163000000000001,
+            "p99": 0.7442500000000001,
+            "max": 0.7442500000000001,
+            "over16_67Ms": 0.0
+          }
+        }
+      },
+      "medianRunMemory": {
+        "beforePreloadPrivateBytes": 362098688.0,
+        "afterPreloadPrivateBytes": 362098688.0,
+        "preloadElapsedMs": 1.8461500000000002,
+        "townAfterUnloadPrivateBytes": 393025536.0,
+        "townAfterUnloadWorkingSetBytes": 216438784.0,
+        "sampledPeakPrivateBytes": 393961472.0,
+        "sampledPeakWorkingSetBytes": 217051136.0
+      },
+      "medianTransitionReadyMs": {
+        "toChunk0": 7.62835,
+        "toChunk2": 5.65475,
+        "toChunk5": 5.011050000000001,
+        "returnTown": 1.13625,
+        "revisitChunk5": 4.2151000000000005
+      },
+      "npcUpdates": 1130496,
+      "offscreenNpcUpdates": 1032192
+    },
+    "resident-coarse": {
+      "runCount": 4,
+      "medianRunFrameTimingsMs": {
+        "all": {
+          "p50": 0.44480000000000003,
+          "p95": 0.66515,
+          "p99": 1.01615,
+          "max": 3.72785,
+          "count": 692.5,
+          "over16_67Ms": 0.0
+        },
+        "preload": {
+          "p50": 0.1948,
+          "p95": 0.68615,
+          "p99": 1.2442,
+          "max": 2.8942,
+          "count": 140.5,
+          "over16_67Ms": 0.0
+        },
+        "transition": {
+          "p50": 0.5160500000000001,
+          "p95": 0.7986500000000001,
+          "p99": 2.4644500000000003,
+          "max": 3.72785,
+          "count": 120.0,
+          "over16_67Ms": 0.0
+        },
+        "steady": {
+          "p50": 0.46355,
+          "p95": 0.62755,
+          "p99": 0.7549,
+          "max": 1.2650000000000001,
+          "count": 432.0,
+          "over16_67Ms": 0.0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "p50": 0.1417,
+            "p95": 0.3095,
+            "p99": 1.2650000000000001,
+            "max": 1.2650000000000001,
+            "over16_67Ms": 0.0
+          },
+          "chunk0": {
+            "p50": 0.5508500000000001,
+            "p95": 0.7267,
+            "p99": 0.99155,
+            "max": 0.99155,
+            "over16_67Ms": 0.0
+          },
+          "chunk2": {
+            "p50": 0.50885,
+            "p95": 0.6605000000000001,
+            "p99": 0.75495,
+            "max": 0.75495,
+            "over16_67Ms": 0.0
+          },
+          "chunk5": {
+            "p50": 0.5215000000000001,
+            "p95": 0.6263500000000001,
+            "p99": 0.6696500000000001,
+            "max": 0.6696500000000001,
+            "over16_67Ms": 0.0
+          },
+          "townAfterUnload": {
+            "p50": 0.14395000000000002,
+            "p95": 0.19465000000000002,
+            "p99": 0.25815,
+            "max": 0.25815,
+            "over16_67Ms": 0.0
+          },
+          "revisited5": {
+            "p50": 0.5264,
+            "p95": 0.6171500000000001,
+            "p99": 0.71465,
+            "max": 0.71465,
+            "over16_67Ms": 0.0
+          }
+        }
+      },
+      "medianRunMemory": {
+        "beforePreloadPrivateBytes": 361943040.0,
+        "afterPreloadPrivateBytes": 401682432.0,
+        "preloadElapsedMs": 37.69565,
+        "townAfterUnloadPrivateBytes": 420894720.0,
+        "townAfterUnloadWorkingSetBytes": 227346432.0,
+        "sampledPeakPrivateBytes": 420960256.0,
+        "sampledPeakWorkingSetBytes": 227915776.0
+      },
+      "medianTransitionReadyMs": {
+        "toChunk0": 1.00535,
+        "toChunk2": 0.07894999999999999,
+        "toChunk5": 0.08365,
+        "returnTown": 1.14275,
+        "revisitChunk5": 0.08065
+      },
+      "npcUpdates": 184320,
+      "offscreenNpcUpdates": 86016
+    },
+    "stream-coarse": {
+      "runCount": 4,
+      "medianRunFrameTimingsMs": {
+        "all": {
+          "p50": 0.45365,
+          "p95": 0.6973,
+          "p99": 1.22225,
+          "max": 2.7784000000000004,
+          "count": 553.5,
+          "over16_67Ms": 0.0
+        },
+        "preload": {
+          "p50": 1.61965,
+          "p95": 1.61965,
+          "p99": 1.61965,
+          "max": 1.61965,
+          "count": 1.0,
+          "over16_67Ms": 0.0
+        },
+        "transition": {
+          "p50": 0.34955,
+          "p95": 0.9699500000000001,
+          "p99": 2.0339,
+          "max": 2.7609500000000002,
+          "count": 120.5,
+          "over16_67Ms": 0.0
+        },
+        "steady": {
+          "p50": 0.45645,
+          "p95": 0.6278,
+          "p99": 0.8394,
+          "max": 1.85255,
+          "count": 432.0,
+          "over16_67Ms": 0.0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "p50": 0.14795,
+            "p95": 0.33499999999999996,
+            "p99": 0.9167000000000001,
+            "max": 0.9167000000000001,
+            "over16_67Ms": 0.0
+          },
+          "chunk0": {
+            "p50": 0.5262500000000001,
+            "p95": 0.81755,
+            "p99": 1.7398,
+            "max": 1.7398,
+            "over16_67Ms": 0.0
+          },
+          "chunk2": {
+            "p50": 0.5148,
+            "p95": 0.6253,
+            "p99": 0.7584500000000001,
+            "max": 0.7584500000000001,
+            "over16_67Ms": 0.0
+          },
+          "chunk5": {
+            "p50": 0.51105,
+            "p95": 0.60615,
+            "p99": 0.7061000000000001,
+            "max": 0.7061000000000001,
+            "over16_67Ms": 0.0
+          },
+          "townAfterUnload": {
+            "p50": 0.12565,
+            "p95": 0.18715,
+            "p99": 0.2623,
+            "max": 0.2623,
+            "over16_67Ms": 0.0
+          },
+          "revisited5": {
+            "p50": 0.48005,
+            "p95": 0.61095,
+            "p99": 0.7242500000000001,
+            "max": 0.7242500000000001,
+            "over16_67Ms": 0.0
+          }
+        }
+      },
+      "medianRunMemory": {
+        "beforePreloadPrivateBytes": 360521728.0,
+        "afterPreloadPrivateBytes": 360542208.0,
+        "preloadElapsedMs": 1.6187500000000001,
+        "townAfterUnloadPrivateBytes": 389967872.0,
+        "townAfterUnloadWorkingSetBytes": 214128640.0,
+        "sampledPeakPrivateBytes": 391233536.0,
+        "sampledPeakWorkingSetBytes": 214618112.0
+      },
+      "medianTransitionReadyMs": {
+        "toChunk0": 7.365550000000001,
+        "toChunk2": 5.7639,
+        "toChunk5": 4.978,
+        "returnTown": 1.13435,
+        "revisitChunk5": 3.8557000000000006
+      },
+      "npcUpdates": 184320,
+      "offscreenNpcUpdates": 86016
+    }
+  },
+  "runs": [
+    {
+      "round": 1,
+      "mode": "resident-full",
+      "pid": 27720,
+      "fixtureVersion": 1,
+      "npcUpdates": 1130496,
+      "offscreenNpcUpdates": 1032192,
+      "loads": 8,
+      "unloads": 0,
+      "finalLoadedChunks": 8,
+      "peakLoadedChunks": 8,
+      "timingsMs": {
+        "preload": {
+          "count": 852,
+          "p50": 0.1569,
+          "p95": 0.2896,
+          "p99": 0.5923,
+          "max": 2.7558000000000002,
+          "over16_67Ms": 0
+        },
+        "transition": {
+          "count": 120,
+          "p50": 0.5096,
+          "p95": 0.9168000000000001,
+          "p99": 2.4453,
+          "max": 3.7047000000000003,
+          "over16_67Ms": 0
+        },
+        "steady": {
+          "count": 432,
+          "p50": 0.4721,
+          "p95": 0.653,
+          "p99": 0.8399000000000001,
+          "max": 1.2191,
+          "over16_67Ms": 0
+        },
+        "all": {
+          "count": 1404,
+          "p50": 0.1756,
+          "p95": 0.6257,
+          "p99": 0.8399000000000001,
+          "max": 3.7047000000000003,
+          "over16_67Ms": 0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "count": 72,
+            "p50": 0.1589,
+            "p95": 0.23290000000000002,
+            "p99": 1.2191,
+            "max": 1.2191,
+            "over16_67Ms": 0
+          },
+          "chunk0": {
+            "count": 72,
+            "p50": 0.5594,
+            "p95": 0.8399000000000001,
+            "p99": 0.9192,
+            "max": 0.9192,
+            "over16_67Ms": 0
+          },
+          "chunk2": {
+            "count": 72,
+            "p50": 0.48150000000000004,
+            "p95": 0.6055,
+            "p99": 0.7559,
+            "max": 0.7559,
+            "over16_67Ms": 0
+          },
+          "chunk5": {
+            "count": 72,
+            "p50": 0.5301,
+            "p95": 0.6471,
+            "p99": 0.6751,
+            "max": 0.6751,
+            "over16_67Ms": 0
+          },
+          "townAfterUnload": {
+            "count": 72,
+            "p50": 0.1691,
+            "p95": 0.2155,
+            "p99": 0.2761,
+            "max": 0.2761,
+            "over16_67Ms": 0
+          },
+          "revisited5": {
+            "count": 72,
+            "p50": 0.5062,
+            "p95": 0.664,
+            "p99": 0.7304,
+            "max": 0.7304,
+            "over16_67Ms": 0
+          }
+        }
+      },
+      "memory": {
+        "beforePreloadPrivateBytes": 361926656,
+        "afterPreloadPrivateBytes": 401915904,
+        "preloadElapsedMs": 150.6113,
+        "townAfterUnloadPrivateBytes": 418652160,
+        "townAfterUnloadWorkingSetBytes": 227069952,
+        "sampledPeakPrivateBytes": 418930688,
+        "sampledPeakWorkingSetBytes": 227794944
+      },
+      "transitions": [
+        {
+          "stage": "toChunk0",
+          "target": 0,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 1.0281
+        },
+        {
+          "stage": "toChunk2",
+          "target": 2,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.0777
+        },
+        {
+          "stage": "toChunk5",
+          "target": 5,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.0845
+        },
+        {
+          "stage": "returnTown",
+          "target": -1,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 1.0946
+        },
+        {
+          "stage": "revisitChunk5",
+          "target": 5,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.079
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "mode": "stream-full",
+      "pid": 26140,
+      "fixtureVersion": 1,
+      "npcUpdates": 1130496,
+      "offscreenNpcUpdates": 1032192,
+      "loads": 4,
+      "unloads": 3,
+      "finalLoadedChunks": 1,
+      "peakLoadedChunks": 2,
+      "timingsMs": {
+        "preload": {
+          "count": 1,
+          "p50": 1.5937000000000001,
+          "p95": 1.5937000000000001,
+          "p99": 1.5937000000000001,
+          "max": 1.5937000000000001,
+          "over16_67Ms": 0
+        },
+        "transition": {
+          "count": 120,
+          "p50": 0.42450000000000004,
+          "p95": 0.8759,
+          "p99": 2.1543,
+          "max": 3.1354,
+          "over16_67Ms": 0
+        },
+        "steady": {
+          "count": 432,
+          "p50": 0.449,
+          "p95": 0.6374000000000001,
+          "p99": 0.7545000000000001,
+          "max": 1.1576,
+          "over16_67Ms": 0
+        },
+        "all": {
+          "count": 553,
+          "p50": 0.445,
+          "p95": 0.6857000000000001,
+          "p99": 1.1576,
+          "max": 3.1354,
+          "over16_67Ms": 0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "count": 72,
+            "p50": 0.1836,
+            "p95": 0.3463,
+            "p99": 1.1576,
+            "max": 1.1576,
+            "over16_67Ms": 0
+          },
+          "chunk0": {
+            "count": 72,
+            "p50": 0.48560000000000003,
+            "p95": 0.7234,
+            "p99": 0.8631000000000001,
+            "max": 0.8631000000000001,
+            "over16_67Ms": 0
+          },
+          "chunk2": {
+            "count": 72,
+            "p50": 0.4747,
+            "p95": 0.6507000000000001,
+            "p99": 0.7545000000000001,
+            "max": 0.7545000000000001,
+            "over16_67Ms": 0
+          },
+          "chunk5": {
+            "count": 72,
+            "p50": 0.5028,
+            "p95": 0.6178,
+            "p99": 0.8043,
+            "max": 0.8043,
+            "over16_67Ms": 0
+          },
+          "townAfterUnload": {
+            "count": 72,
+            "p50": 0.1429,
+            "p95": 0.21980000000000002,
+            "p99": 0.2677,
+            "max": 0.2677,
+            "over16_67Ms": 0
+          },
+          "revisited5": {
+            "count": 72,
+            "p50": 0.49860000000000004,
+            "p95": 0.6041000000000001,
+            "p99": 0.7997000000000001,
+            "max": 0.7997000000000001,
+            "over16_67Ms": 0
+          }
+        }
+      },
+      "memory": {
+        "beforePreloadPrivateBytes": 361259008,
+        "afterPreloadPrivateBytes": 361259008,
+        "preloadElapsedMs": 1.5943,
+        "townAfterUnloadPrivateBytes": 390955008,
+        "townAfterUnloadWorkingSetBytes": 214884352,
+        "sampledPeakPrivateBytes": 392134656,
+        "sampledPeakWorkingSetBytes": 216387584
+      },
+      "transitions": [
+        {
+          "stage": "toChunk0",
+          "target": 0,
+          "chunksAtStart": 0,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 7.8085
+        },
+        {
+          "stage": "toChunk2",
+          "target": 2,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 6.1473
+        },
+        {
+          "stage": "toChunk5",
+          "target": 5,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 5.191
+        },
+        {
+          "stage": "returnTown",
+          "target": -1,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 0,
+          "requestToReadyMs": 1.1607
+        },
+        {
+          "stage": "revisitChunk5",
+          "target": 5,
+          "chunksAtStart": 0,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 4.304
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "mode": "stream-coarse",
+      "pid": 28708,
+      "fixtureVersion": 1,
+      "npcUpdates": 184320,
+      "offscreenNpcUpdates": 86016,
+      "loads": 4,
+      "unloads": 3,
+      "finalLoadedChunks": 1,
+      "peakLoadedChunks": 2,
+      "timingsMs": {
+        "preload": {
+          "count": 1,
+          "p50": 1.6155000000000002,
+          "p95": 1.6155000000000002,
+          "p99": 1.6155000000000002,
+          "max": 1.6155000000000002,
+          "over16_67Ms": 0
+        },
+        "transition": {
+          "count": 120,
+          "p50": 0.45840000000000003,
+          "p95": 1.0788,
+          "p99": 2.2208,
+          "max": 2.6981,
+          "over16_67Ms": 0
+        },
+        "steady": {
+          "count": 432,
+          "p50": 0.4737,
+          "p95": 0.6365000000000001,
+          "p99": 0.7441,
+          "max": 0.9007000000000001,
+          "over16_67Ms": 0
+        },
+        "all": {
+          "count": 553,
+          "p50": 0.4737,
+          "p95": 0.6985,
+          "p99": 1.2939,
+          "max": 2.6981,
+          "over16_67Ms": 0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "count": 72,
+            "p50": 0.1525,
+            "p95": 0.30360000000000004,
+            "p99": 0.9007000000000001,
+            "max": 0.9007000000000001,
+            "over16_67Ms": 0
+          },
+          "chunk0": {
+            "count": 72,
+            "p50": 0.5369,
+            "p95": 0.7197,
+            "p99": 0.8159000000000001,
+            "max": 0.8159000000000001,
+            "over16_67Ms": 0
+          },
+          "chunk2": {
+            "count": 72,
+            "p50": 0.5151,
+            "p95": 0.6365000000000001,
+            "p99": 0.7140000000000001,
+            "max": 0.7140000000000001,
+            "over16_67Ms": 0
+          },
+          "chunk5": {
+            "count": 72,
+            "p50": 0.5282,
+            "p95": 0.6143000000000001,
+            "p99": 0.7345,
+            "max": 0.7345,
+            "over16_67Ms": 0
+          },
+          "townAfterUnload": {
+            "count": 72,
+            "p50": 0.1391,
+            "p95": 0.19740000000000002,
+            "p99": 0.2141,
+            "max": 0.2141,
+            "over16_67Ms": 0
+          },
+          "revisited5": {
+            "count": 72,
+            "p50": 0.5179,
+            "p95": 0.6189,
+            "p99": 0.7902,
+            "max": 0.7902,
+            "over16_67Ms": 0
+          }
+        }
+      },
+      "memory": {
+        "beforePreloadPrivateBytes": 363098112,
+        "afterPreloadPrivateBytes": 363102208,
+        "preloadElapsedMs": 1.6156000000000001,
+        "townAfterUnloadPrivateBytes": 389935104,
+        "townAfterUnloadWorkingSetBytes": 212733952,
+        "sampledPeakPrivateBytes": 391507968,
+        "sampledPeakWorkingSetBytes": 214700032
+      },
+      "transitions": [
+        {
+          "stage": "toChunk0",
+          "target": 0,
+          "chunksAtStart": 0,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 7.199800000000001
+        },
+        {
+          "stage": "toChunk2",
+          "target": 2,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 5.000500000000001
+        },
+        {
+          "stage": "toChunk5",
+          "target": 5,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 5.1226
+        },
+        {
+          "stage": "returnTown",
+          "target": -1,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 0,
+          "requestToReadyMs": 1.1265
+        },
+        {
+          "stage": "revisitChunk5",
+          "target": 5,
+          "chunksAtStart": 0,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 4.0021
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "mode": "resident-coarse",
+      "pid": 25100,
+      "fixtureVersion": 1,
+      "npcUpdates": 184320,
+      "offscreenNpcUpdates": 86016,
+      "loads": 8,
+      "unloads": 0,
+      "finalLoadedChunks": 8,
+      "peakLoadedChunks": 8,
+      "timingsMs": {
+        "preload": {
+          "count": 131,
+          "p50": 0.20520000000000002,
+          "p95": 0.7394000000000001,
+          "p99": 1.3947,
+          "max": 3.1074,
+          "over16_67Ms": 0
+        },
+        "transition": {
+          "count": 120,
+          "p50": 0.5104000000000001,
+          "p95": 0.8217,
+          "p99": 2.5849,
+          "max": 3.7979000000000003,
+          "over16_67Ms": 0
+        },
+        "steady": {
+          "count": 432,
+          "p50": 0.48610000000000003,
+          "p95": 0.6792,
+          "p99": 0.9212,
+          "max": 1.2944,
+          "over16_67Ms": 0
+        },
+        "all": {
+          "count": 683,
+          "p50": 0.4602,
+          "p95": 0.7174,
+          "p99": 1.0827,
+          "max": 3.7979000000000003,
+          "over16_67Ms": 0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "count": 72,
+            "p50": 0.1471,
+            "p95": 0.31270000000000003,
+            "p99": 1.2944,
+            "max": 1.2944,
+            "over16_67Ms": 0
+          },
+          "chunk0": {
+            "count": 72,
+            "p50": 0.5660000000000001,
+            "p95": 0.8898,
+            "p99": 1.0827,
+            "max": 1.0827,
+            "over16_67Ms": 0
+          },
+          "chunk2": {
+            "count": 72,
+            "p50": 0.5236000000000001,
+            "p95": 0.6685,
+            "p99": 0.7292000000000001,
+            "max": 0.7292000000000001,
+            "over16_67Ms": 0
+          },
+          "chunk5": {
+            "count": 72,
+            "p50": 0.5256000000000001,
+            "p95": 0.6792,
+            "p99": 0.7159,
+            "max": 0.7159,
+            "over16_67Ms": 0
+          },
+          "townAfterUnload": {
+            "count": 72,
+            "p50": 0.1608,
+            "p95": 0.2267,
+            "p99": 0.2616,
+            "max": 0.2616,
+            "over16_67Ms": 0
+          },
+          "revisited5": {
+            "count": 72,
+            "p50": 0.5298,
+            "p95": 0.6271,
+            "p99": 0.9212,
+            "max": 0.9212,
+            "over16_67Ms": 0
+          }
+        }
+      },
+      "memory": {
+        "beforePreloadPrivateBytes": 361033728,
+        "afterPreloadPrivateBytes": 398471168,
+        "preloadElapsedMs": 37.3038,
+        "townAfterUnloadPrivateBytes": 415858688,
+        "townAfterUnloadWorkingSetBytes": 225292288,
+        "sampledPeakPrivateBytes": 417042432,
+        "sampledPeakWorkingSetBytes": 226979840
+      },
+      "transitions": [
+        {
+          "stage": "toChunk0",
+          "target": 0,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 1.0145
+        },
+        {
+          "stage": "toChunk2",
+          "target": 2,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.0806
+        },
+        {
+          "stage": "toChunk5",
+          "target": 5,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.082
+        },
+        {
+          "stage": "returnTown",
+          "target": -1,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 1.1689
+        },
+        {
+          "stage": "revisitChunk5",
+          "target": 5,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.08080000000000001
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "mode": "stream-full",
+      "pid": 25348,
+      "fixtureVersion": 2,
+      "npcUpdates": 1130496,
+      "offscreenNpcUpdates": 1032192,
+      "loads": 4,
+      "unloads": 3,
+      "finalLoadedChunks": 1,
+      "peakLoadedChunks": 2,
+      "timingsMs": {
+        "preload": {
+          "count": 1,
+          "p50": 1.7738,
+          "p95": 1.7738,
+          "p99": 1.7738,
+          "max": 1.7738,
+          "over16_67Ms": 0
+        },
+        "transition": {
+          "count": 120,
+          "p50": 0.41650000000000004,
+          "p95": 0.9419000000000001,
+          "p99": 2.1319,
+          "max": 2.9842,
+          "over16_67Ms": 0
+        },
+        "steady": {
+          "count": 432,
+          "p50": 0.44,
+          "p95": 0.6622,
+          "p99": 0.8117000000000001,
+          "max": 1.4116,
+          "over16_67Ms": 0
+        },
+        "all": {
+          "count": 553,
+          "p50": 0.4385,
+          "p95": 0.7062,
+          "p99": 1.4116,
+          "max": 2.9842,
+          "over16_67Ms": 0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "count": 72,
+            "p50": 0.1762,
+            "p95": 0.3271,
+            "p99": 1.4116,
+            "max": 1.4116,
+            "over16_67Ms": 0
+          },
+          "chunk0": {
+            "count": 72,
+            "p50": 0.47550000000000003,
+            "p95": 0.8047000000000001,
+            "p99": 1.3944,
+            "max": 1.3944,
+            "over16_67Ms": 0
+          },
+          "chunk2": {
+            "count": 72,
+            "p50": 0.4499,
+            "p95": 0.6437,
+            "p99": 0.8565,
+            "max": 0.8565,
+            "over16_67Ms": 0
+          },
+          "chunk5": {
+            "count": 72,
+            "p50": 0.5293,
+            "p95": 0.7062,
+            "p99": 0.7623000000000001,
+            "max": 0.7623000000000001,
+            "over16_67Ms": 0
+          },
+          "townAfterUnload": {
+            "count": 72,
+            "p50": 0.1441,
+            "p95": 0.1842,
+            "p99": 0.2215,
+            "max": 0.2215,
+            "over16_67Ms": 0
+          },
+          "revisited5": {
+            "count": 72,
+            "p50": 0.5005000000000001,
+            "p95": 0.6242,
+            "p99": 0.7314,
+            "max": 0.7314,
+            "over16_67Ms": 0
+          }
+        }
+      },
+      "memory": {
+        "beforePreloadPrivateBytes": 362938368,
+        "afterPreloadPrivateBytes": 362938368,
+        "preloadElapsedMs": 1.8449,
+        "townAfterUnloadPrivateBytes": 392941568,
+        "townAfterUnloadWorkingSetBytes": 217137152,
+        "sampledPeakPrivateBytes": 393859072,
+        "sampledPeakWorkingSetBytes": 217522176
+      },
+      "transitions": [
+        {
+          "stage": "toChunk0",
+          "target": 0,
+          "chunksAtStart": 0,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 7.4482
+        },
+        {
+          "stage": "toChunk2",
+          "target": 2,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 4.8813
+        },
+        {
+          "stage": "toChunk5",
+          "target": 5,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 5.0547
+        },
+        {
+          "stage": "returnTown",
+          "target": -1,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 0,
+          "requestToReadyMs": 1.1286
+        },
+        {
+          "stage": "revisitChunk5",
+          "target": 5,
+          "chunksAtStart": 0,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 3.9486000000000003
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "mode": "resident-coarse",
+      "pid": 15296,
+      "fixtureVersion": 2,
+      "npcUpdates": 184320,
+      "offscreenNpcUpdates": 86016,
+      "loads": 8,
+      "unloads": 0,
+      "finalLoadedChunks": 8,
+      "peakLoadedChunks": 8,
+      "timingsMs": {
+        "preload": {
+          "count": 140,
+          "p50": 0.1885,
+          "p95": 0.5688,
+          "p99": 1.2162,
+          "max": 2.9417,
+          "over16_67Ms": 0
+        },
+        "transition": {
+          "count": 120,
+          "p50": 0.4615,
+          "p95": 0.7482000000000001,
+          "p99": 2.4606,
+          "max": 4.2963000000000005,
+          "over16_67Ms": 0
+        },
+        "steady": {
+          "count": 432,
+          "p50": 0.45470000000000005,
+          "p95": 0.6389,
+          "p99": 0.7383000000000001,
+          "max": 1.1599000000000002,
+          "over16_67Ms": 0
+        },
+        "all": {
+          "count": 692,
+          "p50": 0.4262,
+          "p95": 0.6444000000000001,
+          "p99": 0.905,
+          "max": 4.2963000000000005,
+          "over16_67Ms": 0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "count": 72,
+            "p50": 0.1363,
+            "p95": 0.3527,
+            "p99": 1.1599000000000002,
+            "max": 1.1599000000000002,
+            "over16_67Ms": 0
+          },
+          "chunk0": {
+            "count": 72,
+            "p50": 0.4556,
+            "p95": 0.7124,
+            "p99": 0.905,
+            "max": 0.905,
+            "over16_67Ms": 0
+          },
+          "chunk2": {
+            "count": 72,
+            "p50": 0.48750000000000004,
+            "p95": 0.6525000000000001,
+            "p99": 0.7807000000000001,
+            "max": 0.7807000000000001,
+            "over16_67Ms": 0
+          },
+          "chunk5": {
+            "count": 72,
+            "p50": 0.5445,
+            "p95": 0.6525000000000001,
+            "p99": 0.7029000000000001,
+            "max": 0.7029000000000001,
+            "over16_67Ms": 0
+          },
+          "townAfterUnload": {
+            "count": 72,
+            "p50": 0.1497,
+            "p95": 0.19460000000000002,
+            "p99": 0.25470000000000004,
+            "max": 0.25470000000000004,
+            "over16_67Ms": 0
+          },
+          "revisited5": {
+            "count": 72,
+            "p50": 0.532,
+            "p95": 0.6196,
+            "p99": 0.6583,
+            "max": 0.6583,
+            "over16_67Ms": 0
+          }
+        }
+      },
+      "memory": {
+        "beforePreloadPrivateBytes": 362143744,
+        "afterPreloadPrivateBytes": 402276352,
+        "preloadElapsedMs": 38.0875,
+        "townAfterUnloadPrivateBytes": 420859904,
+        "townAfterUnloadWorkingSetBytes": 227209216,
+        "sampledPeakPrivateBytes": 420859904,
+        "sampledPeakWorkingSetBytes": 227680256
+      },
+      "transitions": [
+        {
+          "stage": "toChunk0",
+          "target": 0,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.9962000000000001
+        },
+        {
+          "stage": "toChunk2",
+          "target": 2,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.0785
+        },
+        {
+          "stage": "toChunk5",
+          "target": 5,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.10400000000000001
+        },
+        {
+          "stage": "returnTown",
+          "target": -1,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 1.5738
+        },
+        {
+          "stage": "revisitChunk5",
+          "target": 5,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.11230000000000001
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "mode": "resident-full",
+      "pid": 27668,
+      "fixtureVersion": 2,
+      "npcUpdates": 1130496,
+      "offscreenNpcUpdates": 1032192,
+      "loads": 8,
+      "unloads": 0,
+      "finalLoadedChunks": 8,
+      "peakLoadedChunks": 8,
+      "timingsMs": {
+        "preload": {
+          "count": 149,
+          "p50": 0.2034,
+          "p95": 0.5824,
+          "p99": 1.2744,
+          "max": 2.7753,
+          "over16_67Ms": 0
+        },
+        "transition": {
+          "count": 120,
+          "p50": 0.5489,
+          "p95": 0.8829,
+          "p99": 2.9234,
+          "max": 3.7716000000000003,
+          "over16_67Ms": 0
+        },
+        "steady": {
+          "count": 432,
+          "p50": 0.48360000000000003,
+          "p95": 0.8085,
+          "p99": 0.9654,
+          "max": 4.6981,
+          "over16_67Ms": 0
+        },
+        "all": {
+          "count": 701,
+          "p50": 0.4596,
+          "p95": 0.8085,
+          "p99": 1.1258000000000001,
+          "max": 4.6981,
+          "over16_67Ms": 0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "count": 72,
+            "p50": 0.18660000000000002,
+            "p95": 0.3148,
+            "p99": 1.2228,
+            "max": 1.2228,
+            "over16_67Ms": 0
+          },
+          "chunk0": {
+            "count": 72,
+            "p50": 0.5438000000000001,
+            "p95": 0.7628,
+            "p99": 1.0245,
+            "max": 1.0245,
+            "over16_67Ms": 0
+          },
+          "chunk2": {
+            "count": 72,
+            "p50": 0.6885,
+            "p95": 0.9209,
+            "p99": 4.6981,
+            "max": 4.6981,
+            "over16_67Ms": 0
+          },
+          "chunk5": {
+            "count": 72,
+            "p50": 0.6067,
+            "p95": 0.8209000000000001,
+            "p99": 0.9642000000000001,
+            "max": 0.9642000000000001,
+            "over16_67Ms": 0
+          },
+          "townAfterUnload": {
+            "count": 72,
+            "p50": 0.1549,
+            "p95": 0.22030000000000002,
+            "p99": 0.2897,
+            "max": 0.2897,
+            "over16_67Ms": 0
+          },
+          "revisited5": {
+            "count": 72,
+            "p50": 0.4776,
+            "p95": 0.5936,
+            "p99": 0.6982,
+            "max": 0.6982,
+            "over16_67Ms": 0
+          }
+        }
+      },
+      "memory": {
+        "beforePreloadPrivateBytes": 361836544,
+        "afterPreloadPrivateBytes": 401625088,
+        "preloadElapsedMs": 40.54,
+        "townAfterUnloadPrivateBytes": 418525184,
+        "townAfterUnloadWorkingSetBytes": 224632832,
+        "sampledPeakPrivateBytes": 420888576,
+        "sampledPeakWorkingSetBytes": 227524608
+      },
+      "transitions": [
+        {
+          "stage": "toChunk0",
+          "target": 0,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 1.1483
+        },
+        {
+          "stage": "toChunk2",
+          "target": 2,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.08170000000000001
+        },
+        {
+          "stage": "toChunk5",
+          "target": 5,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.08410000000000001
+        },
+        {
+          "stage": "returnTown",
+          "target": -1,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 1.1138000000000001
+        },
+        {
+          "stage": "revisitChunk5",
+          "target": 5,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.0804
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "mode": "stream-coarse",
+      "pid": 15972,
+      "fixtureVersion": 2,
+      "npcUpdates": 184320,
+      "offscreenNpcUpdates": 86016,
+      "loads": 4,
+      "unloads": 3,
+      "finalLoadedChunks": 1,
+      "peakLoadedChunks": 2,
+      "timingsMs": {
+        "preload": {
+          "count": 1,
+          "p50": 1.6238000000000001,
+          "p95": 1.6238000000000001,
+          "p99": 1.6238000000000001,
+          "max": 1.6238000000000001,
+          "over16_67Ms": 0
+        },
+        "transition": {
+          "count": 121,
+          "p50": 0.2672,
+          "p95": 0.8565,
+          "p99": 1.957,
+          "max": 2.1974,
+          "over16_67Ms": 0
+        },
+        "steady": {
+          "count": 432,
+          "p50": 0.4459,
+          "p95": 0.6191,
+          "p99": 0.9154,
+          "max": 2.733,
+          "over16_67Ms": 0
+        },
+        "all": {
+          "count": 554,
+          "p50": 0.4419,
+          "p95": 0.6961,
+          "p99": 1.2666000000000002,
+          "max": 2.733,
+          "over16_67Ms": 0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "count": 72,
+            "p50": 0.1413,
+            "p95": 0.3534,
+            "p99": 0.9273,
+            "max": 0.9273,
+            "over16_67Ms": 0
+          },
+          "chunk0": {
+            "count": 72,
+            "p50": 0.5034000000000001,
+            "p95": 0.9154,
+            "p99": 2.733,
+            "max": 2.733,
+            "over16_67Ms": 0
+          },
+          "chunk2": {
+            "count": 72,
+            "p50": 0.5246000000000001,
+            "p95": 0.6116,
+            "p99": 0.8029000000000001,
+            "max": 0.8029000000000001,
+            "over16_67Ms": 0
+          },
+          "chunk5": {
+            "count": 72,
+            "p50": 0.4939,
+            "p95": 0.5945,
+            "p99": 0.6777000000000001,
+            "max": 0.6777000000000001,
+            "over16_67Ms": 0
+          },
+          "townAfterUnload": {
+            "count": 72,
+            "p50": 0.12000000000000001,
+            "p95": 0.2627,
+            "p99": 0.2985,
+            "max": 0.2985,
+            "over16_67Ms": 0
+          },
+          "revisited5": {
+            "count": 72,
+            "p50": 0.4908,
+            "p95": 0.603,
+            "p99": 0.6959000000000001,
+            "max": 0.6959000000000001,
+            "over16_67Ms": 0
+          }
+        }
+      },
+      "memory": {
+        "beforePreloadPrivateBytes": 360058880,
+        "afterPreloadPrivateBytes": 360058880,
+        "preloadElapsedMs": 1.6219000000000001,
+        "townAfterUnloadPrivateBytes": 392019968,
+        "townAfterUnloadWorkingSetBytes": 215994368,
+        "sampledPeakPrivateBytes": 393072640,
+        "sampledPeakWorkingSetBytes": 216829952
+      },
+      "transitions": [
+        {
+          "stage": "toChunk0",
+          "target": 0,
+          "chunksAtStart": 0,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 7.531300000000001
+        },
+        {
+          "stage": "toChunk2",
+          "target": 2,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 5.8106
+        },
+        {
+          "stage": "toChunk5",
+          "target": 5,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 5.4225
+        },
+        {
+          "stage": "returnTown",
+          "target": -1,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 0,
+          "requestToReadyMs": 1.1382
+        },
+        {
+          "stage": "revisitChunk5",
+          "target": 5,
+          "chunksAtStart": 0,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 3.7594000000000003
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "mode": "resident-coarse",
+      "pid": 28524,
+      "fixtureVersion": 1,
+      "npcUpdates": 184320,
+      "offscreenNpcUpdates": 86016,
+      "loads": 8,
+      "unloads": 0,
+      "finalLoadedChunks": 8,
+      "peakLoadedChunks": 8,
+      "timingsMs": {
+        "preload": {
+          "count": 141,
+          "p50": 0.2011,
+          "p95": 0.7251000000000001,
+          "p99": 1.2722,
+          "max": 2.4861,
+          "over16_67Ms": 0
+        },
+        "transition": {
+          "count": 120,
+          "p50": 0.5217,
+          "p95": 0.7756000000000001,
+          "p99": 1.9752,
+          "max": 2.9255,
+          "over16_67Ms": 0
+        },
+        "steady": {
+          "count": 432,
+          "p50": 0.467,
+          "p95": 0.6162000000000001,
+          "p99": 0.7557,
+          "max": 1.2634,
+          "over16_67Ms": 0
+        },
+        "all": {
+          "count": 693,
+          "p50": 0.4439,
+          "p95": 0.6754,
+          "p99": 1.1736,
+          "max": 2.9255,
+          "over16_67Ms": 0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "count": 72,
+            "p50": 0.1285,
+            "p95": 0.3063,
+            "p99": 1.2634,
+            "max": 1.2634,
+            "over16_67Ms": 0
+          },
+          "chunk0": {
+            "count": 72,
+            "p50": 0.5488000000000001,
+            "p95": 0.7008,
+            "p99": 1.0781,
+            "max": 1.0781,
+            "over16_67Ms": 0
+          },
+          "chunk2": {
+            "count": 72,
+            "p50": 0.5172,
+            "p95": 0.6823,
+            "p99": 0.8391000000000001,
+            "max": 0.8391000000000001,
+            "over16_67Ms": 0
+          },
+          "chunk5": {
+            "count": 72,
+            "p50": 0.5174,
+            "p95": 0.6001000000000001,
+            "p99": 0.6364000000000001,
+            "max": 0.6364000000000001,
+            "over16_67Ms": 0
+          },
+          "townAfterUnload": {
+            "count": 72,
+            "p50": 0.133,
+            "p95": 0.1777,
+            "p99": 0.2051,
+            "max": 0.2051,
+            "over16_67Ms": 0
+          },
+          "revisited5": {
+            "count": 72,
+            "p50": 0.523,
+            "p95": 0.6095,
+            "p99": 0.6288,
+            "max": 0.6288,
+            "over16_67Ms": 0
+          }
+        }
+      },
+      "memory": {
+        "beforePreloadPrivateBytes": 361742336,
+        "afterPreloadPrivateBytes": 401956864,
+        "preloadElapsedMs": 38.9484,
+        "townAfterUnloadPrivateBytes": 420929536,
+        "townAfterUnloadWorkingSetBytes": 227483648,
+        "sampledPeakPrivateBytes": 421060608,
+        "sampledPeakWorkingSetBytes": 228151296
+      },
+      "transitions": [
+        {
+          "stage": "toChunk0",
+          "target": 0,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 1.0447
+        },
+        {
+          "stage": "toChunk2",
+          "target": 2,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.07690000000000001
+        },
+        {
+          "stage": "toChunk5",
+          "target": 5,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.0806
+        },
+        {
+          "stage": "returnTown",
+          "target": -1,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 1.0916000000000001
+        },
+        {
+          "stage": "revisitChunk5",
+          "target": 5,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.07350000000000001
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "mode": "stream-coarse",
+      "pid": 8088,
+      "fixtureVersion": 1,
+      "npcUpdates": 184320,
+      "offscreenNpcUpdates": 86016,
+      "loads": 4,
+      "unloads": 3,
+      "finalLoadedChunks": 1,
+      "peakLoadedChunks": 2,
+      "timingsMs": {
+        "preload": {
+          "count": 1,
+          "p50": 1.5518,
+          "p95": 1.5518,
+          "p99": 1.5518,
+          "max": 1.5518,
+          "over16_67Ms": 0
+        },
+        "transition": {
+          "count": 123,
+          "p50": 0.2267,
+          "p95": 0.9459000000000001,
+          "p99": 1.9272,
+          "max": 2.8238000000000003,
+          "over16_67Ms": 0
+        },
+        "steady": {
+          "count": 432,
+          "p50": 0.4403,
+          "p95": 0.6186,
+          "p99": 0.9061,
+          "max": 2.6637,
+          "over16_67Ms": 0
+        },
+        "all": {
+          "count": 556,
+          "p50": 0.4335,
+          "p95": 0.6654,
+          "p99": 1.1779,
+          "max": 2.8238000000000003,
+          "over16_67Ms": 0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "count": 72,
+            "p50": 0.1434,
+            "p95": 0.499,
+            "p99": 0.9061,
+            "max": 0.9061,
+            "over16_67Ms": 0
+          },
+          "chunk0": {
+            "count": 72,
+            "p50": 0.5156000000000001,
+            "p95": 0.9154,
+            "p99": 2.6637,
+            "max": 2.6637,
+            "over16_67Ms": 0
+          },
+          "chunk2": {
+            "count": 72,
+            "p50": 0.4864,
+            "p95": 0.6141,
+            "p99": 0.674,
+            "max": 0.674,
+            "over16_67Ms": 0
+          },
+          "chunk5": {
+            "count": 72,
+            "p50": 0.46630000000000005,
+            "p95": 0.598,
+            "p99": 0.6133000000000001,
+            "max": 0.6133000000000001,
+            "over16_67Ms": 0
+          },
+          "townAfterUnload": {
+            "count": 72,
+            "p50": 0.1287,
+            "p95": 0.1706,
+            "p99": 0.22610000000000002,
+            "max": 0.22610000000000002,
+            "over16_67Ms": 0
+          },
+          "revisited5": {
+            "count": 72,
+            "p50": 0.4693,
+            "p95": 0.6264000000000001,
+            "p99": 0.6611,
+            "max": 0.6611,
+            "over16_67Ms": 0
+          }
+        }
+      },
+      "memory": {
+        "beforePreloadPrivateBytes": 359952384,
+        "afterPreloadPrivateBytes": 359952384,
+        "preloadElapsedMs": 1.5489000000000002,
+        "townAfterUnloadPrivateBytes": 390000640,
+        "townAfterUnloadWorkingSetBytes": 214409216,
+        "sampledPeakPrivateBytes": 390959104,
+        "sampledPeakWorkingSetBytes": 214536192
+      },
+      "transitions": [
+        {
+          "stage": "toChunk0",
+          "target": 0,
+          "chunksAtStart": 0,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 8.2044
+        },
+        {
+          "stage": "toChunk2",
+          "target": 2,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 5.931500000000001
+        },
+        {
+          "stage": "toChunk5",
+          "target": 5,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 4.8334
+        },
+        {
+          "stage": "returnTown",
+          "target": -1,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 0,
+          "requestToReadyMs": 1.5371000000000001
+        },
+        {
+          "stage": "revisitChunk5",
+          "target": 5,
+          "chunksAtStart": 0,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 3.9520000000000004
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "mode": "stream-full",
+      "pid": 24876,
+      "fixtureVersion": 1,
+      "npcUpdates": 1130496,
+      "offscreenNpcUpdates": 1032192,
+      "loads": 4,
+      "unloads": 3,
+      "finalLoadedChunks": 1,
+      "peakLoadedChunks": 2,
+      "timingsMs": {
+        "preload": {
+          "count": 1,
+          "p50": 2.2527,
+          "p95": 2.2527,
+          "p99": 2.2527,
+          "max": 2.2527,
+          "over16_67Ms": 0
+        },
+        "transition": {
+          "count": 120,
+          "p50": 0.40890000000000004,
+          "p95": 0.9422,
+          "p99": 2.1267,
+          "max": 2.9153000000000002,
+          "over16_67Ms": 0
+        },
+        "steady": {
+          "count": 432,
+          "p50": 0.43970000000000004,
+          "p95": 0.6283000000000001,
+          "p99": 0.7495,
+          "max": 1.0495,
+          "over16_67Ms": 0
+        },
+        "all": {
+          "count": 553,
+          "p50": 0.436,
+          "p95": 0.6606000000000001,
+          "p99": 1.1406,
+          "max": 2.9153000000000002,
+          "over16_67Ms": 0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "count": 72,
+            "p50": 0.16190000000000002,
+            "p95": 0.28340000000000004,
+            "p99": 1.0495,
+            "max": 1.0495,
+            "over16_67Ms": 0
+          },
+          "chunk0": {
+            "count": 72,
+            "p50": 0.4801,
+            "p95": 0.7066,
+            "p99": 0.7977000000000001,
+            "max": 0.7977000000000001,
+            "over16_67Ms": 0
+          },
+          "chunk2": {
+            "count": 72,
+            "p50": 0.47550000000000003,
+            "p95": 0.5953,
+            "p99": 0.664,
+            "max": 0.664,
+            "over16_67Ms": 0
+          },
+          "chunk5": {
+            "count": 72,
+            "p50": 0.5137,
+            "p95": 0.645,
+            "p99": 0.7993,
+            "max": 0.7993,
+            "over16_67Ms": 0
+          },
+          "townAfterUnload": {
+            "count": 72,
+            "p50": 0.14150000000000001,
+            "p95": 0.20620000000000002,
+            "p99": 0.3496,
+            "max": 0.3496,
+            "over16_67Ms": 0
+          },
+          "revisited5": {
+            "count": 72,
+            "p50": 0.4766,
+            "p95": 0.6299,
+            "p99": 0.6890000000000001,
+            "max": 0.6890000000000001,
+            "over16_67Ms": 0
+          }
+        }
+      },
+      "memory": {
+        "beforePreloadPrivateBytes": 363339776,
+        "afterPreloadPrivateBytes": 363454464,
+        "preloadElapsedMs": 2.2543,
+        "townAfterUnloadPrivateBytes": 393175040,
+        "townAfterUnloadWorkingSetBytes": 215777280,
+        "sampledPeakPrivateBytes": 394252288,
+        "sampledPeakWorkingSetBytes": 216580096
+      },
+      "transitions": [
+        {
+          "stage": "toChunk0",
+          "target": 0,
+          "chunksAtStart": 0,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 8.203100000000001
+        },
+        {
+          "stage": "toChunk2",
+          "target": 2,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 5.9013
+        },
+        {
+          "stage": "toChunk5",
+          "target": 5,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 4.875
+        },
+        {
+          "stage": "returnTown",
+          "target": -1,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 0,
+          "requestToReadyMs": 1.1289
+        },
+        {
+          "stage": "revisitChunk5",
+          "target": 5,
+          "chunksAtStart": 0,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 4.182
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "mode": "resident-full",
+      "pid": 2744,
+      "fixtureVersion": 1,
+      "npcUpdates": 1130496,
+      "offscreenNpcUpdates": 1032192,
+      "loads": 8,
+      "unloads": 0,
+      "finalLoadedChunks": 8,
+      "peakLoadedChunks": 8,
+      "timingsMs": {
+        "preload": {
+          "count": 161,
+          "p50": 0.1888,
+          "p95": 0.5563,
+          "p99": 1.5614000000000001,
+          "max": 2.5927000000000002,
+          "over16_67Ms": 0
+        },
+        "transition": {
+          "count": 120,
+          "p50": 0.47900000000000004,
+          "p95": 0.7170000000000001,
+          "p99": 2.9342,
+          "max": 3.5756,
+          "over16_67Ms": 0
+        },
+        "steady": {
+          "count": 432,
+          "p50": 0.44070000000000004,
+          "p95": 0.6142000000000001,
+          "p99": 0.7121000000000001,
+          "max": 1.1724,
+          "over16_67Ms": 0
+        },
+        "all": {
+          "count": 713,
+          "p50": 0.4229,
+          "p95": 0.6417,
+          "p99": 1.0258,
+          "max": 3.5756,
+          "over16_67Ms": 0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "count": 72,
+            "p50": 0.152,
+            "p95": 0.29100000000000004,
+            "p99": 1.1724,
+            "max": 1.1724,
+            "over16_67Ms": 0
+          },
+          "chunk0": {
+            "count": 72,
+            "p50": 0.4635,
+            "p95": 0.6291,
+            "p99": 0.8086,
+            "max": 0.8086,
+            "over16_67Ms": 0
+          },
+          "chunk2": {
+            "count": 72,
+            "p50": 0.46130000000000004,
+            "p95": 0.667,
+            "p99": 0.7062,
+            "max": 0.7062,
+            "over16_67Ms": 0
+          },
+          "chunk5": {
+            "count": 72,
+            "p50": 0.4666,
+            "p95": 0.6086,
+            "p99": 0.8356,
+            "max": 0.8356,
+            "over16_67Ms": 0
+          },
+          "townAfterUnload": {
+            "count": 72,
+            "p50": 0.1463,
+            "p95": 0.20500000000000002,
+            "p99": 0.3054,
+            "max": 0.3054,
+            "over16_67Ms": 0
+          },
+          "revisited5": {
+            "count": 72,
+            "p50": 0.5518000000000001,
+            "p95": 0.6225,
+            "p99": 0.7121000000000001,
+            "max": 0.7121000000000001,
+            "over16_67Ms": 0
+          }
+        }
+      },
+      "memory": {
+        "beforePreloadPrivateBytes": 361525248,
+        "afterPreloadPrivateBytes": 400121856,
+        "preloadElapsedMs": 41.6756,
+        "townAfterUnloadPrivateBytes": 420306944,
+        "townAfterUnloadWorkingSetBytes": 228098048,
+        "sampledPeakPrivateBytes": 420306944,
+        "sampledPeakWorkingSetBytes": 228560896
+      },
+      "transitions": [
+        {
+          "stage": "toChunk0",
+          "target": 0,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.9926
+        },
+        {
+          "stage": "toChunk2",
+          "target": 2,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.0786
+        },
+        {
+          "stage": "toChunk5",
+          "target": 5,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.082
+        },
+        {
+          "stage": "returnTown",
+          "target": -1,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 1.1494
+        },
+        {
+          "stage": "revisitChunk5",
+          "target": 5,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.0795
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "mode": "stream-coarse",
+      "pid": 11172,
+      "fixtureVersion": 2,
+      "npcUpdates": 184320,
+      "offscreenNpcUpdates": 86016,
+      "loads": 4,
+      "unloads": 3,
+      "finalLoadedChunks": 1,
+      "peakLoadedChunks": 2,
+      "timingsMs": {
+        "preload": {
+          "count": 1,
+          "p50": 1.9917,
+          "p95": 1.9917,
+          "p99": 1.9917,
+          "max": 1.9917,
+          "over16_67Ms": 0
+        },
+        "transition": {
+          "count": 120,
+          "p50": 0.4319,
+          "p95": 0.994,
+          "p99": 2.1108000000000002,
+          "max": 3.0407,
+          "over16_67Ms": 0
+        },
+        "steady": {
+          "count": 432,
+          "p50": 0.467,
+          "p95": 0.6457,
+          "p99": 0.7727,
+          "max": 1.0414,
+          "over16_67Ms": 0
+        },
+        "all": {
+          "count": 553,
+          "p50": 0.46540000000000004,
+          "p95": 0.7206,
+          "p99": 1.1022,
+          "max": 3.0407,
+          "over16_67Ms": 0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "count": 72,
+            "p50": 0.1695,
+            "p95": 0.3166,
+            "p99": 1.0414,
+            "max": 1.0414,
+            "over16_67Ms": 0
+          },
+          "chunk0": {
+            "count": 72,
+            "p50": 0.5418000000000001,
+            "p95": 0.6928000000000001,
+            "p99": 0.7727,
+            "max": 0.7727,
+            "over16_67Ms": 0
+          },
+          "chunk2": {
+            "count": 72,
+            "p50": 0.5145000000000001,
+            "p95": 0.6647000000000001,
+            "p99": 0.8219000000000001,
+            "max": 0.8219000000000001,
+            "over16_67Ms": 0
+          },
+          "chunk5": {
+            "count": 72,
+            "p50": 0.535,
+            "p95": 0.6538,
+            "p99": 0.8661000000000001,
+            "max": 0.8661000000000001,
+            "over16_67Ms": 0
+          },
+          "townAfterUnload": {
+            "count": 72,
+            "p50": 0.1226,
+            "p95": 0.1769,
+            "p99": 0.4907,
+            "max": 0.4907,
+            "over16_67Ms": 0
+          },
+          "revisited5": {
+            "count": 72,
+            "p50": 0.46900000000000003,
+            "p95": 0.5951000000000001,
+            "p99": 0.7526,
+            "max": 0.7526,
+            "over16_67Ms": 0
+          }
+        }
+      },
+      "memory": {
+        "beforePreloadPrivateBytes": 360984576,
+        "afterPreloadPrivateBytes": 361025536,
+        "preloadElapsedMs": 1.9915,
+        "townAfterUnloadPrivateBytes": 388984832,
+        "townAfterUnloadWorkingSetBytes": 213848064,
+        "sampledPeakPrivateBytes": 389992448,
+        "sampledPeakWorkingSetBytes": 214343680
+      },
+      "transitions": [
+        {
+          "stage": "toChunk0",
+          "target": 0,
+          "chunksAtStart": 0,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 7.1322
+        },
+        {
+          "stage": "toChunk2",
+          "target": 2,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 5.7172
+        },
+        {
+          "stage": "toChunk5",
+          "target": 5,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 4.4154
+        },
+        {
+          "stage": "returnTown",
+          "target": -1,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 0,
+          "requestToReadyMs": 1.1305
+        },
+        {
+          "stage": "revisitChunk5",
+          "target": 5,
+          "chunksAtStart": 0,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 3.6722
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "mode": "resident-full",
+      "pid": 19532,
+      "fixtureVersion": 2,
+      "npcUpdates": 1130496,
+      "offscreenNpcUpdates": 1032192,
+      "loads": 8,
+      "unloads": 0,
+      "finalLoadedChunks": 8,
+      "peakLoadedChunks": 8,
+      "timingsMs": {
+        "preload": {
+          "count": 145,
+          "p50": 0.18560000000000001,
+          "p95": 0.5933,
+          "p99": 1.2504,
+          "max": 2.6581,
+          "over16_67Ms": 0
+        },
+        "transition": {
+          "count": 120,
+          "p50": 0.4842,
+          "p95": 0.6983,
+          "p99": 2.5722,
+          "max": 3.8624,
+          "over16_67Ms": 0
+        },
+        "steady": {
+          "count": 432,
+          "p50": 0.46290000000000003,
+          "p95": 0.6422,
+          "p99": 0.7477,
+          "max": 1.2652,
+          "over16_67Ms": 0
+        },
+        "all": {
+          "count": 697,
+          "p50": 0.44420000000000004,
+          "p95": 0.6504,
+          "p99": 0.9436,
+          "max": 3.8624,
+          "over16_67Ms": 0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "count": 72,
+            "p50": 0.1558,
+            "p95": 0.34740000000000004,
+            "p99": 1.2652,
+            "max": 1.2652,
+            "over16_67Ms": 0
+          },
+          "chunk0": {
+            "count": 72,
+            "p50": 0.4904,
+            "p95": 0.6504,
+            "p99": 0.765,
+            "max": 0.765,
+            "over16_67Ms": 0
+          },
+          "chunk2": {
+            "count": 72,
+            "p50": 0.5172,
+            "p95": 0.7011000000000001,
+            "p99": 0.8671000000000001,
+            "max": 0.8671000000000001,
+            "over16_67Ms": 0
+          },
+          "chunk5": {
+            "count": 72,
+            "p50": 0.5235000000000001,
+            "p95": 0.6575000000000001,
+            "p99": 0.7477,
+            "max": 0.7477,
+            "over16_67Ms": 0
+          },
+          "townAfterUnload": {
+            "count": 72,
+            "p50": 0.1486,
+            "p95": 0.1928,
+            "p99": 0.2998,
+            "max": 0.2998,
+            "over16_67Ms": 0
+          },
+          "revisited5": {
+            "count": 72,
+            "p50": 0.49160000000000004,
+            "p95": 0.6161,
+            "p99": 0.7426,
+            "max": 0.7426,
+            "over16_67Ms": 0
+          }
+        }
+      },
+      "memory": {
+        "beforePreloadPrivateBytes": 362917888,
+        "afterPreloadPrivateBytes": 400801792,
+        "preloadElapsedMs": 36.9443,
+        "townAfterUnloadPrivateBytes": 420429824,
+        "townAfterUnloadWorkingSetBytes": 227696640,
+        "sampledPeakPrivateBytes": 420560896,
+        "sampledPeakWorkingSetBytes": 228384768
+      },
+      "transitions": [
+        {
+          "stage": "toChunk0",
+          "target": 0,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.9941000000000001
+        },
+        {
+          "stage": "toChunk2",
+          "target": 2,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.0784
+        },
+        {
+          "stage": "toChunk5",
+          "target": 5,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.0863
+        },
+        {
+          "stage": "returnTown",
+          "target": -1,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 1.1283
+        },
+        {
+          "stage": "revisitChunk5",
+          "target": 5,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.0787
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "mode": "resident-coarse",
+      "pid": 2940,
+      "fixtureVersion": 2,
+      "npcUpdates": 184320,
+      "offscreenNpcUpdates": 86016,
+      "loads": 8,
+      "unloads": 0,
+      "finalLoadedChunks": 8,
+      "peakLoadedChunks": 8,
+      "timingsMs": {
+        "preload": {
+          "count": 148,
+          "p50": 0.1721,
+          "p95": 0.6472,
+          "p99": 1.1836,
+          "max": 2.8467000000000002,
+          "over16_67Ms": 0
+        },
+        "transition": {
+          "count": 120,
+          "p50": 0.5217,
+          "p95": 0.8469,
+          "p99": 2.4683,
+          "max": 3.6578000000000004,
+          "over16_67Ms": 0
+        },
+        "steady": {
+          "count": 432,
+          "p50": 0.4601,
+          "p95": 0.6125,
+          "p99": 0.7541,
+          "max": 1.2666000000000002,
+          "over16_67Ms": 0
+        },
+        "all": {
+          "count": 700,
+          "p50": 0.44570000000000004,
+          "p95": 0.6549,
+          "p99": 0.9496,
+          "max": 3.6578000000000004,
+          "over16_67Ms": 0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "count": 72,
+            "p50": 0.15180000000000002,
+            "p95": 0.2725,
+            "p99": 1.2666000000000002,
+            "max": 1.2666000000000002,
+            "over16_67Ms": 0
+          },
+          "chunk0": {
+            "count": 72,
+            "p50": 0.5529000000000001,
+            "p95": 0.741,
+            "p99": 0.8390000000000001,
+            "max": 0.8390000000000001,
+            "over16_67Ms": 0
+          },
+          "chunk2": {
+            "count": 72,
+            "p50": 0.5005000000000001,
+            "p95": 0.6193000000000001,
+            "p99": 0.6321,
+            "max": 0.6321,
+            "over16_67Ms": 0
+          },
+          "chunk5": {
+            "count": 72,
+            "p50": 0.47590000000000005,
+            "p95": 0.6002000000000001,
+            "p99": 0.6097,
+            "max": 0.6097,
+            "over16_67Ms": 0
+          },
+          "townAfterUnload": {
+            "count": 72,
+            "p50": 0.13820000000000002,
+            "p95": 0.1947,
+            "p99": 0.3385,
+            "max": 0.3385,
+            "over16_67Ms": 0
+          },
+          "revisited5": {
+            "count": 72,
+            "p50": 0.4883,
+            "p95": 0.6147,
+            "p99": 0.771,
+            "max": 0.771,
+            "over16_67Ms": 0
+          }
+        }
+      },
+      "memory": {
+        "beforePreloadPrivateBytes": 362315776,
+        "afterPreloadPrivateBytes": 401408000,
+        "preloadElapsedMs": 36.9277,
+        "townAfterUnloadPrivateBytes": 421613568,
+        "townAfterUnloadWorkingSetBytes": 227577856,
+        "sampledPeakPrivateBytes": 421744640,
+        "sampledPeakWorkingSetBytes": 228261888
+      },
+      "transitions": [
+        {
+          "stage": "toChunk0",
+          "target": 0,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.9738
+        },
+        {
+          "stage": "toChunk2",
+          "target": 2,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.0794
+        },
+        {
+          "stage": "toChunk5",
+          "target": 5,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.0853
+        },
+        {
+          "stage": "returnTown",
+          "target": -1,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 1.1166
+        },
+        {
+          "stage": "revisitChunk5",
+          "target": 5,
+          "chunksAtStart": 8,
+          "chunksAtEnd": 8,
+          "requestToReadyMs": 0.0805
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "mode": "stream-full",
+      "pid": 6776,
+      "fixtureVersion": 2,
+      "npcUpdates": 1130496,
+      "offscreenNpcUpdates": 1032192,
+      "loads": 4,
+      "unloads": 3,
+      "finalLoadedChunks": 1,
+      "peakLoadedChunks": 2,
+      "timingsMs": {
+        "preload": {
+          "count": 1,
+          "p50": 1.844,
+          "p95": 1.844,
+          "p99": 1.844,
+          "max": 1.844,
+          "over16_67Ms": 0
+        },
+        "transition": {
+          "count": 120,
+          "p50": 0.4068,
+          "p95": 0.9284,
+          "p99": 2.1181,
+          "max": 2.8496,
+          "over16_67Ms": 0
+        },
+        "steady": {
+          "count": 432,
+          "p50": 0.4293,
+          "p95": 0.6225,
+          "p99": 0.8287,
+          "max": 0.9906,
+          "over16_67Ms": 0
+        },
+        "all": {
+          "count": 553,
+          "p50": 0.42810000000000004,
+          "p95": 0.6549,
+          "p99": 1.2635,
+          "max": 2.8496,
+          "over16_67Ms": 0
+        },
+        "steadyByStage": {
+          "townBefore": {
+            "count": 72,
+            "p50": 0.1328,
+            "p95": 0.2884,
+            "p99": 0.9245000000000001,
+            "max": 0.9245000000000001,
+            "over16_67Ms": 0
+          },
+          "chunk0": {
+            "count": 72,
+            "p50": 0.5096,
+            "p95": 0.8287,
+            "p99": 0.9906,
+            "max": 0.9906,
+            "over16_67Ms": 0
+          },
+          "chunk2": {
+            "count": 72,
+            "p50": 0.4476,
+            "p95": 0.6049,
+            "p99": 0.8096,
+            "max": 0.8096,
+            "over16_67Ms": 0
+          },
+          "chunk5": {
+            "count": 72,
+            "p50": 0.4378,
+            "p95": 0.6378,
+            "p99": 0.6706000000000001,
+            "max": 0.6706000000000001,
+            "over16_67Ms": 0
+          },
+          "townAfterUnload": {
+            "count": 72,
+            "p50": 0.1267,
+            "p95": 0.21780000000000002,
+            "p99": 0.3058,
+            "max": 0.3058,
+            "over16_67Ms": 0
+          },
+          "revisited5": {
+            "count": 72,
+            "p50": 0.4686,
+            "p95": 0.6084,
+            "p99": 0.7571,
+            "max": 0.7571,
+            "over16_67Ms": 0
+          }
+        }
+      },
+      "memory": {
+        "beforePreloadPrivateBytes": 360894464,
+        "afterPreloadPrivateBytes": 360894464,
+        "preloadElapsedMs": 1.8474000000000002,
+        "townAfterUnloadPrivateBytes": 393109504,
+        "townAfterUnloadWorkingSetBytes": 217100288,
+        "sampledPeakPrivateBytes": 394063872,
+        "sampledPeakWorkingSetBytes": 217579520
+      },
+      "transitions": [
+        {
+          "stage": "toChunk0",
+          "target": 0,
+          "chunksAtStart": 0,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 7.0518
+        },
+        {
+          "stage": "toChunk2",
+          "target": 2,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 5.4082
+        },
+        {
+          "stage": "toChunk5",
+          "target": 5,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 4.9674000000000005
+        },
+        {
+          "stage": "returnTown",
+          "target": -1,
+          "chunksAtStart": 1,
+          "chunksAtEnd": 0,
+          "requestToReadyMs": 1.1436
+        },
+        {
+          "stage": "revisitChunk5",
+          "target": 5,
+          "chunksAtStart": 0,
+          "chunksAtEnd": 1,
+          "requestToReadyMs": 4.248200000000001
+        }
+      ]
+    }
+  ]
+}

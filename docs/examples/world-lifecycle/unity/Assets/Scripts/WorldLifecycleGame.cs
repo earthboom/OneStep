@@ -48,6 +48,12 @@ namespace WorldLifecycle
 
         private void Start()
         {
+            if (Argument("-world-scale") is string scaleMode)
+            {
+                enabled = false;
+                gameObject.AddComponent<LargeForestBenchmark>().Begin(scaleMode);
+                return;
+            }
             town = gameObject.scene;
             worldCamera = FindFirstObjectByType<Camera>();
             savePath = Argument("-world-save") ?? Path.Combine(Application.persistentDataPath, "world-v2.json");
@@ -304,7 +310,7 @@ namespace WorldLifecycle
             GUILayout.EndArea();
         }
 
-        private static string Argument(string key)
+        internal static string Argument(string key)
         {
             var args = Environment.GetCommandLineArgs();
             int index = Array.IndexOf(args, key);

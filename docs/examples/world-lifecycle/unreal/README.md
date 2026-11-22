@@ -1,5 +1,7 @@
 # Unreal town and forest
 
+[Run the expanded forest benchmark](SCALE.md) to measure eight forest chunks and 2,048 logical NPCs on the same standalone D3D11 route.
+
 **E** follows the road from town to the forest. **Space** strikes the wolf for 40 HP and advances the quest. **R** returns to town and unloads the forest. Wait in town until the patrol counter advances, then press **E** again. The wolf returns at its new patrol position with the HP and quest state from combat. **S** saves the current journey. Relaunch to restore it.
 
 ## Build and play

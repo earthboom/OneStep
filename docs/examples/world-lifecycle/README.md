@@ -2,6 +2,8 @@
 
 These examples apply OneStep's [world runtime design](../../../skills/vegabond-code-design/references/world-lifecycle.md) and [game runtime checks](../../../skills/vegabond-code/references/world-lifecycle-verification.md) to the same gameplay contract in Unity and Unreal. They use each engine's own representation and streaming operations. The projects are available under [Unity](unity/README.md) and [Unreal](unreal/README.md).
 
+The [large forest benchmark](scale-benchmark.md) extends the examples with spatial chunks and a larger NPC population for isolated residency and offscreen AI comparisons.
+
 ## Contract and checks
 
 | Step | Observed outcome to check |

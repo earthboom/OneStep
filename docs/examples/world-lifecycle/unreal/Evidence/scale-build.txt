@@ -1,0 +1,9 @@
+[1/7] Compile [x64] WolfPresentationComponent.cpp [NoUba]
+[2/7] Compile [x64] Module.WorldLifecycle.gen.cpp [NoUba]
+[3/7] Compile [x64] WorldLifecycleMode.cpp [NoUba]
+[4/7] Compile [x64] WorldScaleRun.cpp [NoUba]
+[5/7] Link [x64] UnrealEditor-WorldLifecycle.lib [NoUba]
+[6/7] Link [x64] UnrealEditor-WorldLifecycle.dll [NoUba]
+[7/7] WriteMetadata WorldLifecycleEditor.target [NoUba]
+Result: Succeeded
+Total execution time: 6.24 seconds
