@@ -242,7 +242,9 @@ For game implementation, debugging or optimization, apply the [game evidence reu
 
 Use [vegabond-code-design](../vegabond-code-design/SKILL.md) when a meaningful choice about state ownership, lifecycle, interfaces used by other callers, concurrency, persistence, external integration, or migration must be settled before implementation. A local edit following an established pattern can state its relevant contract and preservation conditions inline and proceed. File count alone does not decide; reuse a valid existing design and revisit only decisions changed by evidence.
 
-For a game, route changes to the gameplay framework, shared content contracts, or dependencies between features through code design. When adding content through an existing extension point, use the existing contract and check the new content alongside the supported baseline. An independently optional feature also requires the applicable [dependency and independence checks](../vegabond-code-design/references/gameplay-framework.md#make-feature-dependencies-explicit), even when it uses an existing extension point. Use code design if these checks reveal a new dependency or a needed contract change.
+For a new game, route the [foundation decisions](../vegabond-code-design/references/gameplay-framework.md#plan-a-new-game-foundation) through code design before selecting or creating gameplay scaffolding. The brief needs a framework suited to representative play, named state owners and lifetimes, and an authoring and registration path for the first content and its next variant. Reuse settled decisions from the project brief.
+
+For an existing game, route changes to the gameplay framework, shared content contracts, or dependencies between features through code design. When adding content through an existing extension point, use the existing contract and check the new content alongside the supported baseline. An independently optional feature also requires the applicable [dependency and independence checks](../vegabond-code-design/references/gameplay-framework.md#make-feature-dependencies-explicit), even when it uses an existing extension point. Use code design if these checks reveal a new dependency or a needed contract change.
 
 Pass the current brief, environment, affected source/contracts, constraints, and unanswered decisions. Design returns a bounded implementation direction and checks within this workflow; it does not restart scout or create another execution loop. A design-only request ends with that result rather than an unsolicited implementation.
 
@@ -279,7 +281,7 @@ If invoked directly, fill only missing context through [scout's shared setup](..
 
 For game architecture and technical choices, use the [game evidence reuse convention](../../knowledge/game/K-GAME-RESEARCH-USE.md), including on direct invocation. Reuse valid retrieved evidence, inspect prerequisites such as restorable state for rollback, and record adoption, conditional use or rejection against actual engine, platform and gameplay constraints. Return the selected entry IDs, implementation boundaries and proposed validation with the design.
 
-When choosing a game's framework or changing how content is authored, registered, or composed across features, apply [gameplay framework and content design](references/gameplay-framework.md). Use its applicable parts for both new designs and revisions, and pass its checks to the implementation workflow.
+Start a new game with the [foundation decisions](references/gameplay-framework.md#plan-a-new-game-foundation). Derive the framework, state ownership and content path from representative play before choosing project scaffolding, packages or shared base classes. For an existing game, apply the relevant parts of [gameplay framework and content design](references/gameplay-framework.md) when changing those decisions or how features compose. Carry the design and proposed checks into implementation when the request includes it.
 
 When deciding how game data evolves, what a world loads or retains, how a renderer meets its budget, or what NPCs do offscreen, use the applicable [world runtime design guidance](references/world-lifecycle.md). Tie each chosen policy to a gameplay requirement and pass the preservation, transition and measurement conditions to implementation.
 
@@ -875,6 +877,18 @@ For consequential checks demonstrate sensitivity with a realistic broken case, s
 # Gameplay framework and content design
 
 Apply this when choosing or changing the game's runtime structure, the contracts through which content extends gameplay, or dependencies between features. Keep the decisions and checks in the existing brief or design. Use only the parts relevant to the change. For a local correction that preserves the contract, use the existing path and check the affected behavior.
+
+## Plan a new game foundation
+
+Use the [representative play sequences](#derive-the-framework-from-representative-play) and include a failure or interruption that affects the design. Settle the following decisions before choosing the project scaffold, folders, shared base types or optional packages.
+
+| Decision | Record in the existing brief |
+| --- | --- |
+| Framework | Choose the gameplay entry point, time model and authority. Map them to appropriate Unity or Unreal roles for the chosen engine, target platform and constraints. Identify the parts of the rules that benefit from engine-independent C# or C++, and the parts owned by the engine's world, physics, assets or networking. If the engine is undecided, keep the gameplay contracts explicit and compare the engine choices against those contracts. |
+| State ownership | Name who creates, writes, reads and releases each consequential state. Distinguish object, scene or world, session or match, and persisted lifetimes as needed. Specify what survives transitions such as scene exit, respawn or reconnect when the game supports them. Route changes through the owner and give presentation the state or results it reads. |
+| Content entry path | Trace the first content item and a plausible second variant from authoring through validation, registration and play. Identify the owning feature, stable ID or contract where needed, assembly point and permitted dependencies. State which changes use definitions and which require a rule change. |
+
+Use the simplest engine facilities and module boundaries that meet those decisions. Record the concrete requirement or budget that would justify a more elaborate framework. For example, a turn-based card adventure can use ordered combat commands and authored card definitions, while exploration retains its own map state. The handoff may be a short section in the existing brief. For a strategy or design-only request, return the design decisions, assumptions and proposed checks. Carry them into implementation when the request includes it.
 
 ## Derive the framework from representative play
 

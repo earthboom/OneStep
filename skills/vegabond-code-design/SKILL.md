@@ -11,7 +11,7 @@ If invoked directly, fill only missing context through [scout's shared setup](..
 
 For game architecture and technical choices, use the [game evidence reuse convention](../../knowledge/game/K-GAME-RESEARCH-USE.md), including on direct invocation. Reuse valid retrieved evidence, inspect prerequisites such as restorable state for rollback, and record adoption, conditional use or rejection against actual engine, platform and gameplay constraints. Return the selected entry IDs, implementation boundaries and proposed validation with the design.
 
-When choosing a game's framework or changing how content is authored, registered, or composed across features, apply [gameplay framework and content design](references/gameplay-framework.md). Use its applicable parts for both new designs and revisions, and pass its checks to the implementation workflow.
+Start a new game with the [foundation decisions](references/gameplay-framework.md#plan-a-new-game-foundation). Derive the framework, state ownership and content path from representative play before choosing project scaffolding, packages or shared base classes. For an existing game, apply the relevant parts of [gameplay framework and content design](references/gameplay-framework.md) when changing those decisions or how features compose. Carry the design and proposed checks into implementation when the request includes it.
 
 When deciding how game data evolves, what a world loads or retains, how a renderer meets its budget, or what NPCs do offscreen, use the applicable [world runtime design guidance](references/world-lifecycle.md). Tie each chosen policy to a gameplay requirement and pass the preservation, transition and measurement conditions to implementation.
 

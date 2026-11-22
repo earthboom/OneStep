@@ -2,6 +2,18 @@
 
 Apply this when choosing or changing the game's runtime structure, the contracts through which content extends gameplay, or dependencies between features. Keep the decisions and checks in the existing brief or design. Use only the parts relevant to the change. For a local correction that preserves the contract, use the existing path and check the affected behavior.
 
+## Plan a new game foundation
+
+Use the [representative play sequences](#derive-the-framework-from-representative-play) and include a failure or interruption that affects the design. Settle the following decisions before choosing the project scaffold, folders, shared base types or optional packages.
+
+| Decision | Record in the existing brief |
+| --- | --- |
+| Framework | Choose the gameplay entry point, time model and authority. Map them to appropriate Unity or Unreal roles for the chosen engine, target platform and constraints. Identify the parts of the rules that benefit from engine-independent C# or C++, and the parts owned by the engine's world, physics, assets or networking. If the engine is undecided, keep the gameplay contracts explicit and compare the engine choices against those contracts. |
+| State ownership | Name who creates, writes, reads and releases each consequential state. Distinguish object, scene or world, session or match, and persisted lifetimes as needed. Specify what survives transitions such as scene exit, respawn or reconnect when the game supports them. Route changes through the owner and give presentation the state or results it reads. |
+| Content entry path | Trace the first content item and a plausible second variant from authoring through validation, registration and play. Identify the owning feature, stable ID or contract where needed, assembly point and permitted dependencies. State which changes use definitions and which require a rule change. |
+
+Use the simplest engine facilities and module boundaries that meet those decisions. Record the concrete requirement or budget that would justify a more elaborate framework. For example, a turn-based card adventure can use ordered combat commands and authored card definitions, while exploration retains its own map state. The handoff may be a short section in the existing brief. For a strategy or design-only request, return the design decisions, assumptions and proposed checks. Carry them into implementation when the request includes it.
+
 ## Derive the framework from representative play
 
 Start with an existing design or describe a short sequence of player input, rule execution, feedback, and the next meaningful choice. Include a second sequence if a different mode or hybrid activity changes the guarantees. Identify the technical consequences relevant to the chosen sequence, such as turn or real-time scheduling, response deadlines, simulation authority, replication, deterministic replay, persistence, authoring, and expected workload. Tie each consequential choice to a gameplay requirement and observable result. Keep unknown requirements attached to the decisions they affect. [Genre and observable play](../../../knowledge/game/K-GAME-DESIGN-FRAMEWORK.md)
