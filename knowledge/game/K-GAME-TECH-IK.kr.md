@@ -21,3 +21,7 @@ Epic 문서는 솔버 제어와 포즈 메시 API를 설명한다. 기존 언리
 - [Epic — Two Bone IK](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-blueprint-two-bone-ik-in-unreal-engine)
 - [Epic — FABRIK AnimBP Node](https://dev.epicgames.com/documentation/unreal-engine/fabrik-animation-blueprint-in-unreal-engine?lang=en-US)
 - [Epic — UPoseableMeshComponent](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UPoseableMeshComponent?application_version=5.8)
+
+## V08 평평한 신발과 하이힐의 발 접지
+
+신발 기준 좌표계에서 뒤꿈치와 발가락의 밑창 위치를 정의한다. 신발별 발목 오프셋과 각도를 뼈 좌표계로 변환하고, 밑창을 지지면에 정렬한 뒤 다리 IK를 적용한다. 지지가 사라지거나 다리가 닿지 않으면 고정점을 해제한다. 평지·경사·계단에서 지지 자세, 전환과 스윙 중 뜸·관통·미끄러짐을 각각 확인한다. 지지 자세가 맞아도 스윙 중 관통이 생길 수 있다. 캡슐 충돌은 시각 보정과 분리해 전후 스윕을 비교한다.

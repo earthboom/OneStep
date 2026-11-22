@@ -22,7 +22,7 @@ keywords:
 - debugging
 - evidence selection
 status: active
-checked_at: '2026-11-21'
+checked_at: '2026-11-22'
 context:
   evidence_check: Primary source research, direct creator accounts and explicitly
     labelled source limits
@@ -39,15 +39,13 @@ context:
   async_save_evidence: UE5.8.3 detached full input; same-binary owned-sync/async3pairs,
     exact records, queue/failure/pending-exit controls; finished-fixture rendering
     only
-  controller_evidence: UE5.8.3 coyote/buffer only; policy68, actual PIE30/60/144,3paired
-    package cost and normal-speed media; no V30corner/platform/player study
+  controller_evidence: UE5.8.3 jump windows and V30 planar corner correction, including takeoff
+    from a vertically moving base. See CONTROLLER for separate PIE and packaged observations.
   vision_evidence: UE5.8.3 known-target center-point range/cone/occlusion only; model24,PIE132cases
     at actual30/60/144,3paired package query/frame observations and normal-speed media
   lockon_evidence: UE5.8.3 known5actors/fixedcamera selection-retention-switching
     only;37policy,198actual PIE30/60/144,3matched package costs and native1x media
-  foot_ik_evidence: UE5.8.3 V37 static support/actual68bone skin only:47policy,108actual
-    PIE30/60/144,3matched package costs,native1x media; explicit reach/pelvis fallback
-    limits
+  foot_ik_evidence: UE 5.8.3 V37 static support and V08 footwear-specific stance calibration with swing clearance limits.
   hitbox_evidence: UE5.8.3 V42 static sphere attack/hurt/physical separation only:40policy,174actual
     PIE30/60/144,3matched package costs,native1x media; no hitstop/full combat
   dungeon_evidence: UE5.8.3 V40/V56 BSP:1024policy,1000actual PIE+1000packaged seeds,3matched1000seed
@@ -78,7 +76,9 @@ context:
     static Unlit cards,effectivecentre cull,noLOD/wind/Nanite
   rng_evidence: UE5.8.3 V55:57policy/38evidence/8actualPIE+8packaged/6fixed-callcosts/normal1x;explicit
     seeds and whole-memory snapshots,single-thread,no file saves
-  sound_evidence: UE5.8.3 V22:83policy/47evidence/4worlds17cases/6realtimecosts/native1xvideoWITHaudio;explicitstereo/nativeattenuation+occlusion,noreverb/HRTF
+  sound_evidence: UE5.8.3 V22 native PCM evidence for attenuation, stereo direction, occlusion,
+    and indoor and outdoor reverb with an overlap priority and fade reversal.
+  cloud_evidence: UE 5.8.3 V27 native single layer with traversal, parallax and opaque occlusion.
 ---
 # Retrieve game implementation techniques from concrete development problems
 
@@ -113,6 +113,7 @@ Important corrections carried into entries: rollback requires state restoration/
 | [Target selection](K-GAME-TECH-LOCKON.md) | Original staff interview supports target feedback; worldwide invention priority not established. |
 | [Recoverable health](K-GAME-TECH-INCENTIVES.md) | Producer describes Bloodborne's recovery window/pool; exact frames and DOOM drop formulas unverified. |
 | [Interactive smoke](K-GAME-TECH-VOLUME.md) | Dated Valve patch notes establish volume interactions; complete solver and replication remain unpublished here. |
+| [Clouds visible during flight or at different depths](K-GAME-TECH-VOLUME.md#one-native-cloud-layer) | Use a world-space density field in a bounded cloud layer. Check parallax, opaque foreground occlusion, sun response and sample cost on a matched flight path. |
 | [Controller-driven ACE](K-GAME-TECH-MEMORY.md) | Hardware replay project's own artifact inspected; exact vulnerability trigger not reproduced. |
 
 ## Checks
@@ -160,7 +161,7 @@ The historical discovery map below links public videos to the corresponding refe
 | V24 | [플레이어의 행동을 조종하는 게임 속 맵 설계](https://www.youtube.com/shorts/tQDBuXB6Juo) | [Validate perceived scale against traversal and camera constraints](K-GAME-TECH-LEVEL.md) |
 | V25 | [게임 음악에 사용되는 신기한 전환 기법](https://www.youtube.com/shorts/WkvlFYUlvns) | [Schedule adaptive music at musical boundaries](K-GAME-TECH-MUSIC.md) |
 | V26 | [게임 그래픽을 실감나게 하는 마법](https://www.youtube.com/shorts/i6Mu34lCSb0) | [Add lighting detail without changing surface topology](K-GAME-TECH-NORMAL.md) |
-| V27 | [게임 하늘을 만드는 신기한 수학 기법](https://www.youtube.com/shorts/UxTa_8XlJfo) | [Separate volumetric appearance from simulated smoke gameplay](K-GAME-TECH-VOLUME.md) |
+| V27 | [게임 하늘을 만드는 신기한 수학 기법](https://www.youtube.com/shorts/UxTa_8XlJfo) | [One native cloud layer](K-GAME-TECH-VOLUME.md#one-native-cloud-layer) |
 | V28 | [시간을 되감는 FPS 게임의 사격 판정](https://www.youtube.com/shorts/o7waSG4jROw) | [Bound historical hit resolution for latency compensation](K-GAME-TECH-LAGCOMP.md) |
 | V29 | [슈퍼 마리오의 조작감은 왜 혁신적일까?](https://www.youtube.com/shorts/dNsyscOrNMY) | [Implement forgiving platformer input as explicit state windows](K-GAME-TECH-CONTROLLER.md) |
 | V30 | [플랫폼 게임 맵 모서리에 있는 점프 위치 보정](https://www.youtube.com/shorts/hjVLIojpwVk) | [Implement forgiving platformer input as explicit state windows](K-GAME-TECH-CONTROLLER.md) |
@@ -316,7 +317,7 @@ Use PERFORMANCE for GT publication versus total completion, drain frames, queue 
 
 ## Controller follow-up — 2026-11-11
 
-The historical Unreal run adds two specific CONTROLLER mechanisms (V29,V46),68policy checks,108actual PIE cases at observed30/60/144,3matched standalone performance pairs and native normal-speed media. A failed packaged30request/23.42observed is preserved; consumer/rate scopes stay distinct. No save/renderer/Present/framework optimization. Latest corpus coverage is5sheets with limited runtime evidence and38without a direct technique prototype. This does not certify all controller rules; V30corner correction and moving-platform behavior remain untested. Earlier four/39counts are historical.
+Retrieve CONTROLLER for coyote time and jump buffering. See [V30 planar correction](K-GAME-TECH-CONTROLLER.md#v30-corner-correction-for-a-planar-unreal-character) for upward corner contacts and moving-base takeoff. Keep observed frame cadence separate from capture timing.
 
 ## Vision follow-up — 2026-11-11
 
@@ -328,7 +329,7 @@ The historical Unreal run adds two specific CONTROLLER mechanisms (V29,V46),68po
 
 ## Static foot IK follow-up — 2026-11-11
 
-The historical Unreal run adds47policy checks,108actual PIE cases at observed30/60/144,3off/on package cost pairs and real skinned1x media. Retrieve IK for support-plane/sole calibration/stance anchor/compatible pelvis+blend/stable knee, CONTROLLER for gameplay capsule behavior, TIMESTEP for clock issues. Reach rejection is a valid fallback, not complete contact: the20cm budget rejects the recorded lower-flat right foot and35deg pose. One final visible pose publication prevents the reproduced false static bone history. Latest coverage8partially implemented sheets/35without direct local technique prototypes; earlier counts remain history. V08footwear and broader IK remain untested. No moving supports/fullbody/retarget/new locomotion or validation-tool optimization.
+Retrieve IK for support planes, sole calibration, stance anchoring and reach fallback. [V08 footwear](K-GAME-TECH-IK.md#v08-footwear-calibration-on-static-supports--2026-11-21) applies those rules to flat and heeled shoes. Check swing clearance and gameplay capsule behavior separately from stance.
 
 ## Attack collision follow-up — 2026-11-11
 
@@ -386,6 +387,10 @@ The historical Unreal run adds47policy checks,108actual PIE cases at observed30/
 
 [SOUND/V22 findings](K-GAME-TECH-SOUND.md):nativegain/occlusion plus explicit equal-power source-stereo,actualPIE+package OFF/ON17cases/6matchedrealtimecosts/native1xvideoWITHsound. Exact left-axis stockpanner failure and source-owner obstacle exclusion are recorded;no enginepatch/coordinate nudge. Actual masterPCM/encodedaudio/clock/geometry checks distinguish output from settings. Latest22limitedsheets/21withoutdedicatedprototypes;no reverb/Doppler/HRTF/full propagation/externalplugins/renderer/framework expansion. Prior actualFPSgapsremainunverified.
 
+### V22 outdoor and indoor reverb follow-up
+
+Retrieve [the V22 room reverb evidence](K-GAME-TECH-SOUND.md#native-unreal-v22-room-reverb-validation) when a listener crosses room boundaries while direct cues need to keep the same level. Native Audio Volumes were verified with an outdoor reference, two room presets, an inclusive face in this fixture, priority in the overlap and a return during parameter interpolation. Use actual PCM to verify direct amplitude and the measured decay envelope after the transition.
+
 ## Native random-result policy follow-up — 2026-11-13
 
 [V09/V44 native](K-GAME-TECH-RANDOM-DESIGN.md):fixed25%,one-success bag4,hard8;122policy/24PIE+24packagecases/9same-seed equal-offeredcosts/18s1xnativevideo. Bag boundary allows six failures/consecutive success;pity changes long-run rate to~27.7813%;censored prefix/tail are distinct from completed wait intervals. Retrieve RANDOM-DESIGN for distribution/guarantees,RNG for stream/state order. Latest23limited sheets/20without dedicated prototypes;subjective fairness and previous actualFPSgaps remain unverified;no economy/network/renderer/framework expansion.
@@ -396,7 +401,9 @@ The historical Unreal run adds47policy checks,108actual PIE cases at observed30/
 
 ## Native game-state save follow-up — 2026-11-14
 
-[V20 findings](K-GAME-TECH-SAVE.md):89policy+23store checks,48actual PIE/package cases,6separate restart consumers,6same-state cost players,14snormal1xvideo. Retrieve SAVE for persistent stable-ID state,CRC-before-deserialization,A/B generations and explicit both-invalid failure. RNG memory-state restore and asynchronous diagnostic-log export do not establish game-state file restoration. V54password remains unimplemented. Latest25limited technique sheets/18without dedicated prototypes. Trusted local format only;CRC is not authentication,no forced-crash/power-loss/migration guarantee. No password/async/autosave/cloud/renderer/framework expansion.
+Retrieve [V20 save guidance](K-GAME-TECH-SAVE.md) for stable IDs, CRC-before-deserialization, staged publication, full-storage recovery and preserving the world after failed validation.
+
+The [V54 progress code guidance](K-GAME-TECH-SAVE.md#v54-compact-progress-code-in-unreal--2026-11-21) covers versioned codes, restart restoration and validation before world application.
 
 ## Native adaptive-music follow-up — 2026-11-14
 
@@ -416,7 +423,15 @@ The historical Unreal run adds47policy checks,108actual PIE cases at observed30/
 
 ## Native volumetric-fog follow-up — 2026-11-17
 
-[V10/V27 limited fog findings](K-GAME-TECH-VOLUME.md):54policy/6actualworlds/9matchedcosts/72snormal1x+24sno-historycontrol. RetrieveVOLUME for density/scattering/volumetricshadow/geometryboundaries/camera cut/light trails/stop+reactivate. Native onefog/onespot,grid16x64vs8x128,otherqualityfixed. Actualpixels/probe firsthit/nativecut/exactCVarvaluerestoration;wholewall/delayedwholeGPU not isolatedfogpass. Keep measured trails and variable3run costs as adoption limits. Latest30limitedsheets/13withoutdedicatedprototypes;V27clouds,V10gameplay smoke,V54password remain unimplemented. No clouds/fluid/gameplay smoke/network/renderer/framework expansion.
+[Historical fog guidance](K-GAME-TECH-VOLUME.md#native-unreal-fog-validation--2026-11-17) covers density, scattering, occlusion, cuts and light trails. See the follow-ups for native clouds and gameplay smoke.
+
+## Native single-layer cloud follow-up
+
+Retrieve [V27 cloud guidance](K-GAME-TECH-VOLUME.md#native-unreal-v27-cloud-validation) for a cloud that stays spatially coherent as the camera moves through it. Check layer limits, opaque occlusion, sun response and view sampling quality in matched views.
+
+### V10 gameplay smoke visibility
+
+Retrieve [the V10 density-grid experiment](K-GAME-TECH-VOLUME.md#native-unreal-v10-gameplay-smoke-visibility) when a gameplay sightline must account for variable smoke density. The native fixture verifies transfer through an open door, retention and decay after its closure, solid and smoke occlusion categories, inclusive threshold boundaries and display-independent results. Use a fixed update schedule and compare ray results with an independent grid integral.
 
 ## Native affine and scanline floor follow-up — 2026-11-18
 
@@ -429,6 +444,10 @@ The historical Unreal run adds47policy checks,108actual PIE cases at observed30/
 ## Editable block voxels — 2026-11-20
 
 [V21 findings](K-GAME-TECH-VOXEL.md) cover exact face ownership across two chunks, same-material greedy meshing, edits/restoration, query collision, native pixels, six matched performance runs and a 24-second capture. Coverage now includes 33 limited sheets and 10 without a dedicated prototype.
+
+### V21 smooth isosurface follow-up
+
+Retrieve [uniform-grid Dual Contouring](K-GAME-TECH-VOXEL.md#native-unreal-v21-uniform-grid-dual-contouring) for editable curved surfaces and shared Hermite samples. Check alternating-sign faces and folded quads separately. Compare error and edit-frame cost when choosing a resolution.
 
 ## Adaptive spawn cadence — 2026-11-20
 

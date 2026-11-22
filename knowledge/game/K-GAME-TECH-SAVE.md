@@ -1,19 +1,15 @@
 ---
 id: K-GAME-TECH-SAVE
 title: Design versioned durable saves and compact password states
-summary: Persist stable-ID game state in a versioned validated container. UE5.8.3
-  synchronous basic/A-B generation recovery has actual restart,corruption,atomic world
-  restoration and matched-cost evidence;CRC is not authentication and power-loss safety
-  is unverified.
+summary: Persist stable-ID progress with a versioned container or compact progress code. Validate staged publication, restart recovery, storage exhaustion and world binding before state application.
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
 keywords: ["save", "serialization", "checksum", "password", "bitflags", "저장", "세이브", "백업", "저장손상", "USaveGame", "UGameplayStatics::AsyncSaveGameToSlot", "save generation", "game state", "stable ID", "SaveGame", "CRC32", "previous generation", "file truncation", "both invalid", "게임 상태", "상태 복원", "이전 세대", "파일 잘림", "양쪽 무효"]
 status: active
-checked_at: "2026-11-19"
+checked_at: "2026-11-21"
 context:
   evidence_check: External source text checked; source-specific limits appear in Evidence
-  application_status: V20 UE5.8.3:89policy+23store/48PIE+packagecases/6restartconsumers/6matchedcosts/14s1xnativevideo;V54password
-    remains unimplemented;no power-loss guarantee
+  application_status: UE 5.8.3 guidance for staged A/B recovery, NTFS exhaustion and V54 progress codes. Physical power-loss safety remains open.
 ---
 # Design versioned durable saves and compact password states
 
@@ -35,7 +31,7 @@ For Unreal saves, `USaveGame` represents game-defined persistent data. `UGamepla
 
 ## Checks
 
-Native subset below verifies controlled truncation/corruption and generation fallback with stable-ID world restoration. Forced interruption at each physical write stage and old-schema migration remain unverified;test separately on the target platform.
+Record the candidate, publication boundary and expected generation before running a fault test. Kill the writer from a separate process at named write boundaries and restart against the same directory. Compare published bytes and the complete restored world, including an invalid-data or missing-binding case whose live state must remain unchanged. Treat process termination, a capacity-limited write, and physical power loss as distinct tests.
 
 ## Evidence
 
@@ -52,7 +48,7 @@ The original measurements and recordings are held with the historical experiment
 
 ## Native Unreal validation — 2026-11-14
 
-The the historical Unreal run and its archived measurements.
+The historical Unreal run and its archived measurements.
 
 One synchronous game-thread owner captures health/checkpoint,32 item flags and8 switch flags with stable sorted IDs. Canonical state is348bytes,stored in one UPROPERTY(SaveGame) byte array inside a USaveGame object. Packaged serialized payload is2393bytes;the40byte envelope makes each file2433bytes in all six cost runs. Basic uses slotA;recovery uses A/B with the same validation and per-file bytes. Recovery retains two files,so total disk footprint differs. This is a gameplay-state restoration prototype;the earlier asynchronous diagnostic-log pipeline is a different technique/use case.
 
@@ -68,4 +64,22 @@ Two real native processes produce6seconds of A/B state and8seconds of freshD/loa
 
 Use A/B recovery when reverting to a previous valid generation is preferable to losing all progress. Keep stable IDs,validate completely before applying,and present explicit failure when both generations are invalid. Retain evidence rather than silently replacing invalid saves with defaults. CRC detects accidental corruption and is not authentication;only trusted locally produced UE class/format was tested. Fixed schema1 and fixed32/8IDs have no migration or cross-engine-version guarantee. Graceful process restart and controlled truncation/corruption do not establish forced-crash,power-loss,fsync,full-disk or device-failure safety. Synchronous stalls remain;no asynchronous optimization,password,V54 decoder,autosave tool,cloud,renderer or verification-framework expansion. Previous unrelated actual-FPS gaps remain unverified.
 
-Latest25limited sheets/18without dedicated prototypes;V54password remains unimplemented.
+See the subsequent staged publication and V54 progress code sections for related workflows.
+
+## Staged publication and schema migration in Unreal — 2026-11-21
+
+Keep the published generation and inactive slot addressable while writing a sibling pending file. Flush and close the candidate, read it back and validate its bytes and state, then replace the inactive slot. Restart from published slots only. A process can terminate after publication and before the caller observes success. Verify same-directory replacement guarantees on the deployment filesystem. [Microsoft — MoveFileExW](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefileexw)
+
+Terminate an external writer at the boundaries after serialization, staging open, prefix and payload writes, flush and close, readback, and publication. On restart compare both slot files, the selected generation and the complete world. Migrate recognized legacy data into a candidate and supply defaults for new fields. Check stable bindings before applying any state. If decoding or binding fails, preserve the live world and select another valid slot or report explicit failure. Treat process termination, full storage and physical power loss as distinct tests.
+
+## Actual NTFS exhaustion on Win64 — 2026-11-21
+
+Capture the OS error immediately when a write fails, along with the operation, requested bytes and completed bytes. Use available space for estimates and the actual write result to decide whether to publish. Test on an isolated volume and recheck free space after closing the test filler, because file close can release unused allocation. [Microsoft — WriteFile](https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-writefile) · [Microsoft — Windows error codes](https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--0-499-)
+
+Preserve both published slots and the live world on write, flush or replace failure. Restart while full to verify fallback. Once space is available, retry the ordinary staged path and verify the resulting published bytes and complete world on another restart.
+
+## V54 compact progress code in Unreal — 2026-11-21
+
+Use a versioned fixed field order and stable IDs for reconstructible progress. Define the alphabet, bit order, checksum coverage and reserved bits explicitly. Avoid visually ambiguous symbols when players type the code. Reproduce the code with an independent codec and restore the state in a fresh process. [Python — binascii.crc_hqx](https://docs.python.org/3/library/binascii.html#binascii.crc_hqx)
+
+Validate length, alphabet, reserved bits, checksum, version and field ranges before publishing the decoded candidate. Check every world binding before application. Test unsupported versions and out-of-range fields with a valid checksum. Preserve the live world on rejection and keep the published ID ordering when content evolves. Add a separate trust mechanism where progress needs authentication.

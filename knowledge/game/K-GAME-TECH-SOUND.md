@@ -1,18 +1,17 @@
 ---
 id: K-GAME-TECH-SOUND
 title: Model distance, occlusion and room response separately
-summary: Separate level attenuation,stereo direction and obstruction filtering. UE5.8.3
-  native attenuation/occlusion plus explicit source-stereo panning are checked against
-  real master PCM,including axes/reentry/rotation/doors;single-ray coverage is not
-  full propagation.
+summary: Verify attenuation, stereo direction, obstruction and room reverb separately in the mixed output.
+  UE5.8.3 V22 covers listener axes, door occlusion, outdoor and indoor reverb, priority,
+  boundary conditions and reversal during a fade.
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["spatial", "audio", "Doppler", "reverb", "occlusion", "attenuation", "음향", "sound attenuation", "air absorption", "spatialization", "occlusion low-pass filter", "stereo", "equal-power", "listener", "GetAzimuth", "source owner", "master PCM", "submix", "recording", "door", "WASAPI", "NonRealtime", "좌우", "청취자", "문", "가림", "녹음"]
+keywords: ["spatial", "audio", "Doppler", "reverb", "occlusion", "attenuation", "음향", "sound attenuation", "air absorption", "spatialization", "occlusion low-pass filter", "stereo", "equal-power", "listener", "GetAzimuth", "source owner", "master PCM", "submix", "recording", "door", "WASAPI", "NonRealtime", "좌우", "청취자", "문", "가림", "녹음", "V22", "Audio Volume", "room response", "early reflections", "late reflections", "reverb zone", "fade reversal", "잔향", "리버브", "실내", "실외", "구역 우선순위", "직접음"]
 status: active
-checked_at: "2026-11-19"
+checked_at: "2026-11-22"
 context:
   evidence_check: External source text checked; source-specific limits appear in Evidence
-  application_status: UE5.8.3:83policy/47evidence/4actualworlds17cases/6realtimecosts/native1xvideoWITHaudio;nativegain/occlusion,explicitstereopanner,noreverb/Doppler/HRTF
+  application_status: UE 5.8.3 guidance for attenuation, stereo direction, solid occlusion and native reverb transitions.
   panning_limit: Native5.8exactleftaxis failed;explicit source-stereo equal-power
     implemented,no enginepatch or cross-version guarantee
 ---
@@ -30,9 +29,13 @@ One ray is only an occlusion approximation; full propagation/diffraction is anot
 
 **Sound attenuation** sets level by source–listener distance. **Air absorption** varies spectral filtering with distance, while spatialization supplies directional cues. Under Unreal's occlusion settings, a blocking trace can control both attenuation and low-pass filtering. Vary distance with line of sight unchanged, then add a wall at fixed distance to isolate the two effects. [Epic — Sound Attenuation](https://dev.epicgames.com/documentation/en-us/unreal-engine/sound-attenuation-in-unreal-engine)
 
+### Room reverb at listener boundaries
+
+For authored indoor and outdoor transitions, send the source to the native reverb path and keep its direct path active. Give overlapping Audio Volumes different priorities. The higher priority wins and the volume's fade setting controls the reverb parameter transition. Set the outdoor response and exit fade explicitly when return to a dry baseline matters. Use actual mixed output to check both the short transient and its tail after entry, exit, reentry and changes of direction. [Epic — Audio Volume Actor](https://dev.epicgames.com/documentation/en-us/unreal-engine/audio-volume-actor-in-unreal-engine) · [Epic — AAudioVolume, UE 5.8](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/AAudioVolume?application_version=5.8)
+
 ## Checks
 
-Native subset below verifies scripted poses/listener rotations,wall/door output,reentry and16voice costs. Subjective headphone/speaker quality,continuous movement and room/reverb transitions remain proposed.
+The first Unreal experiment checks scripted poses, listener rotation and wall and door output. The room reverb experiment checks listener boundary entry and exit, overlapping presets and reversal. Continuous traversal, subjective quality, Doppler and HRTF still need their own evidence.
 
 ## Evidence
 
@@ -56,3 +59,9 @@ Scope excludes reverb,Doppler,HRTF,full propagation/diffraction,externalplugins,
 ### Measured costs and retained limits
 
 Measured whole-wall p95(ms),OFF:[8.743,8.803,8.698],ON:[8.716,8.612,8.677],on the fixed16voice workload above. These small whole-frame differences do not isolate occlusion CPU cost or establish a benefit from enabling it. Cadence-derived loopFPS is not physical monitor refresh. Use recorded conditions and all repeats,not a universal voice-capacity or frame-budget guarantee. The prototype uses PlayWhenSilent for input continuity;outside-range silence does not mean voice/DSP work was culled. Actual background PIE playback was enabled only in the testprocess and restored;v1silent/intermittent runs were rejected and the whole v2matrix remeasured.
+
+## Native Unreal V22 room reverb validation
+
+Set early and late reflection bypass flags explicitly when constructing a native preset. The UE 5.8.3 runtime default in this setup bypassed early reflections. Register a runtime-created sound class on the active device before playback and verify a nonzero source probe in the mixed output. Keep source gain and the dry path stable while changing the wet response. Give overlapping volumes distinct priorities and define the outdoor response and fade.
+
+Exercise boundaries, entry, exit, reentry and reversal during a fade. Use an impulse or short tone to verify direct amplitude and residual decay in actual master PCM. Different authored decay settings can produce the same measured envelope. Measure zone selection, parameter interpolation and the remaining tail separately. Test the chosen presets and playback hardware in the production setup. [Epic — AAudioVolume, UE 5.8](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/AAudioVolume?application_version=5.8)

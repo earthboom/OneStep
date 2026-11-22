@@ -22,3 +22,7 @@ Celeste 개발자가 설계 기법을 설명하고 Epic 문서는 캐릭터 콜�
 - [Maddy Thorson — Celeste & TowerFall Physics](https://www.mattmakesgames.com/articles/celeste_and_towerfall_physics/index.html)
 - [Epic — ACharacter](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/ACharacter?application_version=5.8)
 - [Epic — OnLanded and movement mode](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/ACharacter/OnLanded)
+
+## V30 평면 캐릭터의 점프 모서리 보정
+
+상승 중 막혔을 때 가까운 옆 위치부터 후보를 검사한다. 캡슐을 옆으로 스윕한 뒤 남은 상승 거리를 스윕해 모서리 너머의 여유를 확인한다. 두 이동 중 하나라도 막히면 함께 되돌리고 원래 충돌 응답을 따른다. 성공한 보정은 한 번의 상승에 한 번으로 제한하고 점프 요청 식별자, 코요테 타임과 버퍼를 유지한다. 좌우 모서리, 보정 한계, 낮고 넓은 천장, 옆 벽, 빠른 상승과 수직 이동 발판에서의 이륙을 확인한다. 화면 캡처의 시간 설정과 실제 프레임 간격을 따로 기록한다.

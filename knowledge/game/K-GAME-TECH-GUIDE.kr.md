@@ -491,3 +491,12 @@ EASING은 유한시간 전환, CAMERA는 추종 감쇠, TIMESTEP은 시뮬레이
 - [피격 후 반격 회복](K-GAME-TECH-INCENTIVES.kr.md)에서 회복 가능량의 만료, 회복 상한, 추가 피해와의 비교를 확인한다.
 
 - [게임 데이터 메모리 안전성](K-GAME-TECH-MEMORY.kr.md)에서 원본·대상 범위 검사, 거부 시 상태 보존, 지연 콜백의 원래 객체 식별을 확인한다.
+
+## 언리얼 후속 적용 지침
+
+- 상승 중 모서리 접촉과 이동 발판 이륙은 [V30 조작 지식](K-GAME-TECH-CONTROLLER.kr.md)을 찾는다.
+- 평평한 신발과 하이힐의 접지, 스윙 여유는 [V08 IK 지식](K-GAME-TECH-IK.kr.md)을 찾는다.
+- 단계적 저장·공간 부족 복구·진행 코드는 [V20·V54 저장 지식](K-GAME-TECH-SAVE.kr.md)을 찾는다.
+- 구역 경계를 오갈 때의 직접음과 잔향은 [V22 음향 지식](K-GAME-TECH-SOUND.kr.md)을 찾는다.
+- 구름층 통과와 시차, 격자 연막의 시야 규칙은 [V27·V10 볼륨 지식](K-GAME-TECH-VOLUME.kr.md)을 찾는다.
+- 곡면 복셀 편집과 청크 경계는 [V21 등가면 추출](K-GAME-TECH-VOXEL.kr.md)을 찾는다.

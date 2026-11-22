@@ -30,7 +30,7 @@ keywords:
 - UPoseableMeshComponent
 - effector
 status: active
-checked_at: '2026-11-19'
+checked_at: '2026-11-21'
 ---
 # Fit animation contacts with constrained inverse kinematics
 
@@ -53,3 +53,9 @@ Epic documents the solve controls and poseable mesh APIs. Prior Unreal observati
 - [Epic — Two Bone IK](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-blueprint-two-bone-ik-in-unreal-engine)
 - [Epic — FABRIK AnimBP Node](https://dev.epicgames.com/documentation/unreal-engine/fabrik-animation-blueprint-in-unreal-engine?lang=en-US)
 - [Epic — UPoseableMeshComponent](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UPoseableMeshComponent?application_version=5.8)
+
+## V08 footwear calibration on static supports — 2026-11-21
+
+Define heel and toe outsole samples in the neutral shoe frame. Convert the ankle offset and shoe pitch to bone space. Align the shoe frame to the support plane and solve the leg to the resulting ankle target. Use shoe-specific calibration when outsole position or rest pitch changes. Latch the contact during stance and release the anchor when support is lost or the leg cannot reach within the pelvis limit. Keep the gameplay capsule independent of the visual correction.
+
+Check flat and heeled footwear on flat ground, ramps and steps. Inspect outsole lift, penetration and drift through stance, transitions and swing. Stance calibration can solve the planted pose while swing still intersects geometry. Verify source animation clearance, support reacquisition and reach fallback on each production rig, shoe and gait. Compare capsule sweeps before and after the visual solve.

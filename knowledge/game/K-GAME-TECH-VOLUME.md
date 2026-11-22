@@ -1,19 +1,18 @@
 ---
 id: K-GAME-TECH-VOLUME
 title: Separate volumetric appearance from simulated smoke gameplay
-summary: Separate environmental volumetric fog appearance from smoke occupancy/gameplay.
-  UE5.8.3 native fog/one spot has bounded density,scattering,occlusion,motion/cut,light-trail
-  and interruption evidence;whole-frame/GPU costs vary and history trails remain adoption
-  conditions.
+summary: Use world-space extinction for environmental volumes and independent density queries for gameplay visibility.
+  UE5.8.3 V10 covers door-gated density transfer, dissipation, exact grid boundaries and HUD-independent
+  visibility. V27 covers a native cloud layer and view sample cost.
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
-keywords: ["volumetric", "smoke", "clouds", "Worley", "연막", "구름", "경계누출", "잔상", "Volumetric Fog", "temporal reprojection", "Volumetric Scattering Intensity", "volumetric fog", "density", "anisotropy", "volumetric shadow", "camera cut", "light trail", "reactivation", "볼류메트릭 안개", "광원 잔상", "밀도", "광산란"]
+keywords: ["volumetric", "smoke", "clouds", "Worley", "연막", "구름", "경계누출", "잔상", "Volumetric Fog", "temporal reprojection", "Volumetric Scattering Intensity", "volumetric fog", "density", "anisotropy", "volumetric shadow", "camera cut", "light trail", "reactivation", "볼류메트릭 안개", "광원 잔상", "밀도", "광산란", "V27", "Volumetric Cloud", "cloud fly-through", "cloud layer", "coverage", "parallax", "view sample count", "볼류메트릭 구름", "구름층 통과", "시차", "V10", "gameplay smoke", "density grid", "optical depth", "door transfer", "grid traversal", "smoke dissipation", "시야 판정", "밀도 격자", "연막 소멸", "표시 독립성", "격자 경계", "밀도 임계값"]
 status: active
-checked_at: '2026-11-17'
+checked_at: '2026-11-22'
 context:
   evidence_check: External source text checked; source-specific limits appear in Evidence
-  application_status: V10/V27 limited fog appearance only:UE5.8.3/54policy/6worlds/9costs/72snormal1x+24sno-historycontrol;clouds,fluid
-    andgameplay smoke remain unimplemented
+  application_status: UE5.8.3 V10 fixed-grid gameplay smoke with native solids and independent visibility,
+    and V27 single-layer native clouds. See each for the measured fixture and scope.
 ---
 # Separate volumetric appearance from simulated smoke gameplay
 
@@ -30,6 +29,12 @@ Valve's 2023 CS2 patch notes explicitly mention smoke-volume expansion near wall
 ### Volumetric Fog
 
 Unreal's Volumetric Fog uses temporal reprojection to reuse fog samples across frames. Rapidly changing lights can leave trails. Compare moving and static lights, then vary the light's `Volumetric Scattering Intensity` to isolate its contribution to fog from its lighting of opaque surfaces.
+
+### One native cloud layer
+
+When the camera can fly through a cloud or see nearby and far clouds shift by different amounts, use a world-space density field inside a native `UVolumetricCloudComponent` layer. Drive extinction with independent density and coverage parameters. Use a vertical profile to taper extinction to zero at both boundaries. A sky-only view at the same camera pose is a useful baseline for isolating cloud pixels. [Epic — UVolumetricCloudComponent](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UVolumetricCloudComponent?application_version=5.8)
+
+Keep the trace distances, shadow sample scale, atmosphere, material, resolution and camera path fixed when comparing view sample scales. The view-ray sample ceiling limits the renderer's budget. Distance-based sampling and transmittance-based early termination can reduce the work on individual rays. Compare stills and fly-throughs together, then choose a sample setting against the target scene's frame and GPU budgets. [Epic — Volumetric Cloud Component Properties](https://dev.epicgames.com/documentation/unreal-engine/volumetric-cloud-component-properties-in-unreal-engine)
 
 ## Applicability and exceptions
 
@@ -69,3 +74,17 @@ The first intentionally hidden-fog stub passed native flags but the pixel gate c
 Use for bounded environmental fog/mist and lighting appearance. A shadowing wall attenuates the light contribution;it does not remove global fog density or provide authoritative gameplay visibility. No CS2-style smoke occupancy,cloud generation,fluid,network orrenderer/framework optimization. Fixed one spot/opaque unlit boxes/one machine/24s;no transparent-material,large outdoor,arbitrary light count or hardware-general budget guarantee. ViewDistance is a volume evaluation setting,not a tested hard gameplay cutoff;this test covers target depth/silhouette/screen boundaries,not complete far-fallback matching. Actual rendering is measured only for the stated density/g values. CVar values are restored,but production multiworld integration needs separate ownership. User visual-quality review/acceptance remains pending.
 
 [Epic Volumetric Fog](https://dev.epicgames.com/documentation/en-us/unreal-engine/volumetric-fog-in-unreal-engine),checked2026-11-17,currentpage5.9:general density/scattering/grid/history behavior only;not a pinned5.8API proof. Installed5.8.3ExponentialHeightFogComponent/VolumetricFog.cpp/usf were checked for local setters,grid/history/cut rejection and density*extinction. External performance examples are not our measured budget. Original source research and CS2claims remain separately dated2026-11-07. Latest30limited sheets/13without dedicated prototypes;not all originating shorts certified.
+
+## Native Unreal V27 cloud validation
+
+Use a tileable world-space noise field, independent density and coverage controls, and extinction taper at the upper and lower bounds. Check a zero-density control and a matched sky-only frame. Move the camera below, through and above the layer. Compare displacement at different depths, check opaque foreground occlusion and account for sky changes when comparing sun directions.
+
+Hold material, trace distances and shadow sampling constant when tuning the view sample scale. The ceiling constrains the sample budget, with actual sampling affected by distance and early termination. Inspect grain in dense and inside-volume views and measure frame and GPU cost on target hardware. This guidance covers a bounded native cloud layer and opaque foreground occlusion. [Epic — UVolumetricCloudComponent, UE 5.8](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UVolumetricCloudComponent?application_version=5.8)
+
+## Native Unreal V10 gameplay smoke visibility
+
+Use a fixed-step density field. Permit transfer across shared doorway faces while open and stop transfer on closure. Preserve density that already crossed the door so it can dissipate. Verify agreement between native collision geometry and the grid transfer boundaries. Check solids first and record wall and smoke occlusion as distinct outcomes.
+
+Integrate density times path length on a geometry-clear ray. Use one half-open cell convention, step every axis tied at a boundary and give point touches zero length. Specify the optical-depth threshold's inclusion rule. Compare against an independent plane-intersection calculation for zero density, threshold neighbors, reversed segments, and face and corner contacts. [Amanatides and Woo — A Fast Voxel Traversal Algorithm](https://www.eecs.yorku.ca/~amana/research/grid.pdf)
+
+Keep display reads separate from density writes and compare the same field snapshot and ray with shading enabled and hidden. Measure updates and queries separately. When scaling, consider both the grid size and how many unblocked rays actually traverse the grid, including their path lengths.
