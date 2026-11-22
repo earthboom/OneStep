@@ -13,6 +13,8 @@ For game architecture and technical choices, use the [game evidence reuse conven
 
 Start a new game with the [foundation decisions](references/gameplay-framework.md#plan-a-new-game-foundation). Derive the framework, state ownership and content path from representative play before choosing project scaffolding, packages or shared base classes. For an existing game, apply the relevant parts of [gameplay framework and content design](references/gameplay-framework.md) when changing those decisions or how features compose. Carry the design and proposed checks into implementation when the request includes it.
 
+When designing input response, impact feedback, or the camera, visual effects, audio, and haptics that communicate a gameplay outcome, use the [gameplay feedback guidance](references/gameplay-framework.md#design-gameplay-feedback).
+
 When deciding how game data evolves, what a world loads or retains, how a renderer meets its budget, or what NPCs do offscreen, use the applicable [world runtime design guidance](references/world-lifecycle.md). Tie each chosen policy to a gameplay requirement and pass the preservation, transition and measurement conditions to implementation.
 
 ## Resolve the design

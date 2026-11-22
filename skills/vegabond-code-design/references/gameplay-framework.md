@@ -26,11 +26,32 @@ Choose one current content item and one credible variation, such as a second enc
 
 Use validated data or assets for values and combinations with an existing meaning. Use a concrete function, type, or component to compose behavior that varies independently. Add an extension point or base type for an identified variation or framework contract, and check substitutability for public inheritance. Identify the place where content is registered and related features are assembled. For data consumed by existing content, saves, or network peers, preserve the relevant IDs, schemas, and contracts or specify a migration. Account for missing or invalid content at the point the project can detect it.
 
+For stage additions and changes to shared gameplay code or rules, [set the regression scope](#set-gameplay-regression-scope) before implementation.
+
 ## Make feature dependencies explicit
 
 Give independently optional features no direct sibling dependency. Shared rules or stable contracts may have a common owner, and the code or content that assembles a mode can depend on the features it selects. Put an intentional interaction between optional features in that assembly or in an integration that is enabled when its prerequisites are available. If the product requires one feature for another, document the dependency direction, the required contract, and the unavailable case. Avoid cycles and preserve the target project's legitimate dependency directions. [Dependency direction](../../../knowledge/code/K-CODE-DEPENDENCY-DIRECTION.md)
 
 Trace the affected edges in source and build configuration, authored content, and runtime. Look at public types, includes, modules and plugins; hard or soft asset references and registration data; and object lookup, events, initialization, and cleanup. An event, tag, or soft reference still carries a dependency if a particular feature must provide it for the flow to work. For Unreal, inspect relevant `Build.cs` or plugin declarations, check affected Blueprint and data-asset references with the available asset tools, and verify registration and teardown in the intended world and network role. [Unreal build dependencies](https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-modules) · [Unreal Reference Viewer](https://dev.epicgames.com/documentation/en-us/unreal-engine/reference-viewer-in-unreal-engine)
+
+## Set gameplay regression scope
+
+In the existing brief, state the intended change and what players should still see or be able to do. Include the authoritative or persisted result when the behavior depends on it. For each proposed check, identify the starting state, action, expected result, actual gameplay entry point, and required environment. Use the existing game contract or an accepted baseline to define the expectation.
+
+| Change | Select before implementation |
+| --- | --- |
+| Shared gameplay code or rules | Representative existing callers or stages with different uses of the rule or lifecycle. Include a relevant invalid or interrupted path when it can expose a regression. |
+| Stage addition | The new stage's normal registration and play path and representative existing content affected through shared rules, assets, or progression. Include existing saves and target builds when the change reaches those boundaries. |
+
+Use both rows when adding a stage changes shared gameplay code or a shared rule defined in data. Scale the check set to the affected contracts and supported configurations. For design-only work, hand off the proposed checks, expected observations, and any untested assumptions. [Gameplay regression verification](../../vegabond-code/references/verification.md#gameplay-regression-checks)
+
+## Design gameplay feedback
+
+In the existing brief, trace accepted input, action start, outcome, and recovery. State which feedback can begin with the action and which communicates a confirmed outcome. For each relevant outcome, such as hit, guard, or miss, name the resolving gameplay owner and the camera, visual, audio, or haptic cues that express its result. Match contact cues to the resolved location and direction when those details matter. For network anticipation, specify what can play early and how confirmation, rejection, or correction handles duplicate or misleading cues.
+
+Record when the next input can be captured and acted on. If feedback uses hitstop or other time changes, name which actors and clocks pause or continue, including input buffering and rule timers where affected. Treat hit timing, gameplay recoil, and changes to action windows as gameplay decisions. Presentation-only settings preserve those decisions.
+
+Decide what must remain readable after impact and when effects overlap, such as aim, an incoming warning, or the difference between a guard and a hit. Prioritize those cues and give essential information another supported sensory path when shake, effects, sound, or haptics are reduced or unavailable. Hand off representative outcomes, a rapid repeat or interruption if relevant, and the settings and observations needed for [gameplay feedback verification](../../vegabond-code/references/verification.md#gameplay-feedback-checks).
 
 ## Review the change through content and play
 

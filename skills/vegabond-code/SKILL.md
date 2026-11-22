@@ -1,6 +1,6 @@
 ---
 name: vegabond-code
-description: Use when implementing software, repairing defects, refactoring, or investigating code and runtime behavior in any language or engine, coordinating design when needed.
+description: Use when implementing software or gameplay content, repairing defects, refactoring, or investigating code and runtime behavior in any language or engine, coordinating design when needed.
 ---
 
 # Vegabond Code
@@ -33,9 +33,11 @@ Pass the current brief, environment, affected source/contracts, constraints, and
 
 ## Implement or investigate
 
-Read [verification and handoff](references/verification.md) before changing code or judging the result. It owns the detailed preparation, build/test/runtime/real-use checks, review-and-repair loop, verification-change scrutiny, long-work state, and demonstrated safeguards. Apply it to each coherent change and the final integrated artifact; do not defer reading it until completion.
+Read [verification and handoff](references/verification.md) before changing code or judging the result. It owns the detailed preparation, build/test/runtime/real-use checks, review-and-repair loop, verification-change scrutiny, long-work state, and demonstrated safeguards. Before editing shared gameplay code, changing a shared rule, or adding a stage, use its [gameplay regression checks](references/verification.md#gameplay-regression-checks) to record preserved behavior and the check scope in the existing brief. Apply verification to each coherent change and the final integrated artifact.
 
 For a gameplay framework or content boundary change, carry the representative extension, affected dependency checks, and supported content configurations from the design into software verification. Apply the relevant dependency and configuration checks to an independently optional feature added through an existing extension point as well. Exercise the production registration and play path. Record the actual changes needed to add the variant and the behavior of the applicable configurations in the verification evidence.
+
+When changing input response, impact feedback, or the presentation of a gameplay outcome, use the [gameplay feedback checks](references/verification.md#gameplay-feedback-checks), including for asset-only changes that affect those behaviors.
 
 For game data changes, streamed, cached or pooled content, rendering budgets, or NPC behavior across lifetime and visibility changes, apply the relevant [game runtime checks](references/world-lifecycle-verification.md) alongside the general verification procedure. Use the actual integration boundary for each claim, including existing data bytes, engine residency, and observable state where applicable.
 

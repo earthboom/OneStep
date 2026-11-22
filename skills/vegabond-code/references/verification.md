@@ -8,6 +8,22 @@ Before implementation, map the acceptance conditions and preserved contracts to 
 
 Use the project's existing verification commands and harness first. Confirm that the command actually discovers the intended tests and reaches the changed behavior; an exit-zero run with no relevant assertions is not proof. Retain the command, target/configuration, code revision or relevant diff, and observed results in existing task evidence. When a missing repeatable path would otherwise leave required behavior unchecked, add the smallest reusable check within scope and demonstrate it end to end.
 
+### Gameplay regression checks
+
+Before editing shared gameplay code, changing a shared rule, or adding a stage, reuse or record the [gameplay regression scope](../../vegabond-code-design/references/gameplay-framework.md#set-gameplay-regression-scope) in the existing brief. For each selected path, establish the starting state, input, expected player-visible result and relevant authoritative state, and required engine, build, or network role. Base expectations on the existing contract or an accepted baseline. Mark intended changes to that behavior explicitly.
+
+- **Shared gameplay code or rules:** Check the affected rule or lifecycle in isolation where practical, then exercise representative existing content through real play. Choose callers, stages, and roles that differ in how they use the shared behavior. Cover a relevant invalid input, interruption, or retry where it can expose a regression.
+- **Stage addition:** Validate IDs, references, required markers, and progression as applicable. Use the normal list, unlock, or entry path and check play, retry or exit, and the intended outcome. Recheck representative existing content that shares the affected rules, assets, or progression. Apply both paths if the addition changes shared gameplay code or a shared rule defined in data.
+
+Use a supported prior save when saved progress or IDs are affected. Use the target Unity Player or Unreal package when scene or map inclusion, content delivery, or another build-specific behavior is at issue. Record which environment and paths were exercised. A rule check, editor play, and packaged play each support claims about their own scope.
+
+### Gameplay feedback checks
+
+Before editing, select a representative path through the normal controls and record the intended feedback change, the accepted baseline, and the input response, result cues, and visibility to preserve. Reuse the [gameplay feedback design](../../vegabond-code-design/references/gameplay-framework.md#design-gameplay-feedback) where available. Compare the same paths after the change, using the existing checks or the smallest practical reproduction.
+
+- **Outcome alignment.** Exercise the applicable hit, guard, and miss cases. Check that contact cues play at the resolved result and at the relevant location or direction. Include rapid repeats or network correction when they can produce stale or duplicate feedback. For a presentation-only change, confirm that the relevant hit timing, damage, stagger, aim, or action windows are preserved.
+- **Responsiveness and readability.** Play the same sequence with representative input and output devices. When settings or device support affect the cues, compare the default with representative supported configurations where feedback is reduced, disabled, or unavailable. Confirm that follow-up input is handled at the intended time, including during and after hitstop where applicable. Check that the cues identify the outcome and leave the next threat or action readable under representative overlap. When timing is changed or at risk, compare the relevant input-to-response, outcome-to-cue, or recovery interval under comparable conditions. Record the observed play and settings, including limits of any automated cue or timing check.
+
 ## Verify
 
 Retain these four stages where applicable:
