@@ -1,0 +1,66 @@
+[
+  {
+    "case": 1,
+    "label": "A",
+    "version": "pre",
+    "file": "01-A.png",
+    "source": "exec-15a8ac91-1741-426c-a07b-ced041145d49.png",
+    "sha256": "0fb1b6e30b21c90e20e416ecc98e9059740f7d0521fbf5c61835d6c525aea0c3"
+  },
+  {
+    "case": 1,
+    "label": "B",
+    "version": "post",
+    "file": "01-B.png",
+    "source": "exec-1c78c2ad-a40e-4c2b-9bf3-43e4d3d0ad37.png",
+    "sha256": "5b2ccdaa25883f784fc79fe811192a8d4b777b7de7d314487ea33bec06ff708f"
+  },
+  {
+    "case": 2,
+    "label": "A",
+    "version": "post",
+    "file": "02-A.png",
+    "source": "exec-9b68cb75-6879-4d98-b79b-38bce03c47e0.png",
+    "sha256": "9a173ff39226c47af5b0c01d289fa2f7a136132a8de8c38f54cf3d158af6390f"
+  },
+  {
+    "case": 2,
+    "label": "B",
+    "version": "pre",
+    "file": "02-B.png",
+    "source": "exec-3ada5c52-7670-4153-8476-f36ca36c11a6.png",
+    "sha256": "8c6df8fbe8a29028708af50f7bba16a1c01db0e44d02fa34bb0ed6779f7c9a2f"
+  },
+  {
+    "case": 3,
+    "label": "A",
+    "version": "post",
+    "file": "03-A.png",
+    "source": "exec-b220af93-1d26-485e-a339-467c7ef6aea6.png",
+    "sha256": "5430874ed13688b9be9a396278c0e061ab9e55d3bcf43a64e8be0a0659d9af76"
+  },
+  {
+    "case": 3,
+    "label": "B",
+    "version": "pre",
+    "file": "03-B.png",
+    "source": "exec-332f2af3-e68f-4b80-bee9-d45cc165ab22.png",
+    "sha256": "62aa355da1aee6058bfc1e82400984093897392a2a7d8c324883520d2acf9d73"
+  },
+  {
+    "case": 4,
+    "label": "A",
+    "version": "pre",
+    "file": "04-A.png",
+    "source": "exec-5cc1f925-9a39-43ee-87d3-5db6c69dbce3.png",
+    "sha256": "dff73a76c5781e69f5c923fd20c02592bd4486a2970cf35fb72daaa805b9cd2c"
+  },
+  {
+    "case": 4,
+    "label": "B",
+    "version": "post",
+    "file": "04-B.png",
+    "source": "exec-c85ebf27-2f6e-49cb-81fd-6a49718e7c2c.png",
+    "sha256": "e2c0f02a8d4d40b922f014d5224b17cbeb2274bf2e257b006ae1afb158f52275"
+  }
+]

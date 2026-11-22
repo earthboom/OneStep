@@ -1,0 +1,137 @@
+[
+  {
+    "id": "01",
+    "repeat": 1,
+    "initial": "01-r1.png",
+    "final": "01-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "귤색 표가 먼저 보이며 남보라 접힘과 밝은 면직물 면이 구별된다. 원본 선택."
+  },
+  {
+    "id": "01",
+    "repeat": 2,
+    "initial": "01-r2.png",
+    "final": "01-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "주황색 표가 흰 면장갑의 손바닥 위에서 먼저 읽힌다. 불투명한 붓 자국이 보인다. 원본 선택."
+  },
+  {
+    "id": "01",
+    "repeat": 3,
+    "initial": "01-r3.png",
+    "final": "01-r3.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "표가 먼저 읽혔고 천의 접힘과 저녁 매표창이 보인다. 원본 선택."
+  },
+  {
+    "id": "02",
+    "repeat": 1,
+    "initial": "02-r1.png",
+    "final": "02-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "붉은 산딸기 한 알이 먼저 읽혔다. 청자색 접시와 호박빛 창문 반사가 구별된다. 원본 선택."
+  },
+  {
+    "id": "02",
+    "repeat": 2,
+    "initial": "02-r2.png",
+    "final": "02-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "산딸기가 시선을 끌고 접시 안쪽의 투명한 청록색과 햇빛이 보인다. 원본 선택."
+  },
+  {
+    "id": "02",
+    "repeat": 3,
+    "initial": "02-r3.png",
+    "final": "02-r3.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "산딸기가 먼저 읽힌다. 수채화의 옅은 접시색과 따뜻한 창빛이 함께 보인다. 원본 선택."
+  },
+  {
+    "id": "03",
+    "repeat": 1,
+    "initial": "03-r1.png",
+    "final": "03-r1-edit.png",
+    "repair": "03-r1-edit.png",
+    "repair_prompt": "Edit this colored-pencil drawing to make the existing small yellow carpenter's pencil the unmistakable first glance. Concentrate vivid golden-yellow pigment, sharp facets and the strongest local light-dark step on that pencil. Let the great mass of black leather merge more quietly into the workshop shadows; keep its actual black color, pocket construction and leather grain readable up close. Turn down the contrast of stitching, hardware, bench details and the lamp itself. Retain the blue work-light cast, the visible pencil tucked into the pocket, the same arrangement and hand-drawn colored-pencil technique.",
+    "notes": "원본의 첫인상은 공구집이었다. 수정본에서 박음질과 버클의 명암이 줄고 노란 연필이 가장 밝게 남는다. 검은 가죽결과 색연필 자국을 유지한 수정본 선택."
+  },
+  {
+    "id": "03",
+    "repeat": 2,
+    "initial": "03-r2.png",
+    "final": "03-r2-edit.png",
+    "repair": "03-r2-edit.png",
+    "repair_prompt": "Edit this colored-pencil drawing to make the existing small yellow carpenter's pencil the unmistakable first glance. Concentrate vivid golden-yellow pigment, sharp facets and the strongest local light-dark step on that pencil. Let the great mass of black leather merge more quietly into the workshop shadows; keep its actual black color, pocket construction and leather grain readable up close. Turn down the contrast of stitching, hardware, bench details and the lamp itself. Retain the blue work-light cast, the visible pencil tucked into the pocket, the same arrangement and hand-drawn colored-pencil technique.",
+    "notes": "원본은 공구집이 먼저 읽혔다. 수정본에서는 푸른 작업등과 공구집의 반사광이 가라앉아 밝은 노란 연필이 분리된다. 수정본 선택."
+  },
+  {
+    "id": "03",
+    "repeat": 3,
+    "initial": "03-r3.png",
+    "final": "03-r3.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "첫인상 기록은 노란 연필이었다. 검은 가죽 주머니에 꽂힌 납작한 몸통과 색연필 결이 확인되어 원본 선택."
+  },
+  {
+    "id": "04",
+    "repeat": 1,
+    "initial": "04-r1.png",
+    "final": "04-r1-edit.png",
+    "repair": "04-r1-edit.png",
+    "repair_prompt": "Edit this kitchen photograph's lighting and focus so the single small green olive immediately catches the eye. Give the olive luminous natural green flesh, a delicate window catchlight and crisply resolved skin with its contact shadow. Use softer, lower-contrast reflections and slightly shallower depth of field across the rest of the large shallow copper tray, retaining the reddish metal and a subtle blue dawn sheen. The tray and the room around it should recede. Preserve the small olive resting on the real shallow copper tray, the same scene and credible blue dawn exposure. Natural continuous-tone still-life photography.",
+    "notes": "원본은 쟁반이 먼저 읽혔다. 수정본에서 차가운 반사와 가장자리 밝기가 낮아지고 올리브 껍질이 선명해졌다. 쟁반 전체 윤곽은 여전히 크다. 수정본 선택."
+  },
+  {
+    "id": "04",
+    "repeat": 2,
+    "initial": "04-r2.png",
+    "final": "04-r2-edit.png",
+    "repair": "04-r2-edit.png",
+    "repair_prompt": "Edit this kitchen photograph's lighting and focus so the single small green olive immediately catches the eye. Give the olive luminous natural green flesh, a delicate window catchlight and crisply resolved skin with its contact shadow. Use softer, lower-contrast reflections and slightly shallower depth of field across the rest of the large shallow copper tray, retaining the reddish metal and a subtle blue dawn sheen. The tray and the room around it should recede. Preserve the small olive resting on the real shallow copper tray, the same scene and credible blue dawn exposure. Natural continuous-tone still-life photography.",
+    "notes": "원본은 쟁반이 먼저 읽혔다. 수정본은 창틀과 금속 반사의 초점이 풀려 올리브 주변 명암이 도드라진다. 구리색과 새벽빛을 유지한 수정본 선택."
+  },
+  {
+    "id": "04",
+    "repeat": 3,
+    "initial": "04-r3.png",
+    "final": "04-r3-edit.png",
+    "repair": "04-r3-edit.png",
+    "repair_prompt": "Edit this kitchen photograph's lighting and focus so the single small green olive immediately catches the eye. Give the olive luminous natural green flesh, a delicate window catchlight and crisply resolved skin with its contact shadow. Use softer, lower-contrast reflections and slightly shallower depth of field across the rest of the large shallow copper tray, retaining the reddish metal and a subtle blue dawn sheen. The tray and the room around it should recede. Preserve the small olive resting on the real shallow copper tray, the same scene and credible blue dawn exposure. Natural continuous-tone still-life photography.",
+    "notes": "원본은 쟁반과 올리브가 함께 읽혔다. 수정본에서 올리브에 초록빛이 더 선명하고 쟁반의 강조된 반사광은 부드럽다. 수정본 선택."
+  },
+  {
+    "id": "05",
+    "repeat": 1,
+    "initial": "05-r1.png",
+    "final": "05-r1-edit.png",
+    "repair": "05-r1-edit.png",
+    "repair_prompt": "Edit this soft-pastel drawing so the small silver dragonfly pinned to the side of the hat attracts the eye immediately. Give the silver brooch the drawing's brightest clean silvery lights and most precise marks, allowing all four wings to glint against a deep navy patch. Make the contrast of the hat against the room gentler and soften the bulbs to dusty rose, low enough in value that the brightest glint belongs only to the brooch. Keep the original navy felt color, fuzzy nap, hat shape, brooch size and location, pink backstage dressing-room light and soft-pastel marks.",
+    "notes": "원본은 모자가 먼저 읽혔다. 수정본에서 배경 전구가 어두워지고 브로치 날개에 은빛이 모인다. 모자와 분장실 사이의 대비가 줄어 수정본 선택."
+  },
+  {
+    "id": "05",
+    "repeat": 2,
+    "initial": "05-r2.png",
+    "final": "05-r2-edit.png",
+    "repair": "05-r2-edit.png",
+    "repair_prompt": "Edit this soft-pastel drawing so the small silver dragonfly pinned to the side of the hat attracts the eye immediately. Give the silver brooch the drawing's brightest clean silvery lights and most precise marks, allowing all four wings to glint against a deep navy patch. Make the contrast of the hat against the room gentler and soften the bulbs to dusty rose, low enough in value that the brightest glint belongs only to the brooch. Keep the original navy felt color, fuzzy nap, hat shape, brooch size and location, pink backstage dressing-room light and soft-pastel marks.",
+    "notes": "원본은 모자가 먼저 읽혔다. 수정본은 은빛 날개의 밝기를 유지하고 배경 조명의 대비를 낮췄다. 남색 펠트 결도 보인다. 수정본 선택."
+  },
+  {
+    "id": "05",
+    "repeat": 3,
+    "initial": "05-r3.png",
+    "final": "05-r3-edit.png",
+    "repair": "05-r3-edit.png",
+    "repair_prompt": "Edit this soft-pastel drawing so the small silver dragonfly pinned to the side of the hat attracts the eye immediately. Give the silver brooch the drawing's brightest clean silvery lights and most precise marks, allowing all four wings to glint against a deep navy patch. Make the contrast of the hat against the room gentler and soften the bulbs to dusty rose, low enough in value that the brightest glint belongs only to the brooch. Keep the original navy felt color, fuzzy nap, hat shape, brooch size and location, pink backstage dressing-room light and soft-pastel marks.",
+    "notes": "원본은 모자가 먼저 읽혔다. 수정본에서 밝은 브로치가 모자 옆면에서 더 잘 구별된다. 짙은 모자 덩어리는 여전히 크게 보인다. 수정본 선택."
+  }
+]

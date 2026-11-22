@@ -1,0 +1,291 @@
+{
+  "initial": {
+    "totals": {
+      "before": {
+        "cases": {
+          "01": {
+            "hits": 15,
+            "possible": 16,
+            "all_pass": 3,
+            "decisions": 4
+          },
+          "02": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "03": {
+            "hits": 12,
+            "possible": 16,
+            "all_pass": 0,
+            "decisions": 4
+          },
+          "04": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "05": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "06": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "07": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "08": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          }
+        },
+        "hits": 123,
+        "all_pass": 27
+      },
+      "after": {
+        "cases": {
+          "01": {
+            "hits": 10,
+            "possible": 16,
+            "all_pass": 1,
+            "decisions": 4
+          },
+          "02": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "03": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "04": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "05": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "06": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "07": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "08": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          }
+        },
+        "hits": 122,
+        "all_pass": 29
+      }
+    },
+    "pairs_after_win_tie_loss": [
+      2,
+      12,
+      2
+    ]
+  },
+  "final": {
+    "totals": {
+      "before": {
+        "cases": {
+          "01": {
+            "hits": 15,
+            "possible": 16,
+            "all_pass": 3,
+            "decisions": 4
+          },
+          "02": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "03": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "04": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "05": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "06": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "07": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "08": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          }
+        },
+        "hits": 127,
+        "all_pass": 31
+      },
+      "after": {
+        "cases": {
+          "01": {
+            "hits": 14,
+            "possible": 16,
+            "all_pass": 2,
+            "decisions": 4
+          },
+          "02": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "03": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "04": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "05": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "06": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "07": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          },
+          "08": {
+            "hits": 16,
+            "possible": 16,
+            "all_pass": 4,
+            "decisions": 4
+          }
+        },
+        "hits": 126,
+        "all_pass": 30
+      }
+    },
+    "pairs_after_win_tie_loss": [
+      0,
+      15,
+      1
+    ]
+  },
+  "blind_candidates": 36,
+  "agreed_marks": 139,
+  "total_marks_compared": 144,
+  "reader_final": {
+    "reader1": {
+      "before": 63,
+      "after": 62
+    },
+    "reader2": {
+      "before": 64,
+      "after": 64
+    }
+  },
+  "repairs": {
+    "before": 2,
+    "after": 2
+  },
+  "files_sha256": {
+    "before/01-r1.png": "cf5a8e8dbb61d1235786bc401b54ae49c00d455f09d740a893b59ceae124c5b2",
+    "before/01-r2.png": "c82dce451ff6b4ab236f872cb9be6f3d5fea747932c8d6313158d9df6d9a7d36",
+    "before/02-r1.png": "c5680d469ba4e94dc2e6437a6ba230666b75e8d482e969a76421600350677364",
+    "before/02-r2.png": "81d763f7681f1ed2099c4dd7346fc455f5692525fd9bc66364c1c59b724ec6aa",
+    "before/03-r1-edit.png": "df126c8232b389cd5d4dccfb75ebc8a0353fc4ac3cb720d50ba63b9ccbe85ffd",
+    "before/03-r1.png": "ea8ae91cf44ab5374dc30f03d16d58089e60f1d51cf64ba5610eb7f077fb27d6",
+    "before/03-r2-edit.png": "20226a2c0f60b580ac724644656bfb424f31624e199e1b3f3f3537178b3305bb",
+    "before/03-r2.png": "e09c16db4846dde22deb9bd748c104a6bc7c26a1e5443036106291a4c8cf4611",
+    "before/04-r1.png": "7fbb2227caa6076ab15695ff39065c664793419a16a23b3f4e98de8d5e408851",
+    "before/04-r2.png": "aee1b701954031b4f412ef83cbfd94688a703e1bf670cdf9d7a0f0ff9abd553c",
+    "before/05-r1.png": "9a21789a1ce5e89fc93051e0611aa72eb89d886049bfcba00dd87623c9b31a86",
+    "before/05-r2.png": "30999e3840b098ebd7f7ded49de20cfffc691e84388c1d177ba980b3fc4c20da",
+    "before/06-r1.png": "044a037066ae12a74792036bff391b3d80a161f93133ca24dd56678948322b55",
+    "before/06-r2.png": "5d63457b475c1434971f22ddb72e8b2ba04141f54e9326c97ffc29b94f264821",
+    "before/07-r1.png": "c7299a9220553a0d9086a9e930e9e40bea2ce4546f24f3a68bb79defee6f84a2",
+    "before/07-r2.png": "6e831770cb6d814abfd3f71a3513c4f85ea2be39446652ed4c9f175671e43b52",
+    "before/08-r1.png": "b1d51844874be3e410efccf50c9c58f422785b644450b9af4f740501ecd5aac4",
+    "before/08-r2.png": "6af12d7c72e5ca50c7802957c42bf98e5eb2d84190ba14a9267efc3975dfe1ea",
+    "after/01-r1-edit.png": "a89113e675eeba703dbab9b145162368862e31e7738553e9658243bc46294712",
+    "after/01-r1.png": "0df3e94f002f742b3f6ca299205f0ae5b07c704442e02482c6982610615dccac",
+    "after/01-r2-edit.png": "a922cb202c061ed39e829529420002afc751b084a53235b5f7e8a0bb0ef1e82f",
+    "after/01-r2.png": "6cbfb2730bdc755fd50b80df61217db8279d07939fb3b8328c548eb49a9351f3",
+    "after/02-r1.png": "8305dc1726587ab04ad41266182d48f501dd5a6e20893d8e95953c8cad00ba19",
+    "after/02-r2.png": "e638c17aba280f74986f83e71baf078edfeecb71c9055ea357b9a106c87db13c",
+    "after/03-r1.png": "4ea2a1f71a7b012eda1c667eed76fef934106456e86b20f4f4617dc654282342",
+    "after/03-r2.png": "a98148d467320f14fd81bb8f1263c6855ce1f6f4511edc81bb7570b1f6e1c07c",
+    "after/04-r1.png": "e287e461f7c0d2c6fe09c28218794ac63ab4057d45a5a2820789da94b3e8db4f",
+    "after/04-r2.png": "c3e6e1c274468a4eb08e5b9cb7b36d7e4950c1efef7c6ffc9b7d2351d12c5c97",
+    "after/05-r1.png": "ee81fb010f98cbd9c4e30f4a0ab23268764711d18c7003c73d93b367cd53f2c3",
+    "after/05-r2.png": "481ae05ce6d8c2e61a3aa09c186d9a76aa0e8609d6568c80a48f8fe43a69791a",
+    "after/06-r1.png": "22e0edb10cfd7e36937eddfeb0ce96f488d4ac0848eb21c5fd8bd745ed1b26c1",
+    "after/06-r2.png": "8bb0677fb1d51b4eb5aaa0f6cf0e230844d2c772ad575a1e59442ee2d6afc7e9",
+    "after/07-r1.png": "3404b3e189aaa44fffb0f4c6c63edfd891397d3dff15792697aca3ff1487b0a8",
+    "after/07-r2.png": "95aa5b4e8904493f0eec993c37974543aee3fc0684cc4b18d33ea196daefb486",
+    "after/08-r1.png": "de16fe598ca8646aec8b186f362e588b370c48ee8cb7600787e993f5a98e2d7f",
+    "after/08-r2.png": "5cb25cecbd139dcc98de30db4f375f66000a2da48748b088f90e0b6540542e2a"
+  }
+}

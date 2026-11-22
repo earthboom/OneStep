@@ -1,0 +1,227 @@
+[
+  {
+    "label": "01",
+    "object": "구리 쟁반",
+    "tie": false
+  },
+  {
+    "label": "02",
+    "object": "산딸기",
+    "tie": false
+  },
+  {
+    "label": "03",
+    "object": "짙은 남색 모자",
+    "tie": false
+  },
+  {
+    "label": "04",
+    "object": "산딸기",
+    "tie": false
+  },
+  {
+    "label": "05",
+    "object": "연녹색 접시",
+    "tie": false
+  },
+  {
+    "label": "06",
+    "object": "연녹색 접시",
+    "tie": false
+  },
+  {
+    "label": "07",
+    "object": "짙은 남색 모자",
+    "tie": false
+  },
+  {
+    "label": "08",
+    "object": "초록 올리브",
+    "tie": false
+  },
+  {
+    "label": "09",
+    "object": "연녹색 접시",
+    "tie": false
+  },
+  {
+    "label": "10",
+    "object": "짙은 남색 모자",
+    "tie": false
+  },
+  {
+    "label": "11",
+    "object": "초록 올리브",
+    "tie": false
+  },
+  {
+    "label": "12",
+    "object": "짙은 남색 모자",
+    "tie": false
+  },
+  {
+    "label": "13",
+    "object": "흰 장갑",
+    "tie": false
+  },
+  {
+    "label": "14",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "15",
+    "object": "가죽 공구 주머니",
+    "tie": false
+  },
+  {
+    "label": "16",
+    "object": "구리 쟁반",
+    "tie": false
+  },
+  {
+    "label": "17",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "18",
+    "object": "산딸기",
+    "tie": false
+  },
+  {
+    "label": "19",
+    "object": "짙은 남색 모자",
+    "tie": false
+  },
+  {
+    "label": "20",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "21",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "22",
+    "object": "산딸기",
+    "tie": false
+  },
+  {
+    "label": "23",
+    "object": "산딸기",
+    "tie": false
+  },
+  {
+    "label": "24",
+    "object": "산딸기",
+    "tie": false
+  },
+  {
+    "label": "25",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "26",
+    "object": "구리 쟁반",
+    "tie": false
+  },
+  {
+    "label": "27",
+    "object": "흰 장갑",
+    "tie": false
+  },
+  {
+    "label": "28",
+    "object": "짙은 남색 모자",
+    "tie": false
+  },
+  {
+    "label": "29",
+    "object": "가죽 공구 주머니",
+    "tie": false
+  },
+  {
+    "label": "30",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "31",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "32",
+    "object": "구리 쟁반",
+    "tie": false
+  },
+  {
+    "label": "33",
+    "object": "구리 쟁반",
+    "tie": false
+  },
+  {
+    "label": "34",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "35",
+    "object": "가죽 공구 주머니",
+    "tie": false
+  },
+  {
+    "label": "36",
+    "object": "가죽 공구 주머니",
+    "tie": false
+  },
+  {
+    "label": "37",
+    "object": "구리 쟁반과 초록 올리브",
+    "tie": true
+  },
+  {
+    "label": "38",
+    "object": "짙은 남색 모자",
+    "tie": false
+  },
+  {
+    "label": "39",
+    "object": "흰 장갑과 주황색 입장권",
+    "tie": true
+  },
+  {
+    "label": "40",
+    "object": "짙은 남색 모자",
+    "tie": false
+  },
+  {
+    "label": "41",
+    "object": "짙은 남색 모자",
+    "tie": false
+  },
+  {
+    "label": "42",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "43",
+    "object": "가죽 공구 주머니",
+    "tie": false
+  },
+  {
+    "label": "44",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "45",
+    "object": "구리 쟁반",
+    "tie": false
+  }
+]

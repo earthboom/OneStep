@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "exact 16:9 file",
+    "one left-side domed base",
+    "one ground-contact rover on the right",
+    "exactly two separate red lights on entry",
+    "dome visibly floats with an air gap and a ground shadow",
+    "oil painting treatment",
+    "no writing"
+  ],
+  "candidates": {
+    "03-A": [
+      "PNG 1664x936 alpha range (255, 255), edge max 255"
+    ],
+    "03-B": [
+      "PNG 1664x936 alpha range (255, 255), edge max 255"
+    ],
+    "03-C": [
+      "PNG 1664x936 alpha range (255, 255), edge max 255"
+    ],
+    "03-D": [
+      "PNG 1664x936 alpha range (255, 255), edge max 255"
+    ]
+  }
+}

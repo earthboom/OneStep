@@ -1,0 +1,22 @@
+{
+  "case": "08",
+  "checks": [
+    "lower-left fountain with water",
+    "upper-right arch",
+    "diagonal path connects the two"
+  ],
+  "candidates": {
+    "08-A": [
+      "PNG 1448x1086"
+    ],
+    "08-B": [
+      "PNG 1448x1086"
+    ],
+    "08-C": [
+      "PNG 1448x1086"
+    ],
+    "08-D": [
+      "PNG 1448x1086"
+    ]
+  }
+}

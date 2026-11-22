@@ -1,0 +1,261 @@
+{
+  "initial": {
+    "before": {
+      "overall": {
+        "n": 18,
+        "identity": 15,
+        "focus": 12,
+        "joint": 9,
+        "light": 18,
+        "scene": 18,
+        "full": 9
+      },
+      "cases": {
+        "01": {
+          "n": 6,
+          "identity": 3,
+          "focus": 6,
+          "joint": 3,
+          "light": 6,
+          "scene": 6,
+          "full": 3
+        },
+        "02": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "03": {
+          "n": 6,
+          "identity": 6,
+          "focus": 0,
+          "joint": 0,
+          "light": 6,
+          "scene": 6,
+          "full": 0
+        }
+      },
+      "readers": {
+        "J": {
+          "n": 9,
+          "identity": 7,
+          "focus": 6,
+          "joint": 4,
+          "light": 9,
+          "scene": 9,
+          "full": 4
+        },
+        "K": {
+          "n": 9,
+          "identity": 8,
+          "focus": 6,
+          "joint": 5,
+          "light": 9,
+          "scene": 9,
+          "full": 5
+        }
+      },
+      "both_readers": 4
+    },
+    "after": {
+      "overall": {
+        "n": 18,
+        "identity": 15,
+        "focus": 9,
+        "joint": 6,
+        "light": 18,
+        "scene": 18,
+        "full": 6
+      },
+      "cases": {
+        "01": {
+          "n": 6,
+          "identity": 3,
+          "focus": 5,
+          "joint": 2,
+          "light": 6,
+          "scene": 6,
+          "full": 2
+        },
+        "02": {
+          "n": 6,
+          "identity": 6,
+          "focus": 3,
+          "joint": 3,
+          "light": 6,
+          "scene": 6,
+          "full": 3
+        },
+        "03": {
+          "n": 6,
+          "identity": 6,
+          "focus": 1,
+          "joint": 1,
+          "light": 6,
+          "scene": 6,
+          "full": 1
+        }
+      },
+      "readers": {
+        "J": {
+          "n": 9,
+          "identity": 7,
+          "focus": 5,
+          "joint": 3,
+          "light": 9,
+          "scene": 9,
+          "full": 3
+        },
+        "K": {
+          "n": 9,
+          "identity": 8,
+          "focus": 4,
+          "joint": 3,
+          "light": 9,
+          "scene": 9,
+          "full": 3
+        }
+      },
+      "both_readers": 2
+    }
+  },
+  "final": {
+    "before": {
+      "overall": {
+        "n": 18,
+        "identity": 17,
+        "focus": 14,
+        "joint": 13,
+        "light": 18,
+        "scene": 18,
+        "full": 13
+      },
+      "cases": {
+        "01": {
+          "n": 6,
+          "identity": 5,
+          "focus": 4,
+          "joint": 3,
+          "light": 6,
+          "scene": 6,
+          "full": 3
+        },
+        "02": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "03": {
+          "n": 6,
+          "identity": 6,
+          "focus": 4,
+          "joint": 4,
+          "light": 6,
+          "scene": 6,
+          "full": 4
+        }
+      },
+      "readers": {
+        "J": {
+          "n": 9,
+          "identity": 8,
+          "focus": 7,
+          "joint": 6,
+          "light": 9,
+          "scene": 9,
+          "full": 6
+        },
+        "K": {
+          "n": 9,
+          "identity": 9,
+          "focus": 7,
+          "joint": 7,
+          "light": 9,
+          "scene": 9,
+          "full": 7
+        }
+      },
+      "both_readers": 6
+    },
+    "after": {
+      "overall": {
+        "n": 18,
+        "identity": 18,
+        "focus": 11,
+        "joint": 11,
+        "light": 18,
+        "scene": 18,
+        "full": 11
+      },
+      "cases": {
+        "01": {
+          "n": 6,
+          "identity": 6,
+          "focus": 2,
+          "joint": 2,
+          "light": 6,
+          "scene": 6,
+          "full": 2
+        },
+        "02": {
+          "n": 6,
+          "identity": 6,
+          "focus": 3,
+          "joint": 3,
+          "light": 6,
+          "scene": 6,
+          "full": 3
+        },
+        "03": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        }
+      },
+      "readers": {
+        "J": {
+          "n": 9,
+          "identity": 9,
+          "focus": 6,
+          "joint": 6,
+          "light": 9,
+          "scene": 9,
+          "full": 6
+        },
+        "K": {
+          "n": 9,
+          "identity": 9,
+          "focus": 5,
+          "joint": 5,
+          "light": 9,
+          "scene": 9,
+          "full": 5
+        }
+      },
+      "both_readers": 5
+    }
+  },
+  "repair_calls": {
+    "before": 4,
+    "after": 5
+  },
+  "n_unique": 27,
+  "agreement": [
+    25,
+    24,
+    27,
+    27
+  ]
+}

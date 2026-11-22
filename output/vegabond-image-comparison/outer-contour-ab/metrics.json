@@ -1,0 +1,600 @@
+{
+  "initial": {
+    "base": {
+      "overall": {
+        "n": 30,
+        "identity": 30,
+        "focus": 21,
+        "joint": 21,
+        "light": 30,
+        "scene": 29,
+        "full": 21
+      },
+      "cases": {
+        "01": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "02": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "03": {
+          "n": 6,
+          "identity": 6,
+          "focus": 4,
+          "joint": 4,
+          "light": 6,
+          "scene": 5,
+          "full": 4
+        },
+        "04": {
+          "n": 6,
+          "identity": 6,
+          "focus": 3,
+          "joint": 3,
+          "light": 6,
+          "scene": 6,
+          "full": 3
+        },
+        "05": {
+          "n": 6,
+          "identity": 6,
+          "focus": 2,
+          "joint": 2,
+          "light": 6,
+          "scene": 6,
+          "full": 2
+        }
+      },
+      "established": {
+        "n": 18,
+        "identity": 18,
+        "focus": 16,
+        "joint": 16,
+        "light": 18,
+        "scene": 17,
+        "full": 16
+      },
+      "new": {
+        "n": 12,
+        "identity": 12,
+        "focus": 5,
+        "joint": 5,
+        "light": 12,
+        "scene": 12,
+        "full": 5
+      },
+      "readers": {
+        "J": {
+          "n": 15,
+          "identity": 15,
+          "focus": 9,
+          "joint": 9,
+          "light": 15,
+          "scene": 15,
+          "full": 9
+        },
+        "K": {
+          "n": 15,
+          "identity": 15,
+          "focus": 12,
+          "joint": 12,
+          "light": 15,
+          "scene": 14,
+          "full": 12
+        }
+      },
+      "both_readers": 9
+    },
+    "prior": {
+      "overall": {
+        "n": 30,
+        "identity": 28,
+        "focus": 16,
+        "joint": 14,
+        "light": 30,
+        "scene": 30,
+        "full": 14
+      },
+      "cases": {
+        "01": {
+          "n": 6,
+          "identity": 4,
+          "focus": 4,
+          "joint": 2,
+          "light": 6,
+          "scene": 6,
+          "full": 2
+        },
+        "02": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "03": {
+          "n": 6,
+          "identity": 6,
+          "focus": 0,
+          "joint": 0,
+          "light": 6,
+          "scene": 6,
+          "full": 0
+        },
+        "04": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "05": {
+          "n": 6,
+          "identity": 6,
+          "focus": 0,
+          "joint": 0,
+          "light": 6,
+          "scene": 6,
+          "full": 0
+        }
+      },
+      "established": {
+        "n": 18,
+        "identity": 16,
+        "focus": 10,
+        "joint": 8,
+        "light": 18,
+        "scene": 18,
+        "full": 8
+      },
+      "new": {
+        "n": 12,
+        "identity": 12,
+        "focus": 6,
+        "joint": 6,
+        "light": 12,
+        "scene": 12,
+        "full": 6
+      },
+      "readers": {
+        "J": {
+          "n": 15,
+          "identity": 15,
+          "focus": 7,
+          "joint": 7,
+          "light": 15,
+          "scene": 15,
+          "full": 7
+        },
+        "K": {
+          "n": 15,
+          "identity": 13,
+          "focus": 9,
+          "joint": 7,
+          "light": 15,
+          "scene": 15,
+          "full": 7
+        }
+      },
+      "both_readers": 6
+    },
+    "current": {
+      "overall": {
+        "n": 30,
+        "identity": 30,
+        "focus": 18,
+        "joint": 18,
+        "light": 24,
+        "scene": 30,
+        "full": 15
+      },
+      "cases": {
+        "01": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "02": {
+          "n": 6,
+          "identity": 6,
+          "focus": 5,
+          "joint": 5,
+          "light": 6,
+          "scene": 6,
+          "full": 5
+        },
+        "03": {
+          "n": 6,
+          "identity": 6,
+          "focus": 3,
+          "joint": 3,
+          "light": 0,
+          "scene": 6,
+          "full": 0
+        },
+        "04": {
+          "n": 6,
+          "identity": 6,
+          "focus": 4,
+          "joint": 4,
+          "light": 6,
+          "scene": 6,
+          "full": 4
+        },
+        "05": {
+          "n": 6,
+          "identity": 6,
+          "focus": 0,
+          "joint": 0,
+          "light": 6,
+          "scene": 6,
+          "full": 0
+        }
+      },
+      "established": {
+        "n": 18,
+        "identity": 18,
+        "focus": 14,
+        "joint": 14,
+        "light": 12,
+        "scene": 18,
+        "full": 11
+      },
+      "new": {
+        "n": 12,
+        "identity": 12,
+        "focus": 4,
+        "joint": 4,
+        "light": 12,
+        "scene": 12,
+        "full": 4
+      },
+      "readers": {
+        "J": {
+          "n": 15,
+          "identity": 15,
+          "focus": 10,
+          "joint": 10,
+          "light": 12,
+          "scene": 15,
+          "full": 8
+        },
+        "K": {
+          "n": 15,
+          "identity": 15,
+          "focus": 8,
+          "joint": 8,
+          "light": 12,
+          "scene": 15,
+          "full": 7
+        }
+      },
+      "both_readers": 8
+    }
+  },
+  "final": {
+    "base": {
+      "overall": {
+        "n": 30,
+        "identity": 30,
+        "focus": 30,
+        "joint": 30,
+        "light": 30,
+        "scene": 29,
+        "full": 29
+      },
+      "cases": {
+        "01": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "02": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "03": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 5,
+          "full": 5
+        },
+        "04": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "05": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        }
+      },
+      "established": {
+        "n": 18,
+        "identity": 18,
+        "focus": 18,
+        "joint": 18,
+        "light": 18,
+        "scene": 17,
+        "full": 17
+      },
+      "new": {
+        "n": 12,
+        "identity": 12,
+        "focus": 12,
+        "joint": 12,
+        "light": 12,
+        "scene": 12,
+        "full": 12
+      },
+      "readers": {
+        "J": {
+          "n": 15,
+          "identity": 15,
+          "focus": 15,
+          "joint": 15,
+          "light": 15,
+          "scene": 15,
+          "full": 15
+        },
+        "K": {
+          "n": 15,
+          "identity": 15,
+          "focus": 15,
+          "joint": 15,
+          "light": 15,
+          "scene": 14,
+          "full": 14
+        }
+      },
+      "both_readers": 15
+    },
+    "prior": {
+      "overall": {
+        "n": 30,
+        "identity": 24,
+        "focus": 28,
+        "joint": 22,
+        "light": 30,
+        "scene": 30,
+        "full": 22
+      },
+      "cases": {
+        "01": {
+          "n": 6,
+          "identity": 0,
+          "focus": 6,
+          "joint": 0,
+          "light": 6,
+          "scene": 6,
+          "full": 0
+        },
+        "02": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "03": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "04": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "05": {
+          "n": 6,
+          "identity": 6,
+          "focus": 4,
+          "joint": 4,
+          "light": 6,
+          "scene": 6,
+          "full": 4
+        }
+      },
+      "established": {
+        "n": 18,
+        "identity": 12,
+        "focus": 18,
+        "joint": 12,
+        "light": 18,
+        "scene": 18,
+        "full": 12
+      },
+      "new": {
+        "n": 12,
+        "identity": 12,
+        "focus": 10,
+        "joint": 10,
+        "light": 12,
+        "scene": 12,
+        "full": 10
+      },
+      "readers": {
+        "J": {
+          "n": 15,
+          "identity": 12,
+          "focus": 13,
+          "joint": 10,
+          "light": 15,
+          "scene": 15,
+          "full": 10
+        },
+        "K": {
+          "n": 15,
+          "identity": 12,
+          "focus": 15,
+          "joint": 12,
+          "light": 15,
+          "scene": 15,
+          "full": 12
+        }
+      },
+      "both_readers": 10
+    },
+    "current": {
+      "overall": {
+        "n": 30,
+        "identity": 30,
+        "focus": 30,
+        "joint": 30,
+        "light": 30,
+        "scene": 30,
+        "full": 30
+      },
+      "cases": {
+        "01": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "02": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "03": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "04": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        },
+        "05": {
+          "n": 6,
+          "identity": 6,
+          "focus": 6,
+          "joint": 6,
+          "light": 6,
+          "scene": 6,
+          "full": 6
+        }
+      },
+      "established": {
+        "n": 18,
+        "identity": 18,
+        "focus": 18,
+        "joint": 18,
+        "light": 18,
+        "scene": 18,
+        "full": 18
+      },
+      "new": {
+        "n": 12,
+        "identity": 12,
+        "focus": 12,
+        "joint": 12,
+        "light": 12,
+        "scene": 12,
+        "full": 12
+      },
+      "readers": {
+        "J": {
+          "n": 15,
+          "identity": 15,
+          "focus": 15,
+          "joint": 15,
+          "light": 15,
+          "scene": 15,
+          "full": 15
+        },
+        "K": {
+          "n": 15,
+          "identity": 15,
+          "focus": 15,
+          "joint": 15,
+          "light": 15,
+          "scene": 15,
+          "full": 15
+        }
+      },
+      "both_readers": 15
+    }
+  },
+  "repair_calls": {
+    "base": 8,
+    "prior": 10,
+    "current": 12
+  },
+  "n_unique": 75,
+  "agreement": [
+    73,
+    66,
+    75,
+    73
+  ]
+}

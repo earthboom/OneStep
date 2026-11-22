@@ -69,6 +69,7 @@ Use these local specialists when their methods are needed:
 | [vegabond-code](../vegabond-code/SKILL.md) | Software implementation, defects, system design, refactoring, and code investigation. |
 | [vegabond-fiction](../vegabond-fiction/SKILL.md) | Fiction development, drafting, critique, and continuity. |
 | [vegabond-presentation](../vegabond-presentation/SKILL.md) | Slide narrative, deck production, and content or visual revision. |
+| [vegabond-image](../vegabond-image/SKILL.md) | Raster image generation, editing, and visual fidelity checks. |
 | [vegabond-planning](../vegabond-planning/SKILL.md) | Planning/proposal content, feasibility, and success measures; not task scheduling alone. |
 
 The operation owns the workflow; a selected specialist supplies its domain execution, verification, and correction methods. Apply those methods within the operation's steps rather than running a second independent workflow. For research or feedback-only work, use checks that substantiate the findings and correct the analysis without changing investigated sources; production checks apply when producing or changing the corresponding artifact. Combine specialists only where needed, such as planning content and presentation production for a proposal deck. This is an initial set, not a closed list of supported work. Load only the relevant specialists; they can use available environment- or format-specific skills and tools through the same mapping.

@@ -1,0 +1,30 @@
+{
+  "case": "01",
+  "checks": [
+    "exact 16:9 file",
+    "one left-side domed base",
+    "one right-side rover",
+    "exactly two separate red lights on entry",
+    "low viewpoint",
+    "light from frame left",
+    "photographic rendering",
+    "no writing"
+  ],
+  "candidates": {
+    "01-A": [
+      "PNG 1664x936 alpha range (255, 255), edge max 255"
+    ],
+    "01-B": [
+      "PNG 1664x936"
+    ],
+    "01-C": [
+      "PNG 1664x936"
+    ],
+    "01-D": [
+      "PNG 1664x936 alpha range (255, 255), edge max 255"
+    ],
+    "01-E": [
+      "PNG 1664x936"
+    ]
+  }
+}

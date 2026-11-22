@@ -1,0 +1,19 @@
+{
+  "checks": [
+    "09a Exactly one visible robot anywhere in the frame",
+    "09a Recognizable greenhouse and robot visibly holding a flowerpot",
+    "09a Identity: orange spherical head, teal rectangular torso and one black antenna, visibly matches shared reference.",
+    "09b Exactly one visible robot anywhere in the frame",
+    "09b Recognizable bus stop and robot visibly waits with both hands empty",
+    "09b Identity: orange spherical head, teal rectangular torso and one black antenna, visibly matches shared reference.",
+    "The recurring character matches across the two scenes."
+  ],
+  "labels": [
+    "09-A",
+    "09-B",
+    "09-C",
+    "09-D",
+    "09-E",
+    "09-F"
+  ]
+}

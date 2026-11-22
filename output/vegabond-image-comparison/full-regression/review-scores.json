@@ -1,0 +1,238 @@
+{
+  "10": {
+    "10-A": {
+      "marks": "PPPPPP",
+      "note": null
+    },
+    "10-B": {
+      "marks": "PPPPPP",
+      "note": null
+    },
+    "10-C": {
+      "marks": "PPPPPP",
+      "note": null
+    },
+    "10-D": {
+      "marks": "PPPPPP",
+      "note": null
+    }
+  },
+  "11": {
+    "11-A": {
+      "marks": "PPP",
+      "note": null
+    },
+    "11-B": {
+      "marks": "PPP",
+      "note": null
+    },
+    "11-C": {
+      "marks": "PPP",
+      "note": null
+    },
+    "11-D": {
+      "marks": "PPP",
+      "note": null
+    }
+  },
+  "12": {
+    "12-A": {
+      "marks": "PPP",
+      "note": null
+    },
+    "12-B": {
+      "marks": "PPP",
+      "note": null
+    },
+    "12-C": {
+      "marks": "PPP",
+      "note": null
+    },
+    "12-D": {
+      "marks": "PPP",
+      "note": null
+    },
+    "12-E": {
+      "marks": "PPP",
+      "note": null
+    }
+  },
+  "01": {
+    "01-A": {
+      "marks": "PPPPPPPP",
+      "note": null
+    },
+    "01-B": {
+      "marks": "PPPPPPPP",
+      "note": null
+    },
+    "01-C": {
+      "marks": "PPPPPPPP",
+      "note": null
+    },
+    "01-D": {
+      "marks": "PPPPPPPP",
+      "note": null
+    },
+    "01-E": {
+      "marks": "PPPPPPPP",
+      "note": null
+    }
+  },
+  "02": {
+    "02-A": {
+      "marks": "PPPPPP",
+      "note": null
+    },
+    "02-B": {
+      "marks": "PPPPPP",
+      "note": null
+    },
+    "02-C": {
+      "marks": "PPPPPP",
+      "note": null
+    },
+    "02-D": {
+      "marks": "PPPPPP",
+      "note": null
+    },
+    "02-E": {
+      "marks": "PPPPPP",
+      "note": null
+    }
+  },
+  "03": {
+    "03-A": {
+      "marks": "PPPPPPP",
+      "note": null
+    },
+    "03-B": {
+      "marks": "PPPPPPP",
+      "note": null
+    },
+    "03-C": {
+      "marks": "PPPPPPP",
+      "note": null
+    },
+    "03-D": {
+      "marks": "PPPPPPP",
+      "note": null
+    }
+  },
+  "04": {
+    "04-A": {
+      "marks": "PPP",
+      "note": null
+    },
+    "04-B": {
+      "marks": "PPP",
+      "note": null
+    },
+    "04-C": {
+      "marks": "PPP",
+      "note": null
+    },
+    "04-D": {
+      "marks": "PPP",
+      "note": null
+    }
+  },
+  "05": {
+    "05-A": {
+      "marks": "PPPPPP",
+      "note": null
+    },
+    "05-B": {
+      "marks": "PPPPPP",
+      "note": null
+    },
+    "05-C": {
+      "marks": "PPPPPP",
+      "note": null
+    },
+    "05-D": {
+      "marks": "PPPPPF",
+      "note": "Both blue boxes show substantial front faces and the orange box shows a substantial curved side face."
+    },
+    "05-E": {
+      "marks": "PPPPPP",
+      "note": null
+    }
+  },
+  "06": {
+    "06-A": {
+      "marks": "PPPPP",
+      "note": null
+    },
+    "06-B": {
+      "marks": "PPPPP",
+      "note": null
+    },
+    "06-C": {
+      "marks": "PPPPP",
+      "note": null
+    },
+    "06-D": {
+      "marks": "PPPPP",
+      "note": null
+    }
+  },
+  "07": {
+    "07-A": {
+      "marks": "PPPPP",
+      "note": null
+    },
+    "07-B": {
+      "marks": "PPPPP",
+      "note": null
+    },
+    "07-C": {
+      "marks": "PPPPP",
+      "note": null
+    },
+    "07-D": {
+      "marks": "PPPPP",
+      "note": null
+    }
+  },
+  "08": {
+    "08-A": {
+      "marks": "PPP",
+      "note": null
+    },
+    "08-B": {
+      "marks": "PPP",
+      "note": null
+    },
+    "08-C": {
+      "marks": "PPP",
+      "note": null
+    },
+    "08-D": {
+      "marks": "PPP",
+      "note": null
+    }
+  },
+  "09": {
+    "09-A": {
+      "marks": "PPPPPPP",
+      "note": null
+    },
+    "09-B": {
+      "marks": "PPPPPPP",
+      "note": null
+    },
+    "09-C": {
+      "marks": "PPPPPPP",
+      "note": null
+    },
+    "09-D": {
+      "marks": "PPPPPPP",
+      "note": null
+    },
+    "09-E": {
+      "marks": "PPPPPPF",
+      "note": "The greenhouse adds a second similarly built robot beside the recurring reference robot."
+    }
+  }
+}

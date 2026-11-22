@@ -1,0 +1,175 @@
+{
+  "images": [
+    {
+      "id": "01",
+      "prompt": "Create one wide landscape photorealistic frame that looks like a space agency's lunar mission archival photograph.\nComposition: low surface-level camera. Show exactly one dome-shaped lunar base in the left half and exactly one distinct lunar exploration rover in the right half, both fully legible. Bind exactly two separate red indicator lamps directly to the base entrance, one on each side of the doorway, with a dark gap between them. Keep the rest of the image free of red lamps.\nLight and surface: sunlight clearly comes from frame left with shadows cast toward the right. Photographic regolith, fabric or plated-dome surfaces, and credible optical exposure and materials.\nDelivery: compose for a centered 16:9 landscape crop with all important details comfortably inside the edges. No letters, numbers, logos, watermarks or captions anywhere.",
+      "references": [],
+      "transparent_background": false,
+      "raw": "01-raw.png",
+      "initial": "01-initial.png",
+      "final": "01-initial.png",
+      "repair": null,
+      "notes": "Reviewed the delivered PNG after the centered crop. It is 1664×936 (16:9). One dome sits left and one clearly separate rover sits right, with exactly two red lamps flanking the door. The low viewpoint, illuminated left faces, rightward shadows, and convincing fabric, metal and regolith give an archival photograph appearance. No readable glyphs, logos or watermarks observed. The outermost lower-left base hardware reaches the edge, while the dome, entry and rover remain clearly legible."
+    },
+    {
+      "id": "02",
+      "prompt": "Draw one horizontal 16:9 2D adventure comic panel. Use bold dark exterior ink contours and two flat cel-shaded tones per form, with crisp boundaries between lit and shaded shapes.\nComposition: a single rounded lunar base dome fully visible in the left half; one clearly separated lunar exploration rover in the right half. On the front entrance of the left dome put exactly two distinct red indicator lamps, one attached to each door jamb, with a dark doorway separating them. These are the only red lights.\nKeep all these elements safely inside a centered landscape crop. Pure picture panel, with no lettering, numbers, captions, labels, balloons, logos or watermarks.",
+      "references": [],
+      "transparent_background": false,
+      "raw": "02-raw.png",
+      "initial": "02-initial.png",
+      "final": "02-final.png",
+      "repair": {
+        "prompt": "Make a tightly controlled repair to image 1, the existing horizontal lunar adventure comic. Pull the framing back just enough to leave a thin visible margin around the entire left dome base, including its far-left lower edge, and around the right rover within a centered 16:9 crop. Preserve the existing comic scene, bold ink contour treatment, flat cel shading, and the exact left-dome/right-rover arrangement. Keep exactly one dome, exactly one rover, and exactly two separate red indicator lights on the two entrance jambs. The side of the rover’s camera housing should be a plain unmarked cel-shaded panel. Remove the tiny dark H-shaped mark there. Use no lettering, numbers, labels, logos or watermarks anywhere.",
+        "references": [
+          "02-initial.png"
+        ],
+        "result": "02-final.png",
+        "selected": true,
+        "raw": "02-repair-raw.png"
+      },
+      "notes": "Both prepared PNGs are 1664×936 (16:9). Initial image has one dome on the left, one rover on the right, two separate red jamb lights, bold exterior lines and flat light/shadow tones. The dome's lower-left contour was clipped and a small H-shaped mark was visible on the rover camera housing under magnification. The selected repair restores margin around the full dome and rover, clears the camera side panel, and preserves base and rover positions, the two red lights, cel shading and the ink treatment. No readable lettering, numbers, logos or watermark in the selected delivery."
+    },
+    {
+      "id": "03",
+      "prompt": "Paint a quiet, realistic oil painting of a lunar landscape, with subtle brushwork and gently modeled surfaces. Wide horizontal image designed for a safe centered 16:9 crop. In the left half place one dome-shaped lunar base. The dome and its doorway hover visibly above the surface as a single structure. A continuous, clearly visible strip of open air separates its whole lower rim from the lunar ground. Paint a distinct cast shadow on the surface underneath that rim to make the gap unmistakable; no stairs, struts or attachments bridge the gap. In the right half, exactly one distinct rover remains firmly grounded with wheel contact. Place exactly two separate small red indicator lamps on the entrance of the floating dome, one on each jamb with a dark gap between them. No text, numbers, logos, signatures or watermarks.",
+      "references": [],
+      "transparent_background": false,
+      "raw": "03-raw.png",
+      "initial": "03-initial.png",
+      "final": "03-initial.png",
+      "repair": null,
+      "notes": "The prepared 1664×936 PNG is 16:9. One dome is left with two distinct red entrance lamps, a continuous visible band of air under its entire lower rim and a separate cast shadow below. One rover is grounded on the right, with wheel contact and dark ground shadow. Muted values and visible impression-based brushwork read as realistic oil. No readable text, logos, signatures or watermark observed."
+    },
+    {
+      "id": "04",
+      "prompt": "Create one quiet image of an intimate small garden just after the rain has stopped. Show beads of water clinging to foliage and a damp garden surface softly catching the still, diffuse light. A calm, unoccupied scene with a close composition that feels like a small garden. Use a restrained, naturalistic photographic treatment.",
+      "references": [],
+      "transparent_background": false,
+      "raw": "04-initial.png",
+      "initial": "04-initial.png",
+      "final": "04-initial.png",
+      "repair": null,
+      "notes": "Intimate unoccupied garden, with water beads on hydrangeas and maple leaves, wet paving and a full stone basin. Soft, diffuse light and a calm close composition convey the period after rain. The PNG is 1448×1086."
+    },
+    {
+      "id": "05",
+      "prompt": "Strict overhead flat-lay product photograph on white. The camera looks straight down at 90 degrees, with its optical axis perpendicular to the tabletop. Show the lid planes and a thin edge rim at most. Keep the square lid edges parallel and the round lid circular. Show no visible vertical front or sidewall on any box. At viewer left are exactly two separate BLUE square-lidded boxes. At viewer right is exactly one ORANGE cylindrical lidded box, seen as a circle from overhead. Space every unit clearly apart; all three are fully visible, with no overlaps. Only the three containers on seamless white, clean catalog photography and subtle shadow.",
+      "references": [],
+      "transparent_background": false,
+      "raw": "05-initial.png",
+      "initial": "05-initial.png",
+      "final": "05-initial.png",
+      "repair": null,
+      "notes": "The 1774×887 PNG shows exactly two fully separated blue square-lidded boxes to the left of one orange circular-lidded cylinder, on white with no other objects. Lid edges are parallel, the round lid reads circular and only thin lid rims and soft shadows are visible. No substantial vertical front or side face signals an oblique angle."
+    },
+    {
+      "id": "06",
+      "prompt": "Create the letter-free illustrated artwork for a vertical Moon base visitor information poster. Make a visible lunar outpost on the Moon the central subject, with a polished space travel poster aesthetic and a clear visual read. The first 20% of the canvas at the top and last 20% of the canvas at the bottom should be low-detail, visually quiet, dark-tone bands suitable for later placement of one centered line of bright lettering each. Keep all lettering out of this artwork: no words, letters, glyphs, numbers, logos, labels, signs, signatures or watermark anywhere.",
+      "references": [],
+      "transparent_background": false,
+      "raw": "06-raw.png",
+      "initial": "06-initial.png",
+      "final": "06-initial.png",
+      "repair": null,
+      "notes": "The prepared 1024×1536 PNG is portrait. Read at full size, the top line is exactly “달 기지에 오신 것을 환영합니다!” and the bottom line is exactly “출입 안내 09:30”. Each appears once, on a single unclipped centered line in its designated band. No additional readable words, marks, logos, or numbers in the illustrated lunar outpost."
+    },
+    {
+      "id": "07",
+      "prompt": "Create one isolated purple ink bottle as a centered cutout on a square canvas. Show the inkwell at a visibly oblique tilted three-quarter angle so the top, front and one side can be read. Keep the silhouette complete and comfortably in frame. Render the glass or visible ink as clearly purple. Produce a real transparent alpha background; do not draw a backdrop or checkerboard. No detached or cast shadow, no ground reflection, no label, no writing, no logo and no other object.",
+      "references": [],
+      "transparent_background": true,
+      "raw": "07-raw.png",
+      "initial": "07-initial.png",
+      "final": "07-initial.png",
+      "repair": null,
+      "notes": "The prepared 512×512 PNG has a single centered, unlabeled purple inkwell with oblique top, front, and right side visible. No detached or ground shadow or writing is visible. All 2044 border pixels, including the four corners, have alpha zero. Of 262144 total decoded pixels, 142671 are fully transparent, 118338 partially transparent and 1135 fully opaque."
+    },
+    {
+      "id": "08",
+      "prompt": "Use image 1 as the spatial composition reference and turn its sketch into one finished plaza illustration. Keep the same oblique view and dominant relationships: a fountain in the lower-left foreground at the sketch position, the open stone arch in the upper-right background at the sketch position, and a single broad continuous paved path running diagonally from the fountain to the arch and reaching its opening. Make a visible pool of water and rising arcs of water in the fountain. Keep these as the clear focal structures, with the rest of the plaza subordinate.",
+      "references": [
+        "layout.png"
+      ],
+      "transparent_background": false,
+      "raw": "08-initial.png",
+      "initial": "08-initial.png",
+      "final": "08-initial.png",
+      "repair": null,
+      "notes": "The 1448×1086 PNG uses layout.png for the oblique placement, with the visible water, jets and ripples in the lower-left fountain, the open stone arch in the upper right, and one broad continuous diagonal paved path extending from the fountain to the arch opening."
+    },
+    {
+      "id": "09a",
+      "prompt": "Create one standalone image with exactly one robot. Use image 1 solely as the identity reference for that single robot. No other robot figures anywhere in the frame. Show this same robot inside a greenhouse, visibly holding one potted plant between its hands. Show a clear greenhouse interior with glass roof and framing and plants. Retain the reference's tangerine-orange spherical head, two small dark eyes, exactly one thin black antenna with a black round tip, rectangular box-shaped teal torso and segmented dark-gray limbs. Match its stylized dimensional appearance, proportions and worn painted-metal finishes. Keep the whole antenna and enough of the torso visible above or around the flowerpot to verify the design.",
+      "references": [
+        "robot.png"
+      ],
+      "transparent_background": false,
+      "raw": "09a-initial.png",
+      "initial": "09a-initial.png",
+      "final": "09a-initial.png",
+      "repair": null,
+      "notes": "The independent 1254×1254 PNG has exactly one robot after scanning the greenhouse and its shelves. It holds one flowerpot securely with both hands under the greenhouse glass roof. The spherical orange head with two dark eyes, single black ball-tipped antenna, and visible box-shaped teal torso agree with robot.png and the second frame, along with the dark segmented limbs and worn metal."
+    },
+    {
+      "id": "09b",
+      "prompt": "Create one standalone image with exactly one robot. Use image 1 solely as the identity reference for that single robot. No other robot figures anywhere in the frame. Show this same robot waiting beside a recognizable bus stop shelter with a stop sign and curb. Both hands should be empty and clearly visible, relaxed at its sides. Retain the reference's tangerine-orange spherical head, two small dark eyes, exactly one thin black antenna with a black round tip, rectangular box-shaped teal torso and segmented dark-gray limbs. Match its stylized dimensional appearance, proportions and worn painted-metal finishes. Keep the whole antenna, both hands and the torso visible.",
+      "references": [
+        "robot.png"
+      ],
+      "transparent_background": false,
+      "raw": "09b-initial.png",
+      "initial": "09b-initial.png",
+      "final": "09b-initial.png",
+      "repair": null,
+      "notes": "The independent 1254×1254 PNG has exactly one robot after scanning the shelter, sign and background. Both hands hang empty at its sides beside the shelter and stop sign. Its orange spherical head, dark eyes, one black ball-tipped antenna, teal box torso and segmented worn-metal limbs agree with robot.png and the greenhouse frame."
+    },
+    {
+      "id": "10",
+      "prompt": "Create one illustrated plaza as a two-ink relief print.\nImage 1 is the sole layout reference: in the same oblique view, keep the fountain at lower left, an open stone arch at upper right, and one continuous paved path joining them diagonally from the fountain to the arch opening. Clearly show the fountain's water.\nImage 2 supplies palette and physical mark-making only. Render the entire plaza using only the reference's very dark navy and warm yellow ochre, with rough hand-carved relief-print edges, gouges, dry ink flecks and irregular pressure. Keep the fountain, path and arch as main subjects. Do not copy the leaves or other forms from the print swatch.",
+      "references": [
+        "layout.png",
+        "print-style.png"
+      ],
+      "transparent_background": false,
+      "raw": "10-initial.png",
+      "initial": "10-initial.png",
+      "final": "10-initial.png",
+      "repair": null,
+      "notes": "The 1448×1086 PNG keeps the sketch's lower-left fountain with visible water, upper-right open arch, and continuous diagonal path. Deep navy and warm yellow ochre match print-style.png, with carve marks, rough edges, muted speckling and uneven ink. No leaf motif carried over."
+    },
+    {
+      "id": "11",
+      "prompt": "Make one narrow edit to image 1, the original still-life photograph. Change only the pale beige wall behind the tabletop to deep dark navy blue. Follow the original wall/table boundary exactly, including the visible patch of wall through the mug-handle opening above the table edge. Preserve the original exact framing and crop, wall's soft lighting pattern, table surface and grain, scene light and original contact shadows, and the original mug and lemon in shape, color, size and position. Keep the isolated off-white ceramic surface and yellow lemon color untouched. Keep all parts of the table that are visible in the handle opening in their original brown. No other changes.",
+      "references": [
+        "still-life.png"
+      ],
+      "transparent_background": false,
+      "raw": "11-initial.png",
+      "initial": "11-initial.png",
+      "final": "11-initial.png",
+      "repair": null,
+      "notes": "The 1536×1024 PNG visually preserves the original crop and positions, mug silhouette and cream finish, lemon shape and yellow finish, table boundary and grain pattern, soft left-biased lighting and contact shadows. The dark navy wall reaches the wall-only opening above the table line inside the mug handle. Original and initial were reviewed at matching scale. A sampled RGB comparison finds small per-channel differences within retained regions (average 3.11 mug, 5.21 lemon and 3.90 tabletop on a 0–255 scale), so pixel-exact preservation was not obtained."
+    },
+    {
+      "id": "12",
+      "prompt": "Perform one narrow color edit on image 1, the original portrait. Change the orange workwear jacket fabric to a clear blue-green teal. Contain the change within the jacket silhouette, including its collars, seams and foreground fabric, and preserve the original local highlights, shadows, wrinkles, stitching and matte twill texture. Protect and preserve the exact same face and skin color, facial features, expression and gaze, hair and stray strands, ivory shirt, head and body pose, camera framing, gray background and lighting. Maintain the edge where dark hair overlaps the jacket. No changes elsewhere.",
+      "references": [
+        "portrait.png"
+      ],
+      "transparent_background": false,
+      "raw": "12-initial.png",
+      "initial": "12-initial.png",
+      "final": "12-final.png",
+      "repair": {
+        "prompt": "Use image 1 as the original portrait and as the exact pixel-aligned editing plate. Recolor only the orange jacket fabric to a clearly blue-green teal, using the existing jacket panel and silhouette directly. Keep all other source areas as fixed as possible, especially the face and neck: retain the source's skin brightness, contrast, pores, freckles, eye direction, expression, lip contour, and fine hairs. Do not retouch or redraw the person. Preserve the ivory shirt, gray backdrop, exact crop, pose, and every hair strand that crosses the collar. Keep the original contours, seams, twill texture, highlights and shadows on the teal fabric. The edit should look like the original photograph with a localized garment color adjustment.",
+        "references": [
+          "portrait.png"
+        ],
+        "result": "12-final.png",
+        "selected": true
+      },
+      "notes": "Original and both 1086×1448 PNG edits were compared side by side. Both show a teal jacket while retaining visual identity, pose, framing, gray backdrop, ivory shirt, jacket seams and visible hair overlap. The initial has minor skin and hair texture drift under comparison. The selected repair keeps the same teal result and improves sampled mean absolute channel difference in the face from 8.24 to 5.95 and sampled hair from 6.03 to 5.45, with a small increase in sampled backdrop difference from 2.11 to 2.92 on a 0–255 scale. Pose, expression, and backdrop still read as the same. Pixels outside the jacket are not identical."
+    }
+  ]
+}

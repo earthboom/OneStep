@@ -1,0 +1,26 @@
+---
+name: vegabond-image
+description: Use when creating, editing, or producing a consistent series of raster images for a user request, including photorealistic, illustrated, comic, surreal, and mixed-style work with exact visual or delivery requirements.
+---
+
+# Vegabond Image
+
+Use this specialist within OneStep create or revise. In Codex, use the available built-in `imagegen` skill and its execution instructions for image generation and edits. Use the [style and review examples](references/style-and-review.md) when the medium, composition, series consistency, typography, or output constraints warrant more detail.
+
+## Define what the image must show
+
+- From the original request, identify hard requirements, preferences, and delegated choices. Write a short internal set of observable acceptance checks for hard requirements. Include only checks relevant to the request. Preserve exact wording, quantities, attributes, locations, omissions, and delivery specs. Resolve left and right relative to the frame when that is what the user means. For multiple objects, tie each material, color, count, and position to its named object.
+- Identify scene content and rendering medium independently. Describe a style with observable features such as light and texture, line and shape, brushwork, palette, or spatial rules. Keep the user's creative decisions and use their flexibility where they delegated it. A short clear request can go straight to generation. Ask one focused question when conflicting or missing information would materially change the result.
+- When meaning, color treatment, or believability drives the brief, use the [visual direction questions](references/style-and-review.md#direct-and-test-the-reading). Choose the few cues that carry the request. Keep your chosen staging flexible unless the user specified it.
+- When a small accent must catch the eye against a larger material in colored light, [check both readings together](references/style-and-review.md#material-color-and-first-glance) before accepting a generation or color repair.
+- For each input, name its role and the features it contributes. Distinguish an edit source from references for identity, layout, pose, rendering, or color. When two references overlap, state which one controls the relevant feature. For a series, use an approved frame or a shared identity reference and describe each frame as a standalone scene. State that frame's subject count separately from the series length whenever count matters.
+- For an edit, write the change and the preservation conditions before calling the generator. Use the source or last accepted version as input. When exact composition is essential, use an available sketch or layout reference when it would resolve ambiguity.
+
+## Generate and inspect
+
+1. Translate checks into visual instructions. For a complex scene, use short labeled groups for the scene and composition, object-attribute relationships, visual treatment, and output constraints. Keep count-sensitive items distinct and visible. When an exact viewpoint matters, specify the camera relative to the subject or surface and the shapes or faces that should be visible. For a simple request, use a natural prompt. Give exact literal text with its location and line breaks. For open visual exploration, generate distinct directions only when the user would benefit from choosing between them.
+2. Inspect the actual image against the original checks. Mark each as met, failed, or unverified. Verify counts, binding, spatial relationships, and viewpoint cues individually. When a frame has a strict subject count, scan the background as well as the foreground before comparing identity across the series. Compare exact text at readable magnification. Compare the edit beside its source for both the requested change and preservation. Check series identity against the shared reference and neighboring frames. Treat aesthetics and hard requirements as separate judgments.
+3. Inspect the delivered file for requested format, pixel dimensions, aspect ratio, and real alpha transparency as applicable. When a necessary pixel size is unavailable directly, leave enough framing room and normalize canvas size or crop as appropriate. Reinspect placement, detail, and alpha after normalization. When exact text is essential and the output permits typographic layout, reserve space and render the supplied text as a separate layout layer. Export to the requested format and verify the final rendering.
+4. Use the smallest correction that addresses the observed failure. For an isolated defect, target the failed feature and recheck passing details. For a wrong layout, revise the composition instruction or reference. For drift, return to the last accepted source and restate what to preserve. If the same approach repeatedly misses an important condition, switch to a supported control or layout method when it fits the requested artifact. Report any remaining failed or unverified hard requirements and deliver the usable files with their locations.
+
+For an expressive brief, describe what the delivered image communicates before comparing it with the intended reading. Cite a visible cue and flag plausible competing readings when they change the meaning. Repair a contradiction or a missing requested effect. An equally legible artistic choice can stand.

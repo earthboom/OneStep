@@ -1,0 +1,22 @@
+[
+  {
+    "file": "lunar-raw.png",
+    "source": "../full-regression/r1/03-initial.png",
+    "prompt": "Edit this quiet realist oil painting. Paint out only the round moon-like celestial disc in the top right, filling that patch with the surrounding black, subtly brushed sky. This is the surface of Earth's Moon. Keep the floating dome, open gap and detached ground shadow, grounded rover, exactly two separate red entry lights, all other terrain and oil brushwork precisely in place. Widescreen 16:9 with the same framing, no lettering."
+  },
+  {
+    "file": "A.png",
+    "source": null,
+    "prompt": "One landscape opaque gouache book illustration, no text. The theme is waiting up for a late guest after the rain. Evening at a modest kitchen table by an entry door, muted indigo dominant, quiet warm paper neutrals. One amber ceramic cup at the place set for the absent guest is the small color accent; its shadow is muted amber. A host has paused to glance toward the door while pouring hot tea for the empty chair across from their own used place setting. Show the hand around the handle of a tipped pale enamel teapot; a visible continuous narrow stream falls from spout into that amber cup. Rain has stopped; a few still beads on the door glass. Mid shot in which guest's chair, cup, pour and glance can be read together. Opaque matte planes with dry brush edges. No lettering."
+  },
+  {
+    "file": "B.png",
+    "source": null,
+    "prompt": "One landscape opaque gouache book illustration, no text, no people. Waiting up for a late guest after rain, told through traces in a modest kitchen by an entry door. Low viewpoint from the threshold: the viewer encounters a pulled-out guest chair beside an untouched place setting with one freshly steaming amber ceramic cup; a used pale cup and folded-back napkin at the host's place across the table suggest someone has already waited there. Include the door jamb or glazed door edge, with still raindrops. Muted indigo dominant, subdued paper neutrals; concentrate the amber accent at the waiting cup. Large opaque matte shapes, dry brush at the edges. Keep enough value separation for steam and untouched setting to read together. No lettering."
+  }
+  ,{
+    "file": "C.png",
+    "source": "B.png",
+    "prompt": "Edit this landscape gouache painting narrowly for time and weather. The shower has clearly passed. Through the left glazed door replace the long running rivulets with clear still glass, only a few isolated round beads low on the pane. Show a quiet wet doorstep and a motionless puddle reflecting a narrow band of clear last-evening sky beyond the broken cloud bank. Keep the blue evening, the low-key indigo room and amber guest cup, the two place settings, empty chair, steam and painterly opaque shapes. Keep the room empty of people and preserve the kitchen composition and the viewpoint. No text."
+  }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "id": "01",
+    "repeat": 1,
+    "initial": "01-r1.png",
+    "final": "01-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "첫 관찰자는 주황 입장권을 지목했다. 표의 또렷한 종이 모서리와 과슈 붓자국, 장갑의 박음질과 보랏빛 접힘이 읽혀 원본을 선택했다."
+  },
+  {
+    "id": "01",
+    "repeat": 2,
+    "initial": "01-r2.png",
+    "final": "01-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "첫 관찰자는 주황 입장권을 지목했다. 장갑 손바닥의 연한 천색과 청보라 음영이 함께 보여 원본을 선택했다."
+  },
+  {
+    "id": "01",
+    "repeat": 3,
+    "initial": "01-r3.png",
+    "final": "01-r3.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "첫 관찰자는 주황 입장권을 지목했다. 표가 손바닥에 놓여 있고 손가락의 웜화이트 면과 보랏빛 그늘이 함께 보여 원본을 선택했다."
+  },
+  {
+    "id": "02",
+    "repeat": 1,
+    "initial": "02-r1.png",
+    "final": "02-r1-edit.png",
+    "repair": "02-r1-edit.png",
+    "repair_prompt": "Edit this watercolor so that at thumbnail size the small red raspberry catches the eye first. Dissolve most of the plate’s broad oval perimeter into the adjacent tabletop using soft wet-in-wet passages of closely matched lightness and color, particularly its lower rim and heavy cast shadow. Let the tabletop catch a little celadon reflected light near the edge. Keep enough glaze and a few delicate rim fragments to recognize a pale celadon plate. Give the one small berry a deep red contact accent, clear silhouette, and a few reserved bright drupelet highlights. Subdue the sun, lamp, and window contrast if necessary. Preserve sunset amber light, teahouse window, placement, scale and transparent watercolor medium.",
+    "notes": "첫 관찰자는 접시를 지목했다. 수정본에서 작은 붉은 산딸기가 즉시 보이고 청자색 몸체와 호박빛이 남아 이를 선택했다. 아래쪽 접시 가장자리가 흐려 유약 광택 표현은 약해졌다."
+  },
+  {
+    "id": "02",
+    "repeat": 2,
+    "initial": "02-r2.png",
+    "final": "02-r2-edit.png",
+    "repair": "02-r2-edit.png",
+    "repair_prompt": "Edit this watercolor so that at thumbnail size the small red raspberry catches the eye first. Dissolve most of the plate’s broad oval perimeter into the adjacent tabletop using soft wet-in-wet passages of closely matched lightness and color, particularly its lower rim and heavy cast shadow. Let the tabletop catch a little celadon reflected light near the edge. Keep enough glaze and a few delicate rim fragments to recognize a pale celadon plate. Give the one small berry a deep red contact accent, clear silhouette, and a few reserved bright drupelet highlights. Subdue the sun, lamp, and window contrast if necessary. Preserve sunset amber light, teahouse window, placement, scale and transparent watercolor medium.",
+    "notes": "첫 관찰자는 접시를 지목했다. 수정본의 또렷한 붉은 산딸기가 먼저 보인다. 희미한 타원 가장자리와 연한 청록 워시가 접시를 식별하게 해 이를 선택했다."
+  },
+  {
+    "id": "02",
+    "repeat": 3,
+    "initial": "02-r3.png",
+    "final": "02-r3-edit.png",
+    "repair": "02-r3-edit.png",
+    "repair_prompt": "Edit this watercolor so that at thumbnail size the small red raspberry catches the eye first. Dissolve most of the plate’s broad oval perimeter into the adjacent tabletop using soft wet-in-wet passages of closely matched lightness and color, particularly its lower rim and heavy cast shadow. Let the tabletop catch a little celadon reflected light near the edge. Keep enough glaze and a few delicate rim fragments to recognize a pale celadon plate. Give the one small berry a deep red contact accent, clear silhouette, and a few reserved bright drupelet highlights. Subdue the sun, lamp, and window contrast if necessary. Preserve sunset amber light, teahouse window, placement, scale and transparent watercolor medium.",
+    "notes": "첫 관찰자는 접시를 지목했다. 수정본은 창가의 석양과 옅은 청록 접시를 유지하면서 산딸기 뒤의 넓은 면과 가장자리 대비를 낮춰 선택했다."
+  },
+  {
+    "id": "03",
+    "repeat": 1,
+    "initial": "03-r1.png",
+    "final": "03-r1-edit.png",
+    "repair": "03-r1-edit.png",
+    "repair_prompt": "Correct only the color of light from the work lamp in the supplied colored-pencil drawing. Its illuminated underside currently glows yellow-orange. Make the emitted light cool blue, with a restrained bluish pool on the bench and a cool reflection on a fold of the black leather. Keep the lampshade and underside relatively dim so the single yellow carpenter's pencil remains the first object one sees. Preserve the pencil's bright intrinsic yellow, contact with the pocket, black leather midtones, grain, existing composition and colored-pencil marks.",
+    "notes": "첫 관찰자는 연필을 지목했다. 원본의 노랗게 빛나는 전등 안쪽을 고쳤다. 수정본에는 파란 작업등 빛과 검은 가죽 질감이 함께 보이며 노란 연필이 먼저 읽힌다."
+  },
+  {
+    "id": "03",
+    "repeat": 2,
+    "initial": "03-r2.png",
+    "final": "03-r2-edit.png",
+    "repair": "03-r2-edit.png",
+    "repair_prompt": "Correct only the color of light from the work lamp in the supplied colored-pencil drawing. Its illuminated underside currently glows yellow-orange. Make the emitted light cool blue, with a restrained bluish pool on the bench and a cool reflection on a fold of the black leather. Keep the lampshade and underside relatively dim so the single yellow carpenter's pencil remains the first object one sees. Preserve the pencil's bright intrinsic yellow, contact with the pocket, black leather midtones, grain, existing composition and colored-pencil marks.",
+    "notes": "첫 관찰자는 연필을 지목했다. 수정본은 원본의 따뜻한 전등 발광을 푸른빛으로 바꾸고 검은 가죽 주머니의 포개짐과 노란 연필을 유지해 선택했다."
+  },
+  {
+    "id": "03",
+    "repeat": 3,
+    "initial": "03-r3.png",
+    "final": "03-r3-edit.png",
+    "repair": "03-r3-edit.png",
+    "repair_prompt": "Correct only the color of light from the work lamp in the supplied colored-pencil drawing. Its illuminated underside currently glows yellow-orange. Make the emitted light cool blue, with a restrained bluish pool on the bench and a cool reflection on a fold of the black leather. Keep the lampshade and underside relatively dim so the single yellow carpenter's pencil remains the first object one sees. Preserve the pencil's bright intrinsic yellow, contact with the pocket, black leather midtones, grain, existing composition and colored-pencil marks.",
+    "notes": "첫 관찰자는 연필을 지목했다. 수정본에서 등 안쪽과 작업대 반사가 푸른색으로 정리됐으며 노란 연필과 검은 가죽이 뚜렷해 이를 선택했다."
+  },
+  {
+    "id": "04",
+    "repeat": 1,
+    "initial": "04-r1.png",
+    "final": "04-r1-edit.png",
+    "repair": "04-r1-edit.png",
+    "repair_prompt": "Edit this photograph so the single small green olive immediately catches the eye. The copper tray’s sweeping rim and blue window reflections currently dominate. Light the counter immediately outside the rim to closely match the rim in brightness and earthy hue, softly defocus the far edge, and diffuse the window reflection until it is broad and muted. Use a localized sliver of dawn light on the olive to reveal its fresh green skin, a very small specular point and legible contact shadow, with quiet warm copper directly behind it. Keep the fruit small, the shallow copper tray recognizable by its metal sheen and rolled lip in selected places, and the photographic blue-dawn kitchen setting and composition.",
+    "notes": "첫 관찰자는 구리 쟁반을 지목했다. 수정본에서 파란 창 반사가 누그러지고 올리브가 은은한 빛을 받아 이를 선택했다. 넓고 밝은 구리 쟁반 둘레가 여전히 경쟁한다."
+  },
+  {
+    "id": "04",
+    "repeat": 2,
+    "initial": "04-r2.png",
+    "final": "04-r2-edit.png",
+    "repair": "04-r2-edit.png",
+    "repair_prompt": "Edit this photograph so the single small green olive immediately catches the eye. The copper tray’s sweeping rim and blue window reflections currently dominate. Light the counter immediately outside the rim to closely match the rim in brightness and earthy hue, softly defocus the far edge, and diffuse the window reflection until it is broad and muted. Use a localized sliver of dawn light on the olive to reveal its fresh green skin, a very small specular point and legible contact shadow, with quiet warm copper directly behind it. Keep the fruit small, the shallow copper tray recognizable by its metal sheen and rolled lip in selected places, and the photographic blue-dawn kitchen setting and composition.",
+    "notes": "첫 관찰자는 구리 쟁반을 지목했다. 수정본의 초록 올리브가 따뜻한 구리색에 잘 떨어져 보인다. 전면 테두리의 광택도 여전히 강하나 원본의 넓은 푸른 반사보다 시선 경쟁이 줄어 수정본을 선택했다."
+  },
+  {
+    "id": "04",
+    "repeat": 3,
+    "initial": "04-r3.png",
+    "final": "04-r3-edit.png",
+    "repair": "04-r3-edit.png",
+    "repair_prompt": "Edit this photograph so the single small green olive immediately catches the eye. The copper tray’s sweeping rim and blue window reflections currently dominate. Light the counter immediately outside the rim to closely match the rim in brightness and earthy hue, softly defocus the far edge, and diffuse the window reflection until it is broad and muted. Use a localized sliver of dawn light on the olive to reveal its fresh green skin, a very small specular point and legible contact shadow, with quiet warm copper directly behind it. Keep the fruit small, the shallow copper tray recognizable by its metal sheen and rolled lip in selected places, and the photographic blue-dawn kitchen setting and composition.",
+    "notes": "첫 관찰자는 구리 쟁반을 지목했다. 수정본에서 올리브 국소 반사와 접촉 그림자가 뚜렷해졌다. 푸른 새벽 창빛과 구리 표면도 남아 수정본을 선택했으나 넓은 쟁반은 여전히 눈에 띈다."
+  },
+  {
+    "id": "05",
+    "repeat": 1,
+    "initial": "05-r1.png",
+    "final": "05-r1-edit.png",
+    "repair": "05-r1-edit.png",
+    "repair_prompt": "Edit this soft pastel so the small silver dragonfly brooch is the first distinct object at thumbnail size. Blend the dressing-room surface immediately around the hat's outside contour toward the same deep muted plum-navy value as the felt, and soften that contour, brim, and bow. Preserve pink ambient color beyond this adjoining area and in gentle reflected light; retain a quietly legible navy felt nap. On the one brooch alone, catch four silver wings and its slender body in clear silvery-white pastel strokes, crisply separated against the side of the dark crown. Keep the brooch small and physically attached in place, the existing room, hat design and soft pastel medium.",
+    "notes": "첫 관찰자는 모자를 지목했다. 수정본의 은빛 잠자리 날개가 남색 크라운에서 선명히 보인다. 모자 윤곽을 낮추고 분홍 배경을 살려 수정본을 선택했다. 모자 면적이 커 더 일찍 보일 여지는 남는다."
+  },
+  {
+    "id": "05",
+    "repeat": 2,
+    "initial": "05-r2.png",
+    "final": "05-r2-edit.png",
+    "repair": "05-r2-edit.png",
+    "repair_prompt": "Edit this soft pastel so the small silver dragonfly brooch is the first distinct object at thumbnail size. Blend the dressing-room surface immediately around the hat's outside contour toward the same deep muted plum-navy value as the felt, and soften that contour, brim, and bow. Preserve pink ambient color beyond this adjoining area and in gentle reflected light; retain a quietly legible navy felt nap. On the one brooch alone, catch four silver wings and its slender body in clear silvery-white pastel strokes, crisply separated against the side of the dark crown. Keep the brooch small and physically attached in place, the existing room, hat design and soft pastel medium.",
+    "notes": "첫 관찰자는 모자를 지목했다. 수정본은 브로치의 은빛 선과 몸체가 원본보다 또렷하고 남색 펠트와 파스텔 결도 식별돼 선택했다. 배경 거울과 모자 윤곽은 일부 경쟁한다."
+  },
+  {
+    "id": "05",
+    "repeat": 3,
+    "initial": "05-r3.png",
+    "final": "05-r3-edit.png",
+    "repair": "05-r3-edit.png",
+    "repair_prompt": "Edit this soft pastel so the small silver dragonfly brooch is the first distinct object at thumbnail size. Blend the dressing-room surface immediately around the hat's outside contour toward the same deep muted plum-navy value as the felt, and soften that contour, brim, and bow. Preserve pink ambient color beyond this adjoining area and in gentle reflected light; retain a quietly legible navy felt nap. On the one brooch alone, catch four silver wings and its slender body in clear silvery-white pastel strokes, crisply separated against the side of the dark crown. Keep the brooch small and physically attached in place, the existing room, hat design and soft pastel medium.",
+    "notes": "첫 관찰자는 모자를 지목했다. 수정본에서 은색 브로치와 남색 모자 사이 밝기 차가 커지고 보송한 가장자리와 분홍빛도 남아 이를 선택했다. 넓은 챙은 여전히 또렷하다."
+  }
+]

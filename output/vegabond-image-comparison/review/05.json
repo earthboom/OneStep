@@ -1,0 +1,31 @@
+{
+  "case": "05",
+  "checks": [
+    "exactly two blue square boxes",
+    "exactly one orange cylindrical box",
+    "blue boxes left and orange box right",
+    "nonoverlapping objects, no additional objects",
+    "white background",
+    "direct overhead view, with no substantial oblique faces"
+  ],
+  "candidates": {
+    "05-A": [
+      "PNG 1536x1024"
+    ],
+    "05-B": [
+      "PNG 1536x1024"
+    ],
+    "05-C": [
+      "PNG 1752x897"
+    ],
+    "05-D": [
+      "PNG 1752x897"
+    ],
+    "05-E": [
+      "PNG 1536x1024"
+    ],
+    "05-F": [
+      "PNG 1774x887"
+    ]
+  }
+}

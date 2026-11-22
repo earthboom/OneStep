@@ -1,0 +1,850 @@
+{
+  "totals": {
+    "baseline": {
+      "first": {
+        "P": 120,
+        "passed_tasks": 20,
+        "tasks": 24,
+        "F": 4
+      },
+      "final": {
+        "P": 123,
+        "passed_tasks": 23,
+        "tasks": 24,
+        "F": 1
+      }
+    },
+    "vegabond": {
+      "first": {
+        "P": 122,
+        "passed_tasks": 22,
+        "tasks": 24,
+        "F": 2
+      },
+      "final": {
+        "P": 124,
+        "passed_tasks": 24,
+        "tasks": 24
+      }
+    }
+  },
+  "paired": {
+    "first": {
+      "same": 20,
+      "vegabond_only": 3,
+      "baseline_only": 1
+    },
+    "final": {
+      "same": 23,
+      "vegabond_only": 1
+    }
+  },
+  "cases": {
+    "01": {
+      "baseline-1": {
+        "first": {
+          "label": "01-E",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "01-E",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "baseline-2": {
+        "first": {
+          "label": "01-B",
+          "passed": false,
+          "failed": [
+            "exactly two separate red lights on entry"
+          ],
+          "unverified": [],
+          "note": "Each door jamb shows two distinct stacked red emitters, for four luminous red dots."
+        },
+        "final": {
+          "label": "01-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-1": {
+        "first": {
+          "label": "01-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "01-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-2": {
+        "first": {
+          "label": "01-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "01-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      }
+    },
+    "02": {
+      "baseline-1": {
+        "first": {
+          "label": "02-C",
+          "passed": false,
+          "failed": [
+            "no writing"
+          ],
+          "unverified": [],
+          "note": "A magnified crop reveals a faint pale letter-like watermark on the foreground rock at the lower-right corner."
+        },
+        "final": {
+          "label": "02-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "baseline-2": {
+        "first": {
+          "label": "02-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "02-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-1": {
+        "first": {
+          "label": "02-E",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "02-E",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-2": {
+        "first": {
+          "label": "02-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "02-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      }
+    },
+    "03": {
+      "baseline-1": {
+        "first": {
+          "label": "03-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "03-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "baseline-2": {
+        "first": {
+          "label": "03-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "03-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-1": {
+        "first": {
+          "label": "03-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "03-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-2": {
+        "first": {
+          "label": "03-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "03-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      }
+    },
+    "04": {
+      "baseline-1": {
+        "first": {
+          "label": "04-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "04-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "baseline-2": {
+        "first": {
+          "label": "04-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "04-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-1": {
+        "first": {
+          "label": "04-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "04-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-2": {
+        "first": {
+          "label": "04-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "04-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      }
+    },
+    "05": {
+      "baseline-1": {
+        "first": {
+          "label": "05-F",
+          "passed": false,
+          "failed": [
+            "direct overhead view, with no substantial oblique faces"
+          ],
+          "unverified": [],
+          "note": "The orange cylinder exposes a continuous sidewall band below the raised lid rim, widest at the near edge."
+        },
+        "final": {
+          "label": "05-F",
+          "passed": false,
+          "failed": [
+            "direct overhead view, with no substantial oblique faces"
+          ],
+          "unverified": [],
+          "note": "The orange cylinder exposes a continuous sidewall band below the raised lid rim, widest at the near edge."
+        }
+      },
+      "baseline-2": {
+        "first": {
+          "label": "05-B",
+          "passed": false,
+          "failed": [
+            "direct overhead view, with no substantial oblique faces"
+          ],
+          "unverified": [],
+          "note": "The orange cylinder has a deep exposed front sidewall below the lid."
+        },
+        "final": {
+          "label": "05-E",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-1": {
+        "first": {
+          "label": "05-C",
+          "passed": false,
+          "failed": [
+            "direct overhead view, with no substantial oblique faces"
+          ],
+          "unverified": [],
+          "note": "The blue boxes expose broad lower side faces, and the orange lid sits visibly above a curved front wall."
+        },
+        "final": {
+          "label": "05-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-2": {
+        "first": {
+          "label": "05-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "05-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      }
+    },
+    "06": {
+      "baseline-1": {
+        "first": {
+          "label": "06-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "06-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "baseline-2": {
+        "first": {
+          "label": "06-E",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "06-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-1": {
+        "first": {
+          "label": "06-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "06-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-2": {
+        "first": {
+          "label": "06-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "06-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      }
+    },
+    "07": {
+      "baseline-1": {
+        "first": {
+          "label": "07-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "07-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "baseline-2": {
+        "first": {
+          "label": "07-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "07-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-1": {
+        "first": {
+          "label": "07-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "07-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-2": {
+        "first": {
+          "label": "07-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "07-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      }
+    },
+    "08": {
+      "baseline-1": {
+        "first": {
+          "label": "08-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "08-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "baseline-2": {
+        "first": {
+          "label": "08-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "08-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-1": {
+        "first": {
+          "label": "08-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "08-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-2": {
+        "first": {
+          "label": "08-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "08-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      }
+    },
+    "09": {
+      "baseline-1": {
+        "first": {
+          "label": "09-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "09-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "baseline-2": {
+        "first": {
+          "label": "09-E",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "09-E",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-1": {
+        "first": {
+          "label": "09-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "09-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-2": {
+        "first": {
+          "label": "09-A",
+          "passed": false,
+          "failed": [
+            "recurring reference robot identity clear in both without an ambiguous extra robot"
+          ],
+          "unverified": [],
+          "note": "The greenhouse contains a conspicuous second robot alongside the pot-holding reference robot. It has a yellow-orange head, rust torso, and its own antenna."
+        },
+        "final": {
+          "label": "09-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      }
+    },
+    "10": {
+      "baseline-1": {
+        "first": {
+          "label": "10-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "10-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "baseline-2": {
+        "first": {
+          "label": "10-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "10-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-1": {
+        "first": {
+          "label": "10-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "10-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-2": {
+        "first": {
+          "label": "10-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "10-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      }
+    },
+    "11": {
+      "baseline-1": {
+        "first": {
+          "label": "11-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "11-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "baseline-2": {
+        "first": {
+          "label": "11-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "11-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-1": {
+        "first": {
+          "label": "11-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "11-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-2": {
+        "first": {
+          "label": "11-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "11-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      }
+    },
+    "12": {
+      "baseline-1": {
+        "first": {
+          "label": "12-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "12-B",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "baseline-2": {
+        "first": {
+          "label": "12-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "12-D",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-1": {
+        "first": {
+          "label": "12-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "12-C",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      },
+      "vegabond-2": {
+        "first": {
+          "label": "12-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        },
+        "final": {
+          "label": "12-A",
+          "passed": true,
+          "failed": [],
+          "unverified": [],
+          "note": null
+        }
+      }
+    }
+  }
+}

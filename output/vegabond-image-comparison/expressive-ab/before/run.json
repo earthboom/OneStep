@@ -1,0 +1,146 @@
+[
+  {
+    "id": "01",
+    "repeat": 1,
+    "initial": "01-r1.png",
+    "final": "01-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "Opaque brushstrokes, night counter, violet shadow and pale stitched fabric are visible. The small centered orange ticket is the strongest saturated shape."
+  },
+  {
+    "id": "01",
+    "repeat": 2,
+    "initial": "01-r2.png",
+    "final": "01-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The orange paper ticket sits on white cloth gloves in violet booth light. The gouache surface and focal contrast read clearly."
+  },
+  {
+    "id": "02",
+    "repeat": 1,
+    "initial": "02-r1.png",
+    "final": "02-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The crest and runoff use the same paper tone as the margin. Distant horizontal cuts contrast with dark angular wet foreground stones in navy ink."
+  },
+  {
+    "id": "02",
+    "repeat": 2,
+    "initial": "02-r2.png",
+    "final": "02-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "Pale paper foam spills over the block wall. Closely spaced horizon marks and bright cuts over heavy near stones separate the depths in the same navy."
+  },
+  {
+    "id": "03",
+    "repeat": 1,
+    "initial": "03-r1.png",
+    "final": "03-r1-edit.png",
+    "repair": "03-r1-edit.png",
+    "repair_prompt": "Edit just the action in the left panel so one can see the long-closed shop actually reopening: the same mechanic is on his feet physically pushing the dusty rolling shutter up with both hands, partway through the lift. A cobweb tears loose at the shutter edge. The waiting customer and bicycle remain visible. Preserve the right panel with its empty swept shop, ready bicycle, bench and tool traces. Preserve the two-panel layout, architecture, unlettered charcoal drawing, tonal range, daylight and identities.",
+    "notes": "Initial: a working mechanic and a waiting customer communicated ordinary business; previous closure was ambiguous. Accepted edit: both hands raise the dusty shutter beside a cobweb. Same arched storefront, bicycle, empty swept right panel and wordless charcoal treatment are retained."
+  },
+  {
+    "id": "03",
+    "repeat": 2,
+    "initial": "03-r2.png",
+    "final": "03-r2-edit.png",
+    "repair": "03-r2-edit.png",
+    "repair_prompt": "Edit just the action in the left panel so one can see the long-closed shop actually reopening: the same mechanic is on his feet physically pushing the dusty rolling shutter up with both hands, partway through the lift. A cobweb tears loose at the shutter edge. The waiting customer and bicycle remain visible. Preserve the right panel with its empty swept shop, ready bicycle, bench and tool traces. Preserve the two-panel layout, architecture, unlettered charcoal drawing, tonal range, daylight and identities.",
+    "notes": "Initial: active repair and swept floor were clear, reopening was ambiguous. Accepted edit: the mechanic lifts a webbed shutter beside the waiting cyclist. The right panel remains empty, with the prepared bicycle, swept threshold and used tools. No text seen."
+  },
+  {
+    "id": "04",
+    "repeat": 1,
+    "initial": "04-r1.png",
+    "final": "04-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "One short-haired jacketed figure per panel. Distant hunched isolation changes to an open reclining posture on the same rooftop bench. Clouds, light and skyline agree; wordless ink panels."
+  },
+  {
+    "id": "04",
+    "repeat": 2,
+    "initial": "04-r2.png",
+    "final": "04-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "One seated figure in each panel, matched jacket, roof, bench and weather. Empty paving and bowed head give way to the relaxed arm and lifted face. No writing seen."
+  },
+  {
+    "id": "05",
+    "repeat": 1,
+    "initial": "05-r1.png",
+    "final": "05-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "A hand holds the bag handles above torn flaps. Several mandarins descend below the tear; the lowest has a shadow hugging the sidewalk. Loose street sketch."
+  },
+  {
+    "id": "05",
+    "repeat": 2,
+    "initial": "05-r2.png",
+    "final": "05-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The joined handles stay in the hand, the ragged bottom opens downward, two fruit are clearly airborne below it, and the lowest fruit rests on the pavement. Street sketch treatment is legible."
+  },
+  {
+    "id": "06",
+    "repeat": 1,
+    "initial": "06-r1.png",
+    "final": "06-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "Side-on photo across a wooden desk. The low overlapping left section leans toward a tile touching the upright at the moving front. The undisturbed right section follows the same line."
+  },
+  {
+    "id": "06",
+    "repeat": 2,
+    "initial": "06-r2.png",
+    "final": "06-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "Left tiles are down, the moving tile contacts the next upright, and regularly spaced uprights continue right. Wooden surface and side view are clear."
+  },
+  {
+    "id": "07",
+    "repeat": 1,
+    "initial": "07-r1.png",
+    "final": "07-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "One unsupported open book hangs above one flat loose leaf on the wooden floor. A chair and shelved volumes remain ordinarily placed in natural light."
+  },
+  {
+    "id": "07",
+    "repeat": 2,
+    "initial": "07-r2.png",
+    "final": "07-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "One airborne volume and one flat floor leaf are vertically aligned. The grounded chair, other books and shelves read as an ordinary old library."
+  },
+  {
+    "id": "08",
+    "repeat": 1,
+    "initial": "08-r1.png",
+    "final": "08-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "Watercolor boat rests against wet exposed mud. Behind it, the deeper channel, stained quay, small drains and reflected sky convey recently receded water."
+  },
+  {
+    "id": "08",
+    "repeat": 2,
+    "initial": "08-r2.png",
+    "final": "08-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The grounded fishing boat, glossy mud, draining channels, rear stretch of water and marked quay form a readable low-tide harbor. Transparent washes are visible."
+  }
+]

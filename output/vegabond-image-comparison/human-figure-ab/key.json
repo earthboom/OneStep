@@ -1,0 +1,290 @@
+[
+  {
+    "arm": "before",
+    "case": "01",
+    "rep": 1,
+    "stage": "initial",
+    "file": "01-r1.png",
+    "J": "17",
+    "K": "19"
+  },
+  {
+    "arm": "before",
+    "case": "01",
+    "rep": 1,
+    "stage": "final",
+    "file": "01-r1-edit.png",
+    "J": "01",
+    "K": "02"
+  },
+  {
+    "arm": "before",
+    "case": "01",
+    "rep": 2,
+    "stage": "initial",
+    "file": "01-r2.png",
+    "J": "16",
+    "K": "22"
+  },
+  {
+    "arm": "before",
+    "case": "01",
+    "rep": 2,
+    "stage": "final",
+    "file": "01-r2-edit.png",
+    "J": "20",
+    "K": "08"
+  },
+  {
+    "arm": "before",
+    "case": "02",
+    "rep": 1,
+    "stage": "initial",
+    "file": "02-r1.png",
+    "J": "09",
+    "K": "10"
+  },
+  {
+    "arm": "before",
+    "case": "02",
+    "rep": 1,
+    "stage": "final",
+    "file": "02-r1.png",
+    "J": "09",
+    "K": "10"
+  },
+  {
+    "arm": "before",
+    "case": "02",
+    "rep": 2,
+    "stage": "initial",
+    "file": "02-r2.png",
+    "J": "24",
+    "K": "20"
+  },
+  {
+    "arm": "before",
+    "case": "02",
+    "rep": 2,
+    "stage": "final",
+    "file": "02-r2.png",
+    "J": "24",
+    "K": "20"
+  },
+  {
+    "arm": "before",
+    "case": "03",
+    "rep": 1,
+    "stage": "initial",
+    "file": "03-r1.png",
+    "J": "18",
+    "K": "17"
+  },
+  {
+    "arm": "before",
+    "case": "03",
+    "rep": 1,
+    "stage": "final",
+    "file": "03-r1.png",
+    "J": "18",
+    "K": "17"
+  },
+  {
+    "arm": "before",
+    "case": "03",
+    "rep": 2,
+    "stage": "initial",
+    "file": "03-r2.png",
+    "J": "12",
+    "K": "04"
+  },
+  {
+    "arm": "before",
+    "case": "03",
+    "rep": 2,
+    "stage": "final",
+    "file": "03-r2.png",
+    "J": "12",
+    "K": "04"
+  },
+  {
+    "arm": "before",
+    "case": "04",
+    "rep": 1,
+    "stage": "initial",
+    "file": "04-r1.png",
+    "J": "11",
+    "K": "15"
+  },
+  {
+    "arm": "before",
+    "case": "04",
+    "rep": 1,
+    "stage": "final",
+    "file": "04-r1-edit.png",
+    "J": "21",
+    "K": "21"
+  },
+  {
+    "arm": "before",
+    "case": "04",
+    "rep": 2,
+    "stage": "initial",
+    "file": "04-r2.png",
+    "J": "10",
+    "K": "23"
+  },
+  {
+    "arm": "before",
+    "case": "04",
+    "rep": 2,
+    "stage": "final",
+    "file": "04-r2-edit.png",
+    "J": "03",
+    "K": "05"
+  },
+  {
+    "arm": "after",
+    "case": "01",
+    "rep": 1,
+    "stage": "initial",
+    "file": "01-r1.png",
+    "J": "23",
+    "K": "09"
+  },
+  {
+    "arm": "after",
+    "case": "01",
+    "rep": 1,
+    "stage": "final",
+    "file": "01-r1-edit.png",
+    "J": "02",
+    "K": "16"
+  },
+  {
+    "arm": "after",
+    "case": "01",
+    "rep": 2,
+    "stage": "initial",
+    "file": "01-r2.png",
+    "J": "04",
+    "K": "13"
+  },
+  {
+    "arm": "after",
+    "case": "01",
+    "rep": 2,
+    "stage": "final",
+    "file": "01-r2.png",
+    "J": "04",
+    "K": "13"
+  },
+  {
+    "arm": "after",
+    "case": "02",
+    "rep": 1,
+    "stage": "initial",
+    "file": "02-r1.png",
+    "J": "14",
+    "K": "24"
+  },
+  {
+    "arm": "after",
+    "case": "02",
+    "rep": 1,
+    "stage": "final",
+    "file": "02-r1.png",
+    "J": "14",
+    "K": "24"
+  },
+  {
+    "arm": "after",
+    "case": "02",
+    "rep": 2,
+    "stage": "initial",
+    "file": "02-r2.png",
+    "J": "15",
+    "K": "06"
+  },
+  {
+    "arm": "after",
+    "case": "02",
+    "rep": 2,
+    "stage": "final",
+    "file": "02-r2.png",
+    "J": "15",
+    "K": "06"
+  },
+  {
+    "arm": "after",
+    "case": "03",
+    "rep": 1,
+    "stage": "initial",
+    "file": "03-r1.png",
+    "J": "22",
+    "K": "11"
+  },
+  {
+    "arm": "after",
+    "case": "03",
+    "rep": 1,
+    "stage": "final",
+    "file": "03-r1.png",
+    "J": "22",
+    "K": "11"
+  },
+  {
+    "arm": "after",
+    "case": "03",
+    "rep": 2,
+    "stage": "initial",
+    "file": "03-r2.png",
+    "J": "13",
+    "K": "07"
+  },
+  {
+    "arm": "after",
+    "case": "03",
+    "rep": 2,
+    "stage": "final",
+    "file": "03-r2-edit.png",
+    "J": "07",
+    "K": "12"
+  },
+  {
+    "arm": "after",
+    "case": "04",
+    "rep": 1,
+    "stage": "initial",
+    "file": "04-r1.png",
+    "J": "06",
+    "K": "18"
+  },
+  {
+    "arm": "after",
+    "case": "04",
+    "rep": 1,
+    "stage": "final",
+    "file": "04-r1-edit.png",
+    "J": "05",
+    "K": "01"
+  },
+  {
+    "arm": "after",
+    "case": "04",
+    "rep": 2,
+    "stage": "initial",
+    "file": "04-r2.png",
+    "J": "19",
+    "K": "03"
+  },
+  {
+    "arm": "after",
+    "case": "04",
+    "rep": 2,
+    "stage": "final",
+    "file": "04-r2-edit.png",
+    "J": "08",
+    "K": "14"
+  }
+]

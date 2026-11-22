@@ -1,0 +1,377 @@
+[
+  {
+    "label": "01",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "02",
+    "object": "붉은 산딸기",
+    "tie": false
+  },
+  {
+    "label": "03",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "04",
+    "object": "붉은 산딸기",
+    "tie": false
+  },
+  {
+    "label": "05",
+    "object": "붉은 산딸기",
+    "tie": false
+  },
+  {
+    "label": "06",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "07",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "08",
+    "object": "짙은 남색 모자",
+    "tie": false
+  },
+  {
+    "label": "09",
+    "object": "은빛 잠자리 장식",
+    "tie": false
+  },
+  {
+    "label": "10",
+    "object": "남색 모자",
+    "tie": false
+  },
+  {
+    "label": "11",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "12",
+    "object": "연녹색 접시와 붉은 산딸기",
+    "tie": true
+  },
+  {
+    "label": "13",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "14",
+    "object": "은빛 잠자리 장식",
+    "tie": false
+  },
+  {
+    "label": "15",
+    "object": "남색 모자",
+    "tie": false
+  },
+  {
+    "label": "16",
+    "object": "초록색 올리브",
+    "tie": false
+  },
+  {
+    "label": "17",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "18",
+    "object": "은빛 잠자리 장식",
+    "tie": false
+  },
+  {
+    "label": "19",
+    "object": "초록색 올리브",
+    "tie": false
+  },
+  {
+    "label": "20",
+    "object": "초록색 올리브",
+    "tie": false
+  },
+  {
+    "label": "21",
+    "object": "초록색 올리브",
+    "tie": false
+  },
+  {
+    "label": "22",
+    "object": "은빛 잠자리 장식",
+    "tie": false
+  },
+  {
+    "label": "23",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "24",
+    "object": "붉은 산딸기",
+    "tie": false
+  },
+  {
+    "label": "25",
+    "object": "은빛 잠자리 장식",
+    "tie": false
+  },
+  {
+    "label": "26",
+    "object": "초록색 올리브",
+    "tie": false
+  },
+  {
+    "label": "27",
+    "object": "은빛 잠자리 장식",
+    "tie": false
+  },
+  {
+    "label": "28",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "29",
+    "object": "남색 모자와 은빛 잠자리 장식",
+    "tie": true
+  },
+  {
+    "label": "30",
+    "object": "붉은 산딸기",
+    "tie": false
+  },
+  {
+    "label": "31",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "32",
+    "object": "파란 작업등",
+    "tie": false
+  },
+  {
+    "label": "33",
+    "object": "초록색 올리브",
+    "tie": false
+  },
+  {
+    "label": "34",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "35",
+    "object": "은빛 잠자리 장식",
+    "tie": false
+  },
+  {
+    "label": "36",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "37",
+    "object": "남색 모자",
+    "tie": false
+  },
+  {
+    "label": "38",
+    "object": "구리 쟁반와 초록색 올리브",
+    "tie": true
+  },
+  {
+    "label": "39",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "40",
+    "object": "붉은 산딸기",
+    "tie": false
+  },
+  {
+    "label": "41",
+    "object": "초록색 올리브",
+    "tie": false
+  },
+  {
+    "label": "42",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "43",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "44",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "45",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "46",
+    "object": "초록색 올리브",
+    "tie": false
+  },
+  {
+    "label": "47",
+    "object": "파란 작업등",
+    "tie": false
+  },
+  {
+    "label": "48",
+    "object": "붉은 산딸기",
+    "tie": false
+  },
+  {
+    "label": "49",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "50",
+    "object": "초록색 올리브",
+    "tie": false
+  },
+  {
+    "label": "51",
+    "object": "파란 작업등와 노란 연필",
+    "tie": true
+  },
+  {
+    "label": "52",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "53",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "54",
+    "object": "파란 작업등와 노란 연필",
+    "tie": true
+  },
+  {
+    "label": "55",
+    "object": "은빛 잠자리 장식",
+    "tie": false
+  },
+  {
+    "label": "56",
+    "object": "남색 모자",
+    "tie": false
+  },
+  {
+    "label": "57",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "58",
+    "object": "초록색 올리브",
+    "tie": false
+  },
+  {
+    "label": "59",
+    "object": "구리 쟁반",
+    "tie": false
+  },
+  {
+    "label": "60",
+    "object": "초록색 올리브",
+    "tie": false
+  },
+  {
+    "label": "61",
+    "object": "작업등와 노란 연필",
+    "tie": true
+  },
+  {
+    "label": "62",
+    "object": "은빛 잠자리 장식",
+    "tie": false
+  },
+  {
+    "label": "63",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "64",
+    "object": "붉은 산딸기",
+    "tie": false
+  },
+  {
+    "label": "65",
+    "object": "붉은 산딸기",
+    "tie": false
+  },
+  {
+    "label": "66",
+    "object": "붉은 산딸기",
+    "tie": false
+  },
+  {
+    "label": "67",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "68",
+    "object": "초록색 올리브",
+    "tie": false
+  },
+  {
+    "label": "69",
+    "object": "초록색 올리브",
+    "tie": false
+  },
+  {
+    "label": "70",
+    "object": "초록색 올리브",
+    "tie": false
+  },
+  {
+    "label": "71",
+    "object": "작업등와 노란 연필",
+    "tie": true
+  },
+  {
+    "label": "72",
+    "object": "은빛 잠자리 장식",
+    "tie": false
+  },
+  {
+    "label": "73",
+    "object": "은빛 잠자리 장식",
+    "tie": false
+  },
+  {
+    "label": "74",
+    "object": "남색 모자",
+    "tie": false
+  },
+  {
+    "label": "75",
+    "object": "붉은 산딸기",
+    "tie": false
+  }
+]

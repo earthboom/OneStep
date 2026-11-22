@@ -1,0 +1,218 @@
+{
+  "01": {
+    "baseline-1": {
+      "first": "01-E",
+      "final": "01-E"
+    },
+    "baseline-2": {
+      "first": "01-B",
+      "final": "01-C"
+    },
+    "vegabond-1": {
+      "first": "01-A",
+      "final": "01-A"
+    },
+    "vegabond-2": {
+      "first": "01-D",
+      "final": "01-D"
+    }
+  },
+  "02": {
+    "baseline-1": {
+      "first": "02-C",
+      "final": "02-D"
+    },
+    "baseline-2": {
+      "first": "02-A",
+      "final": "02-A"
+    },
+    "vegabond-1": {
+      "first": "02-E",
+      "final": "02-E"
+    },
+    "vegabond-2": {
+      "first": "02-B",
+      "final": "02-B"
+    }
+  },
+  "03": {
+    "baseline-1": {
+      "first": "03-B",
+      "final": "03-B"
+    },
+    "baseline-2": {
+      "first": "03-C",
+      "final": "03-C"
+    },
+    "vegabond-1": {
+      "first": "03-D",
+      "final": "03-D"
+    },
+    "vegabond-2": {
+      "first": "03-A",
+      "final": "03-A"
+    }
+  },
+  "04": {
+    "baseline-1": {
+      "first": "04-D",
+      "final": "04-D"
+    },
+    "baseline-2": {
+      "first": "04-B",
+      "final": "04-B"
+    },
+    "vegabond-1": {
+      "first": "04-C",
+      "final": "04-C"
+    },
+    "vegabond-2": {
+      "first": "04-A",
+      "final": "04-A"
+    }
+  },
+  "05": {
+    "baseline-1": {
+      "first": "05-F",
+      "final": "05-F"
+    },
+    "baseline-2": {
+      "first": "05-B",
+      "final": "05-E"
+    },
+    "vegabond-1": {
+      "first": "05-C",
+      "final": "05-D"
+    },
+    "vegabond-2": {
+      "first": "05-A",
+      "final": "05-A"
+    }
+  },
+  "06": {
+    "baseline-1": {
+      "first": "06-C",
+      "final": "06-C"
+    },
+    "baseline-2": {
+      "first": "06-E",
+      "final": "06-A"
+    },
+    "vegabond-1": {
+      "first": "06-D",
+      "final": "06-D"
+    },
+    "vegabond-2": {
+      "first": "06-B",
+      "final": "06-B"
+    }
+  },
+  "07": {
+    "baseline-1": {
+      "first": "07-D",
+      "final": "07-D"
+    },
+    "baseline-2": {
+      "first": "07-A",
+      "final": "07-A"
+    },
+    "vegabond-1": {
+      "first": "07-C",
+      "final": "07-C"
+    },
+    "vegabond-2": {
+      "first": "07-B",
+      "final": "07-B"
+    }
+  },
+  "08": {
+    "baseline-1": {
+      "first": "08-D",
+      "final": "08-D"
+    },
+    "baseline-2": {
+      "first": "08-B",
+      "final": "08-B"
+    },
+    "vegabond-1": {
+      "first": "08-C",
+      "final": "08-C"
+    },
+    "vegabond-2": {
+      "first": "08-A",
+      "final": "08-A"
+    }
+  },
+  "09": {
+    "baseline-1": {
+      "first": "09-C",
+      "final": "09-C"
+    },
+    "baseline-2": {
+      "first": "09-E",
+      "final": "09-E"
+    },
+    "vegabond-1": {
+      "first": "09-B",
+      "final": "09-B"
+    },
+    "vegabond-2": {
+      "first": "09-A",
+      "final": "09-D"
+    }
+  },
+  "10": {
+    "baseline-1": {
+      "first": "10-B",
+      "final": "10-B"
+    },
+    "baseline-2": {
+      "first": "10-C",
+      "final": "10-C"
+    },
+    "vegabond-1": {
+      "first": "10-D",
+      "final": "10-D"
+    },
+    "vegabond-2": {
+      "first": "10-A",
+      "final": "10-A"
+    }
+  },
+  "11": {
+    "baseline-1": {
+      "first": "11-B",
+      "final": "11-B"
+    },
+    "baseline-2": {
+      "first": "11-A",
+      "final": "11-A"
+    },
+    "vegabond-1": {
+      "first": "11-C",
+      "final": "11-C"
+    },
+    "vegabond-2": {
+      "first": "11-D",
+      "final": "11-D"
+    }
+  },
+  "12": {
+    "baseline-1": {
+      "first": "12-B",
+      "final": "12-B"
+    },
+    "baseline-2": {
+      "first": "12-D",
+      "final": "12-D"
+    },
+    "vegabond-1": {
+      "first": "12-C",
+      "final": "12-C"
+    },
+    "vegabond-2": {
+      "first": "12-A",
+      "final": "12-A"
+    }
+  }
+}

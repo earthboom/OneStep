@@ -1,0 +1,33 @@
+{
+  "checks": [
+    "two standalone images",
+    "first: greenhouse and holds a pot",
+    "second: stop and waits empty-handed",
+    "orange spherical head in both",
+    "teal box torso in both",
+    "exactly one black antenna on the recurring robot in each",
+    "recurring reference robot identity clear in both without an ambiguous extra robot"
+  ],
+  "candidates": {
+    "09-A": [
+      "PNG 1254x1254",
+      "PNG 1254x1254"
+    ],
+    "09-B": [
+      "PNG 1254x1254",
+      "PNG 1254x1254"
+    ],
+    "09-C": [
+      "PNG 1254x1254",
+      "PNG 1254x1254"
+    ],
+    "09-D": [
+      "PNG 1254x1254",
+      "PNG 1254x1254"
+    ],
+    "09-E": [
+      "PNG 1254x1254",
+      "PNG 1254x1254"
+    ]
+  }
+}

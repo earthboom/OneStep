@@ -1,0 +1,74 @@
+[
+  {
+    "id": "01",
+    "repeat": 1,
+    "initial": "01-r1.png",
+    "final": "01-r1-edit.png",
+    "repair": "01-r1-edit.png",
+    "repair_prompt": "Image 1 is the edit source. Correct only the stair geometry beneath her stride. Remove the narrow intermediate tread and its riser between the shoes, so a single ordinary-height riser directly separates the supporting surface beneath her trailing shoe from the tread beneath her forward shoe. Let her forward knee and shoe settle slightly lower as needed for this one-step ascent. Preserve her full body, both shoes, face, coat, loaded grocery bag, alley, camera angle and overcast documentary light.",
+    "notes": "The original showed a spare tread between the two shoes. The edit shows a single, fairly tall riser from the alley to the forward shoe. Her head and both feet remain in frame, and the sagging grocery bag still pulls the straps taut. Selected the edit."
+  },
+  {
+    "id": "01",
+    "repeat": 2,
+    "initial": "01-r2.png",
+    "final": "01-r2-edit.png",
+    "repair": "01-r2-edit.png",
+    "repair_prompt": "Image 1 is the edit source. Correct only the stair geometry beneath her stride. Remove the narrow intermediate tread and its riser between the shoes, so a single ordinary-height riser directly separates the supporting surface beneath her trailing shoe from the tread beneath her forward shoe. Let her forward knee and shoe settle slightly lower as needed for this one-step ascent. Preserve her full body, both shoes, face, cardigan, loaded grocery bag, alley, camera angle and overcast documentary light.",
+    "notes": "The initial placed her front shoe two levels above the rear shoe. The edited alley pavement now meets the first riser directly. The forward sole contacts the tread, the rear heel lifts slightly, and the loaded bag hangs low. Selected the edit."
+  },
+  {
+    "id": "02",
+    "repeat": 1,
+    "initial": "02-r1.png",
+    "final": "02-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The man grips the cup handle and the woman supports its foot on an open palm. Both faces, both interacting hands, the teahouse, and soft window lighting remain readable in the same frame. Selected the initial."
+  },
+  {
+    "id": "02",
+    "repeat": 2,
+    "initial": "02-r2.png",
+    "final": "02-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The man holds the open handle while the woman cups the ceramic foot from below. Their faces meet across the cup, with soft window highlights and credible skin tone. Selected the initial."
+  },
+  {
+    "id": "03",
+    "repeat": 1,
+    "initial": "03-r1.png",
+    "final": "03-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The man looks up toward the standing person at frame right with a restrained smile. Blue edging on the right and amber illumination on the left reach the cheek and neck; creases and skin texture remain visible. The measuring tape repeats a numeral. Selected the initial."
+  },
+  {
+    "id": "03",
+    "repeat": 2,
+    "initial": "03-r2.png",
+    "final": "03-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The white-haired man looks toward the cropped companion, with a slight closed-mouth smile. The lamp lights the cheek and front of the neck; the blue window light is more apparent on the temple and jaw than lower on the neck. Skin texture and sewing machine remain visible. Selected the initial."
+  },
+  {
+    "id": "04",
+    "repeat": 1,
+    "initial": "04-r1.png",
+    "final": "04-r1-edit.png",
+    "repair": "04-r1-edit.png",
+    "repair_prompt": "Image 1 is the edit source. Move the observational viewpoint around to a near-profile side view of the seated figure, with just enough obliqueness to distinguish the two hands at the laces of the same sneaker. The bench seat should recede into depth and the near and far knees should overlap a little in projection. Retain the full figure including both shoes, her forward bend, blue overshirt, park bench, soft shade, connected skin washes and transparent watercolor on paper.",
+    "notes": "The original was closer to a frontal view of the bench. In the edit, the bench recedes and the figure is seen in profile with both hands meeting at the nearer sneaker, the full seated figure visible and warm washes linking face, arms, and hands. Selected the edit."
+  },
+  {
+    "id": "04",
+    "repeat": 2,
+    "initial": "04-r2.png",
+    "final": "04-r2-edit.png",
+    "repair": "04-r2-edit.png",
+    "repair_prompt": "Image 1 is the edit source. Move the observational viewpoint around to a near-profile side view of the seated figure, with just enough obliqueness to distinguish the two hands at the laces of the same sneaker. The bench seat should recede into depth and the near and far knees should overlap a little in projection. Retain the full figure including both shoes, her forward bend, pale overshirt and jeans, park bench, soft shade, connected skin washes and transparent watercolor on paper.",
+    "notes": "The edit brings the bench into perspective and shows the face, torso, and shoes from the side. Two hands still pull at the lace on one sneaker, and skin washes follow the arms into the hands. Selected the edit."
+  }
+]

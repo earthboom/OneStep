@@ -1,0 +1,24 @@
+{
+  "checks": [
+    "jacket changed to teal",
+    "face, hair and pose preserved",
+    "composition and background preserved"
+  ],
+  "candidates": {
+    "12-A": [
+      "PNG 1086x1448"
+    ],
+    "12-B": [
+      "PNG 1086x1448"
+    ],
+    "12-C": [
+      "PNG 1086x1448"
+    ],
+    "12-D": [
+      "PNG 1086x1448"
+    ],
+    "12-E": [
+      "PNG 1086x1448"
+    ]
+  }
+}

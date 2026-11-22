@@ -1,0 +1,25 @@
+{
+  "case": "10",
+  "checks": [
+    "lower-left fountain",
+    "upper-right arch",
+    "continuous diagonal path",
+    "navy and ochre visibly dominate",
+    "rough relief print texture",
+    "no prominent leaf subject from style reference"
+  ],
+  "candidates": {
+    "10-A": [
+      "PNG 1448x1086"
+    ],
+    "10-B": [
+      "PNG 1448x1086"
+    ],
+    "10-C": [
+      "PNG 1448x1086"
+    ],
+    "10-D": [
+      "PNG 1448x1086"
+    ]
+  }
+}

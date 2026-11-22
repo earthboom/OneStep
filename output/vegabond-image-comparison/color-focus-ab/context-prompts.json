@@ -1,0 +1,12 @@
+[
+  {
+    "name": "glove-context",
+    "input": "C:/Projects/OneStep/output/vegabond-image-comparison/expressive-ab/after/01-r1-edit.png",
+    "prompt": "Edit this supplied theatre gouache with a figure-ground color adjustment. Keep the glove unmistakably white cotton with visible violet shadows and its existing lit white palm next to the ticket. Preserve the vivid tangerine admission ticket unchanged in small size and placement. The competition is the outer silhouette of the large white glove against the very dark violet counter. Repaint the counter surface directly around and behind the glove as a muted light grey-violet matte surface close to the glove in value. Soften the distant glove contour against it, suppress the shiny cuff rim. Retain a distinctly white area at the ticket, the same stitched shape and fold pattern. Keep the box office visible but quiet, late indigo-violet light and opaque gouache brush marks. Small saturated orange ticket alone should immediately pop from this soft tonal field. No new props."
+  },
+  {
+    "name": "plate-context",
+    "input": "C:/Projects/OneStep/output/vegabond-image-comparison/color-focus-ab/after/02-r3.png",
+    "prompt": "Edit this supplied transparent watercolor. Preserve the little single raspberry and the pale celadon glazed plate, positions, sizes, fruit color, warm dusk window light, tea-house and medium. Keep the celadon patch and glaze at the raspberry legible. Paint the tabletop immediately around the oversized plate with a quiet pale gray-green glaze of watercolor close in value to the plate so its distant elliptical silhouette recedes. Soften that outer rim and the broad rectangular window reflection; leave a small warm glint of amber. Subdue peripheral detail on the kettle and bright window. Suppress the dark contour shadow around the bottom of the plate while keeping its contact plausible. The unchanged small red berry with its local contact shadow should be the one sharp distinct shape. No added objects."
+  }
+]

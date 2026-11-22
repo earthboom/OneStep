@@ -1,0 +1,161 @@
+{
+  "workflow": "vegabond-image + Codex built-in imagegen",
+  "repetition": 1,
+  "initial_calls": [
+    {
+      "id": "01",
+      "prompt": "Scene and composition: one photoreal low-camera-height lunar field-documentation photograph, final landscape frame 16:9. One domed lunar base entirely in the left half, and one single rover entirely in the right half. Keep the subject elements safely inside a centered 16:9 crop. Object details: the base entrance has exactly two small, visibly separate red indicator lights, one on each side of the entry. Both are easy to count. Lighting and rendering: hard sunlight enters from frame left, natural hard shadows, believable fine lunar dust and used metal. Deliver only the picture with no writing or markings anywhere.",
+      "referenced_image_paths": [],
+      "transparent_background": false,
+      "raw": "01-raw.png",
+      "initial": "01-initial.png",
+      "final": "01-initial.png",
+      "operator_note": "Exact 16:9 center crop to 1664×936."
+    },
+    {
+      "id": "02",
+      "prompt": "One wide 16:9 adventure comic panel, keep all essential elements safely inside a centered 16:9 crop. In reading order: one domed lunar base on frame left and one lunar rover on frame right. Exactly two separate and countable red indicator lights flanking the dome's visible entrance, no other red entrance lights. Rendering: thick dark outer contours and two-step flat cel shading, silhouettes easy to recognize, coherent comic panel. No letters, numbers, captions, signs, or logos.",
+      "referenced_image_paths": [],
+      "transparent_background": false,
+      "raw": "02-raw.png",
+      "initial": "02-initial.png",
+      "final": "02-initial.png",
+      "operator_note": "Exact 16:9 center crop to 1664×936."
+    },
+    {
+      "id": "03",
+      "prompt": "Wide 16:9 quiet realist oil painting of the moon, with the required objects safely inside a centered 16:9 crop. One dome-shaped lunar base in frame left and one rover in frame right. The dome alone floats, leaving a plainly visible open gap with continuous lunar background beneath the whole dome and its separate cast shadow on the terrain directly below. The rover is grounded, wheels visibly touching the surface. The dome entrance has exactly two visibly separate red indicator lamps, one each side of the entrance. Soft oil-brush texture, calm atmosphere, no typography anywhere.",
+      "referenced_image_paths": [],
+      "transparent_background": false,
+      "raw": "03-raw.png",
+      "initial": "03-initial.png",
+      "final": "03-initial.png",
+      "operator_note": "Exact 16:9 center crop to 1664×936."
+    },
+    {
+      "id": "04",
+      "prompt": "Draw one quiet small garden just after the rain. A small secluded patch of greenery, soft overcast light, rain beads on leaves and a damp stone path. Still and intimate, with rain already stopped.",
+      "referenced_image_paths": [],
+      "transparent_background": false,
+      "raw": "04-initial.png",
+      "initial": "04-initial.png",
+      "final": "04-initial.png",
+      "operator_note": null
+    },
+    {
+      "id": "05",
+      "prompt": "Strict top-down white-background product photograph. At viewer left are exactly two separate BLUE square-lidded boxes. At viewer right is exactly one ORANGE cylindrical lidded box, seen as a circle from overhead. Space every unit clearly apart; all three are fully visible, with no overlaps. Only the three containers on seamless white, clean catalog photography and subtle shadow.",
+      "referenced_image_paths": [],
+      "transparent_background": false,
+      "raw": "05-initial.png",
+      "initial": "05-initial.png",
+      "final": "05-final.png",
+      "operator_note": "Initial view reveals oblique box faces; one targeted direct-overhead repair."
+    },
+    {
+      "id": "06",
+      "prompt": "Create an art-only background for a portrait lunar-base visitor poster. Tall portrait composition. Restrict all subject detail to the middle region, with a small warmly lit moon outpost in an elegant editorial illustration. The upper 22% and lower 19% are quiet near-black navy reserved text zones, edge to edge, clean and even. Everything is letter-free; no signs, lettering, alien glyphs, numbers, labels, graphic placeholder marks, logos or watermarks. The exact Korean wording will be typeset later.",
+      "referenced_image_paths": [],
+      "transparent_background": false,
+      "raw": "06-raw.png",
+      "initial": "06-initial.png",
+      "final": "06-initial.png",
+      "operator_note": "Typeset the two literal Hangul lines on the letter-free generated portrait with Malgun Gothic."
+    },
+    {
+      "id": "07",
+      "prompt": "One single purple ink bottle centered on a square transparent canvas, with generous empty margin around all sides for a 512×512 PNG. Show the bottle at an oblique three-quarter angle, slightly tilted as an object, with its cap and two visible sides. The alpha background is fully transparent around the bottle; no ground or drop shadow. No text, label, logos or additional objects.",
+      "referenced_image_paths": [],
+      "transparent_background": true,
+      "raw": "07-raw.png",
+      "initial": "07-initial.png",
+      "final": "07-initial.png",
+      "operator_note": "Resized to 512×512 with alpha intact; verified alpha range 0–255."
+    },
+    {
+      "id": "08",
+      "prompt": "Use image 1 only as the shared layout reference. Render a finished illustrated plaza from a sufficiently elevated viewpoint to preserve the sketch's framing. Place one basin fountain with visible water and jets in the lower-left quadrant, one open archway in the upper-right quadrant. A continuous stone path visibly begins at the fountain plaza and goes diagonally up and right through the archway. Give the plaza visual finish consistent with this geometry.",
+      "referenced_image_paths": [
+        "../fixtures/layout.png"
+      ],
+      "transparent_background": false,
+      "raw": "08-initial.png",
+      "initial": "08-initial.png",
+      "final": "08-initial.png",
+      "operator_note": null
+    },
+    {
+      "id": "09a",
+      "prompt": "Image 1 is the shared robot identity reference. Make one standalone full-body scene of this exact robot in a working greenhouse holding a small potted plant, pot clearly visible between its hands. Preserve the orange spherical head, teal rectangular box torso and exactly one black antenna, plus its two bead-like eyes, simple gray limbs and robot proportions. Frame all identity cues clearly; no other robots.",
+      "referenced_image_paths": [
+        "../fixtures/robot.png"
+      ],
+      "transparent_background": false,
+      "raw": "09a-initial.png",
+      "initial": "09a-initial.png",
+      "final": "09a-initial.png",
+      "operator_note": null
+    },
+    {
+      "id": "09b",
+      "prompt": "Image 1 is the shared robot identity reference. Make one standalone full-body scene of this exact robot waiting at a recognizable bus stop with both empty hands visible. Preserve the orange spherical head, teal rectangular box torso and exactly one black antenna, plus its two bead-like eyes, simple gray limbs and robot proportions. Frame all identity cues clearly; no other robots.",
+      "referenced_image_paths": [
+        "../fixtures/robot.png"
+      ],
+      "transparent_background": false,
+      "raw": "09b-initial.png",
+      "initial": "09b-initial.png",
+      "final": "09b-initial.png",
+      "operator_note": null
+    },
+    {
+      "id": "10",
+      "prompt": "Make one two-ink relief print of a plaza. Reference image 1 controls the composition: fountain in lower-left, freestanding archway in upper-right, clearly continuous diagonal path between them. Reference image 2 controls only the dark navy and yellow ochre inks and the visibly rough patchy relief-print texture. Keep the plaza objects legible in the two inks. Do not carry leaf imagery or the reference 2 layout into the scene.",
+      "referenced_image_paths": [
+        "../fixtures/layout.png",
+        "../fixtures/print-style.png"
+      ],
+      "transparent_background": false,
+      "raw": "10-initial.png",
+      "initial": "10-initial.png",
+      "final": "10-initial.png",
+      "operator_note": null
+    },
+    {
+      "id": "11",
+      "prompt": "Targeted edit of image 1. Replace only the pale background wall behind the mug, lemon and tabletop with a deep navy wall, retaining the subtle directional background falloff where feasible. Preserve the image's exact framing and original tabletop height and grain. Preserve mug and lemon geometry, colors, texture, position, lighting and shadows. Keep the mug handle opening and the boundary where the wall meets the wooden table clearly consistent. Make no object or camera changes.",
+      "referenced_image_paths": [
+        "../fixtures/still-life.png"
+      ],
+      "transparent_background": false,
+      "raw": "11-initial.png",
+      "initial": "11-initial.png",
+      "final": "11-initial.png",
+      "operator_note": null
+    },
+    {
+      "id": "12",
+      "prompt": "Targeted edit of image 1. Recolor only the orange jacket fabric to deep teal, following its existing fabric boundaries including the collars, seams and sleeves. Preserve its weave, form, shading and seams. Do not recolor the cream undershirt, skin, face, hair or background. Preserve the portrait identity, expression, eye direction, head angle, proportions, original framing and neutral lighting.",
+      "referenced_image_paths": [
+        "../fixtures/portrait.png"
+      ],
+      "transparent_background": false,
+      "raw": "12-initial.png",
+      "initial": "12-initial.png",
+      "final": "12-initial.png",
+      "operator_note": null
+    }
+  ],
+  "repair_calls": [
+    {
+      "id": "05",
+      "prompt": "Edit this exact product arrangement into a truly direct orthographic bird's-eye photo with the optical axis perpendicular to the white surface. Camera looking straight down, 90 degrees to surface. Show the top lids as two perfect blue squares at the left and one perfect orange circle at the right. Do not show front or side faces from an oblique perspective. Preserve the two blue square lidded boxes, one orange cylindrical lidded box, their color and left-to-right positions, large separation and seamless clean white background. Exactly those three objects.",
+      "referenced_image_paths": [
+        "05-initial.png"
+      ],
+      "transparent_background": false,
+      "result": "05-final.png"
+    }
+  ],
+  "environment": "Same conversation as orchestration; each generation used a separate tool request and only the declared image paths. No model ID or seed exposed by the tool."
+}

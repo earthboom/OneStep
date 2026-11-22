@@ -1,0 +1,137 @@
+[
+  {
+    "label": "01",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "02",
+    "object": "주황색 입장권과 흰 장갑",
+    "tie": true
+  },
+  {
+    "label": "03",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "04",
+    "object": "산딸기",
+    "tie": false
+  },
+  {
+    "label": "05",
+    "object": "산딸기",
+    "tie": false
+  },
+  {
+    "label": "06",
+    "object": "검은 공구 가방",
+    "tie": false
+  },
+  {
+    "label": "07",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "08",
+    "object": "푸른 작업등",
+    "tie": false
+  },
+  {
+    "label": "09",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "10",
+    "object": "흰 장갑",
+    "tie": false
+  },
+  {
+    "label": "11",
+    "object": "푸른 작업등",
+    "tie": false
+  },
+  {
+    "label": "12",
+    "object": "연녹색 접시",
+    "tie": false
+  },
+  {
+    "label": "13",
+    "object": "노란 연필과 푸른 작업등",
+    "tie": true
+  },
+  {
+    "label": "14",
+    "object": "산딸기",
+    "tie": false
+  },
+  {
+    "label": "15",
+    "object": "푸른 작업등",
+    "tie": false
+  },
+  {
+    "label": "16",
+    "object": "푸른 작업등",
+    "tie": false
+  },
+  {
+    "label": "17",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "18",
+    "object": "산딸기",
+    "tie": false
+  },
+  {
+    "label": "19",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "20",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "21",
+    "object": "푸른 작업등",
+    "tie": false
+  },
+  {
+    "label": "22",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "23",
+    "object": "흰 장갑과 주황색 입장권",
+    "tie": true
+  },
+  {
+    "label": "24",
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "label": "25",
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "label": "26",
+    "object": "산딸기",
+    "tie": false
+  },
+  {
+    "label": "27",
+    "object": "주황색 입장권",
+    "tie": false
+  }
+]

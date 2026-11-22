@@ -1,0 +1,54 @@
+{
+  "05": {
+    "05-A": {
+      "marks": "PPF",
+      "note": "Substantial front faces are visible below both blue lids, and an orange sidewall is visible along the near edge."
+    },
+    "05-B": {
+      "marks": "PPF",
+      "note": "Substantial front faces are visible below both blue lids, and an orange sidewall is visible along the near edge."
+    },
+    "05-C": {
+      "marks": "PPF",
+      "note": "Substantial front faces are visible on both blue boxes, with a deep curved orange sidewall below the lid."
+    },
+    "05-D": {
+      "marks": "PPP",
+      "note": null
+    },
+    "05-E": {
+      "marks": "PPP",
+      "note": null
+    },
+    "05-F": {
+      "marks": "PPP",
+      "note": null
+    }
+  },
+  "09": {
+    "09-A": {
+      "marks": "PPPPPPP",
+      "note": null
+    },
+    "09-B": {
+      "marks": "PPPPPPP",
+      "note": null
+    },
+    "09-C": {
+      "marks": "FPPPPPP",
+      "note": "A second robot with a cream head and yellow torso stands to the left of the flowerpot holder in the greenhouse."
+    },
+    "09-D": {
+      "marks": "FPPPPPP",
+      "note": "A second robot with a blue head and yellow torso stands to the right of the flowerpot holder in the greenhouse."
+    },
+    "09-E": {
+      "marks": "PPPPPPP",
+      "note": null
+    },
+    "09-F": {
+      "marks": "PPPPPPP",
+      "note": null
+    }
+  }
+}

@@ -49,7 +49,7 @@ Prompt refinement is optional: use [vegabond-refine-prompt](skills/vegabond-refi
 | --- | --- | --- |
 | Entry | [vegabond-scout](skills/vegabond-scout/SKILL.md) | Frame the request, choose operation and scale, map capabilities/checks, and coordinate. |
 | Operations | [create](skills/vegabond-create/SKILL.md), [revise](skills/vegabond-revise/SKILL.md), [research](skills/vegabond-research/SKILL.md) | Produce a new result, improve an existing result, or investigate a question. |
-| Specialists | [code](skills/vegabond-code/SKILL.md), [fiction](skills/vegabond-fiction/SKILL.md), [presentation](skills/vegabond-presentation/SKILL.md), [planning](skills/vegabond-planning/SKILL.md) | Supply execution, review, verification, and correction methods for the actual work. |
+| Specialists | [code](skills/vegabond-code/SKILL.md), [fiction](skills/vegabond-fiction/SKILL.md), [presentation](skills/vegabond-presentation/SKILL.md), [image](skills/vegabond-image/SKILL.md), [planning](skills/vegabond-planning/SKILL.md) | Supply execution, review, verification, and correction methods for the actual work. |
 | Design when needed | [code-design](skills/vegabond-code-design/SKILL.md), [fiction-design](skills/vegabond-fiction-design/SKILL.md) | Resolve consequential choices with scoped decisions, source evidence, and checkable conditions. |
 | Knowledge | [vegabond-knowledge](skills/vegabond-knowledge/SKILL.md) | Retrieve, synthesize, selectively store, and maintain knowledge and problem records. |
 | Optional prompt refinement | [vegabond-refine-prompt](skills/vegabond-refine-prompt/SKILL.md) | Refine a prompt only on explicit request, proportionately to the actual gap. |

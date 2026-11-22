@@ -1,0 +1,398 @@
+[
+  {
+    "arm": "before",
+    "case": "01",
+    "rep": 1,
+    "stage": "initial",
+    "file": "01-r1.png",
+    "labels": {
+      "J": "09",
+      "K": "20"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "01",
+    "rep": 1,
+    "stage": "final",
+    "file": "01-r1.png",
+    "labels": {
+      "J": "09",
+      "K": "20"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "01",
+    "rep": 2,
+    "stage": "initial",
+    "file": "01-r2.png",
+    "labels": {
+      "J": "17",
+      "K": "23"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "01",
+    "rep": 2,
+    "stage": "final",
+    "file": "01-r2.png",
+    "labels": {
+      "J": "17",
+      "K": "23"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "01",
+    "rep": 3,
+    "stage": "initial",
+    "file": "01-r3.png",
+    "labels": {
+      "J": "27",
+      "K": "26"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "01",
+    "rep": 3,
+    "stage": "final",
+    "file": "01-r3-repair.png",
+    "labels": {
+      "J": "23",
+      "K": "12"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "02",
+    "rep": 1,
+    "stage": "initial",
+    "file": "02-r1.png",
+    "labels": {
+      "J": "26",
+      "K": "04"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "02",
+    "rep": 1,
+    "stage": "final",
+    "file": "02-r1.png",
+    "labels": {
+      "J": "26",
+      "K": "04"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "02",
+    "rep": 2,
+    "stage": "initial",
+    "file": "02-r2.png",
+    "labels": {
+      "J": "14",
+      "K": "24"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "02",
+    "rep": 2,
+    "stage": "final",
+    "file": "02-r2.png",
+    "labels": {
+      "J": "14",
+      "K": "24"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "02",
+    "rep": 3,
+    "stage": "initial",
+    "file": "02-r3.png",
+    "labels": {
+      "J": "04",
+      "K": "06"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "02",
+    "rep": 3,
+    "stage": "final",
+    "file": "02-r3.png",
+    "labels": {
+      "J": "04",
+      "K": "06"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "03",
+    "rep": 1,
+    "stage": "initial",
+    "file": "03-r1.png",
+    "labels": {
+      "J": "21",
+      "K": "07"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "03",
+    "rep": 1,
+    "stage": "final",
+    "file": "03-r1-repair.png",
+    "labels": {
+      "J": "03",
+      "K": "10"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "03",
+    "rep": 2,
+    "stage": "initial",
+    "file": "03-r2.png",
+    "labels": {
+      "J": "15",
+      "K": "16"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "03",
+    "rep": 2,
+    "stage": "final",
+    "file": "03-r2-repair.png",
+    "labels": {
+      "J": "19",
+      "K": "14"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "03",
+    "rep": 3,
+    "stage": "initial",
+    "file": "03-r3.png",
+    "labels": {
+      "J": "11",
+      "K": "17"
+    }
+  },
+  {
+    "arm": "before",
+    "case": "03",
+    "rep": 3,
+    "stage": "final",
+    "file": "03-r3-repair.png",
+    "labels": {
+      "J": "06",
+      "K": "11"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "01",
+    "rep": 1,
+    "stage": "initial",
+    "file": "01-r1.png",
+    "labels": {
+      "J": "25",
+      "K": "02"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "01",
+    "rep": 1,
+    "stage": "final",
+    "file": "01-r1-edit.png",
+    "labels": {
+      "J": "02",
+      "K": "03"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "01",
+    "rep": 2,
+    "stage": "initial",
+    "file": "01-r2.png",
+    "labels": {
+      "J": "22",
+      "K": "05"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "01",
+    "rep": 2,
+    "stage": "final",
+    "file": "01-r2-edit.png",
+    "labels": {
+      "J": "10",
+      "K": "09"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "01",
+    "rep": 3,
+    "stage": "initial",
+    "file": "01-r3.png",
+    "labels": {
+      "J": "20",
+      "K": "08"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "01",
+    "rep": 3,
+    "stage": "final",
+    "file": "01-r3.png",
+    "labels": {
+      "J": "20",
+      "K": "08"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "02",
+    "rep": 1,
+    "stage": "initial",
+    "file": "02-r1.png",
+    "labels": {
+      "J": "05",
+      "K": "25"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "02",
+    "rep": 1,
+    "stage": "final",
+    "file": "02-r1.png",
+    "labels": {
+      "J": "05",
+      "K": "25"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "02",
+    "rep": 2,
+    "stage": "initial",
+    "file": "02-r2.png",
+    "labels": {
+      "J": "18",
+      "K": "13"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "02",
+    "rep": 2,
+    "stage": "final",
+    "file": "02-r2.png",
+    "labels": {
+      "J": "18",
+      "K": "13"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "02",
+    "rep": 3,
+    "stage": "initial",
+    "file": "02-r3.png",
+    "labels": {
+      "J": "12",
+      "K": "15"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "02",
+    "rep": 3,
+    "stage": "final",
+    "file": "02-r3.png",
+    "labels": {
+      "J": "12",
+      "K": "15"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "03",
+    "rep": 1,
+    "stage": "initial",
+    "file": "03-r1.png",
+    "labels": {
+      "J": "13",
+      "K": "21"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "03",
+    "rep": 1,
+    "stage": "final",
+    "file": "03-r1-edit.png",
+    "labels": {
+      "J": "24",
+      "K": "18"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "03",
+    "rep": 2,
+    "stage": "initial",
+    "file": "03-r2.png",
+    "labels": {
+      "J": "08",
+      "K": "01"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "03",
+    "rep": 2,
+    "stage": "final",
+    "file": "03-r2-edit.png",
+    "labels": {
+      "J": "01",
+      "K": "27"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "03",
+    "rep": 3,
+    "stage": "initial",
+    "file": "03-r3.png",
+    "labels": {
+      "J": "16",
+      "K": "22"
+    }
+  },
+  {
+    "arm": "after",
+    "case": "03",
+    "rep": 3,
+    "stage": "final",
+    "file": "03-r3-edit.png",
+    "labels": {
+      "J": "07",
+      "K": "19"
+    }
+  }
+]

@@ -1,0 +1,146 @@
+[
+  {
+    "id": "01",
+    "repeat": 1,
+    "initial": "01-r1.png",
+    "final": "01-r1-edit.png",
+    "repair": "01-r1-edit.png",
+    "repair_prompt": "Edit only the paint colors on the cotton glove in this painting. The current broad lavender top surfaces make the glove read as dyed lilac. Show a white cotton glove: use subdued chalky pearl-white and cool ivory-gray on its large lit planes and fine pale stitching; keep the reflected indigo-violet light clearly visible on turned edges and in the creases. Keep overall values soft enough for the saturated tangerine ticket to catch the eye first. Preserve the glove silhouette and pose, the ticket exactly as painted, booth, evening light, framing and opaque gouache brushwork throughout.",
+    "notes": "Initial: the orange admission ticket immediately reads against an evening theater counter in matte gouache. The stitched, folded glove has lavender highlights as well as shadows, making dyed purple fabric plausible. Repair: pale pearl-colored finger ridges and cuff now read as white cotton, with violet creases; orange ticket remains the first chromatic accent. Selected repair."
+  },
+  {
+    "id": "01",
+    "repeat": 2,
+    "initial": "01-r2.png",
+    "final": "01-r2-edit.png",
+    "repair": "01-r2-edit.png",
+    "repair_prompt": "Edit only the paint colors on the cotton glove in this painting. The current broad lavender top surfaces make the glove read as dyed lilac. Show a white cotton glove: use subdued chalky pearl-white and cool ivory-gray on its large lit planes and fine pale stitching; keep the reflected indigo-violet light clearly visible on turned edges and in the creases. Keep overall values soft enough for the saturated tangerine ticket to catch the eye first. Preserve the glove silhouette and pose, the ticket exactly as painted, booth, evening light, framing and opaque gouache brushwork throughout.",
+    "notes": "Initial: orange ticket stands clearly on a fabric glove under the box office window; the broad uniform lilac on cloth weakens white material identity. Repair: soft white lights on fingers and cuff establish white cloth, the folds retain violet light and the ticket still draws the eye. Selected repair."
+  },
+  {
+    "id": "02",
+    "repeat": 1,
+    "initial": "02-r1.png",
+    "final": "02-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "A foaming crest curls over the wall, with pale paper connecting the foam to the edge margin. Thin horizontal cuts in the distant water differ from sharp glints on angular dark foreground rock. Navy ink and paper carry the whole woodcut."
+  },
+  {
+    "id": "02",
+    "repeat": 2,
+    "initial": "02-r2.png",
+    "final": "02-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The wave visibly spills down the barrier face. Pale spray shares the paper ground; navy horizontal stripes on the far horizon differ from large dark rock faces with narrow foreground glints. The marks read as relief printing."
+  },
+  {
+    "id": "03",
+    "repeat": 1,
+    "initial": "03-r1.png",
+    "final": "03-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "A mechanic lifts the shutter; the same arched window and wheel bracket recur beside the now-open, unoccupied shop. The clamped bicycle and laid-out tools suggest work has resumed. Charcoal and blank gutter unify two wordless panels. A routine morning opening is also possible."
+  },
+  {
+    "id": "03",
+    "repeat": 2,
+    "initial": "03-r2.png",
+    "final": "03-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The mechanic grips the partly raised shutter on the left. The open, empty bay on the right contains a bicycle and prepared tool roll. The distinctive wheel sign, arched window, ivy and charcoal handling recur. No visible lettering. The length of the prior closure remains ambiguous."
+  },
+  {
+    "id": "04",
+    "repeat": 1,
+    "initial": "04-r1.png",
+    "final": "04-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "Seated on one end, the small, folded-in figure looks toward the distant city; in the closer second panel the same person reclines, eyes closed and smiling. Empty bench, vent, building and daylight repeat. The left panel can also read as waiting; the contrast makes the isolation legible. Wordless ink."
+  },
+  {
+    "id": "04",
+    "repeat": 2,
+    "initial": "04-r2.png",
+    "final": "04-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "One person per panel; crossed arms, feet held together and a long empty seat contrast with an open chest, draped arm and restful face. Outfit, bench, roof vent and clouded sky carry across. No visible text. The left panel could also suggest pensive waiting."
+  },
+  {
+    "id": "05",
+    "repeat": 1,
+    "initial": "05-r1.png",
+    "final": "05-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "Fingers hold intact bag handles; ragged bottom flaps frame a mandarin, with two more falling and the lowest already meeting its dark contact shadow on the sidewalk. Loose lines and washes read as a street sketch."
+  },
+  {
+    "id": "05",
+    "repeat": 2,
+    "initial": "05-r2.png",
+    "final": "05-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The shopper grips the handles above the torn underside. A mandarin emerges between the bottom flaps, two visibly descend, and the bottom fruit meets its small sidewalk shadow. Sidewalk, passersby and loose washes support the street-sketch setting."
+  },
+  {
+    "id": "06",
+    "repeat": 1,
+    "initial": "06-r1.png",
+    "final": "06-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "A side view across wood grain shows a continuous row, from overlapping near-flat tiles at left through progressively steeper rightward lean. The top corner of the foremost leaner meets the first upright, followed by several upright pieces. Sharp photographic daylight."
+  },
+  {
+    "id": "06",
+    "repeat": 2,
+    "initial": "06-r2.png",
+    "final": "06-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The leftmost low overlapping tiles continue in a rightward incline; the leading upper edge visibly meets its upright neighbor, with the standing end extending right. The side-on photo retains the common line of feet and wooden desk."
+  },
+  {
+    "id": "07",
+    "repeat": 1,
+    "initial": "07-r1.png",
+    "final": "07-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "One worn book hangs alone in the aisle with clear space below. A single printed leaf lies flat on the floorboards beneath, with a soft offset shadow. Shelved books and books on tables remain supported; chairs meet the floor. Quiet window-light photograph."
+  },
+  {
+    "id": "07",
+    "repeat": 2,
+    "initial": "07-r2.png",
+    "final": "07-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "A single open clothbound book floats in a still old library. Its matching loose page is foreshortened on the boards directly below; the soft shadow sits off to one side. Chairs and the other books have visible supports, with consistent photographic light."
+  },
+  {
+    "id": "08",
+    "repeat": 1,
+    "initial": "08-r1.png",
+    "final": "08-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The small fishing boat lists into exposed mud beside the quay. Reflective runnels, seaweed and wall staining lead back to a channel holding floating boats, establishing the recent ebb. Transparent broken watercolor washes retain paper texture."
+  },
+  {
+    "id": "08",
+    "repeat": 2,
+    "initial": "08-r2.png",
+    "final": "08-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The hull rests on glistening mud at the foot of the harbor wall, with a tight shadow and slack seaweed-hung rope. Dark wet quayside marks and narrow rivulets connect to a blue channel behind. Textured washes and reserved paper read as field watercolor."
+  }
+]

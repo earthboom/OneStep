@@ -1,0 +1,83 @@
+[
+  {
+    "id": "01",
+    "repeat": 1,
+    "initial": "01-r1.png",
+    "final": "01-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "Ticket reads first against the ridged white palm. Violet fold shadows match the booth lighting. Matte gouache shapes and scalloped paper edge are visible."
+  },
+  {
+    "id": "01",
+    "repeat": 2,
+    "initial": "01-r2.png",
+    "final": "01-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "Crisp orange ticket leads. Stitched white cloth carries lavender shadows. Mask poster and counter window establish the evening theater in broad gouache strokes."
+  },
+  {
+    "id": "01",
+    "repeat": 3,
+    "initial": "01-r3.png",
+    "final": "01-r3-repair.png",
+    "repair": "01-r3-repair.png",
+    "repair_prompt": "In this gouache painting, adjust only the color of the glove. The broad palm and finger crowns currently read as lavender fabric. Make them softly neutral, chalky white cotton in diffuse fill light, grading into restrained indigo-violet along the folds and outer edges. Preserve cotton weave, seams, pose, evening violet illumination, orange ticket and its visual priority, background and composition.",
+    "notes": "First render had a lavender cast across the open palm. Selected edit restores off-white finger crowns and palm while violet shadows, cotton weave, orange ticket, counter and matte painted setting remain legible."
+  },
+  {
+    "id": "02",
+    "repeat": 1,
+    "initial": "02-r1.png",
+    "final": "02-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "Lone red berry is the sharp central point. Sunset warms the left rim of the celadon plate. Translucent washes, reserved highlights and teahouse window read clearly."
+  },
+  {
+    "id": "02",
+    "repeat": 2,
+    "initial": "02-r2.png",
+    "final": "02-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "One raspberry stands out in red against the cool pale glazed plate. Narrow amber rim and window locate the sunset. The muted background teapot stays secondary. Transparent washes are visible."
+  },
+  {
+    "id": "02",
+    "repeat": 3,
+    "initial": "02-r3.png",
+    "final": "02-r3.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "Red raspberry leads on the celadon plate, with a warm reflected rim and cool curved body. The sunset and lantern add secondary warm patches. Paper and overlapping washes show clearly."
+  },
+  {
+    "id": "03",
+    "repeat": 1,
+    "initial": "03-r1.png",
+    "final": "03-r1-repair.png",
+    "repair": "03-r1-repair.png",
+    "repair_prompt": "In this colored-pencil drawing, move the work lamp fixture just outside the upper-left edge so the white luminous face is out of view. Retain the blue light it casts, gently on the bench and as narrow reflections on the dark leather. Reduce the bright blue pool on the left to a quiet midtone so the small yellow carpenter's pencil catches the eye first. Preserve the pencil's size, color and placement in the black leather pocket, the bench tools, camera framing and textured colored-pencil marks.",
+    "notes": "Bright white lamp face rivaled the yellow pencil. Selected edit centers attention on the pencil above the pocket lip. Blue side light remains on the bench and black leather. The lamp fixture is now off frame."
+  },
+  {
+    "id": "03",
+    "repeat": 2,
+    "initial": "03-r2.png",
+    "final": "03-r2-repair.png",
+    "repair": "03-r2-repair.png",
+    "repair_prompt": "In this colored-pencil drawing, move the work lamp fixture just outside the upper-left edge so the white luminous face is out of view. Retain the blue light it casts, gently on the bench and as narrow reflections on the dark leather. Reduce the bright blue pool on the left to a quiet midtone so the small yellow carpenter's pencil catches the eye first. Preserve the pencil's size, color and placement in the black leather pocket, the bench tools, camera framing and textured colored-pencil marks.",
+    "notes": "Initial white-blue lamp competed strongly in the upper left. With the fixture off frame, the yellow shaft leads and the crosshatched grain of the black leather stays visible. The blue light is subtler."
+  },
+  {
+    "id": "03",
+    "repeat": 3,
+    "initial": "03-r3.png",
+    "final": "03-r3-repair.png",
+    "repair": "03-r3-repair.png",
+    "repair_prompt": "In this colored-pencil drawing, move the work lamp fixture just outside the upper-left edge so the white luminous face is out of view. Retain the blue light it casts, gently on the bench and as narrow reflections on the dark leather. Reduce the bright blue pool on the left to a quiet midtone so the small yellow carpenter's pencil catches the eye first. Preserve the pencil's size, color and placement in the black leather pocket, the bench tools, camera framing and textured colored-pencil marks.",
+    "notes": "Initial large lamp face drew the eye before the small pencil at right. Selected edit leaves the yellow pencil isolated against the black leather pocket and retains directional blue highlights and colored-pencil marks. The working light source is implied."
+  }
+]

@@ -1,0 +1,96 @@
+{
+  "tool": "Codex built-in image_gen",
+  "transparentBackground": false,
+  "results": [
+    {
+      "file": "05-r1.png",
+      "promptKey": "prompts.old.05",
+      "reference": null,
+      "startedAt": "2026-11-22T10:51:05.286Z",
+      "finishedAt": "2026-11-22T10:51:14.691Z",
+      "status": "returned",
+      "toolSavedPath": "C:\\Users\\earth\\.codex\\generated_images\\01a202e1-1e86-7343-8dcc-063f3719e0ed\\exec-1e9736c1-e280-4368-baaf-93a4a41fe5fc.png",
+      "sha256": "D9C8C4B76E2D625FFD689971D6FEDF7E9C53D48946D7030AD4087DCC00194B97"
+    },
+    {
+      "file": "09a-r1.png",
+      "promptKey": "prompts.old.09a",
+      "reference": "C:/Projects/OneStep/output/vegabond-image-comparison/fixtures/robot.png",
+      "startedAt": "2026-11-22T10:51:05.286Z",
+      "finishedAt": "2026-11-22T10:52:07.285Z",
+      "status": "returned",
+      "toolSavedPath": "C:\\Users\\earth\\.codex\\generated_images\\01a202e1-1e86-7343-8dcc-063f3719e0ed\\exec-964e6afd-4b29-4ab0-bcf4-0d32dccbbd26.png",
+      "sha256": "97D570AE35F6CC3856A574746E75EBA570B4E7ECB5F4E51F14048228735D521E"
+    },
+    {
+      "file": "09b-r1.png",
+      "promptKey": "prompts.old.09b",
+      "reference": "C:/Projects/OneStep/output/vegabond-image-comparison/fixtures/robot.png",
+      "startedAt": "2026-11-22T10:51:05.286Z",
+      "finishedAt": "2026-11-22T10:51:44.872Z",
+      "status": "returned",
+      "toolSavedPath": "C:\\Users\\earth\\.codex\\generated_images\\01a202e1-1e86-7343-8dcc-063f3719e0ed\\exec-7ef96e91-03af-494b-8aa7-a5c47b7d3fd0.png",
+      "sha256": "6C51C74D66EA31EF1E3E93BD19515047DE7860635AE25E7FF087EC83EDCD85A1"
+    },
+    {
+      "file": "09a-r2.png",
+      "promptKey": "prompts.old.09a",
+      "reference": "C:/Projects/OneStep/output/vegabond-image-comparison/fixtures/robot.png",
+      "startedAt": "2026-11-22T10:52:35.272Z",
+      "finishedAt": "2026-11-22T10:52:57.966Z",
+      "toolSavedPath": "C:\\Users\\earth\\.codex\\generated_images\\01a202e1-1e86-7343-8dcc-063f3719e0ed\\exec-410ed382-e75f-48a3-9ade-188036dceb08.png",
+      "status": "returned",
+      "sha256": "6533E4B135922FD3CDBCEDF9F11B6B4ECAD9A34B36F703955D7E49AEE9EFECF6"
+    },
+    {
+      "file": "09b-r2.png",
+      "promptKey": "prompts.old.09b",
+      "reference": "C:/Projects/OneStep/output/vegabond-image-comparison/fixtures/robot.png",
+      "startedAt": "2026-11-22T10:52:35.272Z",
+      "finishedAt": "2026-11-22T10:53:18.909Z",
+      "toolSavedPath": "C:\\Users\\earth\\.codex\\generated_images\\01a202e1-1e86-7343-8dcc-063f3719e0ed\\exec-56966e6b-fd9a-44d1-ba6f-b6d5b17e2c23.png",
+      "status": "returned",
+      "sha256": "EF9CF7DD04B2A31D97D01290AEFA26C4D809382903BE0AA8D3BCD1E7B79CB3F3"
+    },
+    {
+      "file": "05-r2.png",
+      "promptKey": "prompts.old.05",
+      "reference": null,
+      "startedAt": "2026-11-22T10:52:35.272Z",
+      "finishedAt": "2026-11-22T10:53:29.808Z",
+      "toolSavedPath": "C:\\Users\\earth\\.codex\\generated_images\\01a202e1-1e86-7343-8dcc-063f3719e0ed\\exec-e97c7089-da19-40c8-91fd-da1cc212c515.png",
+      "status": "returned",
+      "sha256": "D57DF374C01B7D8B475053EDC13499B6991E9834023F50287380BD300CB665E1"
+    },
+    {
+      "file": "09b-r3.png",
+      "promptKey": "prompts.old.09b",
+      "reference": "C:/Projects/OneStep/output/vegabond-image-comparison/fixtures/robot.png",
+      "startedAt": "2026-11-22T10:53:37.353Z",
+      "finishedAt": "2026-11-22T10:54:07.560Z",
+      "toolSavedPath": "C:\\Users\\earth\\.codex\\generated_images\\01a202e1-1e86-7343-8dcc-063f3719e0ed\\exec-59937c0c-ff37-43c7-922b-69688441b381.png",
+      "status": "returned",
+      "sha256": "B5E6551BE77A2112FD64E227569ACDEA16232079D9049CC5307E07208F6E88B9"
+    },
+    {
+      "file": "05-r3.png",
+      "promptKey": "prompts.old.05",
+      "reference": null,
+      "startedAt": "2026-11-22T10:53:37.353Z",
+      "finishedAt": "2026-11-22T10:53:46.692Z",
+      "toolSavedPath": "C:\\Users\\earth\\.codex\\generated_images\\01a202e1-1e86-7343-8dcc-063f3719e0ed\\exec-fb14e04f-2d98-4f20-aa51-a319d9a0ed16.png",
+      "status": "returned",
+      "sha256": "27B6E72AA601703E99966C131FFF0E2539161D44ED85CB2FCB7A20A758159099"
+    },
+    {
+      "file": "09a-r3.png",
+      "promptKey": "prompts.old.09a",
+      "reference": "C:/Projects/OneStep/output/vegabond-image-comparison/fixtures/robot.png",
+      "startedAt": "2026-11-22T10:53:37.353Z",
+      "finishedAt": "2026-11-22T10:54:30.077Z",
+      "toolSavedPath": "C:\\Users\\earth\\.codex\\generated_images\\01a202e1-1e86-7343-8dcc-063f3719e0ed\\exec-77db0dd6-f4fd-4542-80bc-8adca4a41d8a.png",
+      "status": "returned",
+      "sha256": "1A68591D1173414B908A37CC7FAF42A67A643D663D94904448F7F5359384155A"
+    }
+  ]
+}

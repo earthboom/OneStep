@@ -1,0 +1,137 @@
+[
+  {
+    "id": "01",
+    "repeat": 1,
+    "initial": "01-r1.png",
+    "final": "01-r1-edit.png",
+    "repair": "01-r1-edit.png",
+    "repair_prompt": "Edit this original gouache painting so the small tangerine paper ticket is instantly picked out before the white glove. Confine a warm, clear patch of light to the paper itself, giving it bright tangerine face paint and a sharp tiny contact shadow. Pull the distracting cloth folds into a softer, closer range of shadow values; reserve a little neutral pearl-gray cotton weave immediately beside the ticket that still reads as white cloth in indigo-violet light. Lower the box office lamp and marquee highlights. Keep the depicted glove, small ticket, placement, evening box office and opaque gouache brushwork intact.",
+    "notes": "The reader saw the white glove first. The edited ticket now leads through a brighter orange face against a softer glove. Fabric remains visible; white under violet light is less explicit in the deepest areas."
+  },
+  {
+    "id": "01",
+    "repeat": 2,
+    "initial": "01-r2.png",
+    "final": "01-r2-edit.png",
+    "repair": "01-r2-edit.png",
+    "repair_prompt": "Edit this original gouache painting so the small tangerine paper ticket is instantly picked out before the white glove. Confine a warm, clear patch of light to the paper itself, giving it bright tangerine face paint and a sharp tiny contact shadow. Pull the distracting cloth folds into a softer, closer range of shadow values; reserve a little neutral pearl-gray cotton weave immediately beside the ticket that still reads as white cloth in indigo-violet light. Lower the box office lamp and marquee highlights. Keep the depicted glove, small ticket, placement, evening box office and opaque gouache brushwork intact.",
+    "notes": "The reader saw the glove and ticket together. In the edit the orange paper separates clearly and the folds recede. The cloth looks cool pale gray in light and purple-gray in shade; some weave is softened."
+  },
+  {
+    "id": "01",
+    "repeat": 3,
+    "initial": "01-r3.png",
+    "final": "01-r3-edit.png",
+    "repair": "01-r3-edit.png",
+    "repair_prompt": "Edit this original gouache painting so the small tangerine paper ticket is instantly picked out before the white glove. Confine a warm, clear patch of light to the paper itself, giving it bright tangerine face paint and a sharp tiny contact shadow. Pull the distracting cloth folds into a softer, closer range of shadow values; reserve a little neutral pearl-gray cotton weave immediately beside the ticket that still reads as white cloth in indigo-violet light. Lower the box office lamp and marquee highlights. Keep the depicted glove, small ticket, placement, evening box office and opaque gouache brushwork intact.",
+    "notes": "The reader saw the glove first. The brighter ticket now catches attention before the fingers and cuff. The violet cast remains strong, with limited neutral white visible on the cotton."
+  },
+  {
+    "id": "02",
+    "repeat": 1,
+    "initial": "02-r1.png",
+    "final": "02-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The raspberry was the reader's first object; transparent washes, amber light and pale celadon glaze read together. Selected initial."
+  },
+  {
+    "id": "02",
+    "repeat": 2,
+    "initial": "02-r2.png",
+    "final": "02-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The raspberry was the reader's first object; the single red fruit stands out against pale blue-green glaze beside the amber reflection. Selected initial."
+  },
+  {
+    "id": "02",
+    "repeat": 3,
+    "initial": "02-r3.png",
+    "final": "02-r3.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The raspberry was the reader's first object; the light turquoise plate remains visible through the amber reflection. Selected initial."
+  },
+  {
+    "id": "03",
+    "repeat": 1,
+    "initial": "03-r1.png",
+    "final": "03-r1-edit.png",
+    "repair": "03-r1-edit.png",
+    "repair_prompt": "Edit the colored-pencil scene to put the tiny yellow carpenter's pencil in focus before the black leather tool pouch. Keep it tucked in the same pocket, but show slightly more of the flat yellow shaft, catch the light on its warm yellow paint, and clearly define its pointed wood tip against quiet black leather. Subdue blue highlights on pocket seams and the lamp's bright face, leaving soft cool reflections across the burnished black grain. Preserve the workbench, small tool scale, perspective and toothy colored-pencil drawing.",
+    "notes": "The reader saw the tool pouch first. The edited pencil is a cleaner yellow accent against black leather; the lamp is quieter, though its blue illumination is weaker."
+  },
+  {
+    "id": "03",
+    "repeat": 2,
+    "initial": "03-r2.png",
+    "final": "03-r2-edit.png",
+    "repair": "03-r2-edit.png",
+    "repair_prompt": "Edit the colored-pencil scene to put the tiny yellow carpenter's pencil in focus before the black leather tool pouch. Keep it tucked in the same pocket, but show slightly more of the flat yellow shaft, catch the light on its warm yellow paint, and clearly define its pointed wood tip against quiet black leather. Subdue blue highlights on pocket seams and the lamp's bright face, leaving soft cool reflections across the burnished black grain. Preserve the workbench, small tool scale, perspective and toothy colored-pencil drawing.",
+    "notes": "The reader saw the tool pouch first. The larger exposed yellow shaft and subdued lamp draw attention to the pencil. The pocket retains black leather grain. The blue wash is subtler."
+  },
+  {
+    "id": "03",
+    "repeat": 3,
+    "initial": "03-r3.png",
+    "final": "03-r3-edit.png",
+    "repair": "03-r3-edit.png",
+    "repair_prompt": "Edit the colored-pencil scene to put the tiny yellow carpenter's pencil in focus before the black leather tool pouch. Keep it tucked in the same pocket, but show slightly more of the flat yellow shaft, catch the light on its warm yellow paint, and clearly define its pointed wood tip against quiet black leather. Subdue blue highlights on pocket seams and the lamp's bright face, leaving soft cool reflections across the burnished black grain. Preserve the workbench, small tool scale, perspective and toothy colored-pencil drawing.",
+    "notes": "The reader saw the tool pouch first. The edit suppresses the lamp's brightest patch and clarifies the pointed yellow shaft while retaining blue light over the bench and black leather."
+  },
+  {
+    "id": "04",
+    "repeat": 1,
+    "initial": "04-r1.png",
+    "final": "04-r1-edit.png",
+    "repair": "04-r1-edit.png",
+    "repair_prompt": "Edit this photograph to bring the small olive immediately to attention. Give the olive brighter green body color, with a small, soft natural window reflection grazing its skin, and more definition against its immediate brushed copper surroundings. Reduce the brightest streaks at the rim and window. Preserve one small olive, its contact shadow, the shallow copper tray, kitchen perspective and subdued blue dawn light; keep the scene photographically natural.",
+    "notes": "The reader saw the copper tray first. The brighter green olive gains clear separation and the tray rims recede. The tray remains copper under blue dawn light. Selected edit."
+  },
+  {
+    "id": "04",
+    "repeat": 2,
+    "initial": "04-r2.png",
+    "final": "04-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The reader saw the green olive first. Its contact shadow, shallow copper tray and cool dawn setting are legible. Selected initial."
+  },
+  {
+    "id": "04",
+    "repeat": 3,
+    "initial": "04-r3.png",
+    "final": "04-r3.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The reader saw the green olive first. The single olive is distinct against brushed copper with cool blue light across the setting. Selected initial."
+  },
+  {
+    "id": "05",
+    "repeat": 1,
+    "initial": "05-r1.png",
+    "final": "05-r1-edit.png",
+    "repair": "05-r1-edit.png",
+    "repair_prompt": "Edit this soft pastel drawing. Make the small silver dragonfly brooch on the side instantly catch the eye ahead of the hat. Place a concentrated pale silver glint along the dragonfly's long body and four readable wings against a quiet patch of deepest navy felt. Gently lower the surrounding pink bulbs, window reflections and bright marks across the hat brim. Keep the fuzzy navy felt legible in soft pastel, the pink dressing room, hat placement and the single small pinned dragonfly. Keep its jewelry scale.",
+    "notes": "The reader saw the navy hat first. The brooch shows clearer bright silver wings against navy felt; surrounding bulbs are quieter. The large hat remains a competitor at first glance."
+  },
+  {
+    "id": "05",
+    "repeat": 2,
+    "initial": "05-r2.png",
+    "final": "05-r2-edit.png",
+    "repair": "05-r2-edit.png",
+    "repair_prompt": "Edit this soft pastel drawing. Make the small silver dragonfly brooch on the side instantly catch the eye ahead of the hat. Place a concentrated pale silver glint along the dragonfly's long body and four readable wings against a quiet patch of deepest navy felt. Gently lower the surrounding pink bulbs, window reflections and bright marks across the hat brim. Keep the fuzzy navy felt legible in soft pastel, the pink dressing room, hat placement and the single small pinned dragonfly. Keep its jewelry scale.",
+    "notes": "The reader saw the navy hat first. The edit makes the silver dragonfly more legible and suppresses the mirror bulbs, preserving the fuzzy navy felt and pink dressing room."
+  },
+  {
+    "id": "05",
+    "repeat": 3,
+    "initial": "05-r3.png",
+    "final": "05-r3-edit.png",
+    "repair": "05-r3-edit.png",
+    "repair_prompt": "Edit this soft pastel drawing. Make the small silver dragonfly brooch on the side instantly catch the eye ahead of the hat. Place a concentrated pale silver glint along the dragonfly's long body and four readable wings against a quiet patch of deepest navy felt. Gently lower the surrounding pink bulbs, window reflections and bright marks across the hat brim. Keep the fuzzy navy felt legible in soft pastel, the pink dressing room, hat placement and the single small pinned dragonfly. Keep its jewelry scale.",
+    "notes": "The reader saw the navy hat first. The edited silver wings and body separate better from the dark hat. The broad hat silhouette is still conspicuous, with the mirror bulbs now softer."
+  }
+]

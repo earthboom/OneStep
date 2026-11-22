@@ -1,0 +1,22 @@
+{
+  "case": "11",
+  "checks": [
+    "deep navy background wall",
+    "mug and lemon shape, color, position preserved",
+    "table, lighting and framing preserved"
+  ],
+  "candidates": {
+    "11-A": [
+      "PNG 1536x1024"
+    ],
+    "11-B": [
+      "PNG 1536x1024"
+    ],
+    "11-C": [
+      "PNG 1536x1024"
+    ],
+    "11-D": [
+      "PNG 1536x1024"
+    ]
+  }
+}

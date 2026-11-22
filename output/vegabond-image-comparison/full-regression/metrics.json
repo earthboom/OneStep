@@ -1,0 +1,1504 @@
+{
+  "totals": {
+    "all": {
+      "stock": {
+        "first": 20,
+        "final": 23
+      },
+      "v1_historical": {
+        "first": 22,
+        "final": 24
+      },
+      "v1_regraded": {
+        "first": 22,
+        "final": 24
+      },
+      "v2": {
+        "first": 24,
+        "final": 24
+      },
+      "tasks_per_method": 24,
+      "v2_repair_calls": 5
+    },
+    "targeted": {
+      "stock": {
+        "first": 2,
+        "final": 3
+      },
+      "v1_historical": {
+        "first": 2,
+        "final": 4
+      },
+      "v1_regraded": {
+        "first": 2,
+        "final": 4
+      },
+      "v2": {
+        "first": 4,
+        "final": 4
+      },
+      "tasks_per_method": 4,
+      "v2_repair_calls": 0
+    },
+    "other": {
+      "stock": {
+        "first": 18,
+        "final": 20
+      },
+      "v1_historical": {
+        "first": 20,
+        "final": 20
+      },
+      "v1_regraded": {
+        "first": 20,
+        "final": 20
+      },
+      "v2": {
+        "first": 20,
+        "final": 20
+      },
+      "tasks_per_method": 20,
+      "v2_repair_calls": 5
+    }
+  },
+  "losses_vs_v1_regrade": {
+    "first": [],
+    "final": []
+  },
+  "cases": {
+    "01": {
+      "r1": {
+        "first": {
+          "stock": {
+            "label": "01-E",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "01-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "01-E",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "01-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      },
+      "r2": {
+        "first": {
+          "stock": {
+            "label": "01-B",
+            "passed": false,
+            "failed": [
+              "exactly two separate red lights on entry"
+            ],
+            "unverified": [],
+            "note": "Each door jamb shows two distinct stacked red emitters, for four luminous red dots."
+          },
+          "v1_historical": {
+            "label": "01-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "01-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "01-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      }
+    },
+    "02": {
+      "r1": {
+        "first": {
+          "stock": {
+            "label": "02-C",
+            "passed": false,
+            "failed": [
+              "no writing"
+            ],
+            "unverified": [],
+            "note": "A magnified crop reveals a faint pale letter-like watermark on the foreground rock at the lower-right corner."
+          },
+          "v1_historical": {
+            "label": "02-E",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "02-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "02-E",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      },
+      "r2": {
+        "first": {
+          "stock": {
+            "label": "02-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "02-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "02-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "02-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      }
+    },
+    "03": {
+      "r1": {
+        "first": {
+          "stock": {
+            "label": "03-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "03-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "03-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "03-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      },
+      "r2": {
+        "first": {
+          "stock": {
+            "label": "03-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "03-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "03-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "03-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      }
+    },
+    "04": {
+      "r1": {
+        "first": {
+          "stock": {
+            "label": "04-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "04-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "04-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "04-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      },
+      "r2": {
+        "first": {
+          "stock": {
+            "label": "04-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "04-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "04-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "04-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      }
+    },
+    "05": {
+      "r1": {
+        "first": {
+          "stock": {
+            "label": "05-F",
+            "passed": false,
+            "failed": [
+              "direct overhead view, with no substantial oblique faces"
+            ],
+            "unverified": [],
+            "note": "The orange cylinder exposes a continuous sidewall band below the raised lid rim, widest at the near edge."
+          },
+          "v1_historical": {
+            "label": "05-C",
+            "passed": false,
+            "failed": [
+              "direct overhead view, with no substantial oblique faces"
+            ],
+            "unverified": [],
+            "note": "The blue boxes expose broad lower side faces, and the orange lid sits visibly above a curved front wall."
+          },
+          "v1_regraded": {
+            "passed": false,
+            "failed": [
+              "direct overhead view, with no substantial oblique faces"
+            ],
+            "unverified": [],
+            "note": "Both blue boxes show substantial front faces and the orange box shows a substantial curved side face."
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "05-F",
+            "passed": false,
+            "failed": [
+              "direct overhead view, with no substantial oblique faces"
+            ],
+            "unverified": [],
+            "note": "The orange cylinder exposes a continuous sidewall band below the raised lid rim, widest at the near edge."
+          },
+          "v1_historical": {
+            "label": "05-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      },
+      "r2": {
+        "first": {
+          "stock": {
+            "label": "05-B",
+            "passed": false,
+            "failed": [
+              "direct overhead view, with no substantial oblique faces"
+            ],
+            "unverified": [],
+            "note": "The orange cylinder has a deep exposed front sidewall below the lid."
+          },
+          "v1_historical": {
+            "label": "05-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "05-E",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "05-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      }
+    },
+    "06": {
+      "r1": {
+        "first": {
+          "stock": {
+            "label": "06-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "06-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "06-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "06-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      },
+      "r2": {
+        "first": {
+          "stock": {
+            "label": "06-E",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "06-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "06-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "06-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      }
+    },
+    "07": {
+      "r1": {
+        "first": {
+          "stock": {
+            "label": "07-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "07-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "07-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "07-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      },
+      "r2": {
+        "first": {
+          "stock": {
+            "label": "07-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "07-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "07-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "07-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      }
+    },
+    "08": {
+      "r1": {
+        "first": {
+          "stock": {
+            "label": "08-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "08-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "08-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "08-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      },
+      "r2": {
+        "first": {
+          "stock": {
+            "label": "08-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "08-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "08-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "08-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      }
+    },
+    "09": {
+      "r1": {
+        "first": {
+          "stock": {
+            "label": "09-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "09-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "09-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "09-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      },
+      "r2": {
+        "first": {
+          "stock": {
+            "label": "09-E",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "09-A",
+            "passed": false,
+            "failed": [
+              "recurring reference robot identity clear in both without an ambiguous extra robot"
+            ],
+            "unverified": [],
+            "note": "The greenhouse contains a conspicuous second robot alongside the pot-holding reference robot. It has a yellow-orange head, rust torso, and its own antenna."
+          },
+          "v1_regraded": {
+            "passed": false,
+            "failed": [
+              "recurring reference robot identity clear in both without an ambiguous extra robot"
+            ],
+            "unverified": [],
+            "note": "The greenhouse adds a second similarly built robot beside the recurring reference robot."
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "09-E",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "09-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      }
+    },
+    "10": {
+      "r1": {
+        "first": {
+          "stock": {
+            "label": "10-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "10-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "10-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "10-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      },
+      "r2": {
+        "first": {
+          "stock": {
+            "label": "10-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "10-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "10-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "10-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      }
+    },
+    "11": {
+      "r1": {
+        "first": {
+          "stock": {
+            "label": "11-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "11-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "11-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "11-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      },
+      "r2": {
+        "first": {
+          "stock": {
+            "label": "11-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "11-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "11-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "11-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      }
+    },
+    "12": {
+      "r1": {
+        "first": {
+          "stock": {
+            "label": "12-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "12-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "12-B",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "12-C",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      },
+      "r2": {
+        "first": {
+          "stock": {
+            "label": "12-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "12-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        },
+        "final": {
+          "stock": {
+            "label": "12-D",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_historical": {
+            "label": "12-A",
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v1_regraded": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          },
+          "v2": {
+            "passed": true,
+            "failed": [],
+            "unverified": [],
+            "note": null
+          }
+        }
+      }
+    }
+  }
+}

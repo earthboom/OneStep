@@ -1,0 +1,21 @@
+{
+  "checks": [
+    "small garden",
+    "visible signs of recent rain",
+    "quiet mood"
+  ],
+  "candidates": {
+    "04-A": [
+      "PNG 1536x1024"
+    ],
+    "04-B": [
+      "PNG 1448x1086"
+    ],
+    "04-C": [
+      "PNG 1536x1024"
+    ],
+    "04-D": [
+      "PNG 1536x1024"
+    ]
+  }
+}

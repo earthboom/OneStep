@@ -1,0 +1,351 @@
+{
+  "repetition": 2,
+  "workflow": "Built-in Codex imagegen skill",
+  "authorization": "Built-in tool only",
+  "initialCalls": 13,
+  "repairCalls": 3,
+  "imageToolFailures": 0,
+  "outputConvention": "The initial and final fields point to workspace PNGs relative to this log. Raw outputs are preserved when canvas normalization changed the saved PNG. When there was no generative repair, both fields point to the initial output.",
+  "outputHandling": "System.Drawing high-quality bicubic resampling for exact dimensions on cases 01, 02, 03, and 07. All other delivered PNG files are direct copies of the built-in image output.",
+  "cases": [
+    {
+      "case": "01",
+      "output": "01",
+      "initial": "01-initial.png",
+      "final": "01-final.png",
+      "observations": {
+        "initial": "The low-view archival-style image placed the dome at left and rover at right, with light from the left. Each entrance fixture contained two discrete glowing points, giving four visible points. The raw frame measured 1672×941.",
+        "repair": "A local edit replaced each double-dot fixture with one round red lamp. Inspection showed one glowing point on each side of the doorway. The repair also returned 1672×941.",
+        "normalization": "Both PNGs were resampled to 1664×936 for an exact 16:9 aspect ratio."
+      },
+      "calls": [
+        {
+          "phase": "initial",
+          "tool": "image_gen.imagegen",
+          "arguments": {
+            "prompt": "Use case: photorealistic-natural\nAsset type: space agency archival photograph\nScene: the lunar surface in a wide landscape frame, 16:9\nSubject and framing: exactly one domed lunar base on the left and exactly one lunar rover on the right, photographed from a low viewpoint.\nDetails: exactly two distinct, separated red indicator lamps at the base entrance. Sunlight comes from the left. Render real photographic surface texture and lighting, as in a space agency record photo.\nConstraints: no text, lettering, or numerals."
+          },
+          "toolSavedPng": "C:\\Users\\earth\\.codex\\generated_images\\01a20297-a4ee-7081-9dd3-2466f0f2a452\\exec-c68ed372-b30a-4840-b956-693add8bf9d4.png",
+          "rawWorkspacePng": "01-raw.png",
+          "deliveredPng": "01-initial.png"
+        },
+        {
+          "phase": "final",
+          "tool": "image_gen.imagegen",
+          "arguments": {
+            "referenced_image_paths": [
+              "C:/Projects/OneStep/output/vegabond-image-comparison/baseline-2/01-initial.png"
+            ],
+            "prompt": "Use case: precise-object-edit\nAsset type: archival-style lunar photograph, landscape 16:9\nInput images: Image 1 is the photo to edit.\nPrimary request: correct only the two red indicator fixtures at the lunar base entrance. Each existing vertical fixture currently contains two illuminated dots. Replace each multi-dot fixture with exactly one small round red light, so there is one visible red light to the left of the door and one visible red light to the right of the door, exactly two red points in the whole image. No stacked lights and no secondary lights or small illuminated dots in either fixture.\nKeep the low camera angle, real photographic textures, left-hand sunlight, one dome on the left, one lunar rover on the right, landscape composition, and absence of text."
+          },
+          "toolSavedPng": "C:\\Users\\earth\\.codex\\generated_images\\01a20297-a4ee-7081-9dd3-2466f0f2a452\\exec-ac45bf05-532e-4e27-87ba-443a8be7f9e4.png",
+          "rawWorkspacePng": "01-final-raw.png",
+          "deliveredPng": "01-final.png"
+        }
+      ]
+    },
+    {
+      "case": "02",
+      "output": "02",
+      "initial": "02-initial.png",
+      "final": "02-initial.png",
+      "observations": {
+        "initial": "The comic frame has a dome at left, rover at right, one visible red lamp on each side of the entrance, bold outlines, and cel shading. No lettering was observed. The raw frame measured 1672×941.",
+        "normalization": "Resampled to 1664×936 for an exact 16:9 aspect ratio."
+      },
+      "calls": [
+        {
+          "phase": "initial",
+          "tool": "image_gen.imagegen",
+          "arguments": {
+            "prompt": "Use case: illustration-story\nAsset type: single panel of a 2D adventure comic\nScene and composition: a 16:9 landscape frame on the lunar surface, exactly one domed lunar base on the left, exactly one lunar rover on the right.\nDetails: exactly two distinct red indicator lights at the base entrance.\nStyle: bold outlines and two-step cel shading throughout.\nConstraints: no text or lettering."
+          },
+          "toolSavedPng": "C:\\Users\\earth\\.codex\\generated_images\\01a20297-a4ee-7081-9dd3-2466f0f2a452\\exec-59301f9a-90bc-4415-bd4c-8c1f4d614fa1.png",
+          "rawWorkspacePng": "02-raw.png",
+          "deliveredPng": "02-initial.png"
+        }
+      ]
+    },
+    {
+      "case": "03",
+      "output": "03",
+      "initial": "03-initial.png",
+      "final": "03-initial.png",
+      "observations": {
+        "initial": "The oil-paint-style image shows a floating left dome over a visible gap and cast shadow, a right rover on the lunar surface, and one red lamp fixture at each side of the entrance. No lettering was observed. The raw frame measured 1672×941.",
+        "normalization": "Resampled to 1664×936 for an exact 16:9 aspect ratio."
+      },
+      "calls": [
+        {
+          "phase": "initial",
+          "tool": "image_gen.imagegen",
+          "arguments": {
+            "prompt": "Use case: stylized-concept\nAsset type: a calm realist oil painting in a 16:9 landscape frame\nScene and composition: the lunar surface. Exactly one domed lunar base on the left, exactly one lunar rover on the right, with exactly two separated red indicator lamps at the base entrance.\nKey effect: only the dome hovers above the ground. Show a clearly visible gap of empty space between the bottom of the dome and the surface, with its shadow on the ground beneath. The rover is parked on and touching the ground.\nStyle: peaceful realism, with discernible oil-paint texture.\nConstraints: no text or lettering."
+          },
+          "toolSavedPng": "C:\\Users\\earth\\.codex\\generated_images\\01a20297-a4ee-7081-9dd3-2466f0f2a452\\exec-cd99112e-8d33-4ba9-8090-c0cba7db1f0c.png",
+          "rawWorkspacePng": "03-raw.png",
+          "deliveredPng": "03-initial.png"
+        }
+      ]
+    },
+    {
+      "case": "04",
+      "output": "04",
+      "initial": "04-initial.png",
+      "final": "04-initial.png",
+      "observations": {
+        "initial": "The small garden has wet paving, droplets and soft post-rain light. The scene reads as still and quiet."
+      },
+      "calls": [
+        {
+          "phase": "initial",
+          "tool": "image_gen.imagegen",
+          "arguments": {
+            "prompt": "Use case: illustration-story\nAsset type: a single illustration\nScene: a small, quiet garden just after the rain has stopped.\nDetails: show the recent rain through gentle droplets and wet surfaces. Use a calm composition and soft post-rain light to convey the stillness."
+          },
+          "toolSavedPng": "C:\\Users\\earth\\.codex\\generated_images\\01a20297-a4ee-7081-9dd3-2466f0f2a452\\exec-64f3b76d-718b-49b0-82ab-14504c1979d8.png",
+          "rawWorkspacePng": "04-initial.png",
+          "deliveredPng": "04-initial.png"
+        }
+      ]
+    },
+    {
+      "case": "05",
+      "output": "05",
+      "initial": "05-initial.png",
+      "final": "05-final.png",
+      "observations": {
+        "initial": "Counts, colors and separation matched. The image exposed front walls of the boxes, especially the orange cylinder, so the viewpoint was oblique.",
+        "repair": "The new view shows the square lids and circular lid directly from above, with the requested positions, white background and item count retained."
+      },
+      "calls": [
+        {
+          "phase": "initial",
+          "tool": "image_gen.imagegen",
+          "arguments": {
+            "prompt": "Use case: product-mockup\nAsset type: top-down studio product photograph\nScene: pure white background, direct overhead view.\nSubjects: exactly two blue square boxes on the left and exactly one orange cylindrical box on the right. All three are fully visible and separated by white space.\nConstraints: the three boxes do not overlap. There are no other objects."
+          },
+          "toolSavedPng": "C:\\Users\\earth\\.codex\\generated_images\\01a20297-a4ee-7081-9dd3-2466f0f2a452\\exec-1f799d93-9c87-4762-9a90-2c26c3757c87.png",
+          "rawWorkspacePng": "05-initial.png",
+          "deliveredPng": "05-initial.png"
+        },
+        {
+          "phase": "final",
+          "tool": "image_gen.imagegen",
+          "arguments": {
+            "referenced_image_paths": [
+              "C:/Projects/OneStep/output/vegabond-image-comparison/baseline-2/05-initial.png"
+            ],
+            "prompt": "Use case: precise-object-edit\nAsset type: overhead studio product photograph\nInput images: Image 1 is the original image to edit.\nChange only the camera viewpoint to a directly overhead, perpendicular 90-degree top-down view, like a photographic flat lay. Position the camera squarely above all three boxes so the orange cylindrical box appears as a circle from its lid, and no front or side walls are visible on any box.\nPreserve the original arrangement and material: exactly two blue square boxes left, exactly one orange cylindrical box right, each separated by white space, on a clean white background. No added objects."
+          },
+          "toolSavedPng": "C:\\Users\\earth\\.codex\\generated_images\\01a20297-a4ee-7081-9dd3-2466f0f2a452\\exec-cc80f592-3969-4fe8-9777-4afbe775a3b4.png",
+          "rawWorkspacePng": "05-final.png",
+          "deliveredPng": "05-final.png"
+        }
+      ]
+    },
+    {
+      "case": "06",
+      "output": "06",
+      "initial": "06-initial.png",
+      "final": "06-final.png",
+      "observations": {
+        "initial": "The portrait poster showed the two requested Korean lines in their positions, with tiny sign-like glyphs on the base entrance that were visible at full size.",
+        "repair": "The façade signs were replaced with plain panels. The Korean headline and footer remain as one line each with the requested wording, spacing and punctuation."
+      },
+      "calls": [
+        {
+          "phase": "initial",
+          "tool": "image_gen.imagegen",
+          "arguments": {
+            "prompt": "Use case: ads-marketing\nAsset type: portrait poster for visitors to a lunar base\nComposition: one line of Korean at the top, one line of Korean at the bottom, each legible and entirely intact.\nText (verbatim), top on a single line: \"달 기지에 오신 것을 환영합니다!\"\nText (verbatim), bottom on a single line: \"출입 안내 09:30\"\nConstraints: keep exact Hangul, spaces, and punctuation. Do not wrap either line. No additional text, signs, labels, or lettering anywhere."
+          },
+          "toolSavedPng": "C:\\Users\\earth\\.codex\\generated_images\\01a20297-a4ee-7081-9dd3-2466f0f2a452\\exec-063fe52f-fe2e-4a06-91b6-7966f4f7e630.png",
+          "rawWorkspacePng": "06-initial.png",
+          "deliveredPng": "06-initial.png"
+        },
+        {
+          "phase": "final",
+          "tool": "image_gen.imagegen",
+          "arguments": {
+            "referenced_image_paths": [
+              "C:/Projects/OneStep/output/vegabond-image-comparison/baseline-2/06-initial.png"
+            ],
+            "prompt": "Use case: precise-object-edit\nAsset type: portrait visitor poster\nInput images: Image 1 is the poster to edit.\nPrimary request: remove the tiny lettering or letter-like markings and signs on the lunar base facade and above its doors. Make all of those detail areas plain and unmarked, with lighting and architecture otherwise preserved. No other text or glyph-like markings anywhere in the illustration.\nKeep the two existing lines of Korean exactly as written, in the same position and format. Top line, verbatim: \"달 기지에 오신 것을 환영합니다!\" Bottom line, verbatim: \"출입 안내 09:30\"\nPreserve the portrait framing, composition, illustration, and colors. Change only the extraneous lettering in the artwork."
+          },
+          "toolSavedPng": "C:\\Users\\earth\\.codex\\generated_images\\01a20297-a4ee-7081-9dd3-2466f0f2a452\\exec-8ddab167-ffef-44b1-b76a-cf11d05ca7f9.png",
+          "rawWorkspacePng": "06-final.png",
+          "deliveredPng": "06-final.png"
+        }
+      ]
+    },
+    {
+      "case": "07",
+      "output": "07",
+      "initial": "07-initial.png",
+      "final": "07-initial.png",
+      "observations": {
+        "initial": "The raw 1254×1254 PNG shows one purple inkwell at a tilted three-quarter view and has actual alpha. No separate shadow or writing was observed.",
+        "normalization": "Resampled to 512×512 with alpha preservation. Every border pixel was checked and had alpha 0."
+      },
+      "calls": [
+        {
+          "phase": "initial",
+          "tool": "image_gen.imagegen",
+          "arguments": {
+            "transparent_background": true,
+            "prompt": "Use case: stylized-concept\nAsset type: isolated artwork, 512 × 512 transparent PNG\nSubject: exactly one purple inkwell, slightly tilted, viewed at a three-quarter angle.\nConstraints: actual transparency outside the object, with a genuine alpha channel and no painted backdrop. No distinct cast shadow, text, or lettering. Keep the ink bottle fully inside the square frame."
+          },
+          "toolSavedPng": "C:\\Users\\earth\\.codex\\generated_images\\01a20297-a4ee-7081-9dd3-2466f0f2a452\\exec-5d1ee6be-87f3-4fea-b24a-da5eba1febe9.png",
+          "rawWorkspacePng": "07-raw.png",
+          "deliveredPng": "07-initial.png"
+        }
+      ]
+    },
+    {
+      "case": "08",
+      "output": "08",
+      "initial": "08-initial.png",
+      "final": "08-initial.png",
+      "observations": {
+        "initial": "The lower-left fountain has visible water. An unobstructed diagonal path leads toward the upper-right arch."
+      },
+      "calls": [
+        {
+          "phase": "initial",
+          "tool": "image_gen.imagegen",
+          "arguments": {
+            "referenced_image_paths": [
+              "C:/Projects/OneStep/output/vegabond-image-comparison/fixtures/layout.png"
+            ],
+            "prompt": "Use case: illustration-story\nAsset type: plaza illustration made from a composition reference\nInput images: Image 1 is the layout reference.\nComposition: follow the sketch's arrangement. The fountain is in the bottom left, the arched gateway is in the top right, and a visible diagonal path connects them.\nDetails: show water in the fountain, including in the basin. Keep all three anchors clear in the composition."
+          },
+          "toolSavedPng": "C:\\Users\\earth\\.codex\\generated_images\\01a20297-a4ee-7081-9dd3-2466f0f2a452\\exec-aed876a0-0dd7-47b9-b0ec-bc35efd01b91.png",
+          "rawWorkspacePng": "08-initial.png",
+          "deliveredPng": "08-initial.png"
+        }
+      ]
+    },
+    {
+      "case": "09",
+      "output": "09a",
+      "initial": "09a-initial.png",
+      "final": "09a-initial.png",
+      "observations": {
+        "initial": "The robot with an orange sphere head, teal box torso and one black antenna holds a potted plant inside a glass greenhouse."
+      },
+      "calls": [
+        {
+          "phase": "initial",
+          "tool": "image_gen.imagegen",
+          "arguments": {
+            "referenced_image_paths": [
+              "C:/Projects/OneStep/output/vegabond-image-comparison/fixtures/robot.png"
+            ],
+            "prompt": "Use case: illustration-story\nAsset type: one standalone picture, the greenhouse scene\nInput images: Image 1 is the character design reference. Keep the same robot, with its orange spherical head, teal box-shaped torso, and exactly one black antenna.\nScene and action: the robot stands inside a greenhouse and holds a potted plant in its hands. Make both the greenhouse and the pot readily identifiable.\nConstraints: one complete scene in this image."
+          },
+          "toolSavedPng": "C:\\Users\\earth\\.codex\\generated_images\\01a20297-a4ee-7081-9dd3-2466f0f2a452\\exec-c47ebbf5-5738-4931-8cd0-3d3d1f2d1623.png",
+          "rawWorkspacePng": "09a-initial.png",
+          "deliveredPng": "09a-initial.png"
+        }
+      ]
+    },
+    {
+      "case": "09",
+      "output": "09b",
+      "initial": "09b-initial.png",
+      "final": "09b-initial.png",
+      "observations": {
+        "initial": "The same defining three design features are visible. The robot waits beneath a transit shelter with both hands empty."
+      },
+      "calls": [
+        {
+          "phase": "initial",
+          "tool": "image_gen.imagegen",
+          "arguments": {
+            "referenced_image_paths": [
+              "C:/Projects/OneStep/output/vegabond-image-comparison/fixtures/robot.png"
+            ],
+            "prompt": "Use case: illustration-story\nAsset type: one standalone picture, the stop scene\nInput images: Image 1 is the character design reference. Keep the same robot, with its orange spherical head, teal box-shaped torso, and exactly one black antenna.\nScene and action: the robot waits at a transit stop, with empty hands clearly visible. Make the stop recognizable.\nConstraints: one complete scene in this image."
+          },
+          "toolSavedPng": "C:\\Users\\earth\\.codex\\generated_images\\01a20297-a4ee-7081-9dd3-2466f0f2a452\\exec-84d60be4-a70f-4f2e-be40-056d92701ceb.png",
+          "rawWorkspacePng": "09b-initial.png",
+          "deliveredPng": "09b-initial.png"
+        }
+      ]
+    },
+    {
+      "case": "10",
+      "output": "10",
+      "initial": "10-initial.png",
+      "final": "10-initial.png",
+      "observations": {
+        "initial": "The navy-and-ochre image uses rough print grain and preserves the lower-left fountain, rising diagonal path and upper-right arch. No leaves were carried over."
+      },
+      "calls": [
+        {
+          "phase": "initial",
+          "tool": "image_gen.imagegen",
+          "arguments": {
+            "referenced_image_paths": [
+              "C:/Projects/OneStep/output/vegabond-image-comparison/fixtures/layout.png",
+              "C:/Projects/OneStep/output/vegabond-image-comparison/fixtures/print-style.png"
+            ],
+            "prompt": "Use case: style-transfer\nAsset type: plaza illustration using layout and style references\nInput images: Image 1 is the plaza layout reference. Image 2 is the color and print texture reference only.\nComposition: use Image 1's lower-left fountain, upper-right arched gateway, and the diagonal path connecting them.\nStyle and palette: use the two colors from Image 2, deep navy and warm ochre, and its visibly rough block-print grain. Apply its marks and texture to the plaza.\nConstraints: preserve the position and relationship of the plaza elements. Do not copy the leaves or the botanical subject from Image 2."
+          },
+          "toolSavedPng": "C:\\Users\\earth\\.codex\\generated_images\\01a20297-a4ee-7081-9dd3-2466f0f2a452\\exec-87404874-64ea-4a82-97f1-dcd530b656c8.png",
+          "rawWorkspacePng": "10-initial.png",
+          "deliveredPng": "10-initial.png"
+        }
+      ]
+    },
+    {
+      "case": "11",
+      "output": "11",
+      "initial": "11-initial.png",
+      "final": "11-initial.png",
+      "observations": {
+        "initial": "The wall reads as deep navy. A side-by-side comparison showed the mug, lemon, tabletop and framing visually aligned, with the original warm foreground lighting retained."
+      },
+      "calls": [
+        {
+          "phase": "initial",
+          "tool": "image_gen.imagegen",
+          "arguments": {
+            "referenced_image_paths": [
+              "C:/Projects/OneStep/output/vegabond-image-comparison/fixtures/still-life.png"
+            ],
+            "prompt": "Use case: precise-object-edit\nAsset type: minimally edited still-life photograph\nInput images: Image 1 is the original to edit.\nPrimary request: recolor only the wall background behind the mug and lemon to deep navy blue. Apply the same wall lighting and subtle gradient to the new color.\nInvariants: preserve the original mug and lemon shape, colors, texture, positions and size. Preserve the existing tabletop including its edge and wood grain, all foreground lighting and shadows, camera framing, perspective, and crop. Keep the original photograph apart from the wall color."
+          },
+          "toolSavedPng": "C:\\Users\\earth\\.codex\\generated_images\\01a20297-a4ee-7081-9dd3-2466f0f2a452\\exec-6e2d0382-5951-4a6b-947b-497e7f3c7000.png",
+          "rawWorkspacePng": "11-initial.png",
+          "deliveredPng": "11-initial.png"
+        }
+      ]
+    },
+    {
+      "case": "12",
+      "output": "12",
+      "initial": "12-initial.png",
+      "final": "12-initial.png",
+      "observations": {
+        "initial": "The jacket reads as teal with fabric and stitching visible. A side-by-side comparison showed the same face, pose, hair, framing and gray backdrop."
+      },
+      "calls": [
+        {
+          "phase": "initial",
+          "tool": "image_gen.imagegen",
+          "arguments": {
+            "referenced_image_paths": [
+              "C:/Projects/OneStep/output/vegabond-image-comparison/fixtures/portrait.png"
+            ],
+            "prompt": "Use case: identity-preserve\nAsset type: minimally edited portrait\nInput images: Image 1 is the original to edit.\nPrimary request: recolor only the orange jacket to teal. Preserve the fabric texture, construction, stitching, and the original light and shadows.\nInvariants: keep the same face, expression, skin, hair, pose, body, white undershirt, framing, composition, and original gray background. Make no changes outside the jacket."
+          },
+          "toolSavedPng": "C:\\Users\\earth\\.codex\\generated_images\\01a20297-a4ee-7081-9dd3-2466f0f2a452\\exec-0bdf3726-8751-4033-b81e-4bc9fd096af1.png",
+          "rawWorkspacePng": "12-initial.png",
+          "deliveredPng": "12-initial.png"
+        }
+      ]
+    }
+  ]
+}

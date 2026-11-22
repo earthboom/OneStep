@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "05 Two blue square lidded boxes on the left and one orange cylindrical lidded box on the right",
+    "05 Three separate objects, no overlapping or extra objects, on white",
+    "05 Direct overhead projection: lid planes readable as squares and circle, no substantial vertical front or sidewalls. A narrow lid rim or bevel is allowed."
+  ],
+  "labels": [
+    "05-A",
+    "05-B",
+    "05-C",
+    "05-D",
+    "05-E",
+    "05-F"
+  ]
+}

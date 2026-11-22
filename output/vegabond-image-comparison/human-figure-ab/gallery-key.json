@@ -1,0 +1,34 @@
+{
+  "blind-01-1.jpg": {
+    "A": "after",
+    "B": "before"
+  },
+  "blind-01-2.jpg": {
+    "A": "before",
+    "B": "after"
+  },
+  "blind-02-1.jpg": {
+    "A": "after",
+    "B": "before"
+  },
+  "blind-02-2.jpg": {
+    "A": "before",
+    "B": "after"
+  },
+  "blind-03-1.jpg": {
+    "A": "after",
+    "B": "before"
+  },
+  "blind-03-2.jpg": {
+    "A": "after",
+    "B": "before"
+  },
+  "blind-04-1.jpg": {
+    "A": "before",
+    "B": "after"
+  },
+  "blind-04-2.jpg": {
+    "A": "after",
+    "B": "before"
+  }
+}

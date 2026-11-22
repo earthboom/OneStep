@@ -1,0 +1,83 @@
+[
+  {
+    "id": "01",
+    "repeat": 1,
+    "initial": "01-r1.png",
+    "final": "01-r1-edit.png",
+    "repair": "01-r1-edit.png",
+    "repair_prompt": "Edit this gouache painting only to clarify the glove’s white cotton body color. Give a few softly edged palm and finger planes neutral ivory-white cotton mids, enough that a viewer recognizes white cotton immediately; leave indigo-violet incident light visible in folds and at the edges. Keep the bright tangerine ticket exactly as small, sharp and dominant as here, without brightening the cuff or broad outer silhouette. Preserve the glove pose, ticket placement, theatre counter, framing and opaque gouache brushwork.",
+    "notes": "Initial: ticket first; the fabric looks lavender across the palm. Edit: ivory ridges against violet folds establish matte white cotton. The orange ticket still catches my eye first, although several finger highlights compete. Opaque gouache and box office preserved."
+  },
+  {
+    "id": "01",
+    "repeat": 2,
+    "initial": "01-r2.png",
+    "final": "01-r2-edit.png",
+    "repair": "01-r2-edit.png",
+    "repair_prompt": "Edit this gouache painting only to clarify the glove’s white cotton body color. Give a few softly edged palm and finger planes neutral ivory-white cotton mids, enough that a viewer recognizes white cotton immediately; leave indigo-violet incident light visible in folds and at the edges. Keep the bright tangerine ticket exactly as small, sharp and dominant as here, without brightening the cuff or broad outer silhouette. Preserve the glove pose, ticket placement, theatre counter, framing and opaque gouache brushwork.",
+    "notes": "Initial: ticket first; an almost uniformly lavender palm leaves the fabric body color ambiguous. Edit: cream-white palm and fingertips beside blue-violet seams establish white cloth. The broad bright glove is a stronger competitor, but I still notice the orange ticket first. Counter and opaque paint preserved."
+  },
+  {
+    "id": "01",
+    "repeat": 3,
+    "initial": "01-r3.png",
+    "final": "01-r3.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "Ticket first. The pale low-chroma patch on the palm right above the ticket sits against violet folds and identifies white cotton under the light, though the ends of the glove look lavender. Small ticket rests on palm; evening theatre window and dry opaque brush shapes are visible."
+  },
+  {
+    "id": "02",
+    "repeat": 1,
+    "initial": "02-r1.png",
+    "final": "02-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "Berry first. One red berry casts a short contact shadow on pale celadon. An amber grid crosses the glazed plate; soft washes through the window identify dusk and transparent watercolor."
+  },
+  {
+    "id": "02",
+    "repeat": 2,
+    "initial": "02-r2.png",
+    "final": "02-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "Berry first. One dark-red cluster stands apart from a pale blue-green plate. The amber reflection, cup and flowering branch sit away from the berry; watercolor washes and paper show through."
+  },
+  {
+    "id": "02",
+    "repeat": 3,
+    "initial": "02-r3.png",
+    "final": "02-r3.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "Berry first. A single red raspberry sits on the light celadon body of the dish; a separate amber window reflection glows to the right. Soft glazed rim, dusk skyline, kettle and thin watercolor washes remain legible."
+  },
+  {
+    "id": "03",
+    "repeat": 1,
+    "initial": "03-r1.png",
+    "final": "03-r1-edit.png",
+    "repair": "03-r1-edit.png",
+    "repair_prompt": "Edit the upper-left lamp so that its opaque shade hides its brilliant underside, showing mostly a quiet dark blue exterior. Keep a soft pool of blue work light on the wood and a blue grazing reflection on the black leather to show the source is on. The small yellow carpenter’s pencil should catch the eye immediately. Preserve the pencil's size, silhouette and pocket placement, black leather grain, workbench composition and colored-pencil drawing technique.",
+    "notes": "Initial: brilliant blue lamp catches the eye ahead of the pencil. Edit: the yellow pencil is the first distinct object; a diffuse blue halo still draws attention on the left. Curved grained black pocket retains its blue edge, with pencil tucked behind it. Colored-pencil marks and workbench retained."
+  },
+  {
+    "id": "03",
+    "repeat": 2,
+    "initial": "03-r2.png",
+    "final": "03-r2-edit.png",
+    "repair": "03-r2-edit.png",
+    "repair_prompt": "Edit the upper-left lamp so that its opaque shade hides its brilliant underside, showing mostly a quiet dark blue exterior. Keep a soft pool of blue work light on the wood and a blue grazing reflection on the black leather to show the source is on. The small yellow carpenter’s pencil should catch the eye immediately. Preserve the pencil's size, silhouette and pocket placement, black leather grain, workbench composition and colored-pencil drawing technique.",
+    "notes": "Initial: lamp and pencil compete at thumbnail size. Edit: yellow pencil first against black leather. Shade hides the bright underside; reflected blue stays on pocket folds and bench. Colored-pencil texture and tool positions preserved."
+  },
+  {
+    "id": "03",
+    "repeat": 3,
+    "initial": "03-r3.png",
+    "final": "03-r3-edit.png",
+    "repair": "03-r3-edit.png",
+    "repair_prompt": "Edit the upper-left lamp so that its opaque shade hides its brilliant underside, showing mostly a quiet dark blue exterior. Keep a soft pool of blue work light on the wood and a blue grazing reflection on the black leather to show the source is on. The small yellow carpenter’s pencil should catch the eye immediately. Preserve the pencil's size, silhouette and pocket placement, black leather grain, workbench composition and colored-pencil drawing technique.",
+    "notes": "Initial: large bright lamp competes with the yellow pencil. Edit: pencil first against the near-black grain. Blue reflected light on the leather and workbench still explains the lighting. Pocket covers the shaft base, and layered pencil strokes remain visible."
+  }
+]

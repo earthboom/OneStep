@@ -1,0 +1,27 @@
+{
+  "case": "06",
+  "checks": [
+    "portrait frame",
+    "top line exactly 달 기지에 오신 것을 환영합니다!",
+    "bottom line exactly 출입 안내 09:30",
+    "top and bottom positions, one line each",
+    "no extra text or text-like glyphs"
+  ],
+  "candidates": {
+    "06-A": [
+      "PNG 1086x1448"
+    ],
+    "06-B": [
+      "PNG 1024x1536 alpha range (255, 255), edge max 255"
+    ],
+    "06-C": [
+      "PNG 1024x1536"
+    ],
+    "06-D": [
+      "PNG 1024x1536 alpha range (255, 255), edge max 255"
+    ],
+    "06-E": [
+      "PNG 1086x1448"
+    ]
+  }
+}

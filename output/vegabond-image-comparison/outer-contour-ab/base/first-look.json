@@ -1,0 +1,92 @@
+[
+  {
+    "id": "01",
+    "repeat": 1,
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "id": "01",
+    "repeat": 2,
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "id": "01",
+    "repeat": 3,
+    "object": "주황색 입장권",
+    "tie": false
+  },
+  {
+    "id": "02",
+    "repeat": 1,
+    "object": "산딸기",
+    "tie": false
+  },
+  {
+    "id": "02",
+    "repeat": 2,
+    "object": "산딸기",
+    "tie": false
+  },
+  {
+    "id": "02",
+    "repeat": 3,
+    "object": "산딸기",
+    "tie": false
+  },
+  {
+    "id": "03",
+    "repeat": 1,
+    "object": "가죽 공구 주머니",
+    "tie": false
+  },
+  {
+    "id": "03",
+    "repeat": 2,
+    "object": "가죽 공구 주머니",
+    "tie": false
+  },
+  {
+    "id": "03",
+    "repeat": 3,
+    "object": "노란 연필",
+    "tie": false
+  },
+  {
+    "id": "04",
+    "repeat": 1,
+    "object": "구리 쟁반",
+    "tie": false
+  },
+  {
+    "id": "04",
+    "repeat": 2,
+    "object": "구리 쟁반",
+    "tie": false
+  },
+  {
+    "id": "04",
+    "repeat": 3,
+    "object": "구리 쟁반과 초록 올리브",
+    "tie": true
+  },
+  {
+    "id": "05",
+    "repeat": 1,
+    "object": "짙은 남색 모자",
+    "tie": false
+  },
+  {
+    "id": "05",
+    "repeat": 2,
+    "object": "짙은 남색 모자",
+    "tie": false
+  },
+  {
+    "id": "05",
+    "repeat": 3,
+    "object": "짙은 남색 모자",
+    "tie": false
+  }
+]

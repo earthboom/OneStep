@@ -1,0 +1,74 @@
+[
+  {
+    "id": "01",
+    "repeat": 1,
+    "initial": "01-r1.png",
+    "final": "01-r1-edit.png",
+    "repair": "01-r1-edit.png",
+    "repair_prompt": "Edit the supplied documentary photograph. Correct the skipped step by bringing the rear foot forward onto the empty tread directly below the supporting front shoe. Let the back knee bend to follow, rear heel rising as the toes meet that tread. The tread under each shoe should share one riser with the other. Preserve the front shoe, heavy bag and hand, full figure, alley, overcast light and camera position.",
+    "notes": "The initial rear toe and front sole spanned an empty tread. The edit moves the rear toe to the adjacent tread, with raised heel and bent knee. Both feet and the taut grocery handles remain visible. Selected the edit."
+  },
+  {
+    "id": "01",
+    "repeat": 2,
+    "initial": "01-r2.png",
+    "final": "01-r2.png",
+    "repair": "01-r2-edit.png",
+    "repair_prompt": "Edit the supplied documentary photograph. Correct the skipped step by bringing the rear foot forward onto the empty tread directly below the supporting front shoe. Let the back knee bend to follow, rear heel rising as the toes meet that tread. The tread under each shoe should share one riser with the other. Preserve the front shoe, heavy bag and hand, full figure, alley, overcast light and camera position.",
+    "notes": "The initial shows a forward climb in the cloudy alley, with an empty tread between her shoes. The edit puts both shoes on the same level and weakens the ascent. Selected the initial for its legible upward motion; the one-step spacing remains unmet."
+  },
+  {
+    "id": "02",
+    "repeat": 1,
+    "initial": "02-r1.png",
+    "final": "02-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "Both faces turn toward the cup. The giver's fingers enter the open handle from the left and the receiver's upturned fingertips touch its base on the right. Soft highlights retain detail in the giver's skin. Selected the initial."
+  },
+  {
+    "id": "02",
+    "repeat": 2,
+    "initial": "02-r2.png",
+    "final": "02-r2.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The handle arcs around the giver's index finger and the opposite palm meets the base, with the receiver's thumb beside it. The window softly lights both faces and their hands. Selected the initial."
+  },
+  {
+    "id": "03",
+    "repeat": 1,
+    "initial": "03-r1.png",
+    "final": "03-r1.png",
+    "repair": null,
+    "repair_prompt": null,
+    "notes": "The slight closed-mouth smile and upward gaze address the standing figure at frame right. Peach lamp light at the jaw and neck meets cool window light on the opposite side; folds and varied skin texture stay visible. Selected the initial."
+  },
+  {
+    "id": "03",
+    "repeat": 2,
+    "initial": "03-r2.png",
+    "final": "03-r2-edit.png",
+    "repair": "03-r2-edit.png",
+    "repair_prompt": "Edit the reference photograph to bring a soft, visible reflection of the dusk window across the turning planes of the upper cheek and a side plane of the neck. A muted cool-gray blue should fall off across the folds and meet the existing amber lamplight naturally. Preserve skin hue in the middle tones, fine facial texture, age, white hair, the eyes and subtle listening smile, the standing speaker and the room as framed.",
+    "notes": "The initial showed blue chiefly in hair and background, while the lamp dominated the neck. The edit carries cool reflected light onto the outside of the cheek and the side of the neck while retaining warm light, age lines and the attentive smile. Selected the edit."
+  },
+  {
+    "id": "04",
+    "repeat": 1,
+    "initial": "04-r1.png",
+    "final": "04-r1-edit.png",
+    "repair": "04-r1-edit.png",
+    "repair_prompt": "Edit the reference watercolor by shifting the observer around to the sitter's side, slightly forward of a true profile. Show the bench slats receding in depth, the near shoulder overlapping the far shoulder and the nose in near-profile. The whole seated figure and both shoes stay in frame. Preserve the same person leaning over the near sneaker, distinct hands pinching the loop and free lace, seated balance, transparent skin washes and soft outdoor shade.",
+    "notes": "The initial bench slats faced the viewer almost squarely. The edit turns them into depth and shows the sitter's nose in profile. Both grasps and the lace loop remain legible beside the near shoe, with warm translucent color on the face and both hands. Selected the edit."
+  },
+  {
+    "id": "04",
+    "repeat": 2,
+    "initial": "04-r2.png",
+    "final": "04-r2-edit.png",
+    "repair": "04-r2-edit.png",
+    "repair_prompt": "Edit the reference watercolor by shifting the observer around to the sitter's side, slightly forward of a true profile. Show the bench slats receding in depth, the near shoulder overlapping the far shoulder and the nose in near-profile. The whole seated figure and both shoes stay in frame. Preserve the same person leaning over the near sneaker, distinct hands pinching the loop and free lace, seated balance, transparent skin washes and soft outdoor shade.",
+    "notes": "The initial offered a mostly frontal view. The edit shows overlapping shoulders, a near-profile face and foreshortened bench slats while keeping the far sneaker, both hands and the separate lace segments visible. Face, arm and finger washes remain consistent. Selected the edit."
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "purpose": "Compare targeted first-draft prompt changes on the two previously observed failure modes.",
+  "repetitions_per_arm": 3,
+  "tool": "Codex built-in image_gen",
+  "generation": {
+    "transparent_background": false,
+    "one_tool_call_per_image": true,
+    "postprocessing": "none",
+    "corrections_in_primary_comparison": false,
+    "seed": "not exposed"
+  },
+  "cases": {
+    "05": {
+      "reference": null,
+      "checks": [
+        "Two blue square lidded boxes on the left and one orange cylindrical lidded box on the right",
+        "Three separate objects, no overlapping or extra objects, on white",
+        "Direct overhead projection: lid planes readable as squares and circle, no substantial vertical front or sidewalls. A narrow lid rim or bevel is allowed."
+      ]
+    },
+    "09a": {
+      "reference": "../fixtures/robot.png",
+      "checks": [
+        "Exactly one visible robot anywhere in the frame",
+        "Recognizable greenhouse and robot visibly holding a flowerpot",
+        "Identity: orange spherical head, teal rectangular torso and one black antenna, visibly matches shared reference."
+      ]
+    },
+    "09b": {
+      "reference": "../fixtures/robot.png",
+      "checks": [
+        "Exactly one visible robot anywhere in the frame",
+        "Recognizable bus stop and robot visibly waits with both hands empty",
+        "Identity: orange spherical head, teal rectangular torso and one black antenna, visibly matches shared reference."
+      ]
+    }
+  },
+  "prompts": {
+    "old": {
+      "05": "Strict top-down white-background product photograph. At viewer left are exactly two separate BLUE square-lidded boxes. At viewer right is exactly one ORANGE cylindrical lidded box, seen as a circle from overhead. Space every unit clearly apart; all three are fully visible, with no overlaps. Only the three containers on seamless white, clean catalog photography and subtle shadow.",
+      "09a": "Create the first standalone scene of a robot pair, using image 1 as the character identity reference. Show this same robot inside a greenhouse, visibly holding one potted plant between its hands. Show a clear greenhouse interior with glass roof and framing and plants. Retain the reference's tangerine-orange spherical head, two small dark eyes, exactly one thin black antenna with a black round tip, rectangular box-shaped teal torso and segmented dark-gray limbs. Match its stylized dimensional appearance, proportions and worn painted-metal finishes. Keep the whole antenna and enough of the torso visible above or around the flowerpot to verify the design.",
+      "09b": "Create the second standalone scene of a robot pair, using image 1 as the character identity reference. Show this same robot waiting beside a recognizable bus stop shelter with a stop sign and curb. Both hands should be empty and clearly visible, relaxed at its sides. Retain the reference's tangerine-orange spherical head, two small dark eyes, exactly one thin black antenna with a black round tip, rectangular box-shaped teal torso and segmented dark-gray limbs. Match its stylized dimensional appearance, proportions and worn painted-metal finishes. Keep the whole antenna, both hands and the torso visible."
+    },
+    "revised": {
+      "05": "Strict overhead flat-lay product photograph on white. The camera looks straight down at 90 degrees, with its optical axis perpendicular to the tabletop. Show the lid planes and a thin edge rim at most. Keep the square lid edges parallel and the round lid circular. Show no visible vertical front or sidewall on any box. At viewer left are exactly two separate BLUE square-lidded boxes. At viewer right is exactly one ORANGE cylindrical lidded box, seen as a circle from overhead. Space every unit clearly apart; all three are fully visible, with no overlaps. Only the three containers on seamless white, clean catalog photography and subtle shadow.",
+      "09a": "Create one standalone image with exactly one robot. Use image 1 solely as the identity reference for that single robot. No other robot figures anywhere in the frame. Show this same robot inside a greenhouse, visibly holding one potted plant between its hands. Show a clear greenhouse interior with glass roof and framing and plants. Retain the reference's tangerine-orange spherical head, two small dark eyes, exactly one thin black antenna with a black round tip, rectangular box-shaped teal torso and segmented dark-gray limbs. Match its stylized dimensional appearance, proportions and worn painted-metal finishes. Keep the whole antenna and enough of the torso visible above or around the flowerpot to verify the design.",
+      "09b": "Create one standalone image with exactly one robot. Use image 1 solely as the identity reference for that single robot. No other robot figures anywhere in the frame. Show this same robot waiting beside a recognizable bus stop shelter with a stop sign and curb. Both hands should be empty and clearly visible, relaxed at its sides. Retain the reference's tangerine-orange spherical head, two small dark eyes, exactly one thin black antenna with a black round tip, rectangular box-shaped teal torso and segmented dark-gray limbs. Match its stylized dimensional appearance, proportions and worn painted-metal finishes. Keep the whole antenna, both hands and the torso visible."
+    }
+  },
+  "scoring": "Score the actual first images under hidden arm labels. A robot-pair repetition passes only if both frames pass all checks and the recurring identity is consistent across the pair."
+}
