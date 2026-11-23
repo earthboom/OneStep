@@ -1,0 +1,938 @@
+{
+  "corpus_entries": 30000,
+  "corpus_path_sha256_pairs_digest": "ccfe8a1531dbbb11da1cc49885966e398e237622801c096b66902ce2838e5f84",
+  "identical_doc_rows_and_token_sets": 30000,
+  "identical_edges": true,
+  "historical_build_seconds": 106.187144,
+  "builds": {
+    "baseline": {
+      "index_seconds": 70.287679,
+      "wall_seconds": 70.724,
+      "canonical_reads": 30000
+    },
+    "baseline-2": {
+      "index_seconds": 364.049778,
+      "wall_seconds": 364.324,
+      "canonical_reads": 30000
+    },
+    "optimized": {
+      "index_seconds": 52.637716999999995,
+      "wall_seconds": 53.403,
+      "canonical_reads": 30000
+    },
+    "final-1": {
+      "index_seconds": 28.844001,
+      "wall_seconds": 29.063,
+      "canonical_reads": 30000
+    },
+    "final-2": {
+      "index_seconds": 25.007451,
+      "wall_seconds": 25.341,
+      "canonical_reads": 30000
+    },
+    "release": {
+      "index_seconds": 41.146521,
+      "wall_seconds": 42.222,
+      "canonical_reads": 30000
+    }
+  },
+  "profile_before": {
+    "total": 3.945006800000556,
+    "times": {
+      "resolve": 1.7233146994549315,
+      "file_read": 0.4257183993468061,
+      "translation": 0.0569816003262531,
+      "yaml": 0.9624987995484844,
+      "parse_total": 3.6713247002335265
+    },
+    "counts": {
+      "resolve": 3793,
+      "file_read": 1666,
+      "translation": 1664,
+      "yaml": 1664,
+      "parse_total": 1663
+    },
+    "n": 1663
+  },
+  "profile_after_path_and_yaml_changes": {
+    "total": 3.5198784999956843,
+    "times": {
+      "resolve": 1.5530931007524487,
+      "file_read": 0.6393317993497476,
+      "translation": 0.06699910014867783,
+      "yaml": 0.22028020015568472,
+      "parse_total": 3.1508451004629023
+    },
+    "counts": {
+      "resolve": 2130,
+      "file_read": 1666,
+      "translation": 1664,
+      "yaml": 1664,
+      "parse_total": 1663
+    },
+    "n": 1663
+  },
+  "warm_cli": {
+    "sample-1": {
+      "p50": 0.5205,
+      "p95": 1.867,
+      "max": 2.514,
+      "within_2_seconds": 49
+    },
+    "sample-2": {
+      "p50": 0.7965,
+      "p95": 2.073,
+      "max": 2.359,
+      "within_2_seconds": 46
+    },
+    "warm-control": {
+      "p50": 1.6215,
+      "p95": 2.176,
+      "max": 4.54,
+      "within_2_seconds": 46,
+      "helper_p95_seconds": 0.5311,
+      "median_seconds_outside_helper": 1.2699
+    },
+    "release-1": {
+      "p50": 1.5445,
+      "p95": 1.997,
+      "max": 2.223,
+      "within_2_seconds": 48,
+      "helper_p95_seconds": 0.4622,
+      "median_seconds_outside_helper": 1.2322
+    },
+    "release-2": {
+      "p50": 1.5514999999999999,
+      "p95": 2.405,
+      "max": 2.78,
+      "within_2_seconds": 43,
+      "helper_p95_seconds": 0.608,
+      "median_seconds_outside_helper": 1.2152
+    }
+  },
+  "exact_id_candidates": {
+    "before": 2494,
+    "after": 2,
+    "query": "R-CODE-UE-MUSIC-STOP"
+  },
+  "identical_ranked_lists_per_run": 50,
+  "regression_cases_passed": 223,
+  "forbidden_hits": 0,
+  "timings": "Build starts with absent SQLite database and includes full Markdown validation. Wall time includes fresh interpreter and first search. OS file cache was not flushed. Warm P95 is the 48th ordered CLI duration of 50.",
+  "queries": [
+    {
+      "name": "reverse A",
+      "query": "후진할 때 카메라가 캐릭터보다 앞으로 튀어나와요",
+      "returned_ids": [
+        "R-CODE-UE-SPEED-REVERSE",
+        "K-GAME-TECH-SPEED",
+        "K-GAME-TECH-CAMERA"
+      ],
+      "seconds": {
+        "sample-1": 1.867,
+        "sample-2": 0.757,
+        "warm-control": 1.686,
+        "release-1": 0.659,
+        "release-2": 1.189
+      }
+    },
+    {
+      "name": "reverse B",
+      "query": "뒤로 달리면 시점이 주인공을 앞질러요",
+      "returned_ids": [
+        "R-CODE-UE-SPEED-REVERSE",
+        "K-GAME-TECH-SPEED",
+        "K-GAME-TECH-CAMERA"
+      ],
+      "seconds": {
+        "sample-1": 0.515,
+        "sample-2": 0.732,
+        "warm-control": 1.57,
+        "release-1": 1.613,
+        "release-2": 1.775
+      }
+    },
+    {
+      "name": "reverse C",
+      "query": "뒷걸음치자 화면이 몸체 앞쪽으로 넘어간다",
+      "returned_ids": [
+        "R-CODE-UE-SPEED-REVERSE",
+        "K-GAME-TECH-SPEED",
+        "K-GAME-TECH-CAMERA"
+      ],
+      "seconds": {
+        "sample-1": 0.723,
+        "sample-2": 1.754,
+        "warm-control": 1.629,
+        "release-1": 1.805,
+        "release-2": 1.93
+      }
+    },
+    {
+      "name": "stop A",
+      "query": "음악 정지를 두 번 누르면 다시 재생되는 시점이 밀려요",
+      "returned_ids": [
+        "R-CODE-UE-MUSIC-STOP",
+        "K-GAME-TECH-MUSIC",
+        "K-SCALE-00004"
+      ],
+      "seconds": {
+        "sample-1": 1.593,
+        "sample-2": 0.519,
+        "warm-control": 0.855,
+        "release-1": 1.616,
+        "release-2": 1.136
+      }
+    },
+    {
+      "name": "stop B",
+      "query": "배경음 멈춤을 연달아 눌렀더니 다음 재생이 늦어진다",
+      "returned_ids": [
+        "R-CODE-UE-MUSIC-STOP",
+        "K-GAME-TECH-MUSIC",
+        "K-SCALE-00004"
+      ],
+      "seconds": {
+        "sample-1": 1.707,
+        "sample-2": 1.69,
+        "warm-control": 1.642,
+        "release-1": 0.824,
+        "release-2": 1.703
+      }
+    },
+    {
+      "name": "stop C",
+      "query": "곡을 끄고 또 껐더니 재생을 다시 눌러도 한 박자 늦게 시작해",
+      "returned_ids": [
+        "K-GAME-TECH-MUSIC",
+        "R-CODE-UE-MUSIC-STOP",
+        "K-GAME-RHYTHM"
+      ],
+      "seconds": {
+        "sample-1": 0.795,
+        "sample-2": 0.697,
+        "warm-control": 2.176,
+        "release-1": 1.778,
+        "release-2": 2.564
+      }
+    },
+    {
+      "name": "boundary A",
+      "query": "다른 파일이 내부 구현을 몰라도 쓰게 하려면",
+      "returned_ids": [
+        "K-CODE-INFORMATION-HIDING",
+        "K-CODE-PRINCIPLE-REUSE",
+        "K-FIC-REF-BREAKTHROUGH-CASES"
+      ],
+      "seconds": {
+        "sample-1": 0.586,
+        "sample-2": 0.689,
+        "warm-control": 1.827,
+        "release-1": 1.801,
+        "release-2": 2.405
+      }
+    },
+    {
+      "name": "boundary B",
+      "query": "호출자가 저장 방식을 몰라도 되게 모듈 경계를 잡고 싶어",
+      "returned_ids": [
+        "K-CODE-INFORMATION-HIDING",
+        "K-GAME-TECH-SAVE",
+        "K-CODE-PRINCIPLE-REUSE"
+      ],
+      "seconds": {
+        "sample-1": 1.593,
+        "sample-2": 1.04,
+        "warm-control": 1.607,
+        "release-1": 0.579,
+        "release-2": 2.248
+      }
+    },
+    {
+      "name": "boundary C",
+      "query": "자료 구조를 바꿔도 쓰는 쪽 코드를 안 고치게 설계하려면",
+      "returned_ids": [
+        "K-CODE-INFORMATION-HIDING",
+        "K-CODE-CONCURRENCY-LIFETIMES",
+        "K-FIC-CRAFT-GUIDE"
+      ],
+      "seconds": {
+        "sample-1": 1.683,
+        "sample-2": 0.975,
+        "warm-control": 1.633,
+        "release-1": 1.664,
+        "release-2": 1.33
+      }
+    },
+    {
+      "name": "technical identifier",
+      "query": "RenderDocPlugin을",
+      "returned_ids": [
+        "K-CODE-UE-RENDERDOC-ATTACH"
+      ],
+      "seconds": {
+        "sample-1": 0.664,
+        "sample-2": 2.359,
+        "warm-control": 1.609,
+        "release-1": 0.528,
+        "release-2": 1.576
+      }
+    },
+    {
+      "name": "incident identifier",
+      "query": "R-CODE-UE-MUSIC-STOP은",
+      "returned_ids": [
+        "R-CODE-UE-MUSIC-STOP"
+      ],
+      "seconds": {
+        "sample-1": 1.437,
+        "sample-2": 2.073,
+        "warm-control": 1.402,
+        "release-1": 0.636,
+        "release-2": 1.726
+      }
+    },
+    {
+      "name": "camera adjacent",
+      "query": "camera clipping against walls",
+      "returned_ids": [
+        "K-SCALE-00000",
+        "K-SCALE-00024",
+        "K-SCALE-00048"
+      ],
+      "seconds": {
+        "sample-1": 0.526,
+        "sample-2": 1.699,
+        "warm-control": 1.8,
+        "release-1": 1.708,
+        "release-2": 1.138
+      }
+    },
+    {
+      "name": "music adjacent",
+      "query": "music loudness calibration",
+      "returned_ids": [
+        "K-SCALE-00004",
+        "K-SCALE-00028",
+        "K-SCALE-00052"
+      ],
+      "seconds": {
+        "sample-1": 2.514,
+        "sample-2": 2.02,
+        "warm-control": 4.54,
+        "release-1": 1.756,
+        "release-2": 2.78
+      }
+    },
+    {
+      "name": "absent identifier",
+      "query": "QuantumCobaltProbeUnindexed에서",
+      "returned_ids": [],
+      "seconds": {
+        "sample-1": 0.413,
+        "sample-2": 0.547,
+        "warm-control": 1.684,
+        "release-1": 1.526,
+        "release-2": 1.813
+      }
+    },
+    {
+      "name": "reverse transfer",
+      "query": "캐릭터가 뒤로 물러날 때 카메라가 몸을 추월합니다",
+      "returned_ids": [
+        "R-CODE-UE-SPEED-REVERSE",
+        "K-GAME-TECH-SPEED",
+        "K-GAME-TECH-CAMERA"
+      ],
+      "seconds": {
+        "sample-1": 0.491,
+        "sample-2": 1.646,
+        "warm-control": 1.142,
+        "release-1": 1.613,
+        "release-2": 2.248
+      }
+    },
+    {
+      "name": "stop transfer",
+      "query": "오디오 중단을 거듭 요청하면 재시작 타이밍이 밀립니다",
+      "returned_ids": [
+        "R-CODE-UE-MUSIC-STOP",
+        "K-GAME-TECH-MUSIC",
+        "K-GAME-RHYTHM"
+      ],
+      "seconds": {
+        "sample-1": 0.485,
+        "sample-2": 0.637,
+        "warm-control": 1.592,
+        "release-1": 1.603,
+        "release-2": 1.602
+      }
+    },
+    {
+      "name": "boundary transfer",
+      "query": "내부 표현을 변경해도 사용하는 쪽은 수정 없이 동작하게 하고 싶습니다",
+      "returned_ids": [
+        "K-CODE-INFORMATION-HIDING",
+        "K-FIC-CRAFT-REVISION",
+        "K-CODE-PRINCIPLE-REUSE"
+      ],
+      "seconds": {
+        "sample-1": 0.404,
+        "sample-2": 1.543,
+        "warm-control": 1.561,
+        "release-1": 0.524,
+        "release-2": 1.883
+      }
+    },
+    {
+      "name": "reverse contrast",
+      "query": "후진 카메라가 벽에 가려져요",
+      "returned_ids": [
+        "K-GAME-TECH-CAMERA",
+        "K-GAME-TECH-LEVEL",
+        "K-SCALE-00000",
+        "K-SCALE-00024",
+        "K-SCALE-00048"
+      ],
+      "seconds": {
+        "sample-1": 1.462,
+        "sample-2": 0.657,
+        "warm-control": 1.354,
+        "release-1": 0.611,
+        "release-2": 1.592
+      }
+    },
+    {
+      "name": "stop contrast",
+      "query": "음악 재생을 두 번 누르면 곡이 처음으로 돌아가요",
+      "returned_ids": [
+        "K-GAME-TECH-MUSIC",
+        "R-CODE-UE-MUSIC-STOP",
+        "K-SCALE-00004",
+        "K-SCALE-00028",
+        "K-SCALE-00052"
+      ],
+      "seconds": {
+        "sample-1": 0.508,
+        "sample-2": 0.669,
+        "warm-control": 1.818,
+        "release-1": 1.607,
+        "release-2": 1.082
+      }
+    },
+    {
+      "name": "boundary contrast",
+      "query": "호출자가 저장 방식을 명시적으로 골라야 해요",
+      "returned_ids": [
+        "K-GAME-TECH-SAVE",
+        "K-CODE-PERFORMANCE-MEASUREMENT",
+        "R-CODE-UE-EVIDENCE-PROXY",
+        "K-GAME-TECH-GUIDE",
+        "K-CODE-GIT-ISOLATED-MERGE"
+      ],
+      "seconds": {
+        "sample-1": 1.456,
+        "sample-2": 1.576,
+        "warm-control": 1.641,
+        "release-1": 1.597,
+        "release-2": 1.189
+      }
+    },
+    {
+      "name": "alpha-dark-color",
+      "query": "투명 이펙트 가장자리가 검정으로 보여요",
+      "returned_ids": [
+        "K-GAME-TECH-BILLBOARD",
+        "K-GAME-TECH-BLEND",
+        "K-GAME-TECH-FOLIAGE",
+        "K-GAME-TECH-PIXEL",
+        "K-GAME-TECH-GUIDE"
+      ],
+      "seconds": {
+        "sample-1": 0.425,
+        "sample-2": 0.58,
+        "warm-control": 1.735,
+        "release-1": 1.562,
+        "release-2": 1.548
+      }
+    },
+    {
+      "name": "1: negative-object-pool",
+      "query": "객체 풀 메모리 할당 관리",
+      "returned_ids": [
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-TECH-MEMORY",
+        "K-GAME-TECH-DESTRUCTION"
+      ],
+      "seconds": {
+        "sample-1": 0.407,
+        "sample-2": 0.544,
+        "warm-control": 1.89,
+        "release-1": 1.554,
+        "release-2": 0.671
+      }
+    },
+    {
+      "name": "complete-frame-and-missing-gpu",
+      "query": "crowd whole frame budget GPU missing",
+      "returned_ids": [
+        "K-GAME-TECH-CROWD",
+        "K-GAME-TECH-FOLIAGE",
+        "K-GAME-TECH-GUIDE"
+      ],
+      "seconds": {
+        "sample-1": 1.475,
+        "sample-2": 0.578,
+        "warm-control": 1.037,
+        "release-1": 0.762,
+        "release-2": 1.603
+      }
+    },
+    {
+      "name": "sustained-individual-wait",
+      "query": "지속 유입 개별 무한 대기",
+      "returned_ids": [
+        "K-GAME-TECH-CROWD",
+        "K-GAME-TECH-PATH",
+        "K-GAME-TECH-AUTHORITY"
+      ],
+      "seconds": {
+        "sample-1": 0.417,
+        "sample-2": 1.498,
+        "warm-control": 1.538,
+        "release-1": 1.056,
+        "release-2": 1.657
+      }
+    },
+    {
+      "name": "opposing-narrow-traffic",
+      "query": "양방향 교행 좁은 통로 교착",
+      "returned_ids": [
+        "K-GAME-TECH-CROWD",
+        "K-GAME-TECH-PATH",
+        "K-GAME-TECH-DUNGEON"
+      ],
+      "seconds": {
+        "sample-1": 0.427,
+        "sample-2": 0.512,
+        "warm-control": 1.522,
+        "release-1": 2.181,
+        "release-2": 1.8
+      }
+    },
+    {
+      "name": "Knox by Korean author name",
+      "query": "녹스",
+      "returned_ids": [
+        "K-FIC-REF-KNOX-FAIR-PLAY",
+        "K-FIC-CRAFT-BUILDUP"
+      ],
+      "seconds": {
+        "sample-1": 0.412,
+        "sample-2": 0.514,
+        "warm-control": 1.535,
+        "release-1": 0.812,
+        "release-2": 1.555
+      }
+    },
+    {
+      "name": "sound-music",
+      "query": "닫힌 문 너머 소리와 전투 음악 전환을 구분해서 고치고 싶어요",
+      "returned_ids": [
+        "K-GAME-TECH-SOUND",
+        "K-GAME-TECH-MUSIC",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-ACTION-COMBAT",
+        "K-GAME-STRATEGY-TURN-4X"
+      ],
+      "seconds": {
+        "sample-1": 0.438,
+        "sample-2": 0.524,
+        "warm-control": 1.999,
+        "release-1": 1.543,
+        "release-2": 1.15
+      }
+    },
+    {
+      "name": "0: Information hiding phrase",
+      "query": "정보 은닉",
+      "returned_ids": [
+        "K-CODE-INFORMATION-HIDING",
+        "K-CODE-PRINCIPLE-REUSE"
+      ],
+      "seconds": {
+        "sample-1": 0.415,
+        "sample-2": 1.503,
+        "warm-control": 1.667,
+        "release-1": 0.551,
+        "release-2": 1.874
+      }
+    },
+    {
+      "name": "negative-item-icon-loading",
+      "query": "업데이트한 아이템 아이콘을 불러오는 UI 이미지 경로만 바꿔줘",
+      "returned_ids": [
+        "K-GAME-RPG-PROGRESSION",
+        "K-GAME-TECH-PIXEL",
+        "K-GAME-RACING"
+      ],
+      "seconds": {
+        "sample-1": 0.43,
+        "sample-2": 0.506,
+        "warm-control": 1.626,
+        "release-1": 1.542,
+        "release-2": 0.554
+      }
+    },
+    {
+      "name": "closed-door-crowd-symptom",
+      "query": "문이 닫힐 때 군중이 겹치지 않게",
+      "returned_ids": [
+        "K-GAME-TECH-CROWD",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-RESEARCH-USE"
+      ],
+      "seconds": {
+        "sample-1": 0.446,
+        "sample-2": 0.531,
+        "warm-control": 1.681,
+        "release-1": 1.543,
+        "release-2": 2.007
+      }
+    },
+    {
+      "name": "overload-vs-starvation",
+      "query": "lifelong queue overload throughput starvation",
+      "returned_ids": [
+        "K-GAME-TECH-CROWD",
+        "K-GAME-TECH-PATH",
+        "K-GAME-TECH-GUIDE"
+      ],
+      "seconds": {
+        "sample-1": 0.457,
+        "sample-2": 0.544,
+        "warm-control": 1.176,
+        "release-1": 0.52,
+        "release-2": 1.576
+      }
+    },
+    {
+      "name": "collision-safe-but-stalled",
+      "query": "crowd collision free deadlock corridor direction leases",
+      "returned_ids": [
+        "K-GAME-TECH-CROWD",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-TECH-PATH"
+      ],
+      "seconds": {
+        "sample-1": 0.442,
+        "sample-2": 1.785,
+        "warm-control": 1.63,
+        "release-1": 1.53,
+        "release-2": 0.748
+      }
+    },
+    {
+      "name": "Exact engine-specific identifier",
+      "query": "RenderDocPlugin",
+      "returned_ids": [
+        "K-CODE-UE-RENDERDOC-ATTACH"
+      ],
+      "seconds": {
+        "sample-1": 0.409,
+        "sample-2": 0.744,
+        "warm-control": 1.581,
+        "release-1": 0.511,
+        "release-2": 1.999
+      }
+    },
+    {
+      "name": "interior-fake",
+      "query": "들어갈 수 없는 장식 창문 안쪽에 방 깊이만 보여주고 싶어요",
+      "returned_ids": [
+        "K-GAME-TECH-INTERIOR",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-ECONOMY",
+        "K-GAME-IDLE-INCREMENTAL",
+        "K-GAME-TECH-CROWD"
+      ],
+      "seconds": {
+        "sample-1": 1.524,
+        "sample-2": 0.836,
+        "warm-control": 1.252,
+        "release-1": 1.997,
+        "release-2": 0.693
+      }
+    },
+    {
+      "name": "No arbitrary physics transfer",
+      "query": "언리얼 NavMesh 물리 밀기 지속 유입 적용 조건",
+      "returned_ids": [
+        "K-GAME-TECH-PATH",
+        "K-GAME-TECH-CROWD",
+        "K-GAME-TECH-CAMERA"
+      ],
+      "seconds": {
+        "sample-1": 0.514,
+        "sample-2": 0.487,
+        "warm-control": 1.617,
+        "release-1": 1.538,
+        "release-2": 1.457
+      }
+    },
+    {
+      "name": "save-uncoached-wording",
+      "query": "패치하고 아이템을 로드했더니 장비가 엉뚱해요",
+      "returned_ids": [
+        "K-GAME-TECH-SAVE",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-EXPLORATION"
+      ],
+      "seconds": {
+        "sample-1": 0.422,
+        "sample-2": 1.093,
+        "warm-control": 1.88,
+        "release-1": 1.582,
+        "release-2": 2.027
+      }
+    },
+    {
+      "name": "in-flight-topology-transaction",
+      "query": "dynamic topology changed while agent traversing door",
+      "returned_ids": [
+        "K-GAME-TECH-PATH",
+        "K-GAME-METROIDVANIA",
+        "K-GAME-TECH-DDA"
+      ],
+      "seconds": {
+        "sample-1": 0.434,
+        "sample-2": 0.56,
+        "warm-control": 1.575,
+        "release-1": 1.546,
+        "release-2": 1.531
+      }
+    },
+    {
+      "name": "unlaned-time-reservations",
+      "query": "차선 없는 지형 시간 확장 예약",
+      "returned_ids": [
+        "K-GAME-TECH-CROWD",
+        "K-GAME-TECH-PATH",
+        "K-GAME-TECH-GUIDE"
+      ],
+      "seconds": {
+        "sample-1": 0.394,
+        "sample-2": 0.883,
+        "warm-control": 1.489,
+        "release-1": 0.931,
+        "release-2": 0.668
+      }
+    },
+    {
+      "name": "radius-route-compatibility",
+      "query": "서로 다른 반경 개체 통로 clearance 경로장",
+      "returned_ids": [
+        "K-GAME-TECH-CROWD",
+        "K-GAME-TECH-PATH",
+        "K-GAME-TECH-DUNGEON"
+      ],
+      "seconds": {
+        "sample-1": 1.467,
+        "sample-2": 1.735,
+        "warm-control": 1.462,
+        "release-1": 2.223,
+        "release-2": 0.525
+      }
+    },
+    {
+      "name": "Dependency lifecycle",
+      "query": "dependency selection upgrades",
+      "returned_ids": [
+        "K-CODE-DEPENDENCY-SELECTION",
+        "K-CODE-DEPENDENCY-DIRECTION",
+        "K-CODE-PRINCIPLE-REUSE"
+      ],
+      "seconds": {
+        "sample-1": 0.532,
+        "sample-2": 2.125,
+        "warm-control": 1.637,
+        "release-1": 1.668,
+        "release-2": 1.18
+      }
+    },
+    {
+      "name": "negative-sleep",
+      "query": "수면 시간을 기록하는 메뉴의 문자열만 고쳐줘",
+      "returned_ids": [
+        "K-GAME-TECH-GUIDE"
+      ],
+      "seconds": {
+        "sample-1": 0.468,
+        "sample-2": 1.844,
+        "warm-control": 1.606,
+        "release-1": 1.594,
+        "release-2": 0.964
+      }
+    },
+    {
+      "name": "Priority encoding domain limits",
+      "query": "weighted negative float priority packed graph horizon",
+      "returned_ids": [
+        "K-GAME-TECH-PATH",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-TECH-RETRO"
+      ],
+      "seconds": {
+        "sample-1": 1.948,
+        "sample-2": 1.774,
+        "warm-control": 1.392,
+        "release-1": 1.853,
+        "release-2": 0.995
+      }
+    },
+    {
+      "name": "forest-uncoached-wording",
+      "query": "수목 밀집 지역에서 식생을 그릴 때 GPU 시간이 늘어나요",
+      "returned_ids": [
+        "K-GAME-TECH-FOLIAGE",
+        "K-GAME-TECH-HAIR",
+        "K-GAME-TECH-PIXEL"
+      ],
+      "seconds": {
+        "sample-1": 0.502,
+        "sample-2": 0.685,
+        "warm-control": 1.341,
+        "release-1": 1.503,
+        "release-2": 0.693
+      }
+    },
+    {
+      "name": "Korean reader-clue composition variant",
+      "query": "추리 장면에서 독자에게 실마리를 먼저 제시하고 싶어",
+      "returned_ids": [
+        "K-FIC-REF-KNOX-FAIR-PLAY",
+        "K-FIC-CRAFT-BUILDUP",
+        "K-FIC-PLAUSIBILITY-REVIEW"
+      ],
+      "seconds": {
+        "sample-1": 1.498,
+        "sample-2": 1.538,
+        "warm-control": 1.645,
+        "release-1": 0.512,
+        "release-2": 1.559
+      }
+    },
+    {
+      "name": "negative-settings-window",
+      "query": "설정 창에 깊이 값을 표시하는 UI의 오탈자",
+      "returned_ids": [
+        "K-GAME-TECH-PATH",
+        "K-GAME-RACING",
+        "K-GAME-SIM-MANAGEMENT",
+        "K-GAME-TECH-BLEND",
+        "K-GAME-TECH-DESTRUCTION"
+      ],
+      "seconds": {
+        "sample-1": 0.499,
+        "sample-2": 0.543,
+        "warm-control": 1.416,
+        "release-1": 0.536,
+        "release-2": 0.553
+      }
+    },
+    {
+      "name": "Stationary skin has ghost motion",
+      "query": "PoseableMesh previous bone buffer final pose publication",
+      "returned_ids": [
+        "K-GAME-TECH-IK",
+        "K-GAME-TECH-GUIDE",
+        "K-GAME-TECH-SPEED"
+      ],
+      "seconds": {
+        "sample-1": 0.527,
+        "sample-2": 1.568,
+        "warm-control": 2.276,
+        "release-1": 1.767,
+        "release-2": 0.605
+      }
+    },
+    {
+      "name": "muzzle-natural-miss",
+      "query": "벽 뒤에 가려진 총구로 적을 맞혀요",
+      "returned_ids": [
+        "K-GAME-TECH-HITSCAN",
+        "K-GAME-SHOOTER",
+        "K-GAME-TECH-GUIDE"
+      ],
+      "seconds": {
+        "sample-1": 0.682,
+        "sample-2": 1.535,
+        "warm-control": 1.878,
+        "release-1": 0.804,
+        "release-2": 0.531
+      }
+    },
+    {
+      "name": "Historical problem ID in a Korean question",
+      "query": "R-CODE-UE-SPEED-REVERSE는",
+      "returned_ids": [
+        "R-CODE-UE-SPEED-REVERSE"
+      ],
+      "seconds": {
+        "sample-1": 0.583,
+        "sample-2": 0.548,
+        "warm-control": 1.608,
+        "release-1": 1.706,
+        "release-2": 1.13
+      }
+    },
+    {
+      "name": "camera-timing",
+      "query": "카메라가 프레임마다 다르게 따라오고 보간 전환 시간이 어긋나요",
+      "returned_ids": [
+        "K-GAME-TECH-EASING",
+        "K-GAME-TECH-CAMERA",
+        "K-GAME-TECH-HAIR",
+        "K-GAME-TECH-LOCKON",
+        "K-GAME-TECH-GUIDE"
+      ],
+      "seconds": {
+        "sample-1": 0.562,
+        "sample-2": 0.591,
+        "warm-control": 1.793,
+        "release-1": 1.512,
+        "release-2": 0.973
+      }
+    },
+    {
+      "name": "2: negative-transparent-verification",
+      "query": "투명 패널 테두리 위치를 검증해줘",
+      "returned_ids": [],
+      "seconds": {
+        "sample-1": 0.665,
+        "sample-2": 1.707,
+        "warm-control": 2.136,
+        "release-1": 1.931,
+        "release-2": 1.816
+      }
+    }
+  ],
+  "startup_diagnostic_seconds": {
+    "interpreter": [
+      1.063,
+      1.164,
+      0.95,
+      1.06,
+      1.142,
+      1.04
+    ],
+    "with_search_imports": [
+      0.187,
+      1.192,
+      1.195,
+      1.561,
+      1.201,
+      1.639
+    ]
+  }
+}

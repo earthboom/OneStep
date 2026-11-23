@@ -23,6 +23,8 @@ When a route is saved for replay or read on another thread, take an **owned snap
 
 ## Checks
 
+When packing a priority key (`PriorityKey`), compare the order of states under the packed key with the original priority tuple. Include ties at equal distance, the final state tie-break and values near each field's upper bound. A change of order can change the chosen path even if both runs reach the goal.
+
 Check reachability and cost against an independent shortest-path solution, including directed, blocked, reopened and narrow edges. For reservations audit simultaneous sweeps, swaps and terminal occupancy. Include a safe deadlock and a valid detour as controls. Compare complete paths and timing at equal offered demand before adopting optimizations.
 
 ## Evidence

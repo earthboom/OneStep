@@ -4,7 +4,7 @@
 - OneStep version used: commits up to 0d0053a (2026-11-20); exact commit per session unknown
 - Relevant skills/instructions: skills/vegabond-scout/SKILL.md (Frame and classify, knowledge request), skills/vegabond-knowledge/SKILL.md (Find and synthesize)
 - Kind: problem
-- Status: received
+- Status: verifying
 - Task context: four checkouts of one game repository, each with its own local instructions that layer OneStep on team instructions; design, implementation, merge and research tasks
 
 ## Expected and observed
@@ -21,4 +21,10 @@ Give the concrete retrieval command in scout's information step or in the linked
 
 ## Review and verification
 
-Maintainer fills during processing.
+2026-11-23: Scout now gives an executable records query, shows how to turn a scoped incident into a verification decision, and gives a spacing-only example where the input suffices.
+
+Six fresh contexts ran the existing [request-to-application cases](../skills/vegabond-knowledge/tests/information-needs/evaluation.md) against the revised Scout. Their answers met the original [case criteria](../skills/vegabond-knowledge/tests/information-needs/rubric.json). In the provider swap, the performer consulted R-EVAL-BUSY and its incident source, withheld the earlier provider's retry rule, and proposed checking for duplicate charges after a lost response. In the spacing case, the performer returned the requested one-space change and reported comparing it with the supplied sentence. The other cases covered a queued callback, narrative disclosure, combat pacing and a retention claim.
+
+These were synthetic tasks reviewed for the decisions in their answers. No before/after measurement in the original game checkouts or maintainer acceptance has been recorded.
+
+A seventh fresh context used the current checkout for a fixed-forward camera test plan. It searched problem records by the planned reversal, opened R-CODE-UE-SPEED-REVERSE, and used the earlier failure to select a per-frame check of the actual camera position after lag relative to the capsule. This verifies selection of a relevant check. No Unreal runtime was run for this planning task.

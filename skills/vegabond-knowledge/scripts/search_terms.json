@@ -16,6 +16,8 @@
     ["설정", "configuration", "config"],
     ["불변식", "invariant", "invariants"],
     ["정보 은닉", "information hiding"],
+    ["fixed forward rig", "fixed-forward camera", "opposite-velocity offset"],
+    ["duplicate stop", "repeated stop", "중복 중단"],
     ["절차 생성", "procedural generation"],
     ["숲", "수목", "식생", "foliage", "forest", "vegetation"],
     ["총구", "muzzle"],
@@ -71,6 +73,9 @@
     {"id": "game-save-item-compatibility", "all": [["업데이트", "패치"], ["불러오", "불러왔", "로드"], ["장비", "아이템"], ["다른", "달라", "바뀌", "바뀐", "엉뚱", "변했"]], "expand": ["save"]},
     {"id": "embedded-values", "all": [["숫자", "값", "리터럴"], ["코드", "소스"], ["곳곳", "박아", "고정", "흩어", "적어"]], "expand": ["hardcoding"]},
     {"id": "hidden-implementation", "all": [["내부 구현", "내부구현", "구현 세부", "내부 결정"], ["몰라도", "모르게", "감추", "숨기", "숨겨", "드러내지", "노출하지"]], "expand": ["information hiding"]},
+    {"id": "private-representation", "all": [["자료 구조", "자료구조", "저장 방식", "내부 표현"], ["호출", "쓰는 쪽", "사용하는 쪽", "사용자 코드"], ["몰라도", "모르게", "안 고치", "수정 없이", "바꾸지 않"]], "expand": ["information hiding"]},
+    {"id": "reverse-view-crossing", "all": [["후진", "뒤로", "뒷걸음"], ["시점", "카메라", "화면"], ["앞질", "앞으로 튀", "앞쪽", "앞서", "추월"]], "expand": ["fixed forward rig", "camera"]},
+    {"id": "repeated-audio-stop", "all": [["음악", "배경음", "곡", "오디오"], ["멈", "정지", "중단", "끄고", "껐"], ["연달아", "거듭", "두 번", "두번", "또", "반복"], ["재생", "재시작", "다시 시작"]], "expand": ["duplicate stop", "music"]},
     {"id": "reader-evidence", "all": [["범인", "추리", "해결", "진상"], ["독자"], ["근거", "단서", "실마리"], ["미리", "전에", "먼저", "공개", "보여", "제시"]], "expand": ["fair-play"]},
     {"id": "relational-sentence-ending", "all": [["인물", "화자", "대화"], ["상대", "관계", "사이"], ["문장 끝", "종결어미", "어미"], ["말", "대화", "발화"]], "expand": ["honorific", "character voice"]},
     {"id": "earlier-material-final-choice", "all": [["초반", "앞부분", "처음", "초반부"], ["결말", "마지막", "후반"], ["물건", "단서", "약속", "사건"], ["선택", "결심", "회수", "의미", "보상"]], "expand": ["foreshadowing"]}

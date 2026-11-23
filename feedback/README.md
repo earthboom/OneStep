@@ -8,7 +8,25 @@ This is a temporary inbox for actual experience using OneStep in any project: st
 2. Use the OneStep checkout location explicitly supplied or configured in the working project, with authorization for that inbox and usable filesystem permissions. Reading strategy files does not grant write access. Keep the location in the working project; do not add physical project locations or active source connections to OneStep or search unrelated projects.
 3. Copy the [template](template.md) to `YYYY-MM-DD-short-topic.md` here for one independently actionable concern, with a matching `.kr.md` human translation generated from English. Choose a unique suffix on collision; never overwrite another report. Identify the version actually used, not the latest checkout version; use `unknown` when unavailable. Supply relevant skills, conditions, expected/observed behavior, impact, and minimal sanitized evidence. Separate facts, suspected causes, and proposals. For positive feedback, describe the behavior to preserve and its observed benefit.
 4. Exclude credentials, private source material, and full task logs. Use anonymous context, OneStep-relative instruction references, and minimal sanitized excerpts or reproduction steps. State evidence limitations rather than claiming inaccessible material was reproduced.
-5. If the inbox is unknown, unavailable, or not authorized, prepare the pair in the working project's existing handoff location and report **prepared, not submitted**. Do not broaden access or send elsewhere automatically. Confirm both files exist at the authorized destination before reporting **submitted**. Submission does not authorize strategy edits, deleting other reports, committing, pushing, or publishing.
+5. When the destination and write permission are established, write the pair to that checkout's `feedback/` and verify it there before handoff. Use a basename available for **both** files. If a write fails midway, complete your own partial submission when possible and repeat the check. An existing pair for a different concern cannot serve as evidence for this submission. Submission does not authorize strategy edits, deleting other reports, committing, pushing, or publishing.
+
+### Confirm delivery at handoff
+
+Run the configured checkout's `tools/check_feedback.py` with the English filename. From the checkout root, for example:
+
+```text
+python tools/check_feedback.py 2026-11-20-feedback-lines-not-submitted.md
+```
+
+From a working project, invoke the same script by its path in the authorized OneStep checkout. It checks that checkout's inbox regardless of the current directory. It reports absolute paths and file states, without reading either report. Exit code 0 and `pair_present: true` mean both paths currently hold nonempty regular files. If the helper is unavailable, inspect the same two paths with the available filesystem tool. The check establishes delivery only; maintainer review and acceptance happen later.
+
+For each material strategy finding, include one delivery line in the final handoff:
+
+- **submitted** — after writing this concern's pair and confirming both files in the authorized inbox, link the English report and its Korean companion there.
+- **prepared, not submitted** — when the inbox is unknown, unavailable or outside write scope, prepare and verify both files in the working project's existing handoff location. Link both local files and state why delivery could not be confirmed.
+- If either pair is incomplete and no complete local pair is available, identify the files actually present, the missing or failed path and the blocker. Keep the submission open. In a chat-only environment, identify any draft supplied in the response and the unavailable file destination.
+
+Only include this line for material strategy feedback. The report's internal review status (initially `received`) stays separate from this delivery check.
 
 The working project can include this in its own agent instructions; its configured checkout location stays there:
 
@@ -16,8 +34,9 @@ The working project can include this in its own agent instructions; its configur
 Use the configured OneStep checkout's agents/vegabond-agent.md and
 skills/vegabond-scout/SKILL.md for this task. For material strategy feedback,
 follow that checkout's feedback/README.md and feedback/template.md.
-Keep deliverable records in this working project. Submit feedback only to
-the explicitly authorized inbox; otherwise return a prepared report.
+Keep deliverable records in this working project. Submit material strategy
+feedback to the authorized inbox and link the verified pair at handoff. If
+only a working-project copy is possible, link it as prepared, not submitted.
 ```
 
 ## Review and improve in OneStep

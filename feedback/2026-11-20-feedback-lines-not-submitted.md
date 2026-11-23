@@ -4,7 +4,7 @@
 - OneStep version used: commits up to 0d0053a (2026-11-20); exact commit per session unknown
 - Relevant skills/instructions: agents/vegabond-agent.md (Respond to failures and feedback), feedback/README.md (Submit from a working project)
 - Kind: problem
-- Status: received
+- Status: verifying
 - Task context: game project sessions whose local instructions require a "OneStep strategy feedback" line in every report and name this inbox as the destination for material feedback
 
 ## Expected and observed
@@ -21,4 +21,8 @@ When a working project configures the inbox, state that a material feedback line
 
 ## Review and verification
 
-Maintainer fills during processing.
+2026-11-23: The Scout handoff now directs material strategy findings to the [delivery check](README.md#confirm-delivery-at-handoff). A submitted handoff links both files in the configured inbox. A prepared handoff links the verified working-project pair and gives the reason for non-delivery.
+
+The [CLI regression tests](../tools/test_check_feedback.py) exercise an independent working directory. A complete local pair produced a negative inbox result. An English-only delivery and an empty translation also failed. After the nonempty translation arrived, the same check succeeded and returned both inbox paths. The helper also rejected a directory at a report path and attempts to check paths outside the inbox. The existing report pair was checked in the real checkout; this was a presence check on an earlier submission.
+
+These tests cover destination and file state. Adoption of the handoff in the original game project and maintainer acceptance remain unverified.

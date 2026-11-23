@@ -1,0 +1,27 @@
+{
+  "description": "Unfiltered top-three judgments fixed before tuning. Each paraphrase family targets a real canonical entry among synthetic competitors.",
+  "cases": [
+    {"name":"reverse A","query":"후진할 때 카메라가 캐릭터보다 앞으로 튀어나와요","required":["R-CODE-UE-SPEED-REVERSE"],"limit":3},
+    {"name":"reverse B","query":"뒤로 달리면 시점이 주인공을 앞질러요","required":["R-CODE-UE-SPEED-REVERSE"],"limit":3},
+    {"name":"reverse C","query":"뒷걸음치자 화면이 몸체 앞쪽으로 넘어간다","required":["R-CODE-UE-SPEED-REVERSE"],"limit":3},
+    {"name":"stop A","query":"음악 정지를 두 번 누르면 다시 재생되는 시점이 밀려요","required":["R-CODE-UE-MUSIC-STOP"],"limit":3},
+    {"name":"stop B","query":"배경음 멈춤을 연달아 눌렀더니 다음 재생이 늦어진다","required":["R-CODE-UE-MUSIC-STOP"],"limit":3},
+    {"name":"stop C","query":"곡을 끄고 또 껐더니 재생을 다시 눌러도 한 박자 늦게 시작해","required":["R-CODE-UE-MUSIC-STOP"],"limit":3},
+    {"name":"boundary A","query":"다른 파일이 내부 구현을 몰라도 쓰게 하려면","required":["K-CODE-INFORMATION-HIDING"],"limit":3},
+    {"name":"boundary B","query":"호출자가 저장 방식을 몰라도 되게 모듈 경계를 잡고 싶어","required":["K-CODE-INFORMATION-HIDING"],"limit":3},
+    {"name":"boundary C","query":"자료 구조를 바꿔도 쓰는 쪽 코드를 안 고치게 설계하려면","required":["K-CODE-INFORMATION-HIDING"],"limit":3},
+    {"name":"technical identifier","query":"RenderDocPlugin을","required":["K-CODE-UE-RENDERDOC-ATTACH"],"limit":1},
+    {"name":"incident identifier","query":"R-CODE-UE-MUSIC-STOP은","required":["R-CODE-UE-MUSIC-STOP"],"limit":1},
+    {"name":"camera adjacent","query":"camera clipping against walls","required":["K-SCALE-00000"],"forbidden":["R-CODE-UE-SPEED-REVERSE"],"limit":3},
+    {"name":"music adjacent","query":"music loudness calibration","required":["K-SCALE-00004"],"forbidden":["R-CODE-UE-MUSIC-STOP"],"limit":3},
+    {"name":"absent identifier","query":"QuantumCobaltProbeUnindexed에서","expect_empty":true,"limit":3}
+  ],
+  "transfer_cases": [
+    {"name":"reverse transfer","query":"캐릭터가 뒤로 물러날 때 카메라가 몸을 추월합니다","required":["R-CODE-UE-SPEED-REVERSE"],"limit":3},
+    {"name":"stop transfer","query":"오디오 중단을 거듭 요청하면 재시작 타이밍이 밀립니다","required":["R-CODE-UE-MUSIC-STOP"],"limit":3},
+    {"name":"boundary transfer","query":"내부 표현을 변경해도 사용하는 쪽은 수정 없이 동작하게 하고 싶습니다","required":["K-CODE-INFORMATION-HIDING"],"limit":3},
+    {"name":"reverse contrast","query":"후진 카메라가 벽에 가려져요","forbidden_concepts":["reverse-view-crossing"]},
+    {"name":"stop contrast","query":"음악 재생을 두 번 누르면 곡이 처음으로 돌아가요","forbidden_concepts":["repeated-audio-stop"]},
+    {"name":"boundary contrast","query":"호출자가 저장 방식을 명시적으로 골라야 해요","forbidden_concepts":["private-representation"]}
+  ]
+}

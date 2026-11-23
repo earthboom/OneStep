@@ -9,7 +9,12 @@ Choose an operation and scale for vagabond's intended outcome, then coordinate e
 
 ## Frame and classify
 
-Read the [English agent instructions](../../agents/vegabond-agent.md) if not already loaded. Inspect the request, relevant context, and source material for the intended result, audience, format, language, constraints, and acceptance conditions. Ask only when missing intent materially changes the work.
+Read the [English agent instructions](../../agents/vegabond-agent.md) if not already loaded. Start with the request and context already provided. Check whether plausible interpretations would change the deliverable, what must be preserved, or how success would be judged.
+
+- **Material ambiguity:** Before investigating or doing work that depends on an interpretation, tell the user in one or two sentences what you intend to deliver, what you will preserve, and how you will check completion. For a reversible choice supported by the context, state your assumption and proceed. If the choice belongs to the user, ask one focused question in the same message and wait before doing the dependent work. For example, if a draft could be for either customers or staff: “I'll prepare a release note that preserves the confirmed changes and dates. I'll check that the reader can tell what changes for them. Is this for customers or support staff?”
+- **Clear, simple request:** Do the work, check the requested change, and return the result directly. Skip a kickoff summary and confirmation. For clear, multi-step work, keep the goal, constraints and checks in the working brief and report progress at meaningful checkpoints.
+
+Apply the same judgment when a follow-up or new evidence changes the interpretation. Reuse decisions the user has already settled. When reporting results, give the evidence or remaining gap for each material completion criterion.
 
 Identify the operation separately from domain, medium, and tools. The author's background and the examples here do not limit eligibility. Original inputs and outputs follow the requested language. Never read, search, or load *.kr.md human-only translations; exclude them from retrieval and any authorized delegated work.
 
@@ -23,6 +28,16 @@ Build one lightweight task profile by answering four questions:
 Use open descriptions; a task can involve several domains and methods. A novel-based pitch deck can need narrative analysis, slide production, and visual inspection together. Search can support any operation. Keep the profile in the brief and step mapping, without a separate file or a fixed catalog of task subtypes. Reuse it in the operation skills and refine only missing details or assumptions changed by evidence.
 
 Apply the shared [information-needs judgment](references/information-needs.md) to derive questions from decisions, preservation conditions and actual inputs. Before drafting or editing, use [knowledge](../vegabond-knowledge/SKILL.md) to locate and read the working project's governing sources for those questions, including ordinary documents whose paths the user did not give. Carry the consulted sections, their effect on the work, checks and gaps in the existing brief. The executing specialist checks for missing questions after inspecting the actual inputs and reuses valid answers. Revisit affected judgments before consequential reliance and at handoff.
+
+If a previous failure could change the work, search problem records by the **planned action and its conditions** before choosing the check. For example, from the OneStep checkout:
+
+```text
+python skills/vegabond-knowledge/scripts/search.py search --project . --store records --query "repeated stop during audio fade" --no-cache
+```
+
+In a linked project, run from the working project, use the helper's path in the configured checkout, and keep `--project .` pointed at the working project. With a native store or a web upload, look up the action in the available records index and open the matching detail. Read its scope and recheck evidence. Carry one line into the existing brief, for example: “Can a second stop postpone restart? → R-CODE-UE-MUSIC-STOP → for a player with the same fade contract, test that a second stop preserves the original fade endpoint and restart time.” If the conditions differ, state which check or decision remains open. Run the selected check when verifying the result.
+
+If the input settles the whole decision, work directly from it. For a one-space correction in a supplied sentence, compare the result with the original for exactly that change.
 
 | Operation skill | Choose when |
 | --- | --- |
@@ -41,18 +56,7 @@ Several tools, files, ordinary steps, or long waiting times alone do not require
 
 For game planning or development in this store's authorized scope, apply the [game evidence reuse convention](../../knowledge/game/K-GAME-RESEARCH-USE.md). Derive retrieval from the concrete decision or symptom; carry selected knowledge IDs, applicability, adoption decisions and actual checks into this same brief. Use the technique guide when a symptom query misses, and refine with the executing specialist. Unrelated work does not require game references.
 
-## Give a short work brief
-
-Before execution, state these in a few lines in the conversation:
-
-- **Goal and deliverable:** what the user will receive, with audience, format, and language when relevant.
-- **Operation and scale:** the choices and a short reason.
-- **Scope:** the target, intended change, preservation conditions, and meaningful exclusions.
-- **Done:** link each acceptance condition to its check; attach the result and evidence as work proceeds. One or two inline lines suffice for a small task; use the existing brief or step mapping, not a separate tracking file.
-
-For staged work, give one sentence explaining the boundary: "Check A before B, because if A is wrong, C would need rework." Name the actual intermediate result, dependent work, and consequence; use its check in the step mapping below.
-
-Proceed within existing authorization without a routine approval checkpoint. Reuse the brief on follow-ups; update it when the goal, scope, or evidence changes. No separate brief file is required.
+Keep the chosen operation, scale and acceptance checks in the existing working brief. For staged work, identify the intermediate result to check, what depends on it, and what would need rework if it were wrong. Use that check in the step mapping below.
 
 ## Connect steps to skills and checks
 
@@ -91,3 +95,5 @@ At each staged checkpoint, give a one-line update: intermediate result; check an
 Continue with the next step's mapped operation and specialist, which may differ from the previous step. Reuse valid context rather than restarting classification. Before final handoff, confirm that each acceptance condition has current evidence or an explicit unresolved status, and check the integrated result.
 
 Report the result, acceptance evidence, and uncertainty. Distinguish drafts, completed AI verification, and vagabond's explicit acceptance. AI checks precede vagabond's independent testing or review.
+
+When the work exposes material feedback about OneStep itself, follow the [feedback delivery check](../../feedback/README.md#confirm-delivery-at-handoff) before sending the final answer. Include the delivery status and links to the verified files, or the specific blocker if the pair is incomplete.

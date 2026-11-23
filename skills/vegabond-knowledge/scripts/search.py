@@ -8,11 +8,13 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter, deque
+from functools import lru_cache
 import hashlib
 import json
 import os
 from pathlib import Path
 import re
+import stat
 import sys
 import tempfile
 import time
@@ -24,6 +26,11 @@ sys.dont_write_bytecode = True
 
 from catalog import Catalogs, human_file, yaml, LINK, visible_markdown
 from relations import relation_edges, validate_relations
+try:
+    import sqlite3
+except ImportError:
+    sqlite3 = None
+SEARCH_ERRORS = (OSError, UnicodeError, ValueError, KeyError, TypeError) + ((sqlite3.DatabaseError,) if sqlite3 else ())
 if yaml is not None:
     from sources import SourceRegistry, SourceError, parse_roots
 
@@ -33,6 +40,10 @@ HERE = Path(__file__).resolve().parent
 WEIGHTS = {"id": 18, "title": 10, "keywords": 9, "trigger": 9, "symptom": 9,
            "summary": 6, "prevention": 6, "scope": 3, "context": 2, "body": 1}
 TOKEN = re.compile(r"[\w]+(?:(?:[./-][\w]+)|(?:::[\w]+))*(?:\+\+|#)?", re.UNICODE)
+# Technical names in Korean questions often carry a postposition without a space.
+PARTICLE_WORDS = "에서 에게 으로 부터 까지 처럼 보다 은 는 이 가 을 를 과 와 에 의 로 도 만".split()
+PARTICLES = "(?:" + "|".join(PARTICLE_WORDS) + ")"
+ATTACHED_PARTICLE = re.compile(r"(?<=[a-z0-9_+#])" + PARTICLES + r"(?!\w)")
 SEARCH_META = set(WEIGHTS) - {"body"} | {"status", "checked_at", "kind", "relations", "cause_status", "prevention_status"}
 
 
@@ -40,12 +51,23 @@ def normalized(value):
     return unicodedata.normalize("NFKC", str(value)).casefold()
 
 
-def term_match(text, term):
+@lru_cache(maxsize=1024)
+def term_pattern(term):
     if re.search(r"[가-힣]", term):
         # Korean particles/endings may follow a term, but a suffix inside an
         # unrelated compound is not a match (어미 must not match 종결어미).
-        return re.search(r"(?<!\w)" + re.escape(term), text)
-    return re.search(r"(?<!\w)" + re.escape(term) + r"(?!\w)", text)
+        ending = ""
+    elif term.isascii() and term and (term[-1].isalnum() or term[-1] in "_+#"):
+        ending = r"(?=" + PARTICLES + r"?(?!\w))"
+    else:
+        ending = r"(?!\w)"
+    return re.compile(r"(?<!\w)" + re.escape(term) + ending)
+
+
+def term_match(text, term):
+    if term not in text:
+        return None
+    return term_pattern(term).search(text)
 
 
 def contains(text, term):
@@ -53,7 +75,7 @@ def contains(text, term):
 
 
 def analyze_query(query):
-    text = normalized(query).strip()
+    text = ATTACHED_PARTICLE.sub("", normalized(query).strip())
     if not text:
         raise ValueError("query must not be empty")
     config = json.loads((HERE / "search_terms.json").read_text(encoding="utf-8"))
@@ -64,7 +86,7 @@ def analyze_query(query):
                     if re.search(r"(?<!\w)" + re.escape(normalized(fragment)), text)]
                    for alternatives in rule["all"]]
         if matches and all(matches):
-            inferred.append(dict(id=rule["id"], matched_fragments=matches))
+            inferred.append(dict(id=rule["id"], matched_fragments=matches, expanded_terms=rule["expand"]))
             hinted.update(normalized(term) for term in rule["expand"])
     tokens = TOKEN.findall(text)
     for aliases in config["groups"]:
@@ -93,30 +115,44 @@ def safe_path(project, path):
 
 
 def canonical_files(project):
+    def walk(folder, prefix, store, domain=None):
+        directories, details = [], []
+        with os.scandir(folder) as stream:
+            for entry in stream:
+                name = entry.name
+                if name.startswith("."):
+                    continue
+                directory = entry.is_dir(follow_symlinks=False)
+                lower = name.lower()
+                detail = domain and lower.endswith(".md") and not (
+                    lower.endswith(".kr.md") or lower in {"index.md", "archive.md"})
+                # An excluded file is never read. Linked directories must still
+                # fail closed even when their name does not resemble a detail.
+                if not directory and not detail:
+                    if ((hasattr(entry, "is_junction") and entry.is_junction())
+                            or (entry.is_symlink() and entry.is_dir())):
+                        raise ValueError(f"linked or outside-project path: {entry.path}")
+                    continue
+                info = entry.stat(follow_symlinks=False)
+                if entry.is_symlink() or getattr(info, "st_file_attributes", 0) & stat.FILE_ATTRIBUTE_REPARSE_POINT:
+                    raise ValueError(f"linked or outside-project path: {entry.path}")
+                relative = prefix + "/" + name
+                if directory:
+                    directories.append((entry.path, relative, domain or name))
+                else:
+                    details.append((relative, (store, domain, [info.st_mtime_ns, info.st_size])))
+        # Preserve manifest order while sorting only canonical paths. DirEntry
+        # objects and excluded translations can be released during enumeration.
+        yield from sorted(details)
+        for path, relative, child_domain in sorted(directories):
+            yield from walk(path, relative, store, child_domain)
+
     for store in ("knowledge", "records"):
         base = project / store
         if not base.exists():
             continue
         safe_path(project, base)
-        for current, dirs, names in os.walk(base, followlinks=False):
-            current = Path(current)
-            kept = []
-            for name in sorted(dirs):
-                if name.startswith("."):
-                    continue
-                path = current / name
-                safe_path(project, path)
-                kept.append(name)
-            dirs[:] = kept
-            if current == base:
-                continue  # source registry and routing files are not entries
-            for name in sorted(names):
-                path = current / name
-                if (name.startswith(".") or path.suffix.lower() != ".md" or human_file(path)
-                        or name.lower() in {"index.md", "archive.md"}):
-                    continue
-                safe_path(project, path)
-                yield path, store, path.relative_to(base).parts[0]
+        yield from walk(base, store, store)
 
 
 def usable_cache(saved, project, signature):
@@ -145,6 +181,48 @@ def usable_cache(saved, project, signature):
     return docs
 
 
+def canonical_document(checker, project, relative, location):
+    store, domain, stamp = location
+    path = project / relative
+    entry = checker.entry(path, store)
+    if entry is None or (entry["meta"] is None and not entry["legacy"]):
+        raise ValueError(f"invalid canonical entry: {relative}; " + json.dumps(checker.messages[-4:]))
+    meta = entry["meta"] or dict(id="legacy:" + relative, title=path.stem, summary="Unstructured legacy entry",
+                                 keywords=[], scope="unknown", status="unknown", checked_at=None, kind="unknown")
+    meta = {k: v for k, v in meta.items() if k in SEARCH_META}
+    return dict(meta=meta, body=entry["body"], body_line=entry["body_line"], sha256=entry["sha256"],
+                body_sha256=hashlib.sha256(entry["body"].encode("utf-8")).hexdigest(),
+                stamp=stamp, path=relative, store=store, domain=domain)
+
+
+def changed_documents(checker, project, files, changed):
+    if len(changed) < 1000:
+        for path in changed:
+            yield canonical_document(checker, project, path, files[path])
+        return
+
+    from concurrent.futures import ThreadPoolExecutor
+
+    def read_batch(paths):
+        local = Catalogs(project, checker.command, checker.strict, require_translations=checker.require_translations)
+        docs = [canonical_document(local, project, path, files[path]) for path in paths]
+        # Some validation errors (e.g. a missing translation) accompany a parsed entry.
+        errors = [m for m in local.messages if m["level"] == "error"]
+        if errors:
+            raise ValueError("canonical validation failed: " + json.dumps(errors[:5]))
+        return docs
+
+    # Overlap filesystem waits. One writer consumes at most one window of
+    # batches in canonical order and validates IDs and relations across them.
+    workers, batch_size = 8, 32
+    window = workers * batch_size
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        for start in range(0, len(changed), window):
+            batches = (changed[i:i + batch_size] for i in range(start, min(start + window, len(changed)), batch_size))
+            for batch in pool.map(read_batch, batches):
+                yield from batch
+
+
 def load_index(project, *, no_cache=False, refresh=False, portable_library=False):
     """Stat unchanged files; parse/hash changed files. --refresh bypasses stamps."""
     started = time.perf_counter()
@@ -152,10 +230,31 @@ def load_index(project, *, no_cache=False, refresh=False, portable_library=False
         no_cache = True
     project = project.resolve()
     cache_path = project / CACHE
-    signature = hashlib.sha256(b"".join((HERE / n).read_bytes() for n in (
-        "search.py", "catalog.py", "relations.py", "sources.py", "search_terms.json"))).hexdigest()
+    files = dict(canonical_files(project))
     cached = {}
     cache_warning = None
+    checker = Catalogs(project, "check", require_translations=not portable_library)
+    database = cache_path.with_name("search-v2.sqlite3")
+    large_cache = not no_cache and (len(files) >= 1000 or database.is_file())
+    if large_cache and sqlite3 is None:
+        cache_warning = "SQLite unavailable; using document scan"
+    if large_cache and sqlite3 is not None:
+        from search_index import open_index
+        for path in (project / ".cache", database.parent, database,
+                     *(database.with_name(database.name + ext) for ext in ("-journal", "-wal", "-shm"))):
+            safe_path(project, path)
+        try:
+            database.parent.mkdir(parents=True, exist_ok=True)
+            documents, reads, count = open_index(database, files, checker, project, refresh, changed_documents,
+                                                 search_fields, lambda: dict(canonical_files(project)))
+            return documents, dict(entries=count, read_files=reads, cached_files=count-reads,
+                                   elapsed_ms=round((time.perf_counter()-started)*1000, 3),
+                                   backend="sqlite", warning=None)
+        except (OSError, sqlite3.DatabaseError) as exc:
+            cache_warning = f"SQLite index unavailable; using document scan: {exc}"
+            checker = Catalogs(project, "check", require_translations=not portable_library)
+    signature = hashlib.sha256(b"".join((HERE / n).read_bytes() for n in (
+        "search.py", "catalog.py", "relations.py", "sources.py", "search_terms.json"))).hexdigest()
     if not no_cache and cache_path.exists():
         for ancestor in (project / ".cache", cache_path.parent, cache_path):
             safe_path(project, ancestor)
@@ -167,26 +266,14 @@ def load_index(project, *, no_cache=False, refresh=False, portable_library=False
         except OSError as exc:
             cache_warning = f"Cache unavailable; results use canonical content: {exc}"
     docs, read_files = {}, 0
-    checker = Catalogs(project, "check", require_translations=not portable_library)
-    for path, store, domain in canonical_files(project):
-        relative = path.relative_to(project).as_posix()
-        stat = path.stat()
-        stamp = [stat.st_mtime_ns, stat.st_size]
+    for relative, location in files.items():
+        stamp = location[2]
         previous = cached.get(relative)
         if previous and previous["stamp"] == stamp and not refresh:
             docs[relative] = previous
             continue
-        entry = checker.entry(path, store)
         read_files += 1
-        if entry is None or (entry["meta"] is None and not entry["legacy"]):
-            raise ValueError(f"invalid canonical entry: {relative}; " + json.dumps(checker.messages[-4:]))
-        # Catalog parsing retains the exact body and original digest for retrieval.
-        meta = entry["meta"] or dict(id="legacy:" + relative, title=path.stem, summary="Unstructured legacy entry",
-                                     keywords=[], scope="unknown", status="unknown", checked_at=None, kind="unknown")
-        meta = {k: v for k, v in meta.items() if k in SEARCH_META}
-        docs[relative] = dict(meta=meta, body=entry["body"], body_line=entry["body_line"], sha256=entry["sha256"],
-                              body_sha256=hashlib.sha256(entry["body"].encode("utf-8")).hexdigest(),
-                              stamp=stamp, path=relative, store=store, domain=domain)
+        docs[relative] = canonical_document(checker, project, relative, location)
     errors = [m for m in checker.messages if m["level"] == "error"]
     if errors:
         raise ValueError("canonical validation failed: " + json.dumps(errors[:5]))
@@ -202,7 +289,15 @@ def load_index(project, *, no_cache=False, refresh=False, portable_library=False
                 with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=cache_path.parent,
                                                  prefix=".search-", suffix=".tmp", delete=False) as stream:
                     temporary = Path(stream.name)
-                    json.dump(dict(signature=signature, project=str(project), documents=docs), stream, ensure_ascii=False)
+                    # Encode one row at a time. The streaming JSON encoder's
+                    # per-token writes dominate cache replacement at scale.
+                    header = json.dumps({"signature": signature, "project": str(project)})
+                    stream.write(header[:-1] + ',"documents":{')
+                    for i, (key, doc) in enumerate(docs.items()):
+                        if i:
+                            stream.write(",")
+                        stream.write(json.dumps(key) + ":" + json.dumps(doc, ensure_ascii=False, separators=(",", ":")))
+                    stream.write("}}")
                 os.replace(temporary, cache_path)
             finally:
                 if temporary is not None and temporary.exists():
@@ -219,6 +314,16 @@ def flatten(value):
     if isinstance(value, list):
         return " ".join(map(str, value))
     return "" if value is None else str(value)
+
+
+def search_fields(doc):
+    fields = {name: normalized(flatten(doc["meta"].get(name))) for name in WEIGHTS if name != "body"}
+    fields["body"] = normalized(doc["body"])
+    return fields
+
+
+def lexical_score(points, covered, total):
+    return round(points + 30 * covered / total, 3)
 
 
 def excerpt(line, terms, budget=300):
@@ -274,10 +379,11 @@ def annotate_sources(project, documents, result, *, verify=False, roots=None):
     Results are never cached: an unchanged entry cannot hide a changed original.
     """
     project = project.resolve()
-    by_id = {d["meta"]["id"].casefold(): d for d in documents}
     hits = result.get("results", []) + result.get("related", [])
     if result.get("relations"):
         hits += result["relations"]["related"]
+    by_id = (documents.by_ids([h["id"] for h in hits]) if hasattr(documents, "by_ids") else
+             {d["meta"]["id"].casefold(): d for d in documents})
     registry, registry_error, outcomes = None, None, {}
     for hit in hits:
         ids = registered_ids(project, by_id[hit["id"].casefold()])
@@ -332,6 +438,11 @@ def diversify_hits(hits, by_id, protected, enabled):
     No candidates disappear. Evidence states and explicit conflicts/replacements
     have separate groups; differing scope/context remains visible on each entry.
     """
+    diversity = dict(enabled=enabled, groups=len(hits), variant_matches=0,
+                     policy="Exact-body groups take turns; every candidate remains pageable. Scores and coverage retain their lexical meaning.")
+    hashes = {doc.get("body_sha256") for doc in by_id.values()}
+    if None not in hashes and len(hashes) == len(hits):
+        return hits, diversity
     families = {}
     for hit in hits:
         doc = by_id[hit["id"]]
@@ -359,29 +470,48 @@ def diversify_hits(hits, by_id, protected, enabled):
         ordered.append(members.popleft())
         if members:
             queue.append(members)
-    return (ordered if enabled else hits), dict(
-        enabled=enabled, groups=len(families), variant_matches=len(hits) - len(families),
-        policy="Exact-body groups take turns; every candidate remains pageable. Scores and coverage retain their lexical meaning.")
+    diversity.update(groups=len(families), variant_matches=len(hits) - len(families))
+    return (ordered if enabled else hits), diversity
 
 
 def hit_snippet(doc, hit):
     for line_offset, line in enumerate(doc["body"].split("\n")):
-        if any(contains(normalized(line), term) for term in hit["matched_terms"]):
+        text = normalized(line)
+        if any(contains(text, term) for term in hit["matched_terms"]):
             return dict(line=doc["body_line"] + line_offset, text=excerpt(line, hit["matched_terms"]))
     return dict(line=1, text=f"Metadata match: {', '.join(hit['matched_fields'])}; {doc['meta']['summary']}"[:300])
 
 
 def search(documents, query, *, domains=(), store="both", statuses=(), scope=None, context=None,
            include_superseded=False, limit=5, offset=0, diversify=True):
-    groups, inferred = analyze_query(query)
-    importance = [2 if any(" " in a and contains(normalized(query), a) for a in aliases) else 1 for aliases in groups]
+    literal = ATTACHED_PARTICLE.sub("", normalized(query).strip())
+    indexed = hasattr(documents, "candidates")
+    known = documents.has_id(literal) if indexed else any(normalized(d["meta"]["id"]) == literal for d in documents)
+    if known:
+        # A known-item lookup may contain an alias such as "music" inside its ID.
+        groups, inferred = [[literal]], []
+    else:
+        groups, inferred = analyze_query(query)
+    hinted = {normalized(term) for rule in inferred for term in rule["expanded_terms"]}
+    importance = [2 if any(" " in a and (a in hinted or contains(literal, a)) for a in aliases)
+                  else 1 for aliases in groups]
+    terms = tuple(dict.fromkeys(term for aliases in groups for term in aliases))
     results, by_id, protected = [], {}, set()
-    for doc in documents:
-        for kind in ("conflicts_with", "supersedes"):
-            targets = doc["meta"].get("relations", {}).get(kind, [])
-            if targets:
-                protected.update(ident.casefold() for ident in [doc["meta"]["id"], *targets])
-    for doc in documents:
+    indexed_page = None
+    if indexed:
+        protected = documents.protected_ids()
+        if not (context or scope or domains) and store == "both":
+            indexed_page = documents.word_page(groups, WEIGHTS, PARTICLE_WORDS, lexical_score, statuses,
+                                               include_superseded, limit, offset)
+        candidates = indexed_page[0] if indexed_page is not None else documents.candidates(terms, domains, store)
+    else:
+        candidates = documents
+        for doc in documents:
+            for kind in ("conflicts_with", "supersedes"):
+                targets = doc["meta"].get("relations", {}).get(kind, [])
+                if targets:
+                    protected.update(ident.casefold() for ident in [doc["meta"]["id"], *targets])
+    for doc in candidates:
         meta = doc["meta"]
         if domains and doc["domain"] not in domains:
             continue
@@ -402,10 +532,18 @@ def search(documents, query, *, domains=(), store="both", statuses=(), scope=Non
                 incompatible = True
         if incompatible:
             continue
-        fields = {name: normalized(flatten(meta.get(name))) for name in WEIGHTS if name != "body"}
-        fields["body"] = normalized(doc["body"])
+        fields = search_fields(doc)
+        # Reject absent literals before the per-field boundary checks. All
+        # scoring still happens inside the original, separately weighted fields.
+        text = "\n".join(fields.values())
+        present = {term for term in terms if term in text}
+        if not present:
+            continue
         matched_fields, matched_terms, score, matched_groups, covered_weight = set(), set(), 0, 0, 0
         for aliases, weight in zip(groups, importance):
+            aliases = [term for term in aliases if term in present]
+            if not aliases:
+                continue
             weights = []
             for field, content in fields.items():
                 found = [a for a in aliases if contains(content, a)]
@@ -420,27 +558,32 @@ def search(documents, query, *, domains=(), store="both", statuses=(), scope=Non
         if not matched_groups:
             continue
         # Coverage dominates repeated boilerplate; timestamps are not relevance.
-        score += 30 * covered_weight / sum(importance)
         if meta["status"] == "unknown":
             caveats.append("Legacy metadata is unknown; inspect the original before applying")
         hit = compact(doc, caveats)
-        hit.update(score=round(score, 3), matched_fields=sorted(matched_fields), matched_terms=sorted(matched_terms),
+        hit.update(score=lexical_score(score, covered_weight, sum(importance)),
+                   matched_fields=sorted(matched_fields), matched_terms=sorted(matched_terms),
                    query_coverage=f"{matched_groups}/{len(groups)}")
         results.append(hit)
         by_id[meta["id"]] = doc
     results.sort(key=lambda h: (-h["score"], len(h["caveats"]), h["id"].casefold()))
     results, diversity = diversify_hits(results, by_id, protected, diversify)
-    page = results[offset:offset + limit]
+    if indexed_page is None:
+        total, page = len(results), results[offset:offset + limit]
+    else:
+        total, page = indexed_page[1], results
+        diversity["groups"] = total  # word_page has established that every body is distinct.
     for hit in page:
         hit["snippet"] = hit_snippet(by_id[hit["id"]], hit)
-    return dict(results=page, total_matches=len(results), offset=offset, diversity=diversity,
-                truncated=len(results) > offset + limit,
+    return dict(results=page, total_matches=total, offset=offset, diversity=diversity,
+                truncated=total > offset + limit,
                 expanded_terms=groups, inferred_concepts=inferred,
-                gap=None if results else "No lexical match under these filters; try alternate terms or a broader scope. Absence is not proved.")
+                gap=None if total else "No lexical match under these filters; try alternate terms or a broader scope. Absence is not proved.")
 
 
 def related(documents, ids, *, depth=1, limit=10, offset=0):
-    by_id, edges = relation_edges(documents)
+    indexed = hasattr(documents, "by_ids")
+    by_id, edges = (documents.by_ids(ids), []) if indexed else relation_edges(documents)
     roots = set()
     for ident in ids:
         if ident.casefold() not in by_id:
@@ -449,6 +592,8 @@ def related(documents, ids, *, depth=1, limit=10, offset=0):
     visited, frontier, used_edges = set(roots), set(roots), []
     for _ in range(depth):
         following = set()
+        if indexed:
+            edges = documents.edges_for(frontier)
         for edge in edges:
             if edge["source"] in frontier or edge["target"] in frontier:
                 if edge not in used_edges:
@@ -461,6 +606,8 @@ def related(documents, ids, *, depth=1, limit=10, offset=0):
     ids = sorted(visited - roots)
     page = ids[offset:offset + limit]
     chosen = set(page)
+    if indexed:
+        by_id = documents.by_ids(page)
     return dict(related=[compact(by_id[i.casefold()], ["Relation candidate; verify scope and source before applying"])
                          for i in page],
                 edges=[e for e in used_edges if e["source"] in chosen or e["target"] in chosen
@@ -472,40 +619,62 @@ def evaluate(documents, cases):
     if not isinstance(cases, list) or not cases:
         raise ValueError("evaluation requires a nonempty cases list")
     outcomes, required_total, found_total, forbidden_total = [], 0, 0, 0
+    reciprocal_ranks = []
     for case in cases:
         started = time.perf_counter()
         result = search(documents, case["query"], domains=case.get("domains", ()), store=case.get("store", "both"),
                         statuses=case.get("statuses", ()), scope=case.get("scope"), context=case.get("context", {}),
                         include_superseded=case.get("include_superseded", False), limit=case.get("limit", 5))
-        actual = {h["id"] for h in result["results"]}
+        ranked = [h["id"] for h in result["results"]]
+        actual = set(ranked)
         required = set(case.get("required", ()))
         forbidden = set(case.get("forbidden", ()))
         missing, bad = sorted(required - actual), sorted(forbidden & actual)
+        first_rank = next((i for i, ident in enumerate(ranked, 1) if ident in required), None)
+        if required:
+            reciprocal_ranks.append(1 / first_rank if first_rank else 0)
+        unexpected_matches = bool(case.get("expect_empty") and result["total_matches"])
         required_total += len(required)
         found_total += len(required & actual)
         forbidden_total += len(bad)
-        outcomes.append(dict(name=case["name"], passed=not missing and not bad, missing=missing, forbidden_hits=bad,
-                             returned=[h["id"] for h in result["results"]],
+        outcomes.append(dict(name=case["name"], passed=not (missing or bad or unexpected_matches),
+                             missing=missing, forbidden_hits=bad, unexpected_matches=unexpected_matches,
+                             returned=ranked, first_required_rank=first_rank,
                              snippets_characters=sum(len(h["snippet"]["text"]) for h in result["results"]),
                              elapsed_ms=round((time.perf_counter() - started) * 1000, 3)))
     return dict(cases=outcomes, passed=sum(c["passed"] for c in outcomes), total=len(outcomes),
                 required_recall=round(found_total / required_total, 4) if required_total else None,
+                mean_reciprocal_rank=(round(sum(reciprocal_ranks) / len(reciprocal_ranks), 4)
+                                      if reciprocal_ranks else None),
                 forbidden_hits=forbidden_total,
                 limitation="Recall covers only declared required IDs; forbidden-hit checks are not a general precision estimate.")
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("search", "related", "evaluate"))
-    parser.add_argument("--project", type=Path, required=True)
-    parser.add_argument("--query")
+def lookup(documents, args, query, filters, roots):
+    if args.command == "related":
+        result = related(documents, args.id, depth=args.depth, limit=args.limit, offset=args.offset)
+    else:
+        result = search(documents, query, domains=args.domain, store=args.store, statuses=args.status,
+                        scope=args.scope, context=filters, include_superseded=args.include_superseded,
+                        limit=args.limit, offset=args.offset, diversify=not args.all_variants)
+        ids = [h["id"] for h in result["results"]]
+        result["relations"] = related(documents, ids, depth=args.depth, limit=args.limit) if ids else None
+    verification = annotate_sources(args.project, documents, result, verify=args.verify_sources, roots=roots)
+    result["source_verification"] = verification
+    result["retrieval_ok"] = True
+    if verification["statuses"].get("invalid", 0):
+        return result, 2
+    return result, int(verification["ok"] is False)
+
+
+def add_lookup_options(parser):
+    parser.add_argument("--query", action="append", help="Repeat for separate questions sharing the same filters and index load.")
     parser.add_argument("--domain", action="append", default=[])
     parser.add_argument("--store", choices=("knowledge", "records", "both"), default="both")
     parser.add_argument("--status", action="append", default=[])
     parser.add_argument("--scope")
     parser.add_argument("--context", action="append", default=[])
     parser.add_argument("--include-superseded", action="store_true")
-    parser.add_argument("--id", action="append", default=[])
     parser.add_argument("--depth", type=int, default=1)
     parser.add_argument("--limit", type=int, default=5)
     parser.add_argument("--offset", type=int, default=0)
@@ -513,11 +682,13 @@ def main():
     parser.add_argument("--portable-library", action="store_true",
                         help="Search a distributed English reference library without translation files or a search cache.")
     parser.add_argument("--refresh", action="store_true")
-    parser.add_argument("--cases", type=Path)
     parser.add_argument("--verify-sources", action="store_true", help="Check linked registered originals for returned hits")
     parser.add_argument("--source-root", action="append", default=[], help="Authorized project=absolute-path for this call")
     parser.add_argument("--all-variants", action="store_true", help="Search in raw lexical order without exact-body diversification")
-    args = parser.parse_args()
+
+
+def execute(args):
+    documents = None
     try:
         if yaml is None:
             raise ValueError("PyYAML is required; use the existing catalog runtime")
@@ -544,32 +715,75 @@ def main():
         started = time.perf_counter()
         documents, stats = load_index(args.project, no_cache=args.no_cache, refresh=args.refresh,
                                       portable_library=args.portable_library)
-        if args.command == "search":
-            result = search(documents, args.query, domains=args.domain, store=args.store, statuses=args.status,
-                            scope=args.scope, context=filters, include_superseded=args.include_superseded,
-                            limit=args.limit, offset=args.offset, diversify=not args.all_variants)
-            ids = [h["id"] for h in result["results"]]
-            result["relations"] = related(documents, ids, depth=args.depth, limit=args.limit) if ids else None
-        elif args.command == "related":
-            result = related(documents, args.id, depth=args.depth, limit=args.limit, offset=args.offset)
-        else:
+        if args.command == "evaluate":
             if human_file(args.cases):
                 raise ValueError("human translations are not evaluation inputs")
             result = evaluate(documents, json.loads(args.cases.read_text(encoding="utf-8"))["cases"])
-        passed = args.command != "evaluate" or result["passed"] == result["total"]
-        invalid_source = False
-        if args.command != "evaluate":
-            verification = annotate_sources(args.project, documents, result, verify=args.verify_sources, roots=roots)
-            result["source_verification"] = verification
-            result["retrieval_ok"] = True
-            invalid_source = verification["statuses"].get("invalid", 0) > 0
-            passed = not invalid_source and verification["ok"] is not False
-        print(json.dumps(dict(ok=passed, command=args.command, index=stats,
-                              elapsed_ms=round((time.perf_counter() - started) * 1000, 3), **result), ensure_ascii=True, indent=2))
-        return 2 if invalid_source else (0 if passed else 1)
-    except (OSError, UnicodeError, ValueError, KeyError, TypeError) as exc:
-        print(json.dumps(dict(ok=False, error=str(exc)), ensure_ascii=True))
-        return 2
+            exit_code = int(result["passed"] != result["total"])
+        elif args.command == "search" and len(args.query) > 1:
+            results, exit_code = [], 0
+            for query in args.query:
+                entry, code = lookup(documents, args, query, filters, roots)
+                results.append(dict(query=query, ok=code == 0, **entry))
+                exit_code = max(exit_code, code)
+            result = dict(queries=results)
+        else:
+            query = args.query[0] if args.command == "search" else None
+            result, exit_code = lookup(documents, args, query, filters, roots)
+        return dict(ok=exit_code == 0, command=args.command, index=stats,
+                    elapsed_ms=round((time.perf_counter() - started) * 1000, 3), **result), exit_code
+    except SEARCH_ERRORS as exc:
+        return dict(ok=False, error=str(exc)), 2
+    finally:
+        if hasattr(documents, "close"):
+            documents.close()
+
+
+class RequestParser(argparse.ArgumentParser):
+    def error(self, message):
+        raise ValueError(message)
+
+
+def search_session(defaults):
+    """One UTF-8 input line per search; release its read snapshot before replying."""
+    parser = RequestParser(add_help=False, allow_abbrev=False)
+    add_lookup_options(parser)
+    for raw in sys.stdin.buffer:
+        try:
+            line = raw.decode("utf-8").strip()
+            if not line:
+                raise ValueError("empty search request")
+            if line.startswith("["):
+                options = json.loads(line)
+                if not isinstance(options, list) or not all(isinstance(arg, str) for arg in options):
+                    raise ValueError("expected an array of search option strings")
+            else:
+                options = ["--query=" + line]
+            args = parser.parse_args(options, namespace=argparse.Namespace(**vars(defaults)))
+            args.command = "search"
+            response, _ = execute(args)
+        except (UnicodeError, ValueError) as exc:
+            response = dict(ok=False, error=str(exc))
+        print(json.dumps(response, ensure_ascii=True, separators=(",", ":")), flush=True)
+    return 0
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__, epilog="session reads one search at a time from standard input.")
+    parser.add_argument("command", choices=("search", "related", "evaluate", "session"))
+    parser.add_argument("--project", type=Path, required=True)
+    parser.add_argument("--id", action="append", default=[])
+    parser.add_argument("--cases", type=Path)
+    add_lookup_options(parser)
+    args = parser.parse_args()
+    if args.command == "session":
+        if args.query or args.id or args.cases or not args.project.is_dir():
+            parser.error("session requires an existing project and reads its queries from standard input")
+        args.project = args.project.resolve()
+        return search_session(args)
+    response, code = execute(args)
+    print(json.dumps(response, ensure_ascii=True, indent=2))
+    return code
 
 
 if __name__ == "__main__":

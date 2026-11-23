@@ -125,3 +125,36 @@ This ordering does not merge records or certify interchangeable evidence. Scope 
 Use `search --all-variants` to retain raw lexical order when examining individual variants or auditing the ordering. It applies only to search; relationships continue to traverse every declared ID without grouping. Differences elsewhere in a body are not grouped, even if they are near duplicates. No duplicate file, historical date or source fingerprint is rewritten. Snippets are produced only for the returned page, preserving literal locators and their 300-character bound.
 
 For capacity decisions, use the [scale budgets, measurements and migration gates](search-scale.md). A passing 1,000-entry sentinel test is not evidence that natural-language retrieval, mixed-source judgment or tens of thousands of files will stay fast.
+
+## Separate questions in one call
+
+Repeat `--query` when the questions share a working project and filters. The helper loads the canonical or cached documents once. It ranks, pages, traverses relations and reports source status for each question independently, in input order. Use separate calls when different domains, stores or context filters are needed.
+
+```text
+python skills/vegabond-knowledge/scripts/search.py search --project . --store records --no-cache --query "reverse camera framing" --query "duplicate stop fade"
+```
+
+A single query keeps the usual top-level `results`. A multi-query response has one `index` and a `queries` list. Inspect each item's `results`, `gap`, `relations` and `source_verification`; process exit status covers the full request. In a web-only session, look up each question in the matching index and open the details by ID.
+
+For a known entry, supply its complete ID. A literal ID takes precedence over topic words inside its name. For technical terms embedded in Korean, common attached particles such as `을`, `에서` and `으로` can follow ASCII names and IDs. Punctuation in names such as `UAsset.GetNameReference`, `Widget::Flush` and `C++` carries meaning. Other Korean morphology, project-specific synonyms and undocumented identifiers may still require reformulation.
+
+For evaluation, `first_required_rank` gives the first declared relevant ID's position within the case's limit. `mean_reciprocal_rank` averages its reciprocal over cases with required IDs, counting a miss as zero. Check `required_recall` alongside it for multi-answer questions. Use `expect_empty: true` for a deliberately absent term in a controlled corpus. A forbidden-ID check alone allows other results. Keep tuning examples, subsequent independent probes and whole-process latency distinct when reporting changes.
+
+At 1,000 canonical entries the normal CLI switches to a project-local SQLite candidate index. A warm lookup checks file metadata, reads matching candidates and traverses related IDs. File updates and deletions take effect on the next lookup. See [indexed search and recovery](search-scale.md#indexed-search-and-recovery) for cache behavior, fallback and measurement.
+
+## Interactive search session
+
+For follow-up questions that arrive during the task, keep one local helper running in the working project:
+
+```text
+python -B -X utf8 skills/vegabond-knowledge/scripts/search.py session --project .
+```
+
+Enter a question and press Enter to receive its complete JSON result immediately. Send the next question when needed. A caller can keep the child's stdin and stdout pipes open and exchange one UTF-8 line per request and one JSON line per response. A line starting with `[` is a JSON array of ordinary search options. Use that form for filters, an exact query starting with `[`, or an embedded newline. For example, these are two independent requests:
+
+```text
+뒤로 달리면 시점이 주인공을 앞질러요
+["--query","음악 정지를 두 번 누르면 다시 재생되는 시점이 밀려요","--store","records","--limit","3"]
+```
+
+The project is fixed when the session starts. Startup lookup options provide defaults for every request. Each request checks current canonical files and closes its own index snapshot after ranking and evidence lookup. Inspect the response's `ok` and `error` for request failures. The session continues after an invalid request. Close stdin to exit (Windows terminal: Ctrl+Z then Enter; Unix terminal: Ctrl+D on an empty line). The first request also pays interpreter startup and, for a new corpus, initial index construction.

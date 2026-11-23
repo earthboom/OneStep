@@ -21,7 +21,8 @@ except ImportError:
 
 
 if yaml is not None:
-    class MetadataLoader(yaml.SafeLoader):
+    # Both parsers use the same safe constructors and duplicate-key checks.
+    class MetadataLoader(getattr(yaml, "CSafeLoader", yaml.SafeLoader)):
         pass
 
     def unique_mapping(loader, node, deep=False):
@@ -132,18 +133,25 @@ class Catalogs:
         self.messages.append({"level": level, "code": code,
                               "path": self.relative(path), "message": message})
 
-    def safe(self, path):
+    def checked_path(self, path):
         if human_file(path):
             self.issue("translation_input", path, "Translations are not canonical inputs.")
-            return False
-        if not path.resolve().is_relative_to(self.project) or path.is_symlink():
+            return None
+        resolved = path.resolve()
+        if not resolved.is_relative_to(self.project) or path.is_symlink():
             self.issue("outside_project", path, "Canonical input/output must remain inside the project without symlinks.")
-            return False
-        return True
+            return None
+        return resolved
+
+    def safe(self, path):
+        return self.checked_path(path) is not None
 
     def read(self, path):
         if not self.safe(path):
             return None
+        return self._read_text(path)
+
+    def _read_text(self, path):
         try:
             raw = path.read_bytes()
             self.fingerprints[path] = hashlib.sha256(raw).hexdigest()
@@ -204,10 +212,12 @@ class Catalogs:
                 self.references.append((path, target))
 
     def entry(self, path, store):
-        key = path.resolve()
+        key = self.checked_path(path)
+        if key is None:
+            return None
         if key in self.entries:
             return self.entries[key]
-        text = self.read(path)
+        text = self._read_text(path)
         if text is None:
             return None
         digest = self.fingerprints[path]

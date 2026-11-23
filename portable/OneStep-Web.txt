@@ -105,7 +105,12 @@ Choose an operation and scale for vagabond's intended outcome, then coordinate e
 
 ## Frame and classify
 
-Read the [English agent instructions](../../agents/vegabond-agent.md) if not already loaded. Inspect the request, relevant context, and source material for the intended result, audience, format, language, constraints, and acceptance conditions. Ask only when missing intent materially changes the work.
+Read the [English agent instructions](../../agents/vegabond-agent.md) if not already loaded. Start with the request and context already provided. Check whether plausible interpretations would change the deliverable, what must be preserved, or how success would be judged.
+
+- **Material ambiguity:** Before investigating or doing work that depends on an interpretation, tell the user in one or two sentences what you intend to deliver, what you will preserve, and how you will check completion. For a reversible choice supported by the context, state your assumption and proceed. If the choice belongs to the user, ask one focused question in the same message and wait before doing the dependent work. For example, if a draft could be for either customers or staff: “I'll prepare a release note that preserves the confirmed changes and dates. I'll check that the reader can tell what changes for them. Is this for customers or support staff?”
+- **Clear, simple request:** Do the work, check the requested change, and return the result directly. Skip a kickoff summary and confirmation. For clear, multi-step work, keep the goal, constraints and checks in the working brief and report progress at meaningful checkpoints.
+
+Apply the same judgment when a follow-up or new evidence changes the interpretation. Reuse decisions the user has already settled. When reporting results, give the evidence or remaining gap for each material completion criterion.
 
 Identify the operation separately from domain, medium, and tools. The author's background and the examples here do not limit eligibility. Original inputs and outputs follow the requested language. Never read, search, or load *.kr.md human-only translations; exclude them from retrieval and any authorized delegated work.
 
@@ -119,6 +124,16 @@ Build one lightweight task profile by answering four questions:
 Use open descriptions; a task can involve several domains and methods. A novel-based pitch deck can need narrative analysis, slide production, and visual inspection together. Search can support any operation. Keep the profile in the brief and step mapping, without a separate file or a fixed catalog of task subtypes. Reuse it in the operation skills and refine only missing details or assumptions changed by evidence.
 
 Apply the shared [information-needs judgment](references/information-needs.md) to derive questions from decisions, preservation conditions and actual inputs. Before drafting or editing, use [knowledge](../vegabond-knowledge/SKILL.md) to locate and read the working project's governing sources for those questions, including ordinary documents whose paths the user did not give. Carry the consulted sections, their effect on the work, checks and gaps in the existing brief. The executing specialist checks for missing questions after inspecting the actual inputs and reuses valid answers. Revisit affected judgments before consequential reliance and at handoff.
+
+If a previous failure could change the work, search problem records by the **planned action and its conditions** before choosing the check. For example, from the OneStep checkout:
+
+```text
+python skills/vegabond-knowledge/scripts/search.py search --project . --store records --query "repeated stop during audio fade" --no-cache
+```
+
+In a linked project, run from the working project, use the helper's path in the configured checkout, and keep `--project .` pointed at the working project. With a native store or a web upload, look up the action in the available records index and open the matching detail. Read its scope and recheck evidence. Carry one line into the existing brief, for example: “Can a second stop postpone restart? → R-CODE-UE-MUSIC-STOP → for a player with the same fade contract, test that a second stop preserves the original fade endpoint and restart time.” If the conditions differ, state which check or decision remains open. Run the selected check when verifying the result.
+
+If the input settles the whole decision, work directly from it. For a one-space correction in a supplied sentence, compare the result with the original for exactly that change.
 
 | Operation skill | Choose when |
 | --- | --- |
@@ -137,18 +152,7 @@ Several tools, files, ordinary steps, or long waiting times alone do not require
 
 For game planning or development in this store's authorized scope, apply the [game evidence reuse convention](../../knowledge/game/K-GAME-RESEARCH-USE.md). Derive retrieval from the concrete decision or symptom; carry selected knowledge IDs, applicability, adoption decisions and actual checks into this same brief. Use the technique guide when a symptom query misses, and refine with the executing specialist. Unrelated work does not require game references.
 
-## Give a short work brief
-
-Before execution, state these in a few lines in the conversation:
-
-- **Goal and deliverable:** what the user will receive, with audience, format, and language when relevant.
-- **Operation and scale:** the choices and a short reason.
-- **Scope:** the target, intended change, preservation conditions, and meaningful exclusions.
-- **Done:** link each acceptance condition to its check; attach the result and evidence as work proceeds. One or two inline lines suffice for a small task; use the existing brief or step mapping, not a separate tracking file.
-
-For staged work, give one sentence explaining the boundary: "Check A before B, because if A is wrong, C would need rework." Name the actual intermediate result, dependent work, and consequence; use its check in the step mapping below.
-
-Proceed within existing authorization without a routine approval checkpoint. Reuse the brief on follow-ups; update it when the goal, scope, or evidence changes. No separate brief file is required.
+Keep the chosen operation, scale and acceptance checks in the existing working brief. For staged work, identify the intermediate result to check, what depends on it, and what would need rework if it were wrong. Use that check in the step mapping below.
 
 ## Connect steps to skills and checks
 
@@ -187,6 +191,8 @@ At each staged checkpoint, give a one-line update: intermediate result; check an
 Continue with the next step's mapped operation and specialist, which may differ from the previous step. Reuse valid context rather than restarting classification. Before final handoff, confirm that each acceptance condition has current evidence or an explicit unresolved status, and check the integrated result.
 
 Report the result, acceptance evidence, and uncertainty. Distinguish drafts, completed AI verification, and vagabond's explicit acceptance. AI checks precede vagabond's independent testing or review.
+
+When the work exposes material feedback about OneStep itself, follow the [feedback delivery check](../../feedback/README.md#confirm-delivery-at-handoff) before sending the final answer. Include the delivery status and links to the verified files, or the specific blocker if the pair is incomplete.
 
 ===== agents/references/design-communication.md =====
 
@@ -501,6 +507,8 @@ Use this specialist within OneStep create or revise. In Codex, use the available
 
 For an expressive brief, describe what the delivered image communicates before comparing it with the intended reading. Cite a visible cue and flag plausible competing readings when they change the meaning. Repair a contradiction or a missing requested effect. An equally legible artistic choice can stand.
 
+For a 2D game character portrait, gameplay image or animated sprite, use the [2D character asset guide](references/2d-game-characters.md) when defining the brief. Choose the requested deliverable, reuse character landmarks across views, and judge the result at its display size or playback speed.
+
 ===== skills/vegabond-knowledge/SKILL.md =====
 
 ---
@@ -556,6 +564,14 @@ For game-development tasks, apply the [game development term review](references/
 Read [storage and lifecycle](references/storage.md) when writing or reorganizing entries. Apply its [capture and consolidation decision](references/storage.md#capture-consolidate-and-promote) before creating a new entry: decide what merits reuse, what belongs in an existing entry, and what should remain in source material or task history. It defines the entry header/body and the [catalog helper](scripts/catalog.py) build/check workflow and is the single authority for format, evidence, deduplication, promotion, and retirement. Do not run full-store rebuilds or checks as part of ordinary lookup.
 
 Write only within the task's authorized scope. In read-only or findings-only work, return proposed entries rather than changing stores. When saving is authorized, update the detail and its human translation, build affected catalogs, regenerate translations for changed English catalogs, and check them before handoff. Update root routing for a new domain. Do not edit generated rows or infer missing legacy metadata. Create no empty store merely for lookup, and never fabricate starter knowledge.
+
+## Make the next lookup work
+
+For reusable knowledge, capture the question a future worker will ask and the condition that changes the answer. For an incident, preserve the observed symptom in the reporter's words, the triggering operation, the exact identifier or error text when available, and the environment in which the prevention check was tried. Keep cause confidence and prevention evidence separate. Improve the existing entry when a new expression describes the same mechanism and scope.
+
+For a consequential addition or a demonstrated miss, replay a realistic question without the entry ID. If a plausible competing entry shares the symptom, check what distinguishes their environments or mechanisms before adopting a fix. Keep the missing question and its expected or disallowed ID in the existing evaluation cases when it would catch a recurrence. A known ID can then reopen the chosen detail directly. For several independent questions with the same filters, use the [multi-query lookup](references/retrieval.md#separate-questions-in-one-call) and assess each answer separately.
+
+For follow-up questions as they arise, start an [interactive search session](references/retrieval.md#interactive-search-session) in the working project and send one question at a time. Each response reflects the current project files.
 
 ===== skills/vegabond-planning/SKILL.md =====
 
@@ -1163,6 +1179,46 @@ For a material intended effect, name what the writer should inspect in actual pr
 
 Before handoff, read the final design against its cited sources and preservation conditions. Distinguish supported design decisions, provisional additions, unresolved premises blocking named dependent writing, and effects still to assess in manuscript or audience feedback. A completed twenty-element table is not evidence that these checks happened. Return a useful bounded proposal when possible, with those limits visible; do not claim full-work or reader validation from a partial outline. This is a document review, not proof of literary quality or automatic enforcement.
 
+===== skills/vegabond-image/references/2d-game-characters.md =====
+
+# 2D game character art
+
+## Choose the view the player will see
+
+| Requested asset | Base the generation on | Accept it when |
+| --- | --- | --- |
+| Dialogue portrait or key illustration | Character design, emotion or story beat, crop and focal point. In dialogue UI, use the actual slot and text overlay when available. | The intended attitude reads in the final crop. The eye line, face and identifying features survive framing and UI overlap. |
+| In-game character image | Gameplay camera, facing, on-screen height, nearby scenery and the established rendering medium. Start with one neutral or representative action pose. | At normal play size the character, facing and action are recognizable against representative light and dark scenery. The full pose fits its intended bounds. |
+| Animation frames or a sprite sheet | An accepted gameplay pose plus a plan for the action, views, origin, timing and export layout. | The imported or sliced frames play in order at the intended speed. Identity, transitions, ground contact and canvas alignment hold up during playback. |
+
+For a single illustration, finish at its own acceptance check. If several deliverables depict the same character, choose a design reference with visible identifying features. Record a few landmarks that survive a scale change, such as a notched hood, an amber scarf and a lantern in the character’s left hand. State which features may simplify at gameplay size. Assign other references a specific job such as camera, pose or palette. Only request another view if it resolves something the deliverable actually shows.
+
+## Generate a portrait and a playable pose
+
+- **Illustration.** Give the character an acting beat a viewer can read. Specify the relationship among gaze, gesture and the main prop. Generate or edit from the design reference. Inspect the face and costume in the final crop. For expression variants, edit the accepted neutral portrait and compare eye shape, apparent age and clothing as well as the requested expression.
+- **Gameplay.** Use the design reference to draw the character from the game camera. Choose a clear outer contour and large light/dark shapes. View at the intended play size on a representative background before adding small trim. For pixel art, work on the intended logical grid, clean stray pixels and check the palette across frames. For painted or inked sprites, preserve line weight and intentional translucent edges at target size.
+- **Example prompts for the same lighthouse keeper.** For a dialogue portrait, “Use the keeper design for identity. Chest up in the dialogue slot, listening toward the sea. Let the lantern light catch one cheek. Keep the notch in the hood visible above the text panel.” For a gameplay pose, “Use the keeper design and the side-view gameplay reference. Full body facing right, approximately 40 pixels tall in play. Separate the amber scarf and left-hand lantern into clear shapes. Transparent background, room for the lantern swing.” The example dimensions belong to this brief.
+
+## Plan motion before generating more frames
+
+1. Name the action and the moments the player must distinguish. For a walk, mark left contact, passing, right contact and the opposite passing pose. For a jump, mark push-off, apex and landing. Use the project's state timing or cues when they exist. Decide which poses hold and whether the action loops. Match a locomotion cycle to the character's travel speed.
+2. Fix camera, character scale, facing, canvas and origin across the action. Decide whether the engine moves the character or displacement lives in the frames. Keep the lantern on the anatomical left when the character turns. Mirroring works only if the design, light and gameplay tolerate it.
+3. With a still-image generator, use the accepted pose and any available pose sketches as inputs. Generate the distinctive poses first, then edit or fill only the transitions the action needs. An artist's pose sketch can replace a failed automatic skeleton on a stylized body. For multi-view characters with many reusable motions, an existing rig or pose sequence can supply consistent views if the project has one. A generated strip or video can supply candidates. Inspect and register the selected frames before packing them.
+4. Play the action at target speed and size, then step through neighboring poses or overlay them. Watch the last-to-first transition for loops, silhouette changes, limb or prop swaps, and costume or palette flicker. A fixed pivot keeps the character registered while the torso rises and falls. Evaluate a planted foot against the moving **world** during locomotion. An in-place cycle played over a static floor has a different contact trajectory. Keep intentional squash, airborne motion and holds.
+
+## Package and repair
+
+If early pixelation erases the cues needed to generate the next pose, try posing at a larger working size and applying the same downsampling and palette to all frames. Compare against a hand-cleaned key pose on the target grid. Keep the route that preserves the character and action there.
+
+Use equal canvases with a common origin for uniform grid slicing. If frames are tightly packed or trimmed, retain the source canvas size, trim offset and frame rectangle so the importer can reconstruct each pose. Preserve frame order, duration, loop mode and action/direction names in the form the consumer uses. Inspect real alpha over contrasting colors, outer-cell clipping, and atlas bleed under the intended texture filter. For hard-edged pixel art, preview with nearest-neighbor at the intended scale. For smooth art, use the project's filter. Play exported files after slicing, or disclose precisely which preview was available.
+
+| Observed failure | Smallest useful repair |
+| --- | --- |
+| The portrait and sprite look like different people | Compare identifying landmarks side by side at their display sizes. Restore the missing contour or color block in the gameplay pose, then reuse that corrected pose. |
+| Well-drawn frames look motionless or the step slides | Check contact versus passing silhouettes and foot travel against game speed. Correct the key pose or its duration before adding in-betweens. |
+| The whole body jitters or a lantern disappears at a cell boundary | Overlay the original canvases at the intended pivot, then inspect the sliced result. Repair alignment, padding or trim metadata if the originals agree. |
+| The action reads but scarf color or pixel clusters shimmer | Compare the offending frames with the accepted pose. Repair the local area or apply a common palette in the finishing pass, then replay the loop. |
+
 ===== skills/vegabond-image/references/drawing-people.md =====
 
 # Drawing people
@@ -1395,6 +1451,39 @@ Use `search --all-variants` to retain raw lexical order when examining individua
 
 For capacity decisions, use the [scale budgets, measurements and migration gates](search-scale.md). A passing 1,000-entry sentinel test is not evidence that natural-language retrieval, mixed-source judgment or tens of thousands of files will stay fast.
 
+## Separate questions in one call
+
+Repeat `--query` when the questions share a working project and filters. The helper loads the canonical or cached documents once. It ranks, pages, traverses relations and reports source status for each question independently, in input order. Use separate calls when different domains, stores or context filters are needed.
+
+```text
+python skills/vegabond-knowledge/scripts/search.py search --project . --store records --no-cache --query "reverse camera framing" --query "duplicate stop fade"
+```
+
+A single query keeps the usual top-level `results`. A multi-query response has one `index` and a `queries` list. Inspect each item's `results`, `gap`, `relations` and `source_verification`; process exit status covers the full request. In a web-only session, look up each question in the matching index and open the details by ID.
+
+For a known entry, supply its complete ID. A literal ID takes precedence over topic words inside its name. For technical terms embedded in Korean, common attached particles such as `을`, `에서` and `으로` can follow ASCII names and IDs. Punctuation in names such as `UAsset.GetNameReference`, `Widget::Flush` and `C++` carries meaning. Other Korean morphology, project-specific synonyms and undocumented identifiers may still require reformulation.
+
+For evaluation, `first_required_rank` gives the first declared relevant ID's position within the case's limit. `mean_reciprocal_rank` averages its reciprocal over cases with required IDs, counting a miss as zero. Check `required_recall` alongside it for multi-answer questions. Use `expect_empty: true` for a deliberately absent term in a controlled corpus. A forbidden-ID check alone allows other results. Keep tuning examples, subsequent independent probes and whole-process latency distinct when reporting changes.
+
+At 1,000 canonical entries the normal CLI switches to a project-local SQLite candidate index. A warm lookup checks file metadata, reads matching candidates and traverses related IDs. File updates and deletions take effect on the next lookup. See [indexed search and recovery](search-scale.md#indexed-search-and-recovery) for cache behavior, fallback and measurement.
+
+## Interactive search session
+
+For follow-up questions that arrive during the task, keep one local helper running in the working project:
+
+```text
+python -B -X utf8 skills/vegabond-knowledge/scripts/search.py session --project .
+```
+
+Enter a question and press Enter to receive its complete JSON result immediately. Send the next question when needed. A caller can keep the child's stdin and stdout pipes open and exchange one UTF-8 line per request and one JSON line per response. A line starting with `[` is a JSON array of ordinary search options. Use that form for filters, an exact query starting with `[`, or an embedded newline. For example, these are two independent requests:
+
+```text
+뒤로 달리면 시점이 주인공을 앞질러요
+["--query","음악 정지를 두 번 누르면 다시 재생되는 시점이 밀려요","--store","records","--limit","3"]
+```
+
+The project is fixed when the session starts. Startup lookup options provide defaults for every request. Each request checks current canonical files and closes its own index snapshot after ranking and evidence lookup. Inspect the response's `ok` and `error` for request failures. The session continues after an invalid request. Close stdin to exit (Windows terminal: Ctrl+Z then Enter; Unix terminal: Ctrl+D on an empty line). The first request also pays interpreter startup and, for a new corpus, initial index construction.
+
 ===== skills/vegabond-knowledge/references/search-scale.md =====
 
 # Search scale and migration gates
@@ -1403,9 +1492,9 @@ Use this reference when records, text volume, query frequency, duplicate density
 
 ## What currently grows
 
-Each CLI invocation loads/validates the full JSON cache, enumerates all canonical paths and builds ID/relation information before query filters. A warm `read_files=0` means unchanged details were not reparsed; it does not mean constant-cost lookup. Search scans eligible text and sorts all matches. Returning three hits bounds output, not all matching work. An entry change reparses that entry but rewrites the whole JSON cache. Body fingerprints and page-only snippets reduce repeated work; they are not an inverted index.
+At 1,000 canonical entries the local helper creates `.cache/onestep/search-v2.sqlite3`. Subsequent commands enumerate canonical file names, sizes and modification times to detect external changes. An unchanged fingerprint opens a read snapshot. SQLite FTS5 selects candidate IDs, store/domain filters narrow the rows, and the lexical ranker reads their fields and bodies. Broad terms can still retrieve many candidates. The smaller JSON-cache path loads the whole snapshot. Both paths report canonical rereads in `index.read_files`.
 
-Exact-body diversity helps distinct answers survive duplicate competition. It cannot infer authority, interpret arbitrary paraphrases or remove semantic near duplicates. Keep unknown context, conflicting evidence and unavailable originals visible. Relationships around a heavily referenced common prerequisite can cost more than a normal query: the current traversal still scans global edges and uses a list to track selected edges.
+Exact-body diversity helps distinct answers survive duplicate competition. It cannot infer authority, interpret arbitrary paraphrases or remove semantic near duplicates. Keep unknown context, conflicting evidence and unavailable originals visible. Relationships around a heavily referenced common prerequisite can cost more than a normal query: the indexed traversal follows incoming and outgoing edges at each depth, and retains relevant edges for pagination.
 
 ## Measure before deciding
 
@@ -1423,19 +1512,19 @@ These are adjustable project budgets, not user-agreed SLAs or universal entry li
 | --- | --- |
 | Any important judged question loses a required source or transfers the wrong context/cause | Investigate immediately, at any size. Preserve the failed input/expectation; refine routing, terms, diversity or the consuming decision and rerun affected positive/negative cases. |
 | Around 1,000–5,000 entries, or earlier with long text/frequent queries | Build 50–100 real task questions plus held-out judgments. Watch known-group dominance and scope/context completeness. Compare domain/metadata prefiltering, normalized-text reuse, page-only snippets and indexed graph adjacency. |
-| Around 5,000 entries with continuing growth; routine use approaching 10,000 | Start an indexed-search comparison. The measured file/JSON approach already incurs seconds in this range on the audited workload. Do not wait for 30,000 before planning the transition. |
+| Around 5,000 entries with continuing growth; routine use approaching 10,000 | Check that the result reports `index.backend=sqlite` and compare end-to-end latency with the recorded baseline. |
 | Warm P95 exceeds 2 seconds across at least 50 representative requests, or repeated lookups materially delay a task | Prioritize a search index. Aim initially for about one second, then set the real budget from use. Do not infer P95 from the small regression sample. |
 | First/no-cache operations repeatedly exceed 30 seconds, one-entry updates take seconds, or peak working set exceeds a proposed 512 MiB budget | Compare incremental persistence and candidate loading against whole-JSON reads/writes. Adjust the memory budget for the device and real workload. |
 | Thousands of incoming relationships accumulate on common entries | Compare a set for edge deduplication and per-ID/type adjacency. Preserve incoming/outgoing discovery, conflict visibility, bounded pages and continuation. |
 | Paraphrase misses survive routing and lexical improvements | Compare Korean tokenization/query reformulation and, if justified, semantic candidate retrieval/reranking. Keep exact-ID and applicability controls; embeddings do not certify evidence or replace required-source checks. |
 
-## Candidate transition and acceptance
+## Indexed search and recovery
 
-Compare a local metadata table plus SQLite FTS5 as a next candidate, keeping Markdown and IDs stable. Separate import/update/delete detection from query execution; index only canonical English. Filter store/domain and established context, retrieve text candidates, then apply source/state checks and diversity. Keep source identity/access status independent and original hashing explicit. Updating an index must not rewrite historical evidence.
+The index encodes normalized Python word runs so its candidates include short Korean prefixes, postpositions and punctuated identifiers. Final matches, weights, snippets, source checks, pagination and exact-body diversity use the same rules as the scan. New and changed files are parsed once and removed paths are withdrawn. Document rows, postings, relations and the manifest commit together after ID and relation validation. An invalid edit fails the request and rolls back the transaction.
 
-FTS5 supplies ranking and tokenizer options; it needs its own language and identifier tests. In particular, trigram full-text queries shorter than three Unicode characters do not match, so two-character Korean terms need a deliberate path. A content-table projection requires index consistency on changes/deletes. See the primary [FTS5 tokenizer documentation](https://www.sqlite.org/fts5.html#the_trigram_tokenizer), [BM25](https://www.sqlite.org/fts5.html#the_bm25_function) and [external-content consistency requirements](https://www.sqlite.org/fts5.html#external_content_tables). This is a comparison candidate, not an implemented backend or a proven speedup.
+Use `--refresh` for edits preserving both size and modification time. `--no-cache` and `--portable-library` search canonical files directly. If SQLite/FTS5 or the database is unavailable, index preparation falls back to the scan and reports a warning. A damaged disposable database can be moved aside with search processes closed, then rebuilt on the next run. Initial indexing and very broad queries have separate costs.
 
-Accept a transition only after the same judged questions, exact identifiers, unknown-context caveats, state filters, cross-store/conflict traversal, source notices, freshness and corruption/deletion checks pass, with measured latency/memory gains. Keep before/after evidence and rollback/rebuild instructions. For a busy or changed workspace, use an isolated index/corpus so comparison cannot modify real records. Never lower recall expectations or erase conflicting variants to obtain faster numbers.
+Use the [30,000-entry workload](../tests/benchmark_scale.py) in the source checkout to reproduce fresh-process measurements. Compare the same queries, result limits, returned ID order and external-edit behavior. Classify P95 using at least 50 individual processes. Record OS cache conditions, tail outliers and build cost separately.
 
 ===== skills/vegabond-knowledge/references/storage.md =====
 
@@ -1819,7 +1908,25 @@ This is a temporary inbox for actual experience using OneStep in any project: st
 2. Use the OneStep checkout location explicitly supplied or configured in the working project, with authorization for that inbox and usable filesystem permissions. Reading strategy files does not grant write access. Keep the location in the working project; do not add physical project locations or active source connections to OneStep or search unrelated projects.
 3. Copy the [template](template.md) to `YYYY-MM-DD-short-topic.md` here for one independently actionable concern, with a matching `.kr.md` human translation generated from English. Choose a unique suffix on collision; never overwrite another report. Identify the version actually used, not the latest checkout version; use `unknown` when unavailable. Supply relevant skills, conditions, expected/observed behavior, impact, and minimal sanitized evidence. Separate facts, suspected causes, and proposals. For positive feedback, describe the behavior to preserve and its observed benefit.
 4. Exclude credentials, private source material, and full task logs. Use anonymous context, OneStep-relative instruction references, and minimal sanitized excerpts or reproduction steps. State evidence limitations rather than claiming inaccessible material was reproduced.
-5. If the inbox is unknown, unavailable, or not authorized, prepare the pair in the working project's existing handoff location and report **prepared, not submitted**. Do not broaden access or send elsewhere automatically. Confirm both files exist at the authorized destination before reporting **submitted**. Submission does not authorize strategy edits, deleting other reports, committing, pushing, or publishing.
+5. When the destination and write permission are established, write the pair to that checkout's `feedback/` and verify it there before handoff. Use a basename available for **both** files. If a write fails midway, complete your own partial submission when possible and repeat the check. An existing pair for a different concern cannot serve as evidence for this submission. Submission does not authorize strategy edits, deleting other reports, committing, pushing, or publishing.
+
+### Confirm delivery at handoff
+
+Run the configured checkout's `tools/check_feedback.py` with the English filename. From the checkout root, for example:
+
+```text
+python tools/check_feedback.py 2026-11-20-feedback-lines-not-submitted.md
+```
+
+From a working project, invoke the same script by its path in the authorized OneStep checkout. It checks that checkout's inbox regardless of the current directory. It reports absolute paths and file states, without reading either report. Exit code 0 and `pair_present: true` mean both paths currently hold nonempty regular files. If the helper is unavailable, inspect the same two paths with the available filesystem tool. The check establishes delivery only; maintainer review and acceptance happen later.
+
+For each material strategy finding, include one delivery line in the final handoff:
+
+- **submitted** — after writing this concern's pair and confirming both files in the authorized inbox, link the English report and its Korean companion there.
+- **prepared, not submitted** — when the inbox is unknown, unavailable or outside write scope, prepare and verify both files in the working project's existing handoff location. Link both local files and state why delivery could not be confirmed.
+- If either pair is incomplete and no complete local pair is available, identify the files actually present, the missing or failed path and the blocker. Keep the submission open. In a chat-only environment, identify any draft supplied in the response and the unavailable file destination.
+
+Only include this line for material strategy feedback. The report's internal review status (initially `received`) stays separate from this delivery check.
 
 The working project can include this in its own agent instructions; its configured checkout location stays there:
 
@@ -1827,8 +1934,9 @@ The working project can include this in its own agent instructions; its configur
 Use the configured OneStep checkout's agents/vegabond-agent.md and
 skills/vegabond-scout/SKILL.md for this task. For material strategy feedback,
 follow that checkout's feedback/README.md and feedback/template.md.
-Keep deliverable records in this working project. Submit feedback only to
-the explicitly authorized inbox; otherwise return a prepared report.
+Keep deliverable records in this working project. Submit material strategy
+feedback to the authorized inbox and link the verified pair at handoff. If
+only a working-project copy is possible, link it as prepared, not submitted.
 ```
 
 ## Review and improve in OneStep
@@ -5308,6 +5416,8 @@ For changing or shared routes, distinguish traversability from physical closure.
 When a route is saved for replay or read on another thread, take an **owned snapshot** of each complete ordered path, including waits and the terminal state. A non-owning view into planner storage becomes invalid when its source is destroyed or reused. Publish only after copying the complete data. Destroy or mutate the source and compare every saved step and its order against the original. For an occupied door in Unreal, perform a separate gameplay check: update the route field for new entrants, preserve the traversing body's swept clearance until it exits, then close physical collision. A route field alone supplies no local avoidance. [C++ Core Guidelines — ownership and lifetime safety](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rr-ptr)
 
 ## Checks
+
+When packing a priority key (`PriorityKey`), compare the order of states under the packed key with the original priority tuple. Include ties at equal distance, the final state tie-break and values near each field's upper bound. A change of order can change the chosen path even if both runs reach the goal.
 
 Check reachability and cost against an independent shortest-path solution, including directed, blocked, reopened and narrow edges. For reservations audit simultaneous sweeps, swaps and terminal occupancy. Include a safe deadlock and a valid detour as controls. Compare complete paths and timing at equal offered demand before adopting optimizations.
 

@@ -68,12 +68,38 @@ class SearchTests(unittest.TestCase):
         self.assertEqual(result["results"][0]["status"], "resolved")
         self.assertEqual(result["results"][0]["prevention_status"], "proposed")
 
+    def test_renamed_domain_replaced_with_link_rejects_even_warm_snapshot(self):
+        path = self.detail("K-LOCAL")
+        self.cli("search", "--query", "resource")
+        moved = self.root / "original-domain"
+        path.parent.rename(moved)
+        if os.name == "nt":
+            link = subprocess.run(["cmd", "/c", "mklink", "/J", str(path.parent), str(moved)],
+                                  capture_output=True)
+            self.assertEqual(link.returncode, 0, link.stderr)
+        else:
+            path.parent.symlink_to(moved, target_is_directory=True)
+        result = self.cli("search", "--query", "resource", expected=2)
+        self.assertIn("linked or outside-project path", result["error"])
+
     def test_korean_first_catalog_action_finds_english_incident(self):
         self.detail("R-BOOT", store="records", title="First build rejected future catalogs",
                     keywords=["bootstrap", "first-build", "catalog-planning"],
                     trigger="First build with root routing links to not-yet-generated catalogs")
         result = self.cli("search", "--query", "새 프로젝트 지식 카탈로그 최초 생성", "--store", "records")
         self.assertEqual(result["results"][0]["id"], "R-BOOT")
+
+    def test_korean_symptom_combinations_rank_above_shared_topic(self):
+        self.detail("R-CROSS", store="records", keywords=["fixed forward rig"])
+        self.detail("R-STOP", store="records", keywords=["duplicate stop"])
+        self.detail("K-BOUNDARY", keywords=["information hiding"])
+        self.detail("K-GENERAL", keywords=["camera", "music", "module"])
+        cases = [("뒤로 달리면 시점이 주인공을 앞질러요", "R-CROSS"),
+                 ("배경음 멈춤을 연달아 눌렀더니 다음 재생이 늦어진다", "R-STOP"),
+                 ("자료 구조를 바꿔도 쓰는 쪽 코드를 안 고치게 설계하려면", "K-BOUNDARY")]
+        args = [arg for query, _ in cases for arg in ("--query", query)]
+        results = self.cli("search", *args)["queries"]
+        self.assertEqual([r["results"][0]["id"] for r in results], [ident for _, ident in cases])
 
     def test_missing_yaml_keeps_structured_dependency_error(self):
         run = subprocess.run([sys.executable, "-S", "-B", str(SCRIPT), "search", "--project", str(self.root),
@@ -107,7 +133,9 @@ class SearchTests(unittest.TestCase):
         for query in ("코드에서 숫자 값을 합산하는 방법", "CSV 숫자 값을 직접 읽는 방법",
                       "내부 구현을 자세히 설명해줘", "범인이 독자에게 편지를 보내는 장면",
                       "리소스 숫자 값을 직접 측정하는 방법", "코드에서 숫자 값을 직접 계산하는 방법",
-                      "리소스 숫자 값을 고정하는 방법"):
+                      "리소스 숫자 값을 고정하는 방법", "후진 카메라가 벽에 가려져요",
+                      "음악 재생을 두 번 누르면 곡이 처음으로 돌아가요",
+                      "호출자가 저장 방식을 명시적으로 골라야 해요"):
             with self.subTest(query=query):
                 result = self.cli("search", "--query", query)
                 self.assertEqual(result["inferred_concepts"], [], query)
@@ -322,6 +350,7 @@ class SearchTests(unittest.TestCase):
         cold = self.cli("search", "--query", "sentinel-0777", "--limit", "3")
         warm = self.cli("search", "--query", "sentinel-0777", "--limit", "3")
         self.assertEqual(cold["index"]["entries"], 1000)
+        self.assertEqual(warm["index"].get("backend"), "sqlite")
         self.assertEqual([h["id"] for h in warm["results"]], ["K-SCALE-0777"])
         self.assertEqual(warm["index"]["read_files"], 0)
         p = self.root / "knowledge/code/K-SCALE-0777.md"
@@ -331,6 +360,82 @@ class SearchTests(unittest.TestCase):
         self.assertEqual(changed["results"][0]["id"], "K-SCALE-0777")
         print(json.dumps({"synthetic_entries": 1000, "cold_ms": cold["elapsed_ms"], "warm_ms": warm["elapsed_ms"],
                           "changed_ms": changed["elapsed_ms"], "warm_canonical_reads": warm["index"]["read_files"]}))
+        # A duplicate across worker batches and an error accompanying a valid
+        # parsed entry must both roll back a bulk refresh.
+        original = p.read_bytes()
+        p.write_bytes(original.replace(b"id: K-SCALE-0777", b"id: K-SCALE-0000"))
+        duplicate = self.cli("search", "--query", "resource", "--refresh", expected=2)
+        self.assertIn("duplicate ID", duplicate["error"])
+        p.write_bytes(original)
+        pair = p.with_suffix(".kr.md")
+        pair.unlink()
+        missing = self.cli("search", "--query", "resource", "--refresh", expected=2)
+        self.assertIn("missing_translation", missing["error"])
+        pair.touch()
+        recovered = self.cli("search", "--query", "changed-sentinel-0777")
+        self.assertEqual(recovered["index"]["read_files"], 1)
+        self.assertEqual([h["id"] for h in recovered["results"]], ["K-SCALE-0777"])
+
+    def test_indexed_search_matches_scan_and_refreshes_relations_transactionally(self):
+        db = self.root / ".cache/onestep/search-v2.sqlite3"
+        db.parent.mkdir(parents=True)
+        db.touch()
+        a = self.detail("K-A", keywords=["duplicate stop", "fixed forward rig"], body="Widget::Flush에서 C++",
+                        relations={"conflicts_with": ["R-B"]})
+        b = self.detail("R-B", store="records", body="Widget::FlushExtra", context={"engine": "one"})
+        self.detail("K-C", title="Resource", body="Widget::Flush에서 C++")
+        options = ["--query", "Widget::Flush", "--query", "C++", "--query", "resource",
+                   "--query", "뒤로 달리면 시점이 주인공을 앞질러요", "--query", "없는말",
+                   "--query", "K-A는", "--context", "engine=one"]
+        indexed = self.cli("search", *options)
+        self.assertEqual(indexed["index"]["backend"], "sqlite")
+        self.assertEqual(indexed["queries"], self.cli("search", "--no-cache", *options)["queries"])
+        edges = self.cli("related", "--id", "R-B")["edges"]
+        self.assertEqual(edges, [dict(source="K-A", type="conflicts_with", target="R-B")])
+        b.unlink()
+        self.assertFalse(self.cli("search", "--query", "resource", expected=2)["ok"])
+        a.unlink()
+        repaired = self.cli("search", "--query", "Widget::Flush")
+        self.assertEqual(repaired["index"]["read_files"], 0)
+        self.assertEqual([h["id"] for h in repaired["results"]], ["K-C"])
+        self.detail("K-NEW", keywords=["incremental"])
+        new = self.cli("search", "--query", "incremental")
+        self.assertEqual(new["index"]["read_files"], 1)
+        self.assertEqual(new["results"][0]["id"], "K-NEW")
+        self.assertEqual(self.cli("search", "--refresh", "--query", "incremental")["index"]["read_files"], 2)
+
+    def test_broad_word_pages_match_scan_with_endings_filters_and_variants(self):
+        db = self.root / ".cache/onestep/search-v2.sqlite3"
+        db.parent.mkdir(parents=True)
+        db.touch()
+        forms = ("sensor는", "sensor에서", "sensors", "sensor에게서", "音", "음악으로", "배경음악")
+        for i in range(140):
+            self.detail(f"K-BROAD-{i:03d}", title="Sensor" if i % 9 == 0 else "Review",
+                        keywords=["music"] if i % 7 == 0 else ["review"],
+                        status="superseded" if i % 11 == 0 else "active",
+                        body=f"Neutral {forms[i % len(forms)]} case {i}")
+        options = ["--query", "neutral sensor 음악", "--query", "neutral", "--limit", "10"]
+
+        def compare(*extra):
+            indexed = self.cli("search", *options, *extra)
+            self.assertEqual(indexed["index"]["backend"], "sqlite")
+            self.assertEqual(indexed["queries"], self.cli("search", "--no-cache", *options, *extra)["queries"])
+
+        compare()
+        compare("--offset", "70")
+        compare("--offset", "140", "--include-superseded")
+        compare("--status", "superseded")
+        self.detail("K-BROAD-COPY", title="Another scope", body="Neutral sensor에서 case 1")
+        compare("--include-superseded", "--all-variants")
+
+    def test_unreadable_sqlite_snapshot_falls_back_to_canonical_results(self):
+        db = self.root / ".cache/onestep/search-v2.sqlite3"
+        db.parent.mkdir(parents=True)
+        db.write_bytes(b"damaged candidate index")
+        self.detail("K-A", keywords=["sentinel"])
+        result = self.cli("search", "--query", "sentinel")
+        self.assertIn("SQLite", result["index"]["warning"])
+        self.assertEqual(result["results"][0]["id"], "K-A")
 
     def test_empty_query_bad_filter_and_missing_id_have_explicit_errors(self):
         self.cli("search", "--query", "   ", expected=2)
@@ -368,6 +473,71 @@ class SearchTests(unittest.TestCase):
         hit = self.cli("search", "--query", "sentinel-separator")["results"][0]
         lines = p.read_text(encoding="utf-8").split("\n")
         self.assertIn("sentinel-separator", lines[hit["snippet"]["line"] - 1])
+
+    def test_particle_boundaries_in_queries_bodies_and_snippets(self):
+        self.detail("K-HIT", body="Call Widget::Flush에서 once.")
+        self.detail("K-LONG", body="Widget::FlushExtra를 and Widget::Flush용.")
+        self.detail("K-PREFIX", body="OtherWidget::Flush를.")
+        for query in ("Widget::Flush", "Widget::Flush를"):
+            hits = self.cli("search", "--query", query)["results"]
+            self.assertEqual([hit["id"] for hit in hits], ["K-HIT"])
+            self.assertIn("Widget::Flush에서", hits[0]["snippet"]["text"])
+
+    def test_known_id_with_alias_obeys_filters_and_pagination(self):
+        self.detail("K-MUSIC-STOP")
+        self.detail("K-MUSIC-GUIDE", title="Music", body="See K-MUSIC-STOP.")
+        for query in ("K-MUSIC-STOP", "k-music-stop은"):
+            hit = self.cli("search", "--query", query, "--limit", "1")["results"][0]
+            self.assertEqual(hit["id"], "K-MUSIC-STOP")
+            others = self.cli("search", "--query", query, "--offset", "1")["results"]
+            self.assertEqual([h["id"] for h in others], ["K-MUSIC-GUIDE"])
+            self.assertFalse(self.cli("search", "--query", query, "--store", "records")["results"])
+
+    def test_multiple_questions_share_load_and_keep_independent_evidence(self):
+        self.detail("R-MUSIC", store="records", body="Drop duplicate stop.", relations={"prevention": ["K-FADE"]})
+        self.detail("K-FADE", body="Keep fade endpoint.")
+        queries = ["R-MUSIC은", "unseen-sentinel", "R-MUSIC은"]
+        opts = ["--no-cache", "--store", "records", "--verify-sources"]
+        batch = self.cli("search", *opts, *(item for q in queries for item in ("--query", q)))
+        self.assertEqual(batch["index"]["read_files"], 2)
+        self.assertEqual([r["query"] for r in batch["queries"]], queries)
+        for q, entry in zip(queries, batch["queries"]):
+            single = self.cli("search", *opts, "--query", q)
+            for field in ("results", "relations", "gap", "source_verification", "ok"):
+                self.assertEqual(entry[field], single[field])
+        self.assertFalse((self.root / ".cache").exists())
+        failed = self.cli("search", *opts, "--query", "R-MUSIC", "--query", "", expected=2)
+        self.assertFalse(failed["ok"])
+
+    def test_session_replies_before_eof_and_sees_edits_with_fresh_filters(self):
+        db = self.root / ".cache/onestep/search-v2.sqlite3"
+        db.parent.mkdir(parents=True)
+        db.touch()
+        self.detail("K-SESSION", keywords=["pooling"])
+        with subprocess.Popen([sys.executable, "-B", str(SCRIPT), "session", "--project", str(self.root)],
+                              stdin=subprocess.PIPE, stdout=subprocess.PIPE) as proc:
+            def request(line):
+                proc.stdin.write(line + b"\n")
+                proc.stdin.flush()
+                return json.loads(proc.stdout.readline())
+
+            try:
+                for invalid in (b"[", b"\xff", b'["--help"]', b'["--project",".."]', b"[]"):
+                    self.assertFalse(request(invalid)["ok"])
+                empty = request(b'["--query","pooling","--store","records"]')
+                self.assertEqual(empty["results"], [])
+                first = request("풀링".encode())
+                expected = self.cli("search", "--query", "풀링")
+                for key in ("results", "relations", "source_verification", "inferred_concepts"):
+                    self.assertEqual(first[key], expected[key])
+                edited = self.detail("K-SESSION", keywords=["freshmarker"])
+                self.assertEqual(request(b"freshmarker")["results"][0]["id"], "K-SESSION")
+                self.assertFalse(request("풀링".encode())["results"])
+                edited.unlink()
+                self.assertFalse(request(b"freshmarker")["results"])
+            finally:
+                proc.stdin.close()
+        self.assertEqual(proc.returncode, 0)
 
     def test_long_paragraph_excerpt_contains_the_actual_match(self):
         self.detail("K-ONE", body="x" * 500 + " sentinel-late is the relevant condition.")
@@ -407,11 +577,19 @@ class SearchTests(unittest.TestCase):
         result = self.cli("evaluate", "--cases", str(cases))
         self.assertEqual(result["passed"], 2)
         self.assertEqual(result["required_recall"], 1.0)
+        self.assertEqual(result["mean_reciprocal_rank"], 1.0)
+        self.assertIsNone(result["cases"][1]["first_required_rank"])
         self.assertEqual(result["forbidden_hits"], 0)
         cases.write_text(json.dumps({"cases": [{"name": "miss", "query": "unknown-token", "required": ["K-POOL"]}]}), encoding="utf-8")
         result = self.cli("evaluate", "--cases", str(cases), expected=1)
         self.assertEqual(result["passed"], 0)
         self.assertEqual(result["required_recall"], 0.0)
+        self.assertEqual(result["mean_reciprocal_rank"], 0.0)
+        cases.write_text(json.dumps({"cases": [{"name": "unexpected", "query": "pooling",
+                                               "expect_empty": True}]}), encoding="utf-8")
+        result = self.cli("evaluate", "--cases", str(cases), expected=1)
+        self.assertTrue(result["cases"][0]["unexpected_matches"])
+        self.assertIsNone(result["mean_reciprocal_rank"])
 
     def test_catalog_checks_relations_even_when_target_is_in_another_store(self):
         self.detail("R-ONE", store="records")

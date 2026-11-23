@@ -4,7 +4,7 @@
 - OneStep version used: commits up to 0d0053a (2026-11-20); exact commit per session unknown
 - Relevant skills/instructions: skills/vegabond-scout/SKILL.md (Give a short work brief)
 - Kind: problem
-- Status: received
+- Status: verifying
 - Task context: Claude Code desktop sessions in a game project; research requests; a project-local instruction file layered OneStep on top of team instructions
 
 ## Expected and observed
@@ -21,4 +21,11 @@ Allow the brief to be delivered at the top of the final report, with results att
 
 ## Review and verification
 
-Maintainer fills during processing.
+2026-11-23: [Scout's framing guidance](../skills/vegabond-scout/SKILL.md#frame-and-classify) now makes a visible kickoff brief conditional on ambiguity that changes the result. It retains working checks for clear multi-step tasks and delivers simple edits directly.
+
+Fresh-context trials checked the order of the user-facing messages:
+
+- An event notice had two possible audiences with different entrances. Before drafting, the performer stated the confirmed date, time and location, identified the single-entrance check and asked which audience would receive the notice. After the trial user selected staff, it delivered one notice with the north entrance and all confirmed event facts.
+- The existing spacing fixture yielded the corrected sentence directly after setup. Both file-based trials had an initial skill-loading notice. In a separate inline trial with the Scout rule already supplied, the entire response to a one-space correction was the corrected sentence, with no preliminary message or question.
+
+These results cover the sampled conversations. Ordering in the originally reported Claude Code desktop environment and maintainer acceptance remain unverified.
