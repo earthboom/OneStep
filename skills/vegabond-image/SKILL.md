@@ -1,6 +1,6 @@
 ---
 name: vegabond-image
-description: Use when creating, editing, or producing a consistent series of raster images for a user request, including photorealistic, illustrated, comic, surreal, and mixed-style work with exact visual or delivery requirements.
+description: Use when creating, editing, or producing a consistent series of raster images, including realistic or stylized illustrations, 2D game sprites, animated effects, and flipbooks with specific visual or delivery requirements.
 ---
 
 # Vegabond Image
@@ -27,3 +27,5 @@ Use this specialist within OneStep create or revise. In Codex, use the available
 For an expressive brief, describe what the delivered image communicates before comparing it with the intended reading. Cite a visible cue and flag plausible competing readings when they change the meaning. Repair a contradiction or a missing requested effect. An equally legible artistic choice can stand.
 
 For a 2D game character portrait, gameplay image or animated sprite, use the [2D character asset guide](references/2d-game-characters.md) when defining the brief. Choose the requested deliverable, reuse character landmarks across views, and judge the result at its display size or playback speed.
+
+For a 2D game effect or a sprite action that triggers one, use [drawing effects in motion](references/2d-effects-and-motion.md) to plan the key drawings, connect the effect to the gameplay event and review the exported layers in motion.

@@ -1,0 +1,58 @@
+{
+  "unit": "ms",
+  "origin": "top-left, pivot coordinates at pixel boundaries",
+  "blend": "straight alpha / source over",
+  "filter": "nearest",
+  "tracks": {
+    "actor": {
+      "file": "actor.png",
+      "cell": [
+        64,
+        72
+      ],
+      "pivot": [
+        32,
+        69
+      ],
+      "space": "actor",
+      "times": [
+        0,
+        120,
+        240
+      ],
+      "end": "hold last pose"
+    },
+    "dust": {
+      "file": "dust.png",
+      "cell": [
+        64,
+        24
+      ],
+      "pivot": [
+        32,
+        22
+      ],
+      "space": "world",
+      "layer": {
+        "behindActor": "x >= 32 in cell",
+        "inFrontOfActor": "x < 32 in cell"
+      },
+      "trigger": "landed",
+      "timesSinceTrigger": [
+        0,
+        60,
+        180
+      ],
+      "endMsSinceTrigger": 300,
+      "end": "clear"
+    }
+  },
+  "example": {
+    "landedAt": 120,
+    "worldContact": [
+      64,
+      76
+    ],
+    "reviewReplayMs": 900
+  }
+}

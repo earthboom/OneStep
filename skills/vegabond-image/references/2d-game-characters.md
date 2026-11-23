@@ -18,6 +18,8 @@ For a single illustration, finish at its own acceptance check. If several delive
 
 ## Plan motion before generating more frames
 
+When the action emits a separate effect, set its trigger, anchor and lifetime on the [shared character and effect timeline](2d-effects-and-motion.md#put-the-actor-and-the-effect-on-one-clock). A landing pose can recover while its dust is still spreading.
+
 1. Name the action and the moments the player must distinguish. For a walk, mark left contact, passing, right contact and the opposite passing pose. For a jump, mark push-off, apex and landing. Use the project's state timing or cues when they exist. Decide which poses hold and whether the action loops. Match a locomotion cycle to the character's travel speed.
 2. Fix camera, character scale, facing, canvas and origin across the action. Decide whether the engine moves the character or displacement lives in the frames. Keep the lantern on the anatomical left when the character turns. Mirroring works only if the design, light and gameplay tolerate it.
 3. With a still-image generator, use the accepted pose and any available pose sketches as inputs. Generate the distinctive poses first, then edit or fill only the transitions the action needs. An artist's pose sketch can replace a failed automatic skeleton on a stylized body. For multi-view characters with many reusable motions, an existing rig or pose sequence can supply consistent views if the project has one. A generated strip or video can supply candidates. Inspect and register the selected frames before packing them.
