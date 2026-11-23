@@ -1,57 +1,57 @@
-# 요청에 충실한 이미지 생성 스킬 설계안
+# Designing an image generation skill that follows the brief
 
-2026-11-22 · OneStep 연구 및 구현 계획
+2026-11-22 · OneStep research and implementation plan
 
-Codex의 `imagegen`으로 새 이미지를 만들거나 기존 이미지를 편집하고, 결과를 사용자의 요청과 대조하는 OneStep 스킬을 제안한다. 첫 버전은 실사, 만화·일러스트, 초현실·판타지를 다룬다. **장면이 현실에서 가능한지와 화면을 어떤 매체처럼 표현할지는 각각 판단한다.** 하늘에 떠 있는 기지도 실사 같은 사진으로 그릴 수 있다. 사용자가 지정한 대상, 배치, 문구를 지키면서 원하는 표현을 구현하는 것이 목표다.
+This proposal uses Codex’s `imagegen` to create or edit an image and check it against the user’s request. The first version covers photography, comics and illustration, and surreal or fantasy scenes. **Decide separately whether the scene is physically possible and how the medium should render it.** A floating base can look like a photograph. The aim is to deliver the requested treatment while preserving the subjects, arrangement and wording the user specified.
 
-## 연구에서 가져올 설계 기준
+## Design decisions supported by the research
 
-| 자료 | 관찰과 스킬 적용 |
+| Source | Observation and application |
 | --- | --- |
-| **GenEval, T2I-CompBench++ · 생성 평가 연구** | 물체의 존재, 수량, 위치, 속성의 귀속을 개별 평가한다. 스킬도 `빨간 표시등이 두 개인가`, `탐사차가 기지 오른쪽에 있는가`처럼 필수 조건을 이미지에서 확인할 수 있는 질문으로 바꾼다. 논문에서 시험한 모델의 결과를 현재 Codex의 성능 수치로 사용하지 않는다. [GenEval](https://arxiv.org/abs/2310.11513) · [T2I-CompBench++](https://arxiv.org/abs/2307.06350) |
-| **TIFA · 이미지 질의응답 평가 연구** | 요구 사항을 질문과 기댓값으로 바꿔 부분별 충실도를 평가한다. 이 방법을 검수에 적용하되, 판독이 모호한 수량이나 작은 글자는 확대해 확인하고 애매한 결과는 미확인으로 남긴다. [TIFA](https://arxiv.org/abs/2303.11897) |
-| **GIE-Bench · 편집 평가 연구** | 요청한 변경의 성공 여부와 편집 대상 밖의 보존 여부를 각각 평가한다. 스킬도 원본과 편집본을 나란히 보고 변경 항목과 보존 항목을 각각 판정한다. [GIE-Bench](https://arxiv.org/abs/2505.11493) |
-| **PromptCharm · 사용자 연구** | 스타일 탐색, 프롬프트 조정, 부분 편집을 제공한 방식이 해당 연구의 비교 조건에서 사용자 기대에 더 가까운 결과를 냈다. 스킬에서는 구체적인 작업을 바로 진행하고, 표현 방향이 열린 작업에는 선택에 도움이 되는 소수의 방향을 제시할 수 있다. [PromptCharm](https://arxiv.org/abs/2403.04014) |
-| **OpenAI · 공식 이미지 프롬프트·생성 문서** | 용도, 구도, 눈으로 확인할 수 있는 특징, 이미지별 역할, 정확한 문구를 명시하고, 중요한 편집은 한 번에 한 쟁점씩 조정하도록 안내한다. 공식 생성 문서가 명시한 정밀 배치, 문자 선명도, 반복 등장 대상의 일관성 한계는 첫 버전의 평가 항목으로 삼는다. [프롬프트 가이드](https://developers.openai.com/api/docs/guides/image-prompting) · [생성 문서](https://developers.openai.com/api/docs/guides/image-generation#limitations) |
-| **ControlNet 논문과 Adobe Learn 제작 영상** | ControlNet은 경계선, 깊이, 포즈를 입력으로 주는 방식을 제시한다. Adobe 영상은 같은 텍스트 요청에 스케치를 추가해 배치를 유도하는 과정을 시연한다. 배치가 중요한 작업에는 스케치나 블로킹 이미지가 도움이 될 수 있다는 근거다. 각 도구의 전용 입력이나 강도 조절 기능은 지원되는 환경에서만 적용한다. [ControlNet](https://arxiv.org/abs/2302.05543) · [스케치로 구도를 잡는 영상과 대본](https://www.adobe.com/learn/firefly/web/sketch-to-ai-generated-image) |
-| **Daniel Porto의 작업 경험과 Adobe의 스케이트보드 제작 사례** | Porto는 무드보드와 직접 만든 초안으로 방향을 잡은 뒤 생성과 보정을 적용한다. Adobe의 제작자는 배치용 스케치와 스타일·색상 자료에 서로 다른 역할을 부여하고, 선택한 콘셉트를 Photoshop에서 마무리한다. 스킬에는 자료별 역할 지정과 부분 보정 경로를 둔다. 두 사례는 제작 과정의 근거로 활용한다. [Porto 인터뷰](https://www.creativebloq.com/3d/ai-has-amplified-my-20-years-of-experience-believes-concept-artist-daniel-porto) · [스케이트보드 제작 영상과 대본](https://www.adobe.com/learn/firefly/web/firefly-boards-to-photoshop-workflow) |
+| **GenEval and T2I-CompBench++, generation evaluation studies** | Evaluate object presence, count, position and attribute binding separately. Turn requirements into questions visible in the image, such as “Are there two red indicator lights?” and “Is the rover on the right of the base?” Scores for the models in the papers do not establish current Codex performance. [GenEval](https://arxiv.org/abs/2310.11513) · [T2I-CompBench++](https://arxiv.org/abs/2307.06350) |
+| **TIFA, visual question answering for evaluation** | Turn requirements into questions with expected answers and assess each part of the brief. Zoom in to count ambiguous objects or inspect small type. Record an inconclusive result as unverified. [TIFA](https://arxiv.org/abs/2303.11897) |
+| **GIE-Bench, image editing evaluation** | Score the requested change and preservation outside the edit separately. Compare the original and edited image side by side and judge each change and preservation condition. [GIE-Bench](https://arxiv.org/abs/2505.11493) |
+| **PromptCharm, user study** | Under the study’s comparison conditions, style exploration, prompt adjustment and local edits produced results closer to users’ expectations. Proceed directly on a specific brief. When the treatment is open, a few meaningfully distinct options can help the user choose. [PromptCharm](https://arxiv.org/abs/2403.04014) |
+| **OpenAI image prompting and generation documentation** | Specify use, composition, visible features, each reference’s role and exact wording. For consequential edits, address one issue at a time. Evaluate the documented limitations in precise placement, text legibility and consistency of recurring subjects in the first version. [Prompt guide](https://developers.openai.com/api/docs/guides/image-prompting) · [Generation documentation](https://developers.openai.com/api/docs/guides/image-generation#limitations) |
+| **ControlNet paper and Adobe Learn production video** | ControlNet uses inputs such as outlines, depth or pose. Adobe demonstrates adding a sketch to the same text request to guide placement. This supports trying a sketch or blocking reference when layout matters. Apply dedicated controls and strength settings only where the tool supports them. [ControlNet](https://arxiv.org/abs/2302.05543) · [Composition sketch video and transcript](https://www.adobe.com/learn/firefly/web/sketch-to-ai-generated-image) |
+| **Daniel Porto’s practice and Adobe’s skateboard design case** | Porto establishes direction with mood boards and his own rough designs before generation and retouching. Adobe’s artist assigns separate roles to layout sketches and style/color references, then finishes the selected concept in Photoshop. These accounts support explicit reference roles and a path for local corrections. [Porto interview](https://www.creativebloq.com/3d/ai-has-amplified-my-20-years-of-experience-believes-concept-artist-daniel-porto) · [Skateboard production video and transcript](https://www.adobe.com/learn/firefly/web/firefly-boards-to-photoshop-workflow) |
 
-## 스킬 구성 비교와 제안
+## Skill structure and trade-offs
 
-| 방식 | 얻는 것 | 비용 |
+| Approach | Benefit | Cost |
 | --- | --- | --- |
-| 기본 `imagegen`에 요청별 예시를 모아 사용 | 기존 작업 흐름을 그대로 활용하고 빠르게 시작한다. | 배치, 원문, 보존 실패를 어떤 기준으로 발견하고 고칠지 매 작업에서 판단해야 한다. |
-| **OneStep 이미지 스킬 하나에서 요청 해석, 검수, 재작업을 담당** | 실사·만화·초현실이 공통 절차를 쓰고 표현별 참고 자료를 필요한 경우에 펼칠 수 있다. 기존 `imagegen`의 생성·편집 절차를 그대로 활용한다. | 간단한 요청에도 긴 양식을 적용하면 시간이 늘어난다. 필수 조건 수와 실패의 영향에 따라 확인 범위를 조절해야 한다. |
-| 생성 도구별 절차와 연결 기능을 처음부터 개발 | 마스크, 포즈, 깊이, 글자 합성 등 각 환경의 제어 방식을 직접 활용할 수 있다. | 제공 기능과 매개변수가 도구마다 달라 검증 범위와 유지 비용이 커진다. |
+| Collect examples by request type for the default `imagegen` | Quick start using the existing workflow. | Each job needs its own decisions about detecting and repairing failures in placement, exact wording and preservation. |
+| **Use one OneStep image skill to interpret, review and revise** | Photography, comics and surreal scenes share a process with treatment-specific references available as needed. Reuses the existing `imagegen` generation and editing workflow. | Applying a long form to a simple request takes time. Scale checks to the number of mandatory conditions and the consequences of failure. |
+| Build tool-specific procedures and integrations from the start | Direct access to controls such as masks, pose, depth and text compositing. | Features and parameters vary across tools, increasing maintenance and verification costs. |
 
-두 번째 방식을 첫 버전으로 제안한다. 문서에서 정리한 조건과 실제 검수 절차를 먼저 비교 평가하면, 전용 기능이 필요한 실패를 확인한 뒤 도구를 추가할 수 있다.
+Adopt the second approach for the first version. Comparing the documented requirements and review process in practice will identify failures that justify a dedicated tool.
 
-## 이미지 한 장을 만드는 절차
+## Producing one image
 
-1. **요청을 읽고 합격 조건을 정한다.** 용도와 출력, 주 피사체, 필수 수량·위치·문구, 피해야 할 요소, 편집 시 보존할 부분을 찾는다. 표현 방식과 분위기는 선호 또는 위임 사항으로 기록하되, 사용자가 명시한 스타일은 필수 조건에 넣는다. 간단한 요청은 내부 메모 몇 줄이면 충분하다. 누락이나 충돌이 산출물을 크게 바꿀 때만 한 가지를 확인한다.
-2. **표현과 참조의 역할을 지정한다.** `이미지 1은 인물의 얼굴과 헤어스타일`, `이미지 2는 샷의 배치`, `이미지 3은 색감과 붓질`처럼 입력이 각자 전달할 정보를 명시한다. 원본을 일부 바꾸는 요청이면 변경 대상과 보존 대상도 적는다. 위치의 정확도가 중요하고 글만으로 관계를 설명하기 어렵다면 스케치나 레이아웃 참조를 이용한다.
-3. **생성하거나 편집한다.** 첫 버전의 실행 도구는 Codex 기본 `imagegen`으로 가정한다. 명확한 요청은 첫 후보를 바로 만든다. 표현 방향이 열려 있고 선택에 실익이 있으면 핵심 조건을 공유하고 차이가 분명한 소수의 방향을 만든다. 기존 이미지의 부분 수정이면 원본이나 마지막으로 합격한 버전을 편집 기준으로 쓴다.
-4. **이미지와 파일을 검사한다.** 사전에 적은 필수 조건을 각각 `충족 / 실패 / 미확인`으로 판정한다. 방향은 보는 사람 기준인지 피사체 기준인지 먼저 정의한다. 사진의 광원, 만화의 동작 가독성, 초현실 장면의 시각적 규칙처럼 스타일별 품질도 점검한다. 실제 파일에서 필요한 크기, 비율, 포맷, 알파 채널을 검사한다. 문구는 확대해 원문과 줄바꿈·띄어쓰기·문장부호까지 비교한다. OCR은 보조로 쓴다.
-5. **실패 원인에 맞춰 수정한다.** 전체 프레이밍이나 장면 해석이 어긋났으면 구성 지시나 레이아웃 참조를 바꿔 다시 생성한다. 일부만 어긋났으면 그 부분을 편집하고 방금 통과한 조건을 함께 확인한다. 포스터의 문구처럼 문자를 기계적으로 정확히 넣을 수 있고 산출물 형식이 허용한다면, 글자 자리를 확보한 이미지에 텍스트를 배치한다. 편집 가능한 원본이 필요하면 텍스트 레이어를 제공한다. 간판처럼 원근과 질감이 섞인 글자는 수정 뒤 통합 상태를 검사한다. 필수 조건이 해결되지 않으면 미충족 항목을 결과에 명시한다. [GPT Image 편집 안내](https://developers.openai.com/api/docs/guides/image-prompting) · [Photoshop 텍스트 레이어](https://helpx.adobe.com/photoshop/desktop/text-typography/type-layers-creation/type-layers-in-photoshop.html)
+1. **Read the request and define acceptance.** Identify use and output, main subject, required counts, positions and wording, exclusions, and what an edit must preserve. Record preferences and delegated choices for treatment and mood. An explicitly specified style is mandatory. A few internal notes suffice for a simple request. Ask one focused question only when a conflict or omission would materially change delivery.
+2. **Assign treatments and reference roles.** For example, image 1 defines face and hair, image 2 the shot layout, and image 3 the colors and brushwork. For a partial edit, record what changes and what stays. Use a sketch or layout reference when position is critical and the relationships are hard to describe.
+3. **Generate or edit.** Assume the built-in Codex `imagegen` as the first execution tool. Generate the first candidate directly for a clear request. If the treatment is open and a choice would help, generate a few distinct directions sharing the same core constraints. Use the original or last accepted image as the base for a local edit.
+4. **Inspect the image and file.** Mark each mandatory condition met, failed or unverified. Establish whether left and right refer to the viewer or the subject. Check lighting in a photograph, action readability in a comic, and visual rules in a surreal scene. Inspect the file’s dimensions, aspect ratio, format and alpha channel. Enlarge text and compare line breaks, spaces and punctuation to the requested original. OCR can assist.
+5. **Match the repair to the failure.** For global framing or scene interpretation, revise the composition or layout reference and regenerate. Edit a local defect and recheck the conditions that just passed. If the format permits exact typesetting, reserve space for text such as poster copy and add it mechanically. Supply a text layer when an editable original is required. Inspect how perspective and surface texture integrate text on signs after a repair. Disclose any unmet mandatory conditions. [GPT Image editing guidance](https://developers.openai.com/api/docs/guides/image-prompting) · [Photoshop type layers](https://helpx.adobe.com/photoshop/desktop/text-typography/type-layers-creation/type-layers-in-photoshop.html)
 
-정확한 픽셀 크기를 도구가 바로 지원하지 않으면, 중요한 요소를 자르지 않도록 여백을 확보한 뒤 출력 크기를 맞추고 배치를 다시 확인한다. 투명 PNG는 알파 채널의 존재와 배경 영역 픽셀의 실제 투명도를 모두 확인한다.
+When the tool cannot produce the exact pixel dimensions directly, leave sufficient margin, size the output, and inspect placement again. For a transparent PNG, check both the presence of an alpha channel and actual transparency of background pixels.
 
-## 스타일별로 바꿔 적을 내용
+## Instructions that change with style
 
-다음 세 요청은 같은 장면을 쓴다. 공통 조건은 가로 16:9, 화면 왼쪽의 돔형 달 기지 한 개, 오른쪽의 탐사차 한 대, 기지 입구에 빨간 표시등 정확히 두 개, 문구 없음이다. 스타일마다 달라지는 요소만 프롬프트에 추가한다.
+All three briefs use a 16:9 landscape frame, exactly one domed lunar base on screen left, one rover on the right, exactly two red indicator lights at the entrance, and no text. Add only the instructions that distinguish the treatment.
 
-| 표현 | 추가할 지시 예 | 화면에서 확인할 항목 |
+| Treatment | Example addition | What to inspect |
 | --- | --- | --- |
-| **실사적** | 지면 가까이에서 찍은 우주 기관의 기록 사진. 왼쪽에서 들어오는 강한 햇빛, 달 먼지의 입자와 금속의 사용 흔적. | 카메라 높이, 광원과 그림자 방향, 표면 질감. 렌즈 표현은 원하는 화각과 거리감을 전달할 때 쓴다. [Nikon 화각과 초점거리](https://www.nikon.co.uk/en_GB/learn-and-explore/magazine/tips-and-tricks/what-is-focal-length-in-photography-a-guide-for-beginners) · [OpenAI 사진 프롬프트](https://developers.openai.com/api/docs/guides/image-prompting) |
-| **만화적** | 2D 모험 만화 한 컷. 굵은 외곽선, 두 단계 셀 명암, 작은 화면에서도 구분되는 돔과 탐사차의 형태. | 실루엣, 시선이 먼저 닿는 대상, 선과 명암의 일관성. 연속 컷이면 표정과 옷, 소품의 연속성도 본다. [Animation Mentor의 스테이징 시연](https://www.animationmentor.com/blog/tutorial-use-character-staging-to-guide-viewer-focus/) |
-| **초현실적** | 잔잔한 사실주의 유화. 돔은 달 표면 바로 위에 떠 있고, 탐사차와 먼지는 지면에 붙어 있다. 돔 아래의 그림자로 떠 있는 간격을 보여 준다. | 의도한 불가능한 관계가 명확히 보이는지, 그 밖의 공간 단서가 화면 안에서 일관되는지. 유화의 질감도 확인한다. [MoMA 초현실주의 자료](https://www.moma.org/collection/terms/surrealism/surrealist-objects-and-assemblage) |
+| **Photographic** | A space agency’s documentary photograph taken close to the surface. Hard sunlight from the left, granular lunar dust and signs of wear on metal. | Camera height, light and shadow directions, and surface texture. Use lens descriptions when they communicate the desired field of view and sense of distance. [Nikon on field of view and focal length](https://www.nikon.co.uk/en_GB/learn-and-explore/magazine/tips-and-tricks/what-is-focal-length-in-photography-a-guide-for-beginners) · [OpenAI photographic prompts](https://developers.openai.com/api/docs/guides/image-prompting) |
+| **Comic** | A panel from a 2D adventure comic. Bold outlines, two-step cel shading, and a dome and rover that remain distinct on a small screen. | Silhouettes, first point of attention, and consistency of line and shading. For consecutive panels, also inspect expressions, clothing and props across cuts. [Animation Mentor staging demonstration](https://www.animationmentor.com/blog/tutorial-use-character-staging-to-guide-viewer-focus/) |
+| **Surreal** | A quiet, realistically rendered oil painting. The dome floats just above the lunar surface while the rover and dust stay grounded. Show the gap with a shadow beneath the dome. | The intended impossible relationship should be legible and the remaining spatial cues internally consistent. Inspect the oil texture as well. [MoMA on Surrealism](https://www.moma.org/collection/terms/surrealism/surrealist-objects-and-assemblage) |
 
-## 구현과 비교 평가 순서
+## Implementation and comparative evaluation
 
-1. **스킬 초안.** `skills/vegabond-image/SKILL.md`에 호출 조건, 새 이미지와 편집의 분기, 요청별 검수·수정 규칙을 담는다. 처음에는 방식별 사례와 결과 판정표만 필요할 때 읽는 참고 파일로 둔다. OneStep 관례에 따라 영어 스킬을 기준으로 두고 한국어 설명은 `SKILL.kr.md`로 제공한다. Scout가 이미지 생성·편집에 이 스킬을 선택하고, 기본 `imagegen`이 실제 도구 호출을 담당하게 한다.
-2. **12개 사례를 고정한다.** 위 달 기지 3개에 간단한 개방형 요청, 다중 피사체의 수량과 색상 귀속, 한글 포스터 원문, 정확한 크기의 투명 PNG, 스케치 기반 배치, 동일 캐릭터의 두 장면, 구도와 스타일 참조가 다른 복수 참조, 배경만 교체하는 편집, 의상색만 교체하는 편집을 더한다. 사례마다 입력 원본, 필수 체크, 스타일의 관찰 기준, 허용 편차를 실행 전에 적는다. 예를 들어 `정확히 두 개`는 두 표시등이 분리되어 보여야 통과한다. 포스터의 `달 기지에 오신 것을 환영합니다!`는 띄어쓰기와 느낌표가 맞아야 통과한다. 의상색 편집은 지정된 색으로 바뀌었는지, 얼굴·포즈·프레이밍을 보존했는지 각각 확인한다.
-3. **같은 조건에서 비교한다.** 기본 `imagegen` 워크플로와 새 스킬을 같은 사용자 요청, 원본, 실행 환경, 작업별 호출 예산으로 각각 두 번 실행한다. 각 비교는 독립 세션에서 시작한다. 동일 캐릭터의 두 장면처럼 이미지가 여러 장 필요한 작업에는 양쪽에 같은 예산을 둔다. 12개 사례에서 총 48회의 작업을 평가하고 필요한 생성·편집 호출 수는 별도로 센다. 평가할 때는 어느 경로의 결과인지 가리고, 미확인은 합격 수에 넣지 않는다.
-4. **첫 결과와 수정 뒤 결과를 각각 채점한다.** 필수 조건을 전부 충족한 작업 비율, 글자·배치·보존 항목의 실패 수, 수정 호출 수를 비교한다. 스타일은 사전 정의한 관찰 항목으로 보고, 주관적인 완성도는 사람이 두 후보를 나란히 보며 판정한다. 결과에는 요청과 체크 항목, 실제 프롬프트, 참조 역할, 이미지, 환경, 판정 근거를 남긴다.
-5. **채택 여부를 정한다.** 초기 기준으로 최종 필수 조건 합격 건수가 기본 흐름보다 늘고, 한글 원문·원본 보존 같은 중요 사례에서 기본 흐름이 통과한 조건의 회귀가 없으며, 수정 호출 중앙값이 늘지 않는지 본다. 항목별 개선과 회귀를 함께 보고, 소규모 평가에서 차이가 애매하면 차이를 가를 사례를 추가한다. 두 경로의 차이가 실용적으로 작다면 효과가 확인된 검수 규칙을 OneStep에서 활용하는 것으로 범위를 줄인다.
+1. **Draft the skill.** Put invocation conditions, the generation/editing decision, and request-specific inspection and repair rules in `skills/vegabond-image/SKILL.md`. Initially keep treatment examples and score sheets in on-demand references. Follow the OneStep convention of canonical English guidance and human-readable Korean in `SKILL.kr.md`. Scout selects the skill for generation or editing, and the built-in `imagegen` makes the tool call.
+2. **Fix the 12 cases before running.** Add nine cases to the three lunar-base briefs: a simple open request, counts and color binding across multiple subjects, exact Korean poster copy, a transparent PNG of exact dimensions, a sketch-driven layout, two scenes with the same character, multiple references with different layout and style roles, a background-only edit, and a clothing-color-only edit. Record inputs, mandatory checks, observable style criteria and tolerances in advance. “Exactly two” requires two individually distinguishable lights. The poster must reproduce `달 기지에 오신 것을 환영합니다!` with its spaces and exclamation mark. For the clothing edit, score the color change and preservation of face, pose and framing separately.
+3. **Compare under matched conditions.** Run the default `imagegen` workflow and the proposed skill twice each with the same user request, inputs, environment and per-task call budget. Start each comparison in independent sessions. Match the budget even for multi-image jobs such as two scenes with one character. Evaluate 48 jobs across the 12 cases and count generation and edit calls separately. Blind the evaluator to the workflow and exclude unverified conditions from passes.
+4. **Score the first and repaired results separately.** Compare the share of jobs meeting all mandatory conditions, text/placement/preservation failures and repair calls. Judge style against the predefined visible features. Have a person compare candidates side by side for subjective finish. Retain requests, checks, actual prompts, reference roles, images, environment and reasons for each decision.
+5. **Decide whether to adopt.** The initial criteria are more final jobs passing every mandatory condition, no regression on conditions the baseline passed in critical cases such as Korean wording and preservation, and no increase in median repair calls. Report improvements and regressions by condition. If this small evaluation is inconclusive, add discriminating cases. If practical differences are small, narrow the scope to the review rules that demonstrated value in OneStep.
 
-현재 단계의 산출물은 조사와 설계안이다. 스킬 파일 작성과 실제 이미지 비교는 위 구현 단계에서 진행하며, 품질 개선 여부는 해당 결과로 판단한다.
+This stage delivers research and a design proposal. Implementation and image comparison follow the steps above. The observed results will determine whether quality improved.

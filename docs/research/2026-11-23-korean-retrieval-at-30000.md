@@ -1,117 +1,117 @@
-# 한국어로 다시 물어본 지식·문제 검색 3만 건 실험
+# Retrieving knowledge and incidents with Korean paraphrases across 30,000 records
 
-## 어떤 질문을 정답으로 봤나
+## Which questions counted as correct?
 
-같은 날짜의 정본 172건에 합성 문서 29,828건을 더했다. 합성 지식과 문제 기록은 각각 14,914건이다. 카메라 벽 잘림, 후진 주차 경고음, 음악 음량 측정, 작업자 재시작 등 12개 주제에서 부품 번호와 본문이 다른 문서를 생성했다. 두 저장소 모두 실제 Markdown과 메타데이터 검사를 거친다. 한국어 번역 파일은 존재 확인용 빈 파일로 재현했다. 실사용 저장소와 원본 증빙에는 평가용 문서를 넣지 않았다.
+We added 29,828 synthetic documents to the 172 canonical records from the same date. There were 14,914 synthetic knowledge records and 14,914 synthetic incident records. Across 12 topics, including camera clipping through walls, reverse-parking warnings, music loudness measurement, and worker restarts, we generated documents with distinct part numbers and body text. Both stores go through actual Markdown and metadata validation. Empty files represented Korean translations for existence checks. The production stores and original evidence received no evaluation documents.
 
-정답과 결과 개수는 검색기를 고치기 전에 고정했다. 세 주제에 한국어 질문을 세 가지씩 만들고, 저장소나 도메인을 지정하지 않은 전체 검색에서 목표 문서가 상위 3개에 드는지 확인했다. 나머지 5개는 정확한 기술명·사건 ID, 비슷한 주제지만 원인이 다른 합성 문서 두 건, 없는 식별자였다. 인접 질문에는 실제로 찾아야 할 문서와 상위에 들어오면 안 되는 사건을 함께 지정했다. [질문·정답·반례](../../skills/vegabond-knowledge/tests/scale_korean_cases.json)
+We fixed the expected answers and result counts before changing the search implementation. For each of three topics we wrote three Korean questions and checked whether the target document appeared in the top three in an unrestricted search with no store or domain specified. The other five covered an exact technical name, an incident ID, two synthetic documents with similar topics but different causes, and a nonexistent identifier. For neighboring questions we specified both the document to find and the incident to exclude from the top results. [Questions, expected answers, and counterexamples](../../skills/vegabond-knowledge/tests/scale_korean_cases.json)
 
-변경 전에는 “뒤로 달리면 시점이 주인공을 앞질러요”와 “뒷걸음치자 화면이 몸체 앞쪽으로 넘어간다”가 모두 빈 결과였다. “배경음 멈춤을 연달아 눌렀더니 다음 재생이 늦어진다”는 검색 결과가 있어도 중복 중단 사건을 놓쳤다. 작은 저장소에서 3위였던 “후진할 때 카메라가 캐릭터보다 앞으로 튀어나와요”도 유사 문서를 넣자 상위 3개에서 밀렸다.
+Before the change, the Korean inputs “뒤로 달리면 시점이 주인공을 앞질러요” (when I run backward, the camera overtakes the character) and “뒷걸음치자 화면이 몸체 앞쪽으로 넘어간다” (when I stepped backward, the view moved in front of the body) both returned nothing. The query “배경음 멈춤을 연달아 눌렀더니 다음 재생이 늦어진다” (pressing background-music stop repeatedly delays the next playback) returned results but missed the duplicate-stop incident. The query “후진할 때 카메라가 캐릭터보다 앞으로 튀어나와요” (when reversing, the camera jumps ahead of the character) ranked the correct result third in the small store, then lost it from the top three when similar documents were introduced.
 
-검색기는 후진·시점·앞지름이 함께 나타나면 고정 방향 카메라의 위치 보정 용어를, 오디오·중단·반복·다시 재생이 함께 나타나면 중복 중단 용어를 찾는다. 내부 표현·호출자·변경 독립성이 함께 나타나면 정보 은닉을 찾는다. 조건 조합으로 복원한 복합 용어에는 사용자가 직접 입력한 복합 용어와 같은 가중치를 준다. 확장에 사용한 표현을 결과에서 확인할 수 있고 특정 문서 ID로 연결되는 규칙은 없다.
+When reversing, viewpoint, and overtaking appear together, the search looks for position-correction terminology for a fixed-direction camera. When audio, stop, repetition, and playing again appear together, it looks for duplicate-stop terms. When internal representation, caller, and independence of change appear together, it looks for information hiding. Compound terms recovered by these combinations receive the same weight as explicitly entered compound terms. The results expose the terms used for expansion. No rule maps to a specific document ID.
 
-## 결과
+## Results
 
-Windows 빌드 26300, Python 3.12.3, PyYAML 6.0.3에서 두 검색기를 같은 디렉터리에 순서대로 적용했다. 아래는 프로세스 시작부터 결과를 받고 종료할 때까지의 시간이다. 최초 색인은 두 버전 모두 30,000건을 읽었으며 이후 재검색은 정본을 다시 읽은 건수가 0이었다.
+On Windows build 26300, Python 3.12.3, and PyYAML 6.0.3, we ran both search implementations sequentially on the same directory. Times below run from process startup through result receipt and exit. Both versions read 30,000 records for the initial index. Subsequent searches reread zero canonical records.
 
-| 3만 건, 동일 질문·문서 | 변경 전 | 변경 후 |
+| 30,000 records, identical questions and documents | Before | After |
 | --- | ---: | ---: |
-| 한국어 바꿔쓰기 정답이 3위 이내 | 3/9 | 9/9 |
-| 한국어 바꿔쓰기 정답이 1위 | 1/9 | 8/9 |
-| 식별자·오답·빈 결과 포함 전체 판정 | 8/14 | 14/14 |
-| 정답이 지정된 13문항의 첫 정답 평균 역순위 | 0.4487 | 0.9615 |
-| 최초 색인과 사건 ID 검색 | 383.93초 | 212.49초 |
-| 기존 색인으로 사건 ID 검색 | 47.33초 | 3.30초 |
-| 기존 색인으로 ‘카메라’ 검색 (2,518건 일치) | 28.46초 | 3.75초 |
-| 기존 색인으로 ‘뒤로 달리면 시점이 주인공을 앞질러요’ 검색 | 49.42초 | 4.13초 |
-| 한 문서 수정 후 새 본문 표현으로 검색 | 61.74초 | 3.50초 |
+| Correct result in top three for Korean paraphrases | 3/9 | 9/9 |
+| Correct result ranked first for Korean paraphrases | 1/9 | 8/9 |
+| Overall judgments, including identifiers, distractors, and empty results | 8/14 | 14/14 |
+| Mean reciprocal rank of the first correct result for the 13 questions with designated answers | 0.4487 | 0.9615 |
+| Initial indexing and incident ID lookup | 383.93 s | 212.49 s |
+| Incident ID lookup using existing index | 47.33 s | 3.30 s |
+| Existing-index lookup for Korean input ‘카메라’ (camera, 2,518 matches) | 28.46 s | 3.75 s |
+| Existing-index lookup for Korean input ‘뒤로 달리면 시점이 주인공을 앞질러요’ | 49.42 s | 4.13 s |
+| Search for a new phrase after editing one document | 61.74 s | 3.50 s |
 
-카메라 사례는 세 표현 모두 1위가 됐다. 음악과 모듈 경계까지 합치면 2위에 머문 질문은 “곡을 끄고 또 껐더니 재생을 다시 눌러도 한 박자 늦게 시작해” 하나였다. 이때 1위는 게임 음악 지식 문서였다. 카메라 벽 잘림과 음량 보정 질문에서는 각각 해당 합성 정답을 1위로 반환했고 금지한 사건은 상위 3개에 없었다. 수정 시험에서는 정본 한 건만 다시 읽고 새 본문 표현으로 그 문서 한 건을 찾았다.
+All three camera formulations placed the target first. Across the camera, music, and module-boundary cases, the only question that placed it second was the Korean input “곡을 끄고 또 껐더니 재생을 다시 눌러도 한 박자 늦게 시작해” (after stopping the track twice, pressing play again starts it a beat late). The game music knowledge document ranked first. Questions on camera clipping through walls and loudness calibration both ranked their respective synthetic answers first, with the forbidden incident absent from the top three. In the edit test, the helper reread just one canonical file, and searching the new phrase found that document alone.
 
-파일을 열거할 때 디렉터리 항목에서 수정 시각과 크기를 얻어 캐시와 비교한다. 일치할 수 없는 검색어는 필드별 경계 검사 전에 거르고, 캐시를 교체할 때는 행 단위로 JSON을 기록한다. 개별 검색 3회의 개선 후 색인 준비 시간은 1.94~2.50초였다. 변경 전후의 각 명령은 1회씩 실행했고 OS 파일 캐시는 비우지 않았다. 측정 일부가 회귀 테스트 실행과 겹쳐 표의 실행 시간 차이에는 기기 부하도 포함된다.
+During file enumeration the helper obtains modification time and size from directory entries and compares them with the cache. It filters out terms that cannot match before checking field boundaries, and writes JSON row by row when replacing the cache. Across three individual searches, index preparation after the improvement took 1.94–2.50 seconds. We ran each command once per version without clearing the OS file cache. Some measurements overlapped with regression tests, so machine load contributed to the timing differences in the table.
 
-**50개 질문을 개별 명령으로 실행한 결과.** 앞의 14개, 추가 표현 3개와 유사 증상 대조 3개, 기존 평가 묶음에서 고정 시드로 고른 30개를 사용했다. 서로 다른 50개 모두 지정한 판정을 통과했고 정본 재읽기는 0건이었다. 중앙값은 **3.97초**, P95는 **5.64초**(빠른 순서로 48번째), 범위는 **2.22~8.44초**였다. 프로젝트가 제안한 P95 2초 기준을 넘었다. 세 개별 조회를 `--query`로 묶어 한 번 호출하면 동일한 결과 ID와 순서를 얻는 데 **3.95초**가 걸렸다. 개별 세 번의 합은 **11.17초**였다. [프로젝트 측정 기준](../../skills/vegabond-knowledge/references/search-scale.md)
+**Results from 50 questions run as individual commands.** We used the 14 questions above, three additional formulations and three controls with similar symptoms, and 30 questions selected from existing evaluation sets using a fixed seed. All 50 distinct questions passed their specified judgments, with zero canonical rereads. Median time was **3.97 seconds**, P95 was **5.64 seconds** (48th fastest), and the range was **2.22–8.44 seconds**. P95 exceeded the project's proposed two-second target. Combining three individual lookups with `--query` returned the same IDs in the same order in **3.95 seconds**. The three individual runs totaled **11.17 seconds**. [Project measurement criteria](../../skills/vegabond-knowledge/references/search-scale.md)
 
-추가 한국어 표현 3개에서는 해당 사건·지식이 모두 1위였다. 유사 증상 대조는 잘못된 개념 확장이 발생하는지를 검사했다. 예를 들어 “음악 재생을 두 번 누르면 곡이 처음으로 돌아가요”는 중복 중단 규칙을 작동시키지 않았지만 음악 주제가 겹치는 중복 중단 사건이 2위에 나타났다. 따라서 이 검사 통과를 모든 차순위 결과의 정확도로 해석할 수 없다.
+The relevant incident or knowledge record ranked first for each of the three extra Korean formulations. The similar-symptom controls tested for incorrect concept expansion. For example, the Korean input “음악 재생을 두 번 누르면 곡이 처음으로 돌아가요” (pressing play twice returns the song to the beginning) did not activate the duplicate-stop rule. Nevertheless, the duplicate-stop incident ranked second because the music topic overlapped. Passing this check does not establish the accuracy of every lower-ranked result.
 
-기존 7개 평가 파일의 223개 사례도 3만 건에서 모두 통과했고 지정한 필수 ID 회수율은 100%, 금지 ID 노출은 0건이었다. 이 집계에는 평가 파일끼리 중복되는 사례가 있다. 작은 실사용 저장소에서도 223개 모두 통과했다. 지식 도우미 테스트 94개와 배포본 테스트 5개를 확인했다. 도우미 테스트 중 Windows 접합점을 만드는 두 개는 샌드박스가 생성을 차단하여 해당 두 테스트를 별도로 재실행했다.
+All 223 cases from the seven existing evaluation files also passed at 30,000 records, with 100% recall of designated required IDs and zero forbidden IDs exposed. Some cases overlap between evaluation files. All 223 also passed on the small production store. We verified 94 knowledge helper tests and five distribution tests. The sandbox blocked junction creation in two Windows helper tests, so we reran those two separately.
 
-## 같은 코퍼스에서 전체 색인 준비를 줄인 후속 실험
+## Follow-up experiment reducing full-index preparation on the same corpus
 
-같은 3만 건과 같은 순서의 질문 50개를 사용했다. 이전 JSON 캐시와 새 SQLite 색인의 문서 경로·정본 SHA-256 쌍 30,000개가 모두 일치했다. 검색 옵션과 판정 파일은 그대로 두고 질문마다 독립된 Python 프로세스를 실행했다. 출력 수신과 프로세스 종료까지 시간을 쟀으며, P95는 오름차순 48번째 값이다. 각 정식 측정에서 색인은 미리 구축했고 정본 재읽기는 0건이었다. [질문별 결과 ID·시간 및 집계](2026-11-23-indexed-search-measurements.json)
+We used the same 30,000 records and 50 questions in the same order. All 30,000 document-path and canonical SHA-256 pairs agreed between the previous JSON cache and the new SQLite index. With the search options and judgment file held constant, we ran an independent Python process for each question and timed through output receipt and process exit. P95 is the 48th value in ascending order. The index was prebuilt for each formal measurement, with zero canonical rereads. [Per-query result IDs, timings, and aggregates](2026-11-23-indexed-search-measurements.json)
 
-| 개별 검색 50건 | 중앙값 | P95 | 최대 | 2초 이내 |
+| 50 individual searches | Median | P95 | Maximum | Within 2 seconds |
 | --- | ---: | ---: | ---: | ---: |
-| 이전 실험에서의 JSON 검색기 | 3.968초 | 5.641초 | 8.435초 | 0/50 |
-| 이번 환경에서 다시 실행한 동일 JSON 검색기 | 2.160초 | 3.213초 | 3.669초 | 6/50 |
-| SQLite 적용 | 0.425초 | **0.527초** | 1.495초 | **50/50** |
-| SQLite 재측정 | 0.379초 | **0.448초** | 1.356초 | **50/50** |
+| JSON search in the earlier experiment | 3.968 s | 5.641 s | 8.435 s | 0/50 |
+| Same JSON search rerun in this environment | 2.160 s | 3.213 s | 3.669 s | 6/50 |
+| SQLite | 0.425 s | **0.527 s** | 1.495 s | **50/50** |
+| SQLite repeat measurement | 0.379 s | **0.448 s** | 1.356 s | **50/50** |
 
-이전 버전의 재측정값도 과거값보다 낮아, 개선 폭을 계산할 때는 같은 실험의 대조군 3.213초와 비교한다. 색인 준비 시간 중앙값은 1.816초에서 0.211초로 줄었다. 파일명·크기·수정 시각 열거 비용은 여전히 파일 수에 비례한다. 검색은 영속 색인에서 해당 용어의 후보만 읽으며, 범위가 넓은 질문은 여전히 많은 문서를 채점할 수 있다.
+The old version also ran faster in the repeat measurement. Use the concurrent experiment's control value of 3.213 seconds to calculate the improvement. Median index preparation dropped from 1.816 to 0.211 seconds. Enumerating filenames, sizes, and modification times still costs time proportional to the file count. Search reads only candidates for the relevant terms from the persistent index, though broad questions may still score many documents.
 
-모든 측정에서 50문항의 표시 ID와 순서가 일치했다. 기존 한국어 바꿔쓰기 9개의 결과는 1위 8개, 2위 1개였다. 추가 표현 3개도 모두 1위였다. 별도의 기존 회귀 223건도 통과했다. 한 문서의 본문을 수정한 뒤 그 표현을 조회하는 데 0.626초가 걸렸고 정본을 한 건만 읽었다. 임시 문서를 추가하자 다음 조회에서 30,001건 중 해당 문서를 찾았고, 삭제 후 다음 조회에서는 30,000건으로 돌아오고 해당 표현의 결과가 사라졌다.
+The displayed IDs and order for all 50 questions agreed across all measurements. Among the original nine Korean paraphrases, eight ranked the target first and one second. All three additional formulations ranked it first. The separate set of 223 existing regression cases also passed. Searching a new expression after editing one document took 0.626 seconds and reread one canonical file. After adding a temporary document, the next query found it among 30,001 records. After deletion, the next query returned to 30,000 records and the expression no longer produced a result.
 
-최초 개발 실행에서 색인 준비는 약 106초였다. 개발 중 스키마가 바뀌어 한 질문에서 3만 건을 다시 읽은 예비 50회 측정은 P95 2.287초였다. 위 표는 색인이 준비된 상태에서 시작한 실행만 집계했다. 측정 사이에 OS 파일 캐시는 비우지 않았다. 서로 다른 실사용 주제 3만 건이나 동시 사용자 부하에서의 P95는 측정하지 않았다.
+Initial index preparation in a development run took approximately 106 seconds. In a preliminary 50-run measurement, a schema change during development caused one question to reread all 30,000 records, and P95 was 2.287 seconds. The table includes only runs that started with the index ready. We did not clear the OS file cache between measurements or measure P95 on 30,000 distinct real-world topics or under concurrent user load.
 
-## 빈 SQLite 색인의 최초 구축
+## Building an empty SQLite index for the first time
 
-같은 디렉터리의 정본 30,000개를 사용했다. 실행 전마다 기존 SQLite 파일을 실험 폴더로 옮기고, 일반 검색 명령에서 사건 ID 하나를 조회했다. 모든 구축 결과에서 `index.backend=sqlite`, `read_files=30000`, `cached_files=0`을 확인했다. 구축 시간은 도우미의 색인 준비 구간이다. 별도로 기록한 전체 경과 시간에는 Python 시작, 첫 질문의 검색·출처 표시, 프로세스 종료까지 포함된다. OS 파일 캐시는 비우지 않았다. [구축 회차 및 질문별 원시 측정](2026-11-23-cold-index-measurements.json)
+We used the 30,000 canonical files in the same directory. Before each run we moved the existing SQLite file into an experiment folder and looked up a single incident ID through the ordinary search command. Every build reported `index.backend=sqlite`, `read_files=30000`, and `cached_files=0`. Build time covers the helper's index-preparation phase. Separately reported wall time also includes Python startup, searching and displaying sources for the first question, and process exit. We did not clear the OS file cache. [Raw measurements by build and question](2026-11-23-cold-index-measurements.json)
 
-기존 버전에서 실제 정본 172개와 합성 표본을 포함한 1,663개로 계측했다. 전체 3.95초 중 경로 확인이 1.72초, YAML 해석이 0.96초였다. 한 문서의 경로 검증 결과를 문서 식별에도 사용하고, PyYAML에 C 파서가 있으면 같은 안전 생성자와 중복 키 검사를 적용해 사용한다. 1,000건 이상을 읽을 때는 작업자 8개가 32건씩 검사한다. 각 작업자는 별도 검증 상태를 사용한다. 한 번에 최대 256건을 준비하고 SQLite에는 정본 순서로 기록한다. 배치를 넘는 중복 ID와 누락된 관계도 커밋 전에 검사한다.
+We instrumented the previous version on 1,663 records including 172 real canonical records and a synthetic sample. Of 3.95 seconds total, path checks took 1.72 seconds and YAML parsing 0.96 seconds. The revised helper reuses each document's path-validation result to identify the document. When PyYAML has a C parser, it uses that parser with the same safe constructor and duplicate-key checks. When reading at least 1,000 records, eight workers check batches of 32, each with independent validation state. At most 256 records are prepared at a time and written to SQLite in canonical order. The helper also checks for duplicate IDs across batches and missing relations before committing.
 
-기존 버전을 이번 환경에서 다시 구축한 두 값은 **70.29초와 364.05초**였다. 경로·YAML 처리만 개선한 중간 버전은 **52.64초**, 병렬 읽기까지 적용한 첫 두 실행은 **28.84초와 25.01초**였다. 이전 실험에서는 106.19초가 기록됐다. 기기 부하와 OS 캐시를 통제하지 않았으므로 이 값들로 고정된 배속을 추정하지 않는다.
+The two rebuilds of the previous version in this environment took **70.29 and 364.05 seconds**. The intermediate version with only path and YAML improvements took **52.64 seconds**. The first two runs with parallel reads took **28.84 and 25.01 seconds**. The earlier experiment recorded 106.19 seconds. Machine load and OS caching were uncontrolled, so these values cannot establish a fixed speedup.
 
-구축만 고친 단계에서 50개 질문의 개별 검색 P95는 **1.867초와 2.073초**였다. 두 번째 측정이 2초를 넘었다. 복합 ID의 후보를 고를 때 단어를 최대 세 개까지 함께 확인하도록 수정했다. 정확한 `R-CODE-UE-MUSIC-STOP` 조회에서 읽는 후보가 **2,494건에서 2건**으로 줄었다. 모든 후보의 본문 지문이 서로 다르면 중복 본문을 다시 묶는 작업도 생략한다.
+With improvements only to building, individual-search P95 across the 50 questions was **1.867 and 2.073 seconds**. The second measurement exceeded two seconds. We then changed compound-ID candidate selection to check up to three words together. For an exact `R-CODE-UE-MUSIC-STOP` lookup, the candidates read dropped **from 2,494 to 2**. Regrouping duplicate bodies is also skipped when all candidate body fingerprints differ.
 
-최종 검색기로 빈 색인을 다시 만든 결과는 **41.15초**였다. 프로세스 시작과 첫 검색까지 포함하면 **42.22초**였다. 이전 색인과 경로·정본 SHA-256 쌍, 저장한 문서 행, 각 문서의 검색어 집합 30,000개 및 관계를 대조해 모두 일치함을 확인했다.
+Rebuilding an empty index with the final search implementation took **41.15 seconds**, or **42.22 seconds** including process startup and the first search. We compared the path and canonical SHA-256 pairs, stored document rows, 30,000 per-document search-term sets, and relations with the previous index. All agreed.
 
-| 같은 50문항, 매번 새 프로세스 | 중앙값 | P95 | 최대 | 2초 이내 |
+| Same 50 questions, fresh process each time | Median | P95 | Maximum | Within 2 seconds |
 | --- | ---: | ---: | ---: | ---: |
-| 변경 전 SQLite 검색기 재실행 | 1.622초 | 2.176초 | 4.540초 | 46/50 |
-| 최종 검색기 1회차 | 1.545초 | **1.997초** | 2.223초 | 48/50 |
-| 최종 검색기 2회차 | 1.552초 | **2.405초** | 2.780초 | 43/50 |
+| Previous SQLite implementation rerun | 1.622 s | 2.176 s | 4.540 s | 46/50 |
+| Final implementation, round 1 | 1.545 s | **1.997 s** | 2.223 s | 48/50 |
+| Final implementation, round 2 | 1.552 s | **2.405 s** | 2.780 s | 43/50 |
 
-두 회차 모두 50개 질문의 표시 ID와 순서가 이전 측정과 일치했다. 한국어 바꿔쓰기 9개는 1위 8개·2위 1개, 추가 표현 3개는 모두 1위였다. 기존 223개 회귀 사례도 모두 통과했다. 구축 속도 개선과 검색 순위 보존은 확인했고, 개별 검색 P95 2초는 이번 환경에서 일관되게 충족하지 못했다.
+In both rounds, displayed IDs and order agreed with the previous measurement for all 50 questions. Eight of the nine Korean paraphrases ranked the target first and one second. All three extra formulations ranked it first. All 223 existing regression cases passed. The measurements confirmed faster builds and preserved rankings. Individual-search P95 did not consistently meet the two-second target in this environment.
 
-최종 도우미 내부의 P95는 각각 0.462초와 0.608초였다. 전체 시간에서 내부 구간을 뺀 나머지의 중앙값은 1.23초와 1.22초였다. 별도의 진단에서 빈 Python 프로세스 여섯 번도 0.95~1.16초가 걸렸다. P95 판정에는 이 시작·종료 비용을 포함한 전체 경과 시간을 사용했다.
+P95 measured inside the final helper was 0.462 and 0.608 seconds respectively. After subtracting internal time from total time, the median remainder was 1.23 and 1.22 seconds. In a separate diagnostic, even six empty Python process runs took 0.95–1.16 seconds. We judged P95 by wall time including startup and exit.
 
-## 검색 세션에서 개별 요청의 시작부터 응답까지
+## From request start to response in a search session
 
-같은 코퍼스의 정본 30,000개를 다시 읽어 경로와 SHA-256이 이전 측정과 일치하는지 확인했다. 다섯 회차마다 SQLite 색인이 준비된 상태에서 새 `search.py session` 프로세스를 띄웠다. 기존 50개 질문을 같은 순서와 필터로 한 번에 하나씩 보냈다. 클라이언트는 질문을 인코딩하기 직전에 타이머를 시작하고 파이프에서 응답 전체를 읽어 JSON 해석을 끝낸 직후 멈췄다. 매 회차 첫 질문은 프로세스를 띄우기 직전부터 쟀다. 이전 응답을 받기 전에는 다음 질문을 보내지 않았다. [회차별·질문별 원시 측정](2026-11-23-search-session-measurements.json)
+We reread the 30,000 canonical records in the same corpus and verified that their paths and SHA-256 values matched the previous measurement. For each of five rounds, we started a fresh `search.py session` process with the SQLite index ready. We sent the original 50 questions one at a time with the same order and filters. The client started its timer immediately before encoding each question and stopped it immediately after reading the full response from the pipe and parsing its JSON. For the first question of each round, timing began immediately before process launch. The client waited for each response before sending the next question. [Raw measurements by round and question](2026-11-23-search-session-measurements.json)
 
-| 회차 | 첫 응답 (시작 포함) | 중앙값 | P95 | 최대 | 2초 이내 |
+| Round | First response (including startup) | Median | P95 | Maximum | Within 2 seconds |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 세션 1 | 0.816초 | 0.510초 | 1.244초 | 4.100초 | 49/50 |
-| 세션 2 | 0.736초 | 0.575초 | 1.281초 | 3.378초 | 48/50 |
-| 세션 3 | 1.198초 | 0.448초 | 1.307초 | 2.443초 | 49/50 |
-| 세션 4 | 0.810초 | 0.449초 | 0.829초 | 2.266초 | 49/50 |
-| 세션 5 | 0.856초 | 0.526초 | 1.717초 | 2.665초 | 48/50 |
+| Session 1 | 0.816 s | 0.510 s | 1.244 s | 4.100 s | 49/50 |
+| Session 2 | 0.736 s | 0.575 s | 1.281 s | 3.378 s | 48/50 |
+| Session 3 | 1.198 s | 0.448 s | 1.307 s | 2.443 s | 49/50 |
+| Session 4 | 0.810 s | 0.449 s | 0.829 s | 2.266 s | 49/50 |
+| Session 5 | 0.856 s | 0.526 s | 1.717 s | 2.665 s | 48/50 |
 
-회차별 P95(50건 중 빠른 순서로 48번째)는 모두 2초 이내였다. 250개 응답에서 표시한 문서 ID와 순서가 이전 측정과 모두 일치했다. 한국어 바꿔쓰기 9개는 매번 1위 8개·2위 1개, 추가 표현 3개는 매번 1위였다. 243번의 응답이 2초 이내였으며, 7번은 이를 넘었다. 다섯 회차 모두 2초를 넘은 질문은 `music loudness calibration`이었다.
+P95 in every round (48th fastest of 50) was within two seconds. All 250 responses displayed the same document IDs in the same order as the previous measurement. In every round, eight of the nine Korean paraphrases ranked the target first and one second, and all three extra formulations ranked it first. Of the responses, 243 took at most two seconds and seven took longer. The question exceeding two seconds in all five rounds was `music loudness calibration`.
 
-별도로 같은 50개 질문을 기존 단발 명령으로 실행했을 때 중앙값은 0.601초, P95는 1.391초였다(프로세스 시작부터 출력 수신·종료까지). 이번 환경에서는 단발 대조군도 기준을 충족했다. 세션은 질문을 보낼 때 이미 떠 있는 프로세스를 이용하며, 질의마다 기준 파일의 변경을 확인하고 SQLite 읽기 스냅샷을 닫는다. 세션에서 오류가 난 뒤 다음 질문을 처리하는 경로, 질문 사이의 파일 수정·삭제, 요청별 필터 독립성을 테스트했다. 기존 회귀 223건도 통과했다.
+In a separate run of the same 50 questions through the existing single-shot command, median time was 0.601 seconds and P95 was 1.391 seconds, measured from process startup through output receipt and exit. The single-shot control also met the target in this environment. A session uses an already running process when a question is sent, checks canonical files for changes on every query, and closes the SQLite read snapshot after each query. We tested processing the next question after a session error, file edits and deletions between questions, and independence of filters across requests. The 223 existing regressions also passed.
 
-## 2초를 넘긴 7건 재검증
+## Rechecking the seven responses over two seconds
 
-직전 7건은 음악 질문 5회, `녹스` 1회, 카메라 보간 질문 1회였다. 음악 질문은 합성 본문에 반복되는 `calibration` 때문에 29,846건과 일치했다. 변경 전 별도 추적에서 검색·순위 계산은 747ms를 썼고, 3개 결과를 표시하기 위해 29,846개의 결과 요약을 만들었다. 필드별 단어 색인으로 가중치와 순서를 먼저 계산한 뒤 표시할 3건만 본문과 대조하도록 변경했다. 변경 후 같은 추적에서 검색·순위 계산은 130ms였고 전체 일치 건수는 29,846건이었다. 본문이 중복되거나 문구·문맥 조건을 적용해야 할 때는 기존 정렬·다양화 경로를 사용한다.
+The seven earlier overruns comprised five music questions, one Korean query `녹스`, and one camera interpolation question. The music query matched 29,846 records because synthetic bodies repeated `calibration`. In a separate trace before the change, search and ranking took 747 ms and created 29,846 result summaries to display three results. We changed the helper to calculate weights and order using a per-field word index first, then compare only the three displayed items with their bodies. In the same trace after the change, search and ranking took 130 ms and the total match count remained 29,846. The existing sorting and diversification path still handles duplicate bodies and queries requiring phrase or context conditions.
 
-변경 전 재현에서 `녹스`와 카메라 질문은 각각 2건과 28건에 일치했다. 색인 최신성 확인에 399ms와 323ms, 실제 검색에는 4ms와 32ms가 들었다. 기존 기록에는 이 두 요청이 2초를 넘겼을 당시의 구간별 시간이 없다. 정본을 열거할 때 제외 파일까지 함께 정렬하던 비용을 줄였고, 변경 후 별도 추적에서 최신성 확인은 각각 160ms와 158ms였다.
+In the pre-change reproduction, `녹스` and the camera question matched two and 28 records respectively. Index freshness checks took 399 ms and 323 ms, and the searches themselves took 4 ms and 32 ms. The earlier records do not contain phase timings from when these two requests exceeded two seconds. We reduced the cost of sorting excluded files during canonical file enumeration. Separate post-change traces showed freshness checks of 160 ms and 158 ms respectively.
 
-30,000개 정본을 다시 읽어 경로와 내용 해시가 이전과 같음을 확인했다. 새 형식의 색인 구축은 31.943초였고 개별 검색 시간과 별도로 측정했다. 준비된 색인에서 같은 질문·필터·순서로 5개의 새 세션을 측정했다. 첫 질문은 프로세스 시작부터, 이후 질문은 인코딩 직전부터 전체 응답 JSON 해석 완료까지 쟀다. [이전 초과 7건, 구간별 진단 및 250건 원시 기록](2026-11-23-search-tail-measurements.json)
+We reread all 30,000 canonical records and verified that paths and content hashes matched their earlier values. Building the new-format index took 31.943 seconds, measured separately from individual searches. With the index ready, we measured five fresh sessions using the same questions, filters, and order. Timing ran from process startup for the first question and from immediately before encoding for later questions through parsing the full JSON response. [Seven earlier overruns, phase diagnostics, and 250 raw records](2026-11-23-search-tail-measurements.json)
 
-| 회차 | 첫 응답 | P95 | 최대 | 음악 질문 | 2초 이내 | 표시 순위 일치 |
+| Round | First response | P95 | Maximum | Music question | Within 2 seconds | Displayed rankings matched |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | 0.374초 | 0.461초 | 0.615초 | 0.282초 | 50/50 | 50/50 |
-| 2 | 0.366초 | 0.516초 | 0.531초 | 0.283초 | 50/50 | 50/50 |
-| 3 | 0.374초 | 0.459초 | 0.544초 | 0.287초 | 50/50 | 50/50 |
-| 4 | 0.371초 | 0.463초 | 0.641초 | 0.290초 | 50/50 | 50/50 |
-| 5 | 0.384초 | 0.557초 | 1.282초 | 0.296초 | 50/50 | 50/50 |
+| 1 | 0.374 s | 0.461 s | 0.615 s | 0.282 s | 50/50 | 50/50 |
+| 2 | 0.366 s | 0.516 s | 0.531 s | 0.283 s | 50/50 | 50/50 |
+| 3 | 0.374 s | 0.459 s | 0.544 s | 0.287 s | 50/50 | 50/50 |
+| 4 | 0.371 s | 0.463 s | 0.641 s | 0.290 s | 50/50 | 50/50 |
+| 5 | 0.384 s | 0.557 s | 1.282 s | 0.296 s | 50/50 | 50/50 |
 
-한국어 바꿔쓰기 9개는 매회 정답이 1위 8개·2위 1개였고, 추가 표현 3개는 모두 1위였다. 별도 회귀 223건도 모두 통과했고 금지 ID 노출은 0건이었다.
+In every round, eight of the nine Korean paraphrases ranked the correct answer first and one second. All three extra formulations ranked it first. All 223 separate regression cases also passed, with zero forbidden IDs exposed.
 
-## 재현 방법
+## Reproduction
 
-저장소 루트에서 비어 있는 새 실험 경로를 선택한다. 두 버전을 비교할 때는 수정 전 스크립트 디렉터리를 별도로 보관하고 동일한 프로젝트에서 먼저 `measure`와 `update`를 실행한다. 두 명령의 `--script`는 보관한 `search.py` 경로를 받는다. 이어서 아래처럼 현재 버전을 측정한다. 첫 검색의 `index.read_files`가 전체 건수와 같은지, 개별 재검색에서는 0인지 확인한다. 측정 결과에는 정답 순위와 검색기 내부 시간, Python 프로세스 종료까지의 경과 시간이 함께 기록된다.
+From the repository root, choose a fresh, empty experiment path. To compare versions, keep a separate copy of the pre-change script directory and run `measure` and `update` first on the same project. For both commands, pass the path to the saved `search.py` as `--script`. Then measure the current version as shown below. Confirm that `index.read_files` equals the total record count for the first search and is zero on individual repeat searches. Measurements record correct-answer rank, time inside the search helper, and elapsed time through Python process exit.
 
 ```powershell
 $bench = 'skills/vegabond-knowledge/tests/benchmark_scale.py'
@@ -122,10 +122,10 @@ python -B -X utf8 $bench sample $dir "$dir/sample.json"
 python -B -X utf8 $bench update $dir "$dir/update.json"
 ```
 
-보존된 동일 코퍼스에서 세션을 재측정할 때는 다음 명령을 사용한다. 색인 형식이 변경됐다면 먼저 일반 검색 한 번으로 색인을 구축한다. 출력 파일은 새 경로를 지정한다. 측정 도구는 이전 50개 질문의 표시 순위를 대조하고 회차별 P95와 최댓값을 기록한다. 한 건이라도 2초를 넘으면 실패한다.
+Use the following command to remeasure sessions on the same preserved corpus. If the index format has changed, build the index first with one ordinary search. Specify a new output path. The measurement tool compares the displayed rankings for the previous 50 questions and records P95 and maximum time per round. It fails if even one request exceeds two seconds.
 
 ```powershell
 python -B -X utf8 skills/vegabond-knowledge/tests/benchmark_scale.py sample-sessions .cache/onestep/korean-30k/corpus .cache/onestep/korean-30k/session-replay.json --rounds 5
 ```
 
-합성 주제와 문장 구조는 반복된다. 여기서 검증한 것은 유사 문서가 많이 경쟁할 때의 순위와 실제 파일 수에 따른 비용이다. 서로 다른 실제 사건 3만 건의 의미 판별, 여러 사용자의 동시 검색, 외부 원본 접근 시간은 별도의 측정이 필요하다.
+The synthetic topics and sentence structures repeat. This experiment verified ranking when many similar documents compete and measured the costs associated with the actual file count. Semantic discrimination across 30,000 distinct real incidents, concurrent searches by multiple users, and external source access time require separate measurements.

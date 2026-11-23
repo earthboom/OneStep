@@ -27,4 +27,6 @@ When knowledge retrieval supplied an unanswered question, use that gap and its c
 
 Hand back the answer or requested report, supporting source references, reasoning, and material uncertainty. Make clear which conclusions are established and which still depend on assumptions or missing evidence.
 
+When a report is kept in `docs/research/`, write the canonical report in English and supply its human-only Korean translation as `<stem>.kr.md` in the same change. Cite the English path from AI-facing material. Check that both filenames exist without opening or indexing the translation. Keep original-language quotations, query literals and measured data intact where their exact form is evidence.
+
 For a knowledge-gap handoff, identify what the sources establish, what the caller must check in its environment or artifact, and any reusable candidate with its conditions. Return these to the calling step and [knowledge's gap-closing flow](../vegabond-knowledge/SKILL.md#close-a-knowledge-gap); the specialist verifies application and knowledge handles selective storage within the existing write scope. Research alone does not certify execution or require a new stored entry.
