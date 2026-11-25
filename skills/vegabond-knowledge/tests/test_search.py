@@ -50,6 +50,14 @@ class SearchTests(unittest.TestCase):
         self.assertTrue(run.stdout, run.stderr)
         return json.loads(run.stdout)
 
+    def test_empty_planning_lookup_does_not_fall_back_to_game_evidence(self):
+        self.detail("K-GAME-METRIC", domain="game", keywords=["성과지표"])
+        args = ("--query", "성과지표")
+        self.assertEqual(self.cli("search", *args)["results"][0]["id"], "K-GAME-METRIC")
+        scoped = self.cli("search", *args, "--domain", "planning")
+        self.assertEqual(scoped["results"], [])
+        self.assertTrue(scoped["gap"])
+
     def test_body_only_korean_expansion_and_line_locator(self):
         p = self.detail("K-POOL", title="Cost measurement", body="Measure allocation churn before introducing pooling.")
         self.detail("K-MEMORY", title="Memory ownership", keywords=["memory"])

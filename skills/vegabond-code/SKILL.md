@@ -7,6 +7,8 @@ description: Use when implementing software or gameplay content, repairing defec
 
 Execute software work within the active operation. Reuse its brief and profile; follow the [agent instructions](../../agents/vegabond-agent.md) for common boundaries and completion. If invoked directly, use [scout's shared setup](../vegabond-scout/SKILL.md#frame-and-classify) and its linked operation without restarting classification.
 
+Proceed directly when the requested behavior and its pass condition are clear. Consult the working project's glossary only if two plausible readings of a term would give the same test case opposite verdicts. Before changing the code or test, read just the matching entry and check the linked contract. In OneStep's `docs/development-glossary.md`, locate the term in the first column and read that row only. Reuse a definition and boundary case already verified in the design handoff. If the entry is missing or conflicts with the caller or test, use the governing project evidence to settle the boundary before reporting a pass.
+
 ## Identify the working environment
 
 Use repository guidance, source and relevant callers, project/dependency configuration, tests, scripts, and CI to establish the changed component's language, engine/framework and versions, toolchain/platform/target, and actual build, test, launch and inspection paths. For new work, distinguish a proposed toolchain from an observed one. Resolve conflicting evidence narrowly; reuse scout's readiness check rather than treating configuration as proof that tools run.
@@ -23,6 +25,8 @@ For game implementation, debugging or optimization, apply the [game evidence reu
 
 ## Choose the design depth
 
+When deciding how to carry a design into implementation, use the [scope and delivery criteria](../vegabond-code-design/references/scope-and-delivery.md). Keep a single shared invariant and its callers together, or identify the intermediate evidence that would change the next unit. Carry that choice into verification of the integrated behavior.
+
 Use [vegabond-code-design](../vegabond-code-design/SKILL.md) when a meaningful choice about state ownership, lifecycle, interfaces used by other callers, concurrency, persistence, external integration, or migration must be settled before implementation. A local edit following an established pattern can state its relevant contract and preservation conditions inline and proceed. File count alone does not decide; reuse a valid existing design and revisit only decisions changed by evidence.
 
 For a new game, route the [foundation decisions](../vegabond-code-design/references/gameplay-framework.md#plan-a-new-game-foundation) through code design before selecting or creating gameplay scaffolding. The brief needs a framework suited to representative play, named state owners and lifetimes, and an authoring and registration path for the first content and its next variant. Reuse settled decisions from the project brief.
@@ -32,6 +36,8 @@ For an existing game, route changes to the gameplay framework, shared content co
 Pass the current brief, environment, affected source/contracts, constraints, and unanswered decisions. Design returns a bounded implementation direction and checks within this workflow; it does not restart scout or create another execution loop. A design-only request ends with that result rather than an unsolicited implementation.
 
 ## Implement or investigate
+
+When a user decision changed the design, exercise the distinguishing case from the handoff through the normal entry point. Compare the observation with the outcome the user chose, including any promised preservation or failure behavior. If the environment is unavailable, carry the concrete expected result forward as pending.
 
 Read [verification and handoff](references/verification.md) before changing code or judging the result. It owns the detailed preparation, build/test/runtime/real-use checks, review-and-repair loop, verification-change scrutiny, long-work state, and demonstrated safeguards. Before editing shared gameplay code, changing a shared rule, or adding a stage, use its [gameplay regression checks](references/verification.md#gameplay-regression-checks) to record preserved behavior and the check scope in the existing brief. Apply verification to each coherent change and the final integrated artifact.
 

@@ -11,6 +11,8 @@ For game planning, apply the [game evidence reuse convention](../../knowledge/ga
 
 ## Execute
 
+For a development plan whose scope depends on a software contract, player experience or production feasibility, use the [scope and delivery criteria](../vegabond-code-design/references/scope-and-delivery.md). Identify the beneficiary's observable outcome and which technical or playtest result could change the commitment. Return that dependency to the implementing specialist in the existing brief.
+
 Use the shared [information-needs judgment](../vegabond-scout/references/information-needs.md) to derive questions from the decision, beneficiaries, assumptions and shared dependencies. Refine them after inspecting sources; distinguish evidence needed to commit now from later outcome measurement and optional refinement.
 
 Ground the decision in who experiences the problem, when it occurs, its significance, and the available evidence. Distinguish beneficiary needs, stakeholder preferences, and a requested solution. Reuse the brief's goals, scope, constraints, and information from [knowledge](../vegabond-knowledge/SKILL.md); choose sections that support the decision.

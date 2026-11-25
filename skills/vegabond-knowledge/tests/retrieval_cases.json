@@ -1,6 +1,7 @@
 {
   "description": "Required and forbidden IDs for actual OneStep questions. Extend after a demonstrated miss; this is not a complete relevance judgment set.",
   "cases": [
+    {"name": "Korean independent design handoff review", "query": "개발 설계를 구현에 넘기기 전에 다른 사람이 어떻게 교차검토하면 좋을까?", "required": ["K-CODE-ACTIVE-DESIGN-REVIEW"], "limit": 3},
     {"name": "Observed Korean embedded-value paraphrase", "query": "숫자 값을 코드 곳곳에 직접 적어 두지 않고 바꾸기 쉽게 만들려면", "domains": ["code"], "required": ["K-CODE-CONFIGURATION-POLICY"], "limit": 3},
     {"name": "Observed Korean hidden-implementation paraphrase", "query": "다른 파일이 내부 구현을 몰라도 쓰게 하려면", "domains": ["code"], "required": ["K-CODE-INFORMATION-HIDING"], "limit": 3},
     {"name": "Observed Korean reader-evidence paraphrase", "query": "범인이 밝혀지기 전에 독자에게 판단 근거를 보여 주는 장면 구성", "domains": ["fiction"], "required": ["K-FIC-REF-KNOX-FAIR-PLAY"], "limit": 3},
@@ -28,6 +29,14 @@
     {"name": "Known incident ID containing a topic alias", "query": "R-CODE-UE-MUSIC-STOP은", "required": ["R-CODE-UE-MUSIC-STOP"], "limit": 1},
     {"name": "Different dotted method keeps its own identity", "query": "UAsset.GetNameReferenceExtra에서", "store": "records", "expect_empty": true, "limit": 3},
     {"name": "Domain boundary excludes unrelated code", "query": "ownership", "domains": ["fiction"], "forbidden": ["K-CODE-RESOURCE-OWNERSHIP", "K-CODE-PRINCIPLE-REUSE"], "limit": 5},
-    {"name": "Absent term stays an explicit gap", "query": "onestep-nonexistent-quantum-identifier", "required": [], "forbidden": ["K-CODE-PRINCIPLE-REUSE", "R-CATALOG-BOOTSTRAP"], "limit": 3}
+    {"name": "Absent term stays an explicit gap", "query": "onestep-nonexistent-quantum-identifier", "required": [], "forbidden": ["K-CODE-PRINCIPLE-REUSE", "R-CATALOG-BOOTSTRAP"], "limit": 3},
+    {"name": "planning observed question global", "query": "기획안 목표 성과지표", "required": ["K-PLAN-OUTCOME-INDICATOR"], "limit": 1},
+    {"name": "planning observed question scoped", "query": "기획안 목표 성과지표", "domains": ["planning"], "required": ["K-PLAN-OUTCOME-INDICATOR"], "limit": 1},
+    {"name": "planning paraphrase global", "query": "이 사업이 수혜자에게 실제로 효과가 있었는지 어떻게 측정하지?", "required": ["K-PLAN-OUTCOME-INDICATOR"], "limit": 1},
+    {"name": "planning paraphrase scoped", "query": "이 사업이 수혜자에게 실제로 효과가 있었는지 어떻게 측정하지?", "domains": ["planning"], "required": ["K-PLAN-OUTCOME-INDICATOR"], "limit": 1},
+    {"name": "presentation observed question global", "query": "발표 슬라이드 청중 정보 밀도", "required": ["K-PRES-DECISION-SLIDE"], "limit": 1},
+    {"name": "presentation observed question scoped", "query": "발표 슬라이드 청중 정보 밀도", "domains": ["presentation"], "required": ["K-PRES-DECISION-SLIDE"], "limit": 1},
+    {"name": "presentation paraphrase global", "query": "구매 결정 회의에서 한 장에 무엇을 남기고 부록으로 뭘 보낼까?", "required": ["K-PRES-DECISION-SLIDE"], "limit": 1},
+    {"name": "presentation paraphrase scoped", "query": "구매 결정 회의에서 한 장에 무엇을 남기고 부록으로 뭘 보낼까?", "domains": ["presentation"], "required": ["K-PRES-DECISION-SLIDE"], "limit": 1}
   ]
 }

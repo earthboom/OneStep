@@ -12,6 +12,75 @@ from zipfile import ZipFile
 
 
 HERE = Path(__file__).resolve().parent
+SKILL_DOC = re.compile(r"skills/vegabond-[^/]+/(?:SKILL\.md|references/[^/]+\.md)")
+
+
+def web_sections(web):
+    parts = re.split(r"^===== ([^\n]+?) =====\n\n", web, flags=re.MULTILINE)
+    for i in range(1, len(parts), 2):
+        body = parts[i + 1]
+        # The builder inserts one separator newline immediately before each heading.
+        if i + 2 < len(parts) and body.endswith("\n"):
+            body = body[:-1]
+        yield parts[i], body
+
+
+def distribution_errors(source, zip_path, web):
+    expected = {}
+    for directory in (source / "skills").glob("vegabond-*"):
+        for path in [directory / "SKILL.md", *(directory / "references").glob("*.md")]:
+            if path.is_file() and not path.name.endswith(".kr.md"):
+                expected[path.relative_to(source).as_posix()] = path.read_text(encoding="utf-8")
+
+    def compare(label, entries):
+        seen = set()
+        errors = []
+        for name, content in entries:
+            if not SKILL_DOC.fullmatch(name):
+                continue
+            if name in seen:
+                errors.append(f"{label} duplicate {name}")
+            seen.add(name)
+            if name not in expected:
+                errors.append(f"{label} unexpected {name}")
+            elif content != (expected[name].rstrip("\n") + "\n" if label == "web" else expected[name]):
+                errors.append(f"{label} stale {name}")
+        return errors + [f"{label} missing {name}" for name in sorted(expected.keys() - seen)]
+
+    prefix = "onestep-strategy/"
+    with ZipFile(zip_path) as archive:
+        zipped = []
+        for info in archive.infolist():
+            if info.filename.startswith(prefix):
+                name = info.filename[len(prefix):]
+                if SKILL_DOC.fullmatch(name):
+                    content = archive.read(info).decode("utf-8").replace("\r\n", "\n") if name in expected else None
+                    zipped.append((name, content))
+        errors = compare("ZIP", zipped)
+    errors.extend(compare("web", web_sections(web)))
+    return errors
+
+
+class DistributionTests(unittest.TestCase):
+    def test_each_format_matches_canonical_skills(self):
+        web = (HERE / "OneStep-Web.txt").read_text(encoding="utf-8")
+        errors = distribution_errors(HERE.parent, HERE / "OneStep-Project.zip", web)
+        self.assertFalse(errors, "\n" + "\n".join(errors))
+
+    def test_shared_omission_stale_and_duplicate_web_sections(self):
+        entry = "skills/vegabond-image/SKILL.md"
+        ref = "skills/vegabond-image/references/motion.md"
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / ref).parent.mkdir(parents=True)
+            for name in (entry, ref):
+                (root / name).write_text("current\n", encoding="utf-8")
+            kit = root / "kit.zip"
+            with ZipFile(kit, "w") as archive:
+                archive.writestr("onestep-strategy/" + entry, b"current\r\n")
+            web = f"===== {entry} =====\n\nold\n\n===== {entry} =====\n\ncurrent\n"
+            self.assertCountEqual(distribution_errors(root, kit, web), [
+                f"ZIP missing {ref}", f"web missing {ref}", f"web stale {entry}", f"web duplicate {entry}"])
 
 
 class PortableKitTests(unittest.TestCase):
@@ -51,6 +120,16 @@ class PortableKitTests(unittest.TestCase):
                 relative = "onestep-strategy/" + name
                 self.assertIn(relative, text)
                 self.assertTrue((relocated / relative).is_file())
+        folder = "skills/vegabond-image"
+        strategy = relocated / "onestep-strategy"
+        sections = dict(web_sections((HERE / "OneStep-Web.txt").read_text(encoding="utf-8")))
+        for filename in ("stationery-characters.md", "2d-effects-and-motion.md"):
+            target = f"references/{filename}"
+            for body in ((strategy / folder / "SKILL.md").read_text(encoding="utf-8"), sections[f"{folder}/SKILL.md"]):
+                self.assertIn(f"]({target})", body)
+            expected = (HERE.parent / folder / target).read_text(encoding="utf-8")
+            self.assertEqual((strategy / folder / target).read_text(encoding="utf-8"), expected)
+            self.assertEqual(sections[f"{folder}/{target}"].rstrip("\n"), expected.rstrip("\n"))
 
     def test_conflicting_strategy_preserved(self):
         strategy = self.project / "onestep-strategy"
@@ -71,10 +150,6 @@ class PortableKitTests(unittest.TestCase):
             relative = item.relative_to(strategy).as_posix()
             self.assertFalse(relative.endswith(".kr.md"))
             self.assertIn(f"===== {relative} =====\n\n" + item.read_text(encoding="utf-8").rstrip(), web)
-        for skill in ("scout", "create", "revise", "research", "code", "code-design", "fiction", "planning", "presentation"):
-            relative = f"skills/vegabond-{skill}/SKILL.md"
-            source = (HERE.parent / relative).read_text(encoding="utf-8")
-            self.assertEqual((self.project / strategy.name / relative).read_text(encoding="utf-8"), source)
         routed_references = {
             "code": ("cpp-project-guidelines.md", "cpp-implementation.md", "world-lifecycle-verification.md"),
             "code-design": ("world-lifecycle.md",),
