@@ -36,3 +36,14 @@ When a broad silhouette keeps winning, look across its *outer* edge as well. If 
 - **Edit preservation.** To recolor a jacket, identify the jacket by its current color and shape. Say which parts of the person, pose, framing, illumination and background must stay the same. Inspect beside the source at comparable scale. If visual preservation is insufficient for a pixel-exact request, use a supported region-limited workflow and check the protected pixels.
 - **Exact wording.** Preserve case, spacing and punctuation in the supplied string. When a poster permits separate typography, render that text over a prepared background and check line breaks, font coverage, legibility and clipping in the exported file. When lettering must be integrated with perspective or texture, inspect it in place at full size.
 - **Technical output.** Check the decoded file format and dimensions. For transparent assets, inspect alpha in the intended background and around subject edges. An alpha channel containing only opaque values does not make the background transparent.
+
+## Match the repair to the failure
+
+Inspect the first candidate at its intended size and, when the output has been laid out or exported, compare it with the source. Change the step that introduced the defect.
+
+| Observed failure | Repair and recheck |
+| --- | --- |
+| Wrong camera, placement, or contact | Give the generator a simple sketch, silhouette or layout guide that makes the missing geometry visible. Assign a separate identity or style reference its own role. Inspect the deciding plane, overlap, gap, or point of contact. |
+| Identity drift, duplicate subject or wrong attribute | Start from the accepted image. Limit the edit to the changed feature or extraneous subject and its visible traces using the supported controls. Scan the whole frame for subject count and compare the preserved features or areas with the source. |
+| Unclear action or emotion | Read the image before reading the prompt or caption. Repair the visible cause, such as the gaze, hand placement or body angle, then reread it at the intended size. |
+| Exact text, spacing, dimensions, or alpha residue | When the underlying art is usable, correct the target in layout, masking or export using the appropriate tool. Inspect the exported words, placement or decoded dimensions and transparency. |

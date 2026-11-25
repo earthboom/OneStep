@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Book cart mascot layer study</title>
+<style>
+  :root { color-scheme: light; }
+  body { margin: 0; }
+  svg { display: block; width: 100vw; height: 100vh; }
+  .outline { stroke: #282633; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+  .mint { fill: #a5e5cb; }
+  .cream { fill: #fff6dc; }
+  .coral { fill: #f08083; }
+  .yellow { fill: #f5ca65; }
+  .ink { fill: #282633; }
+  .line { fill: none; }
+</style>
+<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Layered book cart mascot">
+  <defs>
+    <g id="front-body">
+      <circle class="ink" cx="79" cy="176" r="16" />
+      <circle class="ink" cx="177" cy="176" r="16" />
+      <circle class="cream" cx="79" cy="176" r="4" />
+      <circle class="cream" cx="177" cy="176" r="4" />
+      <rect class="mint outline" x="51" y="82" width="154" height="85" rx="21" />
+      <rect class="cream outline" x="72" y="98" width="112" height="51" rx="16" />
+      <path class="coral outline" d="M163 65h20v34l-10-7-10 7z" />
+    </g>
+    <g id="front-neutral">
+      <path class="line outline" d="M51 121q-17 5-12 21m166-21q17 5 12 21" />
+      <circle class="ink" cx="112" cy="123" r="4" />
+      <circle class="ink" cx="143" cy="123" r="4" />
+      <path class="line outline" d="M123 133q5 4 10 0" />
+    </g>
+  </defs>
+  <g id="neutral" data-variant>
+    <use href="#front-body" />
+    <use href="#front-neutral" />
+  </g>
+  <g id="thanks" data-variant>
+    <path class="line outline" d="M51 119q-21 23 31 29m123-29q21 23-31 29" />
+    <use href="#front-body" />
+    <circle class="ink" cx="108" cy="118" r="4" />
+    <circle class="ink" cx="148" cy="118" r="4" />
+    <path class="line outline" d="M122 126q6 5 12 0" />
+    <rect class="yellow outline" x="96" y="137" width="64" height="25" rx="4" />
+    <path class="line outline" d="M104 157h48" />
+    <circle class="mint outline" cx="98" cy="147" r="8" />
+    <circle class="mint outline" cx="158" cy="147" r="8" />
+  </g>
+  <g id="embarrassed" data-variant>
+    <use href="#front-body" />
+    <path class="line outline" d="M53 131q0-13 27-9m123 9q0-13-22-9" />
+    <circle class="mint outline" cx="82" cy="119" r="7" />
+    <circle class="mint outline" cx="177" cy="119" r="7" />
+    <path class="line outline" d="M101 119l10-3m16 3 10-3m-23 17q5-6 11-3" />
+    <path class="line" stroke="#df6875" stroke-width="4" stroke-linecap="round" d="m96 131 4-4m47 4 4-4" />
+    <rect class="yellow outline" x="102" y="178" width="32" height="18" rx="3" transform="rotate(-12 118 187)" />
+  </g>
+  <g id="relief" data-variant>
+    <use href="#front-body" />
+    <path class="line outline" d="M49 125v17m158-17v17m-107-21q6 7 12 0m23 0q6 7 12 0" />
+    <path class="ink" d="M117 130h14q1 10-7 10-8 0-7-10z" />
+    <path class="line outline" d="M214 108q15 1 13 8m-14 3 8 3" />
+  </g>
+  <g id="relief-repair" data-variant>
+    <use href="#front-body" />
+    <path class="line outline" d="M51 131q-14 7-9 18m163-18q14 7 9 18m-112-27q6 5 12 0m20 0q6 5 12 0" />
+    <circle class="ink" cx="42" cy="149" r="4" />
+    <circle class="ink" cx="214" cy="149" r="4" />
+    <ellipse class="ink" cx="124" cy="134" rx="5" ry="3" />
+    <path class="line" stroke="#282633" stroke-width="2.8" stroke-linejoin="round" d="M150 135q5-4 6-3-1-7 6-6 5 0 5 5 5 0 4 5-1 5-7 4-4 4-8 0-5 1-6-5z" />
+  </g>
+  <g id="turn" data-variant>
+    <circle class="ink" cx="74" cy="178" r="15" />
+    <circle class="ink" cx="190" cy="172" r="16" />
+    <circle class="cream" cx="74" cy="178" r="4" />
+    <circle class="cream" cx="190" cy="172" r="4" />
+    <path class="outline" fill="#86c9b1" d="M149 86l48-13q21-4 21 16v61q0 10-14 14l-55 12z" />
+    <path class="mint outline" d="M56 94l96-10q18-1 18 16v57q0 14-15 15l-99-2q-19-1-19-19v-39q0-16 19-18z" />
+    <path class="cream outline" d="M65 108l76-7q13-1 13 11v30q0 12-12 12l-76-1q-15 0-15-13v-18q0-12 14-14z" />
+    <path class="coral outline" d="m173 64 21-5v35l-11-5-10 9z" />
+    <circle class="ink" cx="89" cy="126" r="4" />
+    <circle class="ink" cx="118" cy="123" r="4" />
+    <path class="line outline" d="M99 136q6 4 10-1m-72-10q-12 8-7 21m188-31q10 4 6 14" />
+  </g>
+</svg>
+<script>
+  const selected = new URLSearchParams(location.search).get('pose') || 'neutral';
+  document.querySelectorAll('[data-variant]').forEach(layer => {
+    if (layer.id !== selected) layer.setAttribute('display', 'none');
+  });
+</script>
+</html>

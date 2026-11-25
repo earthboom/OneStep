@@ -1,0 +1,37 @@
+{
+  "tool": "Codex built-in image_gen",
+  "transparent_background": true,
+  "first_pass": {
+    "attempts_per_variant_per_generation_route": 1,
+    "base": "Create one transparent PNG specimen for a stationery mascot production test. One original nonanimal library book cart character, centered full body with a comfortable margin, flat simple graphic 2D with clean thick charcoal outlines and round corners. A wide low rectangular mint-green trolley body has a single cream inset face panel with two small dark eyes and a compact mouth. Two charcoal wheels are visibly separated below the body. A single coral-pink bookmark tab sits on the mascot's anatomical left at the upper edge (viewer right in a frontal view), with a V-shaped notch. Thin charcoal arms and little mitten hands. Restrained mint, cream, coral and charcoal colors; the cart is the character. No labels, no letters, no visible floor or scene, no ground shadow, no border. Make the gesture legible if reduced to a 30 mm sticker.",
+    "poses": {
+      "thanks": "Frontal view at eye level. The mascot expresses a quiet thank-you by holding a small closed warm yellow book forward with both hands and giving a small warm smile. Keep both eyes and mouth above the book.",
+      "embarrassed": "Frontal view at eye level. The mascot is embarrassed because it dropped a small warm yellow library card. Averted eyes, small awkward grimace, mitten hands tucked up beside the face, a discreet pair of coral blush marks. The card is low below the front face, near one wheel but visually distinct.",
+      "relief": "Frontal view at eye level. The mascot is relieved that the work is done. Both eyes closed in relaxed soft arcs, mouth a small open relaxed smile, the arms resting low on the side edges. A small charcoal sigh puff sits near the face. No book or card.",
+      "turn": "Front three-quarter view from the mascot's left, showing the front face and the side carrying the coral bookmark. Two charcoal wheels visible. Small neutral smile, relaxed arms, no props; the cart has visibly turned in space."
+    },
+    "reference": {
+      "file": "layer-neutral.png",
+      "append": "Use the supplied straight-on neutral artwork as the exact identity reference. Make the requested variant as a new sticker image. Preserve body shape, the relative proportions, cream face inset, exact side and notch of the coral bookmark tab, the two wheels, the palette, clean thick charcoal line and simple flat graphic rendering. Adapt geometry to show the requested viewpoint when it changes."
+    }
+  },
+  "layer_source": "book-cart.html",
+  "blind_sheet": {
+    "A": "ref-relief",
+    "B": "text-turn",
+    "C": "layer-embarrassed",
+    "D": "text-thanks",
+    "E": "ref-turn",
+    "F": "layer-thanks",
+    "G": "text-relief",
+    "H": "ref-embarrassed",
+    "I": "layer-turn",
+    "J": "ref-thanks",
+    "K": "text-embarrassed",
+    "L": "layer-relief"
+  },
+  "repair_sheet": {
+    "A": "layer-relief-repair",
+    "B": "layer-relief"
+  }
+}

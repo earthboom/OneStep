@@ -1,0 +1,394 @@
+{
+  "layer-embarrassed.png": {
+    "size": [
+      768,
+      768
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "nonzero_alpha_bbox": [
+      144,
+      186,
+      624,
+      605
+    ],
+    "visible_bbox_alpha_24": [
+      144,
+      186,
+      624,
+      605
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "layer-neutral.png": {
+    "size": [
+      768,
+      768
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "nonzero_alpha_bbox": [
+      104,
+      186,
+      664,
+      576
+    ],
+    "visible_bbox_alpha_24": [
+      104,
+      186,
+      664,
+      576
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "layer-relief.png": {
+    "size": [
+      768,
+      768
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "nonzero_alpha_bbox": [
+      138,
+      186,
+      691,
+      576
+    ],
+    "visible_bbox_alpha_24": [
+      138,
+      186,
+      691,
+      576
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "layer-relief-repair.png": {
+    "size": [
+      768,
+      768
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "nonzero_alpha_bbox": [
+      113,
+      186,
+      655,
+      576
+    ],
+    "visible_bbox_alpha_24": [
+      113,
+      186,
+      655,
+      576
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "layer-thanks.png": {
+    "size": [
+      768,
+      768
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "nonzero_alpha_bbox": [
+      125,
+      186,
+      643,
+      576
+    ],
+    "visible_bbox_alpha_24": [
+      125,
+      186,
+      642,
+      576
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "layer-turn.png": {
+    "size": [
+      768,
+      768
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "nonzero_alpha_bbox": [
+      76,
+      168,
+      685,
+      579
+    ],
+    "visible_bbox_alpha_24": [
+      76,
+      168,
+      685,
+      579
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "ref-embarrassed.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "nonzero_alpha_bbox": [
+      73,
+      142,
+      1206,
+      1230
+    ],
+    "visible_bbox_alpha_24": [
+      233,
+      305,
+      1019,
+      1036
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "ref-relief.png": {
+    "size": [
+      1536,
+      1024
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "nonzero_alpha_bbox": [
+      57,
+      61,
+      1508,
+      1000
+    ],
+    "visible_bbox_alpha_24": [
+      295,
+      160,
+      1229,
+      864
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "ref-thanks.png": {
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "nonzero_alpha_bbox": [
+      55,
+      167,
+      1024,
+      1226
+    ],
+    "visible_bbox_alpha_24": [
+      232,
+      296,
+      1020,
+      1032
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "ref-turn.png": {
+    "size": [
+      1536,
+      1024
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "nonzero_alpha_bbox": [
+      167,
+      55,
+      1484,
+      936
+    ],
+    "visible_bbox_alpha_24": [
+      285,
+      189,
+      1203,
+      877
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "text-embarrassed.png": {
+    "size": [
+      1536,
+      1024
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "nonzero_alpha_bbox": [
+      81,
+      96,
+      1512,
+      990
+    ],
+    "visible_bbox_alpha_24": [
+      208,
+      106,
+      1319,
+      986
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "text-relief.png": {
+    "size": [
+      1536,
+      1024
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "nonzero_alpha_bbox": [
+      57,
+      31,
+      1498,
+      970
+    ],
+    "visible_bbox_alpha_24": [
+      148,
+      167,
+      1387,
+      964
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "text-thanks.png": {
+    "size": [
+      1536,
+      1024
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "nonzero_alpha_bbox": [
+      43,
+      93,
+      1492,
+      1001
+    ],
+    "visible_bbox_alpha_24": [
+      254,
+      95,
+      1273,
+      998
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "text-turn.png": {
+    "size": [
+      1536,
+      1024
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "nonzero_alpha_bbox": [
+      0,
+      37,
+      1516,
+      976
+    ],
+    "visible_bbox_alpha_24": [
+      129,
+      138,
+      1345,
+      959
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
