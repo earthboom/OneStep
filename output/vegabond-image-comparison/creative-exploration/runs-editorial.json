@@ -1,0 +1,92 @@
+[
+  {
+    "id": "editorial-1-concept-1",
+    "attempt": 1,
+    "seconds": 60
+  },
+  {
+    "id": "editorial-1-repeat-1",
+    "attempt": 1,
+    "seconds": 80
+  },
+  {
+    "id": "editorial-1-style-1",
+    "attempt": 1,
+    "seconds": 156
+  },
+  {
+    "id": "editorial-1-repeat-2",
+    "attempt": 1,
+    "seconds": 105
+  },
+  {
+    "id": "editorial-1-concept-2",
+    "attempt": 1,
+    "seconds": 130
+  },
+  {
+    "id": "editorial-1-style-2",
+    "attempt": 1,
+    "seconds": 31
+  },
+  {
+    "id": "editorial-1-style-3",
+    "attempt": 1,
+    "seconds": 214
+  },
+  {
+    "id": "editorial-1-repeat-3",
+    "attempt": 1,
+    "seconds": 240
+  },
+  {
+    "id": "editorial-1-concept-3",
+    "attempt": 1,
+    "seconds": 190
+  },
+  {
+    "id": "editorial-2-concept-2",
+    "attempt": 1,
+    "seconds": 193
+  },
+  {
+    "id": "editorial-2-style-2",
+    "attempt": 1,
+    "seconds": 139
+  },
+  {
+    "id": "editorial-2-repeat-2",
+    "attempt": 1,
+    "seconds": 108
+  },
+  {
+    "id": "editorial-2-style-3",
+    "attempt": 1,
+    "seconds": 51
+  },
+  {
+    "id": "editorial-2-repeat-3",
+    "attempt": 1,
+    "seconds": 28
+  },
+  {
+    "id": "editorial-2-concept-3",
+    "attempt": 1,
+    "seconds": 83
+  },
+  {
+    "id": "editorial-2-style-1",
+    "attempt": 1,
+    "seconds": 174
+  },
+  {
+    "id": "editorial-2-repeat-1",
+    "attempt": 1,
+    "seconds": 244
+  },
+  {
+    "id": "editorial-2-concept-1",
+    "attempt": 1,
+    "seconds": 223
+  }
+]

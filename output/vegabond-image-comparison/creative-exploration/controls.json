@@ -1,0 +1,41 @@
+{
+  "controls": [
+    {
+      "id": "editorial-cue-repair",
+      "source": "raw/editorial-1-concept-3.png",
+      "output": "raw/editorial-cue-repair.png",
+      "toolCall": {
+        "id": "editorial-cue-repair",
+        "attempt": 1,
+        "seconds": 85
+      },
+      "prompt": "Edit this square ink-and-wash library editorial illustration. Keep the single adult reader seen from behind, public library shelves, lifelike hallway continuing through the borrowed open book, crop, and ink/wash rendering. Clarify that the hallway is this reader's personal childhood memory through one small repeated physical detail. On the visible adult right wrist holding the outer book edge add a rust-red braided thread bracelet with a small pale star charm. Inside the childhood hallway only, a small child's hand and wrist reach for the scratched doorframe, wearing the identical rust-red braided bracelet with the same pale star charm, prominent enough to read at thumbnail. No other child visible, no floating dream bubble, no inset or split panel, no words. Keep the spatial transition through the book unmistakable. Leave other content alone where possible."
+    },
+    {
+      "id": "recolor-control",
+      "source": "../stationery-trial/layer-neutral.png",
+      "output": "raw/recolor-control.png",
+      "toolCall": {
+        "id": "recolor-control",
+        "attempt": 1,
+        "seconds": 36
+      },
+      "prompt": "Make one narrow edit to the supplied original book-cart mascot. Recolor just the flat coral pink fill of the notched bookmark tab on the upper-right part of the drawing to muted violet. Keep the tab's outline, notch, shape, size and location, along with the whole mint cart and cream face, expression, arms, two wheels, framing, line weight and true transparent background. Same centered frontal view and flat colors. One output."
+    }
+  ],
+  "editorialBlindKey": {
+    "X": "raw/editorial-cue-repair.png",
+    "Y": "raw/editorial-1-concept-3.png"
+  },
+  "checks": {
+    "editorial": [
+      "Both AI reviewers independently linked the adult and child via the same red cord and charm in X.",
+      "Both retained the book-as-hallway reading and found the unedited Y's connection to the reader's own past uncertain."
+    ],
+    "recolor": [
+      "One edit call and one result, with no candidate branching.",
+      "The tab read as muted violet. The front view, two wheels, cream face and mint cart remained recognizable.",
+      "The source was 768×768 and the edit was 1254×1254. Both decoded as RGBA, with alpha 0 at all four corners. Pixel-exact preservation was not established."
+    ]
+  }
+}

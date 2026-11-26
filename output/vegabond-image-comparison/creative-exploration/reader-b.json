@@ -1,0 +1,716 @@
+{
+  "editorial-1": [
+    {
+      "id": "A",
+      "firstReading": "The matching rabbit joins the present embrace to childhood affection.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "floating-memory-vignette",
+      "novelty": 0,
+      "note": "The matching toy connects one adult to a child receiving affection."
+    },
+    {
+      "id": "B",
+      "firstReading": "The book continues into a hallway, but the memory owner is unclear.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "book-as-portal",
+      "novelty": 2,
+      "note": "A hallway and toy are clear; the viewer cannot identify them as the reader's past."
+    },
+    {
+      "id": "C",
+      "firstReading": "Light from the book reveals a childhood kitchen.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "floating-memory-vignette",
+      "novelty": 0,
+      "note": "A domestic adult-child scene rises from the book."
+    },
+    {
+      "id": "D",
+      "firstReading": "Reader recalls an adult and child at a meal.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "floating-memory-vignette",
+      "novelty": 0,
+      "note": "The present bowl echoes the past scene."
+    },
+    {
+      "id": "E",
+      "firstReading": "Reader studies a worn cloth, whose significance is unclear.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "tactile-encounter",
+      "novelty": 1,
+      "note": "Cloth and daylight suggest nostalgia but no particular past."
+    },
+    {
+      "id": "F",
+      "firstReading": "A card held against a dark slot shows an interior.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "archival-image",
+      "novelty": 1,
+      "note": "The card's significance and whether it is being returned are unclear."
+    },
+    {
+      "id": "G",
+      "firstReading": "A woman hugs a rabbit from a tissue-lined box.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "tactile-encounter",
+      "novelty": 0,
+      "note": "A toy is embraced, but the past link is implicit."
+    },
+    {
+      "id": "H",
+      "firstReading": "A rabbit in an open box reappears in a glowing memory.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "floating-memory-vignette",
+      "novelty": 0,
+      "note": "The same rabbit appears in the box and childhood vignette."
+    },
+    {
+      "id": "I",
+      "firstReading": "A glowing trail from the book leads to an old kitchen meal.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "floating-memory-vignette",
+      "novelty": 0,
+      "note": "Light and bowl connect the book with a caregiver and child."
+    }
+  ],
+  "editorial-2": [
+    {
+      "id": "A",
+      "firstReading": "A woman brushes her fingers over frayed gingham in a grid of sunlight beside a closed book.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "tactile-encounter",
+      "novelty": 1,
+      "note": "The worn fabric and faint marks suggest age without connecting the cloth to a particular personal past."
+    },
+    {
+      "id": "B",
+      "firstReading": "A woman reads as a glowing kitchen scene with a child and an adult appears above the pages.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "floating-memory-vignette",
+      "novelty": 0,
+      "note": "The glow rises from the book, and the bowl on the table echoes the domestic scene."
+    },
+    {
+      "id": "C",
+      "firstReading": "A woman lifts a small object that looks like a fishing lure from a box while a child and an adult appear outdoors above her.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "floating-memory-vignette",
+      "novelty": 0,
+      "note": "The lure’s dangling hooks and the adult’s apparent fishing rod connect the object to the outdoor memory."
+    },
+    {
+      "id": "D",
+      "firstReading": "A woman reads as light from the book reveals a child and caregiver at a kitchen table.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "floating-memory-vignette",
+      "novelty": 0,
+      "note": "The book supplies a visible path into the scene, with a bowl in the foreground repeating its domestic context."
+    },
+    {
+      "id": "E",
+      "firstReading": "A woman holds a stuffed rabbit beside an old photograph that appears to show a child with the same toy.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "archival-image",
+      "novelty": 1,
+      "note": "The photograph gives the toy a visible childhood history in the same physical space as the woman."
+    },
+    {
+      "id": "F",
+      "firstReading": "A woman holds a card showing a kitchen-like interior halfway inside a rectangular slot.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "archival-image",
+      "novelty": 1,
+      "note": "The scene on the card is visible, but no detail ties it to the woman’s personal history."
+    },
+    {
+      "id": "G",
+      "firstReading": "A woman hugs a stuffed rabbit while a glowing scene above her shows a child hugging a matching rabbit.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "floating-memory-vignette",
+      "novelty": 0,
+      "note": "The repeated toy and embrace connect the woman’s present reaction to a childhood scene."
+    },
+    {
+      "id": "H",
+      "firstReading": "An open book becomes a narrow hallway with a framed picture, a hanging bag and sunlight at the far end.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "book-as-portal",
+      "novelty": 2,
+      "note": "The hallway has lived-in details, but the reader’s personal connection to it remains unclear."
+    },
+    {
+      "id": "I",
+      "firstReading": "A woman reads while a colorful kitchen scene of a child and an adult rises from the book.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "floating-memory-vignette",
+      "novelty": 0,
+      "note": "The page glow and the bowl connect the book to a familiar adult-and-child scene."
+    }
+  ],
+  "mascot-1": [
+    {
+      "id": "A",
+      "firstReading": "A folded paper mascot cups a red button inside a fold in its body.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "shelter-in-fold",
+      "novelty": 2,
+      "note": "The fold walls and two hands keep the button from falling out."
+    },
+    {
+      "id": "B",
+      "firstReading": "A mitten mascot guides an orange ribbon through a gold button.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "thread-keepsake",
+      "novelty": 2,
+      "note": "One hand works the ribbon while the other steadies the button."
+    },
+    {
+      "id": "C",
+      "firstReading": "A ring-bound planner with a bow snuggles a taped clover card against its front.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "cradle-keepsake",
+      "novelty": 0,
+      "note": "The arms wrap across and around the delicate card."
+    },
+    {
+      "id": "D",
+      "firstReading": "A closed teal trunk raises a gold button in two mitts in front of itself.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "present-keepsake",
+      "novelty": 0,
+      "note": "The symmetrical display gives little evidence of sheltering or repairing the button."
+    },
+    {
+      "id": "E",
+      "firstReading": "A mushroom mascot holds a yellow button that hangs beneath its cap.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "secure-with-tether",
+      "novelty": 2,
+      "note": "The button is looped to the cap and the hands steady its sides in a sheltered spot."
+    },
+    {
+      "id": "F",
+      "firstReading": "A beret-wearing airmail envelope cups a clear clover packet on one side.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "cradle-keepsake",
+      "novelty": 0,
+      "note": "One arm crosses the front while the other closes around the packet's edge."
+    },
+    {
+      "id": "G",
+      "firstReading": "A gift-wrapped chest displays a large stitched button between two mitts.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "present-keepsake",
+      "novelty": 0,
+      "note": "The emphasis rays and symmetrical grip show a display. How the chest cares for the button is unclear."
+    },
+    {
+      "id": "H",
+      "firstReading": "A rounded teal case holds a bright round button in two hands at its center.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "present-keepsake",
+      "novelty": 0,
+      "note": "The case presents the button face forward, with little cue of protection beyond holding it."
+    },
+    {
+      "id": "I",
+      "firstReading": "A ring-bound journal draws a ribboned clover tag close with both arms.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "cradle-keepsake",
+      "novelty": 0,
+      "note": "The crossed arm and close grip read as an embrace."
+    }
+  ],
+  "mascot-2": [
+    {
+      "id": "A",
+      "firstReading": "A ring notebook holds a purple-flower card against its cheek.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "cradle-keepsake",
+      "novelty": 0,
+      "note": "Contact with the cheek and two supporting hands read as a hug."
+    },
+    {
+      "id": "B",
+      "firstReading": "A handled teal case displays a gold button in two gloves.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "present-keepsake",
+      "novelty": 0,
+      "note": "The button is held face forward against a closed case, with little visible protective action."
+    },
+    {
+      "id": "C",
+      "firstReading": "A square teal box shows a yellow button between its gloved hands.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "present-keepsake",
+      "novelty": 0,
+      "note": "The gloves touch either side, but the pose reads primarily as a display."
+    },
+    {
+      "id": "D",
+      "firstReading": "A mushroom holds a yellow button pendant that hangs below its cap.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "secure-with-tether",
+      "novelty": 2,
+      "note": "A visible loop secures the pendant while the two hands steady it."
+    },
+    {
+      "id": "E",
+      "firstReading": "A pink planner holds a yellow pressed-flower card close to its front cover.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "cradle-keepsake",
+      "novelty": 0,
+      "note": "The arms cradle opposite edges of the fragile card."
+    },
+    {
+      "id": "F",
+      "firstReading": "A ring notebook cradles a taped purple-flower card between its arms.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "cradle-keepsake",
+      "novelty": 0,
+      "note": "Both arms curl around the edges to hold the card close."
+    },
+    {
+      "id": "G",
+      "firstReading": "A mitten mascot guides a red ribbon through a yellow button.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "thread-keepsake",
+      "novelty": 2,
+      "note": "The ribbon, button hole and separate hand positions make active fastening visible."
+    },
+    {
+      "id": "H",
+      "firstReading": "An envelope mascot cups a red button inside its own open fold.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "shelter-in-fold",
+      "novelty": 2,
+      "note": "Its front folds form a pocket around the button and its hands support the opening."
+    },
+    {
+      "id": "I",
+      "firstReading": "A handled turquoise case brings a bright button forward between two gloves.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "present-keepsake",
+      "novelty": 0,
+      "note": "The button is visibly held, but the pose leaves the care action uncertain."
+    }
+  ],
+  "environment-1": [
+    {
+      "id": "A",
+      "firstReading": "A central boardwalk gives ramp access to waterside stalls beside tall notched timber guides.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "floating-stalls-with-gangways",
+      "novelty": 1,
+      "note": "Sloping ramps and tall guides beside the stall decks plausibly accommodate changes in platform height."
+    },
+    {
+      "id": "B",
+      "firstReading": "Large wheels and upright frames flank market decks at different heights beside stairs.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "guided-stall-lift",
+      "novelty": 1,
+      "note": "Upright frames and wheels suggest vertical lift, while a boardwalk and stairs carry foot traffic past the stalls."
+    },
+    {
+      "id": "C",
+      "firstReading": "A boardwalk branches into short ramps toward small waterside stands.",
+      "checks": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "family": "static-quay",
+      "novelty": 0,
+      "note": "Tall mooring poles and a walkable quay are clear, but the stalls' movement with the tide is uncertain."
+    },
+    {
+      "id": "D",
+      "firstReading": "A heavy segmented wooden arm crosses the water from a round pivot beside the causeway.",
+      "checks": [
+        true,
+        false,
+        true,
+        true
+      ],
+      "family": "articulated-linkage",
+      "novelty": 1,
+      "note": "The joints show a mechanism, but its connection to rising water or market access remains unclear."
+    },
+    {
+      "id": "E",
+      "firstReading": "Short gangways run down from a broad bridge to low stall decks between guide piles.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "floating-stalls-with-gangways",
+      "novelty": 1,
+      "note": "The low decks have rounded supports at water level and separate sloping access from the continuous bridge."
+    },
+    {
+      "id": "F",
+      "firstReading": "An awning-covered stall hangs over the harbor on several lines from a tall gantry.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "suspended-stall-hoist",
+      "novelty": 2,
+      "note": "The lines visibly carry the entire stall, and a separate foreground walkway continues through the market."
+    },
+    {
+      "id": "G",
+      "firstReading": "A giant wheel and tall uprights stand beside a cliffside stall above smaller decks at water level.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "guided-stall-lift",
+      "novelty": 2,
+      "note": "The wheel, upright guides and raised stall platform suggest a vertical lift beside a continuous shore path."
+    },
+    {
+      "id": "H",
+      "firstReading": "Stalls line stepped stone terraces above partly flooded low stands.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "stepped-market-levels",
+      "novelty": 2,
+      "note": "Repeated steps connect usable market levels as the lowest structures sit in seawater."
+    },
+    {
+      "id": "I",
+      "firstReading": "A wheel and gantries hold shop platforms at different heights above the harbor.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "suspended-stall-hoist",
+      "novelty": 2,
+      "note": "Suspended stalls show vertical adjustment, and the quay stays continuous from the foreground."
+    }
+  ],
+  "environment-2": [
+    {
+      "id": "A",
+      "firstReading": "Short ramps connect a fixed timber walkway to low stall decks with rounded flotation supports and tall guide posts.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "floating-stalls-with-gangways",
+      "novelty": 1,
+      "note": "The stall decks sit at the waterline, and the short ramps bridge the height gap from the main boardwalk."
+    },
+    {
+      "id": "B",
+      "firstReading": "Fish and produce stalls sit on barrel-supported platforms beside a central pier, linked by sloping gangways.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "floating-stalls-with-gangways",
+      "novelty": 1,
+      "note": "The visible barrels, guide posts and gangways show how the stalls can rise and fall while the main pier stays walkable."
+    },
+    {
+      "id": "C",
+      "firstReading": "Tall paired supports and a weighted cable frame a raised cliffside stall above a lower dock.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "guided-stall-lift",
+      "novelty": 2,
+      "note": "The raised booth sits alongside rails and a cable weight, with a stone shore path continuing through the market above it."
+    },
+    {
+      "id": "D",
+      "firstReading": "A long boardwalk passes market floats connected by sloping gangways beside tall posts.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "floating-stalls-with-gangways",
+      "novelty": 1,
+      "note": "Rounded supports under the nearest booth establish flotation, and its ramp maintains access from the continuous pier."
+    },
+    {
+      "id": "E",
+      "firstReading": "An elevated market path passes stairs, pulley frames and a shop platform suspended above the sea.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "suspended-stall-hoist",
+      "novelty": 2,
+      "note": "The overhead assembly visibly supports a whole shop deck, and the widened foreground route continues into the market."
+    },
+    {
+      "id": "F",
+      "firstReading": "Market canopies occupy several levels of stone terraces, with seawater reaching the lowest structures.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "stepped-market-levels",
+      "novelty": 2,
+      "note": "Steps connect usable levels along the shore as lower stall decks are partly flooded."
+    },
+    {
+      "id": "G",
+      "firstReading": "A crane-like timber gantry and its ropes suspend a lit stall alongside an ascending boardwalk.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "suspended-stall-hoist",
+      "novelty": 2,
+      "note": "The nearest awning and deck hang together below the overhead hoist while foot traffic follows the shore."
+    },
+    {
+      "id": "H",
+      "firstReading": "A wharf stair climbs past a stall at the waterline and taller gantries holding elevated frames.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "suspended-stall-hoist",
+      "novelty": 2,
+      "note": "The hoist frames and platforms at different heights show adjustment beyond the continuous shoreline path. The nearest stall also appears to have flotation supports."
+    },
+    {
+      "id": "I",
+      "firstReading": "A heavy jointed arm runs down from a stone quay toward a boat-like stall, beside a boardwalk hinged at shore.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "articulated-linkage",
+      "novelty": 2,
+      "note": "The articulated connection from fixed quay to low stall and the shore pivot make controlled movement with water level plausible."
+    }
+  ]
+}

@@ -1,0 +1,517 @@
+{
+  "date": "2026-11-26",
+  "tool": "Codex built-in image_gen",
+  "method": "Compare complete workflows. One tool call per candidate and no exposed fixed seed. All paths keep the common brief. Style uses one prescribed concept with three kinds of rendering. Concept uses three interpretations with consistent rendering. Repetitions use the same per-candidate instructions.",
+  "noveltyAnchors": [
+    "0: familiar visual treatment",
+    "1: unusual treatment of a familiar concept",
+    "2: distinct and relevant visual idea"
+  ],
+  "primary": "Distinct families among first images meeting all hard checks, per route, brief, repeat and reviewer. Counts are paired within a task.",
+  "secondary": [
+    "first-pass mandatory passes",
+    "best eligible novelty",
+    "first reading",
+    "generator calls and retries",
+    "tool callback time, excluding authoring and review"
+  ],
+  "cases": [
+    {
+      "id": "editorial",
+      "brief": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.",
+      "fixed": "One adult reader holds a borrowed book open at a library reading desk. A small image of a childhood kitchen rises from the pages as a soft inset memory. Book stacks behind the desk place the scene in a library.",
+      "styles": [
+        "Use drypoint printmaking: etched crosshatching, fine ink burr, warm paper and sparse burgundy tint.",
+        "Use torn colored paper collage: flat ink-blue silhouettes, cutout shapes, warm paper fibers.",
+        "Use soft chalk and gouache: matte paint, muted cobalt shadows and peach highlights."
+      ],
+      "branches": [
+        "Use ink and restrained blue-gray wash with warm paper. Show a hand that has stopped a borrowed library card halfway into a return slot. A small unoccupied childhood kitchen appears in the paper face of the card. Frame the adult reader closely in profile as they hesitate. Use a shelf and the return desk to establish the library.",
+        "Use ink and restrained blue-gray wash with warm paper. At a public library reading desk, a closed borrowed book holds down a corner of an old checked tablecloth that spills out of its closed pages. One pale cup ring and a bright rectangle of remembered kitchen window light cross the worn cloth. The reader quietly lays a hand on the cloth. Make the impossible physical trace the focus.",
+        "Use ink and restrained blue-gray wash with warm paper. A single adult reader opens a pocket book among library shelves. The fold of the book opens directly into a life-size empty childhood hallway. Follow the viewer's eye from the real adult hand and book edge to a scratched doorframe, with the library shelves still visible in the near foreground."
+      ],
+      "criteria": [
+        "one adult reader",
+        "identifiable borrowed object",
+        "personal memory linked to the borrowed object, with recognizable library context",
+        "no words, logos, or panel divisions"
+      ]
+    },
+    {
+      "id": "mascot",
+      "brief": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.",
+      "fixed": "A small rounded mint-green metal archive box with mitten hands carefully hugs one gold button to its chest. The box is the character.",
+      "styles": [
+        "Render it as bold matte screen print with three flat color inks and restrained halftone texture.",
+        "Render it as soft colored-pencil and watercolor with a strong outer contour and broad color shapes.",
+        "Render it as crisp cut-paper graphic art with overlapping silhouettes and no cast shadow."
+      ],
+      "branches": [
+        "Flat two-tone ink and muted color. Make the mascot a soft folded cream envelope that shelters one old coral coat button in a deep crease above its little hands. It cups the open edge as if shielding a borrowed belonging from rain. A single folded corner makes its silhouette recognizable.",
+        "Flat two-tone ink and muted color. A small charcoal mitten-shaped mascot uses its other mitten hand to thread a short rust-colored ribbon through a single gold coat button at its cuff. The clasping fingers and a gentle downward gaze make the repair visible. Keep the button readable.",
+        "Flat two-tone ink and muted color. A little mint mushroom with a hollow cap displays one spare gold button hanging under it like a small bell. Its two hands hold the button steady from either side. The bell and its protective canopy form the silhouette, with a calm dot-eyed face low on the stem."
+      ],
+      "criteria": [
+        "one original compact mascot, full body",
+        "one clearly readable memento",
+        "a visible gesture or grip that protects, saves, or repairs the object",
+        "no lettering or scene, with transparent background verified separately"
+      ]
+    },
+    {
+      "id": "environment",
+      "brief": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.",
+      "fixed": "An oblique view of one raised wooden gangway crossing a cove market. Along it, stall platforms float on barrels and move up and down guided by tall mooring posts. Hinged short ramps connect them to the gangway. Show water between stalls and an uninterrupted walking line from front left to the far quay.",
+      "styles": [
+        "Express this in dry watercolor and graphite over off-white paper with lightly textured shadows.",
+        "Express this in graphic painted blocks of muted terracotta and moss green with crisp silhouettes.",
+        "Express this in a subdued photographic concept-art treatment with bouncing morning light and worn timber."
+      ],
+      "branches": [
+        "Use muted painterly game concept art. At a high quay, a hand-operated counterweight winch lifts each timber shop up a pair of rail guides. One shop is half-raised. A continuous stone embankment is the clear walking route, and rising seawater floods the former stall level below. Show ropes carrying visible loads, moored baskets and the depth change in three-quarter view.",
+        "Use muted painterly game concept art. Along the coast, shops occupy one continuous spiral of walkable terraced steps cut into bedrock. As the tide covers the lowest stalls, traders move lightweight trays to empty matching terraces above. Show the repeated sockets, one tray being carried, the waterline, and a connected upper walkway from near to far. Frame across the shore from a high angle.",
+        "Use muted painterly game concept art. Make a market of flat-bottomed vendor boats that rise together in a sheltered flood basin. Long articulated arms fixed to shore keep a chain of floating pontoons connected. A single repeating line of handrails and planks leads the player from the dry quay to the center. Show one pivot join near the viewer and tide marks on the retaining wall."
+      ],
+      "criteria": [
+        "coastal market stalls and visible seawater in one scene",
+        "a visible physical adaptation to changing water level",
+        "an uninterrupted, plausible crossing or walkway legible from the image",
+        "no text, maps, labels or interface"
+      ]
+    }
+  ],
+  "plan": [
+    {
+      "route": "concept",
+      "i": 0,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.\n\nUse ink and restrained blue-gray wash with warm paper. Show a hand that has stopped a borrowed library card halfway into a return slot. A small unoccupied childhood kitchen appears in the paper face of the card. Frame the adult reader closely in profile as they hesitate. Use a shelf and the return desk to establish the library.",
+      "case": "editorial",
+      "id": "editorial-1-concept-1",
+      "repeat": 1
+    },
+    {
+      "route": "repeat",
+      "i": 0,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.",
+      "case": "editorial",
+      "id": "editorial-1-repeat-1",
+      "repeat": 1
+    },
+    {
+      "route": "style",
+      "i": 0,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.\n\nOne adult reader holds a borrowed book open at a library reading desk. A small image of a childhood kitchen rises from the pages as a soft inset memory. Book stacks behind the desk place the scene in a library. Use drypoint printmaking: etched crosshatching, fine ink burr, warm paper and sparse burgundy tint.",
+      "case": "editorial",
+      "id": "editorial-1-style-1",
+      "repeat": 1
+    },
+    {
+      "route": "repeat",
+      "i": 1,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.",
+      "case": "editorial",
+      "id": "editorial-1-repeat-2",
+      "repeat": 1
+    },
+    {
+      "route": "concept",
+      "i": 1,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.\n\nUse ink and restrained blue-gray wash with warm paper. At a public library reading desk, a closed borrowed book holds down a corner of an old checked tablecloth that spills out of its closed pages. One pale cup ring and a bright rectangle of remembered kitchen window light cross the worn cloth. The reader quietly lays a hand on the cloth. Make the impossible physical trace the focus.",
+      "case": "editorial",
+      "id": "editorial-1-concept-2",
+      "repeat": 1
+    },
+    {
+      "route": "style",
+      "i": 1,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.\n\nOne adult reader holds a borrowed book open at a library reading desk. A small image of a childhood kitchen rises from the pages as a soft inset memory. Book stacks behind the desk place the scene in a library. Use torn colored paper collage: flat ink-blue silhouettes, cutout shapes, warm paper fibers.",
+      "case": "editorial",
+      "id": "editorial-1-style-2",
+      "repeat": 1
+    },
+    {
+      "route": "style",
+      "i": 2,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.\n\nOne adult reader holds a borrowed book open at a library reading desk. A small image of a childhood kitchen rises from the pages as a soft inset memory. Book stacks behind the desk place the scene in a library. Use soft chalk and gouache: matte paint, muted cobalt shadows and peach highlights.",
+      "case": "editorial",
+      "id": "editorial-1-style-3",
+      "repeat": 1
+    },
+    {
+      "route": "repeat",
+      "i": 2,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.",
+      "case": "editorial",
+      "id": "editorial-1-repeat-3",
+      "repeat": 1
+    },
+    {
+      "route": "concept",
+      "i": 2,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.\n\nUse ink and restrained blue-gray wash with warm paper. A single adult reader opens a pocket book among library shelves. The fold of the book opens directly into a life-size empty childhood hallway. Follow the viewer's eye from the real adult hand and book edge to a scratched doorframe, with the library shelves still visible in the near foreground.",
+      "case": "editorial",
+      "id": "editorial-1-concept-3",
+      "repeat": 1
+    },
+    {
+      "route": "concept",
+      "i": 1,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.\n\nUse ink and restrained blue-gray wash with warm paper. At a public library reading desk, a closed borrowed book holds down a corner of an old checked tablecloth that spills out of its closed pages. One pale cup ring and a bright rectangle of remembered kitchen window light cross the worn cloth. The reader quietly lays a hand on the cloth. Make the impossible physical trace the focus.",
+      "case": "editorial",
+      "id": "editorial-2-concept-2",
+      "repeat": 2
+    },
+    {
+      "route": "style",
+      "i": 1,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.\n\nOne adult reader holds a borrowed book open at a library reading desk. A small image of a childhood kitchen rises from the pages as a soft inset memory. Book stacks behind the desk place the scene in a library. Use torn colored paper collage: flat ink-blue silhouettes, cutout shapes, warm paper fibers.",
+      "case": "editorial",
+      "id": "editorial-2-style-2",
+      "repeat": 2
+    },
+    {
+      "route": "repeat",
+      "i": 1,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.",
+      "case": "editorial",
+      "id": "editorial-2-repeat-2",
+      "repeat": 2
+    },
+    {
+      "route": "style",
+      "i": 2,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.\n\nOne adult reader holds a borrowed book open at a library reading desk. A small image of a childhood kitchen rises from the pages as a soft inset memory. Book stacks behind the desk place the scene in a library. Use soft chalk and gouache: matte paint, muted cobalt shadows and peach highlights.",
+      "case": "editorial",
+      "id": "editorial-2-style-3",
+      "repeat": 2
+    },
+    {
+      "route": "repeat",
+      "i": 2,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.",
+      "case": "editorial",
+      "id": "editorial-2-repeat-3",
+      "repeat": 2
+    },
+    {
+      "route": "concept",
+      "i": 2,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.\n\nUse ink and restrained blue-gray wash with warm paper. A single adult reader opens a pocket book among library shelves. The fold of the book opens directly into a life-size empty childhood hallway. Follow the viewer's eye from the real adult hand and book edge to a scratched doorframe, with the library shelves still visible in the near foreground.",
+      "case": "editorial",
+      "id": "editorial-2-concept-3",
+      "repeat": 2
+    },
+    {
+      "route": "style",
+      "i": 0,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.\n\nOne adult reader holds a borrowed book open at a library reading desk. A small image of a childhood kitchen rises from the pages as a soft inset memory. Book stacks behind the desk place the scene in a library. Use drypoint printmaking: etched crosshatching, fine ink burr, warm paper and sparse burgundy tint.",
+      "case": "editorial",
+      "id": "editorial-2-style-1",
+      "repeat": 2
+    },
+    {
+      "route": "repeat",
+      "i": 0,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.",
+      "case": "editorial",
+      "id": "editorial-2-repeat-1",
+      "repeat": 2
+    },
+    {
+      "route": "concept",
+      "i": 0,
+      "prompt": "Make one square editorial illustration for a piece about a public library that lends personal memories. The picture should feel intimate and bittersweet. Show one adult reader and one clearly identifiable object they borrowed, with a visible connection to a recalled personal past and enough context to read as a library. Avoid lettering, captions, logos, frames and panel divisions. Treat this as a well-drawn art-direction rough with a strong focal point.\n\nUse ink and restrained blue-gray wash with warm paper. Show a hand that has stopped a borrowed library card halfway into a return slot. A small unoccupied childhood kitchen appears in the paper face of the card. Frame the adult reader closely in profile as they hesitate. Use a shelf and the return desk to establish the library.",
+      "case": "editorial",
+      "id": "editorial-2-concept-1",
+      "repeat": 2
+    },
+    {
+      "route": "concept",
+      "i": 2,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.\n\nFlat two-tone ink and muted color. A little mint mushroom with a hollow cap displays one spare gold button hanging under it like a small bell. Its two hands hold the button steady from either side. The bell and its protective canopy form the silhouette, with a calm dot-eyed face low on the stem.",
+      "case": "mascot",
+      "id": "mascot-1-concept-3",
+      "repeat": 1
+    },
+    {
+      "route": "style",
+      "i": 2,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.\n\nA small rounded mint-green metal archive box with mitten hands carefully hugs one gold button to its chest. The box is the character. Render it as crisp cut-paper graphic art with overlapping silhouettes and no cast shadow.",
+      "case": "mascot",
+      "id": "mascot-1-style-3",
+      "repeat": 1
+    },
+    {
+      "route": "repeat",
+      "i": 2,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.",
+      "case": "mascot",
+      "id": "mascot-1-repeat-3",
+      "repeat": 1
+    },
+    {
+      "route": "concept",
+      "i": 0,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.\n\nFlat two-tone ink and muted color. Make the mascot a soft folded cream envelope that shelters one old coral coat button in a deep crease above its little hands. It cups the open edge as if shielding a borrowed belonging from rain. A single folded corner makes its silhouette recognizable.",
+      "case": "mascot",
+      "id": "mascot-1-concept-1",
+      "repeat": 1
+    },
+    {
+      "route": "style",
+      "i": 0,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.\n\nA small rounded mint-green metal archive box with mitten hands carefully hugs one gold button to its chest. The box is the character. Render it as bold matte screen print with three flat color inks and restrained halftone texture.",
+      "case": "mascot",
+      "id": "mascot-1-style-1",
+      "repeat": 1
+    },
+    {
+      "route": "repeat",
+      "i": 0,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.",
+      "case": "mascot",
+      "id": "mascot-1-repeat-1",
+      "repeat": 1
+    },
+    {
+      "route": "style",
+      "i": 1,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.\n\nA small rounded mint-green metal archive box with mitten hands carefully hugs one gold button to its chest. The box is the character. Render it as soft colored-pencil and watercolor with a strong outer contour and broad color shapes.",
+      "case": "mascot",
+      "id": "mascot-1-style-2",
+      "repeat": 1
+    },
+    {
+      "route": "repeat",
+      "i": 1,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.",
+      "case": "mascot",
+      "id": "mascot-1-repeat-2",
+      "repeat": 1
+    },
+    {
+      "route": "concept",
+      "i": 1,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.\n\nFlat two-tone ink and muted color. A small charcoal mitten-shaped mascot uses its other mitten hand to thread a short rust-colored ribbon through a single gold coat button at its cuff. The clasping fingers and a gentle downward gaze make the repair visible. Keep the button readable.",
+      "case": "mascot",
+      "id": "mascot-1-concept-2",
+      "repeat": 1
+    },
+    {
+      "route": "repeat",
+      "i": 1,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.",
+      "case": "mascot",
+      "id": "mascot-2-repeat-2",
+      "repeat": 2
+    },
+    {
+      "route": "concept",
+      "i": 1,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.\n\nFlat two-tone ink and muted color. A small charcoal mitten-shaped mascot uses its other mitten hand to thread a short rust-colored ribbon through a single gold coat button at its cuff. The clasping fingers and a gentle downward gaze make the repair visible. Keep the button readable.",
+      "case": "mascot",
+      "id": "mascot-2-concept-2",
+      "repeat": 2
+    },
+    {
+      "route": "style",
+      "i": 1,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.\n\nA small rounded mint-green metal archive box with mitten hands carefully hugs one gold button to its chest. The box is the character. Render it as soft colored-pencil and watercolor with a strong outer contour and broad color shapes.",
+      "case": "mascot",
+      "id": "mascot-2-style-2",
+      "repeat": 2
+    },
+    {
+      "route": "concept",
+      "i": 2,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.\n\nFlat two-tone ink and muted color. A little mint mushroom with a hollow cap displays one spare gold button hanging under it like a small bell. Its two hands hold the button steady from either side. The bell and its protective canopy form the silhouette, with a calm dot-eyed face low on the stem.",
+      "case": "mascot",
+      "id": "mascot-2-concept-3",
+      "repeat": 2
+    },
+    {
+      "route": "style",
+      "i": 2,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.\n\nA small rounded mint-green metal archive box with mitten hands carefully hugs one gold button to its chest. The box is the character. Render it as crisp cut-paper graphic art with overlapping silhouettes and no cast shadow.",
+      "case": "mascot",
+      "id": "mascot-2-style-3",
+      "repeat": 2
+    },
+    {
+      "route": "repeat",
+      "i": 2,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.",
+      "case": "mascot",
+      "id": "mascot-2-repeat-3",
+      "repeat": 2
+    },
+    {
+      "route": "concept",
+      "i": 0,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.\n\nFlat two-tone ink and muted color. Make the mascot a soft folded cream envelope that shelters one old coral coat button in a deep crease above its little hands. It cups the open edge as if shielding a borrowed belonging from rain. A single folded corner makes its silhouette recognizable.",
+      "case": "mascot",
+      "id": "mascot-2-concept-1",
+      "repeat": 2
+    },
+    {
+      "route": "style",
+      "i": 0,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.\n\nA small rounded mint-green metal archive box with mitten hands carefully hugs one gold button to its chest. The box is the character. Render it as bold matte screen print with three flat color inks and restrained halftone texture.",
+      "case": "mascot",
+      "id": "mascot-2-style-1",
+      "repeat": 2
+    },
+    {
+      "route": "repeat",
+      "i": 0,
+      "prompt": "Make one new original stationery mascot cutout for a small sticker. The mascot remembers small acts of kindness by preserving one tiny memento. Use just one unmistakable, compact, friendly character, full body visible, and one clearly readable memento. Show a visible caring gesture toward the object. Transparent background, no text or brand marks, and no scene behind it. Keep the visual idea readable at sticker size.",
+      "case": "mascot",
+      "id": "mascot-2-repeat-1",
+      "repeat": 2
+    },
+    {
+      "route": "repeat",
+      "i": 2,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.",
+      "case": "environment",
+      "id": "environment-1-repeat-3",
+      "repeat": 1
+    },
+    {
+      "route": "concept",
+      "i": 2,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.\n\nUse muted painterly game concept art. Make a market of flat-bottomed vendor boats that rise together in a sheltered flood basin. Long articulated arms fixed to shore keep a chain of floating pontoons connected. A single repeating line of handrails and planks leads the player from the dry quay to the center. Show one pivot join near the viewer and tide marks on the retaining wall.",
+      "case": "environment",
+      "id": "environment-1-concept-3",
+      "repeat": 1
+    },
+    {
+      "route": "style",
+      "i": 2,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.\n\nAn oblique view of one raised wooden gangway crossing a cove market. Along it, stall platforms float on barrels and move up and down guided by tall mooring posts. Hinged short ramps connect them to the gangway. Show water between stalls and an uninterrupted walking line from front left to the far quay. Express this in a subdued photographic concept-art treatment with bouncing morning light and worn timber.",
+      "case": "environment",
+      "id": "environment-1-style-3",
+      "repeat": 1
+    },
+    {
+      "route": "repeat",
+      "i": 0,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.",
+      "case": "environment",
+      "id": "environment-1-repeat-1",
+      "repeat": 1
+    },
+    {
+      "route": "concept",
+      "i": 0,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.\n\nUse muted painterly game concept art. At a high quay, a hand-operated counterweight winch lifts each timber shop up a pair of rail guides. One shop is half-raised. A continuous stone embankment is the clear walking route, and rising seawater floods the former stall level below. Show ropes carrying visible loads, moored baskets and the depth change in three-quarter view.",
+      "case": "environment",
+      "id": "environment-1-concept-1",
+      "repeat": 1
+    },
+    {
+      "route": "style",
+      "i": 0,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.\n\nAn oblique view of one raised wooden gangway crossing a cove market. Along it, stall platforms float on barrels and move up and down guided by tall mooring posts. Hinged short ramps connect them to the gangway. Show water between stalls and an uninterrupted walking line from front left to the far quay. Express this in dry watercolor and graphite over off-white paper with lightly textured shadows.",
+      "case": "environment",
+      "id": "environment-1-style-1",
+      "repeat": 1
+    },
+    {
+      "route": "concept",
+      "i": 1,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.\n\nUse muted painterly game concept art. Along the coast, shops occupy one continuous spiral of walkable terraced steps cut into bedrock. As the tide covers the lowest stalls, traders move lightweight trays to empty matching terraces above. Show the repeated sockets, one tray being carried, the waterline, and a connected upper walkway from near to far. Frame across the shore from a high angle.",
+      "case": "environment",
+      "id": "environment-1-concept-2",
+      "repeat": 1
+    },
+    {
+      "route": "style",
+      "i": 1,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.\n\nAn oblique view of one raised wooden gangway crossing a cove market. Along it, stall platforms float on barrels and move up and down guided by tall mooring posts. Hinged short ramps connect them to the gangway. Show water between stalls and an uninterrupted walking line from front left to the far quay. Express this in graphic painted blocks of muted terracotta and moss green with crisp silhouettes.",
+      "case": "environment",
+      "id": "environment-1-style-2",
+      "repeat": 1
+    },
+    {
+      "route": "repeat",
+      "i": 1,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.",
+      "case": "environment",
+      "id": "environment-1-repeat-2",
+      "repeat": 1
+    },
+    {
+      "route": "style",
+      "i": 1,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.\n\nAn oblique view of one raised wooden gangway crossing a cove market. Along it, stall platforms float on barrels and move up and down guided by tall mooring posts. Hinged short ramps connect them to the gangway. Show water between stalls and an uninterrupted walking line from front left to the far quay. Express this in graphic painted blocks of muted terracotta and moss green with crisp silhouettes.",
+      "case": "environment",
+      "id": "environment-2-style-2",
+      "repeat": 2
+    },
+    {
+      "route": "repeat",
+      "i": 1,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.",
+      "case": "environment",
+      "id": "environment-2-repeat-2",
+      "repeat": 2
+    },
+    {
+      "route": "concept",
+      "i": 1,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.\n\nUse muted painterly game concept art. Along the coast, shops occupy one continuous spiral of walkable terraced steps cut into bedrock. As the tide covers the lowest stalls, traders move lightweight trays to empty matching terraces above. Show the repeated sockets, one tray being carried, the waterline, and a connected upper walkway from near to far. Frame across the shore from a high angle.",
+      "case": "environment",
+      "id": "environment-2-concept-2",
+      "repeat": 2
+    },
+    {
+      "route": "repeat",
+      "i": 2,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.",
+      "case": "environment",
+      "id": "environment-2-repeat-3",
+      "repeat": 2
+    },
+    {
+      "route": "concept",
+      "i": 2,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.\n\nUse muted painterly game concept art. Make a market of flat-bottomed vendor boats that rise together in a sheltered flood basin. Long articulated arms fixed to shore keep a chain of floating pontoons connected. A single repeating line of handrails and planks leads the player from the dry quay to the center. Show one pivot join near the viewer and tide marks on the retaining wall.",
+      "case": "environment",
+      "id": "environment-2-concept-3",
+      "repeat": 2
+    },
+    {
+      "route": "style",
+      "i": 2,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.\n\nAn oblique view of one raised wooden gangway crossing a cove market. Along it, stall platforms float on barrels and move up and down guided by tall mooring posts. Hinged short ramps connect them to the gangway. Show water between stalls and an uninterrupted walking line from front left to the far quay. Express this in a subdued photographic concept-art treatment with bouncing morning light and worn timber.",
+      "case": "environment",
+      "id": "environment-2-style-3",
+      "repeat": 2
+    },
+    {
+      "route": "repeat",
+      "i": 0,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.",
+      "case": "environment",
+      "id": "environment-2-repeat-1",
+      "repeat": 2
+    },
+    {
+      "route": "concept",
+      "i": 0,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.\n\nUse muted painterly game concept art. At a high quay, a hand-operated counterweight winch lifts each timber shop up a pair of rail guides. One shop is half-raised. A continuous stone embankment is the clear walking route, and rising seawater floods the former stall level below. Show ropes carrying visible loads, moored baskets and the depth change in three-quarter view.",
+      "case": "environment",
+      "id": "environment-2-concept-1",
+      "repeat": 2
+    },
+    {
+      "route": "style",
+      "i": 0,
+      "prompt": "Draw one original wide game-environment concept image of a coastal market whose operators adapt their shops to a dramatic daily rise and fall of the tide. Let the image show a plausible mechanism for the market to operate as the water rises, with one clearly readable traversable route for a player across the market. Show stalls, water and the route in one coherent scene. No text, map symbols, UI overlays or diagram labels. Aim for an evocative game art-direction rough.\n\nAn oblique view of one raised wooden gangway crossing a cove market. Along it, stall platforms float on barrels and move up and down guided by tall mooring posts. Hinged short ramps connect them to the gangway. Show water between stalls and an uninterrupted walking line from front left to the far quay. Express this in dry watercolor and graphite over off-white paper with lightly textured shadows.",
+      "case": "environment",
+      "id": "environment-2-style-1",
+      "repeat": 2
+    }
+  ]
+}

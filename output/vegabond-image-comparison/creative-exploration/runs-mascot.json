@@ -1,0 +1,164 @@
+[
+  {
+    "id": "mascot-1-concept-3",
+    "attempt": 1,
+    "callbackSeconds": 33.947,
+    "status": "saved",
+    "bytes": 1046825,
+    "sha256": "6167178d8f17b60b74cf74f4e058047e412d4ae8d1ad90cde50a346dcc51a246",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-1-style-3",
+    "attempt": 1,
+    "callbackSeconds": 171.971,
+    "status": "saved",
+    "bytes": 2080790,
+    "sha256": "c01f43cb56589d2e066a7467d6bcf2d5006448da8424e89476dae7fa0fd88266",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-1-repeat-3",
+    "attempt": 1,
+    "callbackSeconds": 67.075,
+    "status": "saved",
+    "bytes": 1276656,
+    "sha256": "0789a5663e7c4a34db8bf72f84196b049ff23755114fb5bd857c0a12e80cfd52",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-1-concept-1",
+    "attempt": 1,
+    "callbackSeconds": 100.881,
+    "status": "saved",
+    "bytes": 1168853,
+    "sha256": "d6e1241151aa10e7f0419cfc2c80d54208ac1855aa9674c7c8ee28f2844f52fd",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-1-style-1",
+    "attempt": 1,
+    "callbackSeconds": 137.864,
+    "status": "saved",
+    "bytes": 1828137,
+    "sha256": "8958638e99da8f81d1c7dcd5e8cf55d07a5486e6ea6ba3bcd8a05af22aec4a4e",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-1-repeat-1",
+    "attempt": 1,
+    "callbackSeconds": 205.144,
+    "status": "saved",
+    "bytes": 1204233,
+    "sha256": "e709c8bcbff3d93b80b0c5c0c8f3f62e4d4dd5074cc9d57c8c402fe52c19fe20",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-1-style-2",
+    "attempt": 1,
+    "callbackSeconds": 35.901,
+    "status": "saved",
+    "bytes": 2518351,
+    "sha256": "e4e47b928b9c76883a95f135f3282c960ddb38ca0b36259ec7f5c9846bc9d723",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-1-repeat-2",
+    "attempt": 1,
+    "callbackSeconds": 35.361,
+    "status": "saved",
+    "bytes": 1500723,
+    "sha256": "7da312f067bfaa756774b45714e453c7cbcbaa90e58fabaa63222fbba69db0bf",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-1-concept-2",
+    "attempt": 1,
+    "callbackSeconds": 69.302,
+    "status": "saved",
+    "bytes": 1120596,
+    "sha256": "6ed17d7ba08fc36de5f0644ce16dfb6560f369192136f86f1578d256a2cd1a9f",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-2-repeat-2",
+    "attempt": 1,
+    "callbackSeconds": 35.805,
+    "status": "saved",
+    "bytes": 1213389,
+    "sha256": "5d3aee5568f17dc47ad3ef085325807edcb319d9e5aaccf0dc4fd658c1afa4e7",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-2-concept-2",
+    "attempt": 1,
+    "callbackSeconds": 27.513,
+    "status": "saved",
+    "bytes": 1185037,
+    "sha256": "fe8bfd13d1c5bd8a2d67049feb1f2484d70c693d4a910b54c4efc043b75a23b0",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-2-style-2",
+    "attempt": 1,
+    "callbackSeconds": 61.309,
+    "status": "saved",
+    "bytes": 2491721,
+    "sha256": "86d51975c06babbfb347f1062ff65f0b5560ae134cef31ec5020edd30d196d6a",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-2-concept-3",
+    "attempt": 1,
+    "callbackSeconds": 78.135,
+    "status": "saved",
+    "bytes": 1143076,
+    "sha256": "4027aee5b40f89689a2f424545b16e66a616ed03648340c4be0186963aa77425",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-2-style-3",
+    "attempt": 1,
+    "callbackSeconds": 34.703,
+    "status": "saved",
+    "bytes": 2047131,
+    "sha256": "29155aa5e619f3c024ac0f770feef92b0fe8cc349ea57835696f25810af9087f",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-2-repeat-3",
+    "attempt": 1,
+    "callbackSeconds": 37.989,
+    "status": "saved",
+    "bytes": 1370865,
+    "sha256": "cc8160833e8610d503eaa6bb4b46f3757bc53cfe3839cf4453961b1369f3b9e6",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-2-concept-1",
+    "attempt": 1,
+    "callbackSeconds": 70.895,
+    "status": "saved",
+    "bytes": 1432238,
+    "sha256": "dc241bd7bb8274b1b46e4392fbd0ef590ec1d64d83e06fe67a77efab398eabfa",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-2-style-1",
+    "attempt": 1,
+    "callbackSeconds": 112.737,
+    "status": "saved",
+    "bytes": 1414316,
+    "sha256": "8f8969dc5fb0cb1ad9fc2c20a13938954c868bd0de343dde349b47ba66b1a6e3",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  },
+  {
+    "id": "mascot-2-repeat-1",
+    "attempt": 1,
+    "callbackSeconds": 149.652,
+    "status": "saved",
+    "bytes": 1430622,
+    "sha256": "14a28d4095a2e68876a73d5e0a5b21e87a3733dea9b85bac617993e16cf176b7",
+    "recoveredCopyFailure": "The first copy path included both the output directory and the full PNG path. Recovered the original PNG by its exact filename from the command event."
+  }
+]

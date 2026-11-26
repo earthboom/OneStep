@@ -1,0 +1,1286 @@
+{
+  "totals": {
+    "repeat": {
+      "eligible_family_sum": 16,
+      "families_before_checks_sum": 20,
+      "first_pass": 32,
+      "image_reviews": 36
+    },
+    "style": {
+      "eligible_family_sum": 10,
+      "families_before_checks_sum": 13,
+      "first_pass": 27,
+      "image_reviews": 36
+    },
+    "concept": {
+      "eligible_family_sum": 19,
+      "families_before_checks_sum": 36,
+      "first_pass": 19,
+      "image_reviews": 36
+    }
+  },
+  "groups": {
+    "editorial-1": {
+      "a": {
+        "repeat": {
+          "first_pass": 2,
+          "images": 3,
+          "all_families": [
+            "memory-apparition",
+            "tactile-recognition"
+          ],
+          "eligible_families": [
+            "memory-apparition"
+          ],
+          "best_eligible_novelty": 0,
+          "failed_checks": [
+            0,
+            0,
+            1,
+            0
+          ]
+        },
+        "style": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "memory-apparition"
+          ],
+          "eligible_families": [
+            "memory-apparition"
+          ],
+          "best_eligible_novelty": 0,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "concept": {
+          "first_pass": 0,
+          "images": 3,
+          "all_families": [
+            "archival-image",
+            "book-as-spatial-window",
+            "tactile-recognition"
+          ],
+          "eligible_families": [],
+          "best_eligible_novelty": null,
+          "failed_checks": [
+            0,
+            0,
+            3,
+            0
+          ]
+        }
+      },
+      "b": {
+        "repeat": {
+          "first_pass": 2,
+          "images": 3,
+          "all_families": [
+            "floating-memory-vignette",
+            "tactile-encounter"
+          ],
+          "eligible_families": [
+            "floating-memory-vignette"
+          ],
+          "best_eligible_novelty": 0,
+          "failed_checks": [
+            0,
+            0,
+            1,
+            0
+          ]
+        },
+        "style": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "floating-memory-vignette"
+          ],
+          "eligible_families": [
+            "floating-memory-vignette"
+          ],
+          "best_eligible_novelty": 0,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "concept": {
+          "first_pass": 0,
+          "images": 3,
+          "all_families": [
+            "archival-image",
+            "book-as-portal",
+            "tactile-encounter"
+          ],
+          "eligible_families": [],
+          "best_eligible_novelty": null,
+          "failed_checks": [
+            0,
+            0,
+            3,
+            0
+          ]
+        }
+      }
+    },
+    "editorial-2": {
+      "a": {
+        "repeat": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "archival-image",
+            "memory-apparition"
+          ],
+          "eligible_families": [
+            "archival-image",
+            "memory-apparition"
+          ],
+          "best_eligible_novelty": 1,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "style": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "memory-apparition"
+          ],
+          "eligible_families": [
+            "memory-apparition"
+          ],
+          "best_eligible_novelty": 0,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "concept": {
+          "first_pass": 0,
+          "images": 3,
+          "all_families": [
+            "archival-image",
+            "book-as-spatial-window",
+            "tactile-recognition"
+          ],
+          "eligible_families": [],
+          "best_eligible_novelty": null,
+          "failed_checks": [
+            0,
+            0,
+            3,
+            0
+          ]
+        }
+      },
+      "b": {
+        "repeat": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "archival-image",
+            "floating-memory-vignette"
+          ],
+          "eligible_families": [
+            "archival-image",
+            "floating-memory-vignette"
+          ],
+          "best_eligible_novelty": 1,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "style": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "floating-memory-vignette"
+          ],
+          "eligible_families": [
+            "floating-memory-vignette"
+          ],
+          "best_eligible_novelty": 0,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "concept": {
+          "first_pass": 0,
+          "images": 3,
+          "all_families": [
+            "archival-image",
+            "book-as-portal",
+            "tactile-encounter"
+          ],
+          "eligible_families": [],
+          "best_eligible_novelty": null,
+          "failed_checks": [
+            0,
+            0,
+            3,
+            0
+          ]
+        }
+      }
+    },
+    "environment-1": {
+      "a": {
+        "repeat": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "market-hoist"
+          ],
+          "eligible_families": [
+            "market-hoist"
+          ],
+          "best_eligible_novelty": 2,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "style": {
+          "first_pass": 1,
+          "images": 3,
+          "all_families": [
+            "ramped-vendor-decks"
+          ],
+          "eligible_families": [
+            "ramped-vendor-decks"
+          ],
+          "best_eligible_novelty": 0,
+          "failed_checks": [
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        "concept": {
+          "first_pass": 2,
+          "images": 3,
+          "all_families": [
+            "articulated-dock-arm",
+            "market-hoist",
+            "stepped-tidal-quay"
+          ],
+          "eligible_families": [
+            "market-hoist",
+            "stepped-tidal-quay"
+          ],
+          "best_eligible_novelty": 2,
+          "failed_checks": [
+            0,
+            1,
+            0,
+            0
+          ]
+        }
+      },
+      "b": {
+        "repeat": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "guided-stall-lift",
+            "suspended-stall-hoist"
+          ],
+          "eligible_families": [
+            "guided-stall-lift",
+            "suspended-stall-hoist"
+          ],
+          "best_eligible_novelty": 2,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "style": {
+          "first_pass": 2,
+          "images": 3,
+          "all_families": [
+            "floating-stalls-with-gangways",
+            "static-quay"
+          ],
+          "eligible_families": [
+            "floating-stalls-with-gangways"
+          ],
+          "best_eligible_novelty": 1,
+          "failed_checks": [
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        "concept": {
+          "first_pass": 2,
+          "images": 3,
+          "all_families": [
+            "articulated-linkage",
+            "guided-stall-lift",
+            "stepped-market-levels"
+          ],
+          "eligible_families": [
+            "guided-stall-lift",
+            "stepped-market-levels"
+          ],
+          "best_eligible_novelty": 2,
+          "failed_checks": [
+            0,
+            1,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "environment-2": {
+      "a": {
+        "repeat": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "market-hoist",
+            "ramped-vendor-decks"
+          ],
+          "eligible_families": [
+            "market-hoist",
+            "ramped-vendor-decks"
+          ],
+          "best_eligible_novelty": 2,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "style": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "ramped-vendor-decks"
+          ],
+          "eligible_families": [
+            "ramped-vendor-decks"
+          ],
+          "best_eligible_novelty": 0,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "concept": {
+          "first_pass": 2,
+          "images": 3,
+          "all_families": [
+            "articulated-dock-arm",
+            "market-hoist",
+            "stepped-tidal-quay"
+          ],
+          "eligible_families": [
+            "market-hoist",
+            "stepped-tidal-quay"
+          ],
+          "best_eligible_novelty": 2,
+          "failed_checks": [
+            0,
+            1,
+            0,
+            0
+          ]
+        }
+      },
+      "b": {
+        "repeat": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "suspended-stall-hoist"
+          ],
+          "eligible_families": [
+            "suspended-stall-hoist"
+          ],
+          "best_eligible_novelty": 2,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "style": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "floating-stalls-with-gangways"
+          ],
+          "eligible_families": [
+            "floating-stalls-with-gangways"
+          ],
+          "best_eligible_novelty": 1,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "concept": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "articulated-linkage",
+            "guided-stall-lift",
+            "stepped-market-levels"
+          ],
+          "eligible_families": [
+            "articulated-linkage",
+            "guided-stall-lift",
+            "stepped-market-levels"
+          ],
+          "best_eligible_novelty": 2,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "mascot-1": {
+      "a": {
+        "repeat": {
+          "first_pass": 2,
+          "images": 3,
+          "all_families": [
+            "cradle-keepsake",
+            "present-keepsake"
+          ],
+          "eligible_families": [
+            "cradle-keepsake"
+          ],
+          "best_eligible_novelty": 0,
+          "failed_checks": [
+            0,
+            0,
+            1,
+            0
+          ]
+        },
+        "style": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "cradle-keepsake"
+          ],
+          "eligible_families": [
+            "cradle-keepsake"
+          ],
+          "best_eligible_novelty": 0,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "concept": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "shelter-in-envelope-flap",
+            "suspend-under-cap",
+            "thread-button-ribbon"
+          ],
+          "eligible_families": [
+            "shelter-in-envelope-flap",
+            "suspend-under-cap",
+            "thread-button-ribbon"
+          ],
+          "best_eligible_novelty": 2,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "b": {
+        "repeat": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "cradle-keepsake"
+          ],
+          "eligible_families": [
+            "cradle-keepsake"
+          ],
+          "best_eligible_novelty": 0,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "style": {
+          "first_pass": 0,
+          "images": 3,
+          "all_families": [
+            "present-keepsake"
+          ],
+          "eligible_families": [],
+          "best_eligible_novelty": null,
+          "failed_checks": [
+            0,
+            0,
+            3,
+            0
+          ]
+        },
+        "concept": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "secure-with-tether",
+            "shelter-in-fold",
+            "thread-keepsake"
+          ],
+          "eligible_families": [
+            "secure-with-tether",
+            "shelter-in-fold",
+            "thread-keepsake"
+          ],
+          "best_eligible_novelty": 2,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "mascot-2": {
+      "a": {
+        "repeat": {
+          "first_pass": 2,
+          "images": 3,
+          "all_families": [
+            "cradle-keepsake",
+            "present-keepsake"
+          ],
+          "eligible_families": [
+            "cradle-keepsake"
+          ],
+          "best_eligible_novelty": 0,
+          "failed_checks": [
+            0,
+            0,
+            1,
+            0
+          ]
+        },
+        "style": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "cradle-keepsake"
+          ],
+          "eligible_families": [
+            "cradle-keepsake"
+          ],
+          "best_eligible_novelty": 0,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "concept": {
+          "first_pass": 2,
+          "images": 3,
+          "all_families": [
+            "shelter-in-envelope-flap",
+            "suspend-under-cap",
+            "thread-button-ribbon"
+          ],
+          "eligible_families": [
+            "suspend-under-cap",
+            "thread-button-ribbon"
+          ],
+          "best_eligible_novelty": 2,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      },
+      "b": {
+        "repeat": {
+          "first_pass": 3,
+          "images": 3,
+          "all_families": [
+            "cradle-keepsake"
+          ],
+          "eligible_families": [
+            "cradle-keepsake"
+          ],
+          "best_eligible_novelty": 0,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "style": {
+          "first_pass": 0,
+          "images": 3,
+          "all_families": [
+            "present-keepsake"
+          ],
+          "eligible_families": [],
+          "best_eligible_novelty": null,
+          "failed_checks": [
+            0,
+            0,
+            3,
+            0
+          ]
+        },
+        "concept": {
+          "first_pass": 2,
+          "images": 3,
+          "all_families": [
+            "secure-with-tether",
+            "shelter-in-fold",
+            "thread-keepsake"
+          ],
+          "eligible_families": [
+            "secure-with-tether",
+            "thread-keepsake"
+          ],
+          "best_eligible_novelty": 2,
+          "failed_checks": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    }
+  },
+  "images": {
+    "editorial-1-concept-1": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "55adfda356fa917f180ef795b227d73d5f8886fa65a51ff74f0a83c391c6523c"
+    },
+    "editorial-1-concept-2": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "2cd537e79603a3ea0205f727e8b7b201b0fa9052c5752fd6714a7cfae8382df4"
+    },
+    "editorial-1-concept-3": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "1998b419eae1759c509416ea780c29bb08078d605ee7526860f3b3f0debc7f86"
+    },
+    "editorial-1-repeat-1": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "e4342cea779559db4ff23de965df6677adb1287fb1bba5678a1c16c3fd6be2ad"
+    },
+    "editorial-1-repeat-2": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "18cf0987061c4ed1e35b493b908e9707d157160fd47edc84cb7d0a53f0c49003"
+    },
+    "editorial-1-repeat-3": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "1b6361ef8e61a2b024ac1c5bc94dce3e1c1092113dd5a0aba8ebe394c8e0752d"
+    },
+    "editorial-1-style-1": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "5f537dbdfad15f46090260dfc6138058a9ae8db863f65d5713996161fab21e8c"
+    },
+    "editorial-1-style-2": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "e99396ff602ecc41db2724ca0839b4a007ec792971214499fbcfb6c2c20498ec"
+    },
+    "editorial-1-style-3": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "1dd8e0326ccb455104d41f6ab98485c9bdc02e4bda521a8da2eb84ee68b9c3a4"
+    },
+    "editorial-2-concept-1": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "6d635da2bb1904920cb86bf54114fdf00de20135e365983461d5c44a7866a43a"
+    },
+    "editorial-2-concept-2": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "55d7a01bfeab93a68291636485f04a6b9c17fba3a7d5a421e44e2cb15d90ab18"
+    },
+    "editorial-2-concept-3": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "9dd6a9d899febe7182469fc140565057bc857fac274fad15d25149cf89e6c3ac"
+    },
+    "editorial-2-repeat-1": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "27e1d7f2760d21a1d7ee0a30ab2c48999df4efed2105ec2924e14f3286fe7d27"
+    },
+    "editorial-2-repeat-2": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "12afdf23e2789ba8c44a4b7f6f78036cf4ec14cfeb64fbf303cd21fe3f5348ca"
+    },
+    "editorial-2-repeat-3": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "3f68cf7f7bead23cedc0cdae1401a73389f942cc6447749f3302ff692ffe6fd2"
+    },
+    "editorial-2-style-1": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "00b9b2f201e3ad5aa87bc9a0bcac5f71aade18293dae94d48b0f4491490d992f"
+    },
+    "editorial-2-style-2": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "14aa7f46617f7ca667d324b0385cf1c4ec5dd23b532fcc7e19115656ceacd352"
+    },
+    "editorial-2-style-3": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "a31d421c11d410fb34c4bd53143c310dcbd75ebcfac479d5b824ec15756b44df"
+    },
+    "environment-1-concept-1": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "7923c812916fc80e00c059cb0b9db0024b1f99d91e4a1687766d90d5f2dea4bd"
+    },
+    "environment-1-concept-2": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "52b330e2cec8a1c02efafb4840db13319e061249a7d5045de9edaa8e21d1761d"
+    },
+    "environment-1-concept-3": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "909b0bb2cd36e340dc07c748d14e685f8ecd93531d5441454789423f1f8a9e97"
+    },
+    "environment-1-repeat-1": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "c6270e8aa43b773976938f4e0fbb0b042aba82b96ff053a63b0c8c8e4ee41eef"
+    },
+    "environment-1-repeat-2": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "0aee7b0ef91394a633df1bdd630f885e55da964e8d2d6a54f8333e18cec80715"
+    },
+    "environment-1-repeat-3": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "414b03b5442ead1b8a6bdda40ceabed095dafcc720fc84834966beff6494d5c7"
+    },
+    "environment-1-style-1": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "1156637cfad638dfcc6a3866045f43d66fcf22c684d550eff83e1592d7ec78df"
+    },
+    "environment-1-style-2": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "938d8ffb42c7bc41f465db8c8060e201a1842be9ceef1c51bba17688f0554aa1"
+    },
+    "environment-1-style-3": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "e193208a583b19c7348f664f2a1d13845447ff794c8c640f39573588a50e5aba"
+    },
+    "environment-2-concept-1": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "e9fa7a6f3b18e051428fd1795c48a5db64e5edd2f3618d20fb51617127aeca3b"
+    },
+    "environment-2-concept-2": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "6fa50104062d5951b60a87c778793300eb2b94a0fa2e879f259306f978654831"
+    },
+    "environment-2-concept-3": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "78df9b12b7687f17b7925108d6209f1495fd165468ef8714fe3f442addd0b2c9"
+    },
+    "environment-2-repeat-1": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "5830c1ada30c8649bf141eda5e4fc71709dda929376ec4f29d2e4435721fd657"
+    },
+    "environment-2-repeat-2": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "a214a9008aa374d38f878e4537d48e583c9184ad7b9a77e857222951b421cb0e"
+    },
+    "environment-2-repeat-3": {
+      "size": [
+        1774,
+        887
+      ],
+      "sha256": "18946d71cddba85301a31505c1917993f3ac7e141d921bf860336890600af960"
+    },
+    "environment-2-style-1": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "161d6bad00ef4aa9e0a38696571ac83fb54dbb83c88f6856ccbc94e180f3ba7f"
+    },
+    "environment-2-style-2": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "764c089a6b803f4186ca1aef9776b15669105c5b4b9c4ac92046758a129ec740"
+    },
+    "environment-2-style-3": {
+      "size": [
+        1672,
+        941
+      ],
+      "sha256": "fc5b0965d285676ad21691b47ab1de4d172929148959264b713f50caf4f83e5c"
+    },
+    "mascot-1-concept-1": {
+      "size": [
+        1312,
+        1199
+      ],
+      "sha256": "d6e1241151aa10e7f0419cfc2c80d54208ac1855aa9674c7c8ee28f2844f52fd",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    },
+    "mascot-1-concept-2": {
+      "size": [
+        1246,
+        1262
+      ],
+      "sha256": "6ed17d7ba08fc36de5f0644ce16dfb6560f369192136f86f1578d256a2cd1a9f",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    },
+    "mascot-1-concept-3": {
+      "size": [
+        1226,
+        1283
+      ],
+      "sha256": "6167178d8f17b60b74cf74f4e058047e412d4ae8d1ad90cde50a346dcc51a246",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    },
+    "mascot-1-repeat-1": {
+      "size": [
+        1278,
+        1230
+      ],
+      "sha256": "e709c8bcbff3d93b80b0c5c0c8f3f62e4d4dd5074cc9d57c8c402fe52c19fe20",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    },
+    "mascot-1-repeat-2": {
+      "size": [
+        1312,
+        1199
+      ],
+      "sha256": "7da312f067bfaa756774b45714e453c7cbcbaa90e58fabaa63222fbba69db0bf",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    },
+    "mascot-1-repeat-3": {
+      "size": [
+        1312,
+        1199
+      ],
+      "sha256": "0789a5663e7c4a34db8bf72f84196b049ff23755114fb5bd857c0a12e80cfd52",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    },
+    "mascot-1-style-1": {
+      "size": [
+        1312,
+        1199
+      ],
+      "sha256": "8958638e99da8f81d1c7dcd5e8cf55d07a5486e6ea6ba3bcd8a05af22aec4a4e",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    },
+    "mascot-1-style-2": {
+      "size": [
+        1312,
+        1199
+      ],
+      "sha256": "e4e47b928b9c76883a95f135f3282c960ddb38ca0b36259ec7f5c9846bc9d723",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    },
+    "mascot-1-style-3": {
+      "size": [
+        1312,
+        1199
+      ],
+      "sha256": "c01f43cb56589d2e066a7467d6bcf2d5006448da8424e89476dae7fa0fd88266",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    },
+    "mascot-2-concept-1": {
+      "size": [
+        1312,
+        1199
+      ],
+      "sha256": "dc241bd7bb8274b1b46e4392fbd0ef590ec1d64d83e06fe67a77efab398eabfa",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "transparent": false
+    },
+    "mascot-2-concept-2": {
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "fe8bfd13d1c5bd8a2d67049feb1f2484d70c693d4a910b54c4efc043b75a23b0",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    },
+    "mascot-2-concept-3": {
+      "size": [
+        1312,
+        1199
+      ],
+      "sha256": "4027aee5b40f89689a2f424545b16e66a616ed03648340c4be0186963aa77425",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    },
+    "mascot-2-repeat-1": {
+      "size": [
+        1233,
+        1275
+      ],
+      "sha256": "14a28d4095a2e68876a73d5e0a5b21e87a3733dea9b85bac617993e16cf176b7",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    },
+    "mascot-2-repeat-2": {
+      "size": [
+        1312,
+        1199
+      ],
+      "sha256": "5d3aee5568f17dc47ad3ef085325807edcb319d9e5aaccf0dc4fd658c1afa4e7",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    },
+    "mascot-2-repeat-3": {
+      "size": [
+        1312,
+        1199
+      ],
+      "sha256": "cc8160833e8610d503eaa6bb4b46f3757bc53cfe3839cf4453961b1369f3b9e6",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    },
+    "mascot-2-style-1": {
+      "size": [
+        1312,
+        1199
+      ],
+      "sha256": "8f8969dc5fb0cb1ad9fc2c20a13938954c868bd0de343dde349b47ba66b1a6e3",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    },
+    "mascot-2-style-2": {
+      "size": [
+        1312,
+        1199
+      ],
+      "sha256": "86d51975c06babbfb347f1062ff65f0b5560ae134cef31ec5020edd30d196d6a",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    },
+    "mascot-2-style-3": {
+      "size": [
+        1312,
+        1199
+      ],
+      "sha256": "29155aa5e619f3c024ac0f770feef92b0fe8cc349ea57835696f25810af9087f",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "transparent": true
+    }
+  }
+}

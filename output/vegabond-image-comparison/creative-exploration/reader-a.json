@@ -1,0 +1,239 @@
+{
+  "editorial-1": [
+    {
+      "id": "A",
+      "firstReading": "Adult hugs a toy and recalls childhood comfort.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "memory-apparition",
+      "novelty": 0,
+      "note": "Matching rabbit links present embrace and the remembered scene."
+    },
+    {
+      "id": "B",
+      "firstReading": "Open book reveals a childhood hallway and toy.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "book-as-spatial-window",
+      "novelty": 2,
+      "note": "Domestic hallway visible; the connection to this reader is uncertain."
+    },
+    {
+      "id": "C",
+      "firstReading": "Book evokes an adult-child domestic memory.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "memory-apparition",
+      "novelty": 0,
+      "note": "Open-book trail leads to an adult-child scene."
+    },
+    {
+      "id": "D",
+      "firstReading": "Open book evokes a child and caregiver around a bowl.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "memory-apparition",
+      "novelty": 0,
+      "note": "Book plume and matching bowls link the two spaces."
+    },
+    {
+      "id": "E",
+      "firstReading": "Adult touches a checked cloth with an unclear history.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "tactile-recognition",
+      "novelty": 1,
+      "note": "Touch and cloth imply attachment with little evidence of a personal past."
+    },
+    {
+      "id": "F",
+      "firstReading": "Adult slides or retrieves a photo-like card at a slot.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "archival-image",
+      "novelty": 1,
+      "note": "The card shows a room whose significance is unclear."
+    },
+    {
+      "id": "G",
+      "firstReading": "Adult hugs a rabbit just removed from a box.",
+      "checks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "family": "tactile-recognition",
+      "novelty": 0,
+      "note": "Hug conveys attachment without showing the past."
+    },
+    {
+      "id": "H",
+      "firstReading": "Adult looks at rabbit and remembers child with matching toy.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "memory-apparition",
+      "novelty": 0,
+      "note": "Toy repeats in the memory of a child holding it."
+    },
+    {
+      "id": "I",
+      "firstReading": "Open book evokes a childhood kitchen scene.",
+      "checks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "family": "memory-apparition",
+      "novelty": 0,
+      "note": "The bowl repeats in the foreground and glowing scene."
+    }
+  ],
+  "editorial-2": [
+    {
+      "id": "A",
+      "firstReading": "A woman rests her hand on a worn checked cloth beside a closed book as angled light falls across the table.",
+      "checks": [true, true, false, true],
+      "family": "tactile-recognition",
+      "novelty": 1,
+      "note": "The cloth and touch suggest an attachment. The light reads as a window pattern and leaves the past uncertain."
+    },
+    {
+      "id": "B",
+      "firstReading": "A woman reads a book that gives rise to a glowing kitchen scene with a child and an older person.",
+      "checks": [true, true, true, true],
+      "family": "memory-apparition",
+      "novelty": 0,
+      "note": "The glow links the pages to the domestic scene, with a bowl connecting the scene to the reader's table."
+    },
+    {
+      "id": "C",
+      "firstReading": "A woman lifts a small fish-shaped object from an open case and recalls a child and an older man outdoors by the water.",
+      "checks": [true, true, true, true],
+      "family": "memory-apparition",
+      "novelty": 0,
+      "note": "The fish-shaped keepsake appears to be a lure, and the corresponding apparition reads as a shared fishing memory."
+    },
+    {
+      "id": "D",
+      "firstReading": "A woman looks into an open book as a wispy scene of a child and adult at a kitchen table rises above it.",
+      "checks": [true, true, true, true],
+      "family": "memory-apparition",
+      "novelty": 0,
+      "note": "The trail from the pages and the bowls in both scenes connect the reading to a domestic memory."
+    },
+    {
+      "id": "E",
+      "firstReading": "A woman holds a stuffed rabbit, with a small photograph on the table that appears to show a child cuddling it.",
+      "checks": [true, true, true, true],
+      "family": "archival-image",
+      "novelty": 1,
+      "note": "The photograph pairs the present toy with a child holding its likeness. This reads as a personal trace even without an apparition."
+    },
+    {
+      "id": "F",
+      "firstReading": "A woman grips an illustrated card partway out of a counter slot. It shows a room with chairs and a table.",
+      "checks": [true, true, false, true],
+      "family": "archival-image",
+      "novelty": 1,
+      "note": "The card and slot make the retrieval visually clear. The domestic room's significance to the reader remains uncertain."
+    },
+    {
+      "id": "G",
+      "firstReading": "A woman hugs a stuffed rabbit while a golden image shows a child hugging a similar toy.",
+      "checks": [true, true, true, true],
+      "family": "memory-apparition",
+      "novelty": 0,
+      "note": "The toy's long ears and repeated embrace visibly connect the two moments."
+    },
+    {
+      "id": "H",
+      "firstReading": "A woman looks into an open book whose pages form a hallway with a framed picture and a hanging bag.",
+      "checks": [true, true, false, true],
+      "family": "book-as-spatial-window",
+      "novelty": 2,
+      "note": "The dimensional hallway makes the book a window into a home. Its connection to the particular reader's past is uncertain."
+    },
+    {
+      "id": "I",
+      "firstReading": "A woman reads beside a patterned bowl while a child and adult gather around another bowl in a floating kitchen scene.",
+      "checks": [true, true, true, true],
+      "family": "memory-apparition",
+      "novelty": 0,
+      "note": "The repeating bowl and the visible trail from the book convey a personal kitchen memory."
+    }
+  ],
+  "mascot-1": [
+    {"id":"A","firstReading":"An envelope cups a red button inside the fold of its open flap.","checks":[true,true,true,true],"family":"shelter-in-envelope-flap","novelty":2,"note":"Hands and overlapping paper folds form a visible nook around the button."},
+    {"id":"B","firstReading":"A dark mitten pinches a ribbon against a gold button at its cuff.","checks":[true,true,true,true],"family":"thread-button-ribbon","novelty":2,"note":"The ribbon tip meets the button hole while the other hand braces the button."},
+    {"id":"C","firstReading":"A ring-bound diary hugs a taped clover card to its cover.","checks":[true,true,true,true],"family":"cradle-keepsake","novelty":0,"note":"Both arms curve around the sides and bottom of the card."},
+    {"id":"D","firstReading":"A green case cups a gold button against its front.","checks":[true,true,true,true],"family":"cradle-keepsake","novelty":0,"note":"The two inward-facing gloves hold the button close."},
+    {"id":"E","firstReading":"A mushroom figure supports a gold button dangling from a loop under its cap.","checks":[true,true,true,true],"family":"suspend-under-cap","novelty":2,"note":"A cord suspends the keepsake beneath the cap and the two hands cradle its lower edge."},
+    {"id":"F","firstReading":"A beret-wearing envelope holds a clover card up toward the viewer.","checks":[true,true,false,true],"family":"present-keepsake","novelty":0,"note":"The angled card and emphasis marks read as a display, with protection uncertain."},
+    {"id":"G","firstReading":"A ribboned green chest clasps a gold button between its padded hands.","checks":[true,true,true,true],"family":"cradle-keepsake","novelty":0,"note":"The hands reach around both sides of the button and pull it to the chest."},
+    {"id":"H","firstReading":"A clasped green case holds a gold button in both hands.","checks":[true,true,true,true],"family":"cradle-keepsake","novelty":0,"note":"Both hands support the lower edge and keep the button close to the body."},
+    {"id":"I","firstReading":"A ring-bound scrapbook hugs a clover tag tied with a bow.","checks":[true,true,true,true],"family":"cradle-keepsake","novelty":0,"note":"One arm wraps across and beneath the tag with the other supporting its side."}
+  ],
+  "mascot-2": [
+    {"id":"A","firstReading":"A ring-bound diary holds up a small scalloped paper with a purple flower.","checks":[true,true,false,true],"family":"present-keepsake","novelty":0,"note":"The flower angles outward beside the face. The pose reads primarily as showing it."},
+    {"id":"B","firstReading":"A handled mint case cradles a gold button against its front.","checks":[true,true,true,true],"family":"cradle-keepsake","novelty":0,"note":"Both gloves reach around the lower half of the button to support it."},
+    {"id":"C","firstReading":"A green box holds a big gold button between its hands at the front of its body.","checks":[true,true,true,true],"family":"cradle-keepsake","novelty":0,"note":"Both arms curve in around the edges of the keepsake."},
+    {"id":"D","firstReading":"A mushroom figure supports a gold button dangling from a cord under the cap.","checks":[true,true,true,true],"family":"suspend-under-cap","novelty":2,"note":"The cord holds the button beneath the cap while the hands steady it from both sides."},
+    {"id":"E","firstReading":"A pink diary cups a small card with a yellow flower at its center.","checks":[true,true,true,true],"family":"cradle-keepsake","novelty":0,"note":"The flower card is held close and wrapped between two open hands."},
+    {"id":"F","firstReading":"A diary hugs a square scrap with a purple flower taped to it.","checks":[true,true,true,true],"family":"cradle-keepsake","novelty":0,"note":"Its arms nearly surround the flower card against its body."},
+    {"id":"G","firstReading":"A dark mitten manipulates a gold button and a strip of red ribbon at its cuff.","checks":[true,true,true,true],"family":"thread-button-ribbon","novelty":2,"note":"One hand braces the button and the other feeds the ribbon toward a hole."},
+    {"id":"H","firstReading":"An envelope cups a red button tucked inside an open fold.","checks":[true,true,true,true],"family":"shelter-in-envelope-flap","novelty":2,"note":"The rounded arms close around the button where the envelope folds shelter it."},
+    {"id":"I","firstReading":"A handled mint case cradles a gold button between padded gloves.","checks":[true,true,true,true],"family":"cradle-keepsake","novelty":0,"note":"The button rests between both cupped hands at the center of the body."}
+  ],
+  "environment-1": [
+    {"id":"A","firstReading":"An elevated plank walk follows the coast, with short ramps branching toward lower canopy stalls.","checks":[true,false,true,true],"family":"ramped-vendor-decks","novelty":0,"note":"The main walkway is clear. The lower vendor decks could be fixed or floating."},
+    {"id":"B","firstReading":"A shopper follows a boardwalk toward stairs while tall rigs appear to suspend a canopy stall over water.","checks":[true,true,true,true],"family":"market-hoist","novelty":2,"note":"The elevated rig and hanging vendor platform plausibly allow vertical repositioning. A route continues along the boardwalk and up the stairs."},
+    {"id":"C","firstReading":"A timber boardwalk reaches toward shore past sloped ramps and low stalls.","checks":[true,false,true,true],"family":"ramped-vendor-decks","novelty":0,"note":"The ramps serve low decks. Flotation or other vertical adaptation is uncertain."},
+    {"id":"D","firstReading":"A vendor area surrounds a narrow boardwalk, with a large hinged-looking timber arm beside the crossing.","checks":[true,false,true,true],"family":"articulated-dock-arm","novelty":1,"note":"The pivots suggest movable dock hardware, but the connection and tide-related role of the arm remain unclear."},
+    {"id":"E","firstReading":"A raised central walkway connects by short ramps to lower vendor platforms resting close to the water.","checks":[true,true,true,true],"family":"ramped-vendor-decks","novelty":0,"note":"Visible barrel-like supports under the vendor platforms and sloped gangways plausibly allow the stalls to float with the water level."},
+    {"id":"F","firstReading":"An overhead beam and four lines suspend a canopy stall above the water alongside a stepped boardwalk.","checks":[true,true,true,true],"family":"market-hoist","novelty":2,"note":"The overhead rig plausibly changes the stall's height while the boardwalk and stairs maintain a public route."},
+    {"id":"G","firstReading":"A cliffside wheel and crane hold a suspended load between the waterline and a market on the stone quay.","checks":[true,true,true,true],"family":"market-hoist","novelty":1,"note":"The quay hoist plausibly transfers supplies between changing water height and a fixed vendor level. The stone promenade continues through the stalls."},
+    {"id":"H","firstReading":"A coastal market steps down in terraces toward square decks partly awash by the stone quays.","checks":[true,true,true,true],"family":"stepped-tidal-quay","novelty":2,"note":"Successive landings allow waterfront activity at multiple heights. The upper stairs and promenade remain visibly connected."},
+    {"id":"I","firstReading":"A large wheel and overhead lines hang platforms at different heights beside a busy wooden boardwalk.","checks":[true,true,true,true],"family":"market-hoist","novelty":2,"note":"The rig and cage-like suspended deck suggest vendor lifts. The main boardwalk is visibly continuous through the market."}
+  ],
+  "environment-2": [
+    {"id":"A","firstReading":"A long plank walkway branches across sloping gangways to lower stalls beside tall posts with fitted collars.","checks":[true,true,true,true],"family":"ramped-vendor-decks","novelty":0,"note":"The ramps and collars on the guide posts make the low decks readable as platforms that can rise along the posts. The main boardwalk continues past the stalls."},
+    {"id":"B","firstReading":"A raised boardwalk runs toward shore while short hinged-looking ramps connect to market rafts on visible barrels.","checks":[true,true,true,true],"family":"ramped-vendor-decks","novelty":0,"note":"The raft supports meet the water directly, and the sloped ramps connect the floating vendor decks to a continuous walkway."},
+    {"id":"C","firstReading":"A shopper follows a stone quay beside an angled crane that holds a netted box above the water under a stall.","checks":[true,true,true,true],"family":"market-hoist","novelty":1,"note":"A visible load and crane make water-to-stall transfer plausible at different water levels. The quay remains a walkable route through the market."},
+    {"id":"D","firstReading":"A timber boardwalk connects by sloped planks to low canopy stalls whose decks meet tall collared posts.","checks":[true,true,true,true],"family":"ramped-vendor-decks","novelty":0,"note":"The collars and low decks make a guided floating arrangement plausible, and the boardwalk leads toward the shore settlement."},
+    {"id":"E","firstReading":"Shoppers cross a planked market walkway beside canopy decks held at different heights on a wall-side pulley structure.","checks":[true,true,true,true],"family":"market-hoist","novelty":2,"note":"Raised supports and visible overhead drums give the side decks a plausible way to change height. The main walkway runs past vendors and up into the market."},
+    {"id":"F","firstReading":"A hillside market follows curved stone stairs and landings down to partly awash vendor platforms.","checks":[true,true,true,true],"family":"stepped-tidal-quay","novelty":2,"note":"The nested levels keep upper landings available as water covers the lower edges. Connected steps link the foreground to the upper market."},
+    {"id":"G","firstReading":"A boardwalk follows the shore beside roofed market platforms held over the water on overhead pulley rigs.","checks":[true,true,true,true],"family":"market-hoist","novelty":2,"note":"Lines descend from the beams and drums to the decks, which can plausibly change height. The shore-side boardwalk and stairs stay continuous."},
+    {"id":"H","firstReading":"A stepped boardwalk passes a low vendor platform buoyed by pale floats inside tall uprights and another raised platform farther out.","checks":[true,true,true,true],"family":"ramped-vendor-decks","novelty":1,"note":"The visible floats supply the clearest mechanism, with taller frames also suggesting vertical movement. The public route continues up the boardwalk from the foreground."},
+    {"id":"I","firstReading":"A narrow timber walkway crosses the harbor market beside a large diagonal boom reaching toward a canopy stall.","checks":[true,false,true,true],"family":"articulated-dock-arm","novelty":1,"note":"The walkway and stalls are clear. The boom looks articulated, but what it moves and how that responds to changing water level stay ambiguous."}
+  ]
+}

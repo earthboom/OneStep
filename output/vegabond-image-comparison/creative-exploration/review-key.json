@@ -1,0 +1,68 @@
+{
+  "editorial-1": {
+    "A": "editorial-1-repeat-3",
+    "B": "editorial-1-concept-3",
+    "C": "editorial-1-style-1",
+    "D": "editorial-1-style-2",
+    "E": "editorial-1-concept-2",
+    "F": "editorial-1-concept-1",
+    "G": "editorial-1-repeat-1",
+    "H": "editorial-1-repeat-2",
+    "I": "editorial-1-style-3"
+  },
+  "editorial-2": {
+    "A": "editorial-2-concept-2",
+    "B": "editorial-2-style-3",
+    "C": "editorial-2-repeat-2",
+    "D": "editorial-2-style-1",
+    "E": "editorial-2-repeat-1",
+    "F": "editorial-2-concept-1",
+    "G": "editorial-2-repeat-3",
+    "H": "editorial-2-concept-3",
+    "I": "editorial-2-style-2"
+  },
+  "mascot-1": {
+    "A": "mascot-1-concept-1",
+    "B": "mascot-1-concept-2",
+    "C": "mascot-1-repeat-3",
+    "D": "mascot-1-style-2",
+    "E": "mascot-1-concept-3",
+    "F": "mascot-1-repeat-2",
+    "G": "mascot-1-style-3",
+    "H": "mascot-1-style-1",
+    "I": "mascot-1-repeat-1"
+  },
+  "mascot-2": {
+    "A": "mascot-2-repeat-3",
+    "B": "mascot-2-style-3",
+    "C": "mascot-2-style-1",
+    "D": "mascot-2-concept-3",
+    "E": "mascot-2-repeat-2",
+    "F": "mascot-2-repeat-1",
+    "G": "mascot-2-concept-2",
+    "H": "mascot-2-concept-1",
+    "I": "mascot-2-style-2"
+  },
+  "environment-1": {
+    "A": "environment-1-style-2",
+    "B": "environment-1-repeat-2",
+    "C": "environment-1-style-1",
+    "D": "environment-1-concept-3",
+    "E": "environment-1-style-3",
+    "F": "environment-1-repeat-1",
+    "G": "environment-1-concept-1",
+    "H": "environment-1-concept-2",
+    "I": "environment-1-repeat-3"
+  },
+  "environment-2": {
+    "A": "environment-2-style-3",
+    "B": "environment-2-style-2",
+    "C": "environment-2-concept-1",
+    "D": "environment-2-style-1",
+    "E": "environment-2-repeat-3",
+    "F": "environment-2-concept-2",
+    "G": "environment-2-repeat-1",
+    "H": "environment-2-repeat-2",
+    "I": "environment-2-concept-3"
+  }
+}
