@@ -53,7 +53,7 @@ flowchart TD
 | --- | --- | --- |
 | 진입 | [vegabond-scout](skills/vegabond-scout/SKILL.kr.md) | 요청 파악, 작업 방식·규모 선택, 수행 능력·검사 연결, 조정. |
 | 작업 방식 | [create](skills/vegabond-create/SKILL.kr.md), [revise](skills/vegabond-revise/SKILL.kr.md), [research](skills/vegabond-research/SKILL.kr.md) | 새 결과 생성, 기존 결과 개선, 질문 조사. |
-| 전문 수행 | [code](skills/vegabond-code/SKILL.kr.md), [fiction](skills/vegabond-fiction/SKILL.kr.md), [presentation](skills/vegabond-presentation/SKILL.kr.md), [image](skills/vegabond-image/SKILL.kr.md), [planning](skills/vegabond-planning/SKILL.kr.md) | 실제 작업에 필요한 실행·검수·검증·수정 방법 제공. |
+| 전문 수행 | [code](skills/vegabond-code/SKILL.kr.md), [fiction](skills/vegabond-fiction/SKILL.kr.md), [document](skills/vegabond-document/SKILL.kr.md), [presentation](skills/vegabond-presentation/SKILL.kr.md), [image](skills/vegabond-image/SKILL.kr.md), [사운드](skills/vegabond-sound/SKILL.kr.md), [planning](skills/vegabond-planning/SKILL.kr.md) | 실제 작업에 필요한 실행·검수·검증·수정 방법 제공. |
 | 필요할 때의 설계 | [code-design](skills/vegabond-code-design/SKILL.kr.md), [fiction-design](skills/vegabond-fiction-design/SKILL.kr.md) | 적용 범위가 명확한 결정, 출처 근거, 확인 가능한 조건으로 중요한 선택 해결. |
 | 지식 | [vegabond-knowledge](skills/vegabond-knowledge/SKILL.kr.md) | 지식과 문제 기록의 검색·취합·선별 저장·관리. |
 | 선택적 프롬프트 개선 | [vegabond-refine-prompt](skills/vegabond-refine-prompt/SKILL.kr.md) | 명시적 요청에만 실제 공백에 비례해 프롬프트 수정. |
@@ -66,6 +66,7 @@ flowchart TD
 | --- | --- |
 | 소프트웨어 | 실제 변경 대상과 환경을 파악합니다. 필요한 빌드·준비, 테스트, 실행, 공개 동작 사용을 수행합니다. 언리얼·유니티 게임 동작에는 관련 에디터와 실제 플레이가, CLI에는 실제 명령이 필요합니다. [소프트웨어 검증](skills/vegabond-code/references/verification.kr.md)을 참고합니다. |
 | 소설 | 설정, 인물 상태, 시점의 정보 한계, 문체 기준을 검색합니다. 집필·수정 후 실제 문장에 근거해 서사와 언어를 검토합니다. 설계 스킬은 관련 범위에서 스무 서사 요소를 고려합니다. [원고 검수](skills/vegabond-fiction/references/review.kr.md)를 참고합니다. |
+| 채용 지원 서류 | 공고와 문항을 지원자의 근거에 연결하고, 사실·필수 요건·분량을 제출 문안이나 파일에서 확인합니다. [채용 서류 작성법](skills/vegabond-document/references/job-application-writing.kr.md) |
 | 발표자료 | 독자와 목적을 발표 논리에 연결하고 주장을 확인하며 실제 최종 내보내기 결과를 시각적으로 검사합니다. |
 | 기획 | 제안을 실현 가능성, 의존성, 계산, 관찰 가능한 성공 조건에 연결하고 가정과 근거 있는 사실을 구분합니다. |
 

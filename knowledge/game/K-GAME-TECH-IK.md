@@ -56,6 +56,19 @@ Epic documents the solve controls and poseable mesh APIs. Prior Unreal observati
 
 ## V08 footwear calibration on static supports — 2026-11-21
 
-Define heel and toe outsole samples in the neutral shoe frame. Convert the ankle offset and shoe pitch to bone space. Align the shoe frame to the support plane and solve the leg to the resulting ankle target. Use shoe-specific calibration when outsole position or rest pitch changes. Latch the contact during stance and release the anchor when support is lost or the leg cannot reach within the pelvis limit. Keep the gameplay capsule independent of the visual correction.
+Define heel and toe outsole samples in the neutral shoe frame. Convert the ankle offset and shoe pitch to the solver's bone space. Find a compatible support plane and latch the contact during stance. Align the shoe frame to the plane and solve the leg to the resulting ankle target. Use shoe-specific calibration when the outsole position or rest pitch changes. Release the anchor when support is lost or the leg cannot reach within the pelvis limit. Keep the gameplay capsule independent of the visual correction.
 
-Check flat and heeled footwear on flat ground, ramps and steps. Inspect outsole lift, penetration and drift through stance, transitions and swing. Stance calibration can solve the planted pose while swing still intersects geometry. Verify source animation clearance, support reacquisition and reach fallback on each production rig, shoe and gait. Compare capsule sweeps before and after the visual solve.
+The UE 5.8.3 Win64 Development trial used one 68-bone mannequin, one source walk cycle, rigid flat-shoe and high-heel test shapes, an 8-degree ramp and an 8 cm step. The heel used a 21-degree pitch calibration. Both profiles rendered the same geometry and evaluated the same authored samples. The comparison used the common flat calibration or the shoe-specific calibration in the same Two Bone IK solver. The 60 Hz sample clock controls the input sequence. Native frame cadence is measured independently.
+
+Over 32 profile/scenario combinations, the high heel's maximum full-stance lift and penetration with the common reference were 2.104 cm and 5.896 cm. Both fell below 0.001 cm with shoe calibration. Flat-shoe full-stance errors stayed below 0.001 cm with either profile. Measured stance drift was zero. Both profiles released the planted anchors after support removal and refused the deep unreachable targets. A pre/post capsule sweep matched on all 3,072 behavior frames across the two profiles.
+
+Evaluate walking in stance, transitions and swing separately. The tuned high heel still showed 8.322 cm maximum outsole penetration in a transition and 14.622 cm in swing. The tuned flat shoe reached 9.901 cm in swing. These peaks came from the sampled shoe contacts in the scripted walk. Stance calibration is suitable for contact fitting when the source animation and its transitions already provide the required swing clearance.
+
+Three same-workload runs per profile measured 1,408 frames each at 1280×720 DX11. The observed p95 ranges were as follows, in milliseconds.
+
+| Profile | IK | Pose publication and shoe transforms | Whole frame |
+| --- | ---: | ---: | ---: |
+| Common | 0.0405–0.0474 | 0.0138–0.0150 | 10.109–10.318 |
+| Shoe-specific | 0.0441–0.0474 | 0.0142–0.0159 | 10.005–10.182 |
+
+Use these costs for the measured single-character scene. Repeat footwear calibration, pose reach and swing clearance checks for each production rig, shoe and gait.

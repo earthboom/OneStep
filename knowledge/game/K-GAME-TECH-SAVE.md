@@ -1,7 +1,9 @@
 ---
 id: K-GAME-TECH-SAVE
 title: Design versioned durable saves and compact password states
-summary: Persist stable-ID progress with a versioned container or compact progress code. Validate staged publication, restart recovery, storage exhaustion and world binding before state application.
+summary: Persist stable-ID progress with a versioned container or a compact progress code.
+  Unreal checks cover staged A/B restart recovery and a 14-symbol V54 code that restores
+  a fixed world state in a separate process.
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
 keywords: ["save", "serialization", "checksum", "password", "bitflags", "저장", "세이브", "백업", "저장손상", "USaveGame", "UGameplayStatics::AsyncSaveGameToSlot", "save generation", "game state", "stable ID", "SaveGame", "CRC32", "previous generation", "file truncation", "both invalid", "게임 상태", "상태 복원", "이전 세대", "파일 잘림", "양쪽 무효"]
@@ -9,7 +11,9 @@ status: active
 checked_at: "2026-11-21"
 context:
   evidence_check: External source text checked; source-specific limits appear in Evidence
-  application_status: UE 5.8.3 guidance for staged A/B recovery, NTFS exhaustion and V54 progress codes. Physical power-loss safety remains open.
+  application_status: UE5.8.3 V20 staged A/B process termination and real NTFS exhaustion,
+    V54 versioned 14-symbol code with four restart pairs, eight rejections, and three matched cost runs.
+    Physical power loss remains unverified.
 ---
 # Design versioned durable saves and compact password states
 
@@ -64,22 +68,34 @@ Two real native processes produce6seconds of A/B state and8seconds of freshD/loa
 
 Use A/B recovery when reverting to a previous valid generation is preferable to losing all progress. Keep stable IDs,validate completely before applying,and present explicit failure when both generations are invalid. Retain evidence rather than silently replacing invalid saves with defaults. CRC detects accidental corruption and is not authentication;only trusted locally produced UE class/format was tested. Fixed schema1 and fixed32/8IDs have no migration or cross-engine-version guarantee. Graceful process restart and controlled truncation/corruption do not establish forced-crash,power-loss,fsync,full-disk or device-failure safety. Synchronous stalls remain;no asynchronous optimization,password,V54 decoder,autosave tool,cloud,renderer or verification-framework expansion. Previous unrelated actual-FPS gaps remain unverified.
 
-See the subsequent staged publication and V54 progress code sections for related workflows.
+Corpus coverage at that stage was 25 limited sheets and 18 without dedicated prototypes. V54 is covered in the later section below.
 
 ## Staged publication and schema migration in Unreal — 2026-11-21
 
-Keep the published generation and inactive slot addressable while writing a sibling pending file. Flush and close the candidate, read it back and validate its bytes and state, then replace the inactive slot. Restart from published slots only. A process can terminate after publication and before the caller observes success. Verify same-directory replacement guarantees on the deployment filesystem. [Microsoft — MoveFileExW](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefileexw)
+Keep the active generation and inactive slot addressable while writing a candidate to a sibling pending file. Flush and close the candidate, read it back and validate its bytes and state, then replace the inactive slot. On load, consider published slots only. Publication determines what a restart may select. A process can be terminated after publication and before the caller receives a success result. This implementation uses same-directory Windows replacement and a single game-thread writer. [Microsoft — MoveFileExW](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefileexw)
 
-Terminate an external writer at the boundaries after serialization, staging open, prefix and payload writes, flush and close, readback, and publication. On restart compare both slot files, the selected generation and the complete world. Migrate recognized legacy data into a candidate and supply defaults for new fields. Check stable bindings before applying any state. If decoding or binding fails, preserve the live world and select another valid slot or report explicit failure. Treat process termination, full storage and physical power loss as distinct tests.
+In the Win64 Development prototype, the staged candidate remains private if the process stops after serialization, staging open, prefix write, payload write, flush/close, or readback validation. The published generation is selectable after the replacement returns. Use the known-good generation to check both on-disk contents and restored state after restart. A deliberately limited writer produced a real 128-byte pending file before reporting a simulated disk-full error. The subsequent isolated NTFS trial exercises the operating system's capacity limit separately.
+
+Migrate recognized legacy data into a new current-schema value before touching the live world. The exercise's synthetic v0 preserves health, checkpoint and item flags. The eight switch flags added in v1 default to off. Invalid legacy values cause fallback to another valid slot or explicit failure. Preflight all current world bindings before applying a candidate. When either decoding or binding fails, compare the full before/after world and leave the stored files unchanged.
+
+UE 5.8.3 Win64 Development passed 36 writer/restart pairs on one package, three per condition. The 21 external terminations covered seven boundaries. The other cases covered the capacity limit, valid v0, invalid v0 with and without a valid alternative, and a missing world binding. A/B files and pending bytes were tracked independently across the restarts.
+
+Apply this result to a single writer using this file layout and tested fault boundaries. Process termination leaves the operating system running. Power loss, interruption inside a filesystem call, competing writers, and migration from shipped formats each require separate validation. The earlier save timings describe the old direct-write path. Recheck frame stalls before driving the flushed staged path from gameplay.
 
 ## Actual NTFS exhaustion on Win64 — 2026-11-21
 
-Capture the OS error immediately when a write fails, along with the operation, requested bytes and completed bytes. Use available space for estimates and the actual write result to decide whether to publish. Test on an isolated volume and recheck free space after closing the test filler, because file close can release unused allocation. [Microsoft — WriteFile](https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-writefile) · [Microsoft — Windows error codes](https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--0-499-)
+Capture the operating-system error immediately on a failed call, before cleanup or logging. Keep the operation, error code, requested bytes and completed bytes together. A free-space estimate can inform the UI. The write result determines whether the candidate can advance to validation and publication. [Microsoft — WriteFile](https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-writefile) · [Microsoft — Windows system error codes](https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--0-499-)
 
-Preserve both published slots and the live world on write, flush or replace failure. Restart while full to verify fallback. Once space is available, retry the ordinary staged path and verify the resulting published bytes and complete world on another restart.
+The UE 5.8.3 Win64 Development comparison used a 64 MiB fixed-size VHDX formatted as NTFS, with 4,096-byte clusters and reports on the host volume. Three normal saves each published a 2,433-byte generation 3 and loaded it after restart. With zero available bytes, the 64-byte prefix remained in the private pending file, and the payload call to WriteFile returned ERROR_DISK_FULL (112) in all three trials. Both published slot hashes and the writer's live world remained unchanged. Restarting while full loaded generation 2. Freeing the test filler allowed each retry to publish generation 3, which a further restart loaded.
+
+Keep the test filler on a separate mounted volume and measure free space after closing it, because a file close can release unused preallocation. Under write, flush, or replace failure, preserve the published slots and present explicit failure to the caller. Once space is restored, run the normal staged save again and verify the resulting slot bytes and complete world on restart. This evidence covers an existing save directory, one writer and the file layout above. Repeat on the production storage and filesystem if that deployment differs.
 
 ## V54 compact progress code in Unreal — 2026-11-21
 
-Use a versioned fixed field order and stable IDs for reconstructible progress. Define the alphabet, bit order, checksum coverage and reserved bits explicitly. Avoid visually ambiguous symbols when players type the code. Reproduce the code with an independent codec and restore the state in a fresh process. [Python — binascii.crc_hqx](https://docs.python.org/3/library/binascii.html#binascii.crc_hqx)
+Use a fixed, documented field order and a version for reconstructible game progress. This prototype packs version (4 bits), health 0–100 (7), checkpoint 0–3 (2), 32 item flags and eight switch flags into 53 bits. A CRC-16 with polynomial 0x1021 and initial value 0xffff covers seven little-endian payload bytes, including three zero high bits. The code carries those 53 bits, the 16-bit checksum and one reserved zero bit as fourteen five-bit symbols, low group first. Its alphabet omits I, O, 0 and 1. The independent checker generates the same code with a separate packing implementation and Python's CRC routine. [Python binascii.crc_hqx](https://docs.python.org/3/library/binascii.html#binascii.crc_hqx)
 
-Validate length, alphabet, reserved bits, checksum, version and field ranges before publishing the decoded candidate. Check every world binding before application. Test unsupported versions and out-of-range fields with a valid checksum. Preserve the live world on rejection and keep the published ID ordering when content evolves. Add a separate trust mechanism where progress needs authentication.
+Validate length, alphabet, reserved bit, checksum, version and field range before assigning a decoded candidate. Use stable object IDs and validate the complete bindings before applying that candidate to the world. Keep the previously published version's ID order fixed if the content layout changes. A code is readable, copyable game progress with accidental input error detection. The checksum does not authenticate the progress.
+
+Four native create/restart pairs use only a code supplied as a launch argument. They reproduce the same code across processes and restore normal, minimum and maximum states with all 40 bindings. Eight native invalid inputs preserve the full live world, including a correct-checksum unsupported version and a correct-checksum out-of-range health. Each producer rejected all 434 single-symbol substitutions of its own code without changing the decoder output. This prototype uses a fixed local state schema and launch-argument input.
+
+Three Win64 Development runs used the same four valid states and order at 1280×720. Each stage ran 8,192 timed operations after 1,024 warmup operations. The p95 of per-batch average operation cost across the three runs was 0.291–0.375 µs for encoding, 0.609–0.728 µs for decoding, and 4.178–6.972 µs for applying the world state. These timings describe valid inputs and 40 fixed bindings. Recheck costs and code length when the reconstructible state grows.

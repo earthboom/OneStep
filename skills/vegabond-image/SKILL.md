@@ -1,6 +1,6 @@
 ---
 name: vegabond-image
-description: Use when creating, editing, or producing a consistent series of raster images, including realistic or stylized illustrations, cute mascots for stationery and stickers, 2D game sprites, animated effects, and flipbooks with specific visual or delivery requirements.
+description: Use when creating, editing, or producing a consistent series of raster images, including realistic or stylized illustrations, cute mascots for stationery and stickers, game UI icons and controls, 2D game sprites, animated effects, and flipbooks with specific visual or delivery requirements.
 ---
 
 # Vegabond Image
@@ -11,6 +11,7 @@ When invoked directly for work that depends on an existing character or producti
 
 ## Define what the image must show
 
+- For HUD, inventory or menu artwork, use the [game UI art guide](references/game-ui-art.md) to choose the asset layers, preserve geometry across states and inspect the result inside its target slot.
 - From the original request, identify hard requirements, preferences, and delegated choices. Write a short internal set of observable acceptance checks for hard requirements. Include only checks relevant to the request. Preserve exact wording, quantities, attributes, locations, omissions, and delivery specs. Resolve left and right relative to the frame when that is what the user means. For multiple objects, tie each material, color, count, and position to its named object.
 - Identify scene content and rendering medium independently. Describe a style with observable features such as light and texture, line and shape, brushwork, palette, or spatial rules. Keep the user's creative decisions and use their flexibility where they delegated it. A short clear request can go straight to generation. Ask one focused question when conflicting or missing information would materially change the result.
 - For a stationery mascot, character sticker, expression set, memo pad illustration, or similar small-format character asset, use the [stationery character guide](references/stationery-characters.md). Identify what should make the character recognizable and check the finished art at its display size or in its physical product layout.
@@ -33,3 +34,5 @@ For an expressive brief, describe what the delivered image communicates before c
 For a 2D game character portrait, gameplay image or animated sprite, use the [2D character asset guide](references/2d-game-characters.md) when defining the brief. Choose the requested deliverable, reuse character landmarks across views, and judge the result at its display size or playback speed.
 
 For a 2D game effect or a sprite action that triggers one, use [drawing effects in motion](references/2d-effects-and-motion.md) to plan the key drawings, connect the effect to the gameplay event and review the exported layers in motion.
+
+For an opening prop, a standalone burst, or windblown particles, use the [sprite production guide](references/2d-effects-and-motion.md#draw-a-prop-a-burst-or-an-animated-particle). Specify what moves within each cel, what moves through the game world, and what appears after playback ends.

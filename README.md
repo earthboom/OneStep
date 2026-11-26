@@ -49,7 +49,7 @@ Prompt refinement is optional: use [vegabond-refine-prompt](skills/vegabond-refi
 | --- | --- | --- |
 | Entry | [vegabond-scout](skills/vegabond-scout/SKILL.md) | Frame the request, choose operation and scale, map capabilities/checks, and coordinate. |
 | Operations | [create](skills/vegabond-create/SKILL.md), [revise](skills/vegabond-revise/SKILL.md), [research](skills/vegabond-research/SKILL.md) | Produce a new result, improve an existing result, or investigate a question. |
-| Specialists | [code](skills/vegabond-code/SKILL.md), [fiction](skills/vegabond-fiction/SKILL.md), [presentation](skills/vegabond-presentation/SKILL.md), [image](skills/vegabond-image/SKILL.md), [planning](skills/vegabond-planning/SKILL.md) | Supply execution, review, verification, and correction methods for the actual work. |
+| Specialists | [code](skills/vegabond-code/SKILL.md), [fiction](skills/vegabond-fiction/SKILL.md), [document](skills/vegabond-document/SKILL.md), [presentation](skills/vegabond-presentation/SKILL.md), [image](skills/vegabond-image/SKILL.md), [sound](skills/vegabond-sound/SKILL.md), [planning](skills/vegabond-planning/SKILL.md) | Supply execution, review, verification, and correction methods for the actual work. |
 | Design when needed | [code-design](skills/vegabond-code-design/SKILL.md), [fiction-design](skills/vegabond-fiction-design/SKILL.md) | Resolve consequential choices with scoped decisions, source evidence, and checkable conditions. |
 | Knowledge | [vegabond-knowledge](skills/vegabond-knowledge/SKILL.md) | Retrieve, synthesize, selectively store, and maintain knowledge and problem records. |
 | Optional prompt refinement | [vegabond-refine-prompt](skills/vegabond-refine-prompt/SKILL.md) | Refine a prompt only on explicit request, proportionately to the actual gap. |
@@ -62,6 +62,7 @@ Examples of how the same strategy adapts:
 | --- | --- |
 | Software | Identify the actual changed component and environment. Build/prepare, test, launch, and exercise its public behavior as applicable. Unreal/Unity gameplay needs the relevant editor and actual play; a CLI needs real commands. See [software verification](skills/vegabond-code/references/verification.md). |
 | Fiction | Retrieve canon, character state, viewpoint limits, and voice references. Draft or revise, then inspect narrative and language against the actual passages. The design skill considers twenty narrative elements at the relevant scope. See [manuscript review](skills/vegabond-fiction/references/review.md). |
+| Job applications | Match the posting and exact prompts to the applicant's evidence. Check factual claims, eligibility gaps, limits, and the final copy or file. See [application writing](skills/vegabond-document/references/job-application-writing.md). |
 | Presentations | Connect audience and purpose to the slide argument; verify claims and inspect the actual final export visually. |
 | Planning | Connect the proposal to feasibility, dependencies, calculations, and observable success conditions; distinguish assumptions from supported facts. |
 
