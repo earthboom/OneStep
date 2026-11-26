@@ -2,13 +2,13 @@
 
 사람 전용 번역. AI는 영문 K-CODE-MAINTAINABILITY-EVIDENCE.md를 사용한다.
 
-ID: K-CODE-MAINTAINABILITY-EVIDENCE. 유형: 참고 자료. 상태: 사용 가능. 근거 확인일: 2026-11-07.
+ID: K-CODE-MAINTAINABILITY-EVIDENCE. 유형: 참고 자료. 상태: 사용 가능. 근거 확인일: 2026-11-21.
 
 요약: 대표적인 이해·수정 작업, 보존 동작, 변경 영향으로 설계·리팩터링을 평가한다. 크기·복잡도·결합도는 여러 근거 차원이며 하나만으로 유지보수성을 증명하지 않는다.
 
 범위: 유지보수성 평가·리팩터링 판단. Windows 관찰 연구와 제한된 학생 Java 실험은 보편 설계 법칙이 아니다.
 
-검색어: maintainability, refactoring, empirical, change-impact, modularity, comprehension, metrics, 유지보수성, 리팩터링, 실증연구, 변경영향, 이해도, 지표
+검색어: maintainability, refactoring, empirical, change-impact, modularity, comprehension, metrics, AI code quality, AI 코드 품질, 유지보수성, 리팩터링, 실증연구, 변경영향, 이해도, 지표
 
 ## 활용 지침
 
@@ -17,6 +17,12 @@ ID: K-CODE-MAINTAINABILITY-EVIDENCE. 유형: 참고 자료. 상태: 사용 가�
 응용 방법: 대표적인 후속 변경과 보존할 동작을 정한다. 유지보수자가 알아야 하거나 바꿔야 할 출처·결정·의존·시험을 추적한다. 현재와 제안 구조를 정확성·노력·변경 국소성·빌드와 실행 비용·설명 부담으로 비교한다. 상충점이 드러날 수 있으면 다른 종류의 변경도 포함한다.
 
 지표는 질문을 찾는 데 쓰고 실제 작업·근거를 확인한다. 구조 이익이 불확실하면 범위가 정해진 실험·변경 흐름 검토를 선호한다. 논리적 예측·완료한 수정·장기간 결함과 생산성 근거를 구별한다.
+
+### AI를 사용하는 코드 변경
+
+기준 리비전을 기록하고 대표 데이터나 이전 호출자로 현재 공개 진입점을 실행한다. 프로젝트가 보존하기로 한 동작과 아직 계약을 정해야 하는 관찰을 구분한다. 새로운 기대값은 독립적으로 정한다. 패치와 함께 단언, 건너뛴 검사, 표본과 억제 설정을 검토한다. 실제 결함을 담은 반례로 검사에 실패할 수 있는지 확인한다. 런타임이나 지원 빌드에 의존하는 결과는 그 환경에서 확인한다. [변경 검증](K-CODE-CHANGE-TESTS.kr.md)
+
+파일럿에서는 기존 절차와 여기에 의존성과 동작 보존 검사를 추가한 절차를 비교한다. 리비전, 과제, 모델, 도구, 예산과 합격 기준을 맞춘다. 국소 수정, 콘텐츠 추가, 수명이나 호환성 변경을 포함하고 후속 변경도 평가한다. 받아들인 결과와 의도하지 않은 영향, 검토와 재작업을 포함한 시간, 불필요한 차단과 실제 결함을 센다. 선택 팩은 각각 단독, 함께, 모두 제외한 상태를 시험한다. 한 팩이 이웃 팩에 암묵적으로 의존하는 반례도 넣는다.
 
 ## 적용 조건과 예외
 
@@ -30,4 +36,5 @@ Windows 연구는 특정 대규모 작업의 상관이며 독립된 인과 증�
 
 - [S1] Kim·Zimmermann·Nagappan, [Microsoft 리팩터링 실증 연구](https://web.cs.ucla.edu/~miryung/Publications/tse2014-refactoringpractices.pdf), IEEE TSE2014. 저자 공개 PDF의 초록·표5~7 주변 논의·5절 타당성 위협, PDF 1·12~14쪽 확인.
 - [S2] Tempero·Blincoe·Lottridge, [모듈성과 코드 수정·이해 실험](https://kblincoe.github.io/publications/2023_ACE_Modularity.pdf), ACE2023. 저자 공개 PDF의 3.3·4·5·5.1절, PDF 5~7쪽 확인.
-- 확인일 2026-11-07. 평가 절차는 종합 제안이며 새 참가자 연구·리팩터링·유지보수 과제 실험은 하지 않았다.
+- AI 코드 품질 보고서는 익숙한 저장소에서 진행한 METR의 무작위 연구, DORA의 조직 관찰, OneStep 비교 실험안을 정리한다. 측정 항목과 대상의 차이를 반영하고 이 저장소의 판단은 자체 시간과 결과로 한다. `docs/research/2026-11-21-ai-codebase-quality.kr.md`에 OneStep 비교 실험안을 기록했다. [METR 무작위 연구](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/) · [DORA 조직 조사](https://dora.dev/research/2025/dora-report/)
+- 기존 유지보수성 출처 확인일 2026-11-07. 평가 절차는 종합 제안이며 새 참가자 연구·리팩터링·유지보수 과제 실험은 하지 않았다.

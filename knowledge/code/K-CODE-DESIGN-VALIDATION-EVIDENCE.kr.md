@@ -23,8 +23,12 @@ checked_at: 2026-11-25
 
 자동 저장이라면 완료 표시 후 보존해야 할 버전을 정하고 완료 직전과 직후에 중단했을 때를 추적한다. 판정이 플랫폼의 파일 교체 보장에 달렸다면 그 보장에 의존하는 작업에 착수하기 전에 해당 런타임에서 확인한다. 설계 수정 후 동일한 반례를 재검사하고, 예측과 관찰을 구분해 조건·남은 검사·담당자를 기록한다.
 
+모든 호출이 2초 이하여야 한다면 0.8초 49건과 2.0004초 1건을 반례로 쓴다. 이 회차의 P95는 0.8초다. 모든 호출 조건은 실패하므로 호출 위치에서 반올림 전 값으로 판정한다. [프로젝트 측정 이력](../../docs/research/2026-11-23-korean-retrieval-at-30000.kr.md)
+
 ## 근거
 
-ATAM은 서로 충돌하는 품질 속성을 드러낸다. Google SRE 책 12장은 자원 추정 사례, AWS 논문은 모델이 밝혀낸 사건 순서 결함, GitHub 회고는 연결 복구와 서비스 회복의 시차를 보여 준다. 실제 프로젝트의 측정값은 별도로 구해야 한다. [ATAM](https://sei.cmu.edu/documents/629/2000_005_001_13706.pdf) · [SRE 책](https://sre.google/workbook/non-abstract-design/) · [AWS 논문](https://www.amazon.science/publications/how-amazon-web-services-uses-formal-methods) · [GitHub 복구 기록](https://github.blog/news-insights/company-news/oct21-post-incident-analysis/) · [조사 보고서와 자료별 한계](../../docs/research/2026-11-25-design-review-and-cross-check.kr.md)
+ATAM으로 캐시 만료 시간을 늘렸을 때 지연과 최신성이 어떻게 달라지는지 보고 실제 지연을 측정한다. SRE 책 12장은 부하, 자원과 저하 상태에서의 운영을 연결한다. 요청률에 페이로드 크기를 곱하고, 어떤 입력이 바뀌면 결정이 달라지는지 찾는다. [ATAM](https://sei.cmu.edu/documents/629/2000_005_001_13706.pdf) · [SRE 책](https://sre.google/workbook/non-abstract-design/) · [AWS 논문](https://www.amazon.science/publications/how-amazon-web-services-uses-formal-methods) · [GitHub 복구 기록](https://github.blog/news-insights/company-news/oct21-post-incident-analysis/)
 
-동시 상태의 보존 조건을 명세하는 출발점은 Lamport 강연을, 플레이어 행동을 직접 관찰하고 설명을 들어 해석하는 방법은 Ambinder의 GDC 발표 자료를 참고한다. [Microsoft Research 강연](https://www.microsoft.com/en-us/research/video/thinking-above-the-code/) · [Valve 발표 자료](https://cdn.fastly.steamstatic.com/apps/valve/2009/GDC2009_ValvesApproachToPlaytesting.pdf)
+AWS DynamoDB 사례의 잠재적 데이터 손실을 드러낸 가장 짧은 모델 경로는 상위 단계 35개였다. 모델이 다룬 장애와 빠진 조건을 기록하고 구현에서도 검사한다. 2018년 10월 GitHub 사례는 43초 연결 끊김과 24시간 11분의 서비스 저하를 기록했다. 복구 실험에서는 백로그 처리, 상태 대조, 정상 쓰기 재개를 각각 추적한다. [DynamoDB 사례 발췌](https://lamport.azurewebsites.net/tla/amazon-excerpt.html)
+
+동시 상태의 보존 조건은 Lamport 강연의 공식 소개에서 출발한다. Ambinder의 GDC 세션 소개와 슬라이드는 플레이 관찰, 플레이어 설명과 사망 위치의 히트맵을 함께 쓴다. 도움 없이 플레이하게 한 뒤 어떤 신호를 보고 선택했는지 묻는다. 히트맵은 행동 위치를 보여 준다. [GDC 세션](https://gdcvault.com/play/1566/Valve-s-Approach-to-Playtesting) [Microsoft Research 강연](https://www.microsoft.com/en-us/research/video/thinking-above-the-code/) · [Valve 발표 자료](https://cdn.fastly.steamstatic.com/apps/valve/2009/GDC2009_ValvesApproachToPlaytesting.pdf)

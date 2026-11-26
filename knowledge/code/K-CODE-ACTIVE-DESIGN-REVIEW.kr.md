@@ -23,8 +23,10 @@ checked_at: 2026-11-25
 
 예를 들어 작업 폴더에는 피드백 파일 두 개가 있지만 지정 접수함에는 영문만 있다. 기대 접수 상태를 정하고 호출자가 확인하는 경로를 따라간다. 누락 파일을 보완한 뒤 같은 검사를 반복한다. 상태 전환의 기대 결과와 근거, 구현 후에만 할 수 있는 검사를 함께 인계한다. [OneStep 접수 계약](../../feedback/README.md)
 
+중요한 상태 전이 앞뒤로 실패 시점을 옮겨 본다. 인계에는 요구와 보존 조건, 결과가 갈리는 사례, 조건을 강제하는 지점, 근거와 남은 검사 담당자를 적는다. 용어집에 정의를 추가하기 전에 가능한 다른 의미가 통과 판정을 바꾸는지 확인한다. 아래 조건부 조회 실험은 프로젝트 자료다. 별도의 검토 방법 파일럿에서는 근거 있는 지적과 근거 없는 지적, 검토 시간, 재실행 시 재발을 비교할 수 있다. [검토 절차](../../skills/vegabond-code-design/references/review.kr.md) · [조건부 용어집 실험](../../docs/research/2026-11-25-conditional-glossary-routing.json)
+
 ## 근거
 
-NASA §4.4는 기술 요구의 충족 여부와 의도된 사용에 맞는지를 구분한다. ARID §2.2는 실제 사용자가 설계대로 호출해 보게 한다. Porter 등의 실험은 사람이 요구 명세를 시나리오별로 검사한 결과이며 Huang 등의 연구는 LLM의 외부 피드백 없는 추론 교정을 다룬다. 두 실험 모두 OneStep에서 AI 설계 검토의 효과를 측정하지 않았다. [NASA 핸드북](https://www.nasa.gov/reference/4-4-design-solution-definition/) · [ARID 보고서](https://www.sei.cmu.edu/documents/1962/2000_004_001_13685.pdf) · [Porter 외](https://www.cs.umd.edu/~basili/publications/technical/T101.pdf) · [Huang 외](https://arxiv.org/abs/2310.01798) · [조사 보고서와 자료별 한계](../../docs/research/2026-11-25-design-review-and-cross-check.kr.md)
+NASA §4.4는 기술 요구 충족과 의도된 사용에 맞는지를 설계에서 확인하고 완제품 검증은 이후에 수행한다. ARID §2.2는 실제 사용자가 코드나 의사 코드로 설계를 써 보게 한다. Porter 등은 대학원생 48명을 3인 팀 16개로 나눠 명세 두 개를 검사했다. 시나리오 검사가 임의 읽기나 체크리스트보다 결함을 많이 발견했고, 취합 회의의 이득과 손실은 해당 실험에서 상쇄됐다. Huang 등의 추론 과제에서는 LLM이 외부 피드백 없이 자기 응답을 고쳐도 개선되지 않거나 성능이 떨어질 수 있었다. 두 실험은 OneStep의 AI 설계 검토나 다중 에이전트 검토 효과를 측정하지 않았다. [NASA 핸드북](https://www.nasa.gov/reference/4-4-design-solution-definition/) · [ARID 보고서](https://www.sei.cmu.edu/documents/1962/2000_004_001_13685.pdf) · [Porter 외](https://www.cs.umd.edu/~basili/publications/technical/T101.pdf) · [Huang 외](https://arxiv.org/abs/2310.01798)
 
 검토 깊이와 참여자를 고를 때는 설계 문서 작성 비용과 영향받는 팀의 역할에 대한 실무자 경험도 참고한다. [Malte Ubl의 구글 설계 문서 경험](https://www.industrialempathy.com/posts/design-docs-at-google/)

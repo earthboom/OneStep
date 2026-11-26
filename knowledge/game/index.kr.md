@@ -38,6 +38,17 @@
 | [턴별 행동 예산과 제국 성장, 종료 조건 연결하기](K-GAME-STRATEGY-TURN-4X.kr.md)<br>[K-GAME-STRATEGY-TURN-4X](K-GAME-STRATEGY-TURN-4X.md) | 같은 자원으로 경쟁하는 행동을 나열하고, 승패가 예측된 시점부터 실제 결말까지 불필요한 턴이 얼마나 남는지 본다. | 제국 규모 턴제·4X 전략. Old World의 명령 자원과 승리 조건에 관한 설계자 기록을 활용한다. | 4X, turn-based strategy, action economy, opportunity cost, victory, snowball, empire, 턴제전략, 행동경제, 기회비용, 승리조건, 문명, 제국 | 참고 · 사용 중 · 2026-11-07 |
 | [생존 압박과 제작을 자발적 탐험 동기에 연결하기](K-GAME-SURVIVAL-CRAFTING.kr.md)<br>[K-GAME-SURVIVAL-CRAFTING](K-GAME-SURVIVAL-CRAFTING.md) | 부족한 자원, 도구, 거점이 플레이어 자신의 다음 원정 목표로 이어지는지 확인한다. 위험의 경고, 완화 수단과 실패 후 복구를 점검한다. | 탐험 중심 생존 제작. 초기 Don't Starve, Subnautica 기지, Subnautica 2 개발자 응답에 근거하며 개선 계획은 출시 결과와 구분한다. | survival, crafting, exploration, shelter, resource loop, onboarding, danger, 생존, 제작, 탐험, 거점, 자원순환, 온보딩, 위험 | 참고 · 사용 중 · 2026-11-07 |
 
+## 콘텐츠 제작과 플레이 검증
+
+| 항목 | 요약 | 적용 범위와 근거 | 검색어 | 유형·상태·근거 확인일 |
+| --- | --- | --- | --- | --- |
+| [편집 원본과 재현 가능한 게임 콘텐츠 빌드를 정한다](K-GAME-CONTENT-AUTHORING.kr.md)<br>[K-GAME-CONTENT-AUTHORING](K-GAME-CONTENT-AUTHORING.md) | 편집자에게 맞는 제작 도구를 고르고 구조와 게임 규칙을 검증한다. 배포용 데이터는 편집 원본으로부터 다시 생성한다. | Unity·Unreal 또는 엔진 독립 파이프라인의 스테이지·밸런스·대사·콘텐츠 팩 | content pipeline, authoring, JSON Schema, semantic validation, CSV, ScriptableObject, Data Asset, content pack, 게임 데이터, 콘텐츠 제작, 시맨틱 검증, 임포트 | 방법 · 사용 중 · 2026-11-26 |
+| [확정된 명중 결과와 다음 행동을 중심으로 타격 연출을 설계한다](K-GAME-IMPACT-FEEDBACK.kr.md)<br>[K-GAME-IMPACT-FEEDBACK](K-GAME-IMPACT-FEEDBACK.md) | 입력부터 판정과 회복까지 추적한다. 빗나감, 방어, 명중을 구분하고 조작과 다음 행동에 필요한 정보를 유지한다. | 애니메이션, 시각 효과, 카메라, 소리와 햅틱을 쓰는 액션 전투 | game feel, impact feedback, hitstop, hit confirmation, combat readability, haptics, 타격감, 조작감, 히트스톱, 명중 연출 | 방법 · 사용 중 · 2026-11-26 |
+| [영향받는 플레이 경로로 게임플레이 회귀 검증 범위를 정한다](K-GAME-REGRESSION-SCOPE.kr.md)<br>[K-GAME-REGRESSION-SCOPE](K-GAME-REGRESSION-SCOPE.md) | 공유 규칙, 콘텐츠 등록, 호환성과 런타임 조립을 검사한다. 독립적으로 정한 기대값을 화면 결과와 확정된 게임 상태에 대조한다. | Unity·Unreal 게임플레이 변경, 새 콘텐츠, 출시 저장, 멀티플레이와 성능 변경 | gameplay regression, test oracle, Unity Play Mode, Unreal Functional Testing, packaged build, replay, snapshot comparison, 게임플레이 회귀, 패키지 검증, 회귀 테스트, 스테이지 검증 | 방법 · 사용 중 · 2026-11-26 |
+| [콘텐츠와 진행 순서가 바뀌어도 스테이지 식별을 유지한다](K-GAME-STAGE-COMPATIBILITY.kr.md)<br>[K-GAME-STAGE-COMPATIBILITY](K-GAME-STAGE-COMPATIBILITY.md) | 스테이지 정의, 조회, 진행, 실행 중 상태와 저장 결과의 책임을 나눈다. 스테이지 추가와 종료를 이전 저장 및 출시 빌드의 진입 경로로 검사한다. | 스테이지·캠페인·선택 팩의 추가, 순서 변경, 개정, 제거 | StageId, stage catalog, progression, save migration, retired content, replay, 스테이지 추가, 진행도, 저장 호환성, 리플레이 | 방법 · 사용 중 · 2026-11-26 |
+| [스테이지 대화 상태와 2D 연출을 재사용한다](K-GAME-STAGE-DIALOGUE.kr.md)<br>[K-GAME-STAGE-DIALOGUE](K-GAME-STAGE-DIALOGUE.md) | 대사와 클립에 안정적인 키를 쓰고 대화의 시작·종료 규칙을 정한다. 시각 앵커, 현지화 재생과 게임 결과를 함께 확인한다. | 화자, 초상, 스프라이트 클립과 분기형 대사를 사용하는 2D 스테이지 | LineId, stage dialogue, dialogue runner, sprite animation, atlas, localization, 스테이지 대사, 대화 분기, 스프라이트, 자막 | 방법 · 사용 중 · 2026-11-26 |
+| [화면 밖 처리와 스트리밍 비용을 줄일 때 월드 결과를 유지한다](K-GAME-WORLD-RUNTIME-BUDGET.kr.md)<br>[K-GAME-WORLD-RUNTIME-BUDGET](K-GAME-WORLD-RUNTIME-BUDGET.md) | 대표 경로를 프로파일링하고 화면 밖 객체의 렌더링, 메모리 상주, 상태 유지, 시뮬레이션을 각각 결정한다. 돌아왔을 때의 월드 결과와 비용을 함께 확인한다. | 실시간 게임의 렌더링, 스트리밍, 생성과 NPC 시뮬레이션 예산 | streaming, offscreen AI, culling, pooling, LOD, frame budget, resident memory, 화면 밖 NPC, 스트리밍, 오브젝트 풀, 프레임 예산 | 방법 · 사용 중 · 2026-11-26 |
+
 ## 구현 기법
 
 | 항목 | 요약 | 적용 범위와 근거 | 검색어 | 유형·상태·근거 확인일 |

@@ -4,7 +4,7 @@
 
 **카메라·이펙트·사운드는 같은 판정의 서로 다른 정보를 전달할 때 타격감을 만든다.** 무기가 닿는 순간 볼 수 있어야 하고, 맞은 재질과 결과를 소리로 구분할 수 있어야 하며, 큰 충격 뒤에도 다음 행동에 필요한 시야와 조작이 이어져야 한다. 이 문서에서 **타격감**은 접촉과 그 결과가 느껴지는 정도, **손맛**은 입력이 받아들여지고 다음 선택으로 이어지는 전체 조작의 느낌을 가리킨다. 실제 개발에서는 입력·움직임의 조정, 사건의 피드백, 플레이어가 의도를 실행하도록 돕는 설계를 함께 본다. [Pichlmair·Johansen의 Game Feel 조사](https://researcher.itu.dk/p/en/research-outputs/designing-game-feel-a-survey) · [Swink의 Game Feel](https://www.routledge.com/Game-Feel/Swink/p/book/9780123743282) · [액션 게임의 타격 피드백 연구](https://faculty.washington.edu/zkwen/articles/lin22features.pdf)
 
-이 문서는 [게임 개발 기본 전략](../designs/game-development-strategy.md)과 [게임플레이 회귀 검증 기본 규칙](2026-11-22-gameplay-regression-verification.kr.md)을 타격감·조작감에 적용한 조사다. 사례의 값은 해당 게임의 카메라, 장르, 입력 장치와 함께 읽는다. 아래 예시는 실제 프로젝트에서 검증할 설계안이다.
+이 문서는 [게임 개발 기본 전략](../designs/game-development-strategy.md)과 [게임플레이 회귀 검증 기본 규칙](../../knowledge/game/K-GAME-REGRESSION-SCOPE.kr.md)을 타격감·조작감에 적용한 조사다. 사례의 값은 해당 게임의 카메라, 장르, 입력 장치와 함께 읽는다. 아래 예시는 실제 프로젝트에서 검증할 설계안이다.
 
 ## 1. 연구에서 판단할 수 있는 범위
 
@@ -93,6 +93,6 @@ Eiserloh는 충격량을 제한된 값에 누적·감쇠시키고 비선형 곡�
 1. **한 장면에서 여러 판정을 반복한다.** 같은 무기, 적, 재질, 거리에서 허공·가드·명중·강타가 나오는 경로를 정한다. 공격자의 조작 영상과 피격자·관전자 관점이 필요한 경우 각각 본다. `입력이 응답했는지`, `결과를 알아맞힐 수 있는지`, `충격이 얼마나 느껴지는지`, `다음 행동이 보이는지`를 별도 질문으로 둔다. [타격 피드백 연구](https://faculty.washington.edu/zkwen/articles/lin22features.pdf) · [플레이테스트 방식 선택](../../knowledge/game/K-GAME-PROTOTYPE-PLAYTEST.kr.md)
 2. **같은 규칙에서 표현의 차이를 비교한다.** 카메라 강도, 접촉음, 히트스톱 중 의심되는 요소 하나씩 비교하고, 필요한 경우 두 요소를 조합한 조건도 포함한다. 순서를 교차해 먼저 본 효과에 익숙해지는 영향을 줄인다. 선호도 외에도 가드·명중 구분 정확도, 다음 입력 성공, 적의 예고를 놓친 횟수, 피로·불편을 함께 본다. [Kao의 피드백 강도 비교](https://experts.illinois.edu/en/publications/the-effects-of-juiciness-in-an-action-rpg/) · [Juice It or Lose It 시연](https://www.gdcvault.com/play/1016789/Juice-It-or-Lose)
 3. **지연과 시간 순서를 확인한다.** 입력 접수, 규칙 판정, 애니메이션·이펙트·사운드 요청 시점을 기록한다. 실제 사용자 지연이 문제라면 입력부터 화면·소리까지 출력된 시점을 대표 장치에서 측정한다. 빠른 연타, 낮은 프레임률, 무선 오디오, 목표 네트워크 조건에서 첫 반응과 이후 판정이 어떻게 보이는지 확인한다. [FPS 입력 지연 측정 연구](https://research.nvidia.com/publication/2021-05_case-study-first-person-aiming-low-latency-esports) · [시청각 동시성 검토](https://research.tilburguniversity.edu/en/publications/perception-of-intersensory-synchrony-a-tutorial-review/)
-4. **기존 품질을 확인할 경로를 남긴다.** 카메라 흔들림과 진동을 줄여도 피해·경직·콤보 판정이 유지되는지, 명중이 없을 때 명중 효과가 뜨지 않는지, 다단 공격과 반복 재시도에서 연출이 중복되거나 남지 않는지 본다. 자동 검증으로 사건 방향·횟수와 규칙 결과를 확인하고, 실제 장치에서 소리와 조작감의 차이를 플레이 리뷰한다. [회귀 검증과 시각·성능 품질](2026-11-22-gameplay-regression-verification.kr.md#5-재현-시각과-성능-품질)
+4. **기존 품질을 확인할 경로를 남긴다.** 카메라 흔들림과 진동을 줄여도 피해·경직·콤보 판정이 유지되는지, 명중이 없을 때 명중 효과가 뜨지 않는지, 다단 공격과 반복 재시도에서 연출이 중복되거나 남지 않는지 본다. 자동 검증으로 사건 방향·횟수와 규칙 결과를 확인하고, 실제 장치에서 소리와 조작감의 차이를 플레이 리뷰한다. [회귀 검증과 시각·성능 품질](../../knowledge/game/K-GAME-REGRESSION-SCOPE.kr.md#재현-시각과-성능-품질)
 
 첫 설계의 판단 기준은 **입력을 받았음을 느낄 수 있는가, 무엇을 맞혔는지 구별되는가, 큰 결과를 강조해도 다음 위협을 볼 수 있는가**다. 하나의 대표 공격에서 이 세 가지를 확인한 뒤 다른 무기, 적, 시점, 플랫폼에서 유지할 기준을 정한다.
