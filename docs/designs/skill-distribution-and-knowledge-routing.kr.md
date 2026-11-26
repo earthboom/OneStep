@@ -55,3 +55,31 @@ A는 독립적으로 완료할 수 있다. B에서 저장할 근거와 검색 �
 | 복합 기획과 단순 교정 | 게임 기획은 경제와 제작 여력 지식을 함께 사용했다. 대기 시간이 0이라는 가정에서 시간당 보상 3,000→6,000을 계산하고 실제 소비량은 미확정으로 뒀다. 단순 교정은 도메인 지식 조회나 조사 없이 띄어쓰기 한 곳만 수정했다. |
 
 행동 시험은 독립된 AI 맥락과 시험용 프로젝트를 사용했다. 인쇄물 품질, 실제 청중의 이해도, 게임 밸런스는 측정 범위 밖이다. 자동 검사를 다시 실행할 명령은 [영문 설계서 마지막 절](skill-distribution-and-knowledge-routing.md)에 있다.
+
+## 조사 자료의 지식 이관 내역
+
+원래 제목으로 찾는 독자를 위한 대응표다. 각 지식 항목에서 적용 조건·원출처·검수 방법을 확인할 수 있다. 이관 전 영문 보고서와 한국어 번역의 전문은 [이전 버전](https://github.com/earthboom/OneStep/tree/558f90b3a61a4f16a69edc269698d991ef80725f/docs/research)에서 볼 수 있다. [검색 측정 원본](https://github.com/earthboom/OneStep/tree/9f553ba95ec7209a5bf3fcc6ab16b119ebeb8317/docs/research)과 [용어집 실험 원본](https://github.com/earthboom/OneStep/tree/9f553ba95ec7209a5bf3fcc6ab16b119ebeb8317/docs/research)은 각 검사의 입력·근거로 유지한다.
+
+| 원 보고서 | 재사용할 판단과 지식 항목 |
+| --- | --- |
+| `2026-11-21-ai-codebase-quality` | AI 변경의 보존 계약·후속 수정 비용 검사 · [K-CODE-AI-CHANGE-QUALITY](../../knowledge/code/K-CODE-AI-CHANGE-QUALITY.kr.md) |
+| `2026-11-21-cpp-game-framework` | C++ 게임플레이 상태 소유권과 선택적 콘텐츠 · [K-CODE-CPP-GAMEPLAY-FRAMEWORK](../../knowledge/code/K-CODE-CPP-GAMEPLAY-FRAMEWORK.kr.md) |
+| `2026-11-22-game-data-formats-and-pipeline` | 게임 데이터 형식·ID와 저장 호환 · [K-GAME-CONTENT-FORMATS](../../knowledge/game/K-GAME-CONTENT-FORMATS.kr.md) |
+| `2026-11-22-game-data-management-methods` | 게임 데이터 제작·검증·배포 · [K-GAME-CONTENT-PRODUCTION](../../knowledge/game/K-GAME-CONTENT-PRODUCTION.kr.md) |
+| `2026-11-22-game-development-practices` | 화면 밖 NPC·런타임 예산·데이터 형식 · [K-GAME-NPC-SIMULATION](../../knowledge/game/K-GAME-NPC-SIMULATION.kr.md) · [K-GAME-RUNTIME-RESOURCE-BUDGET](../../knowledge/game/K-GAME-RUNTIME-RESOURCE-BUDGET.kr.md) · [K-GAME-CONTENT-FORMATS](../../knowledge/game/K-GAME-CONTENT-FORMATS.kr.md) |
+| `2026-11-22-gameplay-regression-verification` | 플레이 경로별 회귀 검사 · [K-GAME-GAMEPLAY-REGRESSION](../../knowledge/game/K-GAME-GAMEPLAY-REGRESSION.kr.md) |
+| `2026-11-22-image-generation-skill-plan` | 이미지 요청·편집 보존 조건 검수 · [K-IMAGE-BRIEF-ACCEPTANCE](../../knowledge/image/K-IMAGE-BRIEF-ACCEPTANCE.kr.md) |
+| `2026-11-22-stage-content-framework` | 스테이지 추가·진행·콘텐츠 검증 · [K-GAME-STAGE-AUTHORING](../../knowledge/game/K-GAME-STAGE-AUTHORING.kr.md) |
+| `2026-11-22-unity-csharp-game-framework` | Unity 실행 상태와 콘텐츠 구성 · [K-CODE-UNITY-GAMEPLAY-FRAMEWORK](../../knowledge/code/K-CODE-UNITY-GAMEPLAY-FRAMEWORK.kr.md) |
+| `2026-11-23-2d-character-art-and-sprites` | 캐릭터 원화·인게임 스프라이트 일관성 · [K-GAME-SPRITE-PRODUCTION](../../knowledge/game/K-GAME-SPRITE-PRODUCTION.kr.md) |
+| `2026-11-23-2d-effects-and-motion` | 이펙트의 사건 시점과 위치·가림 · [K-GAME-EFFECT-EVENT-PLAYBACK](../../knowledge/game/K-GAME-EFFECT-EVENT-PLAYBACK.kr.md) |
+| `2026-11-23-2d-sprites-animation-and-stage-dialogue` | 스프라이트 재생과 대사 중단·재개 · [K-GAME-SPRITE-PRODUCTION](../../knowledge/game/K-GAME-SPRITE-PRODUCTION.kr.md) · [K-GAME-STAGE-DIALOGUE](../../knowledge/game/K-GAME-STAGE-DIALOGUE.kr.md) |
+| `2026-11-23-game-feel-and-impact-feedback` | 타격감의 입력·판정·출력 연결 · [K-GAME-IMPACT-FEEDBACK](../../knowledge/game/K-GAME-IMPACT-FEEDBACK.kr.md) |
+| `2026-11-23-knowledge-and-incident-retrieval` | 작업·증상·식별자로 이전 기록 찾기 · [K-SHARED-INCIDENT-RETRIEVAL](../../knowledge/shared/K-SHARED-INCIDENT-RETRIEVAL.kr.md) |
+| `2026-11-23-korean-retrieval-at-30000` | 검색 순위와 호출자 응답 시간 측정 · [K-CODE-RETRIEVAL-SCALE](../../knowledge/code/K-CODE-RETRIEVAL-SCALE.kr.md) |
+| `2026-11-24-development-design-and-delivery` | 설계 깊이와 구현 분할 · [K-CODE-DESIGN-DELIVERY-SCOPE](../../knowledge/code/K-CODE-DESIGN-DELIVERY-SCOPE.kr.md) |
+| `2026-11-25-design-review-and-cross-check` | 검토자 점검과 위험 가정 검증 · [K-CODE-ACTIVE-DESIGN-REVIEW](../../knowledge/code/K-CODE-ACTIVE-DESIGN-REVIEW.kr.md) · [K-CODE-DESIGN-VALIDATION-EVIDENCE](../../knowledge/code/K-CODE-DESIGN-VALIDATION-EVIDENCE.kr.md) |
+| `2026-11-25-development-glossary-field` | 전체 저장소의 용어집 자발적 사용 실험 · [K-CODE-ACCEPTANCE-GLOSSARY](../../knowledge/code/K-CODE-ACCEPTANCE-GLOSSARY.kr.md) |
+| `2026-11-25-development-glossary-pilot` | 동일 요청의 인수 기준 비교 · [K-CODE-ACCEPTANCE-GLOSSARY](../../knowledge/code/K-CODE-ACCEPTANCE-GLOSSARY.kr.md) |
+| `2026-11-25-glossary-first` | 용어집 선조회 시간과 누락 기준 · [K-CODE-ACCEPTANCE-GLOSSARY](../../knowledge/code/K-CODE-ACCEPTANCE-GLOSSARY.kr.md) |
+| `2026-11-25-stationery-character-image-generation` | 실물 문구 크기의 캐릭터 검수 · [K-IMAGE-STATIONERY-MASCOT](../../knowledge/image/K-IMAGE-STATIONERY-MASCOT.kr.md) |

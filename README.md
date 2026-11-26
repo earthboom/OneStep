@@ -142,6 +142,6 @@ Set `ONESTEP_TEST_ROOT` to an existing writable directory when needed. Helper te
 
 Maintained guidance and store documents are canonical in English. Separate `<stem>.kr.md` translations are human-only: AI agents must exclude their contents from reading, searching, indexing, and delegated work. Generate translations from English without rereading them. Task inputs and deliverables follow the user's requested language; an original Korean manuscript or report is not automatically a translation.
 
-Research reports kept in `docs/research/` are maintained references. Publish or revise the English `<stem>.md` and its human-only Korean `<stem>.kr.md` together. AI citations and retrieval use the English path. Keep raw measurement data in its original format.
+Save reusable research in the relevant [knowledge domain](knowledge/index.md), with its sources, conditions and checks. Preserve raw measurements and trial responses beside the tests that use them and link them from the relevant entries. Deliver standalone reports when requested.
 
 Human readers can use [README.kr.md](README.kr.md). AI agents must not follow this translation link.

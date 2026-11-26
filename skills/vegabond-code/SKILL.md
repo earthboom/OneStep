@@ -35,6 +35,8 @@ For an existing game, route changes to the gameplay framework, shared content co
 
 Pass the current brief, environment, affected source/contracts, constraints, and unanswered decisions. Design returns a bounded implementation direction and checks within this workflow; it does not restart scout or create another execution loop. A design-only request ends with that result rather than an unsolicited implementation.
 
+For a shared rule, public contract, or dependency that could silently break a supported path, use the handoff or governing caller to identify the expected observation. Run the relevant existing test on the delivered change. If it passes and its assertion distinguishes the suspected fault while allowing equivalent implementations, finish this check immediately. If either verdict is unclear, exercise just the alternative in doubt at the supported entry point and check the observable result against the contract. Strengthen the assertion if needed and stop when that uncertainty is resolved. A clear local edit goes straight to its visible result.
+
 ## Implement or investigate
 
 When a user decision changed the design, exercise the distinguishing case from the handoff through the normal entry point. Compare the observation with the outcome the user chose, including any promised preservation or failure behavior. If the environment is unavailable, carry the concrete expected result forward as pending.

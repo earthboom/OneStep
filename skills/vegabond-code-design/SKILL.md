@@ -19,6 +19,8 @@ When designing input response, impact feedback, or the camera, visual effects, a
 
 When deciding how game data evolves, what a world loads or retains, how a renderer meets its budget, or what NPCs do offscreen, use the applicable [world runtime design guidance](references/world-lifecycle.md). Tie each chosen policy to a gameplay requirement and pass the preservation, transition and measurement conditions to implementation.
 
+For a shared rule, public contract, or dependency that could silently break a supported path, point implementation to the caller’s expected result and the existing public-path test that asserts it. If that assertion would catch the plausible fault and allow equivalent implementations, the handoff is complete. Only when either verdict is unclear, name the unresolved behavior and the smallest comparison that would settle it. A clear local edit proceeds directly.
+
 ## Resolve the design
 
 When the scope or implementation sequence is unsettled, use [scope, design depth and delivery units](references/scope-and-delivery.md). Return the observable outcome, the decision that warrants design and its cost if wrong, and why one coherent change or checked stages fit this particular request. Reuse Scout's brief and update its provisional scale after examining the contracts.

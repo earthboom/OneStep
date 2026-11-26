@@ -32,3 +32,5 @@ ID: K-GAME-PROTOTYPE-PLAYTEST. 유형: 참고 자료. 상태: 사용 가능. 근
 - [S2] Ken Birdwell의 [The Cabal](https://www.gamedeveloper.com/design/the-cabal-valve-s-design-process-for-creating-i-half-life-i-), 1999. Pearls Before Swine의 플레이테스트·설계 수정 원문 확인.
 - [S3] Graham McAllister의 [목적 정렬](https://grahammcallister.com/playtesting-book/step-1-alignment-on-clear-purpose), 가설 도입부와 Step 1 Outcome의 저자 공개 본문 확인.
 - 확인일 2026-11-07. 이번 작업에서 실제 게임으로 점검을 수행한 것은 아니다.
+
+검수자가 플레이어 반응을 예측했다면, 경쟁하는 설명을 구별할 관찰 행동과 유도하지 않는 후속 질문을 적는다. 규칙을 수정할 때와 기획 결정권자에게 물을 때를 포함한 사례는 OneStep 전체 저장소의 `K-CODE-ACTIVE-DESIGN-REVIEW`에 있다.

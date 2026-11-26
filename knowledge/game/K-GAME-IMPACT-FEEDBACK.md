@@ -1,0 +1,46 @@
+---
+id: K-GAME-IMPACT-FEEDBACK
+title: "Make impact feedback distinguish input, contact, outcome and recovery"
+summary: "Use one confirmed gameplay outcome to drive contact effects while giving accepted inputs an immediate response. Compare miss, block and hit with shake, sound and haptics independently adjustable."
+kind: method
+scope: "Game feel in melee, ranged, movement, rhythm and turn-based games across devices and perspectives."
+keywords: ["game feel","impact feedback","hitstop","hitstun","camera shake","haptics","combat audio","타격감","손맛","조작감","역경직","히트스톱","히트스턴","카메라 흔들림","타격음","진동","피격 연출"]
+status: active
+checked_at: "2026-11-23"
+---
+# Make impact feedback distinguish input, contact, outcome and recovery
+
+## Guidance
+
+Follow one attack from accepted input and anticipation through contact, resolution and recovery. Distinguish swing trail from contact position and material. Give a miss a swing, a block a distinct cue and recoil, and a hit its confirmed reaction. Rules own contact, damage and hitstun. Presentation selects cues from result, surface, position, direction and strength. In multiplayer respond immediately to firing, then reconcile predicted and confirmed contacts without replaying the same hit. For multi-hit attacks distinguish separate contacts.
+
+Define hitstop scope and clocks for actors, world, physics, input buffer, combo, invulnerability, cooldown, camera, audio and UI. Hitstun restricts actions under gameplay rules. Cap accumulated stops for rapid hits and verify input is retained. Unity global timeScale=0 stops FixedUpdate and WaitForSeconds waits. In Unreal, planned swing effects can follow Animation Notifies, while resolved hits drive Niagara or cosmetic Gameplay Cues. A droppable cue cannot own authoritative damage.
+
+Tune shake amplitude, direction, frequency, falloff, overlap and decay. Keep the reticle, trajectory and next threat legible when cosmetic shake is reduced. Separate swing sound, contact transient/material, decay and player confirmation. Compare at matched loudness, check leading silence/output latency, voice limits and masking. Time known rhythm cues on the audio clock. Use haptic pulse spacing and channels for distinguishable outcomes. Give important signals another sensory channel and control shake, head bob, blur and vibration independently.
+
+## Applicability and exceptions
+
+Unity Cinemachine Impulse, Audio Mixer and the Input System, or Unreal Camera Shakes, Sound Concurrency and Force Feedback provide implementation mechanisms. Melee needs readable active windows, shooters need aim during recoil, platformers and racing need contact and traction cues, rhythm needs early/late feedback and calibration, and turn-based play needs short readable resolution. A single strength or audiovisual timing tolerance does not transfer across those tasks and devices.
+
+## Checks
+
+Fix weapon, target, surface and distance, then compare miss, block, light and heavy hit. Change one channel at a time and counterbalance order. Measure input recognition, result identification, next action success, missed telegraphs and discomfort. Separate engine event timestamps from measured input-to-display/audio latency. Test lower effects, muted sound, disabled vibration, low frame rate and network loss. Check rapid retries and simultaneous hits for duplicate cues, critical audio masking, overlapping flashes or altered damage, hitstun and combo outcomes.
+
+## Evidence
+
+The November 23 review separates tuning, streamlining and feedback research. Lin et al. compared eight high- and eight low-ranked games across 19 features. Kao's four conditions in one action RPG involved 3,018 participants and varied several elements together. Six of 14 reviewed studies entered the cited audio meta-analysis, and the haptic studies used phones. These sources and shipped-team talks motivate comparisons, without determining a target game's timings or comfort. No local device playtest was reported.
+
+[Combat readability](K-GAME-ACTION-COMBAT.md) · [Hitbox contracts](K-GAME-TECH-HITBOX.md) · [Accessibility](K-GAME-ACCESSIBILITY-ONBOARDING.md) · [Gameplay Cue lifetime](../code/K-CODE-UE-GAS-CUE-EXECUTE-VS-ADD.md)
+
+- [Pichlmair and Johansen's game feel survey](https://researcher.itu.dk/p/en/research-outputs/designing-game-feel-a-survey) · [Swink's Game Feel](https://www.routledge.com/Game-Feel/Swink/p/book/9780123743282) · [Research on impact feedback in action games](https://faculty.washington.edu/zkwen/articles/lin22features.pdf)
+- [Pichlmair and Johansen, Designing Game Feel — Authors' version](https://researcher.itu.dk/ws/portalfiles/portal/91131028/TG3072241.pdf) · [Kao, The Effects of Juiciness in an Action RPG, 2020 — Abstract and bibliographic record](https://experts.illinois.edu/en/publications/the-effects-of-juiciness-in-an-action-rpg/) · [Hicks et al., Good Game Feel, DiGRA 2018 — Paper](https://dl.digra.org/index.php/dl/article/download/936/936/933) · [Nacke, Grimshaw, and Lindley, FPS sound experiment, 2010 — Paper record at the authors' institution](https://vbn.aau.dk/en/publications/more-than-a-feeling-measurement-of-sonic-user-experience-and-psyc/) · [PLOS ONE paper](https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0361519)
+- [Singhal and Schneider, Juicy Haptic Design, CHI 2021 — Authors' paper](https://uwspace.uwaterloo.ca/bitstream/handle/10012/16894/Juicy_Haptic_Design_SIGCHI_2021__UWSpace_.pdf) · [Synchrony review](https://research.tilburguniversity.edu/en/publications/perception-of-intersensory-synchrony-a-tutorial-review/) · [FPS aiming experiment](https://research.nvidia.com/publication/2021-05_case-study-first-person-aiming-low-latency-esports)
+- [Jiesang Song on making Kingdom Under Fire](https://www.gamedeveloper.com/audio/improving-the-combat-impact-of-action-games) · [Riot on combat clarity](https://www.leagueoflegends.com/en-us/news/dev/clarity-in-league/) · [Xbox on attack cues in Grounded](https://learn.microsoft.com/en-us/gaming/accessibility/xbox-accessibility-guidelines/103)
+- [Skullgirls animation at GDC](https://gdcvault.com/play/1020575/) · [VFX as a Game Design Language at GDC](https://www.gdcvault.com/play/1027899/Visual-Effects-Summit-VFX-as) · [Riot VFX production training](https://www.riotgames.com/en/artedu/visual-effects) · [Sakurai's hitstop video](https://www.youtube.com/watch?v=OdVkEOzdCPw) · [Unity time scale](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Time-timeScale.html)
+- [Juicing Your Cameras With Math at GDC](https://www.gdcvault.com/play/1023557/Math-for-Game-Programmers-Juicing) · [Eiserloh's slides](https://media.gdcvault.com/gdc2016/Presentations/Eiserloh_Squirrel_JuicingYourCameras.pdf) · [Vlambeer talk](https://www.youtube.com/watch?v=AJdEqssNZ-U) · [God of War combat and camera at GDC](https://www.gdcvault.com/play/1026423/Evolving-Combat-in-God-of)
+- [UNDERDOGS sound at GDC](https://gdcvault.com/play/1035486/Visceral-Sound-on-Tiny-Speakers) · [Unreal sound concurrency rules](https://dev.epicgames.com/documentation/en-us/unreal-engine/sound-concurrency-reference-guide) · [Hi-Fi RUSH director at GDC](https://gdcvault.com/play/1034256/Developing-Hi-Fi-RUSH-Backwards) · [Unity PlayScheduled](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/AudioSource.PlayScheduled.html)
+- [Housemarque and PlayStation sound team's production account](https://blog.playstation.com/?p=349009) · [Unreal device-specific Force Feedback](https://dev.epicgames.com/documentation/en-us/unreal-engine/force-feedback-in-unreal-engine) · [XAG 110 haptics](https://learn.microsoft.com/en-us/gaming/accessibility/xbox-accessibility-guidelines/110) · [XAG 117 motion](https://learn.microsoft.com/en-us/gaming/accessibility/xbox-accessibility-guidelines/117) · [XAG 118 flash review](https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/118)
+- [Cinemachine Impulse](https://docs.unity3d.com/Packages/com.unity.cinemachine%403.1/manual/CinemachineImpulse.html) · [Camera Shakes](https://dev.epicgames.com/documentation/en-us/unreal-engine/camera-shakes-in-unreal-engine) · [Visual Effect Graph](https://docs.unity3d.com/Packages/com.unity.visualeffectgraph%4017.0/manual/index.html) · [Animation Notifies](https://dev.epicgames.com/documentation/en-us/unreal-engine/animation-notifies-in-unreal-engine) · [Niagara overview](https://dev.epicgames.com/documentation/unreal-engine/overview-of-niagara-effects-for-unreal-engine)
+- [Audio Mixer](https://docs.unity3d.com/6000.0/Documentation/Manual/AudioMixer.html) · [AudioSource priority](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/AudioSource-priority.html) · [Input System Gamepad](https://docs.unity3d.com/Packages/com.unity.inputsystem%401.11/manual/Gamepad.html) · [MetaSounds](https://dev.epicgames.com/documentation/en-us/unreal-engine/metasounds-the-next-generation-sound-sources-in-unreal-engine) · [Unity client anticipation](https://docs.unity3d.com/Packages/com.unity.netcode.gameobjects%402.13/manual/advanced-topics/client-anticipation.html)
+- [Unreal GAS cosmetic effects](https://dev.epicgames.com/documentation/en-us/unreal-engine/understanding-the-unreal-engine-gameplay-ability-system#handling-cosmetic-effects)
+- [Juice It or Lose It demonstration](https://www.gdcvault.com/play/1016789/Juice-It-or-Lose)

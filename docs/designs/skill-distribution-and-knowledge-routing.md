@@ -62,3 +62,31 @@ python skills/vegabond-knowledge/scripts/search.py evaluate --project . --cases 
 python skills/vegabond-knowledge/scripts/catalog.py check --project . --store knowledge --domain planning --domain presentation --strict
 python -m unittest discover -s skills/vegabond-knowledge/tests
 ```
+
+## Research material migrated to knowledge
+
+Use this crosswalk to find a decision by its former report name. The entries carry the applicable guidance, sources and checks. The [pre-migration revision](https://github.com/earthboom/OneStep/tree/558f90b3a61a4f16a69edc269698d991ef80725f/docs/research) retains the original narrative and translations. The [retrieval measurements](https://github.com/earthboom/OneStep/tree/9f553ba95ec7209a5bf3fcc6ab16b119ebeb8317/docs/research) and [glossary trials](https://github.com/earthboom/OneStep/tree/9f553ba95ec7209a5bf3fcc6ab16b119ebeb8317/docs/research) are available in that revision.
+
+| Former report | Knowledge entries |
+| --- | --- |
+| `2026-11-21-ai-codebase-quality` | [K-CODE-AI-CHANGE-QUALITY](../../knowledge/code/K-CODE-AI-CHANGE-QUALITY.md) |
+| `2026-11-21-cpp-game-framework` | [K-CODE-CPP-GAMEPLAY-FRAMEWORK](../../knowledge/code/K-CODE-CPP-GAMEPLAY-FRAMEWORK.md) |
+| `2026-11-22-game-data-formats-and-pipeline` | [K-GAME-CONTENT-FORMATS](../../knowledge/game/K-GAME-CONTENT-FORMATS.md) |
+| `2026-11-22-game-data-management-methods` | [K-GAME-CONTENT-PRODUCTION](../../knowledge/game/K-GAME-CONTENT-PRODUCTION.md) |
+| `2026-11-22-game-development-practices` | [K-GAME-NPC-SIMULATION](../../knowledge/game/K-GAME-NPC-SIMULATION.md) · [K-GAME-RUNTIME-RESOURCE-BUDGET](../../knowledge/game/K-GAME-RUNTIME-RESOURCE-BUDGET.md) · [K-GAME-CONTENT-FORMATS](../../knowledge/game/K-GAME-CONTENT-FORMATS.md) |
+| `2026-11-22-gameplay-regression-verification` | [K-GAME-GAMEPLAY-REGRESSION](../../knowledge/game/K-GAME-GAMEPLAY-REGRESSION.md) |
+| `2026-11-22-image-generation-skill-plan` | [K-IMAGE-BRIEF-ACCEPTANCE](../../knowledge/image/K-IMAGE-BRIEF-ACCEPTANCE.md) |
+| `2026-11-22-stage-content-framework` | [K-GAME-STAGE-AUTHORING](../../knowledge/game/K-GAME-STAGE-AUTHORING.md) |
+| `2026-11-22-unity-csharp-game-framework` | [K-CODE-UNITY-GAMEPLAY-FRAMEWORK](../../knowledge/code/K-CODE-UNITY-GAMEPLAY-FRAMEWORK.md) |
+| `2026-11-23-2d-character-art-and-sprites` | [K-GAME-SPRITE-PRODUCTION](../../knowledge/game/K-GAME-SPRITE-PRODUCTION.md) |
+| `2026-11-23-2d-effects-and-motion` | [K-GAME-EFFECT-EVENT-PLAYBACK](../../knowledge/game/K-GAME-EFFECT-EVENT-PLAYBACK.md) |
+| `2026-11-23-2d-sprites-animation-and-stage-dialogue` | [K-GAME-SPRITE-PRODUCTION](../../knowledge/game/K-GAME-SPRITE-PRODUCTION.md) · [K-GAME-STAGE-DIALOGUE](../../knowledge/game/K-GAME-STAGE-DIALOGUE.md) |
+| `2026-11-23-game-feel-and-impact-feedback` | [K-GAME-IMPACT-FEEDBACK](../../knowledge/game/K-GAME-IMPACT-FEEDBACK.md) |
+| `2026-11-23-knowledge-and-incident-retrieval` | [K-SHARED-INCIDENT-RETRIEVAL](../../knowledge/shared/K-SHARED-INCIDENT-RETRIEVAL.md) |
+| `2026-11-23-korean-retrieval-at-30000` | [K-CODE-RETRIEVAL-SCALE](../../knowledge/code/K-CODE-RETRIEVAL-SCALE.md) |
+| `2026-11-24-development-design-and-delivery` | [K-CODE-DESIGN-DELIVERY-SCOPE](../../knowledge/code/K-CODE-DESIGN-DELIVERY-SCOPE.md) |
+| `2026-11-25-design-review-and-cross-check` | [K-CODE-ACTIVE-DESIGN-REVIEW](../../knowledge/code/K-CODE-ACTIVE-DESIGN-REVIEW.md) · [K-CODE-DESIGN-VALIDATION-EVIDENCE](../../knowledge/code/K-CODE-DESIGN-VALIDATION-EVIDENCE.md) |
+| `2026-11-25-development-glossary-field` | [K-CODE-ACCEPTANCE-GLOSSARY](../../knowledge/code/K-CODE-ACCEPTANCE-GLOSSARY.md) |
+| `2026-11-25-development-glossary-pilot` | [K-CODE-ACCEPTANCE-GLOSSARY](../../knowledge/code/K-CODE-ACCEPTANCE-GLOSSARY.md) |
+| `2026-11-25-glossary-first` | [K-CODE-ACCEPTANCE-GLOSSARY](../../knowledge/code/K-CODE-ACCEPTANCE-GLOSSARY.md) |
+| `2026-11-25-stationery-character-image-generation` | [K-IMAGE-STATIONERY-MASCOT](../../knowledge/image/K-IMAGE-STATIONERY-MASCOT.md) |

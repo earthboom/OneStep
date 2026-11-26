@@ -34,3 +34,5 @@ Proposed checks: could the chosen task expose a broken assumption? Is an observe
 - [S2] Ken Birdwell, [The Cabal](https://www.gamedeveloper.com/design/the-cabal-valve-s-design-process-for-creating-i-half-life-i-), 1999; Pearls Before Swine, playtesting and subsequent design revision. Original developer article opened.
 - [S3] Graham McAllister, [Aligning on a Clear Purpose](https://grahammcallister.com/playtesting-book/step-1-alignment-on-clear-purpose), opening hypotheses and Step 1 Outcome. Author page opened.
 - Sources checked 2026-11-07. Proposed checks were not exercised on a real game in this task.
+
+When a reviewer predicts a player reaction, record which observed action and neutral follow-up question could distinguish the competing explanations. The full OneStep checkout provides worked examples under `K-CODE-ACTIVE-DESIGN-REVIEW`, including when to fix a rule or ask the design owner.

@@ -1,0 +1,33 @@
+# 초상화·게임 스프라이트·임포트한 애니메이션에서 같은 인물로 읽히게 하려면?
+
+식별자 `K-GAME-SPRITE-PRODUCTION` · 방법 · 사용 중 · 근거 확인일 2026-11-25
+
+**요약** 플레이 크기에서 읽히는 특징을 정하고 반복 수정 비용에 맞는 원본 형식을 선택한다. 정렬한 원본 셀과 임포트 후 재생을 비교해 외형 변화, 발 미끄러짐, 아틀라스 오류의 원인을 찾는다.
+
+**적용 범위** 2D 대화 초상화와 게임 스프라이트, 프레임·리그·베이크 애니메이션, 출시 카메라·임포터 설정
+
+**검색어** character sprite, sprite sheet, portrait, animation, foot sliding, pivot, trim offset, atlas, Aseprite, Sprite Atlas, Paper 2D, Flipbook, Spine, sourceSize, spriteSourceSize, 캐릭터 스프라이트, 대화 초상화, 피벗, 트림 오프셋, 발 미끄러짐, 아틀라스
+
+## 활용 방법
+
+초상화는 연기할 순간을 정하고 실제 대화창에 넣는다. 게임 시점에서는 실루엣, 명암·색 덩어리, 소품 위치를 유지하고 작은 장식은 단순화한다. 초상화의 구도까지 복제되면 인물·카메라·자세 참조의 역할을 나눈다. 표정·방향·행동을 각각 쓰일 크기에서 판독한다. [Supergiant developer interview](https://www.gamedeveloper.com/design/how-supergiant-added-new-goddess-demeter-to-i-hades-i-pantheon) · [Ye et al., IP-Adapter](https://arxiv.org/abs/2308.06721) · [Valve character art guide](https://help.steampowered.com/en/faqs/view/0688-7692-4D5A-1935) · [Medeiros’s pixel art lessons](https://saint11.art/pixel_articles/)
+
+윤곽이 자유롭게 바뀌어야 하면 손으로 그린 셀을 쓴다. 의상 간 동작을 공유한다면 부품·슬롯·뼈대를 쓰고 겹침, 회전된 픽셀, 그리기 순서를 검사한다. 방향·장비가 많은 경우 3D 리그를 베이크했을 때의 수정 비용과 생성 텍스처·후처리 비용을 견준다. 혼합 제작에서는 강한 실루엣이 필요한 키를 따로 그린다. 편집 원화, 리그, 팔레트와 내보내기 설정을 찾을 수 있게 두고 대표 변형 두 개로 작업량을 가늠한다. [Aseprite sprite sheets](https://aseprite.org/docs/sprite-sheet/) · [Cuphead production talk](https://www.gdcvault.com/play/1024315/Animation-Bootcamp-Cuphead-Process-and) · [Spine keys and timelines](https://us.esotericsoftware.com/spine-keys) · [Unity PSD Importer](https://docs.unity3d.com/Packages/com.unity.2d.psdimporter%4010.0/manual/index.html) · [Thomas Vasseur on making Dead Cells](https://www.gamedeveloper.com/production/art-design-deep-dive-using-a-3d-pipeline-for-2d-animation-in-i-dead-cells-i-) · [Skullgirls animation talk](https://gdcvault.com/play/1020575/) · [Lasseter paper](https://www.cs.utexas.edu/~fussell/courses/cs384g-fall2011/projects/animator/lasseter.pdf) · [Unity 2D Animation](https://docs.unity3d.com/Packages/com.unity.2d.animation%4010.0/manual/index.html) · [Spine runtimes](https://en.esotericsoftware.com/spine-using-runtimes/)
+
+대기·대화처럼 의미가 고정된 클립 키에 방향, 스킨, 반복·전환 규칙을 연결한다. 그림 번호, 노출 시간, 게임 틱을 구분한다. 접지와 양발이 교차하는 자세를 먼저 그리고 전환을 채운다. 카메라와 배율을 고정하고 이동량을 어디서 만들지 정한다. 공통 피벗을 유지하면서 상하 운동과 몸의 압축이 살아 있어야 한다. [Developer interview](https://www.gamedeveloper.com/business/road-to-the-igf-studio-mdhr-s-i-cuphead-i-) · [Medeiros’s motion tutorials](https://saint11.art/blog/pixel-art-tutorials/) [Aseprite file specification](https://github.com/aseprite/aseprite/blob/main/docs/ase-file-specs.md) · [Unity Aseprite Importer features](https://docs.unity3d.com/Packages/com.unity.2d.aseprite%403.0/manual/ImporterFeatures.html) · [Unreal Flipbooks](https://dev.epicgames.com/documentation/en-us/unreal-engine/paper-2d-flipbooks-in-unreal-engine) · [Spine Events timeline](https://us.esotericsoftware.com/spine-events)
+
+## 적용 조건과 예외
+
+손으로 그린 원화에는 대용량 바이너리 파일이 생길 수 있다. 팀의 실제 편집 방식에 맞춰 잠금이나 대용량 파일 저장을 선택한다. Git LFS는 설정한 경로 패턴을 추적하고 Perforce에서는 독점 체크아웃을 쓸 수 있다. 편집 원본과 함께 내보내기 설정을 보관한다. Aseprite CLI로 시트와 메타데이터를 다시 만든 뒤 프로젝트에서 선택한 Paper 2D 등의 런타임에서 검사한다. [Cuphead GDC](https://gdcvault.com/play/1024315/Animation-Bootcamp-Cuphead-Process-and) · [Aseprite CLI](https://aseprite.org/docs/cli/) · [Git LFS](https://docs.github.com/en/repositories/working-with-files/managing-large-files/configuring-git-large-file-storage) · [Unreal Perforce](https://dev.epicgames.com/documentation/en-us/unreal-engine/using-perforce-as-source-control-for-unreal-engine) · [Unreal Paper 2D](https://dev.epicgames.com/documentation/en-us/unreal-engine/2d-in-unreal-engine)
+
+정지 그림 한 장만 의뢰받으면 그 용도만 검사한다. 프레임 간 유사도가 높아도 동작이 거의 없을 수 있다. 생성 영상은 후보를 제공하지만 셀의 투명도와 게임 속 접촉은 별도 검증 대상이다. 변형된 체형에서 자세 검출이 실패하면 직접 그린 스케치를 쓴다. 사람 초상화 연구에서는 네 가지 지표에서 동작을 만든 뒤 픽셀화하는 방식이 앞섰다. 해당 캐릭터에서는 저해상도로 정리한 키와 대조한다. [Hu et al., paper](https://openaccess.thecvf.com/content/CVPR2024/papers/Hu_Animate_Anyone_Consistent_and_Controllable_Image-to-Video_Synthesis_for_Character_Animation_CVPR_2024_paper.pdf) · [Hsieh et al., experiments and Table 1](https://arxiv.org/abs/2412.03685) · [Wong et al., comparison and data description](https://marcovolino.github.io/docs/papers/2025-wong-cvmp.pdf) · [Fischer’s production video](https://www.youtube.com/watch?v=Ffl8b_GfJ-M)
+
+## 검증 방법
+
+- 정한 피벗에 원본 자세를 겹친다. 원본부터 소품이 튀면 그림을 고친다. 슬라이스 뒤에만 떨리면 아틀라스 사각형, 원본 캔버스(`sourceSize`), 트림 위치·크기(`spriteSourceSize`), 노출 시간을 복원한다. 고정 셀은 같은 캔버스·원점을 쓸 수 있다. 출시 이동 속도로 루프를 틀고 접지한 발이 월드에서 미끄러지는지 본다. 좌우 반전 시 비대칭 표식·손잡이·글자·조명을 확인한다. [Aseprite author’s JSON example](https://community.aseprite.org/t/how-to-process-the-generated-json-sprite-sheet/34) · [Godot 2D animation documentation](https://docs.godotengine.org/en/stable/tutorials/2d/2d_sprite_animation.html)
+- Unity는 Aseprite 태그나 PSD/PSB 레이어를 다시 임포트해 의도한 클립을 얻는지 확인한다. Unreal Paper 2D는 영역·단위·피벗을 확인한 뒤 Flipbook의 FPS와 키 지속 시간으로 재생한다. 재패킹으로 인물이나 표정이 바뀌지 않도록 임포트할 때 의미 키를 영역에 연결한다. [Unity PSD Importer](https://docs.unity3d.com/Packages/com.unity.2d.psdimporter%4010.0/manual/index.html) · [Unity Aseprite Importer features](https://docs.unity3d.com/Packages/com.unity.2d.aseprite%403.0/manual/ImporterFeatures.html) · [Unreal Flipbooks](https://dev.epicgames.com/documentation/en-us/unreal-engine/paper-2d-flipbooks-in-unreal-engine) · [Paper 2D Sprite Editor](https://dev.epicgames.com/documentation/unreal-engine/paper-2d-sprite-editor-in-unreal-engine) · [TexturePacker metadata export](https://www.codeandweb.com/texturepacker/documentation/custom-exporter) · [Import Sprites](https://dev.epicgames.com/documentation/unreal-engine/import-sprites-in-unreal-engine)
+- 출시 배율에서 번짐, 테두리 확장, 회전 패킹, 알파, 압축, 필터를 확인한다. 같은 시점에 함께 쓰고 재질·그리기 순서·상주 수명이 맞는 자산을 묶는다. 두 지역을 오가며 패키지 크기, 실제 텍스처 메모리, 로드와 해제를 비교한다. 사각형 충진률과 PNG 용량만으로 비용을 예측하기 어렵다. [Unity Sprite Atlas settings](https://docs.unity3d.com/6000.0/Documentation/Manual/class-SpriteAtlas.html) · [Spine Texture Packer](https://us.esotericsoftware.com/spine-texture-packer) · [TexturePacker atlas settings](https://www.codeandweb.com/texturepacker/documentation/texture-settings) · [Jylänki's technical report on rectangle packing](https://github.com/juj/RectangleBinPack/blob/master/RectangleBinPack.pdf) · [Unity Sprite Atlas grouping](https://docs.unity.com/en-us/engine/6000.0/manual/unity2d/sprite/atlas/atlas-introduction) [픽셀 샘플링과 메모리](K-GAME-TECH-PIXEL.md)
+
+## 근거
+
+정지 초상화와 64×64 게임 스프라이트를 만든 사례에서는 실제 배율에서 넓은 앞머리와 주황색 스카프가 남았지만 열쇠는 금색 장식으로도 읽혔다. 초상화는 대화창을 덮고, 스프라이트는 모의 배경 두 개에서 검사했다. 엔진 임포트와 이동 재생은 이 시험 범위 밖이었다. [등대 정비사 시험](../../output/2d-character-test/lighthouse-guide-8b98bd2/test.md) · [제작 지침](../../skills/vegabond-image/references/2d-game-characters.md) · [캐릭터와 효과 재생](K-GAME-EFFECT-EVENT-PLAYBACK.md)
