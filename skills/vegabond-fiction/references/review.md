@@ -22,6 +22,12 @@ Compare the final scene's factual claims and state changes with the retrieved co
 
 After story-level repairs, use these style checks in the same review cycle and reread the final text for flow against the baseline. Treat "AI-like" as a request to diagnose concrete prose effects, not evidence of authorship or a sufficient finding by itself. Judge repetitions by their function and context rather than a universal word blacklist. Do not manufacture naturalness through typos, arbitrary fragments, slang, mechanical sentence-length variation, or forced novelty. Direct emotion and concise exposition remain valid when they serve the scene; do not convert every feeling into an action.
 
+### Review characterization
+
+When characterization matters to the passage, start with the context available to the reader at that point. State what the character seems to prioritize, cite the cue that supports that reading, and consider a text-supported alternative when it changes the judgment. Then compare with the brief or author direction. Where several readings are deliberate, check that readers have the information needed to follow the present action and locate when a later reveal can clarify it. Where a character acts against an established pattern, trace the cue that makes the change understandable by the intended point of disclosure.
+
+If two voices blur in an exchange, briefly compare the lines with speaker labels hidden. Check whether the speakers seek different responses, approach the listener differently, or use the same words deliberately. Restore attribution when the scene needs it. Fix the character's choice, conversational tactic, or viewpoint cue where the problem starts, then reread the exchange and the listener's response. Report a specific missing cue when the available text leaves the question open. An editorial check describes what the passage supports, while actual reader reaction requires reader evidence.
+
 ### Applied craft methods
 
 For each consequential craft need in a multi-part request, check the query-to-passage chain: what was asked, which relevant entry/section was actually read, how its conditions fit, which concrete choice changed, and what in the final passage demonstrates or limits the application. Recover a missing topic through focused lookup or its guide before claiming coverage. Merely finding an ID or recording an intention does not demonstrate application; preserve rejected methods and genuine gaps in the existing brief when material.

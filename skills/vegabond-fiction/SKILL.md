@@ -66,6 +66,12 @@ Establish genre, audience, realism, viewpoint, tense, narrator reliability and i
 - **Revise:** Diagnose at the structural, scene, continuity or sentence level. Repair the earliest established causal problem within the requested scope, preserving facts and effective passages. If it changes linked narrative choices, update that part of the design before dependent rewriting. Use the reference's finding classification and correction loop; more explanation is not automatically improvement.
 - **Research or critique only:** Ground findings in passages and distinguish textual evidence, interpretation and proposed invention. Verify the analysis without rewriting the source or promoting an interpretation to canon.
 
+### Show character through the scene
+
+When the passage should reveal a character, reuse the [designed choice](../vegabond-fiction-design/SKILL.md#design-choices-that-reveal-character) or identify it inline for a local passage. Choose the cue that fits the scene and its viewpoint: what the person does first or leaves undone, what response they seek in dialogue, or what they notice and how they interpret it in narration. A direct statement can also serve the voice or pace. Check whether nearby explanation adds something the cue leaves open.
+
+If speech is meant to distinguish characters, decide what each wants from this listener and how they try to get it. Use the work's voice references to choose words, rhythm, directness, or silence. In Korean, check address terms, endings, and degree of certainty against the relationship, who else is present, and what prompts any shift. Read how the listener responds. Apply the [characterization review](references/review.md#review-characterization) to the written passage.
+
 ## Hand back
 
 Return the requested text or analysis, important choices, review/correction evidence and unresolved conditions to the active operation. The review reference owns the detailed checks, uncertain judgments, style and recurrence evidence, and final rereading. Send useful findings through knowledge within the existing write scope; do not create a separate style store or new record schema. Distinguish AI review from vagabond's independent acceptance under the common instructions.
