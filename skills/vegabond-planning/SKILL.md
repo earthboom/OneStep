@@ -36,3 +36,7 @@ Lead with the recommendation, reason, costs and tradeoffs, important conditions,
 Repair the most consequential unsupported or infeasible premise first. Update affected choices, scope, estimates, sequence, risks, and measures together, then repeat invalidated checks. Preserve valid decisions and expose unresolved dependencies.
 
 Return confirmed problems, corrections, recheck evidence, and reusable decision checks to knowledge for authorized storage.
+
+## Shared review checkpoints
+
+Apply [the shared review checkpoints](../vegabond-review/SKILL.md#review-checkpoints) with planning criteria. Review consequential choices before dependent work; integrate the planning review above rather than repeating it. Before handing back the final plan, assess its evidence, feasibility assumptions and measures against the request. When the plan itself is the only deliverable, one review can cover both checkpoints. Do not execute the initiative or treat future measurements as performed checks.

@@ -24,3 +24,7 @@ Distinguish analysis-only feedback from an authorized edit. If only findings are
 3. Compare before and after for the intended improvement and preserved constraints. Inspect affected dependents or surrounding content, and explain any necessary departure from what was intended to remain intact.
 
 Hand back the revised artifact or authorized findings, the meaningful changes, comparison evidence, and unresolved issues. A changed result is not by itself evidence of improvement.
+
+## Shared review checkpoints
+
+For authorized edits, apply [the shared review checkpoints](../vegabond-review/SKILL.md#review-checkpoints): review changed design decisions before dependent edits and verify/review the final revised artifact before handoff. Use the relevant domain criteria with before/after and preservation evidence. Reuse valid knowledge/problem lookups and checks; re-review only affected decisions, artifacts and dependencies. A local correction needs no artificial design stage. Feedback-only work returns findings without source edits or a recursive review of the report.

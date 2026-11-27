@@ -145,3 +145,11 @@ python -m unittest discover -s skills/vegabond-knowledge/tests -v
 재사용할 조사 결과는 출처·적용 조건·검수 기준과 함께 해당 [지식 도메인](knowledge/index.kr.md)에 저장한다. 실험의 원시 측정값과 평가 응답은 사용하는 테스트 옆에 보존하고 지식에서 연결한다. 독립 보고서는 요청받았을 때 납품한다.
 
 [영문 정본](README.md)
+
+## 기존 결과물 리뷰
+
+[vegabond-review](skills/vegabond-review/SKILL.md)는 하나의 공통 리뷰 절차와 code, code-design, document, fiction, fiction-design, image, planning, refine-prompt, sound 분야별 기준을 제공합니다. 요청한 판단에 필요한 기준만 읽습니다. 확인된 결함, 미확정 우려, 선택적 취향 제안을 구분하고 근거와 검토 한계를 보고합니다. 리뷰만 요청한 경우 원본을 수정하지 않습니다.
+
+예시: “skills/vegabond-review/SKILL.md를 읽고 이 제안서의 실행 가능성과 문장을 수정 없이 리뷰해줘.” 이 체크아웃에서는 스킬 경로를 직접 읽습니다. 이번 추가는 전역 스킬 설치가 아닙니다.
+
+제작·수정은 분야 스킬 직접 호출을 포함해 **필요한 경우 설계 → 설계 리뷰 → 제작 → 결과물 검증·리뷰 → 전달**을 기본으로 합니다. 작은 변경은 영향받는 최종 검사로 바로 진행하고 설계만 요청하면 전달 전 한 번 검토합니다. [공통 리뷰 시점](skills/vegabond-review/SKILL.md#review-checkpoints)은 기존 분야별 검사를 통합하고 유효한 지식·문제 기록·근거를 재사용합니다. 원인에 맞춰 문제를 고치고 영향받는 작업을 재검사합니다. 이는 AI 작업의 확인 시점이며 통상적인 사용자 승인이나 필수 별도 에이전트를 뜻하지 않습니다.

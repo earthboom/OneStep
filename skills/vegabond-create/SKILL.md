@@ -24,3 +24,7 @@ Translate the chosen method into the production steps below, using the relevant 
 3. Develop that shape into the requested deliverable. Resolve unfinished sections or placeholders, check consistency across the new parts, and distinguish authored content from factual claims needing support.
 
 Hand back the actual deliverable, key choices that affect its use, acceptance evidence, and unresolved issues. A successful sample does not establish that the completed result passes its required checks.
+
+## Shared review checkpoints
+
+Apply [the shared review checkpoints](../vegabond-review/SKILL.md#review-checkpoints) within these production steps: review a new or changed design before dependent production, then verify and review the actual final artifact before handoff. Reuse the specialists' existing checks and valid knowledge/problem evidence; do not run a duplicate workflow. Clear local work needs no design stage, and design-only work uses one review. Correct findings at their cause and repeat affected checks; continue authorized work without routine approval gates.

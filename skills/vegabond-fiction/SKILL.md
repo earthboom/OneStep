@@ -75,3 +75,7 @@ If speech is meant to distinguish characters, decide what each wants from this l
 ## Hand back
 
 Return the requested text or analysis, important choices, review/correction evidence and unresolved conditions to the active operation. The review reference owns the detailed checks, uncertain judgments, style and recurrence evidence, and final rereading. Send useful findings through knowledge within the existing write scope; do not create a separate style store or new record schema. Distinguish AI review from vagabond's independent acceptance under the common instructions.
+
+## Shared review checkpoints
+
+Apply [the shared review checkpoints](../vegabond-review/SKILL.md#review-checkpoints). Review new or changed narrative choices with fiction-design criteria before dependent drafting; reuse a still-valid design review. Before handoff, use fiction criteria on the actual final prose and incorporate the manuscript review above into the same pass. Carry canon, knowledge/problem IDs and evidence forward; return structural defects to design and recheck only affected passages and dependencies.

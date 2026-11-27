@@ -58,3 +58,7 @@ If implementation evidence refutes the design, return the affected decision and 
 ## Hand back
 
 Return the patch or investigation, acceptance evidence for the actual final code, review results, and explicit unresolved conditions to the active operation. Send confirmed corrections and useful methods or demonstrated safeguards to knowledge for authorized storage; the verification reference defines the software evidence to supply. Distinguish completed AI checks from vagabond's independent acceptance under the common instructions.
+
+## Shared review checkpoints
+
+Apply [the shared review checkpoints](../vegabond-review/SKILL.md#review-checkpoints) within the active operation. When design is needed, use code-design criteria before dependent implementation. Before returning changed code, use code criteria with the actual verification results. Reuse valid design findings, knowledge/problem lookups and tests; repeat only missing or invalidated checks. A clear local edit needs no separate design stage.

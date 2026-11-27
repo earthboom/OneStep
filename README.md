@@ -146,3 +146,11 @@ Maintained guidance and store documents are canonical in English. Separate `<ste
 Save reusable research in the relevant [knowledge domain](knowledge/index.md), with its sources, conditions and checks. Preserve raw measurements and trial responses beside the tests that use them and link them from the relevant entries. Deliver standalone reports when requested.
 
 Human readers can use [README.kr.md](README.kr.md). AI agents must not follow this translation link.
+
+## Review existing work
+
+[vegabond-review](skills/vegabond-review/SKILL.md) provides a shared review procedure with separate criteria for code, code-design, document, fiction, fiction-design, image, planning, refine-prompt, and sound. Load only the criteria relevant to the requested judgment. It distinguishes confirmed defects, unresolved concerns, and optional preferences, and reports evidence and inspection limits. Review-only requests leave the source unchanged.
+
+For example: “Read skills/vegabond-review/SKILL.md and review this proposal's feasibility and wording without editing it.” In this checkout, read the skill by path; this addition does not install a global skill.
+
+Creation and revision use **design when needed -> design review -> production -> artifact verification and review -> handoff** by default, including direct specialist invocation. A small local change goes straight to its affected final checks; design-only work uses one review before handoff. The shared [review checkpoints](skills/vegabond-review/SKILL.md#review-checkpoints) integrate existing domain checks and reuse valid knowledge, problem records and evidence. Correct problems at their cause and recheck affected work. These are AI work checkpoints, not routine user approvals or mandatory separate agents.

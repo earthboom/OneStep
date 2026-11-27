@@ -36,6 +36,8 @@ Before producing or changing a result, identify its purpose, audience, requested
 
 The AI produces the result, checks it directly against the acceptance conditions, and reports evidence and limitations before vagabond's independent testing or review. Domain-specific execution, verification, and correction procedures live in the specialists linked from [scout's capability mapping](../skills/vegabond-scout/SKILL.md#connect-steps-to-skills-and-checks). Evidence gathering and source boundaries for research live in the research operation skill.
 
+For creation and revision, apply [vegabond-review's checkpoints](../skills/vegabond-review/SKILL.md#review-checkpoints): review a new or changed design before dependent production, then verify and review the actual final artifact before handoff. This also applies on direct specialist invocation. A clear local change needs only its affected final checks; design-only work uses one design review for handoff. Reuse applicable knowledge, prior-problem lookups and verification evidence rather than adding duplicate workflows. These AI checkpoints do not introduce routine user approval or mandatory delegation.
+
 For other deliverables, choose observable checks based on purpose, medium, and failure modes. Use automation where it provides meaningful evidence; use direct reading, visual inspection, or real use where those are needed. Do not force build, editor, gameplay, slide, or manuscript checks onto unrelated work.
 
 A check is not applicable only when the deliverable genuinely does not require it; explain why and what covers acceptance instead. Missing tools, tests, access, or time make an applicable check blocked, not inapplicable. Apply this distinction to all required build, test, reading, rendering, and use checks.
@@ -43,6 +45,8 @@ A check is not applicable only when the deliverable genuinely does not require i
 Evidence must describe the final artifact, not a proxy or a confident summary. Rerun checks invalidated by later edits. Do not weaken acceptance conditions to pass. If a required check cannot run, establish the capability within authorized scope or report the exact blocker and unverified conditions. Do not transfer a missing AI check to vagabond as a substitute.
 
 After the required AI checks pass, report **AI verification complete; awaiting vagabond testing or review**, with acceptance results, evidence locations, and limitations. Vagabond then tests or reviews independently. Report **accepted by vagabond** only after explicit confirmation. Reopen the work if that review finds a problem, then repeat affected AI checks before handing it back.
+
+For an output-only request or a fixed response format, honor that format and keep routine completion/review notes in the working context rather than appending the status phrase or an approval question. Disclose material limitations that prevent the requested result from being supported. This presentation exception does not waive applicable verification or imply user acceptance.
 
 ## Respond to failures and feedback
 

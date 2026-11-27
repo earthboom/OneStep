@@ -36,3 +36,7 @@ For a 2D game character portrait, gameplay image or animated sprite, use the [2D
 For a 2D game effect or a sprite action that triggers one, use [drawing effects in motion](references/2d-effects-and-motion.md) to plan the key drawings, connect the effect to the gameplay event and review the exported layers in motion.
 
 For an opening prop, a standalone burst, or windblown particles, use the [sprite production guide](references/2d-effects-and-motion.md#draw-a-prop-a-burst-or-an-animated-particle). Specify what moves within each cel, what moves through the game world, and what appears after playback ends.
+
+## Shared review checkpoints
+
+Apply [the shared review checkpoints](../vegabond-review/SKILL.md#review-checkpoints) using image criteria. When a consequential visual design or production brief is created or changed, review its requirements and feasibility before dependent generation; do not claim to inspect an image that does not yet exist. Before delivery, integrate the actual image/export checks above into the final review. Reuse source comparisons and valid knowledge/problem evidence; do not regenerate merely for optional taste differences.

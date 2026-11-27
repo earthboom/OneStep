@@ -49,3 +49,7 @@ During execution, perform useful independent work even if another part is blocke
 For skill maintenance only, follow [tests/evaluation.md](tests/evaluation.md). Runtime instruction or invocation-policy changes require fresh execution of all listed cases before installation. Do not load the suite during ordinary refinement.
 
 Adapted from Felix Rieseberg's [depth prompt](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/) and [deepen-prompt](https://github.com/r3dlex/deepen-prompt). This is a heuristic, not a proven universal improvement. Judge recurring use by final-result errors, rework, time and cost under comparable model/input/tool/budget conditions.
+
+## Shared review checkpoints
+
+When this skill applies, use [the shared review checkpoints](../vegabond-review/SKILL.md#review-checkpoints) with refine-prompt criteria before returning a new or revised prompt. Check preserved intent, constraints, permissions and acceptance using the supplied context and valid retrieved evidence; keep the review proportionate and within the requested response shape. A sufficient unchanged prompt needs only the sufficiency check above, with no replacement or extra diagnosis. Prompt-only work ends after this review. If execution was also requested, review the prompt before proceeding and verify/review the resulting artifact with its own domain criteria. Quoted triggers and execution-only requests still do not activate refinement.

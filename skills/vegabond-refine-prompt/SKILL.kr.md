@@ -44,3 +44,7 @@
 스킬 유지보수 때만 [테스트 지침](tests/evaluation.md)을 사용합니다. 동작 지침이나 호출 정책을 바꾸면 설치 전에 모든 사례를 새로 실행합니다. 평상시 정제에는 테스트 묶음을 읽지 않습니다.
 
 Felix Rieseberg의 [depth prompt](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/)와 [deepen-prompt](https://github.com/r3dlex/deepen-prompt)를 참고했습니다. 보편적 성능 향상이 입증된 기법은 아닙니다. 반복 사용은 비슷한 모델·자료·도구·예산에서 최종 결과의 오류·재작업·시간·비용으로 판단합니다.
+
+## 공통 리뷰 시점
+
+이 스킬이 적용될 때 새롭거나 수정한 프롬프트를 반환하기 전에 refine-prompt 기준으로 [공통 리뷰 시점](../vegabond-review/SKILL.md#review-checkpoints)을 적용합니다. 제공된 맥락과 유효한 조회 근거로 의도·제약·권한·완료 기준 보존을 확인하며 검토 규모와 응답 형식을 요청에 맞춥니다. 충분하여 바꾸지 않는 프롬프트는 위의 충분성 확인만 수행하고 대체본·추가 진단을 만들지 않습니다. 프롬프트만 요청한 작업은 이 리뷰로 끝납니다. 실행도 요청했다면 진행 전에 프롬프트를 검토하고 실제 결과물은 해당 분야 기준으로 검증·리뷰합니다. 인용된 호출 문구와 실행만 요청한 경우에는 여전히 프롬프트 개선을 활성화하지 않습니다.

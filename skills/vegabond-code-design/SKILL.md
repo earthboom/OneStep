@@ -39,3 +39,7 @@ When plausible interpretations would change a user's or player's observable resu
 Apply the [shared reader-facing design guidance](../../agents/references/design-communication.md) when composing and handing back the result. Explain observable behavior and important failure cases before introducing types, storage fields or transaction details. Then connect the chosen shape/ownership, interfaces, implementation or migration units, evidence and checks to the decisions they support.
 
 State which guarantees the design supports, which implementation checks remain, and which unresolved premises block named dependent work. A useful partial proposal is not a satisfied guarantee. The caller applies [code's verification procedure](../vegabond-code/references/verification.md) to the actual implementation and returns here only when evidence changes a design decision. Preserve valid context rather than redesigning everything after each failure.
+
+## Shared review checkpoints
+
+Before returning the design or advancing dependent implementation, apply [the shared review checkpoints](../vegabond-review/SKILL.md#review-checkpoints) with code-design criteria. Incorporate the design review already required above into this same pass; reuse applicable knowledge, counterexamples and checks. For design-only work this also satisfies final artifact review. Return unresolved guarantees with their dependent work; do not start implementation or request routine approval merely to complete review.

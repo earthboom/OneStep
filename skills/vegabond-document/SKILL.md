@@ -13,3 +13,7 @@ Develop application content within the active operation. Reuse [scout's brief an
 4. **Check what will be delivered.** Trace consequential claims back to the inputs. Check every prompt, the employer's limits and anonymization instructions, and cross-document consistency. For a required character or byte limit, count the exact final copy using the known convention and disclose any portal-specific uncertainty. Inspect the actual file or preview when relevant and available. Deliver the requested text or files and identify any material condition that remains unverified.
 
 Read [research and sources](references/job-application-evidence.md) when assessing a writing technique, adapting guidance across hiring contexts, checking claims about screening, or researching application writing. The target posting and form govern the submission.
+
+## Shared review checkpoints
+
+Apply [the shared review checkpoints](../vegabond-review/SKILL.md#review-checkpoints) using document criteria. If a consequential structure or brief is designed, review it before dependent writing; otherwise write directly. Before handoff, combine the final content/file checks above with the common review, preserving evidence, author voice and submission constraints. Reuse valid checks; a local correction needs only its affected text and context.

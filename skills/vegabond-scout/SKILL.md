@@ -99,3 +99,9 @@ Continue with the next step's mapped operation and specialist, which may differ 
 Report the result, acceptance evidence, and uncertainty. Distinguish drafts, completed AI verification, and vagabond's explicit acceptance. AI checks precede vagabond's independent testing or review.
 
 When the work exposes material feedback about OneStep itself, follow the [feedback delivery check](../../feedback/README.md#confirm-delivery-at-handoff) before sending the final answer. Include the delivery status and links to the verified files, or the specific blocker if the pair is incomplete.
+
+## Route review requests
+
+Use [vegabond-review](../vegabond-review/SKILL.md) for explicit review requests and the default [review checkpoints](../vegabond-review/SKILL.md#review-checkpoints) in creation or revision. Include review of a new or changed design before dependent production, and verification/review of the actual artifact before handoff. It owns the common procedure and loads only relevant criteria for code, code-design, document, fiction, fiction-design, image, planning, refine-prompt, or sound. Select by the requested judgment, including multiple dimensions when needed.
+
+Keep research as the operation for feedback-only work; leave the reviewed sources unchanged. When fixes are also requested, use revise with the review findings and recheck affected results. During create or revise, keep the active operation and integrate existing domain checks into the shared review pass. Reuse valid design reviews, knowledge lookups and final evidence; a small local change needs only affected checks, and a design-only request needs one design review before handoff. Reviewing a prompt or plan does not execute it. Checkpoints do not add routine user approval, mandatory subagents, or recursive review of the review report.

@@ -1,0 +1,17 @@
+{
+  "SKILL.md": "6ee784177a9c0e562807d04e3117ff95256e2d34da4a5e3e1416d48ea2e5ffdf",
+  "agents/openai.yaml": "8619a54e8c098122a7f3881394f84ca89b684366e848233a29ad18b6ec363935",
+  "tests/evaluation.md": "548670216df0d0c04e2cd1bf92b741656d0e0825c9c38b3d90e37042ad57e1c2",
+  "tests/rubric.json": "e2ea76f8f6dca5409b5675bd5d2115d596031ed802ad2c32053dd7c63529b3ef",
+  "tests/cases/ambiguous.txt": "73a5164ba2ca795cf3387403bbb610c88a77a750fa2bd3c344122587344629c4",
+  "tests/cases/sufficient.txt": "5d53229ecafcada801d1f3de16c9ab4b2278cd5f0dd61e6870cdd2a82c5fc4ea",
+  "tests/cases/full-refinement.txt": "15145b097f812940cb17474593a613235762cc6c4313a75fafe8bcfe1649fc53",
+  "tests/cases/no-refinement-request.txt": "fdf5e171396fb3d2c15dd6405d68e56b1893b9c95cd2854b70c8bc796af7a817",
+  "tests/cases/quoted-trigger.txt": "d232e7fd3a843d0cf8ed1a8688b81b97b81d82ffba9116ef8051b1fbe6d0715f",
+  "tests/cases/execute-refined.json": "b6e6853710e58b72f04ed9a553f679134c7ad694aa8539878ca84763f327ad61",
+  "tests/cases/small-politeness.txt": "9063974e4b935af0a2284b7ed79b4090a8162a38b2e17611b8b1c0d4b8bd0395",
+  "tests/cases/material-ambiguity.txt": "3c25aca34b9502b396af3aa2ae336b43705fe0ed078442706c01bc5a2df5cdea",
+  "tests/cases/minor-assumption.txt": "aa503ea4cfe7325d45cae1fd33d68dfbf37a1952b3dcad347e52dd93f53cf666",
+  "tests/cases/refine-and-execute.txt": "15124a099ef014b0abec8a308e74d8826d9035ae248ce048b8a30e69b0e8ff85",
+  "tests/cases/refine-execute-blocked.txt": "575f0068b111b37c6bd4e6c8db19b440deb9ce00ffabc2a1dbd0799313413483"
+}
