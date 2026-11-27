@@ -1,20 +1,21 @@
-# Generating game UI artwork that survives use
+---
+id: K-GAME-UI-ART-PRODUCTION
+title: "Generate game UI art that survives scaling and state changes"
+summary: "Choose icon silhouettes, nine-slice margins and independent state overlays from the player decision. Inspect exported pixels and test player understanding separately."
+kind: method
+scope: "Raster game HUD, inventory, menu and controller artwork at the intended display size"
+keywords: ["game UI","HUD","inventory icon","nine-slice","antidote","focus overlay","atlas alpha","게임 UI","인벤토리 아이콘","나인슬라이스","포커스","해독제"]
+status: active
+checked_at: "2026-11-24"
+---
 
-2026-11-24 · OneStep production research and inventory-icon trial
+# Generate game UI art that survives scaling and state changes
 
-Start from the decision the player has to make. A potion illustration may depict convincing glass yet leave the player guessing which item cures poison. A beautifully painted dialogue panel may distort its rivets as soon as a translated line makes it wider. These failures call for different artwork and different tests. This report covers generating reusable raster assets for a HUD, inventory or menu. A composed screen is valuable as a placement reference and can be the deliverable when the brief calls for a concept mockup.
+## Guidance
 
-## What the evidence supports
+Start from the decision the player has to make. A potion illustration may depict convincing glass yet leave the player guessing which item cures poison. A beautifully painted dialogue panel may distort its rivets as soon as a translated line makes it wider. These failures call for different artwork and different tests. These methods cover generating reusable raster assets for a HUD, inventory or menu. A composed screen is valuable as a placement reference and can be the deliverable when the brief calls for a concept mockup.
 
-| Evidence | Observation | Production decision |
-| --- | --- | --- |
-| McDougall and Isherwood, icon identification study | In early trials, how closely the graphic related to its function was the strongest predictor. Familiarity with the function mattered more later. This was an icon-identification experiment, not a test of fantasy inventory art. | Ask a first-time viewer what action they expect. Separately, ask someone familiar with the legend to find that action among near neighbors. A picture can pass one task and fail the other. [Paper](https://link.springer.com/content/pdf/10.3758/BRM.41.2.325.pdf) |
-| IconDM, generative icon-set research | The authors separate grounding abstract concepts in drawable objects from matching fine style features using reference icons. | Write a visible metaphor for each function and assign a few approved examples to define line width, tone, contour and shadow. A matching paint treatment cannot resolve an ambiguous metaphor. The study evaluates its own system. [Microsoft Research](https://www.microsoft.com/en-us/research/publication/icondm-text-guided-icon-set-expansion-using-diffusion-models/) |
-| Scenario's match-3 production walkthrough | The toolmaker demonstrates sketch-conditioned shapes, reference-based variants, background removal and export. Its influence sliders belong to that product. | If a generator confuses two items, sketch contrasting silhouettes. Use the approved reference for style and the sketch for geometry. In a tool without shape conditioning, edit an accepted silhouette or composite the approved artwork into the slot. [Creator workflow](https://help.scenario.com/articles/4516993982-designing-icons-for-a-match-3-game) |
-| Riot's item-shop revision | The team identified busy backgrounds and weak foreground separation as problems at small sizes. It also discussed rendering quality and shop scale as distinct work. | Put the candidate beside the item most likely to be mistaken for it. Downsample before deciding whether to remove surface texture, rework its contour or change the object itself. [Development notes](https://www.leagueoflegends.com/en-au/news/dev/quick-gameplay-thoughts-nov-20/) |
-| Dino Ignacio's GDC account of the *Dead Space* interface | The lead UI designer presents the evolution of an interface situated in the game world. The public talk description establishes the production context. | For a world-space instrument, request the relevant camera view plus bright, dark and moving scenery. For menu artwork, use the actual slot and adjacent controls. These are different viewing conditions. [Developer presentation](https://www.youtube.com/watch?v=pXGWJRV1Zoc) |
-
-## Generating the parts
+### Generating the parts
 
 **Inventory, abilities, status and map markers.** Define the meaning, closest rival and smallest supported display size. Choose one silhouette landmark and a second cue inside it. For “restore health” versus “cure poison,” try a broad flask with a plus versus a faceted vial with a distinct antidote motif. A colored rarity rim, quantity, cooldown sector and selected border may all change independently of that picture. Reserve the relevant corners and attach these layers in the UI. Use a shared camera, light, outline weight and optical size. An unusually narrow object may need more visual weight even when its bounding box has the same height. For map pins also check the tip anchor in a cluster. A decorative inventory illustration may retain more texture than a navigation glyph. [IconDM](https://www.microsoft.com/en-us/research/publication/icondm-text-guided-icon-set-expansion-using-diffusion-models/) · [Riot](https://www.leagueoflegends.com/en-au/news/dev/quick-gameplay-thoughts-nov-20/)
 
@@ -26,16 +27,34 @@ Start from the decision the player has to make. A potion illustration may depict
 
 **Labels and control prompts.** Reserve space for localizable strings, changing quantities and player names. Compose the preview with real fonts. Test a long translation, actual Korean glyphs, and right-to-left layout when supported. Mirror a back-navigation arrow according to layout direction; preserve an east-pointing compass symbol's world meaning. Steam Input can resolve an action's current binding to an origin and return its controller glyph. Generate the prompt surround and use the appropriate runtime glyph. Fixed lettering specifically requested for an illustration can be delivered with an editable or replaceable text layer if needed. [Godot localization](https://docs.godotengine.org/en/4.5/tutorials/i18n/internationalizing_games.html) · [Steam Input origin and glyph API](https://partner.steamgames.com/doc/api/isteaminput)
 
-## What to give the generator
+### What to give the generator
 
 - **One production icon.** “A 32 px inventory icon for restoring health. Follow the supplied maritime set for paint, light and outline. Follow the silhouette sketch for the broad belly and short neck. One large ivory plus, centered, generous transparent margin. Place beside the tall antidote vial for review. Deliver the isolated artwork.” The adjoining vial belongs in the review composite.
 - **A state variation.** “Edit the approved brass inventory slot. Make only the inner bevel appear pressed. Keep all four outer corners, label rectangle, light direction and alpha canvas registered. Deliver the pressed face. Keyboard focus is a separate overlay.” Inspect the two face layers in registration, then apply the focus overlay.
 - **One scalable component.** “Draw an empty nautical dialogue frame on a 64×48 design grid. All four brass fasteners fit inside the 8 px corner bands. Straight uninterrupted side bands and a quiet center. Deliver the crest separately. Leave the lower text area clear.” Treat generator dimensions and margins as targets until the actual export is measured. Rebuild borders or masks deterministically if exact geometry is required.
 
-## Local trial and review boundaries
+## Applicability and exceptions
+
+A concept screen can establish placement. A runtime control needs separately exportable art for each part that changes with input, layout or game state. Test the actual camera and device when the interface appears in world space.
+
+## Checks
+
+For a production handoff, identify the asset's slot, export size, alpha, margins or pivot, variants, and the values the UI will draw. Inspect edges over representative game imagery after shipping filtering and atlas packing. For important standard-size gameplay text and visuals, Xbox XAG 102 recommends 4.5:1 against the background; its chart gives different values for large-scale elements, inactive text and high-contrast mode. Measure the actual foreground/background pair after compositing. A grayscale check can reveal reliance on hue, while user testing and the applicable platform checks answer broader accessibility questions. Record what was inspected in the exported image, what was run in the game, and what an unfamiliar player actually understood. [Xbox contrast criteria and examples](https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/102) · [Xbox focus examples](https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/113)
+
+## Evidence
+
+### What the evidence supports
+
+| Evidence | Observation | Production decision |
+| --- | --- | --- |
+| McDougall and Isherwood, icon identification study | In early trials, how closely the graphic related to its function was the strongest predictor. Familiarity with the function mattered more later. This was an icon-identification experiment, not a test of fantasy inventory art. | Ask a first-time viewer what action they expect. Separately, ask someone familiar with the legend to find that action among near neighbors. A picture can pass one task and fail the other. [Paper](https://link.springer.com/content/pdf/10.3758/BRM.41.2.325.pdf) |
+| IconDM, generative icon-set research | The authors separate grounding abstract concepts in drawable objects from matching fine style features using reference icons. | Write a visible metaphor for each function and assign a few approved examples to define line width, tone, contour and shadow. A matching paint treatment cannot resolve an ambiguous metaphor. The study evaluates its own system. [Microsoft Research](https://www.microsoft.com/en-us/research/publication/icondm-text-guided-icon-set-expansion-using-diffusion-models/) |
+| Scenario's match-3 production walkthrough | The toolmaker demonstrates sketch-conditioned shapes, reference-based variants, background removal and export. Its influence sliders belong to that product. | If a generator confuses two items, sketch contrasting silhouettes. Use the approved reference for style and the sketch for geometry. In a tool without shape conditioning, edit an accepted silhouette or composite the approved artwork into the slot. [Creator workflow](https://help.scenario.com/articles/4516993982-designing-icons-for-a-match-3-game) |
+| Riot's item-shop revision | The team identified busy backgrounds and weak foreground separation as problems at small sizes. It also discussed rendering quality and shop scale as distinct work. | Put the candidate beside the item most likely to be mistaken for it. Downsample before deciding whether to remove surface texture, rework its contour or change the object itself. [Development notes](https://www.leagueoflegends.com/en-au/news/dev/quick-gameplay-thoughts-nov-20/) |
+| Dino Ignacio's GDC account of the *Dead Space* interface | The lead UI designer presents the evolution of an interface situated in the game world. The public talk description establishes the production context. | For a world-space instrument, request the relevant camera view plus bright, dark and moving scenery. For menu artwork, use the actual slot and adjacent controls. These are different viewing conditions. [Developer presentation](https://www.youtube.com/watch?v=pXGWJRV1Zoc) |
+
+### Inventory icon trial, 2026-11-24
 
 We generated a single transparent two-cell sheet with an amber round flask carrying a plus and a narrow cobalt vial carrying a pale band. Both shared a nearly frontal view, dark contours and upper-left light. We sliced its 1774×887 RGBA output into equal cells and reduced each to 32×32 and 24×24 using a Lanczos filter. The four-pixel-wide source gutter contained 23 pixels at alpha 1/255, with the rest at zero. This matters if an importer trims on any nonzero alpha. Use the authored cell rectangles for this sheet. The four reduced files had transparent top-left corners.
 
 In the 24 px exports, bounds at alpha ≥128 were 18×22 px for the round flask and 12×22 px for the narrow one. On light and dark solid slots, the plus and band survived. In grayscale the bottles remained distinguishable by outline, but a band alone gives little reason to infer “antidote.” The pair demonstrates **visual distinction**. The proposed repair for semantic identification is to test a poison-removal motif or provide a localized name and compare first-time interpretations. No human recognition rate, improvement over a baseline, engine import or formal accessibility result was measured. The local preview compares both backgrounds at 32 and 24 px, then the 24 px pair in grayscale.
-
-For a production handoff, identify the asset's slot, export size, alpha, margins or pivot, variants, and the values the UI will draw. Inspect edges over representative game imagery after shipping filtering and atlas packing. For important standard-size gameplay text and visuals, Xbox XAG 102 recommends 4.5:1 against the background; its chart gives different values for large-scale elements, inactive text and high-contrast mode. Measure the actual foreground/background pair after compositing. A grayscale check can reveal reliance on hue, while user testing and the applicable platform checks answer broader accessibility questions. Record what was inspected in the exported image, what was run in the game, and what an unfamiliar player actually understood. [Xbox contrast criteria and examples](https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/102) · [Xbox focus examples](https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/113)

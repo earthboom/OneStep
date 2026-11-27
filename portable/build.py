@@ -88,6 +88,14 @@ def game_library():
         if ident == "K-GAME-TECH-GUIDE":
             # The topic map is portable. Route to the reviewed technical references.
             content = re.sub(r"\[([^\]]+)\]\(https://www\.youtube\.com/shorts/[^)]+\)", r"\1", content)
+        if ident == "K-CODE-AI-CHANGE-QUALITY":
+            # These supplementary examples and the transcript audit are outside the kit.
+            checkout = "https://github.com/earthboom/OneStep/blob/b04100021437b4489116e97199fca61ef0507526/"
+            for target in ("../../docs/examples/cpp-gameplay-workflow/README.md",
+                           "../../docs/examples/cpp-gameplay-workflow/native-tactics/README.md",
+                           "K-CODE-AGENT-INSTRUCTION-AUDIT.md"):
+                path = ((ROOT / name).parent / target).resolve().relative_to(ROOT)
+                content = content.replace(f"]({target})", f"]({checkout}{path.as_posix()})")
         entries[name] = content
         source_ids.update(m.upper() for m in re.findall(r"sources\.md#(src-[a-z0-9-]+)", content, re.I))
 

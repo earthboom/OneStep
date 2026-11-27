@@ -1,10 +1,21 @@
-# Drawing an opening chest, a burst and windblown dust as game sprites
+---
+id: K-GAME-PROP-BURST-PARTICLE-SPRITES
+title: "Choose the ending and exposure of a prop, burst or animated particle"
+summary: "Hold a changed prop state, clear an independent burst and age each emitted particle separately. Use worked exposure sheets to isolate drawing, slicing and playback errors."
+kind: method
+scope: "Game-camera 2D sprite sheets, one-shot effects, persistent props and baked or emitted dust"
+keywords: ["sprite sheet","exposure sheet","hinge","burst","particle lifetime","windblown dust","상자 열기","폭발 이펙트","바람 먼지","파티클 수명","노출표"]
+status: active
+checked_at: "2026-11-24"
+---
 
-2026-11-24 · OneStep production research
+# Choose the ending and exposure of a prop, burst or animated particle
 
-The chest must still look open after its last drawing. The burst must leave the screen. Dust must let one particle die while another travels on. These are three different endings to design before drawing the first cel. The earlier [character and effect study](../../knowledge/game/K-GAME-EFFECT-EVENT-PLAYBACK.md) tested an actor and a ground-anchored dust puff at a shared contact event. This report develops a persistent prop, an independent one-shot and a reusable animated particle. The exposure sheets below are proposed art exercises. Source observations, specifications for those exercises and behavior measured in the earlier study have different evidentiary status.
+## Guidance
 
-## An opening chest: draw the mechanism and the hidden surfaces
+The chest must still look open after its last drawing. The burst must leave the screen. Dust must let one particle die while another travels on. These are three different endings to design before drawing the first cel. The earlier [dock-landing study](https://github.com/earthboom/OneStep/blob/b04100021437b4489116e97199fca61ef0507526/output/2d-character-test/landing-effects-01/example.md) tested an actor and a ground-anchored dust puff at a shared contact event. The examples below develop a persistent prop, an independent one-shot and a reusable animated particle. The exposure sheets below are proposed art exercises. Source observations, specifications for those exercises and behavior measured in the earlier study have different evidentiary status.
+
+### An opening chest: draw the mechanism and the hidden surfaces
 
 Jones et al. show why a sheet of poses alone cannot specify which transitions an interactive object can take or how long they take. Their method lets the artist choose example poses and valid interpolations. Igarashi et al. constrain points on a 2D mesh and minimize local distortion. For a chest, there is a simpler application: identify which parts are rigid, where they meet and what the game can ask them to do. Neither study evaluates AI-generated chest art. [Dynamic Sprites](https://onlinelibrary.wiley.com/doi/10.1002/cav.1608) · [As-Rigid-As-Possible Shape Manipulation](https://www-ui.is.s.u-tokyo.ac.jp/~takeo/research/rigid/)
 
@@ -14,7 +25,7 @@ An asset maker gives a useful counterexample to simply playing the opening in re
 2. Give the newly visible underside, inner rim and cavity actual designs. In a middle key decide which edge passes behind the front rim. Track panel thickness and a recognizable fitting across the turn. Their projected widths can change even when the part is rigid. Anchor the base at its original footprint when trimming frames. A lid that peels like fabric usually needs a correction to the mid-pose.
 3. For generated art, keep the accepted base layer and the two end keys as references. Ask for the missing middle pose and underside at the same camera. Composite or edit just that area if independent generations move the feet, recolor the band or invent a second clasp. Use an existing rigid rig for many views if available, then clean the contours at game size.
 
-## A stylized burst: draw the changing footprint before the highlights
+### A stylized burst: draw the changing footprint before the highlights
 
 In his GDC talk Michael Lyndon describes painting over four or five decisive frames from a detailed simulation. Removing the render exposed a uniform shape and slow overall timing despite movement inside it. He revised the outward start and the easing at the end. Pedro Medeiros describes animating an individual fragment or smoke puff for its whole life before moving on to the next. These approaches work together: first settle the silhouette and timing of the whole burst, then keep each secondary form on a continuous path. [Lyndon’s GDC blocking example and notes](https://media.gdcvault.com/gdc2018/presentations/Lyndon_Michael_ZipThwackPing.pdf) · [Medeiros’s pixel-art production account](https://www.patreon.com/posts/explosions-part-7719254)
 
@@ -22,7 +33,7 @@ For a compact cartoon burst, fix its origin and design three black silhouettes: 
 
 The public transcript of a cartoon smoke demonstration follows an expanding mass through a central opening, a thinning ring and breakup. That shape sequence suggests where to spend a drawing when the silhouette changes topology. VFX Apprentice’s published lesson sequence separates rough timing and first expansion from cleanup and dissipation. Use the transcript for shape analysis and the syllabus for workflow. The public material does not establish that every explosion needs a ring, advance warning or the same number of frames. [Video transcript and worked timing](https://www.linkedin.com/learning/2d-animation-tips-and-tricks/looney-toons-fx-explosion) · [Explosion course breakdown](https://www.vfxapprentice.com/courses/2d-fx-explosion-masterclass)
 
-## Windblown dust: draw one particle, then decide how a crowd moves
+### Windblown dust: draw one particle, then decide how a crowd moves
 
 Reeves describes particles with individual birth, position, velocity, size, appearance and lifetime, and control over their statistical variation. The original example is a film effect. For a small game sprite, the transferable idea is to give each airborne mote an age and a path. This lets a gust thin out gradually after emission stops. It does not give us a particular palette, count or wind speed. [Reeves, sections 2.1–2.2](https://graphics.cs.cmu.edu/courses/15-869-F07/Papers/Reeves-1983-PSA.pdf)
 
@@ -32,7 +43,13 @@ The February 2000 *Game Developer* “Artist’s View” example shows separate 
 - **When the output is an animated particle for an emitter**, draw a small cluster around a stable local pivot. Let it emerge, fray at one edge and break into specks. The emitter owns world travel, spawn position, birth time and lifetime. Vary those within bounds that preserve the wind direction. In pixel art, removing clusters can read more clearly than fading every pixel together. In a painted style, test soft edges where several layers overlap.
 - **When both are requested**, supply the particle’s own strip and identify any separate baked preview or authored gust. Start a trial with one visible particle and wind set to zero. Restore travel, then stagger several births. If the single particle reads well but the crowd pulses, repair emission timing or variant selection before redrawing the particle. For variants of a one-shot choose the row at birth and age within that row. Random starts can suit a seamless cycle but can skip birth or begin on a dying cel in a one-shot.
 
-## Three worked exposure sheets
+## Applicability and exceptions
+
+The same decisions apply to a gate rotating on a pin, a healing ring that expands and clears, or floating pollen that continues past a moving character. Establish the joint for the gate, the readable footprint and ending for the ring, and the local drawing versus world path for the pollen. To assess improvement, keep brief, display size and backgrounds fixed. On unlabeled playback ask viewers independently what changed, where it began, and what remained at the end. Record missed events separately from mechanical drift, lost silhouette and bad slicing. These exercises supply production and review criteria. It does not measure viewer recognition or a generator’s pass rate. Video evidence here comes from public descriptions, an accessible transcript and presenter notes.
+
+## Checks
+
+### Three worked exposure sheets
 
 Example values assume a fixed camera and transparent sheets. Coordinates use a top-left origin. Times mark the start of a cel and exclude the next boundary. Pixel dimensions, holds and palettes should change with the actual brief.
 
@@ -42,7 +59,7 @@ Example values assume a fixed camera and transparent sheets. Coordinates use a t
 | Small amber arcade burst, 64×64 cells | 0 ms tight flash; 35 wide uneven lobes; 80 broadest smoke silhouette with a shrinking hot core; 145 gaps open and tips detach; 230 sparse fragments; 340 clear. Origin (32, 32) remains stable while the silhouette shifts around it. | One shot, no wrap. Compare the silhouette-only pass with the colored pass on a light and dark background. At 340 ms check for stale sparks, and on retrigger check that the first cel returns. An invisible end may be an explicit runtime clear. |
 | Wind from the left, 16×16 cells per dust tuft | Four local keys: compact tuft, frayed edge, separated specks, last fleck. Trial index by normalized age: [0, .25), [.25, .55), [.55, .80), [.80, 1); remove at 1. In a 400 ms life this gives changes at 0, 100, 220 and 320 ms. | Test two births at 0 and 160 ms. At 240 ms the first tuft is in cel 3 and the second in cel 1. Stop emitting and let the last particle expire at 560 ms. For a baked sheet, draw those same combined states on a common canvas. |
 
-## Export, diagnose and transfer to new briefs
+### Diagnose the export
 
 | Symptom in an exported clip | Smallest discriminating check | Repair |
 | --- | --- | --- |
@@ -51,6 +68,6 @@ Example values assume a fixed camera and transparent sheets. Coordinates use a t
 | Dust pops, marches in step or leaves a square halo | Compare one strip on light/dark backgrounds, one particle with travel disabled, then a group with staggered births. | Correct an alpha/blend mismatch or dirty edge in the strip, unintended motion inside the cel, or synchronized spawning in the group, according to the first failing pass. |
 | Correct source drawings play out of order or never clear | Re-slice the exported file using the consuming engine’s row order and timing. Inspect the last nonempty cel, expiry, and the next trigger. | Restore duration, row selection, hold or removal explicitly. If empty cels or duplicate holds were packed out, preserve their meaning in the runtime clip. |
 
-Unity’s grid importer for particle texture sheets can select one row per particle and sample by lifetime, speed or FPS. An authored decay that must end at death fits a lifetime curve. A fixed authored beat may call for a fixed clock. In Godot 4.5, the particle node needs a CanvasItemMaterial with particle animation enabled and the correct horizontal and vertical frame counts. Configure progression separately. Aseprite can omit empty frames, merge duplicates or add padding; inspect the sheet the consumer actually samples. These are documentation-backed import paths, not results of importing these three exercises in an engine. [Unity Texture Sheet Animation](https://docs.unity3d.com/6000.0/Documentation/Manual/PartSysTexSheetAnimModule.html) · [Godot 2D particle flipbooks](https://docs.godotengine.org/en/4.5/tutorials/2d/particle_systems_2d.html) · [Aseprite export options](https://www.aseprite.org/docs/cli/)
+## Evidence
 
-The same decisions apply to a gate rotating on a pin, a healing ring that expands and clears, or floating pollen that continues past a moving character. Establish the joint for the gate, the readable footprint and ending for the ring, and the local drawing versus world path for the pollen. To assess improvement, keep brief, display size and backgrounds fixed. On unlabeled playback ask viewers independently what changed, where it began, and what remained at the end. Record missed events separately from mechanical drift, lost silhouette and bad slicing. This report supplies production and review criteria. It does not measure viewer recognition or a generator’s pass rate. Video evidence here comes from public descriptions, an accessible transcript and presenter notes.
+Unity’s grid importer for particle texture sheets can select one row per particle and sample by lifetime, speed or FPS. An authored decay that must end at death fits a lifetime curve. A fixed authored beat may call for a fixed clock. In Godot 4.5, the particle node needs a CanvasItemMaterial with particle animation enabled and the correct horizontal and vertical frame counts. Configure progression separately. Aseprite can omit empty frames, merge duplicates or add padding; inspect the sheet the consumer actually samples. These are documentation-backed import paths, not results of importing these three exercises in an engine. [Unity Texture Sheet Animation](https://docs.unity3d.com/6000.0/Documentation/Manual/PartSysTexSheetAnimModule.html) · [Godot 2D particle flipbooks](https://docs.godotengine.org/en/4.5/tutorials/2d/particle_systems_2d.html) · [Aseprite export options](https://www.aseprite.org/docs/cli/)

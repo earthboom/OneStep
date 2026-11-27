@@ -189,3 +189,10 @@
 | K-GAME-SPRITE-PRODUCTION / 초상화·게임 스프라이트·임포트 애니메이션의 캐릭터 일관성 [방법] | 플레이 크기의 특징을 정하고 정렬한 원본과 임포트 결과를 비교해 발 미끄러짐·피벗·아틀라스 오류를 찾는다. | 2D 게임 캐릭터 제작·임포트 | character sprite, sprite sheet, portrait, animation, foot sliding, pivot, trim offset, atlas, Aseprite, Sprite Atlas, Paper 2D, Flipbook, Spine, sourceSize, spriteSourceSize, 캐릭터 스프라이트, 대화 초상화, 피벗, 트림 오프셋, 발 미끄러짐, 아틀라스 | 사용 중 / 2026-11-25 | [상세](K-GAME-SPRITE-PRODUCTION.kr.md) |
 | K-GAME-STAGE-AUTHORING / 카탈로그·러너·진행 규칙을 통해 스테이지 추가하기 [방법] | 스테이지 ID, 플레이 상태, 캠페인 순서, 영구 기록을 나누고 대상 빌드의 실제 메뉴로 검증한다. | 퍼즐·플랫폼·웨이브·전술·레이싱 콘텐츠 | stage authoring, stage catalog, StageId, progression, checkpoint, content extension, 스테이지 추가, 스테이지 제작, 레벨 에디터, 스테이지 프레임워크, 해금, 진행 순서, 체크포인트 | 사용 중 / 2026-11-22 | [상세](K-GAME-STAGE-AUTHORING.kr.md) |
 | K-GAME-STAGE-DIALOGUE / 스테이지 대사 선택·중단·확정과 현지화·저장 연결하기 [참고] | 대사 ID로 번역·음성·초상화를 잇고 스테이지, 세션, 영속 상태가 맡을 책임을 나눈다. | 게임 대화와 상태·저장 계약 | stage dialogue, conversation, dialogue session, LineId, storylet, interruption, resume, localization, voice-over, Yarn Spinner, ink, FText, String Table, SignalEmitter, Sequencer Event Track, 스테이지 대사, 대화 세션, 대사 ID, 대화 중단, 재개, 재방문, 보상 중복, 현지화, 자막 | 사용 중 / 2026-11-23 | [상세](K-GAME-STAGE-DIALOGUE.kr.md) |
+
+## 게임 아트 제작 지식
+
+| ID / 제목 / 종류 | 요약 | 적용 범위 | 검색어 | 상태 / 확인일 | 상세 |
+| --- | --- | --- | --- | --- | --- |
+| K-GAME-PROP-BURST-PARTICLE-SPRITES / 상자·폭발·파티클의 종료 상태와 노출 시간 [방법] | 열린 소품은 상태를 유지하고 폭발은 한 번 재생한 뒤 비운다. 입자는 각자의 수명으로 재생한다. 셀 노출표로 작화·슬라이스·재생 오류를 구분한다. | 2D 게임 소품, 단발 효과, 바람 먼지와 방출기 | sprite sheet, exposure sheet, hinge, burst, particle lifetime, windblown dust, 상자 열기, 폭발 이펙트, 바람 먼지, 파티클 수명, 노출표 | 활성 / 2026-11-24 | [K-GAME-PROP-BURST-PARTICLE-SPRITES](K-GAME-PROP-BURST-PARTICLE-SPRITES.kr.md) |
+| K-GAME-UI-ART-PRODUCTION / 축소와 상태 변경을 견디는 게임 UI 이미지 제작 [방법] | 최소 표시 크기에서의 식별, 나인슬라이스의 절단 여백과 내용 여백, 포커스·선택 오버레이를 각각 확인한다. | HUD, 인벤토리, 메뉴, 입력 기호와 상태별 래스터 부품 | game UI, HUD, inventory icon, nine-slice, antidote, focus overlay, atlas alpha, 게임 UI, 인벤토리 아이콘, 나인슬라이스, 포커스, 해독제 | 활성 / 2026-11-24 | [K-GAME-UI-ART-PRODUCTION](K-GAME-UI-ART-PRODUCTION.kr.md) |

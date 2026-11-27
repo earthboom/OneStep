@@ -90,3 +90,5 @@ Use this crosswalk to find a decision by its former report name. The entries car
 | `2026-11-25-development-glossary-pilot` | [K-CODE-ACCEPTANCE-GLOSSARY](../../knowledge/code/K-CODE-ACCEPTANCE-GLOSSARY.md) |
 | `2026-11-25-glossary-first` | [K-CODE-ACCEPTANCE-GLOSSARY](../../knowledge/code/K-CODE-ACCEPTANCE-GLOSSARY.md) |
 | `2026-11-25-stationery-character-image-generation` | [K-IMAGE-STATIONERY-MASCOT](../../knowledge/image/K-IMAGE-STATIONERY-MASCOT.md) |
+| `2026-11-24-2d-props-bursts-and-particles` | [K-GAME-PROP-BURST-PARTICLE-SPRITES](../../knowledge/game/K-GAME-PROP-BURST-PARTICLE-SPRITES.md) |
+| `2026-11-24-game-ui-image-production` | [K-GAME-UI-ART-PRODUCTION](../../knowledge/game/K-GAME-UI-ART-PRODUCTION.md) |

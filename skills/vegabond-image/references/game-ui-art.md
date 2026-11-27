@@ -22,4 +22,4 @@ Name the slot, what the player should understand or do, its smallest on-screen s
 4. Review the composed control at 1×, the smallest supported UI scale and a representative viewing distance. Include a high-detail scene where the HUD overlaps gameplay. Inspect value contrast on the final composite and offer a shape, border or pattern where color carries important information. Confirm accessibility and action comprehension with the relevant platform checks and observers. A grayscale preview establishes neither.
 5. Repair the first failing layer. Rework the symbol if players infer the wrong action, open a gap or flatten interior values if small details merge, reserve room or re-slice if a frame warps, and fix the state overlay if focus disappears. Reuse the last accepted art for unaffected parts.
 
-The full OneStep checkout has generation prompts, a worked nine-slice example and observations from 24 px and 32 px exports in `docs/research/2026-11-24-game-ui-image-production.md`.
+See the [UI art production entry](../../../knowledge/game/K-GAME-UI-ART-PRODUCTION.md) for generation prompts, a worked nine-slice example and observations from 24 px and 32 px exports.

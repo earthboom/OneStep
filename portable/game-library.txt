@@ -11,6 +11,7 @@ knowledge/game/K-GAME-METROIDVANIA.md
 knowledge/game/K-GAME-MULTIPLAYER.md
 knowledge/game/K-GAME-NARRATIVE-ADVENTURE.md
 knowledge/game/K-GAME-PLATFORMER.md
+knowledge/game/K-GAME-PROP-BURST-PARTICLE-SPRITES.md
 knowledge/game/K-GAME-PROTOTYPE-PLAYTEST.md
 knowledge/game/K-GAME-PUZZLE.md
 knowledge/game/K-GAME-RACING.md
@@ -68,7 +69,9 @@ knowledge/game/K-GAME-TECH-TRACE.md
 knowledge/game/K-GAME-TECH-VOLUME.md
 knowledge/game/K-GAME-TECH-VOXEL.md
 knowledge/game/K-GAME-TECH-WATER.md
+knowledge/game/K-GAME-UI-ART-PRODUCTION.md
 knowledge/code/K-CODE-ABSTRACTION-COST.md
+knowledge/code/K-CODE-AI-CHANGE-QUALITY.md
 knowledge/code/K-CODE-API-CONTRACTS.md
 knowledge/code/K-CODE-CHANGE-TESTS.md
 knowledge/code/K-CODE-CONCURRENCY-LIFETIMES.md

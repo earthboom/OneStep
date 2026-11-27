@@ -83,3 +83,5 @@ A는 독립적으로 완료할 수 있다. B에서 저장할 근거와 검색 �
 | `2026-11-25-development-glossary-pilot` | 동일 요청의 인수 기준 비교 · [K-CODE-ACCEPTANCE-GLOSSARY](../../knowledge/code/K-CODE-ACCEPTANCE-GLOSSARY.kr.md) |
 | `2026-11-25-glossary-first` | 용어집 선조회 시간과 누락 기준 · [K-CODE-ACCEPTANCE-GLOSSARY](../../knowledge/code/K-CODE-ACCEPTANCE-GLOSSARY.kr.md) |
 | `2026-11-25-stationery-character-image-generation` | 실물 문구 크기의 캐릭터 검수 · [K-IMAGE-STATIONERY-MASCOT](../../knowledge/image/K-IMAGE-STATIONERY-MASCOT.kr.md) |
+| `2026-11-24-2d-props-bursts-and-particles` | [K-GAME-PROP-BURST-PARTICLE-SPRITES](../../knowledge/game/K-GAME-PROP-BURST-PARTICLE-SPRITES.kr.md) |
+| `2026-11-24-game-ui-image-production` | [K-GAME-UI-ART-PRODUCTION](../../knowledge/game/K-GAME-UI-ART-PRODUCTION.kr.md) |
