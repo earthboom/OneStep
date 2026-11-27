@@ -34,6 +34,8 @@
 2. 공통 대사를 고친 뒤 ID 중복, 끊긴 분기, 음성·초상화·번역 누락, 과거 플래그를 점검하고 기존 스테이지 두 곳을 재방문한다. 실제 읽기·녹음 길이에서 대사 교체, 무음 대사 진행, 입 모양과 카메라 복귀를 확인한다.
 3. 초기에는 의사 현지화를 쓰고 실제 현지화 빌드에서는 글리프, 한중일 줄바꿈, 지원하는 우횡서, 변수 치환, 대비, 겹친 자막 순서를 검사한다. 화면 가장자리 말풍선, 가까이 있는 두 화자, 사라진 화자에서 긴 문장을 시험한다. [Xbox subtitle and caption guidelines](https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/104) · [Unicode line breaking algorithm](https://www.unicode.org/reports/tr14/)
 
+실루엣을 세밀하게 제어하려면 프레임별 스프라이트, 동작과 변형을 재사용하려면 리그, 방향별 일관성이 중요하면 3D 렌더를 검토한다. 편집 원본과 클립 이름을 유지하고 다시 가져온 뒤 좌우 반전, 피벗, 말풍선 위치를 확인한다. [스프라이트 제작](K-GAME-SPRITE-PRODUCTION.kr.md) · [스테이지 식별자](K-GAME-STAGE-COMPATIBILITY.kr.md) · [회귀 검증 범위](K-GAME-REGRESSION-SCOPE.kr.md)
+
 ## 근거
 
 Firewatch 제작 발표는 대화 중단과 재개, Hades는 대규모 녹음 제작, ink는 이야기 상태 저장과 외부 함수를 설명한다. 이를 소유권 분리와 점검 설계에 활용했다. 두 스테이지 플레이, 현지화 빌드, 저장 마이그레이션을 실행한 결과는 없다. 애니메이션 원본과 재임포트는 [캐릭터 스프라이트 제작](K-GAME-SPRITE-PRODUCTION.md), 선택 설계는 [내러티브 어드벤처](K-GAME-NARRATIVE-ADVENTURE.md)를 참고한다. [Running ink, state, and external functions](https://github.com/inkle/ink/blob/master/Documentation/RunningYourInk.md) · [Greg Kasavin and Darren Korb talk](https://gdcvault.com/play/1027149/Breathing-Life-into-Greek-Myth) · [Developer talk](https://www.gdcvault.com/play/1024415/Do-You-Copy-Dialog-System)

@@ -45,7 +45,9 @@ context:
     at actual30/60/144,3paired package query/frame observations and normal-speed media
   lockon_evidence: UE5.8.3 known5actors/fixedcamera selection-retention-switching
     only;37policy,198actual PIE30/60/144,3matched package costs and native1x media
-  foot_ik_evidence: UE 5.8.3 V37 static support and V08 footwear-specific stance calibration with swing clearance limits.
+  foot_ik_evidence: UE5.8.3 V37 static support and V08 flat/high-heel calibration on a 68-bone rig.
+    V08 has 32 native cases and three cost pairs. Full-stance contact passed, with walking
+    swing penetration observed.
   hitbox_evidence: UE5.8.3 V42 static sphere attack/hurt/physical separation only:40policy,174actual
     PIE30/60/144,3matched package costs,native1x media; no hitstop/full combat
   dungeon_evidence: UE5.8.3 V40/V56 BSP:1024policy,1000actual PIE+1000packaged seeds,3matched1000seed
@@ -78,7 +80,8 @@ context:
     seeds and whole-memory snapshots,single-thread,no file saves
   sound_evidence: UE5.8.3 V22 native PCM evidence for attenuation, stereo direction, occlusion,
     and indoor and outdoor reverb with an overlap priority and fade reversal.
-  cloud_evidence: UE 5.8.3 V27 native single layer with traversal, parallax and opaque occlusion.
+  cloud_evidence: UE5.8.3 V27 single layer, native density/coverage/boundary/parallax/occlusion/sun pixels,
+    three runs each for off and two view sample ceilings, and 19.6 seconds of 1x capture
 ---
 # Retrieve game implementation techniques from concrete development problems
 
@@ -317,7 +320,7 @@ Use PERFORMANCE for GT publication versus total completion, drain frames, queue 
 
 ## Controller follow-up — 2026-11-11
 
-Retrieve CONTROLLER for coyote time and jump buffering. See [V30 planar correction](K-GAME-TECH-CONTROLLER.md#v30-corner-correction-for-a-planar-unreal-character) for upward corner contacts and moving-base takeoff. Keep observed frame cadence separate from capture timing.
+The historical Unreal run adds two specific CONTROLLER mechanisms (V29,V46),68policy checks,108actual PIE cases at observed30/60/144,3matched standalone performance pairs and native normal-speed media. A failed packaged30request/23.42observed is preserved; consumer/rate scopes stay distinct. No save/renderer/Present/framework optimization. Corpus coverage at the time was5sheets with limited runtime evidence and38without a direct technique prototype. See the subsequent [V30 planar correction and moving-base takeoff trial](K-GAME-TECH-CONTROLLER.md#v30-corner-correction-for-a-planar-unreal-character).
 
 ## Vision follow-up — 2026-11-11
 
@@ -329,7 +332,7 @@ Retrieve CONTROLLER for coyote time and jump buffering. See [V30 planar correcti
 
 ## Static foot IK follow-up — 2026-11-11
 
-Retrieve IK for support planes, sole calibration, stance anchoring and reach fallback. [V08 footwear](K-GAME-TECH-IK.md#v08-footwear-calibration-on-static-supports--2026-11-21) applies those rules to flat and heeled shoes. Check swing clearance and gameplay capsule behavior separately from stance.
+The historical V37 Unreal run adds47policy checks,108actual PIE cases at observed30/60/144,3off/on package cost pairs and real skinned1x media. Retrieve IK for support-plane/sole calibration/stance anchor/compatible pelvis+blend/stable knee, CONTROLLER for gameplay capsule behavior, TIMESTEP for clock issues. Reach rejection is a valid fallback, not complete contact: the20cm budget rejects the recorded lower-flat right foot and35deg pose. One final visible pose publication prevents the reproduced false static bone history. Corpus coverage at that time was eight partially implemented sheets. The later [V08 footwear verification](K-GAME-TECH-IK.md) records flat and high-heel stance contact, support/reach fallback, residual swing penetration and three matched cost pairs.
 
 ## Attack collision follow-up — 2026-11-11
 
@@ -401,9 +404,9 @@ Retrieve [the V22 room reverb evidence](K-GAME-TECH-SOUND.md#native-unreal-v22-r
 
 ## Native game-state save follow-up — 2026-11-14
 
-Retrieve [V20 save guidance](K-GAME-TECH-SAVE.md) for stable IDs, CRC-before-deserialization, staged publication, full-storage recovery and preserving the world after failed validation.
+[V20 findings](K-GAME-TECH-SAVE.md):89policy+23store checks,48actual PIE/package cases,6separate restart consumers,6same-state cost players,14snormal1xvideo. Retrieve SAVE for persistent stable-ID state,CRC-before-deserialization,A/B generations and explicit both-invalid failure. RNG memory-state restore and asynchronous diagnostic-log export do not establish game-state file restoration. This historical milestone covered 25 limited technique sheets. Later staged-write and disk exhaustion observations appear in the SAVE sheet.
 
-The [V54 progress code guidance](K-GAME-TECH-SAVE.md#v54-compact-progress-code-in-unreal--2026-11-21) covers versioned codes, restart restoration and validation before world application.
+The subsequent [V54 progress code trial](K-GAME-TECH-SAVE.md#v54-compact-progress-code-in-unreal--2026-11-21) covers a versioned 14-symbol local code, code-only restart, invalid input without world changes, and three matched codec/application cost runs.
 
 ## Native adaptive-music follow-up — 2026-11-14
 
@@ -423,11 +426,11 @@ The [V54 progress code guidance](K-GAME-TECH-SAVE.md#v54-compact-progress-code-i
 
 ## Native volumetric-fog follow-up — 2026-11-17
 
-[Historical fog guidance](K-GAME-TECH-VOLUME.md#native-unreal-fog-validation--2026-11-17) covers density, scattering, occlusion, cuts and light trails. See the follow-ups for native clouds and gameplay smoke.
+[Historical fog findings](K-GAME-TECH-VOLUME.md#native-unreal-fog-validation--2026-11-17) cover density, scattering, volumetric shadow, opaque depth boundaries, camera cuts, light trails and reactivation. One native fog and one spot light were tested with 16×64 and 8×128 grid controls. Tests checked actual pixels, first-hit visibility, the native camera cut and exact CVar value restoration. Use the measured light trails and three-run frame-cost variation when judging whether to ship that setup. See the [dedicated cloud guidance](K-GAME-TECH-VOLUME.md#one-native-cloud-layer) for V27.
 
 ## Native single-layer cloud follow-up
 
-Retrieve [V27 cloud guidance](K-GAME-TECH-VOLUME.md#native-unreal-v27-cloud-validation) for a cloud that stays spatially coherent as the camera moves through it. Check layer limits, opaque occlusion, sun response and view sampling quality in matched views.
+[V27 findings](K-GAME-TECH-VOLUME.md#native-unreal-v27-cloud-validation) cover a 0.60–1.35 km layer, density and coverage, traversal, near/far parallax, opaque occlusion and directional sunlight. The off/24/96 view-sample runs and 1× native capture provide a comparison of sampling quality and whole-frame cost. Retrieve VOLUME when the cloud must remain spatially coherent as the camera moves through it. The two enabled profiles had overlapping GPU costs in this fixture.
 
 ### V10 gameplay smoke visibility
 
@@ -447,7 +450,7 @@ Retrieve [the V10 density-grid experiment](K-GAME-TECH-VOLUME.md#native-unreal-v
 
 ### V21 smooth isosurface follow-up
 
-Retrieve [uniform-grid Dual Contouring](K-GAME-TECH-VOXEL.md#native-unreal-v21-uniform-grid-dual-contouring) for editable curved surfaces and shared Hermite samples. Check alternating-sign faces and folded quads separately. Compare error and edit-frame cost when choosing a resolution.
+Retrieve [uniform-grid Dual Contouring](K-GAME-TECH-VOXEL.md#native-unreal-v21-uniform-grid-dual-contouring) for editable curved voxel surfaces, shared Hermite samples and stable boundary normals. The two-chunk fixture compares 16³ and 32³ cells on the same geometry and edits. The test measures surface error alongside triangle count, rebuild and collision cost. Alternating-sign faces and folded quads need separate topology and winding checks.
 
 ## Adaptive spawn cadence — 2026-11-20
 

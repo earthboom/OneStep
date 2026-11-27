@@ -18,11 +18,19 @@ keywords:
 - 동기
 - 입체성
 - 주체성
+- character interview
+- independent routines
+- 인물 인터뷰
+- 일상
+- 시나리오 도구
 status: active
 checked_at: '2026-11-14'
 context:
   evidence: Selected hosted source sections inspected on 2026-11-14; source types and limits retained in Evidence
   application: Working procedures, exercises and checks are editorial syntheses; not validated on a manuscript or reader panel
+  interview_case: Author-led profile revision checked on 2026-11-22; no finished scene or audience test.
+relations:
+  derived_from: [R-FIC-N2-PLOT-FIRST-PROFILE-20261122]
 ---
 
 # Turn character knowledge into distinctive desire and consequential action
@@ -39,6 +47,10 @@ The Open University course uses character sketches across bodily, psychological,
 2. Choose the obstacle and their current options, skills and mistaken assumptions; establish motives from the story rather than diagnostic labels.
 3. Give a contradiction a situational reason: the same value can produce generosity in one relation and control in another.
 4. When significant priorities compete, test the person in a choice with a meaningful cost. In a quiet or exploratory scene, a smaller response, observation or omission can show the same disposition. Track change, resistance or reaffirmed commitment through the cues the scene provides.
+
+### Interview before assigning a plot function
+
+When the author wants an independent profile, set the planned climax aside for the interview. Ask about an unclaimed day, a person whose company is comfortable, conditions for saying yes to a request, and which past choice the person values or regrets. Retain what the author states, including uncertainties. Compare two ordinary choices before assigning the character a role in a major event.
 
 ### Exercise and expected artifact
 
@@ -64,11 +76,14 @@ Use the current manuscript, author choices and available context as the authorit
 - Would another character with a different history plausibly act or speak the same way here?
 - Is the intended attraction or discomfort supported by the actual scene rather than a profile adjective?
 
+- If a named plot event is removed, do the interview questions and answers still establish a recognizable person and reasons for action?
+
 ## Evidence
 
 - [S04] [Open University, Start writing fiction: characters and stories, 6.1.2 Building a new character](https://www.open.edu/openlearn/mod/oucontent/view.php?id=101090&section=_unit6.1.2) — University course; Working with character, crediting a Novakovich extract and Roffey methods; original books not read.
 - Relevant source sections were opened and checked on 2026-11-14. Teaching advice, interview testimony and conceptual/theoretical claims retain different evidence status. Unopened full books, videos and cited studies are not represented as inspected.
 - Applied procedures and exercises are the present editorial synthesis, not source quotations or measured safeguards. Intended reader effects remain hypotheses pending actual manuscript/reader checks.
+- [Author-led interview correction](../../records/fiction/R-FIC-N2-PLOT-FIRST-PROFILE-20261122.md), reviewed on 2026-11-22. It supports the interview check and its local profile result.
 - [Research scope, source ledger and retrieval map](K-FIC-CRAFT-GUIDE.md).
 
 ### Supplementary evidence checked on 2026-11-26

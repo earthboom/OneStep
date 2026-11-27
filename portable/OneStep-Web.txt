@@ -168,8 +168,10 @@ Use these local specialists when their methods are needed:
 | --- | --- |
 | [vegabond-code](../vegabond-code/SKILL.md) | Software implementation, defects, system design, refactoring, and code investigation. |
 | [vegabond-fiction](../vegabond-fiction/SKILL.md) | Fiction development, drafting, critique, and continuity. |
+| [vegabond-document](../vegabond-document/SKILL.md) | Job application writing and review, including résumés, career and experience statements, application forms, self-introductions, cover letters, and motivation. |
 | [vegabond-presentation](../vegabond-presentation/SKILL.md) | Slide narrative, deck production, and content or visual revision. |
 | [vegabond-image](../vegabond-image/SKILL.md) | Raster image generation, editing, and visual fidelity checks. |
+| [vegabond-sound](../vegabond-sound/SKILL.md) | Audio asset production, editing, and review for effects, BGM, spoken voice, and songs. |
 | [vegabond-planning](../vegabond-planning/SKILL.md) | Planning/proposal content, feasibility, and success measures; not task scheduling alone. |
 
 The operation owns the workflow; a selected specialist supplies its domain execution, verification, and correction methods. Apply those methods within the operation's steps rather than running a second independent workflow. For research or feedback-only work, use checks that substantiate the findings and correct the analysis without changing investigated sources; production checks apply when producing or changing the corresponding artifact. Combine specialists only where needed, such as planning content and presentation production for a proposal deck. This is an initial set, not a closed list of supported work. Load only the relevant specialists; they can use available environment- or format-specific skills and tools through the same mapping.
@@ -356,6 +358,24 @@ Translate the chosen method into the production steps below, using the relevant 
 
 Hand back the actual deliverable, key choices that affect its use, acceptance evidence, and unresolved issues. A successful sample does not establish that the completed result passes its required checks.
 
+===== skills/vegabond-document/SKILL.md =====
+
+---
+name: vegabond-document
+description: Write, tailor, revise, translate, or review job application documents, including résumés, career and experience statements, application forms, self-introduction essays, cover letters, statements of motivation, and job performance plans. Use for 이력서, 경력기술서, 경험기술서, 입사지원서, 자기소개서, 자소서, 지원동기, 입사 후 포부, and 직무수행계획서.
+---
+
+# Vegabond Document
+
+Develop application content within the active operation. Reuse [scout's brief and operation](../vegabond-scout/SKILL.md#frame-and-classify) and the [agent instructions](../../agents/vegabond-agent.md). Use the relevant format tools or skills when the deliverable is a file or a live form.
+
+1. **Read the target.** Identify the employer, role, exact prompts, eligibility criteria, and submission instructions that matter. Read supplied postings and forms before drafting. Verify employer-specific claims against current primary material when a target is named and those claims matter.
+2. **Match requirements to evidence.** Match each consequential requirement or prompt to the strongest relevant fact, the applicant's own work, and a defensible result. Call out essential requirements the evidence does not establish. Distinguish paid work, projects, study, proficiency, and credentials according to the form and actual facts.
+3. **Write for the requested document.** Use [job application writing](references/job-application-writing.md) for document structures, evidence selection, motivation, and revision. Preserve facts and the applicant's voice. Keep unsupported numbers, titles, motives, qualifications, and company claims out of submission copy. When facts are sparse, return a useful draft from supported material and put consequential questions or uncertainties outside the copy.
+4. **Check what will be delivered.** Trace consequential claims back to the inputs. Check every prompt, the employer's limits and anonymization instructions, and cross-document consistency. For a required character or byte limit, count the exact final copy using the known convention and disclose any portal-specific uncertainty. Inspect the actual file or preview when relevant and available. Deliver the requested text or files and identify any material condition that remains unverified.
+
+Read [research and sources](references/job-application-evidence.md) when assessing a writing technique, adapting guidance across hiring contexts, checking claims about screening, or researching application writing. The target posting and form govern the submission.
+
 ===== skills/vegabond-fiction/SKILL.md =====
 
 ---
@@ -509,7 +529,7 @@ Separate source-confirmed continuity constraints, reasoned editorial choices and
 
 ---
 name: vegabond-image
-description: Use when creating, editing, or producing a consistent series of raster images, including realistic or stylized illustrations, cute mascots for stationery and stickers, 2D game sprites, animated effects, and flipbooks with specific visual or delivery requirements.
+description: Use when creating, editing, or producing a consistent series of raster images, including realistic or stylized illustrations, cute mascots for stationery and stickers, game UI icons and controls, 2D game sprites, animated effects, and flipbooks with specific visual or delivery requirements.
 ---
 
 # Vegabond Image
@@ -520,6 +540,7 @@ When invoked directly for work that depends on an existing character or producti
 
 ## Define what the image must show
 
+- For HUD, inventory or menu artwork, use the [game UI art guide](references/game-ui-art.md) to choose the asset layers, preserve geometry across states and inspect the result inside its target slot.
 - From the original request, identify hard requirements, preferences, and delegated choices. Write a short internal set of observable acceptance checks for hard requirements. Include only checks relevant to the request. Preserve exact wording, quantities, attributes, locations, omissions, and delivery specs. Resolve left and right relative to the frame when that is what the user means. For multiple objects, tie each material, color, count, and position to its named object.
 - Identify scene content and rendering medium independently. Describe a style with observable features such as light and texture, line and shape, brushwork, palette, or spatial rules. Keep the user's creative decisions and use their flexibility where they delegated it. A short clear request can go straight to generation. Ask one focused question when conflicting or missing information would materially change the result.
 - For a stationery mascot, character sticker, expression set, memo pad illustration, or similar small-format character asset, use the [stationery character guide](references/stationery-characters.md). Identify what should make the character recognizable and check the finished art at its display size or in its physical product layout.
@@ -542,6 +563,8 @@ For an expressive brief, describe what the delivered image communicates before c
 For a 2D game character portrait, gameplay image or animated sprite, use the [2D character asset guide](references/2d-game-characters.md) when defining the brief. Choose the requested deliverable, reuse character landmarks across views, and judge the result at its display size or playback speed.
 
 For a 2D game effect or a sprite action that triggers one, use [drawing effects in motion](references/2d-effects-and-motion.md) to plan the key drawings, connect the effect to the gameplay event and review the exported layers in motion.
+
+For an opening prop, a standalone burst, or windblown particles, use the [sprite production guide](references/2d-effects-and-motion.md#draw-a-prop-a-burst-or-an-animated-particle). Specify what moves within each cel, what moves through the game world, and what appears after playback ends.
 
 ===== skills/vegabond-knowledge/SKILL.md =====
 
@@ -802,6 +825,37 @@ Distinguish analysis-only feedback from an authorized edit. If only findings are
 3. Compare before and after for the intended improvement and preserved constraints. Inspect affected dependents or surrounding content, and explain any necessary departure from what was intended to remain intact.
 
 Hand back the revised artifact or authorized findings, the meaningful changes, comparison evidence, and unresolved issues. A changed result is not by itself evidence of improvement.
+
+===== skills/vegabond-sound/SKILL.md =====
+
+---
+name: vegabond-sound
+description: Use when producing, editing, mixing, or checking audio assets such as sound effects, Foley, ambience, loopable or adaptive BGM, spoken dialogue, narration, and original songs in styles such as Korean ballad, R&B, and hip-hop.
+---
+
+# Vegabond Sound
+
+Produce the requested audio, edit, or production brief for its intended listening context. Within OneStep, use this specialist in the active create or revise workflow.
+
+## Choose what to load
+
+| Deliverable | Procedure |
+| --- | --- |
+| Game cues, Foley, UI sounds, impacts, ambiences, procedural effects | [Sound effects](references/sound-effects.md) |
+| Background beds, seamless loops, stems, and adaptive game music | [Background and adaptive music](references/background-music.md) |
+| Dialogue, voice-over, ADR, narration, speech editing, and TTS | [Spoken voice](references/spoken-voice.md) |
+| Original songs and beats, including Korean ballad, R&B, and hip-hop | [Song production](references/song-production.md) |
+| File specs, mix and export checks, provenance, or generated audio | [Mix, delivery, and tools](references/delivery.md) |
+
+Use the [source notes](references/sources.md) when investigating a technique or checking what a study, standard, implementation, or practitioner example establishes. Combine procedures only for the layers the deliverable requires.
+
+## Produce and verify
+
+1. Recover the brief from the request and existing project. Identify the use, intended audible signal or feeling, duration or sync point, source or wording to preserve, and destination. Include loop and trigger behavior, voice and language, editable sources or stems, and file specs when they affect acceptance. If specs are absent, choose reversible defaults that fit the destination and state material assumptions.
+2. Match the production method to the hardest requirement. Use DAW, MIDI, recording, or deterministic synthesis when timing, edits, source identity, or aligned stems matter. Consider a supported generator when variation and texture matter and its actual controls fit. For an edit, compare with the starting file and preserve specified timing, phrasing, character, or arrangement.
+3. Build a representative cue, phrase, or section first when a wrong direction would multiply work. Check it against the picture, gameplay, other sound layers, or lead vocal as applicable. For a pack, carry the accepted cue function across variations and change only the attributes varied in the brief. For a song, settle the hook and vocal range before filling the arrangement.
+4. Listen to the delivered render against the brief and in its target mix when available. Check the exact exported files for the required format, duration, levels, boundaries, and content. Check critical words, transitions, and cues at normal playback speed. Record which checks used listening, measurements, or runtime playback, and mark unavailable checks as unverified.
+5. Correct the layer or transition responsible for a failure, then recheck the affected export and context. Deliver the requested files and an appropriate preview or source session when requested. When only a prompt, cue sheet, MIDI sketch, or production recipe was feasible, identify the actual deliverable and the capability missing for a finished render.
 
 ===== skills/vegabond-code/references/cpp-implementation.md =====
 
@@ -1139,6 +1193,84 @@ Use the applicable sections within the existing design brief. Choose from curren
 
 Return the selected policies and rejected consequential alternatives, version and authority assumptions, representative input and expected outcomes, and budget or measurement scope. Pass the relevant [runtime checks](../../vegabond-code/references/world-lifecycle-verification.md) to implementation.
 
+===== skills/vegabond-document/references/job-application-evidence.md =====
+
+# Evidence for writing job applications
+
+Source review dated 2026-11-24. Read the posting and its attachments for binding submission instructions. Use this review to decide which writing or checking methods to carry into a particular application.
+
+## What the studies measured
+
+| Study and design | Finding and limit | Application to the skill |
+| --- | --- | --- |
+| Wiles, Munyikwa and Horton (2025), online labor market field experiment with nearly half a million job seekers and nongenerative writing assistance. [Management Science](https://doi.org/10.1287/mnsc.2024.04528) | Treated applicants were hired 8% more often relative to the control group. Their résumé text had fewer errors and was easier to read. This intervention and market limit the applicability of the estimate. | Edit for clarity and accuracy while preserving factual content. Use the estimate only when discussing that study. |
+| Bright and Hutton (2000), 62 managers and HR consultants rated genuine résumés with experimentally varied competency statements. [International Journal of Selection and Assessment](https://doi.org/10.1111/1468-2389.00132) | Competency statements raised ratings in the study. Their placement did not change ratings. The endpoint was the raters' assessment. | Make relevant competencies explicit through evidence. Treat section ordering as a reading and form decision. |
+| Cole, Rubin, Feild and Giles (2007), 244 recruiters evaluated résumés from 122 recent or soon-to-be graduates. [Applied Psychology](https://doi.org/10.1111/j.1464-0597.2007.00288.x) | Perceived academic qualifications, work experience and extracurricular activities interacted in predicting perceived employability in this sample. | Consider projects, coursework and activities as possible evidence for early-career applicants. Keep the type of experience precise and follow the target's rules. |
+| Abbas Nejad, Musillo, Wicker and Zaccaria, two preregistered cover-letter field experiments. [Tilburg University research record](https://research.tilburguniversity.edu/en/publications/labor-market-signals-the-role-of-large-language-models-2/), [author manuscript, Table 1 and Appendix Table A3](https://twicker97.github.io/JM_documents/ChatGPT.pdf) | ChatGPT access raised mean cover-letter scores, mainly in standardized opening and closing sections. The study did not detect an improvement in motivation or in recommendations to interview. Motivation and perceived clarity were important predictors of recommendations in that setting. | Ask for the applicant's actual reasons and what makes this opening relevant. Use editing help to make those reasons easier to understand and check. |
+| Cui, Dias Santamarina and Ye (2026), difference-in-differences study of a Freelancer.com cover-letter tool rollout. [Yale Cowles discussion paper, Tables 3 and 5 and §5](https://cowles.yale.edu/sites/default/files/2026-11/d2577.pdf) | Tool access increased text-to-post alignment. The association between tailoring and callbacks fell by 52% after rollout, while employers gave more weight to work histories. The estimated gain in callbacks from access was 0.38 percentage points in one main specification and was sensitive to the parallel-trends assumption. | Use the posting to select genuine work evidence. Check the visibility of that evidence independently of how closely wording matches the ad. |
+
+The studies measure different outcomes. Readability, résumé ratings, interview recommendations, marketplace callbacks and hires answer different questions. None of these studies directly compares the proposed workflow with alternatives in Korean recruiting. The link from the research to the skill is an editorial inference and should be evaluated on real documents.
+
+## Korean practice and formal requirements
+
+- **Work24.** The résumé guide describes standard and competency-based fields. The self-introduction guides connect role experience, motivation and goals to posting requirements, and describe STAR as a way to organize a behavioral example. Their content helps decide what facts to gather and which questions the text must answer. A specific employer's form governs which fields to fill and what personal material is allowed. [Résumé guide](https://www.work24.go.kr/wk/r/d/1110/resumeSelfIntroGuide1.do), [experience, motivation and goals](https://www.work24.go.kr/wk/r/d/1111/resumeSelfIntroGuide4.do), [final review and STAR](https://www.work24.go.kr/wk/r/d/1111/resumeSelfIntroGuide5.do)
+- **NCS.** Its public application example distinguishes paid 경력 from unpaid 경험 and asks for the person's actions, role and results. Use this distinction when the target form uses it. Verify how the employer handles internship, freelance, part-time and overlapping periods before computing eligible service. [NCS application example](https://m.ncs.go.kr/mobile/rm02/RH10300302.do)
+- **Ministry of Employment and Labor.** The 2025 guidebook describes fair recruitment practices. A separate ministry-affiliated hiring form shows how required administrative fields and blind free-text rules can coexist. The latter is an archived example. Inspect the actual posting for exceptions, acceptable supporting evidence and which fields its restrictions cover. [Fair recruitment guidebook](https://www.moel.go.kr/local/bucheon/info/policydata/view.do?bbs_seq=20250301868), [MOEL Customer Counseling Center application, Forms 1–2](https://1350.moel.go.kr/home/hp/assets/file/notice/notice_20250527_1013_1_1.pdf)
+- **Ministry of Patriots and Veterans Affairs.** Its career-statement guide calls for relevant project experience, how the work was done, the individual's role, and supporting outcomes. The audience is transitioning veterans. Adopt the emphasis on role and method, and let the applicable posting and evidence determine length, attachments and metrics. [Career statement guide](https://vnet.go.kr/em/EmJal003.do)
+
+## Writing techniques and training
+
+- **Résumé accomplishments.** MIT describes Project–Activity–Result (PAR) and distinguishes ways to quantify the scale of work. Harvard provides targeted résumé and cover-letter examples. Use a short action–scope–result or action–deliverable bullet when the evidence supports it. Keep the full story in working notes or in an experience statement where the format allows it. [MIT Career Advising & Professional Development](https://capd.mit.edu/resources/resumes-writing-about-your-skills/), [Harvard Mignone Center](https://careerservices.fas.harvard.edu/resources/create-a-strong-resume/)
+- **Motivation and permitted AI help.** Work24 distinguishes job and employer motivation. Harvard's AI guide asks applicants to check employer instructions and use distinctive organizational facts tied to their experience. Establish the employer fact and the applicant's own reason independently. Their connection is the applicant's argument. [Work24 motivation guide](https://www.work24.go.kr/wk/r/d/1111/resumeSelfIntroGuide4.do), [Harvard AI guidance](https://careerservices.fas.harvard.edu/ai-resumes-and-cover-letters/)
+- **Korean workshop.** The Suwon Job Center lecture's chapter list locates its motivation and strengths-and-weaknesses section at 45:37. Use it as training for comparing the purpose of each answer. The chapter description was available for this review. The full recording and transcript were unavailable. [Suwon workshop, 45:37](https://www.youtube.com/watch?v=Sb9eELkOUpA&t=2737s)
+- **English workshops.** Tufts outlines a short video covering résumé purpose, organization, accomplishments and tailoring. UC Riverside pairs a technical application recording with slides. The slides' data-science example develops a cover-letter argument from a specific posting and expands one relevant experience in its body (PDF pages 31–37). The listed topics and slides were inspected. These are teaching sources. Treat scanning-time claims and preferred layouts as heuristics. [Tufts Career Essentials](https://careers.tufts.edu/channels/resumes/#career-essentials-resume-video-workshop), [UC Riverside recording](https://youtu.be/FDk4rCsyGM0), [UC Riverside slides](https://gradcareers.ucr.edu/sites/default/files/2024-09/2024-25_technical_resume_cover_letter_writing.pdf)
+
+## Technical checks and unsupported generalizations
+
+Greenhouse documents parsing failures with certain columns, tables, graphics and text in headers, footers or text boxes. Lever documents file types its parser accepts and suggests checking that text can be selected. These sources describe specific products and versions. Let the employer's instructions choose the format. For an unrestricted, machine-parsed résumé, start with simple selectable text and inspect the final export and its extraction order. If the live portal provides an authorized preview, compare its actual auto-filled fields with the original. [Greenhouse parsing documentation](https://support.greenhouse.io/hc/en-us/articles/200989175-Unsuccessful-resume-parse), [Lever parsing documentation](https://help.lever.co/s/article/Understanding-Resume-Parsing)
+
+Local text extraction, portal parsing, ranking and rejection are different events. These sources do not substantiate a universal ATS score, a required keyword density, a fixed recruiter reading time, or a format that wins across employers. STAR, achievement bullets and straightforward layouts are writing and inspection methods. Acceptance depends on the particular submission and the evidence it contains.
+
+===== skills/vegabond-document/references/job-application-writing.md =====
+
+# Job application writing
+
+## Read the posting and select evidence
+
+- Capture the role and level, tasks, required versus preferred qualifications, each prompt and its subquestions, and restrictions from the current posting, attachments, and portal. For a named employer, use its current job page, team or product material, or public reports for facts used in the application. Flag consequential disagreements between sources. When no target is supplied, prepare reusable material or a role-specific draft at the specificity the inputs support.
+- For a package, build a small working map with **requirement or prompt | applicant evidence | ownership and scope | supported result | use or gap**. For a short edit, make the same distinctions in the working context. A requirement can be demonstrated, transferable, or unestablished. Preserve the actual title, period, status, and level of use when transferring experience across roles or languages.
+- For an important achievement, establish what changed, the applicant's action, collaborators, and how the result is known. For a metric, check the baseline, endpoint, unit, denominator and period as applicable. Distinguish percentage change from percentage-point change, measured outcomes from estimates, input scale from impact, and team outcomes from personal ownership. Qualify defensible estimates when permitted and when the basis is known. When an outcome is unverified or confidential, use a supported deliverable, scale, constraint, or observable result you can disclose.
+- If more input would change the result, ask for the smallest missing piece, such as the applicant's decision in a project, the definition of a metric, or the reason this particular opening matters to them. With sparse material or a short deadline, deliver the useful portion now and note what still needs confirmation. Preserve confidential client information and personal details according to the user's disclosure scope and submission instructions. Keep internal notes and source pointers out of submission text unless required.
+
+## Choose the structure by document
+
+| Document | Write for its reader |
+| --- | --- |
+| Résumé / 이력서 | Make responsibilities and qualifications easy to locate. Use clear sections, consistent dates and actual titles. Put relevant evidence where it is easy to find, usually within reverse-chronological entries when the form is free. For an achievement bullet, lead with the action, identify the object or scope, and add the result or deliverable if supported. Use the posting's terminology only when it accurately describes the applicant's work. |
+| Career or experience statement / 경력·경험기술서 | Expand relevant work into employer or project, dates, role, task or stakes, individual decisions and methods, then results and handoff when known. Add details that explain difficulty, collaboration or scope. If the form defines 경력 and 경험, use those definitions. Coursework, volunteering and personal projects can substantiate skills, with their actual context intact. |
+| Application form / 입사지원서 | Follow field order, labels, required fields, date precision and allowed values. Give exact credentials, issuer and status where requested. For an unearned credential, write partial completion only in a field that permits it. Leave an acquisition-only field blank when permitted or use its specified no-credential value. Flag a required field with no confirmed valid entry. Reconcile dates against supporting material and apply the employer's rules for eligible service, overlap, part-time work and rounding before claiming totals. |
+| Self-introduction / 자기소개서 | Answer the question early, including all requested parts. For a behavior prompt, use Situation, Task, Action, Result (STAR) to plan the example. Keep context short and emphasize the applicant's judgment and actions. Add learning, a corrective action or a connection to the role when the question calls for it. For situational or hypothetical questions, explain the proposed response and escalation conditions as relevant. |
+| Motivation / 지원동기 and cover letter | Use the applicant's stated reason and relevant evidence. If asked, connect a verified employer or role detail to why it matters to the applicant, an experience that makes the connection credible, and a realistic contribution. When only job-level interest is supported, use it and identify any missing employer-specific or personal reason separately. For a cover letter, choose an opening, supporting evidence and close suited to the employer and locale. Keep in-portal answers free of letter salutations unless requested. |
+| Goals or job performance plan / 입사 후 포부·직무수행계획서 | Relate the requested goal to the actual duties and current evidence. Where the prompt warrants it, give a feasible sequence, stakeholders, deliverables, dependencies and progress indicators. Frame future results as intentions or proposed measures within the role's plausible remit. |
+
+Across a package, tell a consistent story at different levels of detail. A résumé can name an accomplishment, a career statement can explain the method and ownership, and a motivation answer can explain why that work connects to the opening. Repeat essential facts where fields are read independently. When editing or translating, preserve titles, employment type, dates, scope and meaning. A foreign-language equivalent may need a short description if the original credential or title does not map cleanly.
+
+## Check the submission
+
+- **Accuracy and relevance.** Trace key claims in the final text to an applicant statement, supplied records or a verified employer source. Check that every prompt is answered and that each important qualification is correctly represented. Read the draft as a reviewer and ask which action, result and evidence remain visible. Check the applicant can explain the claim in an interview. Remove empty praise, template filler, speculative motives and keywords unsupported by the record.
+- **Form and blind review.** Respect the posting and template, including which fields may contain identifying details. Check indirect signals such as a project name, school email domain or portfolio URL. Inspect visible attachments, image and hyperlink content, filenames, and identifiable document properties where relevant. Retain identifiers in administrative fields where the form calls for them. For an AI-use restriction, follow its stated scope and offer only permitted help.
+- **Length and transfer.** Recount the exact text after the final edit. Account for spaces, line breaks, word limits, encoding, or byte rules as specified. Use a local count whose unit you can state and compare with the portal preview when accessible. A local count is provisional when the platform's convention is unknown. Check headings, Markdown, links and line breaks in the actual channel where they will appear.
+- **File and parsing.** Use the employer's template, file type, size limits and filename rules. For unrestricted, machine-parsed résumés, a simple single-column text layout with standard section names is a practical starting point. Keep essential text in the document body and selectable. Inspect the rendered pages and extracted reading order, checking that section headings, dates, bullets, links and Korean glyphs survive export. Check auto-filled fields when the authorized preview is available. Local extraction can detect problems. Platform parsing and screening decisions require their own evidence.
+- **Delivery status.** Keep reviewer notes separate from the applicant's copy. State unresolved facts or constraints that would prevent it from being ready to submit. A review request calls for findings and targeted examples within the requested scope. An editing request calls for the revised result.
+
+## Example from supplied facts
+
+A five-person customer support team piloted a revised routing checklist for one week. The applicant drafted the checklist and tracked incomplete handoffs. There were 12 incomplete handoffs out of 60 in the preceding week and 6 out of 60 during the pilot. The role asks for process documentation. The applicant has confirmed an interest in helping new staff learn procedures.
+
+- **Résumé.** “Drafted a support handoff checklist and tracked incomplete handoffs during a five-person team pilot.”
+- **Experience statement.** “I drafted the checklist and logged incomplete handoffs during the team's one-week pilot. The team recorded 6 incomplete handoffs out of 60 during the pilot, compared with 12 out of 60 the week before.” The observed change is from 20% to 10%, a decrease of 10 percentage points. Keep the comparison scoped to those weeks. The records establish the difference, and the pilot by itself leaves the cause uncertain.
+- **Motivation.** “I want to help new staff learn support procedures. Having drafted a handoff checklist and tracked missed handoffs during a team pilot, I can bring that approach to the process documentation this role calls for.” An organization-specific reason would need its own evidence.
+
 ===== skills/vegabond-fiction/references/review.md =====
 
 # Manuscript review and correction
@@ -1304,6 +1436,16 @@ For a hand glow, follow a hand marker (a per-frame point or a socket). For an ob
 - Slice the **exported** sheets and play them together on contrasting representative scenery at target size and speed. Read the event first without labels. Then isolate actor, effect and composite, scrub the frames immediately before and after contact, and check the tail after the actor moves. Test a missed or canceled trigger when relevant. For loops check the seam; for one-shots check the empty end and a second trigger. Recheck effect priority during overlap when several instances can coexist.
 - If the origin jumps, overlay the pivots and restore trim offsets. If a rim appears, inspect alpha convention, edge colors and filtering separately; if colors leak from another cell, inspect atlas padding and extrusion under the shipping filter. If the sequence feels sluggish, change the critical hold or spacing and replay before drawing additional cells. Distinguish a sliced preview from target-engine import, performance, and human readability tests.
 
+## Draw a prop, a burst or an animated particle
+
+| Requested sprite | Establish the keys | Review and repair |
+| --- | --- | --- |
+| Hinged chest, door or hatch | Draw closed and open at the same camera. Mark the footprint, hinge endpoints and moving lip. Design the newly revealed underside and cavity. Place an intermediate key where the moving edge clears the fixed rim. Reuse the accepted base when generating or editing each lid pose. | Overlay the two hinge marks and one fixed base corner after slicing. If the lid looks rubbery, redraw its projected depth and fittings at the middle key. Hold the final state until the game changes it. Give a slam its own closing timing when requested. |
+| Burst or expanding ring | Mark its origin and intended footprint. Block a compact first shape, an outward displacement and a broken tail in silhouette. Follow a few lobes or streaks through the sequence. Set different peak times for the bright core and lingering smoke where the material calls for it. | Play the silhouette at game size. If it inflates evenly, change the leading edge, spacing or openings before polishing color. Inspect on light and dark scenery, clear the last fragment, and restart from the first cel. |
+| Drifting dust, pollen or embers | For a standalone clip, draw several staggered paths on a common canvas. For an emitter, draw the local evolution of one particle around its pivot and specify birth times, travel, lifetime and variation separately. If both are needed, identify the reusable strip and the composed clip. | Freeze travel to inspect the local strip, then add wind and stagger births. Look for double travel, synchronized decay and visible rectangular edges. A one-shot ages within its chosen variant. Random phase suits a seamless cycle. Stop emission and check when the last live particle disappears. |
+
+Record cell size, origin, order, exposures or age intervals, and the end behavior with the delivered sheet. Keep art direction in the brief: pixel art may break a silhouette by removing a cluster, while painted dust may soften its edge. Re-slice the export and compare the first, peak and ending states at the requested size. The full OneStep checkout has worked exposure sheets for all three forms in `docs/research/2026-11-24-2d-props-bursts-and-particles.md`.
+
 ===== skills/vegabond-image/references/2d-game-characters.md =====
 
 # 2D game character art
@@ -1403,6 +1545,34 @@ At actual viewing size, skin texture should follow scale, focus, medium and age.
 ## Inspect and repair
 
 First read the action in the whole frame. Then enlarge the contact or facial feature that could invalidate it and compare adjacent skin regions in the same light. Describe the visible problem and its location. For an isolated fault, edit the smallest useful region that includes both sides of an interaction, such as the hand and the cup rim; preserve expression, identity, light and framing. If the underlying pose cannot carry the action, restage from the last good source. Recheck contacts, skin and the original brief on the selected image.
+
+===== skills/vegabond-image/references/game-ui-art.md =====
+
+# Generate artwork for game UI
+
+## Start at the player's decision
+
+Name the slot, what the player should understand or do, its smallest on-screen size, and the item or state it can be confused with. Use the supplied UI capture for placement, an approved asset for style and a sketch for silhouette or geometry. If dimensions are missing, use an explicit working size and retain a larger master. Follow the project’s medium, input devices and UI scale. For a concept screen, compose the whole scene. For an implementable UI kit, give the consumer the individual parts it will place, scale or change.
+
+## Choose what to paint
+
+| Asset | Generate and preserve | Test in context |
+| --- | --- | --- |
+| Item, ability, status icon or map pin | Translate the function into a visible motif. Give competing functions different outer shapes or internal marks. Approve a small family before expanding it. Share contour weight, viewing angle, light and optical scale. Keep live counters, rarity badges and selection separate when they vary. For a marker, define the tip or center anchor. | Show at the smallest intended size among similar neighbors. Ask what it means, then ask where it is. Inspect on light, dark and busy gameplay. If only the hues distinguish two icons, change the motif or silhouette. If they differ but the action is obscure, try a more familiar sign or a live label. |
+| Button, inventory slot, tab | Make the base plate once. Derive the requested normal, hovered, pressed and disabled faces from the same registered art. Treat focus and lasting selection as independent overlays when they can coexist. Reserve room for the label and its longest state. | Display focus on the selected and an unselected item. Check that pressing moves only the intended relief or content, and that the ring survives clipping. Give locked and available different cues when the distinction matters. Keep hit targets and navigation in the actual controls. |
+| Resizable window, dialogue, tooltip or card | Keep fixed ornament inside the four corner regions. Put stretchable/tileable material on edges and center. Output a separate crest or illustration if scaling would distort it. Record slice margins (left, top, right, bottom, units) and separate content insets. | Reconstruct a nine-slice at the minimum usable, normal and wide sizes. Corners should keep shape, repeated patterns should join, and the longest supported string should fit. Inspect both the label and the ornamental frame. |
+| Meter or radial cooldown | Separate track, full fill or mask, and foreground frame on one canvas. Specify fill origin, direction, and radial center/start if relevant. A live value, number or warning belongs to the game. | Composite empty, almost empty, half and full. Check that decoration cannot imply remaining value and that clipping moves the fill edge without squeezing the frame or icon. |
+| Input prompt, currency count, localized label | Generate the surrounding art. Reserve replaceable slots for current bindings, text, changing numbers and optional badges. Use the project or platform glyph when an exact device symbol is required. | Try the longest label, actual target-script glyphs and a binding or device change. For RTL, distinguish a navigation arrow from an absolute world direction. |
+
+## Generate, export and repair
+
+1. Give the generator the requested asset in isolation, its neighbors as comparison references, and the protected geometry. For example, ask for a round healing flask with a single large plus, upper-left light shared with the approved set and transparent padding for a 32 px slot. State which reference controls the shape. Keep review-only neighbors out of the deliverable.
+2. Compare a small first batch at shipping size before enlarging a set. For state variants, prefer editing the approved face or compositing a clean overlay. For precise masks, borders, live text and controller glyphs, use layout, slicing or existing approved artwork to supply exact geometry. A bitmap preview does not supply editable vector paths.
+3. Export the requested individual images or atlas with usable crop rectangles, padding, scale, alpha and relevant state/slice/fill information. Check the actual alpha across gutters before automatic trimming. Inspect the final filtering and blend over the intended background, including after compression or atlas packing if available.
+4. Review the composed control at 1×, the smallest supported UI scale and a representative viewing distance. Include a high-detail scene where the HUD overlaps gameplay. Inspect value contrast on the final composite and offer a shape, border or pattern where color carries important information. Confirm accessibility and action comprehension with the relevant platform checks and observers. A grayscale preview establishes neither.
+5. Repair the first failing layer. Rework the symbol if players infer the wrong action, open a gap or flatten interior values if small details merge, reserve room or re-slice if a frame warps, and fix the state overlay if focus disappears. Reuse the last accepted art for unaffected parts.
+
+The full OneStep checkout has generation prompts, a worked nine-slice example and observations from 24 px and 32 px exports in `docs/research/2026-11-24-game-ui-image-production.md`.
 
 ===== skills/vegabond-image/references/stationery-characters.md =====
 
@@ -2095,6 +2265,204 @@ Compare consequential statements in the draft with the cited original. Carry ove
 
 For skill maintenance, use the [request-to-application evaluation cases](../../vegabond-knowledge/tests/information-needs/evaluation.md). Evaluate omitted questions, wrong transfers, unsupported certainty, and unnecessary retrieval separately from catalog integrity and query-to-ID tests. No finite case set proves the absence of all future omissions.
 
+===== skills/vegabond-sound/references/background-music.md =====
+
+# Background and adaptive music
+
+## Write for the listening window
+
+Identify the scene's function, usual dwell time, audible foreground, and desired attention level. A BGM bed under speech can leave more rhythmic and spectral space around the voice. Start from a motif or texture that can survive repetition, then vary one or more of harmony, rhythmic density, register, or instrumentation. Check the result against dialogue and sound effects in the scene.
+
+For a fixed-tempo loop with a constant beat unit, multiply the total number of those beats by 60 divided by BPM. For example, eight bars of 4/4 at 120 quarter notes per minute last 16 seconds, or 768,000 frames at 48 kHz. A frame contains one sample per channel. For changing tempo or meter, use the project's tempo map and confirm the exported boundaries in decoded frames. Plan how pickups and reverb tails cross the boundary. Audition multiple wraps of the export, including after target import or encoding. Use section or layer transitions where repeated structure becomes distracting.
+
+## Author adaptive parts against a transition table
+
+| Mechanism | Deliverable | Check |
+| --- | --- | --- |
+| Vertical layering | Synchronized stems with a common time origin, sample rate, and agreed loop length. Include an arrangement or routing note for allowed combinations. | Add and remove each layer while the shared transport continues. Check phase, harmony, combined peaks, and prominence of the foreground cue. |
+| Horizontal resequencing | Sections with tempo, meter, entry and exit cues, harmonic relationships, and any transition segment. | Listen to every permitted direction, including a reversal. Inspect rhythmic continuity, timbre, pitch, loudness, and cut or tail at the seam. |
+| Stinger or accent | A one-shot mapped to an event and an explicit immediate, beat, bar, or marker start rule. Document what happens if another cue arrives. | Trigger before and after the scheduling boundary and over a busy mix. Check both event legibility and musical delay. |
+
+For each significant state edge, record source, destination, condition, timing rule, entry point, tail or fade, and handling of late or repeated requests. Decide when to cancel a pending change and what stop, pause, or reset means. A musical boundary can delay audible feedback, so give an urgent gameplay event its own immediate cue when needed. Use the target playback clock and test the captured output from that same path.
+
+For example, an exploration loop can keep its pulse when an aligned percussion stem joins at the next schedulable bar. If threat clears before the join, cancel the pending addition. For a layer already playing, define its own release boundary and what happens if threat returns before that boundary. Test around the lead-time threshold, with repeated requests and rapid reversals, and through several wraps with both stems audible. Export the stems from the same time range, including any intentional leading silence. Route long tails consistently with the chosen loop contract.
+
+Use [the adaptive music sources](sources.md#background-and-adaptive-music) for transition analysis and engine capabilities. OneStep's [Unreal timing evidence](../../../knowledge/game/K-GAME-TECH-MUSIC.md) used synthesized calibration tones and presubmitted transitions in a fixed tempo and meter. Apply its boundary and reversal checks to the current asset and verify actual sound under live input when that behavior matters.
+
+===== skills/vegabond-sound/references/delivery.md =====
+
+# Mix, delivery, and tools
+
+## Choose a production path
+
+| Requirement | Method and evidence |
+| --- | --- |
+| Precise timing, repeatable variation, editable score, or aligned stems | DAW timeline, MIDI with a documented instrument/render path, offline synthesis, or supported game-audio authoring. Export and compare the exact handoff files. A MIDI file needs playback instruments to become rendered audio. |
+| Human performance and room character | Record available performers or Foley. Preserve dry sources and relevant edit handles when the user needs further editing. |
+| Spoken script at scale | Record or use an available, permitted TTS provider that supports the language and delivery. Test exact words and difficult pronunciations before batching. |
+| Generative sound or music | Check actual controls, provider access, allowed inputs, and supported exports. Use output as a candidate, then edit and measure it. Record model, settings, and asset-level provenance where needed for reuse. |
+| Existing audio inspection or light repair | Use a DAW, waveform/spectral editor, or an available tool such as FFmpeg/ffprobe. Verify that the repaired output decodes and compare before and after in context. |
+
+Use the requested provider when its capabilities, terms, and supported access fit. Keep external inputs limited to authorized content for this asset. When a OneStep task requires its restricted Suno data path, use the documented request contract in `prototypes/SunoRestricted/README.md` from the full checkout, if available. Consult [tool and rights sources](sources.md#tools-and-rights) for provider-specific controls and terms when choosing or distributing assets.
+
+## Define the output contract
+
+- Start with the downstream specification. For a game or video handoff with no stated spec, 48 kHz PCM WAV is a reasonable working default. Use 24-bit PCM if accepted, and use the target's required rate and bit depth for the final delivery. Preserve a source-quality master when useful. Use mono for point sources when the runtime expects it, and stereo or the requested layout when its spatial image is intentional.
+- Confirm whether source sessions, dry/wet or instrumental versions, short cuts, alternate takes, loop point metadata, and editable stems are requested. For a timed loop or set of stems, record the exact frame range with an exclusive end, rate, and time origin. Embed loop markers only in a format the consumer honors, and retain the values in the handoff if the import path strips them.
+- Record relevant provenance for sampled, library, generated, or performer material. Track asset/page ID, source or author, applicable license or agreement and attribution, plus any use limits. Musical composition, lyrics, recorded performance, and model/checkpoint terms can involve different rights. Check applicable conditions for the destination.
+
+## Check the delivered artifact
+
+1. Compare at similar perceived level. Listen for clarity and cue meaning in context, then solo for audible defects. Review at the playback devices or mono fold-down that matter to the request. For revisions, compare against the source at the same norm and identify the requested change.
+2. Inspect type, duration or exact frame count, channels, sample rate, and bit depth when required. Decode the exported file and check faults such as dropouts, clipping, wrong start, extra tail, or silence. For a lossy output, check its decode and the target app's timing or gapless behavior.
+3. Measure sample peaks or true peak as required and apply destination-specific loudness criteria. Integrated LUFS is a program metric that can be unhelpful or unavailable on very short cues. Match cue families by audibility and function in context. ITU-R BS.1770 defines measurement algorithms. EBU R 128 applies to its broadcast use case. Spotify's published loudness value describes playback normalization. See [measurement sources](sources.md#measurement-and-delivery).
+4. For loops, repeat the decoded region through wraps and inspect timing and discontinuities. A waveform boundary measurement helps locate a click. Audition the musical handoff and overlapping tail as well. For interactive assets, capture representative gameplay or middleware output and compare to the contract for timing, audibility, and transitions.
+
+With FFmpeg tools on PATH, use the following examples to inspect a final file. Read integrated and true-peak output with the applicable measurement scope. For a WAV whose audio time base and duration permit exact inference, derive frames from the inspected fields or count sample frames in decoded PCM.
+
+```text
+ffprobe -v error -select_streams a:0 -show_entries stream=codec_name,sample_rate,channels,channel_layout,bits_per_sample,bits_per_raw_sample,duration_ts,time_base:format=duration -of json "output.wav"
+ffmpeg -hide_banner -i "output.wav" -af "ebur128=peak=true" -f null -
+```
+
+Use a handoff note proportional to the task. Give file paths, intended placement or import settings when relevant, and the checks actually performed. List any unavailable listening, runtime, or provider checks as open.
+
+===== skills/vegabond-sound/references/song-production.md =====
+
+# Song production
+
+Define the substyle, intended vocal range and language, emotional trajectory, degree of roughness, and delivery. Translate reference tracks into attributes the new song can use, such as the density change into a hook, the relationship between bass and snare, or the dry-to-wide vocal contrast. Start from an original hook or beat and check its strongest and weakest phrase before arranging the full track.
+
+## Make an initial musical choice, then compare
+
+| Direction | Useful starting pass | What to compare |
+| --- | --- | --- |
+| Korean pop ballad | Sing the core lyric over a sparse instrument and map where the vocal register and emotional intensity should peak. Plan the path from verse to chorus using density, voicing, rhythm, or range. Add piano, guitar, strings, or another color to serve that path. | At matched level, check if the chorus lift survives with less orchestration. Review lyric stress, breath points, and the last note after the climax. A key change or high belt is optional. |
+| R&B or neo-soul | Pick a substyle and begin with a drum/bass pocket and a small harmonic bed. Use chord extensions or inversions where they support the lead. Compare a close lead with selective answers, doubles, and harmonies. | Compare straight and intentionally shifted parts while keeping an audible metric anchor. Assess whether bass lengths leave space for kick, whether chords crowd the lead, and where a harmony adds emotion. |
+| Hip-hop | Pick a substyle, such as boom bap, trap, or sparse spoken delivery. Decide the kick and bass roles and write or mark stressed syllables, rhyme, breaths, and phrase endings against the beat. Build hook contrast through flow, texture, density, or voicing. | Check the verse over a stripped drum loop and the full beat. Hear intentional push, layback, and accent conflicts before changing timing. If the 808 serves as pitched bass, check tuning, sustain, and small-speaker translation. |
+
+These are production starting points. For a different genre, derive the decisions from the user's references and the requested musical function. See the [ballad studies, groove experiments, and practitioner accounts](sources.md#songwriting-groove-and-arrangement) for the basis and limits of these choices.
+
+## Develop and finish the arrangement
+
+1. Make a lean sketch with a singable or rappable lead. Keep a tempo/key or tempo map and labeled sections. Check whether the hook is identifiable and whether the intended performer can sustain the hardest phrase in context. Verify any required section lengths against the tempo grid of the final render.
+2. Build sectional contrast by choosing what enters, drops, changes register, or changes groove. A loudness-matched comparison helps separate increased level from arrangement impact. For groove edits compare a grid version with shifts on selected parts. Shape timing and velocity independently and keep intentional relationship patterns across repeats.
+3. Comp the lead for continuity of tone and intention, then adjust pitch or timing where it solves an audible problem. Treat breaths, doubles, stacks, ad-libs, and effects as choices at section level. When exact words are requested, compare the sung or rapped output with the approved lyric.
+4. Balance lead, rhythm, harmony, and bass on headphones and on a small or mono playback path where available. Check low-end buildup and whether hooks and consonants survive the dense sections. When stems are requested, render from the same zero point through the planned tail.
+
+For mix-reconstructing stems, identify the reference render, allowed summing procedure, and tolerance or bit-exact requirement. Print a linear set with common sample rate, channel layout, start and end frames, and shared effect returns included once. Preserve mix gains and pan. Decode and sum at unity, then measure the difference against the reference with matched alignment. If a limiter or other nonlinear master processor is part of the reference, use an agreed pre-master reference or apply the master chain once to the recombined mix if the contract allows it. Verify the actual residual after export, including dither or quantization effects where relevant.
+
+If using a text-to-music generator, specify original lyrics or instrumental intent, section-level changes, vocal texture and delivery, and essential timing or ending. Inspect the actual result for words, form, unwanted instruments or vocalizations, and whether its deliverable really includes usable isolated and aligned stems. Use a DAW edit or rebuild where exact bar lengths, instrumental takes, or itemized stem mixes are required.
+
+===== skills/vegabond-sound/references/sound-effects.md =====
+
+# Sound effects
+
+## Design the cue around its event
+
+Define the trigger, listener perspective, and what must be recognized during competing sounds. For synced action, mark the visual contact or decision frame and name the exact audio transient that should land there, such as the second clack of a latch. Set that transient's offset from the file start before trimming or applying fades. Place all versions at the same timeline position and compare the transient offset and audible sync against picture. A short UI family can share a timbral motif while direction, pitch contour, or duration distinguishes confirm, error, and cancel. Keep alert meaning recognizable in all supported variations.
+
+| Event | Build the first pass | Check it in use |
+| --- | --- | --- |
+| Impact or interaction | Align a quick contact transient, material resonance or body, and optional debris or decay. Audition each layer's contribution. | The contact reads on time in-context. Check whether layered starts reinforce, smear, or cancel in mono. |
+| Footsteps or Foley | Record or select multiple takes per contact surface and intensity. Keep the weight and material consistent while varying performance. | Play a walk, a run, and a surface change with the intended cadence. Check repeated choices and the transition between surfaces. |
+| Wind, machinery, or ambience | Build a stable bed and place distinct events separately if repeated landmarks reveal the cycle. Author the loop or parameter boundaries explicitly. | Repeat several cycles at the intended level, then test start, stop, and state changes. Listen for seam clicks, recognizable recurrence, and phasey crossfades. |
+| Designed UI, magic, or machinery | Combine shaped tones, filtered noise, and controlled transients. Use pitch motion for gesture, resonance for material, and an envelope for timing. | Test short or rapid retriggers and overlapping cues. Check whether choices remain distinguishable at low playback level. |
+
+## Choose sources and variation
+
+- For recorded Foley, keep a dry clean take, capture useful variation at a stable mic position, and name takes by action and surface. Compare the rhythm and weight against picture or animation before adding processing.
+- For synthesis, use a short broadband excitation with one or more independently decaying resonances for a ringing contact. For scraping, use sustained irregular excitation during motion. Test whether harder contact changes attack or brightness as intended. Limit randomization to ranges that preserve recognition. [Contact modeling and procedural sound](sources.md#sound-effects)
+- For a generator brief, specify event order, material, perspective, approximate duration, and the amount of tail. For example, request a close, single wooden latch closure with two contacts, a sharp tick followed by a lower clack, and a dry stop suitable under dialogue. If the generated attack timing drifts, edit it against the cue point or build controllable layers.
+- If spatial treatment belongs to the runtime, audition a dry source through the target attenuation, occlusion, and room response. Encode perspective in the file when the fixed perspective is part of the deliverable. Check how stereo import, spatialization, and voice limits behave in the target engine. OneStep's [spatial audio evidence](../../../knowledge/game/K-GAME-TECH-SOUND.md) documents scoped Unreal tests for these distinct controls.
+
+When packaging variations, keep a stable event ID and name files with meaningful surface, intensity, or variation labels. Remove unintended leading silence while preserving any intentional anticipation. For a layered one-shot, compare solo and summed playback at the required position. For a looping effect, define the loop region and whether a release tail is triggered separately.
+
+===== skills/vegabond-sound/references/sources.md =====
+
+# Sources for audio production
+
+Research notes compiled 2026-11-24. Use papers for findings under their stated conditions, practitioner accounts for production choices worth trying, and standards and manuals for their documented scope. The procedures in this skill turn those observations into checks for the current asset. Consult current official documentation for a provider's controls, licenses, and output options when relying on them.
+
+## Sound effects
+
+| Source | What to apply and what to check |
+| --- | --- |
+| [van den Doel, Kry, and Pai, FoleyAutomatic (SIGGRAPH 2001)](https://persianney.com/kvdoelcsubc/publications/foleyautomatic.pdf) | Primary research on contact-driven sound, including impact, sliding, and rolling. Try separate excitation and resonances. Verify perceived material and motion with the current action. |
+| [Perry Cook, Princeton Sound Lab physical modeling research](https://soundlab.cs.princeton.edu/research/phymod/) | Author's index and papers on physically informed percussion, modal synthesis, and stochastic events. Use the model family suited to the event, such as resonances for a strike or multiple collision events for a rattle. |
+| [Andy Farnell, Designing Sound (MIT Press)](https://mitpress.mit.edu/9780262288835/designing-sound/) | Publisher overview of a procedural approach to sound. A practical starting question is which event parameters should change the rendered sound. The public overview establishes the book's scope. |
+| [Lawlor and Neumann, Overwatch: The Elusive Goal: Play by Sound (GDC 2016)](https://www.gdcvault.com/play/1023010/Overwatch-The-Elusive-Goal-Play) | Developer case. The session describes a sound design goal tied to player decisions. Test whether a listener identifies the current cue against competing cues. |
+| [Blizzard, Talent Tree: Sound Designer, Overwatch 2](https://overwatch.blizzard.com/en-gb/news/24226699/talent-tree-sound-designer-overwatch-2/) | Firsthand account of starting with gameplay role and character fantasy and exploring physical Foley materials. Derive the event's identity before selecting layers. |
+| [Kevin Regamey, The TUNIC Audio Talk (GDC 2023)](https://www.youtube.com/watch?v=sCIK78OHrIY) | Developer talk description covers early creative direction, gameplay-informed sound decisions, effect design, and implementation. Use as a case-study entry point for a further production decision. |
+
+## Background and adaptive music
+
+| Source | What to apply and what to check |
+| --- | --- |
+| [Elizabeth Medina-Gray, Analyzing Modular Smoothness in Video Game Music (2019)](https://www.mtosmt.org/issues/mto.19.25.3/mto.19.25.3.medina.gray.html) | Research and analyses of sequential and simultaneous relationships. Compare meter, timbre, pitch, volume, and abruptness at each seam. Interpret an intentional break by its function. |
+| [Austin Wintory, From JOURNEY to ERICA](https://awintory.medium.com/from-journey-to-erica-214355002896) | Composer's account of interactive scoring. Use as a source of examples for deciding which moments need a fixed sequence and which require a response to player state. |
+| [Audiokinetic, Wwise Project Adventure](https://www.audiokinetic.com/download/documents/WwiseProjectAdventure_en.pdf) | Official tutorial on music segments, source/destination transitions, and optional bridge segments. Check authored cues and matching transition rules in the installed version. |
+| [FMOD, Studio 2.04 Authoring Events](https://www.fmod.com/docs/2.04/studio/authoring-events.html) | Official reference for timeline regions, parameter conditions, and quantization. Verify region timing with the current event and active playback path. |
+| [Epic, Quartz overview](https://dev.epicgames.com/documentation/unreal-engine/overview-of-quartz-in-unreal-engine?lang=en-US) and [MetaSounds overview](https://dev.epicgames.com/documentation/en-us/unreal-engine/metasounds-the-next-generation-sound-sources-in-unreal-engine) | Official Unreal routes for playback scheduling and sample-accurate source graph operations respectively. Test the particular add, remove, fade, and cancellation behaviors the implementation needs. |
+| [Unity, AudioSource.PlayScheduled](https://docs.unity3d.com/ScriptReference/AudioSource.PlayScheduled.html) | Official DSP-time scheduling API. Give the audio path sufficient preparation time and check actual output after target import. |
+
+## Spoken voice
+
+| Source | What to apply and what to check |
+| --- | --- |
+| [Shure, Microphone Techniques for Recording](https://content-files.shure.com/Pubs/microphone-techniques-for-studio-recording/microphonetechniques-recording-guide.pdf) | Manufacturer's recording guide. Compare working distance, orientation, plosives, and proximity effect on a test line. |
+| [Audacity, Noise Reduction](https://manual.audacityteam.org/man/noise_reduction.html) | Official guidance on noise profiles and processing artifacts. Use a representative noise-only selection for steady noise and audition what the effect would remove. |
+| [iZotope, RX as a plug-in or standalone editor](https://www.izotope.com/community/blog/rx-as-a-plugin-vs-as-a-standalone-audio-editor) | Practitioner workflow examples for different contexts and repairs. Assess isolated clicks or residual noise in the final bed before processing an entire performance. |
+| [Jean-Marc Valin, A Hybrid DSP/Deep Learning Approach to Real-Time Full-Band Speech Enhancement (2018)](https://arxiv.org/abs/1709.08243) | Research describing RNNoise's combination of estimated critical-band gains and pitch filtering. Verify artifacts and intelligibility on the actual recording. |
+| [W3C, SSML 1.1](https://www.w3.org/TR/speech-synthesis11/) | Standard for pronunciation, breaks, and prosody markup. The chosen TTS provider determines which controls are available and how they render. |
+
+## Songwriting, groove, and arrangement
+
+| Source | What to apply and what to check |
+| --- | --- |
+| [Song Hawsuk, “This Damn Love”: Sexual Politics of Ballad (2017)](https://journal.kci.go.kr/musicology/archive/articleView?artiId=ART002245331) | Research on the historical Korean pop ballad and its dramatic intensification. Explore lyric, melodic contour, harmony, and the location of emotional peaks in the current brief. The historical repertoire bounds the observations. |
+| [Kim Sunghyun, Climax and Final Notes in K-pop Ballads (2025)](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003264097) | Observational analysis of selected 2015–2024 chart-topping ballads. Compare the lead's peak with the closing gesture. The song sample limits the generalization. |
+| [Witek et al., Syncopation, Body-Movement and Pleasure in Groove Music (2014)](https://doi.org/10.1371/journal.pone.0094446) | Original listener survey using funk drum breaks. Intermediate syncopation rated highly in these stimuli. Use the result to motivate a comparison of rhythmic density, with no prescribed setting for R&B or rap. |
+| [Questlove, 2013 lecture and demonstrations](https://www.redbullmusicacademy.com/lectures/questlove-new-york-2013/) and [D’Angelo, 2014 conversation](https://www.redbullmusicacademy.com/lectures/dangelo/) | Firsthand accounts of groove and session collaboration. Compare the relationship between specific parts and the beat, preserving a usable pulse. These accounts describe particular artists and sessions. |
+| [Ben Duinker, Segmentation, Phrasing, and Meter in Hip-Hop Music (2021)](https://doi.org/10.1093/mts/mtab003) and [Functions of Expressive Timing in Hip-Hop Flow (2022)](https://online.ucpress.edu/jpms/article-abstract/34/1/90/120447/Functions-of-Expressive-Timing-in-Hip-Hop-Flow) | Primary analyses of phrasing, meter, and timing against the beat. Mark vocal grouping and accents, then compare intentional alignment and displacement. |
+| [Dennis DeSantis, Making Music (Ableton)](https://cdn-resources.ableton.com/resources/uploads/makingmusic/MakingMusic_DennisDeSantis.pdf) and [Ableton Live 12, Using Grooves](https://www.ableton.com/en/live-manual/12/using-grooves/) | Production strategies and tool-specific groove controls. Compare arrangement by subtraction and apply measured timing and velocity changes to selected parts. |
+
+## Measurement and delivery
+
+| Source | What to apply and what to check |
+| --- | --- |
+| [ITU-R BS.1770-5](https://www.itu.int/rec/R-REC-BS.1770-5-202311-I) | Normative audio programme loudness and true-peak measurement algorithms. Select the delivery target from the actual specification. |
+| [EBU R 128](https://tech.ebu.ch/publications/r128) and [EBU Tech 3285](https://tech.ebu.ch/publications/tech3285) | Broadcast loudness recommendations and BWF metadata specification. Check whether the delivery requires either and whether its tools preserve the fields. |
+| [Spotify for Artists, Loudness normalization](https://support.spotify.com/us/artists/article/loudness-normalization/) | Service-specific normalization behavior and delivery advice. Compare streaming preview assumptions with the intended master and destination. |
+| [FFmpeg filters](https://ffmpeg.org/ffmpeg-filters.html#ebur128) and [ffprobe](https://ffmpeg.org/ffprobe.html) | Official measurement and inspection references. Probe the actual deliverable and interpret metrics in context. |
+
+## Tools and rights
+
+| Source | What to apply and what to check |
+| --- | --- |
+| [Kreuk et al., AudioGen (ICLR 2023)](https://arxiv.org/abs/2209.15352) and [Copet et al., MusicGen (NeurIPS 2023)](https://proceedings.neurips.cc/paper_files/paper/2023/hash/94b472a1842cd7c56dcb125fb2765fbd-Abstract-Conference.html) | Primary research for text-guided audio and controllable music generation. Assess event order, structure, timing, and fidelity on the actual render. Use the [AudioCraft weight license](https://github.com/facebookresearch/audiocraft/blob/main/LICENSE_weights) for that project's weights and check the terms of the exact checkpoint. |
+| [ElevenLabs, Create sound effect](https://elevenlabs.io/docs/api-reference/text-to-sound-effects/convert) | Official example of generation controls for duration, format, and looping. Verify version-dependent support and inspect the resulting loop and file. |
+| [Suno, Paid subscription rights](https://help.suno.com/en/articles/9601665) | Provider account of commercial-use terms. Recheck the plan, the asset's relevant dates, and the current terms before relying on rights for delivery. |
+| [Freesound FAQ](https://freesound.org/help/faq/) and [U.S. Copyright Office, Sound Recordings](https://www.copyright.gov/register/sr-definition.html) | Library guidance on sound-level licenses and a U.S. primary reference distinguishing composition and recording. Verify the specific asset, use, and jurisdiction where relevant. |
+
+===== skills/vegabond-sound/references/spoken-voice.md =====
+
+# Spoken voice
+
+## Prepare the script and performance
+
+Keep one stable line ID per utterance for localization, retakes, and integration. Record the exact text, intended listener, speaking objective, delivery or intensity, timing constraint, and pronunciation notes when important. Separate line text from direction and pronunciation hints. Flag names, numbers, units, abbreviations, and mixed-script phrases that can be read multiple ways.
+
+For Korean lines, confirm speech level and character relationship, then read the phrase naturally at speed. Inspect the intended reading of 받침 and liaison, Sino-Korean versus native Korean numbers, and mixed Korean and foreign proper names. Use a supplied pronunciation or ask for one where a name's correct reading materially affects delivery. Preserve locked wording and keep any TTS spelling variants in a separate rendering field.
+
+## Record, synthesize, or repair
+
+- **Recording and ADR.** Choose a quiet position and capture a short room-tone bed with the same mic and gain. Keep mic geometry and pop protection consistent. Record a test line and the loudest expected delivery before committing. For ADR, compare phrase onset, visible closures, breaths, and intention against picture. Keep the original or an edit-safe copy for pickups.
+- **TTS.** Confirm the language, controls, output format, and permitted use of the selected provider. Use an eligible stock voice when the brief leaves the voice open. For an identifiable real voice, check its license or documented permission and apply relevant disclosure requirements. Use speaking direction, line context, and supported pronunciation markup or dictionaries where useful. Check an ordinary line and a difficult line before generating a batch. Listen to each exact line for omissions, substitutions, pronunciation, natural pauses, inconsistent character, and unwanted generated material. [Speech sources](sources.md#spoken-voice)
+- **Editing.** Select and align takes first. Use clip gain and short fades to join them with matching room tone. Repair isolated plosives, mouth clicks, or hum where they distract. Compare conservative denoise against the untreated take at similar playback level, especially consonants, breaths, and endings. Use de-essing or dynamics for an audible problem, and shape intelligibility against the actual music and effects.
+
+For a batch, hand off files with stable IDs and only the requested variants. Include matching room tone or edit handles when the downstream editor needs them. Listen both solo and in the scene at normal speed, especially the starts and ends of short lines, stressed syllables, and names. A transcript comparison can locate omissions. Human or tool-assisted listening is needed to establish intelligibility, emotion, and naturalness.
+
 ===== feedback/README.md =====
 
 # Strategy feedback
@@ -2227,7 +2595,7 @@ Maintainer fills during processing: assessment; change or defer reason; original
 | K-GAME-TECH-DUNGEON / Generate levels from a traversability contract [reference] | Use binary space partitioning to lay out rooms, then test both graph connectivity and clearance for the intended moving body. | Game development. For seeded grid generation, Unreal Engine's `FRandomStream` produces a repeatable sequence from an explicit seed. | procedural, dungeon, BSP, random, walk, grammar, 절차적생성, seed, room corridor, capsule clearance, connectivity, farthest exit, 던전, 시드, 방 통로, 연결성, binary space partitioning, breadth-first search, flood fill, FRandomStream | active / 2026-11-19 | [K-GAME-TECH-DUNGEON](K-GAME-TECH-DUNGEON.md) |
 | K-GAME-TECH-EASING / Choose curves by endpoint and timing constraints [reference] | Evaluate a finite transition from normalized elapsed time. Define what happens to position, velocity and completion when the transition is interrupted. | Game development. For a finite tween, pause can freeze the cursor, restart can take the current displayed value as its new start, and reversal can traverse the same cursor backwards. | easing, Bézier, smoothstep, smootherstep, interpolation, 베지에, 보간 전환 시간, 전환 시간, normalized time, transition duration, camera transition, tween, pause resume, restart, reverse, asymmetric curve, current value, position continuity, velocity discontinuity, 역재생, 전환 중단, 현재값 재시작, 끝점, SetWorldLocation, cubic Bézier | active / 2026-11-19 | [K-GAME-TECH-EASING](K-GAME-TECH-EASING.md) |
 | K-GAME-TECH-FOLIAGE / Budget dense vegetation across geometry and pixel cost [reference] | Use shared crossed masked cards and instancing for repeated grass, while measuring pixel coverage separately. Scoped UE5.8.3 tests compare individual/ISM with matched effective centre-distance culling; native bounds reference differs, and instancing does not remove all shading work. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "UE5.8.3 V19:37policy/47evidence/4actualPIE+4packaged8cases/12costplayers/normal1xmedia;small static Unlit masked patch,noLOD/wind/Nanite/forest", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | foliage, grass, LOD, culling, instancing, 잔디, 인스턴싱, 컬링, 오버드로, 최적화, Static Mesh Foliage, hardware instancing, overdraw, masked grass, alpha holes, two sided, instance placement, sphere edge, centre cutoff, reentry, ISM, 잔디 배치, 거리 컬링, 재진입, 알파 구멍, 양면 | active / 2026-11-13 | [K-GAME-TECH-FOLIAGE](K-GAME-TECH-FOLIAGE.md) |
-| K-GAME-TECH-GUIDE / Retrieve game implementation techniques from concrete development problems [reference] | Start from the observed symptom or required behavior, compare relevant mechanisms and verify their assumptions on the target game before choosing one. | Game development. For game design, engineering and debugging, a public short identifies a question.; {"admission_evidence": "UE5.8.3 paired six-policy overload comparison; accepted latency/all-offered goodput/rejection and full frames; finite static graph scope", "application_status": "CAMERA/HITSCAN/PATH/CROWD/CONTROLLER/TRACE/LOCKON/IK/HITBOX/DUNGEON/TIMESTEP/BILLBOARD/EASING/NOISE/NORMAL/BLEND/SYSTEMIC/INTERIOR/REFLECTION/FOLIAGE/RNG/SOUND/RANDOM-DESIGN/WATER/SAVE/MUSIC/SPEED/SHADOW/DESTRUCTION/VOLUME/RETRO/PIXEL/VOXEL/DDA/LEVEL/HAIR/AUTHORITY/ROLLBACK/LAGCOMP/LOCKSTEP/MATCH/INCENTIVES/MEMORY have limited local evidence. Actual FPS and technique limits remain scoped.", "async_save_evidence": "UE5.8.3 detached full input; same-binary owned-sync/async3pairs, exact records, queue/failure/pending-exit controls; finished-fixture rendering only", "billboard_evidence": "UE5.8.3 V43:39policy,4assets,207pose observations,9cost players,normal1x;cap30→22.49FPS, cap60→45.31FPS, cap144→114.02FPS;Requested-FPS coverage is incomplete: each missed cap band remains unverified under the existing actual-FPS±10% criterion;pose checks pass only at observed rates.", "blend_evidence": "UE5.8.3 V45:34model/120methodcases/630RGBprobes/12costplayers/1xmedia;linearHDR/unlitBeforeDOF;authored modulate fade,not general sorting", "cloud_evidence": "UE 5.8.3 V27 native single layer with traversal, parallax and opaque occlusion.", "controller_evidence": "UE5.8.3 jump windows and V30 planar corner correction, including takeoff from a vertically moving base. See CONTROLLER for separate PIE and packaged observations.", "dungeon_evidence": "UE5.8.3 V40/V56 BSP:1024policy,1000actual PIE+1000packaged seeds,3matched1000seed costs,native1x media; static flat capsule only", "easing_evidence": "UE5.8.3 V47/V59:104policy,96PIE method-cases,12cost players,normal1x;scriptedHz separate from actual cap30→23.21FPS, cap60→45.66FPS, cap144→110.32FPS", "evidence_check": "Primary source research, direct creator accounts and explicitly labelled source limits", "foliage_evidence": "UE5.8.3 V19:37policy/47evidence/4PIE+4package8cases/12matchedcostplayers/normal1x;shared static Unlit cards,effectivecentre cull,noLOD/wind/Nanite", "foot_ik_evidence": "UE 5.8.3 V37 static support and V08 footwear-specific stance calibration with swing clearance limits.", "hitbox_evidence": "UE5.8.3 V42 static sphere attack/hurt/physical separation only:40policy,174actual PIE30/60/144,3matched package costs,native1x media; no hitstop/full combat", "hitch_evidence": "UE5.8.3 same-binary3paired admission profiles; named frame traces; scene-local query suppression and cardinal reservation proof limits", "interior_evidence": "Partial UE5.8.3 V15: 48 policy / 50 evidence tests, 576 windows / 14400 pixel pairs, nine cost players / 1x media. Actual 30/60/144 FPS bands unverified; unlit point atlas / non-enterable.", "lockon_evidence": "UE5.8.3 known5actors/fixedcamera selection-retention-switching only;37policy,198actual PIE30/60/144,3matched package costs and native1x media", "noise_evidence": "UE5.8.3 V07/V50:57model,12native scenes,6cost players,1xmedia;native seams0;wholeframe39–40ms under synchronous4mesh replacement workload", "normal_evidence": "UE5.8.3 V26:33model/20native scenes/320GPUprobes/8seampairs/6cost players/1xmedia;no displacement;fixedboxcollision only", "planner_evidence": "UE5.8.3 equivalent packed-priority heap; scoped bit-domain/path/order/native/profile and3paired frame evidence", "reflection_evidence": "UE5.8.3 V16:31policy/50evidence/actualPIE+package14cases/6costplayers/1xmedia;one rigid Unlit SceneCapture2D mirror,notbuiltinactor/recursive/water", "rng_evidence": "UE5.8.3 V55:57policy/38evidence/8actualPIE+8packaged/6fixed-callcosts/normal1x;explicit seeds and whole-memory snapshots,single-thread,no file saves", "snapshot_evidence": "UE5.8.3 owned records/direct JSON; exact byte/value/order/lifetime/native safety,3paired transition/save/process-memory observations", "sound_evidence": "UE5.8.3 V22 native PCM evidence for attenuation, stereo direction, occlusion, and indoor and outdoor reverb with an overlap priority and fade reversal.", "systemic_evidence": "UE5.8.3 V51:31policy/960native steps/5760body observations/37evidence/3costplayers/1xmedia;authored100ms boundedwoodmetalrules,nofluid/network/largeworld", "timestep_evidence": "UE5.8.3 V02/V49 independent simulation/display:78policy,36actual PIE method-cases30/60/144,9cost players,normal1x; finite hitch recovery,one-tick interpolation only", "vision_evidence": "UE5.8.3 known-target center-point range/cone/occlusion only; model24,PIE132cases at actual30/60/144,3paired package query/frame observations and normal-speed media"} | game-development, rendering, controller, netcode, procedural-generation, research, 게임개발, 기술, 지식, 구현, technique guide, game development, debugging, evidence selection | active / 2026-11-22 | [K-GAME-TECH-GUIDE](K-GAME-TECH-GUIDE.md) |
+| K-GAME-TECH-GUIDE / Retrieve game implementation techniques from concrete development problems [reference] | Start from the observed symptom or required behavior, compare relevant mechanisms and verify their assumptions on the target game before choosing one. | Game development. For game design, engineering and debugging, a public short identifies a question.; {"admission_evidence": "UE5.8.3 paired six-policy overload comparison; accepted latency/all-offered goodput/rejection and full frames; finite static graph scope", "application_status": "CAMERA/HITSCAN/PATH/CROWD/CONTROLLER/TRACE/LOCKON/IK/HITBOX/DUNGEON/TIMESTEP/BILLBOARD/EASING/NOISE/NORMAL/BLEND/SYSTEMIC/INTERIOR/REFLECTION/FOLIAGE/RNG/SOUND/RANDOM-DESIGN/WATER/SAVE/MUSIC/SPEED/SHADOW/DESTRUCTION/VOLUME/RETRO/PIXEL/VOXEL/DDA/LEVEL/HAIR/AUTHORITY/ROLLBACK/LAGCOMP/LOCKSTEP/MATCH/INCENTIVES/MEMORY have limited local evidence. Actual FPS and technique limits remain scoped.", "async_save_evidence": "UE5.8.3 detached full input; same-binary owned-sync/async3pairs, exact records, queue/failure/pending-exit controls; finished-fixture rendering only", "billboard_evidence": "UE5.8.3 V43:39policy,4assets,207pose observations,9cost players,normal1x;cap30→22.49FPS, cap60→45.31FPS, cap144→114.02FPS;Requested-FPS coverage is incomplete: each missed cap band remains unverified under the existing actual-FPS±10% criterion;pose checks pass only at observed rates.", "blend_evidence": "UE5.8.3 V45:34model/120methodcases/630RGBprobes/12costplayers/1xmedia;linearHDR/unlitBeforeDOF;authored modulate fade,not general sorting", "cloud_evidence": "UE5.8.3 V27 single layer, native density/coverage/boundary/parallax/occlusion/sun pixels, three runs each for off and two view sample ceilings, and 19.6 seconds of 1x capture", "controller_evidence": "UE5.8.3 jump windows and V30 planar corner correction, including takeoff from a vertically moving base. See CONTROLLER for separate PIE and packaged observations.", "dungeon_evidence": "UE5.8.3 V40/V56 BSP:1024policy,1000actual PIE+1000packaged seeds,3matched1000seed costs,native1x media; static flat capsule only", "easing_evidence": "UE5.8.3 V47/V59:104policy,96PIE method-cases,12cost players,normal1x;scriptedHz separate from actual cap30→23.21FPS, cap60→45.66FPS, cap144→110.32FPS", "evidence_check": "Primary source research, direct creator accounts and explicitly labelled source limits", "foliage_evidence": "UE5.8.3 V19:37policy/47evidence/4PIE+4package8cases/12matchedcostplayers/normal1x;shared static Unlit cards,effectivecentre cull,noLOD/wind/Nanite", "foot_ik_evidence": "UE5.8.3 V37 static support and V08 flat/high-heel calibration on a 68-bone rig. V08 has 32 native cases and three cost pairs. Full-stance contact passed, with walking swing penetration observed.", "hitbox_evidence": "UE5.8.3 V42 static sphere attack/hurt/physical separation only:40policy,174actual PIE30/60/144,3matched package costs,native1x media; no hitstop/full combat", "hitch_evidence": "UE5.8.3 same-binary3paired admission profiles; named frame traces; scene-local query suppression and cardinal reservation proof limits", "interior_evidence": "Partial UE5.8.3 V15: 48 policy / 50 evidence tests, 576 windows / 14400 pixel pairs, nine cost players / 1x media. Actual 30/60/144 FPS bands unverified; unlit point atlas / non-enterable.", "lockon_evidence": "UE5.8.3 known5actors/fixedcamera selection-retention-switching only;37policy,198actual PIE30/60/144,3matched package costs and native1x media", "noise_evidence": "UE5.8.3 V07/V50:57model,12native scenes,6cost players,1xmedia;native seams0;wholeframe39–40ms under synchronous4mesh replacement workload", "normal_evidence": "UE5.8.3 V26:33model/20native scenes/320GPUprobes/8seampairs/6cost players/1xmedia;no displacement;fixedboxcollision only", "planner_evidence": "UE5.8.3 equivalent packed-priority heap; scoped bit-domain/path/order/native/profile and3paired frame evidence", "reflection_evidence": "UE5.8.3 V16:31policy/50evidence/actualPIE+package14cases/6costplayers/1xmedia;one rigid Unlit SceneCapture2D mirror,notbuiltinactor/recursive/water", "rng_evidence": "UE5.8.3 V55:57policy/38evidence/8actualPIE+8packaged/6fixed-callcosts/normal1x;explicit seeds and whole-memory snapshots,single-thread,no file saves", "snapshot_evidence": "UE5.8.3 owned records/direct JSON; exact byte/value/order/lifetime/native safety,3paired transition/save/process-memory observations", "sound_evidence": "UE5.8.3 V22 native PCM evidence for attenuation, stereo direction, occlusion, and indoor and outdoor reverb with an overlap priority and fade reversal.", "systemic_evidence": "UE5.8.3 V51:31policy/960native steps/5760body observations/37evidence/3costplayers/1xmedia;authored100ms boundedwoodmetalrules,nofluid/network/largeworld", "timestep_evidence": "UE5.8.3 V02/V49 independent simulation/display:78policy,36actual PIE method-cases30/60/144,9cost players,normal1x; finite hitch recovery,one-tick interpolation only", "vision_evidence": "UE5.8.3 known-target center-point range/cone/occlusion only; model24,PIE132cases at actual30/60/144,3paired package query/frame observations and normal-speed media"} | game-development, rendering, controller, netcode, procedural-generation, research, 게임개발, 기술, 지식, 구현, technique guide, game development, debugging, evidence selection | active / 2026-11-22 | [K-GAME-TECH-GUIDE](K-GAME-TECH-GUIDE.md) |
 | K-GAME-TECH-HAIR / Choose hair representation and simulation independently [reference] | Choose hair cards or Groom strands against silhouette, backdrop coverage and GPU budget. A native fixed-LOD rig verifies rigid root attachment and near/far performance. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "V13 UE 5.8.3 Win64 DX11 original masked hair cards and native Groom strands. Rigid attach, fixed LOD, physics off. Head turn and near/far pixels, three whole-frame and GPU measurements per arm.", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | groom, strands, hair, cards, 머리카락, Groom Asset, simulation guides, strand interpolation, hair cards, hair silhouette, background see-through, rigid root attachment, 헤어 카드, 헤어 스트랜드, 두피 부착, 배경 비침, 헤어 GPU 비용 | active / 2026-11-20 | [K-GAME-TECH-HAIR](K-GAME-TECH-HAIR.md) |
 | K-GAME-TECH-HITBOX / Keep attack, hurt and physical collision contracts distinct [reference] | Clip collision queries to the attack's active time and process eligible touches once per attack and target, even if the sweep encounters no blocking hit. | Game development. In Unreal Engine, `UWorld::SweepMultiByChannel` collects touches up to the nearest blocker on the selected channel. | hitbox, hurtbox, hitstop, collision, 피격, attack window, sphere sweep, active clipping, duplicate damage, attack identity, hurt capsule, blocking status, 히트박스, 허트박스, 중복 피격, 고속 통과, 공격 활성 구간, UWorld::SweepMultiByChannel, FHitResult | active / 2026-11-19 | [K-GAME-TECH-HITBOX](K-GAME-TECH-HITBOX.md) |
 | K-GAME-TECH-HITSCAN / Resolve hitscan from aiming intent and muzzle constraints [reference] | Resolve an instantaneous game hit against the selected aiming point and the actual origin's unobstructed path. Define starting overlaps and ownership filtering. | Game development. For Unreal object-type queries, `UWorld::LineTraceSingleByObjectType` casts a segment against selected object types. | hitscan, muzzle, crosshair, head, glitch, 히트스캔, Unreal, 언리얼, UWorld::LineTraceSingleByObjectType, UWorld::OverlapAnyTestByObjectType, Physics.Raycast | active / 2026-11-19 | [K-GAME-TECH-HITSCAN](K-GAME-TECH-HITSCAN.md) |
@@ -2250,9 +2618,9 @@ Maintainer fills during processing: assessment; change or defer reason; original
 | K-GAME-TECH-RETRO / Distinguish affine texture transforms from perspective projection [reference] | Use affine UV mapping for flat texture motion and row-dependent depth for a stylized horizontal floor. Unreal 5.8.3 evidence covers pixel alignment, signed UV addressing, scale zero and the horizon guard. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "V57 native basic/affine/scanline floor with actual sampled pixels, nine packaged costs and normal 1x capture. Flat-plane effect and explicit point-sampling limits.", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | affine, perspective, Mode7, scanline, 아핀, Mode 7, affine transformation, fixed-point arithmetic, affine UV, horizon guard, negative UV, wrap clamp, 주사선, 지평선, 반복 클램프 | active / 2026-11-18 | [K-GAME-TECH-RETRO](K-GAME-TECH-RETRO.md) |
 | K-GAME-TECH-RNG / Separate reproducible randomness from security-sensitive randomness [reference] | Own explicit seeded gameplay and cosmetic streams to isolate ordered outcomes; restore complete stream and consumer state for in-memory replay. UE5.8.3 bounded Actor/PIE/package checks and equal-call shared/split costs are measured; no statistical-independence or cross-version guarantee. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "UE5.8.3 Win64/DX11:57policy/38evidence/8actualPIE+8packagedcases/6equal-callcosts/normal1xmedia;single-thread/in-memory only", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | PRNG, PCG, seed, stream, deterministic, 난수, linear congruential generator, LCG, Permuted Congruential Generator, independent streams, FRandomStream, cosmetic, gameplay, reset, memory checkpoint, state restore, 장식, 복원, 독립 스트림 | active / 2026-11-19 | [K-GAME-TECH-RNG](K-GAME-TECH-RNG.md) |
 | K-GAME-TECH-ROLLBACK / Restore and re-simulate state for rollback networking [reference] | Restore a bounded snapshot and re-simulate with corrected inputs. Publish confirmed contact events once. Native Unreal evidence covers both waiting and rollback on one reproducible delay trace. | Game development. For a rollback simulation, restored state and input order must reproduce the agreed result within the replay budget.; {"application_status": "V31 Unreal 5.8.3 30 Hz two-character integer contact scene. Native wait/rollback comparison with authored input arrivals, exact confirmed state and contact proof, three frame-cost runs per method."} | rollback, GGPO, delay, input, prediction, achievement, reward, confirmation, 롤백, 롤백넷코드, 재시뮬레이션, 업적, 보상, 확정, idempotency key, verified frames, CallbackEventCanceled, rollback contact, snapshot restore, contact event deduplication, 접촉 이벤트, 스냅샷 복원, 입력 대기, 롤백 재실행 틱 | active / 2026-11-20 | [K-GAME-TECH-ROLLBACK](K-GAME-TECH-ROLLBACK.md) |
-| K-GAME-TECH-SAVE / Design versioned durable saves and compact password states [reference] | Persist stable-ID progress with a versioned container or compact progress code. Validate staged publication, restart recovery, storage exhaustion and world binding before state application. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "UE 5.8.3 guidance for staged A/B recovery, NTFS exhaustion and V54 progress codes. Physical power-loss safety remains open.", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | save, serialization, checksum, password, bitflags, 저장, 세이브, 백업, 저장손상, USaveGame, UGameplayStatics::AsyncSaveGameToSlot, save generation, game state, stable ID, SaveGame, CRC32, previous generation, file truncation, both invalid, 게임 상태, 상태 복원, 이전 세대, 파일 잘림, 양쪽 무효 | active / 2026-11-21 | [K-GAME-TECH-SAVE](K-GAME-TECH-SAVE.md) |
+| K-GAME-TECH-SAVE / Design versioned durable saves and compact password states [reference] | Persist stable-ID progress with a versioned container or a compact progress code. Unreal checks cover staged A/B restart recovery and a 14-symbol V54 code that restores a fixed world state in a separate process. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "UE5.8.3 V20 staged A/B process termination and real NTFS exhaustion, V54 versioned 14-symbol code with four restart pairs, eight rejections, and three matched cost runs. Physical power loss remains unverified.", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | save, serialization, checksum, password, bitflags, 저장, 세이브, 백업, 저장손상, USaveGame, UGameplayStatics::AsyncSaveGameToSlot, save generation, game state, stable ID, SaveGame, CRC32, previous generation, file truncation, both invalid, 게임 상태, 상태 복원, 이전 세대, 파일 잘림, 양쪽 무효 | active / 2026-11-21 | [K-GAME-TECH-SAVE](K-GAME-TECH-SAVE.md) |
 | K-GAME-TECH-SHADOW / Choose shadow-map resolution and filtering [reference] | Choose shadow-map coverage,resolution/filtering and bias from actual contact,self-shadow and camera-motion evidence. UE5.8.3 conventional CSM off/low/high bounded pixel/cost observations exist;high quality does not guarantee zero acne or shimmer. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "V03 UE5.8.3:46policy/6PIE+packageworlds/9costs/native1x60s;conventional CSM/AAoff/one light,not VSM/Nanite/generalquality", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | shadow, map, PCF, CSM, 그림자, cascaded shadow maps, percentage-closer filtering, bias, contact gap, self shadow, cascade boundary, camera registered, shimmer, 바이어스, 자기 그림자, 캐스케이드, 떨림 | active / 2026-11-14 | [K-GAME-TECH-SHADOW](K-GAME-TECH-SHADOW.md) |
-| K-GAME-TECH-SOUND / Model distance, occlusion and room response separately [reference] | Verify attenuation, stereo direction, obstruction and room reverb separately in the mixed output. UE5.8.3 V22 covers listener axes, door occlusion, outdoor and indoor reverb, priority, boundary conditions and reversal during a fade. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "UE 5.8.3 guidance for attenuation, stereo direction, solid occlusion and native reverb transitions.", "evidence_check": "External source text checked; source-specific limits appear in Evidence", "panning_limit": "Native5.8exactleftaxis failed;explicit source-stereo equal-power implemented,no enginepatch or cross-version guarantee"} | spatial, audio, Doppler, reverb, occlusion, attenuation, 음향, sound attenuation, air absorption, spatialization, occlusion low-pass filter, stereo, equal-power, listener, GetAzimuth, source owner, master PCM, submix, recording, door, WASAPI, NonRealtime, 좌우, 청취자, 문, 가림, 녹음, V22, Audio Volume, room response, early reflections, late reflections, reverb zone, fade reversal, 잔향, 리버브, 실내, 실외, 구역 우선순위, 직접음 | active / 2026-11-22 | [K-GAME-TECH-SOUND](K-GAME-TECH-SOUND.md) |
+| K-GAME-TECH-SOUND / Model distance, occlusion and room response separately [reference] | Verify attenuation, stereo direction, obstruction and room reverb separately in the mixed output. UE5.8.3 V22 covers listener axes, door occlusion, outdoor and indoor reverb, priority, boundary conditions and reversal during a fade. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "UE5.8.3 V22 master PCM evidence for attenuation, authored stereo panning, occlusion and native indoor and outdoor reverb transitions. See each experiment for cost scope.", "evidence_check": "External source text checked; source-specific limits appear in Evidence", "panning_limit": "Native5.8exactleftaxis failed;explicit source-stereo equal-power implemented,no enginepatch or cross-version guarantee"} | spatial, audio, Doppler, reverb, occlusion, attenuation, 음향, sound attenuation, air absorption, spatialization, occlusion low-pass filter, stereo, equal-power, listener, GetAzimuth, source owner, master PCM, submix, recording, door, WASAPI, NonRealtime, 좌우, 청취자, 문, 가림, 녹음, V22, Audio Volume, room response, early reflections, late reflections, reverb zone, fade reversal, 잔향, 리버브, 실내, 실외, 구역 우선순위, 직접음 | active / 2026-11-22 | [K-GAME-TECH-SOUND](K-GAME-TECH-SOUND.md) |
 | K-GAME-TECH-SPEED / Use speed effects without hiding actionable information [reference] | Scale FOV,backward rig offset/lag and native blur from actual post-collision speed;keep cosmetic state separate from movement/world judgments and reset history on cuts. UE5.8.3 bounded off/reduced/full native evidence exists;not actual30/60/144FPS or subjective comfort certification. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "V06 UE5.8.3:274policy/22native sessions/20players1200steps/9matchedcosts/60snormal1x;fixedforward rig,notvehicle/cameraaim/comfort/FPS certification", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | FOV, motion, blur, speed, camera, 속도감, field of view, camera motion blur, velocity buffer, view-projection matrix, actual velocity, camera lag, camera cut, disable, reactivate, reverse framing, fixed forward rig, 속도 기반 FOV, 카메라 지연, 역방향, 모션 블러 | active / 2026-11-19 | [K-GAME-TECH-SPEED](K-GAME-TECH-SPEED.md) |
 | K-GAME-TECH-SYSTEMIC / Model elemental interactions as explicit state rules [reference] | Stage explicit elemental state transitions with water/fire precedence, stable event IDs and finite electric propagation. Scoped UE5.8.3 native contacts/state/event/timer evidence supports bounded wood/metal rules;Nintendo source details remain unknown. | Game development; engine-independent mechanisms with version-dependent engine examples; {"application_status": "Scoped UE5.8.3 V51:31policy/960native steps/5760body observations/37evidence tests/3costplayers/1xmedia;bounded100ms rules,notNintendo source/fluid/network/largeworld", "evidence_check": "External source text checked; source-specific limits appear in Evidence"} | systemic, chemistry, engine, elements, material, emergent, 화학엔진, chemistry engine, material state transition, interaction matrix, water fire precedence, wet wood, metal conductivity, electric cycle, stable event id, event deduplication, charred fuel, atomic state transition, 원소 상호작용, 젖은 나무, 전기 순환, 동시 소화 | active / 2026-11-12 | [K-GAME-TECH-SYSTEMIC](K-GAME-TECH-SYSTEMIC.md) |
 | K-GAME-TECH-TIMESTEP / Separate simulation steps from rendering and tune jump integration [reference] | Accumulate elapsed time and advance the simulation in fixed increments. Budget catch-up and interpolate presentation separately from authoritative state. | Game development. For a bounded fixed-step model with residual time below h, interpolate the previous and current transforms with alpha=residual/h. | fixed, timestep, Euler, subpixel, interpolation, delta, time, 프레임, accumulator, backlog, catchup, render interpolation, one tick delay, jump apex, per flight, 고정 시간, 누적 시간, 렌더 보간, 지연 복구, fixed timestep, semi-implicit Euler, explicit Euler | active / 2026-11-11 | [K-GAME-TECH-TIMESTEP](K-GAME-TECH-TIMESTEP.md) |
@@ -2278,7 +2646,7 @@ Maintainer fills during processing: assessment; change or defer reason; original
 | K-CODE-GC-LIFETIMES / Separate garbage collection, resource cleanup, and memory diagnosis [reference] | Garbage collection reclaims eligible unreachable managed objects, while useful lifetime and prompt resource cleanup still need explicit design. Diagnose growing memory with reachability, allocation, and fragmentation evidence before choosing a fix. | .NET managed-memory diagnosis and Unreal UObject references; source-specific mechanisms rather than guarantees for every garbage collector; {"application_status": "Reference synthesis; no target process, heap dump, profiler session, or resource-cleanup test executed", "evidence_check": "Microsoft Learn and Epic primary documentation inspected on 2026-11-07; Epic served Unreal Engine 5.8"} | garbage collection, GC, reachability, retention, memory leak, fragmentation, allocation churn, IDisposable, UObject, TObjectPtr, 메모리 관리, 가비지 컬렉션, 메모리 누수, 객체 보존, UPROPERTY, TStrongObjectPtr, TWeakObjectPtr, TSoftObjectPtr | active / 2026-11-07 | [K-CODE-GC-LIFETIMES](K-CODE-GC-LIFETIMES.md) |
 | K-CODE-GIT-ISOLATED-MERGE / Resolve a large branch merge in a sparse linked worktree without touching the main checkout [method] | Dry-run the merge with git merge-tree to get the conflict list and stage blobs, then do the real merge in a linked worktree with a cone sparse checkout of only the conflicting directories and LFS smudge disabled; decide binary and generated conflicts from history and regeneration, and keep EOL-only regeneration drift out of the index. | Git repositories with large binary or LFS content where the main working copy must stay untouched (open editors, locked files, no checkout rule) while a merge with many conflicts is resolved; {"platform": "Windows (core.autocrlf=true)", "vcs": "git 2.x with git-lfs"} | git merge, git merge-tree, git worktree, sparse-checkout, GIT_LFS_SKIP_SMUDGE, LFS pointer conflict, binary conflict, generated code, protoc, core.autocrlf, EOL drift, MERGE_MSG, cleanup=verbatim, merge commit | active / 2026-11-06 | [K-CODE-GIT-ISOLATED-MERGE](K-CODE-GIT-ISOLATED-MERGE.md) |
 | K-CODE-INFORMATION-HIDING / Place module boundaries around hidden design decisions [reference] | Group responsibilities around decisions that should change privately, and evaluate a boundary by what callers must know rather than by file or class size. | Software module design and refactoring; historical information-hiding arguments adapted to current language and performance constraints; {"application_status": "Reference only; no project refactoring or runtime verification performed", "evidence_check": "Primary texts and official C++ guidance inspected on 2026-11-07; source observations separated from design synthesis"} | information hiding, encapsulation, modularity, cohesion, temporal decomposition, change propagation, 정보 은닉, 캡슐화, 모듈성, 응집도, 변경 전파 | active / 2026-11-07 | [K-CODE-INFORMATION-HIDING](K-CODE-INFORMATION-HIDING.md) |
-| K-CODE-MAINTAINABILITY-EVIDENCE / Judge maintainability through concrete changes and multiple outcomes [reference] | Evaluate a design or refactor with representative understanding and modification tasks, preserved behavior and change impact. Treat size, complexity and coupling metrics as evidence dimensions rather than a single proof of maintainability. | Maintainability assessment and refactoring decisions; observational Windows study and a bounded student Java experiment do not establish universal design laws; {"application_status": "Source-based reference and proposed synthesis; no local implementation or runtime validation", "evidence_check": "Named original author papers or official text sections inspected; specific limits in Evidence"} | maintainability, refactoring, empirical, change-impact, modularity, comprehension, metrics, 유지보수성, 리팩터링, 실증연구, 변경영향, 이해도, 지표 | active / 2026-11-07 | [K-CODE-MAINTAINABILITY-EVIDENCE](K-CODE-MAINTAINABILITY-EVIDENCE.md) |
+| K-CODE-MAINTAINABILITY-EVIDENCE / Judge maintainability through concrete changes and multiple outcomes [reference] | Evaluate a design or refactor with representative understanding and modification tasks, preserved behavior and change impact. Treat size, complexity and coupling metrics as evidence dimensions rather than a single proof of maintainability. | Maintainability assessment and refactoring decisions; observational Windows study and a bounded student Java experiment do not establish universal design laws; {"application_status": "Source-based reference and proposed synthesis; no local implementation or runtime validation", "evidence_check": "Named original author papers or official text sections inspected; specific limits in Evidence"} | maintainability, refactoring, empirical, change-impact, modularity, comprehension, metrics, AI code quality, AI 코드 품질, 유지보수성, 리팩터링, 실증연구, 변경영향, 이해도, 지표 | active / 2026-11-21 | [K-CODE-MAINTAINABILITY-EVIDENCE](K-CODE-MAINTAINABILITY-EVIDENCE.md) |
 | K-CODE-PERFORMANCE-MEASUREMENT / Measure representative workloads before trading clarity for optimization [reference] | Set relevant latency, throughput and memory budgets, characterize the workload and locate the limiting work before optimizing. Check that a benchmark measures the intended operation and preserve correctness and maintainability alongside measured gains. | Application and systems performance decisions including game frame-time and allocation costs; tools and measurement interpretation remain runtime-specific; {"engine": "Historical UE 5.8.3 Windows D3D11 real-time packaged workloads and separate PIE behavior checks", "evidence": "Methodology survey and bounded frame, planner, queue and completed-simulation save comparisons; no production guarantee"} | profiling, benchmark, latency, throughput, goodput, tail latency, p95, frame pacing, fixed timestep, token bucket, FIFO, backpressure, Unreal Insights, Timing Insights, occlusion query, Render Hardware Interface, Present, binary heap, snapshot lifetime, working set, private commit, benchmark::DoNotOptimize, 성능, 프로파일링, 프레임 시간, 비동기 저장 | active / 2026-11-11 | [K-CODE-PERFORMANCE-MEASUREMENT](K-CODE-PERFORMANCE-MEASUREMENT.md) |
 | K-CODE-PRINCIPLE-REUSE / Apply coding principles through concrete contracts and change risks [convention] | Before applying a coding philosophy, retrieve the references matching the actual maintenance, interface, dependency, configuration, performance or lifetime question. Resolve tensions against project contracts and evidence rather than enforcing slogans or a universal style score. | OneStep code design, implementation review and refactoring; other projects use this store only when configured or authorized, and their own contracts and conventions prevail; {"application_status": "Knowledge retrieval and proposed review checks; no repository code refactor, compiler test or runtime experiment", "authority": "User request to collect programming philosophy knowledge in the ongoing reusable knowledge workflow", "evidence_check": "Routing convention; reference-specific original sources and limits remain in their Evidence sections"} | coding-philosophy, maintainability, readability, modularity, dependency, hardcoding, memory, principle-selection, 코딩철학, 프로그래밍철학, 유지보수, 가독성, 모듈화, 의존성, 하드코딩, 메모리, 지식조회 | active / 2026-11-07 | [K-CODE-PRINCIPLE-REUSE](K-CODE-PRINCIPLE-REUSE.md) |
 | K-CODE-READABILITY / Review readability through a concrete maintenance question [reference] | Judge readability by whether a reader can explain behavior and safely locate a likely change. Treat size, naming and comment metrics as prompts for inspection rather than universal acceptance thresholds. | Source-code review and maintenance; language and team conventions must be checked locally; {"application_status": "Proposed review checks; no implementation or reader study performed in OneStep", "evidence_check": "Primary English guidance and selected full-text research sections inspected online"} | readability, maintainability, code review, comprehension, naming, comments, cognitive load, 가독성, 유지보수성, 이름짓기, 주석 | active / 2026-11-07 | [K-CODE-READABILITY](K-CODE-READABILITY.md) |
@@ -3787,9 +4155,21 @@ Celeste's creator describes the design techniques. Epic documents the character 
 
 ## V30 corner correction for a planar Unreal character
 
-Attempt correction on upward blocking contact during falling physics. Search nearby lateral offsets in ascending distance on the movement plane. Sweep the capsule sideways from contact and up along the unused movement to check clearance past its rounded cap. Commit both displacements with native sweeps. Roll the pair back and preserve the original hit response if either committed sweep blocks. Allow at most one success per ascent and retain the original jump identity, coyote window and buffer. [Epic — MoveUpdatedComponent](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UMovementComponent/MoveUpdatedComponent)
+Only attempt correction for an upward blocking contact during falling physics. Search nearby offsets in ascending distance on the movement plane. Sweep the capsule sideways from the contact and farther along the unspent upward movement to check clearance past the rounded cap. Commit the side displacement and the unspent movement with native sweeps. If either committed sweep is blocked, revert the pair and preserve the original hit response. A successful correction uses no new jump credit and can occur once per ascent. [Epic — MoveUpdatedComponent](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UMovementComponent/MoveUpdatedComponent)
 
-Check mirrored lips at the correction limit, wide and low ceilings, a blocked side path, fast ascent and takeoff from a vertically moving base. Verify capsule clearance, landing and duplicate-jump prevention. Lateral shifts can change landing position. Measure observed frame cadence separately from capture timing and inspect contact frames. Extend collision checks for moving obstacles, slopes, custom gravity, root motion or network prediction.
+The lab searches in 1 cm increments up to 10 cm for a 22 cm-radius capsule locked to the XZ plane. The side correction is visible and can change landing position. Tune the limit and tie-breaking against the target character and platform spacing. Recheck slopes, complex collision, custom gravity, animation root motion, network prediction and moving obstacles before applying the same rule to those cases. The moving-base example is a vertically translating takeoff base with the ceiling held still.
+
+On 2026-11-21, the DX11 Win64 Development package passed 270 scenarios across 18 runs. Both sides, the 9 and 10 cm candidates, fast ascent and moving-base takeoff succeeded with correction enabled. The 11 cm requirement, wide ceiling and blocked side path preserved the ordinary collision response. Sampled penetrations and duplicate jump requests were zero. The coyote and buffer windows retained their native acceptance and expiry behavior.
+
+At observed mean rates of about 30, 60 and 144 FPS, each profile ran three repeats at 1280×720 on an i7-12700KF and RTX 3080. BeginFrame-to-EndFrame p95 ranges are in milliseconds.
+
+| Observed FPS | Off | On |
+| --- | ---: | ---: |
+| 30 | 33.417–33.418 | 33.393–33.471 |
+| 60 | 16.732–16.780 | 16.734–16.803 |
+| 144 | 7.029–7.044 | 7.041–7.044 |
+
+The correction path measured p95 0.030 ms and maximum 0.0925 ms across 78 timed attempt frames after warmup. The full-frame results include frame pacing. For adoption, also inspect contact-frame cost and how many characters can hit obstacles in the same frame. The separate media run used fixed 30 Hz for normal-speed playback.
 
 ===== knowledge/game/K-GAME-TECH-CROWD.md =====
 
@@ -4201,7 +4581,9 @@ context:
     at actual30/60/144,3paired package query/frame observations and normal-speed media
   lockon_evidence: UE5.8.3 known5actors/fixedcamera selection-retention-switching
     only;37policy,198actual PIE30/60/144,3matched package costs and native1x media
-  foot_ik_evidence: UE 5.8.3 V37 static support and V08 footwear-specific stance calibration with swing clearance limits.
+  foot_ik_evidence: UE5.8.3 V37 static support and V08 flat/high-heel calibration on a 68-bone rig.
+    V08 has 32 native cases and three cost pairs. Full-stance contact passed, with walking
+    swing penetration observed.
   hitbox_evidence: UE5.8.3 V42 static sphere attack/hurt/physical separation only:40policy,174actual
     PIE30/60/144,3matched package costs,native1x media; no hitstop/full combat
   dungeon_evidence: UE5.8.3 V40/V56 BSP:1024policy,1000actual PIE+1000packaged seeds,3matched1000seed
@@ -4234,7 +4616,8 @@ context:
     seeds and whole-memory snapshots,single-thread,no file saves
   sound_evidence: UE5.8.3 V22 native PCM evidence for attenuation, stereo direction, occlusion,
     and indoor and outdoor reverb with an overlap priority and fade reversal.
-  cloud_evidence: UE 5.8.3 V27 native single layer with traversal, parallax and opaque occlusion.
+  cloud_evidence: UE5.8.3 V27 single layer, native density/coverage/boundary/parallax/occlusion/sun pixels,
+    three runs each for off and two view sample ceilings, and 19.6 seconds of 1x capture
 ---
 # Retrieve game implementation techniques from concrete development problems
 
@@ -4473,7 +4856,7 @@ Use PERFORMANCE for GT publication versus total completion, drain frames, queue 
 
 ## Controller follow-up — 2026-11-11
 
-Retrieve CONTROLLER for coyote time and jump buffering. See [V30 planar correction](K-GAME-TECH-CONTROLLER.md#v30-corner-correction-for-a-planar-unreal-character) for upward corner contacts and moving-base takeoff. Keep observed frame cadence separate from capture timing.
+The historical Unreal run adds two specific CONTROLLER mechanisms (V29,V46),68policy checks,108actual PIE cases at observed30/60/144,3matched standalone performance pairs and native normal-speed media. A failed packaged30request/23.42observed is preserved; consumer/rate scopes stay distinct. No save/renderer/Present/framework optimization. Corpus coverage at the time was5sheets with limited runtime evidence and38without a direct technique prototype. See the subsequent [V30 planar correction and moving-base takeoff trial](K-GAME-TECH-CONTROLLER.md#v30-corner-correction-for-a-planar-unreal-character).
 
 ## Vision follow-up — 2026-11-11
 
@@ -4485,7 +4868,7 @@ Retrieve CONTROLLER for coyote time and jump buffering. See [V30 planar correcti
 
 ## Static foot IK follow-up — 2026-11-11
 
-Retrieve IK for support planes, sole calibration, stance anchoring and reach fallback. [V08 footwear](K-GAME-TECH-IK.md#v08-footwear-calibration-on-static-supports--2026-11-21) applies those rules to flat and heeled shoes. Check swing clearance and gameplay capsule behavior separately from stance.
+The historical V37 Unreal run adds47policy checks,108actual PIE cases at observed30/60/144,3off/on package cost pairs and real skinned1x media. Retrieve IK for support-plane/sole calibration/stance anchor/compatible pelvis+blend/stable knee, CONTROLLER for gameplay capsule behavior, TIMESTEP for clock issues. Reach rejection is a valid fallback, not complete contact: the20cm budget rejects the recorded lower-flat right foot and35deg pose. One final visible pose publication prevents the reproduced false static bone history. Corpus coverage at that time was eight partially implemented sheets. The later [V08 footwear verification](K-GAME-TECH-IK.md) records flat and high-heel stance contact, support/reach fallback, residual swing penetration and three matched cost pairs.
 
 ## Attack collision follow-up — 2026-11-11
 
@@ -4557,9 +4940,9 @@ Retrieve [the V22 room reverb evidence](K-GAME-TECH-SOUND.md#native-unreal-v22-r
 
 ## Native game-state save follow-up — 2026-11-14
 
-Retrieve [V20 save guidance](K-GAME-TECH-SAVE.md) for stable IDs, CRC-before-deserialization, staged publication, full-storage recovery and preserving the world after failed validation.
+[V20 findings](K-GAME-TECH-SAVE.md):89policy+23store checks,48actual PIE/package cases,6separate restart consumers,6same-state cost players,14snormal1xvideo. Retrieve SAVE for persistent stable-ID state,CRC-before-deserialization,A/B generations and explicit both-invalid failure. RNG memory-state restore and asynchronous diagnostic-log export do not establish game-state file restoration. This historical milestone covered 25 limited technique sheets. Later staged-write and disk exhaustion observations appear in the SAVE sheet.
 
-The [V54 progress code guidance](K-GAME-TECH-SAVE.md#v54-compact-progress-code-in-unreal--2026-11-21) covers versioned codes, restart restoration and validation before world application.
+The subsequent [V54 progress code trial](K-GAME-TECH-SAVE.md#v54-compact-progress-code-in-unreal--2026-11-21) covers a versioned 14-symbol local code, code-only restart, invalid input without world changes, and three matched codec/application cost runs.
 
 ## Native adaptive-music follow-up — 2026-11-14
 
@@ -4579,11 +4962,11 @@ The [V54 progress code guidance](K-GAME-TECH-SAVE.md#v54-compact-progress-code-i
 
 ## Native volumetric-fog follow-up — 2026-11-17
 
-[Historical fog guidance](K-GAME-TECH-VOLUME.md#native-unreal-fog-validation--2026-11-17) covers density, scattering, occlusion, cuts and light trails. See the follow-ups for native clouds and gameplay smoke.
+[Historical fog findings](K-GAME-TECH-VOLUME.md#native-unreal-fog-validation--2026-11-17) cover density, scattering, volumetric shadow, opaque depth boundaries, camera cuts, light trails and reactivation. One native fog and one spot light were tested with 16×64 and 8×128 grid controls. Tests checked actual pixels, first-hit visibility, the native camera cut and exact CVar value restoration. Use the measured light trails and three-run frame-cost variation when judging whether to ship that setup. See the [dedicated cloud guidance](K-GAME-TECH-VOLUME.md#one-native-cloud-layer) for V27.
 
 ## Native single-layer cloud follow-up
 
-Retrieve [V27 cloud guidance](K-GAME-TECH-VOLUME.md#native-unreal-v27-cloud-validation) for a cloud that stays spatially coherent as the camera moves through it. Check layer limits, opaque occlusion, sun response and view sampling quality in matched views.
+[V27 findings](K-GAME-TECH-VOLUME.md#native-unreal-v27-cloud-validation) cover a 0.60–1.35 km layer, density and coverage, traversal, near/far parallax, opaque occlusion and directional sunlight. The off/24/96 view-sample runs and 1× native capture provide a comparison of sampling quality and whole-frame cost. Retrieve VOLUME when the cloud must remain spatially coherent as the camera moves through it. The two enabled profiles had overlapping GPU costs in this fixture.
 
 ### V10 gameplay smoke visibility
 
@@ -4603,7 +4986,7 @@ Retrieve [the V10 density-grid experiment](K-GAME-TECH-VOLUME.md#native-unreal-v
 
 ### V21 smooth isosurface follow-up
 
-Retrieve [uniform-grid Dual Contouring](K-GAME-TECH-VOXEL.md#native-unreal-v21-uniform-grid-dual-contouring) for editable curved surfaces and shared Hermite samples. Check alternating-sign faces and folded quads separately. Compare error and edit-frame cost when choosing a resolution.
+Retrieve [uniform-grid Dual Contouring](K-GAME-TECH-VOXEL.md#native-unreal-v21-uniform-grid-dual-contouring) for editable curved voxel surfaces, shared Hermite samples and stable boundary normals. The two-chunk fixture compares 16³ and 32³ cells on the same geometry and edits. The test measures surface error alongside triangle count, rebuild and collision cost. Alternating-sign faces and folded quads need separate topology and winding checks.
 
 ## Adaptive spawn cadence — 2026-11-20
 
@@ -4877,9 +5260,22 @@ Epic documents the solve controls and poseable mesh APIs. Prior Unreal observati
 
 ## V08 footwear calibration on static supports — 2026-11-21
 
-Define heel and toe outsole samples in the neutral shoe frame. Convert the ankle offset and shoe pitch to bone space. Align the shoe frame to the support plane and solve the leg to the resulting ankle target. Use shoe-specific calibration when outsole position or rest pitch changes. Latch the contact during stance and release the anchor when support is lost or the leg cannot reach within the pelvis limit. Keep the gameplay capsule independent of the visual correction.
+Define heel and toe outsole samples in the neutral shoe frame. Convert the ankle offset and shoe pitch to the solver's bone space. Find a compatible support plane and latch the contact during stance. Align the shoe frame to the plane and solve the leg to the resulting ankle target. Use shoe-specific calibration when the outsole position or rest pitch changes. Release the anchor when support is lost or the leg cannot reach within the pelvis limit. Keep the gameplay capsule independent of the visual correction.
 
-Check flat and heeled footwear on flat ground, ramps and steps. Inspect outsole lift, penetration and drift through stance, transitions and swing. Stance calibration can solve the planted pose while swing still intersects geometry. Verify source animation clearance, support reacquisition and reach fallback on each production rig, shoe and gait. Compare capsule sweeps before and after the visual solve.
+The UE 5.8.3 Win64 Development trial used one 68-bone mannequin, one source walk cycle, rigid flat-shoe and high-heel test shapes, an 8-degree ramp and an 8 cm step. The heel used a 21-degree pitch calibration. Both profiles rendered the same geometry and evaluated the same authored samples. The comparison used the common flat calibration or the shoe-specific calibration in the same Two Bone IK solver. The 60 Hz sample clock controls the input sequence. Native frame cadence is measured independently.
+
+Over 32 profile/scenario combinations, the high heel's maximum full-stance lift and penetration with the common reference were 2.104 cm and 5.896 cm. Both fell below 0.001 cm with shoe calibration. Flat-shoe full-stance errors stayed below 0.001 cm with either profile. Measured stance drift was zero. Both profiles released the planted anchors after support removal and refused the deep unreachable targets. A pre/post capsule sweep matched on all 3,072 behavior frames across the two profiles.
+
+Evaluate walking in stance, transitions and swing separately. The tuned high heel still showed 8.322 cm maximum outsole penetration in a transition and 14.622 cm in swing. The tuned flat shoe reached 9.901 cm in swing. These peaks came from the sampled shoe contacts in the scripted walk. Stance calibration is suitable for contact fitting when the source animation and its transitions already provide the required swing clearance.
+
+Three same-workload runs per profile measured 1,408 frames each at 1280×720 DX11. The observed p95 ranges were as follows, in milliseconds.
+
+| Profile | IK | Pose publication and shoe transforms | Whole frame |
+| --- | ---: | ---: | ---: |
+| Common | 0.0405–0.0474 | 0.0138–0.0150 | 10.109–10.318 |
+| Shoe-specific | 0.0441–0.0474 | 0.0142–0.0159 | 10.005–10.182 |
+
+Use these costs for the measured single-character scene. Repeat footwear calibration, pose reach and swing clearance checks for each production rig, shoe and gait.
 
 ===== knowledge/game/K-GAME-TECH-INCENTIVES.md =====
 
@@ -6051,7 +6447,9 @@ Prediction replayed 181 ticks over 34 batches with a depth of at most 8; waiting
 ---
 id: K-GAME-TECH-SAVE
 title: Design versioned durable saves and compact password states
-summary: Persist stable-ID progress with a versioned container or compact progress code. Validate staged publication, restart recovery, storage exhaustion and world binding before state application.
+summary: Persist stable-ID progress with a versioned container or a compact progress code.
+  Unreal checks cover staged A/B restart recovery and a 14-symbol V54 code that restores
+  a fixed world state in a separate process.
 kind: reference
 scope: "Game development; engine-independent mechanisms with version-dependent engine examples"
 keywords: ["save", "serialization", "checksum", "password", "bitflags", "저장", "세이브", "백업", "저장손상", "USaveGame", "UGameplayStatics::AsyncSaveGameToSlot", "save generation", "game state", "stable ID", "SaveGame", "CRC32", "previous generation", "file truncation", "both invalid", "게임 상태", "상태 복원", "이전 세대", "파일 잘림", "양쪽 무효"]
@@ -6059,7 +6457,9 @@ status: active
 checked_at: "2026-11-21"
 context:
   evidence_check: External source text checked; source-specific limits appear in Evidence
-  application_status: UE 5.8.3 guidance for staged A/B recovery, NTFS exhaustion and V54 progress codes. Physical power-loss safety remains open.
+  application_status: UE5.8.3 V20 staged A/B process termination and real NTFS exhaustion,
+    V54 versioned 14-symbol code with four restart pairs, eight rejections, and three matched cost runs.
+    Physical power loss remains unverified.
 ---
 # Design versioned durable saves and compact password states
 
@@ -6114,25 +6514,37 @@ Two real native processes produce6seconds of A/B state and8seconds of freshD/loa
 
 Use A/B recovery when reverting to a previous valid generation is preferable to losing all progress. Keep stable IDs,validate completely before applying,and present explicit failure when both generations are invalid. Retain evidence rather than silently replacing invalid saves with defaults. CRC detects accidental corruption and is not authentication;only trusted locally produced UE class/format was tested. Fixed schema1 and fixed32/8IDs have no migration or cross-engine-version guarantee. Graceful process restart and controlled truncation/corruption do not establish forced-crash,power-loss,fsync,full-disk or device-failure safety. Synchronous stalls remain;no asynchronous optimization,password,V54 decoder,autosave tool,cloud,renderer or verification-framework expansion. Previous unrelated actual-FPS gaps remain unverified.
 
-See the subsequent staged publication and V54 progress code sections for related workflows.
+Corpus coverage at that stage was 25 limited sheets and 18 without dedicated prototypes. V54 is covered in the later section below.
 
 ## Staged publication and schema migration in Unreal — 2026-11-21
 
-Keep the published generation and inactive slot addressable while writing a sibling pending file. Flush and close the candidate, read it back and validate its bytes and state, then replace the inactive slot. Restart from published slots only. A process can terminate after publication and before the caller observes success. Verify same-directory replacement guarantees on the deployment filesystem. [Microsoft — MoveFileExW](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefileexw)
+Keep the active generation and inactive slot addressable while writing a candidate to a sibling pending file. Flush and close the candidate, read it back and validate its bytes and state, then replace the inactive slot. On load, consider published slots only. Publication determines what a restart may select. A process can be terminated after publication and before the caller receives a success result. This implementation uses same-directory Windows replacement and a single game-thread writer. [Microsoft — MoveFileExW](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefileexw)
 
-Terminate an external writer at the boundaries after serialization, staging open, prefix and payload writes, flush and close, readback, and publication. On restart compare both slot files, the selected generation and the complete world. Migrate recognized legacy data into a candidate and supply defaults for new fields. Check stable bindings before applying any state. If decoding or binding fails, preserve the live world and select another valid slot or report explicit failure. Treat process termination, full storage and physical power loss as distinct tests.
+In the Win64 Development prototype, the staged candidate remains private if the process stops after serialization, staging open, prefix write, payload write, flush/close, or readback validation. The published generation is selectable after the replacement returns. Use the known-good generation to check both on-disk contents and restored state after restart. A deliberately limited writer produced a real 128-byte pending file before reporting a simulated disk-full error. The subsequent isolated NTFS trial exercises the operating system's capacity limit separately.
+
+Migrate recognized legacy data into a new current-schema value before touching the live world. The exercise's synthetic v0 preserves health, checkpoint and item flags. The eight switch flags added in v1 default to off. Invalid legacy values cause fallback to another valid slot or explicit failure. Preflight all current world bindings before applying a candidate. When either decoding or binding fails, compare the full before/after world and leave the stored files unchanged.
+
+UE 5.8.3 Win64 Development passed 36 writer/restart pairs on one package, three per condition. The 21 external terminations covered seven boundaries. The other cases covered the capacity limit, valid v0, invalid v0 with and without a valid alternative, and a missing world binding. A/B files and pending bytes were tracked independently across the restarts.
+
+Apply this result to a single writer using this file layout and tested fault boundaries. Process termination leaves the operating system running. Power loss, interruption inside a filesystem call, competing writers, and migration from shipped formats each require separate validation. The earlier save timings describe the old direct-write path. Recheck frame stalls before driving the flushed staged path from gameplay.
 
 ## Actual NTFS exhaustion on Win64 — 2026-11-21
 
-Capture the OS error immediately when a write fails, along with the operation, requested bytes and completed bytes. Use available space for estimates and the actual write result to decide whether to publish. Test on an isolated volume and recheck free space after closing the test filler, because file close can release unused allocation. [Microsoft — WriteFile](https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-writefile) · [Microsoft — Windows error codes](https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--0-499-)
+Capture the operating-system error immediately on a failed call, before cleanup or logging. Keep the operation, error code, requested bytes and completed bytes together. A free-space estimate can inform the UI. The write result determines whether the candidate can advance to validation and publication. [Microsoft — WriteFile](https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-writefile) · [Microsoft — Windows system error codes](https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--0-499-)
 
-Preserve both published slots and the live world on write, flush or replace failure. Restart while full to verify fallback. Once space is available, retry the ordinary staged path and verify the resulting published bytes and complete world on another restart.
+The UE 5.8.3 Win64 Development comparison used a 64 MiB fixed-size VHDX formatted as NTFS, with 4,096-byte clusters and reports on the host volume. Three normal saves each published a 2,433-byte generation 3 and loaded it after restart. With zero available bytes, the 64-byte prefix remained in the private pending file, and the payload call to WriteFile returned ERROR_DISK_FULL (112) in all three trials. Both published slot hashes and the writer's live world remained unchanged. Restarting while full loaded generation 2. Freeing the test filler allowed each retry to publish generation 3, which a further restart loaded.
+
+Keep the test filler on a separate mounted volume and measure free space after closing it, because a file close can release unused preallocation. Under write, flush, or replace failure, preserve the published slots and present explicit failure to the caller. Once space is restored, run the normal staged save again and verify the resulting slot bytes and complete world on restart. This evidence covers an existing save directory, one writer and the file layout above. Repeat on the production storage and filesystem if that deployment differs.
 
 ## V54 compact progress code in Unreal — 2026-11-21
 
-Use a versioned fixed field order and stable IDs for reconstructible progress. Define the alphabet, bit order, checksum coverage and reserved bits explicitly. Avoid visually ambiguous symbols when players type the code. Reproduce the code with an independent codec and restore the state in a fresh process. [Python — binascii.crc_hqx](https://docs.python.org/3/library/binascii.html#binascii.crc_hqx)
+Use a fixed, documented field order and a version for reconstructible game progress. This prototype packs version (4 bits), health 0–100 (7), checkpoint 0–3 (2), 32 item flags and eight switch flags into 53 bits. A CRC-16 with polynomial 0x1021 and initial value 0xffff covers seven little-endian payload bytes, including three zero high bits. The code carries those 53 bits, the 16-bit checksum and one reserved zero bit as fourteen five-bit symbols, low group first. Its alphabet omits I, O, 0 and 1. The independent checker generates the same code with a separate packing implementation and Python's CRC routine. [Python binascii.crc_hqx](https://docs.python.org/3/library/binascii.html#binascii.crc_hqx)
 
-Validate length, alphabet, reserved bits, checksum, version and field ranges before publishing the decoded candidate. Check every world binding before application. Test unsupported versions and out-of-range fields with a valid checksum. Preserve the live world on rejection and keep the published ID ordering when content evolves. Add a separate trust mechanism where progress needs authentication.
+Validate length, alphabet, reserved bit, checksum, version and field range before assigning a decoded candidate. Use stable object IDs and validate the complete bindings before applying that candidate to the world. Keep the previously published version's ID order fixed if the content layout changes. A code is readable, copyable game progress with accidental input error detection. The checksum does not authenticate the progress.
+
+Four native create/restart pairs use only a code supplied as a launch argument. They reproduce the same code across processes and restore normal, minimum and maximum states with all 40 bindings. Eight native invalid inputs preserve the full live world, including a correct-checksum unsupported version and a correct-checksum out-of-range health. Each producer rejected all 434 single-symbol substitutions of its own code without changing the decoder output. This prototype uses a fixed local state schema and launch-argument input.
+
+Three Win64 Development runs used the same four valid states and order at 1280×720. Each stage ran 8,192 timed operations after 1,024 warmup operations. The p95 of per-batch average operation cost across the three runs was 0.291–0.375 µs for encoding, 0.609–0.728 µs for decoding, and 4.178–6.972 µs for applying the world state. These timings describe valid inputs and 40 fixed bindings. Recheck costs and code length when the reconstructible state grows.
 
 ===== knowledge/game/K-GAME-TECH-SHADOW.md =====
 
@@ -6213,7 +6625,8 @@ status: active
 checked_at: "2026-11-22"
 context:
   evidence_check: External source text checked; source-specific limits appear in Evidence
-  application_status: UE 5.8.3 guidance for attenuation, stereo direction, solid occlusion and native reverb transitions.
+  application_status: UE5.8.3 V22 master PCM evidence for attenuation, authored stereo panning,
+    occlusion and native indoor and outdoor reverb transitions. See each experiment for cost scope.
   panning_limit: Native5.8exactleftaxis failed;explicit source-stereo equal-power
     implemented,no enginepatch or cross-version guarantee
 ---
@@ -6264,9 +6677,15 @@ Measured whole-wall p95(ms),OFF:[8.743,8.803,8.698],ON:[8.716,8.612,8.677],on th
 
 ## Native Unreal V22 room reverb validation
 
-Set early and late reflection bypass flags explicitly when constructing a native preset. The UE 5.8.3 runtime default in this setup bypassed early reflections. Register a runtime-created sound class on the active device before playback and verify a nonzero source probe in the mixed output. Keep source gain and the dry path stable while changing the wet response. Give overlapping volumes distinct priorities and define the outdoor response and fade.
+Win64 Development under UE 5.8.3 used two boxed Audio Volumes with priorities 10 and 20, 1.2-second fades and an explicit outdoor dry response. The short room used early reflections with late reflections bypassed. The long room used both stages. Runtime-created `UReverbEffect` defaulted to bypassing early reflections in this installation. Set both bypass flags explicitly. A transient sound class also needs registration on the active audio device before native source routing can use its properties. Verify a nonzero source probe before judging the reverb even when the audio device and zone change logs look healthy.
 
-Exercise boundaries, entry, exit, reentry and reversal during a fade. Use an impulse or short tone to verify direct amplitude and residual decay in actual master PCM. Different authored decay settings can produce the same measured envelope. Measure zone selection, parameter interpolation and the remaining tail separately. Test the chosen presets and playback hardware in the production setup. [Epic — AAudioVolume, UE 5.8](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/AAudioVolume?application_version=5.8)
+The two final WASAPI recordings used the same 31-second path, 48 kHz stereo master PCM and 44 checked probes per arm. Direct RMS stayed within 0.30% of the off reference across all enabled probes. The authored 1 cm outside, exact-face and 1 cm inside tests selected outdoor, short and short respectively. Tail RMS for short, long and overlap were 0.000868, 0.007480 and 0.007469 full scale. Their finite 20 dB window values were 0.12, 0.42 and 0.42 seconds. The reversal arrived 0.768 seconds into the 1.2-second fade. Real PCM contained a probe during that interval, and the first checked settled probe 1.386 seconds after reversal matched the short-room reference. Exit from the long room left a small residual tail of 0.000165 RMS in the checked window.
+
+Use distinct priority for overlapping rooms where one preset should win, and hold source gain and the direct path fixed when tuning wet response. An authored decay parameter and a measured decay statistic answer different questions. The initial 0.24- versus 1.34-second decay-only comparison yielded the same 0.42-second window value in these recordings. Use a fixed impulse or short probe to check the chosen presets in the actual mixer, including reentry and short back-and-forth movement. Selection delay, parameter interpolation and residual tail should be measured separately. [Epic — AAudioVolume, UE 5.8](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/AAudioVolume?application_version=5.8)
+
+Each profile ran three times on the same 31-second listener schedule with 16 voices, WASAPI at 48 kHz stereo and 1,024 frames per buffer, D3D11 at 1280×720, no VSync or FPS cap, and capture disabled. Whole-frame p95 in repeat order was **8.932 / 8.666 / 8.835 ms off** and **9.096 / 8.872 / 8.758 ms on**. The whole-frame distributions overlapped. These observations include all frame work and waits for the measured packaged workload. Evaluate voice count and frame impact with production presets and playback hardware.
+
+A 31-second 1× video pairs native 30 Hz capture with the built-in NonRealtime mixer for packaging audio and video together. WASAPI supplies the real-time behavior and performance evidence. Decoded video contains 930 frames at 30 FPS and its stereo audio matches the original captured PCM with waveform correlation 0.999984. The largest measured event offset between the capture clocks was 44 ms.
 
 ===== knowledge/game/K-GAME-TECH-SPEED.md =====
 
@@ -6601,17 +7020,36 @@ Use for bounded environmental fog/mist and lighting appearance. A shadowing wall
 
 ## Native Unreal V27 cloud validation
 
-Use a tileable world-space noise field, independent density and coverage controls, and extinction taper at the upper and lower bounds. Check a zero-density control and a matched sky-only frame. Move the camera below, through and above the layer. Compare displacement at different depths, check opaque foreground occlusion and account for sky changes when comparing sun directions.
+On November 22, 2026, one cooked cloud layer at 0.60–1.35 km was verified in UE 5.8.3 Win64 Development, DX11, 1280×720, on an RTX 3080. The fixture used a deterministic tileable 32³ noise asset, two cloud concentrations at different depths, Sky Atmosphere, one directional sun and an opaque board. The material attenuates extinction near the layer bounds. The renderer's budget was set using view sample count scales of 0.25 and 1.0, with 24 and 96 sample ceilings at the configured cap of 128. Shadow sampling and tracing distances were fixed. The installed 5.8.3 renderer was checked for the cap formula. [Epic — UVolumetricCloudComponent, UE 5.8](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UVolumetricCloudComponent?application_version=5.8)
 
-Hold material, trace distances and shadow sampling constant when tuning the view sample scale. The ceiling constrains the sample budget, with actual sampling affected by distance and early termination. Inspect grain in dense and inside-volume views and measure frame and GPU cost on target hardware. This guidance covers a bounded native cloud layer and opaque foreground occlusion. [Epic — UVolumetricCloudComponent, UE 5.8](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UVolumetricCloudComponent?application_version=5.8)
+Using matched views with the HUD excluded, density zero changed 0 pixels versus off at an RGB-channel threshold of more than 10/255. Raising coverage from 0.22 to 0.91 increased changed pixels from 197,664 to 371,835. The center horizontal band at 0.40, 0.95 and 1.58 km yielded 0, 21,703 and 0 changed pixels. The continuous climb from 0.40 to 1.60 km passed inside the near concentration and changed 763,623 of 768,000 pixels at the midpoint. A 150 m lateral move shifted the near and far mask centroids by 87.29 and 55.63 px. The opaque board reduced mean pixel change behind it from 37.92/255 to 0.037/255. Sun azimuth 32° versus 151° at fixed elevation changed sky-corrected display luma by a mean 26.54/255 in the cloud region. Native PNGs and a 19.60-second 1× movie cover these views. The authored capture clock and playback both use 30 FPS.
+
+Three uncapped, no-VSync runs per setting used 64 warm-up and 600 measured frames on the same path and layout. The ranges below span each setting's three run p95 values. Whole frame is elapsed begin-to-end wall time. RHI GPU timing is delayed and measures the whole GPU frame. No GPU readings were unavailable. Capture and report export ran outside the measured interval.
+
+| Setting | Whole frame p95 (ms) | Whole GPU p95 (ms) |
+| --- | ---: | ---: |
+| Off | 9.88–10.12 | 9.28–9.55 |
+| Low, ceiling 24 | 9.82–10.41 | 9.52–9.72 |
+| High, ceiling 96 | 10.03–10.41 | 9.51–9.74 |
+
+Low showed more visible grain in the high-coverage view. The enabled profiles had overlapping cost ranges and switched GPU p95 ordering in one repeat. Use this result to choose what to test for a flight, close-up cloud or high-coverage sky. Measure inside-volume and dense-coverage views on the target hardware and resolution before choosing a budget. These results apply to one layer, one sun and one opaque occluder. They provide no isolated cloud-pass cost and no evidence for transparent occluders, camera-specific temporal reconstruction settings, weather or cloud shadows on world geometry.
 
 ## Native Unreal V10 gameplay smoke visibility
 
-Use a fixed-step density field. Permit transfer across shared doorway faces while open and stop transfer on closure. Preserve density that already crossed the door so it can dissipate. Verify agreement between native collision geometry and the grid transfer boundaries. Check solids first and record wall and smoke occlusion as distinct outcomes.
+Use one density field and fixed step when game rules need stable smoke visibility. The UE 5.8.3 fixture uses an 18×12×4 grid of 50 cm cells at 30 Hz. A partition allows transfer across only the open doorway's shared faces. Native visibility traces handle solid walls and the door. Geometry-clear segments use a density-times-traversal-length integral. Define one half-open boundary convention and advance all axes tied at an edge or corner so a zero-length contact adds zero optical depth. Aggregate display effects consume the field through a read-only path. [Amanatides and Woo, A Fast Voxel Traversal Algorithm](https://www.eecs.yorku.ca/~amana/research/grid.pdf)
 
-Integrate density times path length on a geometry-clear ray. Use one half-open cell convention, step every axis tied at a boundary and give point touches zero length. Specify the optical-depth threshold's inclusion rule. Compare against an independent plane-intersection calculation for zero density, threshold neighbors, reversed segments, and face and corner contacts. [Amanatides and Woo — A Fast Voxel Traversal Algorithm](https://www.eecs.yorku.ca/~amana/research/grid.pdf)
+The closed door held the far side at zero density. Opening at tick 120 produced a far-side density sum of 0.849 on that tick. At tick 164 the through-door sightline had optical depth 186.660 and was smoke-blocked against a threshold of 75 density·cm. Reclosing at tick 180 immediately zeroed transfer and kept the existing far-side density (7.336 that tick). On reopening after the source stopped, the sightline passed at sampled tick 252 with depth 58.874, and the entire grid reached zero at tick 293. Native outcomes keep solid occlusion and smoke occlusion distinct. Exact test depths 74.99, 75.00 and 75.01 yielded clear, blocked and blocked. All 16 authored grid cases matched independent plane-intersection integration, including reversed, edge and corner paths.
 
-Keep display reads separate from density writes and compare the same field snapshot and ray with shading enabled and hidden. Measure updates and queries separately. When scaling, consider both the grid size and how many unblocked rays actually traverse the grid, including their path lengths.
+The visible and hidden HUD runs matched exactly across six full-grid and individual-query snapshots and all 360 ticks' aggregate query and density totals. The visible grid and hidden grid produced measurably different pixels in the open-door probe, while the authoritative marker and status matched. A 14-second native 1× capture records the full cycle and matched hidden segment. The scene covers one applied source and one door. The coefficients, query threshold and measured bounds belong to this fixture.
+
+At 1280×720 on an RTX 3080 and D3D11, three uncapped and uncaptured runs per arm processed 256 offered rays on each of 360 ticks. All runs had 92,160 offered queries and 52,560 wall blocks. Enabled runs each had 11,529 additional smoke blocks and 236,520 cell visits. Both profiles ran the same density and solid-occlusion work. The intervals are ranges of run medians for tick work and of the three run p95 values for whole frames.
+
+| Gameplay smoke query | Density update (ms/tick) | 256-ray batch (ms/tick) | Whole-frame p95 (ms) |
+| --- | ---: | ---: | ---: |
+| Off | 0.0189–0.0197 | 0.1868–0.1898 | 8.5955–8.9877 |
+| On | 0.0189–0.0190 | 0.2025–0.2044 | 8.0766–8.6708 |
+
+The enabled arm added about 0.0140–0.0168 ms to each paired median batch. The whole-frame ranges overlapped. When scaling the technique, measure the number and lengths of geometry-clear rays along with the size of the density grid. Keep a solid-wall check, optical-depth threshold and visualization fidelity as separate concerns. For arbitrary walls, verify agreement between the grid's permitted transfer faces and native collision geometry.
 
 ===== knowledge/game/K-GAME-TECH-VOXEL.md =====
 
@@ -6693,17 +7131,22 @@ Proposed: edit exactly on chunk borders, remove thin features and stream while m
 
 The local V21 experiment compared one quad per exposed face with greedy coplanar, same-material meshing. Both methods read a shared occupancy field. Dirty the owner for an interior edit and rebuild both chunks after committing a shared-edge edit. Do not emit an interior face between two occupied blocks, even when their materials differ. Use the full material and shading attributes as the merge key when face appearance depends on those properties.
 
-The two-chunk fixture checks subdivisions, exact exposed area and restoration against an independent occupancy model, plus native line-trace and pixel samples. The initial mesh falls from 2,940 to 124 triangles (95.8% fewer). Synchronous collision medians across the runs were 4.417–5.541 ms for individual faces and 0.307–0.380 ms for merged faces. Whole-frame p95 bands overlap at 11.381–12.598 and 11.923–12.931 ms. Track generation, game-thread mesh submission, synchronous collision and edit-frame tails separately. The report has the six measurements and implementation scope. Complex triangle collision is verified for the fixture's queries. Smooth extraction and streaming remain research references.
-
-The historical block-meshing scope predates the uniform-grid follow-up below.
+The two-chunk fixture checks subdivisions, exact exposed area and restoration against an independent occupancy model, plus native line-trace and pixel samples. The initial mesh falls from 2,940 to 124 triangles (95.8% fewer). Synchronous collision medians across the runs were 4.417–5.541 ms for individual faces and 0.307–0.380 ms for merged faces. Whole-frame p95 bands overlap at 11.381–12.598 and 11.923–12.931 ms. Track generation, game-thread mesh submission, synchronous collision and edit-frame tails separately. The report has the six measurements and implementation scope. Complex triangle collision is verified for the fixture's queries. See the later uniform-grid section for smooth extraction.
 
 ## Native Unreal V21 uniform-grid Dual Contouring
 
-For adjacent same-resolution chunks, classify the exact isovalue consistently. Give each sign-changing edge one face owner and read neighboring cells through a halo. Use world cell and component keys to produce matching positions and normals in both chunks.
+UE 5.8.3 Win64 Development used two adjacent 400 cm cubes and the same analytic sphere, box and three subtractive cuts at 16³ and 32³ cells per chunk. The field treats density zero as outside and accepts exact-zero edge crossings. A regularized, cell-bounded QEF fits the Hermite samples. Shared keys include cell and connected component. For an alternating-sign face, both cells choose the same bilinear connectivity. When a fixed quad diagonal produced reversed triangles at a cut lip, selecting the valid outward split preserved the quad boundary. The fine sphere cut also exposed two nonmanifold edges with four incident triangles each. Splitting two cells' disconnected contour components fixed those observed edges.
 
-Fit Hermite intersections and normals with a bounded cell-local QEF. Use a stable mass-point policy for unconstrained planar directions. For alternating-sign faces, decide connectivity from shared samples and fit disconnected surface components separately. One vertex for a cell can create an edge with too many incident faces. When a cut folds the initial diagonal, check both triangulations and preserve the perimeter and outward winding. [Ju et al. — Dual Contouring of Hermite Data](https://www.cs.rice.edu/~jwarren/papers/dualcontour.pdf) · [Schaefer et al. — Manifold Dual Contouring](https://www.cse.wustl.edu/~taoju/research/dualsimp_tvcg.pdf)
+Original triangle counts were 808 and 3,456. Vertex error relative to the analytic signed field was 1.179/0.275 cm RMS and 2.506/0.590 cm maximum. Worst vertex errors over the edited states were 5.796 and 4.243 cm. The exact-zero top plane, box edges and curved normal directions passed their independent geometry checks. Across fourteen states, shared seam position and normal differences were zero. Exact buffer restoration and 3,668 hit/miss comparisons passed, with maximum triangle-oracle versus Chaos hit distance of 0.0000391 cm. The 3,291 stable native pixel tests agreed with the visible geometry and query results. Geometry was restored exactly and restored image samples still had small local pixel differences. Use density and query evidence to distinguish shape fidelity from lighting at a cut lip.
 
-Check a curved surface, a sharp edge and an exact-zero plane against an independent field. After local and boundary edits, compare face ownership, connected vertex fans, seam normals, visible pixels, native queries and whole-buffer restoration. Compare geometric error and edit-frame cost when choosing a resolution. Measure field sampling, extraction, submission and collision separately. This guidance covers same-resolution neighbors and synchronous triangle queries.
+Three runs at each grid size used the same physical edit schedule, 1280×720, D3D11, an RTX 3080, uncapped frames with VSync off and capture disabled. These ranges span the three run medians for edit work and the three p95 values for all observed frames.
+
+| Cells per chunk | Field and mesh generation (ms) | Visible submission (ms) | Sync collision update (ms) | Whole-frame p95 (ms) |
+| --- | ---: | ---: | ---: | ---: |
+| 16³ | 1.503–1.694 | 0.059–0.068 | 0.672–0.726 | 10.499–10.719 |
+| 32³ | 6.779–7.744 | 0.124–0.174 | 2.124–2.742 | 10.712–11.034 |
+
+The single worst edit frame was 11.359 ms at 16³ and 16.534 ms at 32³. Use signed-field error and edit-frame budget together when choosing resolution. The logged generation work includes resampling the entire two-chunk field, even when only the left chunk publishes an interior edit. The measured collision behavior covers synchronous triangle queries. Extend validation for arbitrary fields, dynamics and other publication schedules before relying on these numbers. The 21-second 1× native movie shows each original, edit and restoration state in both profiles.
 
 ===== knowledge/game/K-GAME-TECH-WATER.md =====
 
@@ -7294,9 +7737,9 @@ title: "Judge maintainability through concrete changes and multiple outcomes"
 summary: "Evaluate a design or refactor with representative understanding and modification tasks, preserved behavior and change impact. Treat size, complexity and coupling metrics as evidence dimensions rather than a single proof of maintainability."
 kind: "reference"
 scope: "Maintainability assessment and refactoring decisions; observational Windows study and a bounded student Java experiment do not establish universal design laws"
-keywords: ["maintainability", "refactoring", "empirical", "change-impact", "modularity", "comprehension", "metrics", "유지보수성", "리팩터링", "실증연구", "변경영향", "이해도", "지표"]
+keywords: ["maintainability", "refactoring", "empirical", "change-impact", "modularity", "comprehension", "metrics", "AI code quality", "AI 코드 품질", "유지보수성", "리팩터링", "실증연구", "변경영향", "이해도", "지표"]
 status: "active"
-checked_at: "2026-11-07"
+checked_at: "2026-11-21"
 context: {"evidence_check": "Named original author papers or official text sections inspected; specific limits in Evidence", "application_status": "Source-based reference and proposed synthesis; no local implementation or runtime validation"}
 ---
 
@@ -7310,6 +7753,12 @@ Proposed method: identify a representative future change and the behavior that m
 
 Use code metrics to locate questions, then inspect actual work and evidence. Prefer a bounded experiment or change walkthrough when the structural benefit is uncertain. Distinguish a reasoned prediction, a completed modification and longer-term defect or productivity evidence.
 
+### AI-assisted changes
+
+Capture the baseline revision and exercise the current public entry with representative data or an older caller. Record what the project promises to preserve and which observations still need a contract decision. Derive new expectations independently. Review assertions, skips, fixture changes and suppressions alongside the patch, and introduce a meaningful counterexample to check that the verification can fail. Check the actual runtime or supported build when the claim depends on it. [Change verification](K-CODE-CHANGE-TESTS.md)
+
+For a pilot, compare the current workflow with the same workflow plus a dependency check and a preservation check. Match revision, task, model, tools, budget and acceptance. Include a local fix, a content extension and a lifetime or compatibility change, then assess subsequent changes. Count accepted outcomes and unintended impact, plus total time through review and repair, unnecessary blocks and defects. For optional packs, test each alone, both and neither. Try a counterexample in which one pack silently depends on its neighbor.
+
 ## Applicability and exceptions
 
 The Windows study concerns a particular large refactoring effort and reports correlation, not isolated causation. The student experiment used a limited task and comprehension questions; the understanding trend had p=.07. Neither establishes an ideal class count or a blanket preference for more indirection. Changes in team experience, tooling and task distribution can alter results.
@@ -7322,7 +7771,8 @@ Proposed checks: state a falsifiable maintenance benefit and preserve the origin
 
 - [S1] Kim, Zimmermann and Nagappan, [An Empirical Study of Refactoring Challenges and Benefits at Microsoft](https://web.cs.ucla.edu/~miryung/Publications/tse2014-refactoringpractices.pdf), IEEE TSE 2014. Author-hosted full PDF; Abstract, discussion around Tables 5-7, and section 5 Threats to Validity inspected (PDF pp. 1,12-14).
 - [S2] Tempero, Blincoe and Lottridge, [An Experiment on the Effects of Modularity on Code Modification and Understanding](https://kblincoe.github.io/publications/2023_ACE_Modularity.pdf), ACE2023. Author-hosted full PDF; sections 3.3, 4, 5 and 5.1 inspected (PDF pp. 5-7).
-- Checked 2026-11-07. The assessment procedure is a synthesis; no new participant study, refactoring or maintenance-task experiment was run.
+- The AI quality review records METR's randomized trial in familiar repositories, DORA's observational delivery findings and the proposed matched OneStep pilot. Treat their measures and populations separately and use local timing and outcome evidence for local decisions. The OneStep pilot proposal is in `docs/research/2026-11-21-ai-codebase-quality.md`. [Original study](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/) · [Delivery survey](https://dora.dev/research/2025/dora-report/)
+- The original maintainability sources were checked 2026-11-07. The assessment procedure is a synthesis; no new participant study, refactoring or maintenance-task experiment was run.
 
 ===== knowledge/code/K-CODE-PERFORMANCE-MEASUREMENT.md =====
 

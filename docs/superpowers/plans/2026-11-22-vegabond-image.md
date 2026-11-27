@@ -2,7 +2,7 @@
 
 **Goal** — Add the OneStep image specialist and measure request fidelity against stock Codex `imagegen` on real images.
 
-**Spec** — [Image brief and acceptance criteria](../../../knowledge/image/K-IMAGE-BRIEF-ACCEPTANCE.md)
+**Spec** — [Image brief and acceptance criteria](../../../knowledge/image/K-IMAGE-BRIEF-ACCEPTANCE.md) · [Image brief checks and comparison protocol](../../../knowledge/image/K-IMAGE-BRIEF-FIDELITY.md)
 
 **Architecture** — Scout selects the specialist. `vegabond-image` owns acceptance criteria, visual direction, and diagnosis. The built-in `imagegen` skill supplies the raster execution path in both benchmark arms. Store benchmark inputs, outputs and scores under `output/vegabond-image-comparison/`.
 

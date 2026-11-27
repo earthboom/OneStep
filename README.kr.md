@@ -46,12 +46,12 @@ flowchart TD
 
 | 층 | 스킬 | 역할 |
 | --- | --- | --- |
-| 진입 | [Scout](skills/vegabond-scout/SKILL.kr.md) | 요청 해석, 유형과 규모 선택, 능력·검사 연결 및 조율 |
-| 작업 | [생성](skills/vegabond-create/SKILL.kr.md), [수정](skills/vegabond-revise/SKILL.kr.md), [조사](skills/vegabond-research/SKILL.kr.md) | 새 결과 제작, 기존 결과 개선, 질문 조사 |
-| 분야 | [코드](skills/vegabond-code/SKILL.kr.md), [소설](skills/vegabond-fiction/SKILL.kr.md), [발표](skills/vegabond-presentation/SKILL.kr.md), [이미지](skills/vegabond-image/SKILL.kr.md), [기획](skills/vegabond-planning/SKILL.kr.md) | 구체적인 실행·검수·검증·수정 방법 |
-| 필요시 설계 | [코드 설계](skills/vegabond-code-design/SKILL.kr.md), [소설 설계](skills/vegabond-fiction-design/SKILL.kr.md) | 중요한 선택의 범위·근거·검사 조건 정의 |
-| 지식 | [Knowledge](skills/vegabond-knowledge/SKILL.kr.md) | 지식과 문제 기록 조회, 종합, 선별 저장 및 유지 |
-| 선택적 프롬프트 개선 | [Refine prompt](skills/vegabond-refine-prompt/SKILL.kr.md) | 사용자가 요청한 개선을 실제 빈틈의 크기에 맞춰 수행 |
+| 진입 | [vegabond-scout](skills/vegabond-scout/SKILL.kr.md) | 요청 파악, 작업 방식·규모 선택, 수행 능력·검사 연결, 조정. |
+| 작업 방식 | [create](skills/vegabond-create/SKILL.kr.md), [revise](skills/vegabond-revise/SKILL.kr.md), [research](skills/vegabond-research/SKILL.kr.md) | 새 결과 생성, 기존 결과 개선, 질문 조사. |
+| 전문 수행 | [code](skills/vegabond-code/SKILL.kr.md), [fiction](skills/vegabond-fiction/SKILL.kr.md), [document](skills/vegabond-document/SKILL.kr.md), [presentation](skills/vegabond-presentation/SKILL.kr.md), [image](skills/vegabond-image/SKILL.kr.md), [사운드](skills/vegabond-sound/SKILL.kr.md), [planning](skills/vegabond-planning/SKILL.kr.md) | 실제 작업에 필요한 실행·검수·검증·수정 방법 제공. |
+| 필요할 때의 설계 | [code-design](skills/vegabond-code-design/SKILL.kr.md), [fiction-design](skills/vegabond-fiction-design/SKILL.kr.md) | 적용 범위가 명확한 결정, 출처 근거, 확인 가능한 조건으로 중요한 선택 해결. |
+| 지식 | [vegabond-knowledge](skills/vegabond-knowledge/SKILL.kr.md) | 지식과 문제 기록의 검색·취합·선별 저장·관리. |
+| 선택적 프롬프트 개선 | [vegabond-refine-prompt](skills/vegabond-refine-prompt/SKILL.kr.md) | 명시적 요청에만 실제 공백에 비례해 프롬프트 수정. |
 
 이 목록은 초기 전문 분야다. 다른 작업도 적절한 스킬이나 도구로 진행할 수 있다. 스킬을 읽는 행위만으로 에이전트가 생성되거나 도구가 설치되지는 않는다.
 
@@ -59,10 +59,11 @@ flowchart TD
 
 | 분야 | 수행과 검증 |
 | --- | --- |
-| 소프트웨어 | 변경한 구성요소와 환경을 확인하고 빌드·준비·테스트·실행을 거쳐 실제 진입점 동작을 검증한다. 게임플레이는 해당 에디터와 실제 플레이를, CLI는 실제 명령을 사용한다. [소프트웨어 검증](skills/vegabond-code/references/verification.kr.md) |
-| 소설 | 설정·인물 상태·시점·목소리를 확인하고 집필·수정한 실제 문장에서 서사와 언어를 검토한다. 설계에서는 해당 범위의 서사 요소 20가지를 고려한다. [원고 검토](skills/vegabond-fiction/references/review.kr.md) |
-| 발표 | 청중과 목적을 슬라이드의 주장에 연결하고 수치와 근거, 최종 렌더링을 확인한다. |
-| 기획 | 실현 가능성, 의존 관계, 계산과 관찰 가능한 성공 기준을 확인하고 가정과 확인된 사실을 구분한다. |
+| 소프트웨어 | 실제 변경 대상과 환경을 파악합니다. 필요한 빌드·준비, 테스트, 실행, 공개 동작 사용을 수행합니다. 언리얼·유니티 게임 동작에는 관련 에디터와 실제 플레이가, CLI에는 실제 명령이 필요합니다. [소프트웨어 검증](skills/vegabond-code/references/verification.kr.md)을 참고합니다. |
+| 소설 | 설정, 인물 상태, 시점의 정보 한계, 문체 기준을 검색합니다. 집필·수정 후 실제 문장에 근거해 서사와 언어를 검토합니다. 설계 스킬은 관련 범위에서 스무 서사 요소를 고려합니다. [원고 검수](skills/vegabond-fiction/references/review.kr.md)를 참고합니다. |
+| 채용 지원 서류 | 공고와 문항을 지원자의 근거에 연결하고, 사실·필수 요건·분량을 제출 문안이나 파일에서 확인합니다. [채용 서류 작성법](skills/vegabond-document/references/job-application-writing.kr.md) |
+| 발표자료 | 독자와 목적을 발표 논리에 연결하고 주장을 확인하며 실제 최종 내보내기 결과를 시각적으로 검사합니다. |
+| 기획 | 제안을 실현 가능성, 의존성, 계산, 관찰 가능한 성공 조건에 연결하고 가정과 근거 있는 사실을 구분합니다. |
 
 ## 지식과 전략 개선
 

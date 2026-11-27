@@ -59,6 +59,18 @@ Celeste's creator describes the design techniques. Epic documents the character 
 
 ## V30 corner correction for a planar Unreal character
 
-Attempt correction on upward blocking contact during falling physics. Search nearby lateral offsets in ascending distance on the movement plane. Sweep the capsule sideways from contact and up along the unused movement to check clearance past its rounded cap. Commit both displacements with native sweeps. Roll the pair back and preserve the original hit response if either committed sweep blocks. Allow at most one success per ascent and retain the original jump identity, coyote window and buffer. [Epic — MoveUpdatedComponent](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UMovementComponent/MoveUpdatedComponent)
+Only attempt correction for an upward blocking contact during falling physics. Search nearby offsets in ascending distance on the movement plane. Sweep the capsule sideways from the contact and farther along the unspent upward movement to check clearance past the rounded cap. Commit the side displacement and the unspent movement with native sweeps. If either committed sweep is blocked, revert the pair and preserve the original hit response. A successful correction uses no new jump credit and can occur once per ascent. [Epic — MoveUpdatedComponent](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/UMovementComponent/MoveUpdatedComponent)
 
-Check mirrored lips at the correction limit, wide and low ceilings, a blocked side path, fast ascent and takeoff from a vertically moving base. Verify capsule clearance, landing and duplicate-jump prevention. Lateral shifts can change landing position. Measure observed frame cadence separately from capture timing and inspect contact frames. Extend collision checks for moving obstacles, slopes, custom gravity, root motion or network prediction.
+The lab searches in 1 cm increments up to 10 cm for a 22 cm-radius capsule locked to the XZ plane. The side correction is visible and can change landing position. Tune the limit and tie-breaking against the target character and platform spacing. Recheck slopes, complex collision, custom gravity, animation root motion, network prediction and moving obstacles before applying the same rule to those cases. The moving-base example is a vertically translating takeoff base with the ceiling held still.
+
+On 2026-11-21, the DX11 Win64 Development package passed 270 scenarios across 18 runs. Both sides, the 9 and 10 cm candidates, fast ascent and moving-base takeoff succeeded with correction enabled. The 11 cm requirement, wide ceiling and blocked side path preserved the ordinary collision response. Sampled penetrations and duplicate jump requests were zero. The coyote and buffer windows retained their native acceptance and expiry behavior.
+
+At observed mean rates of about 30, 60 and 144 FPS, each profile ran three repeats at 1280×720 on an i7-12700KF and RTX 3080. BeginFrame-to-EndFrame p95 ranges are in milliseconds.
+
+| Observed FPS | Off | On |
+| --- | ---: | ---: |
+| 30 | 33.417–33.418 | 33.393–33.471 |
+| 60 | 16.732–16.780 | 16.734–16.803 |
+| 144 | 7.029–7.044 | 7.041–7.044 |
+
+The correction path measured p95 0.030 ms and maximum 0.0925 ms across 78 timed attempt frames after warmup. The full-frame results include frame pacing. For adoption, also inspect contact-frame cost and how many characters can hit obstacles in the same frame. The separate media run used fixed 30 Hz for normal-speed playback.

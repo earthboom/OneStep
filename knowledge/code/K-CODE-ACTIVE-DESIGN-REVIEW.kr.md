@@ -20,9 +20,11 @@ ID `K-CODE-ACTIVE-DESIGN-REVIEW` · 방법 · 활성 · 근거 확인 2026-11-25
 
 제한을 바꿀 때는 0.8초 호출 49건과 2.0004초 호출 한 건을 준다. 회차 P95 0.8초는 통과하나 모든 응답 조건은 실패한다. 호출자가 잰 반올림 전 시간을 어디서 비교하는지 소비자가 짚게 한다. 표시 전용 변경은 제목과 바인딩을 확인한다. 검토 결과에는 요구, 보존할 동작, 판별 입력, 보장 지점, 근거, 미해결 검사의 담당자를 남긴다. 수정한 뒤 같은 입력과 기존 호출자를 다시 확인한다. [Caller benchmark](K-CODE-RETRIEVAL-SCALE.md) · [When glossary lookup changes acceptance](K-CODE-ACCEPTANCE-GLOSSARY.md) · [Review procedure](../../skills/vegabond-code-design/references/review.md)
 
+중요한 상태 전이 앞뒤로 실패 시점을 옮겨 본다. 인계에는 요구와 보존 조건, 결과가 갈리는 사례, 조건을 강제하는 지점, 근거와 남은 검사 담당자를 적는다. 용어집에 정의를 추가하기 전에 가능한 다른 의미가 통과 판정을 바꾸는지 확인한다. 아래 조건부 조회 실험은 프로젝트 자료다. 별도의 검토 방법 파일럿에서는 근거 있는 지적과 근거 없는 지적, 검토 시간, 재실행 시 재발을 비교할 수 있다. [검토 절차](../../skills/vegabond-code-design/references/review.kr.md) · [조건부 용어집 실험](K-CODE-ACCEPTANCE-GLOSSARY.kr.md)
+
 ## 근거
 
-NASA §4.4는 요구사항 부합과 의도한 용도 적합성을 구별한다. ARID §2.2는 사용할 사람이 설계를 직접 적용한다. Porter 등의 실험은 대학원생 48명이 3인 16개 팀으로 명세 두 개를 검토했다. 시나리오 읽기는 더 많은 결함을 발견했지만 수집 회의의 이득은 손실로 상쇄됐다. Huang 등은 해당 추론 과제에서 외부 피드백 없는 LLM 자기 수정이 답을 악화시킬 수 있음을 보였다. 독립 예측과 원문 근거를 AI 검토에 쓰는 것은 이 결과의 적용이다. 이 프로젝트에서의 효과를 비교하려면 근거 있는 결함, 근거 없는 지적, 경과 시간과 재검사 시 재발을 기록해야 한다. [NASA handbook](https://www.nasa.gov/reference/4-4-design-solution-definition/) · [ARID report](https://www.sei.cmu.edu/documents/1962/2000_004_001_13685.pdf) · [Porter et al.](https://www.cs.umd.edu/~basili/publications/technical/T101.pdf) · [Huang et al.](https://arxiv.org/abs/2310.01798)
+NASA §4.4는 기술 요구 충족과 의도된 사용에 맞는지를 설계에서 확인하고 완제품 검증은 이후에 수행한다. ARID §2.2는 실제 사용자가 코드나 의사 코드로 설계를 써 보게 한다. Porter 등은 대학원생 48명을 3인 팀 16개로 나눠 명세 두 개를 검사했다. 시나리오 검사가 임의 읽기나 체크리스트보다 결함을 많이 발견했고, 취합 회의의 이득과 손실은 해당 실험에서 상쇄됐다. Huang 등의 추론 과제에서는 LLM이 외부 피드백 없이 자기 응답을 고쳐도 개선되지 않거나 성능이 떨어질 수 있었다. 두 실험은 OneStep의 AI 설계 검토나 다중 에이전트 검토 효과를 측정하지 않았다. [NASA 핸드북](https://www.nasa.gov/reference/4-4-design-solution-definition/) · [ARID 보고서](https://www.sei.cmu.edu/documents/1962/2000_004_001_13685.pdf) · [Porter 외](https://www.cs.umd.edu/~basili/publications/technical/T101.pdf) · [Huang 외](https://arxiv.org/abs/2310.01798)
 
 검토 깊이와 독자를 정할 때는 문서 작성 비용과 영향을 받는 팀의 역할에 대한 저자의 경험을 참고한다. [Malte Ubl, Design Docs at Google](https://www.industrialempathy.com/posts/design-docs-at-google/)
 

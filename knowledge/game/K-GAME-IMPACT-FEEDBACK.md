@@ -26,6 +26,8 @@ Unity Cinemachine Impulse, Audio Mixer and the Input System, or Unreal Camera Sh
 
 Fix weapon, target, surface and distance, then compare miss, block, light and heavy hit. Change one channel at a time and counterbalance order. Measure input recognition, result identification, next action success, missed telegraphs and discomfort. Separate engine event timestamps from measured input-to-display/audio latency. Test lower effects, muted sound, disabled vibration, low frame rate and network loss. Check rapid retries and simultaneous hits for duplicate cues, critical audio masking, overlapping flashes or altered damage, hitstun and combo outcomes.
 
+In the recovery check, verify that aim, movement and the next threat remain readable. Key feedback events to accepted results, and cover attack, restart and reduced-effect paths using the [regression scope](K-GAME-REGRESSION-SCOPE.md#reproduction-visual-quality-and-performance).
+
 ## Evidence
 
 The November 23 review separates tuning, streamlining and feedback research. Lin et al. compared eight high- and eight low-ranked games across 19 features. Kao's four conditions in one action RPG involved 3,018 participants and varied several elements together. Six of 14 reviewed studies entered the cited audio meta-analysis, and the haptic studies used phones. These sources and shipped-team talks motivate comparisons, without determining a target game's timings or comfort. No local device playtest was reported.

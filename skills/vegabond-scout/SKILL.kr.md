@@ -67,8 +67,10 @@ python skills/vegabond-knowledge/scripts/search.py search --project . --store re
 | --- | --- |
 | [vegabond-code](../vegabond-code/SKILL.kr.md) | 소프트웨어 구현, 결함, 시스템 설계, 리팩터링, 코드 조사 |
 | [vegabond-fiction](../vegabond-fiction/SKILL.kr.md) | 소설 개발, 집필, 비평, 연속성 |
+| [vegabond-document](../vegabond-document/SKILL.kr.md) | 이력서, 경력·경험기술서, 입사지원서, 자기소개서, 영문 커버레터, 지원동기 등 채용 서류 작성과 검토. |
 | [vegabond-presentation](../vegabond-presentation/SKILL.kr.md) | 발표 논리, 슬라이드 제작, 내용·시각 요소 수정 |
 | [vegabond-image](../vegabond-image/SKILL.kr.md) | 래스터 이미지 생성, 편집, 시각적 충실도 검사 |
+| [vegabond-sound](../vegabond-sound/SKILL.kr.md) | 효과음, BGM, 말소리, 곡 등 오디오 자산의 제작, 편집, 검토. |
 | [vegabond-planning](../vegabond-planning/SKILL.kr.md) | 기획·제안 내용, 실현 가능성, 성공 지표. 일정 작성만을 위한 스킬은 아닙니다. |
 
 작업 스킬이 진행을 맡고 전문 스킬은 그 안에서 분야별 실행·검증·수정 방법을 제공합니다. 전문 스킬의 방법을 기존 단계에 적용합니다. 조사나 피드백만 요청한 작업은 발견 사항을 뒷받침하는 검사로 분석을 바로잡고 조사 대상은 유지합니다. 해당 매체를 제작하거나 변경할 때 제작 검사를 적용합니다. 제안 발표의 기획과 슬라이드 제작처럼 필요한 경우에만 전문 스킬을 조합합니다. 위 목록은 초기 구성이며 지원 분야를 한정하지 않습니다. 관련 전문 스킬만 읽고, 같은 단계 연결에서 환경·형식별 스킬이나 도구를 사용할 수 있습니다.

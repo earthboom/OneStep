@@ -11,7 +11,8 @@ status: active
 checked_at: "2026-11-22"
 context:
   evidence_check: External source text checked; source-specific limits appear in Evidence
-  application_status: UE 5.8.3 guidance for attenuation, stereo direction, solid occlusion and native reverb transitions.
+  application_status: UE5.8.3 V22 master PCM evidence for attenuation, authored stereo panning,
+    occlusion and native indoor and outdoor reverb transitions. See each experiment for cost scope.
   panning_limit: Native5.8exactleftaxis failed;explicit source-stereo equal-power
     implemented,no enginepatch or cross-version guarantee
 ---
@@ -62,6 +63,12 @@ Measured whole-wall p95(ms),OFF:[8.743,8.803,8.698],ON:[8.716,8.612,8.677],on th
 
 ## Native Unreal V22 room reverb validation
 
-Set early and late reflection bypass flags explicitly when constructing a native preset. The UE 5.8.3 runtime default in this setup bypassed early reflections. Register a runtime-created sound class on the active device before playback and verify a nonzero source probe in the mixed output. Keep source gain and the dry path stable while changing the wet response. Give overlapping volumes distinct priorities and define the outdoor response and fade.
+Win64 Development under UE 5.8.3 used two boxed Audio Volumes with priorities 10 and 20, 1.2-second fades and an explicit outdoor dry response. The short room used early reflections with late reflections bypassed. The long room used both stages. Runtime-created `UReverbEffect` defaulted to bypassing early reflections in this installation. Set both bypass flags explicitly. A transient sound class also needs registration on the active audio device before native source routing can use its properties. Verify a nonzero source probe before judging the reverb even when the audio device and zone change logs look healthy.
 
-Exercise boundaries, entry, exit, reentry and reversal during a fade. Use an impulse or short tone to verify direct amplitude and residual decay in actual master PCM. Different authored decay settings can produce the same measured envelope. Measure zone selection, parameter interpolation and the remaining tail separately. Test the chosen presets and playback hardware in the production setup. [Epic — AAudioVolume, UE 5.8](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/AAudioVolume?application_version=5.8)
+The two final WASAPI recordings used the same 31-second path, 48 kHz stereo master PCM and 44 checked probes per arm. Direct RMS stayed within 0.30% of the off reference across all enabled probes. The authored 1 cm outside, exact-face and 1 cm inside tests selected outdoor, short and short respectively. Tail RMS for short, long and overlap were 0.000868, 0.007480 and 0.007469 full scale. Their finite 20 dB window values were 0.12, 0.42 and 0.42 seconds. The reversal arrived 0.768 seconds into the 1.2-second fade. Real PCM contained a probe during that interval, and the first checked settled probe 1.386 seconds after reversal matched the short-room reference. Exit from the long room left a small residual tail of 0.000165 RMS in the checked window.
+
+Use distinct priority for overlapping rooms where one preset should win, and hold source gain and the direct path fixed when tuning wet response. An authored decay parameter and a measured decay statistic answer different questions. The initial 0.24- versus 1.34-second decay-only comparison yielded the same 0.42-second window value in these recordings. Use a fixed impulse or short probe to check the chosen presets in the actual mixer, including reentry and short back-and-forth movement. Selection delay, parameter interpolation and residual tail should be measured separately. [Epic — AAudioVolume, UE 5.8](https://dev.epicgames.com/documentation/unreal-engine/API/Runtime/Engine/AAudioVolume?application_version=5.8)
+
+Each profile ran three times on the same 31-second listener schedule with 16 voices, WASAPI at 48 kHz stereo and 1,024 frames per buffer, D3D11 at 1280×720, no VSync or FPS cap, and capture disabled. Whole-frame p95 in repeat order was **8.932 / 8.666 / 8.835 ms off** and **9.096 / 8.872 / 8.758 ms on**. The whole-frame distributions overlapped. These observations include all frame work and waits for the measured packaged workload. Evaluate voice count and frame impact with production presets and playback hardware.
+
+A 31-second 1× video pairs native 30 Hz capture with the built-in NonRealtime mixer for packaging audio and video together. WASAPI supplies the real-time behavior and performance evidence. Decoded video contains 930 frames at 30 FPS and its stereo audio matches the original captured PCM with waveform correlation 0.999984. The largest measured event offset between the capture clocks was 44 ms.

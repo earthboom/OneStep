@@ -1,6 +1,6 @@
 # 이미지 지식
 
-요청 충실도는 이미지 제작·편집 검사 기준을 따른다. 여러 그림에 같은 콘셉트가 반복되거나 서로 다른 시각 방향이 필요하면 창의적 탐색 항목을 본다. 문구 캐릭터는 실제 표시 크기, 표정 가독성, 공급사별 제작 조건을 확인한다.
+눈으로 확인할 필수 조건과 편집 때 보존할 영역을 확인하려면 [요구 준수](K-IMAGE-BRIEF-FIDELITY.kr.md)를 본다. 같은 콘셉트가 반복되거나 서로 다른 시각 방향이 필요하면 [창의적 탐색](K-IMAGE-CREATIVE-EXPLORATION.kr.md)을 본다. 문구 캐릭터는 실제 표시 크기에서 표정을 읽을 수 있는지, 필기 공간과 재단선이 맞는지 확인한다. [문구 캐릭터](K-IMAGE-STATIONERY-MASCOT.kr.md)
 
 [도메인 목록](../index.kr.md)
 
@@ -10,6 +10,7 @@
 | ID / 제목 / 유형 | 요약 | 적용 범위 | 키워드 | 상태 / 확인일 | 상세 |
 | --- | --- | --- | --- | --- | --- |
 | K-IMAGE-BRIEF-ACCEPTANCE / 생성 이미지나 부분 편집이 요청에 맞는지 어떻게 확인하는가? [방법] | 수량, 속성, 위치, 문구와 편집 범위를 관찰 가능한 검사 조건으로 바꾼다. 납품 파일을 보고 실패한 조건에 맞는 작은 수정을 고른다. | 래스터 이미지 생성과 편집, 조건을 맞춘 작업 흐름 비교 | 이미지 생성, 부분 편집, 원본 보존, 정확한 한글 문구, 구도, 개체 수, 투명도 | 활성 / 2026-11-25 | [K-IMAGE-BRIEF-ACCEPTANCE](K-IMAGE-BRIEF-ACCEPTANCE.kr.md) |
+| K-IMAGE-BRIEF-FIDELITY / 생성·편집한 이미지가 요청의 시각 조건을 충족하는지 확인한다 [방법] | 생성에 앞서 구도, 스타일, 문구와 보존 영역을 확인할 기준을 정한다. 관찰된 문제에 맞춰 수정하고 첫 납품본과 최종본을 따로 평가한다. | 여러 참조 이미지, 정확한 문구, 보호할 영역 등 요청별 조건이 있는 래스터 이미지 생성과 편집 | image generation, brief fidelity, reference roles, image edit, imagegen, Korean type, visual validation, 이미지 생성, 요구 준수, 참조 이미지, 부분 수정, 한글 타이포 | 활성 / 2026-11-26 | [K-IMAGE-BRIEF-FIDELITY](K-IMAGE-BRIEF-FIDELITY.kr.md) |
 | K-IMAGE-CREATIVE-EXPLORATION / 한 가지 요청에서 서로 다른 창의적 이미지 방향을 어떻게 만들 수 있는가? [방법] | 요청의 필수 조건을 유지하면서 시각·서사 축을 바꿔 여러 콘셉트를 만들고 새로움과 적합성을 따로 확인한다. | 열린 이미지 발상, 시각 개발, 반복되는 후보 진단 | AI 이미지, 창의성, 틀에 박힌 이미지, 디자인 고착, 발산적 사고, 시각적 은유, 콘셉트 발상 | 활성 / 2026-11-26 | [K-IMAGE-CREATIVE-EXPLORATION](K-IMAGE-CREATIVE-EXPLORATION.kr.md) |
 | K-IMAGE-STATIONERY-MASCOT / 완성된 문구에서 마스코트의 정체성과 반응이 읽히는가? [방법] | 축소해도 보이는 식별 특징을 고른다. 설명 없이 반응을 읽고 실제 크기에서 필기 면, 재단 외곽 또는 반복 무늬를 검사한다. | 디지털 스티커, 메모지, 재단 스티커, 테이프의 마스코트 디자인 | 문구 캐릭터, 스티커, 도무송, 칼선, 메모지, 마스킹 테이프, 감정 표정 | 활성 / 2026-11-25 | [K-IMAGE-STATIONERY-MASCOT](K-IMAGE-STATIONERY-MASCOT.kr.md) |
 <!-- onestep-catalog:end -->
